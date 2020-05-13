@@ -1,0 +1,44 @@
+# frozen_string_literal: true
+
+default_platform(:android)
+
+platform :android do
+  ARTIFACT_FOLDER = 'artifacts'
+  RELEASE_FOLDER = 'releases'
+
+  lane :ci do
+    build_apks
+    unit_tests
+    lint
+    ktLint
+  end
+
+  lane :build_apks do
+    gradle(task: 'app:assembleProprietaryRelease -x lint -x lintVitalProprietaryRelease')
+    folder = ARTIFACT_FOLDER + '/apk'
+    copy_artifacts(
+      target_path: folder,
+      artifacts: ['app/build/outputs/apk/*/release/*.apk', 'app/build/outputs/mapping/*/release/mapping.txt']
+    )
+  end
+
+  lane :unit_tests do
+    gradle(task: 'allUnitTests')
+  end
+
+  lane :lint do
+    begin
+      gradle(task: 'app:lintProprietaryRelease')
+    ensure
+      folder = ARTIFACT_FOLDER + '/lint'
+      copy_artifacts(
+        target_path: folder,
+        artifacts: ['app/build/reports/*.html']
+      )
+    end
+  end
+
+  lane :ktLint do
+    gradle(task: 'ktlintCheck')
+  end
+end

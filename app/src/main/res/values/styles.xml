@@ -1,0 +1,88 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
+        <item name="android:windowActivityTransitions" tools:ignore="NewApi">true</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="background_overlay">@color/copy_primary_text_disabled_material_light</item>
+
+        <item name="colorPrimary">@color/red700</item>
+        <item name="colorPrimaryDark">@color/red900</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorAccentDark">@color/accentDark</item>
+        <item name="colorSecondary">@color/red700</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/navBarColor</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">@bool/use_light_status
+        </item>
+        <item name="colorControlNormal">@color/colorOnSurface</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="android:statusBarColor">@color/primaryDark</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">
+            @bool/use_light_navigation
+        </item>
+        <item name="toolbarStyle">@style/AppToolbar</item>
+        <item name="md_color_button_text">@color/accent</item>
+        <!-- Dialogs color-->
+        <item name="colorBackgroundFloating">
+            @color/second</item>
+        <item name="android:colorBackgroundFloating" tools:targetApi="23">
+            @color/second</item>
+    </style>
+
+    <style name="PlayButtonStyle">
+        <item name="colorControlNormal">?attr/colorOnSecondary</item>
+    </style>
+
+    <style name="FastForwardRewindStyle">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:foreground">?selectableItemBackgroundBorderless</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="AppToolbar" parent="Widget.MaterialComponents.Toolbar.Surface">
+        <!--<item name="android:elevation" tools:ignore="PrivateResource">@dimen/design_appbar_elevation</item>-->
+        <item name="colorOnSurface">#3371bb</item>
+        <item name="android:background">@color/primary</item>
+    </style>
+
+    <style name="fab_label_style">
+        <item name="android:background">@drawable/fab_label_background</item>
+        <item name="android:textColor">@color/copy_abc_primary_text_material_dark</item>
+    </style>
+
+    <style name="timer_text_view_style">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_gravity">right|end</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:background">@drawable/current_playing_circle_background</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:lines">1</item>
+    </style>
+
+    <!-- style for the bottom sheet items -->
+    <style name="BottomSheetRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:drawablePadding">32dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="sleep_number">
+        <item name="android:padding">4dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline4
+        </item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:gravity">center</item>
+    </style>
+</resources>

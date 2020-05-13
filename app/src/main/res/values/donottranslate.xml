@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">PlayBooks</string>
+    <string name="zeroTime" translatable="false">0:00:00</string>
+
+    <string-array name="pref_support_values">
+        <item>@string/pref_support_contribute</item>
+        <item>@string/pref_support_translations</item>
+    </string-array>
+    <string-array name="pref_about_values">
+        <item>@string/pref_about_url1</item>
+        <item>@string/pref_about_url2</item>
+        <item>@string/pref_about_url3</item>
+    </string-array>
+    <string-array name="pref_pay_values">
+        <item>@string/pref_about_url2</item>
+    </string-array>
+    <string name="fab_transition" translatable="false">FAB_TRANSITION</string>
+    <string name="format_bookmarks_n_of" translatable="false">(%1$d / %2$d)</string>
+    <string name="format_bookmarks_time" translatable="false">%1$s / %2$s</string>
+</resources>

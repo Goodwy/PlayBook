@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+      android:id="@+id/action_pay"
+      android:icon="@drawable/ic_pay"
+      android:orderInCategory="1"
+      android:title="@string/pref_pay_title"
+      android:visible="false"
+      app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_contribute"
+        android:icon="@drawable/ic_favorite"
+        android:orderInCategory="1"
+        android:title="@string/pref_support_title"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+
+    <item
+      android:id="@+id/action_about"
+      android:icon="@drawable/ic_info"
+      android:orderInCategory="2"
+      android:title="@string/pref_about_title"
+      app:showAsAction="ifRoom" />
+
+    <item
+      android:id="@+id/action_license"
+      android:icon="@drawable/ic_info"
+      android:orderInCategory="3"
+      android:title="@string/pref_licenses_title"
+      app:showAsAction="never" />
+</menu>

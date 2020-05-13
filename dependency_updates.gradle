@@ -1,0 +1,8 @@
+import deps.DependencyStability
+
+dependencyUpdates {
+  rejectVersionIf {
+    DependencyStability.ofVersion(it.candidate.version) < DependencyStability.ofVersion(it.currentVersion)
+  }
+}
+
