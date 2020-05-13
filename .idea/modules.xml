@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PlayBooks.iml" filepath="$PROJECT_DIR$/PlayBooks.iml" group="PlayBooks" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ffmpeg/PlayBooks-ffmpeg.iml" filepath="$PROJECT_DIR$/.idea/modules/ffmpeg/PlayBooks-ffmpeg.iml" group="PlayBooks/ffmpeg" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PlayBooks_buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/PlayBooks_buildSrc.iml" group="PlayBooks/PlayBooks_buildSrc" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="PlayBooks/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/common.iml" filepath="$PROJECT_DIR$/.idea/modules/common/common.iml" group="PlayBooks/common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/core.iml" group="PlayBooks/core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/covercolorextractor/covercolorextractor.iml" filepath="$PROJECT_DIR$/.idea/modules/covercolorextractor/covercolorextractor.iml" group="PlayBooks/covercolorextractor" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/crashreporting/crashreporting.iml" filepath="$PROJECT_DIR$/.idea/modules/crashreporting/crashreporting.iml" group="PlayBooks/crashreporting" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/data.iml" group="PlayBooks/data" />
+      <module fileurl="file://$PROJECT_DIR$/ffmpeg/ffmpeg.iml" filepath="$PROJECT_DIR$/ffmpeg/ffmpeg.iml" group="PlayBooks/ffmpeg" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/playback/playback.iml" filepath="$PROJECT_DIR$/.idea/modules/playback/playback.iml" group="PlayBooks/playback" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/prefs/prefs.iml" filepath="$PROJECT_DIR$/.idea/modules/prefs/prefs.iml" group="PlayBooks/prefs" />
+    </modules>
+  </component>
+</project>

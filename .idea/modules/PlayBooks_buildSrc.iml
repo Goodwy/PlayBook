@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="PlayBooks:buildSrc" external.linked.project.path="$MODULE_DIR$/../../buildSrc" external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android-gradle" name="Android-Gradle">
+      <configuration>
+        <option name="GRADLE_PROJECT_PATH" value=":" />
+        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" />
+        <option name="LAST_KNOWN_AGP_VERSION" />
+      </configuration>
+    </facet>
+    <facet type="java-gradle" name="Java-Gradle">
+      <configuration>
+        <option name="BUILD_FOLDER_PATH" value="$MODULE_DIR$/../../buildSrc/build" />
+        <option name="BUILDABLE" value="true" />
+      </configuration>
+    </facet>
+    <facet type="kotlin-language" name="Kotlin">
+      <configuration version="3" platform="JVM 1.8" allPlatforms="JVM [1.8]" useProjectSettings="false">
+        <compilerSettings>
+          <option name="additionalArguments" value="-Xallow-no-source-files -java-parameters -Xjsr305=strict -XXLanguage:+NewInference -XXLanguage:+SamConversionForKotlinFunctions" />
+        </compilerSettings>
+        <compilerArguments>
+          <option name="destination" value="$MODULE_DIR$/../../buildSrc/build/classes/kotlin/main" />
+          <option name="classpath" value="$USER_HOME$/.gradle/caches/6.2.1/generated-gradle-jars/gradle-api-6.2.1.jar;C:/Users/osadc/.gradle/wrapper/dists/gradle-6.2.1-all/4vp27twfwktff74t6xt7byg0o/gradle-6.2.1/lib/groovy-all-1.3-2.5.8.jar;C:/Users/osadc/.gradle/wrapper/dists/gradle-6.2.1-all/4vp27twfwktff74t6xt7byg0o/gradle-6.2.1/lib/kotlin-stdlib-1.3.61.jar;C:/Users/osadc/.gradle/wrapper/dists/gradle-6.2.1-all/4vp27twfwktff74t6xt7byg0o/gradle-6.2.1/lib/kotlin-stdlib-common-1.3.61.jar;C:/Users/osadc/.gradle/wrapper/dists/gradle-6.2.1-all/4vp27twfwktff74t6xt7byg0o/gradle-6.2.1/lib/kotlin-stdlib-jdk8-1.3.61.jar;C:/Users/osadc/.gradle/wrapper/dists/gradle-6.2.1-all/4vp27twfwktff74t6xt7byg0o/gradle-6.2.1/lib/kotlin-stdlib-jdk7-1.3.61.jar;C:/Users/osadc/.gradle/wrapper/dists/gradle-6.2.1-all/4vp27twfwktff74t6xt7byg0o/gradle-6.2.1/lib/kotlin-reflect-1.3.61.jar;C:/Users/osadc/.gradle/wrapper/dists/gradle-6.2.1-all/4vp27twfwktff74t6xt7byg0o/gradle-6.2.1/lib/gradle-installation-beacon-6.2.1.jar;C:/Users/osadc/.gradle/caches/6.2.1/generated-gradle-jars/gradle-kotlin-dsl-extensions-6.2.1.jar;C:/Users/osadc/.gradle/wrapper/dists/gradle-6.2.1-all/4vp27twfwktff74t6xt7byg0o/gradle-6.2.1/lib/gradle-kotlin-dsl-6.2.1.jar;C:/Users/osadc/.gradle/wrapper/dists/gradle-6.2.1-all/4vp27twfwktff74t6xt7byg0o/gradle-6.2.1/lib/gradle-kotlin-dsl-tooling-models-6.2.1.jar;C:/Users/osadc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.3.61/e91d61b7cfd9a45566b580fef18bbd5c32d505b5/kotlin-stdlib-jdk8-1.3.61.jar;C:/Users/osadc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.3.61/2e07c9a84c9e118efb70eede7e579fd663932122/kotlin-reflect-1.3.61.jar;C:/Users/osadc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.3.61/70dffc5f8ac5ea7c34f30deac5b9d8b1d48af066/kotlin-stdlib-jdk7-1.3.61.jar;C:/Users/osadc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.61/4702105e97f7396ae41b113fdbdc180ec1eb1e36/kotlin-stdlib-1.3.61.jar;C:/Users/osadc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.61/65abb71d5afb850b68be03987b08e2c864ca3110/kotlin-stdlib-common-1.3.61.jar;C:/Users/osadc/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" />
+          <option name="noStdlib" value="true" />
+          <option name="noReflect" value="true" />
+          <option name="moduleName" value="buildSrc" />
+          <option name="jvmTarget" value="1.8" />
+          <option name="languageVersion" value="1.3" />
+          <option name="apiVersion" value="1.3" />
+          <option name="pluginOptions">
+            <array>
+              <option value="plugin:org.jetbrains.kotlin.samWithReceiver:annotation=org.gradle.api.HasImplicitReceiver" />
+            </array>
+          </option>
+          <option name="pluginClasspaths">
+            <array>
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-gradle-plugin-api/1.3.61/9cd00f1d05d695489cb0fdb8669a6a482237d76/kotlin-gradle-plugin-api-1.3.61.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-gradle-plugin-model/1.3.61/513ef5cd77b3e021589f73e78fef15245ef30fb2/kotlin-gradle-plugin-model-1.3.61.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-native-utils/1.3.61/557c7c6f2368a9f33fde7a1b942eae91e769d7bf/kotlin-native-utils-1.3.61.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-script-runtime/1.3.61/e5feb39c8de63dcbdc1154b34ca4413874231605/kotlin-script-runtime-1.3.61.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-scripting-common/1.3.61/169747d90a1ccdd30b25c381a06bee3fe579bf2/kotlin-scripting-common-1.3.61.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-scripting-jvm/1.3.61/b9311f022363534f8776e4392aa9c4f4d5a62a44/kotlin-scripting-jvm-1.3.61.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.61/65abb71d5afb850b68be03987b08e2c864ca3110/kotlin-stdlib-common-1.3.61.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.61/4702105e97f7396ae41b113fdbdc180ec1eb1e36/kotlin-stdlib-1.3.61.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-util-io/1.3.61/d568e87bacd51296cffb26335da0a2a43f12d00d/kotlin-util-io-1.3.61.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core/1.2.1/3839faf625f4197acaeceeb6da000f011a2acb49/kotlinx-coroutines-core-1.2.1.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" />
+              <option value="$KOTLIN_BUNDLED$/lib/sam-with-receiver-compiler-plugin.jar" />
+            </array>
+          </option>
+          <option name="errors">
+            <ArgumentParseErrors />
+          </option>
+        </compilerArguments>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/../../buildSrc/build/classes/java/main" />
+    <output-test url="file://$MODULE_DIR$/../../buildSrc/build/classes/java/test" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../buildSrc">
+      <sourceFolder url="file://$MODULE_DIR$/../../buildSrc/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../buildSrc/src/main/groovy" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../buildSrc/src/main/kotlin" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../buildSrc/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../buildSrc/src/test/kotlin" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../buildSrc/src/test/groovy" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../buildSrc/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../buildSrc/src/test/resources" type="java-test-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/../../buildSrc/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../buildSrc/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: kotlin-stdlib-jdk8-1.3.61" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: kotlin-reflect-1.3.61" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: kotlin-stdlib-jdk7-1.3.61" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: kotlin-stdlib-1.3.61" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: kotlin-stdlib-common-1.3.61" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: annotations-13.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: gradle-api-6.2.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: groovy-all-1.3-2.5.8" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: kotlin-stdlib-1.3.61" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: kotlin-stdlib-common-1.3.61" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: kotlin-stdlib-jdk8-1.3.61" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: kotlin-stdlib-jdk7-1.3.61" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: kotlin-reflect-1.3.61" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: gradle-installation-beacon-6.2.1" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: gradle-kotlin-dsl-extensions-6.2.1" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: gradle-kotlin-dsl-6.2.1" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: gradle-kotlin-dsl-tooling-models-6.2.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: gradle-test-kit-6.2.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: F__Android_Dev_Goodwy_AudioBooks_PlayBooks_buildSrc_build_pluginUnderTestMetadata" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: PlayBooks_buildSrc.buildSrc" level="project" />
+  </component>
+</module>
