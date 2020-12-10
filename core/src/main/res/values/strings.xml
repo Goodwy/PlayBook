@@ -87,14 +87,14 @@
     <string name="pref_about_url2">GitHub</string>
     <string name="pref_about_url3">Other apps</string>
     <string name="pref_about_message"><![CDATA[
-    <b>Version: 1.0.1</b><br/><br/>
+    <b>Version: 1.0.2</b><br/><br/>
     <i><font color="#0099CC">Thanks for using PlayBooks!</font></i><br/><br/>
     An open source <b>PlayBooks</b> audiobook player. PlayBooks is based on the open source <a href="https://github.com/PaulWoitaschek/Voice">Voice</a> application.
     <br/><br/>
     I would be very grateful if you leave a review or rating about the application.<br/><br/>
     Links:
   ]]></string>
-    <string name="pref_licenses_title">License</string>
+    <string name="pref_licenses_title">Licenses</string>
     <string name="pref_licenses_message"><![CDATA[
     <i><font color="#0099CC">Copyright (C) 2020 Goodwy</font></i><br/><br/>
     This program is free software: you can redistribute it and/or modify
@@ -140,4 +140,37 @@ If you want to support the development, you can purchase a paid version and leav
     <string name="book_category_sort_by_name">Name</string>
     <string name="book_category_sort_by_last_played">Last Played</string>
     <string name="book_category_sort_by_added">Added</string>
+
+    <!-- PlayBooks -->
+    <string name="grid">Grid View</string>
+    <string name="list">List View</string>
+    <string name="pref_changelog_title">Changelog</string>
+    <string name="pref_changelog_message"><![CDATA[
+<body>
+<i><h4><font color="#4c86cb">Version 1.0.2</font></h4></i>
+<i><p>1. <b>NEW:</b> Added chengelog</p></i>
+<i><p>2. <b>NEW:</b> Added support for folding devices</p></i>
+<i><p>3. <b>IMPROVEMENT:</b> The design of the application has been changed, the icons have become rounded</p></i>
+<i><p>4. <b>IMPROVEMENT:</b> Changed the name of the bookmark created by the sleep timer</p></i>
+<i><p>5. <b>IMPROVEMENT:</b> Changed the shape of the app icon for some devices</p></i>
+<i><p>6. <b>FIX:</b> Bug when deleting bookmarks</p></i>
+</body>
+<br>
+<body>
+<i><h4><font color="#4c86cb">Version 1.0.1</font></h4></i>
+<i><p>1. <b>NEW:</b> Added silence skipping function</p></i>
+<i><p>2. <b>IMPROVEMENT:</b> After the sleep timer ended, for 30 seconds you have the chance to shake the phone to restart the playback</p></i>
+<i><p>3. <b>IMPROVEMENT:</b> Dialog background changed</p></i>
+<i><p>4. <b>FIX:</b> Incorrect display of the cover on some devices</p></i>
+<i><p>5. <b>FIX:</b> Flac chapter parsing</p></i>
+<i><p>6. <b>FIX:</b> Bug in the chapter parsing of m4b files</p></i>
+<i><p>7. <b>FIX:</b> Translation</p></i>
+</body>
+<br>
+<body>
+<i><h4><font color="#4c86cb">Version 1.0.0</font></h4></i>
+<i><p><p>1. <b>NEW:</b> Application release</p></i>
+</body>
+
+  ]]></string>
 </resources>

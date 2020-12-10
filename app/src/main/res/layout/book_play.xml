@@ -19,6 +19,21 @@
 
     <ImageView
       android:id="@+id/play"
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:layout_marginBottom="36dp"
+      android:background="@android:color/transparent"
+      android:contentDescription="@string/play_pause"
+      android:elevation="0dp"
+      android:foreground="?attr/selectableItemBackground"
+      android:padding="16dp"
+      android:transitionName="@string/fab_transition"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent" />
+<!-- Кнопка плей/пауза с фоном
+    <ImageView
+      android:id="@+id/play"
       android:layout_width="83dp"
       android:layout_height="83dp"
       android:layout_marginBottom="36dp"
@@ -33,7 +48,7 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent" />
-
+-->
     <ImageView
       android:id="@+id/rewind"
       style="@style/FastForwardRewindStyle"
@@ -58,34 +73,36 @@
       android:id="@+id/playedTime"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="20dp"
+      android:layout_marginStart="5dp"
       android:text="@string/zeroTime"
       android:textAppearance="?textAppearanceBody2"
-      app:layout_constraintBottom_toBottomOf="@+id/slider"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/slider" />
+      app:layout_constraintLeft_toLeftOf="@id/cover"
+      app:layout_constraintBottom_toTopOf="@+id/play" />
 
     <TextView
       android:id="@+id/maxTime"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginEnd="20dp"
+      android:layout_marginEnd="5dp"
       android:text="@string/zeroTime"
       android:textAppearance="?textAppearanceBody2"
-      app:layout_constraintBottom_toBottomOf="@+id/slider"
-      app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/slider" />
+      app:layout_constraintRight_toRightOf="@id/cover"
+      app:layout_constraintBottom_toTopOf="@+id/play" />
 
     <com.google.android.material.slider.Slider
       android:id="@+id/slider"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_marginLeft="8dp"
-      android:layout_marginRight="8dp"
-      android:layout_marginBottom="24dp"
+      android:layout_marginLeft="1dp"
+      android:layout_marginRight="1dp"
+      android:layout_marginBottom="7dp"
+      app:thumbRadius="8dp"
+      app:trackHeight="3dp"
+      app:trackColorActive="?attr/colorPrimary"
+      app:trackColorInactive="?attr/colorControlHighlight"
       app:layout_constraintBottom_toTopOf="@id/play"
-      app:layout_constraintLeft_toRightOf="@id/playedTime"
-      app:layout_constraintRight_toLeftOf="@id/maxTime" />
+      app:layout_constraintLeft_toLeftOf="@id/cover"
+      app:layout_constraintRight_toRightOf="@id/cover" />
 
     <ImageView
       android:id="@+id/previous"
@@ -114,13 +131,49 @@
       app:layout_constraintTop_toTopOf="@+id/currentChapterContainer" />
 
     <FrameLayout
+      android:id="@+id/currentBookContainer"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="0dp"
+      android:foreground="?attr/selectableItemBackground"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginEnd="8dp"
+      android:gravity="center"
+      app:layout_constraintBottom_toTopOf="@+id/currentChapterContainer"
+      app:layout_constraintEnd_toStartOf="@+id/next"
+      app:layout_constraintStart_toEndOf="@+id/previous"
+      tools:text="This is the end">
+
+        <TextView
+          android:id="@+id/currentBookText"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:drawablePadding="4dp"
+          android:ellipsize="end"
+          android:gravity="center"
+          android:maxLines="1"
+          android:minHeight="56dp"
+          android:paddingTop="5dp"
+          android:paddingBottom="0dp"
+          style="@android:style/TextAppearance.Medium"
+          app:layout_constrainedWidth="true"
+          app:layout_constraintBottom_toTopOf="@+id/currentChapterContainer"
+          app:layout_constraintEnd_toStartOf="@+id/next"
+          app:layout_constraintStart_toEndOf="@+id/previous"
+          tools:text="This is the end" />
+
+    </FrameLayout>
+
+    <FrameLayout
       android:id="@+id/currentChapterContainer"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginBottom="8dp"
       android:foreground="?attr/selectableItemBackground"
       android:layout_marginStart="8dp"
-      android:layout_marginTop="16dp"
+      android:layout_marginTop="0dp"
       android:layout_marginEnd="8dp"
       android:gravity="center"
       app:layout_constraintBottom_toTopOf="@+id/slider"
@@ -138,9 +191,9 @@
           android:ellipsize="end"
           android:gravity="center"
           android:maxLines="2"
-          android:minHeight="56dp"
-          android:paddingTop="16dp"
-          android:paddingBottom="16dp"
+          android:minHeight="66dp"
+          android:paddingTop="0dp"
+          android:paddingBottom="8dp"
           style="@android:style/TextAppearance.Medium"
           app:layout_constrainedWidth="true"
           app:layout_constraintBottom_toTopOf="@+id/slider"
@@ -154,13 +207,13 @@
       android:id="@+id/cover"
       android:layout_width="0dp"
       android:layout_height="0dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginEnd="16dp"
       android:adjustViewBounds="true"
       android:contentDescription="@string/cover"
-      android:layout_marginTop="16dp"
-      android:layout_marginBottom="16dp"
-      app:layout_constraintBottom_toTopOf="@+id/currentChapterContainer"
+      android:layout_marginStart="20dp"
+      android:layout_marginEnd="20dp"
+      android:layout_marginTop="20dp"
+      android:layout_marginBottom="10dp"
+      app:layout_constraintBottom_toTopOf="@+id/currentBookContainer"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/toolbar"

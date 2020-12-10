@@ -91,10 +91,11 @@
           android:layout_width="24dp"
           android:layout_height="24dp"
           android:layout_marginEnd="16dp"
-          android:layout_marginBottom="12dp"
+          android:layout_marginBottom="0dp"
           android:src="@drawable/avd_play_to_pause"
-          app:layout_constraintBottom_toTopOf="@+id/progress"
+          app:layout_constraintBottom_toBottomOf="@+id/remainingTime"
           app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="@+id/remainingTime"
           tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

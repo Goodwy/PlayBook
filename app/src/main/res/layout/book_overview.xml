@@ -6,22 +6,39 @@
   android:layout_height="match_parent"
   android:background="@color/primary">
 
+    <com.google.android.material.appbar.AppBarLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+          android:layout_width="match_parent"
+          android:layout_height="100dp"
+          android:background="@color/primary"
+          app:expandedTitleMarginStart="12dp"
+          app:expandedTitleMarginBottom="20dp"
+          app:expandedTitleTextAppearance="@style/TextAppearance.App.CollapsingToolbar.Expanded"
+          app:collapsedTitleTextAppearance="@style/TextAppearance.App.CollapsingToolbar.Collapsed">
+
     <com.google.android.material.appbar.MaterialToolbar
       android:id="@+id/toolbar"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
+      android:layout_height="?attr/actionBarSize"
+      android:background="@color/primary"
       android:layout_gravity="top"
       android:layoutDirection="rtl"
-      android:background="@color/primary"
       android:theme="@style/AppToolbar"
-      app:menu="@menu/book_overview" />
+      app:title="@string/pref_root_folder_title"
+      app:menu="@menu/book_overview"/>
     <!--app:title="@string/app_name"-->
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/recyclerView"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_marginTop="?attr/actionBarSize"
+      android:layout_marginTop="100dp"
       android:clipToPadding="false"
       android:paddingTop="2dp"
       android:paddingBottom="100dp" />

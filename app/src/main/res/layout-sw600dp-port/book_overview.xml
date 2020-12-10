@@ -1,0 +1,73 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/bookShelfRoot"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/primary">
+
+    <com.google.android.material.appbar.AppBarLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+          android:layout_width="match_parent"
+          android:layout_height="100dp"
+          android:background="@color/primary"
+          app:expandedTitleMarginStart="27dp"
+          app:expandedTitleMarginBottom="20dp"
+          app:expandedTitleTextAppearance="@style/TextAppearance.App.CollapsingToolbar.Expanded"
+          app:collapsedTitleTextAppearance="@style/TextAppearance.App.CollapsingToolbar.Collapsed">
+
+    <com.google.android.material.appbar.MaterialToolbar
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      android:background="@color/primary"
+      android:layout_gravity="top"
+      android:layoutDirection="rtl"
+      app:title="@string/pref_root_folder_title"
+      android:theme="@style/AppToolbar"
+      app:menu="@menu/book_overview"/>
+    <!--app:title="@string/app_name"-->
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recyclerView"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="100dp"
+      android:clipToPadding="false"
+      android:paddingTop="2dp"
+      android:paddingBottom="100dp" />
+
+    <ProgressBar
+      android:id="@+id/loadingProgress"
+      style="@style/Widget.AppCompat.ProgressBar"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:visibility="gone"
+      tools:visibility="visible" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/fab"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="end|bottom"
+      android:layout_margin="16dp"
+      android:contentDescription="@string/play_pause"
+      android:theme="@style/PlayButtonStyle"
+      android:transitionName="@string/fab_transition"
+      app:fab_size="normal"
+      tools:ignore="UnusedAttribute" />
+
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="8dp"
+      android:layout_gravity="bottom"
+      android:background="@drawable/shadow_top" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

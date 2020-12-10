@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import android.view.View
+import android.text.format.DateUtils
 import android.widget.FrameLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -41,13 +42,13 @@ class SleepTimerDialogController(bundle: Bundle) : DialogController(bundle) {
 
   @Inject
   lateinit var bookmarkRepo: BookmarkRepo
-  
+
   @Inject
   lateinit var sleepTimer: SleepTimer
-  
+
   @Inject
   lateinit var repo: BookRepository
-  
+
   @Inject
   lateinit var shakeDetector: ShakeDetector
 
@@ -109,6 +110,12 @@ class SleepTimerDialogController(bundle: Bundle) : DialogController(bundle) {
 
     val bookId = args.getUUID(NI_BOOK_ID)
     val book = repo.bookById(bookId)!!
+    val title = book.content.currentChapter.name
+    val date = DateUtils.formatDateTime(
+      context,
+      System.currentTimeMillis(),
+      DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_SHOW_TIME or DateUtils.FORMAT_NUMERIC_DATE
+    )
 
     binding.fab.setOnClickListener {
       require(selectedMinutes > 0) { "fab should be hidden when time is invalid" }
@@ -117,7 +124,7 @@ class SleepTimerDialogController(bundle: Bundle) : DialogController(bundle) {
           bookmarkRepo.addBookmarkAtBookPosition(
             book = book,
             setBySleepTimer = true,
-            title = null
+            title = date + ", " + title
           )
         }
 

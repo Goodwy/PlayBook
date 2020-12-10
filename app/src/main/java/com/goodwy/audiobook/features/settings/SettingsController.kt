@@ -7,6 +7,7 @@ import com.goodwy.audiobook.features.ViewBindingController
 import com.goodwy.audiobook.features.bookPlaying.SeekDialogController
 import com.goodwy.audiobook.features.settings.dialogs.AutoRewindDialogController
 import com.goodwy.audiobook.features.settings.dialogs.LicenseDialogController
+import com.goodwy.audiobook.features.settings.dialogs.ChangelogDialogController
 import com.goodwy.audiobook.features.settings.dialogs.PayDialogController
 import com.goodwy.audiobook.features.settings.dialogs.SupportDialogController
 import com.goodwy.audiobook.features.settings.dialogs.AboutDialogController
@@ -87,6 +88,11 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
         false
       if (it.itemId == R.id.action_license) {
         LicenseDialogController().showDialog(router)
+        true
+      } else
+        false
+      if (it.itemId == R.id.action_changelog) {
+        ChangelogDialogController().showDialog(router)
         true
       } else
         false

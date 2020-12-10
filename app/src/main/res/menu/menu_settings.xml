@@ -26,9 +26,16 @@
       app:showAsAction="ifRoom" />
 
     <item
+      android:id="@+id/action_changelog"
+      android:icon="@drawable/ic_changelog"
+      android:orderInCategory="3"
+      android:title="@string/pref_changelog_title"
+      app:showAsAction="never" />
+
+    <item
       android:id="@+id/action_license"
       android:icon="@drawable/ic_info"
-      android:orderInCategory="3"
+      android:orderInCategory="4"
       android:title="@string/pref_licenses_title"
       app:showAsAction="never" />
 </menu>

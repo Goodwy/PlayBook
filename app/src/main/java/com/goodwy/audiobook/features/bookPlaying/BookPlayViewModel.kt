@@ -53,6 +53,7 @@ class BookPlayViewModel
         playing = playState == PlayStateManager.PlayState.Playing,
         title = book.name,
         showPreviousNextButtons = hasMoreThanOneChapter,
+        bookName = book.name,
         chapterName = currentMark.name.takeIf { hasMoreThanOneChapter },
         duration = currentMark.durationMs.milliseconds,
         playedTime = (book.content.positionInChapter - currentMark.startMs).milliseconds,
@@ -90,9 +91,11 @@ class BookPlayViewModel
   fun addBookmark() {
     scope.launch {
       val book = repo.bookById(bookId) ?: return@launch
+      val title = book.content.currentChapter.name
+
       bookmarkRepo.addBookmarkAtBookPosition(
         book = book,
-        title = null,
+        title = title,
         setBySleepTimer = false
       )
       _viewEffects.send(BookPlayViewEffect.BookmarkAdded)

@@ -8,6 +8,7 @@ import java.io.File
 import kotlin.time.Duration
 
 data class BookPlayViewState(
+  val bookName: String?,
   val chapterName: String?,
   val showPreviousNextButtons: Boolean,
   val title: String,

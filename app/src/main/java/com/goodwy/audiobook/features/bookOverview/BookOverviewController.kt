@@ -55,10 +55,10 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
 
   @field:[Inject Named(PrefKeys.CURRENT_BOOK)]
   lateinit var currentBookIdPref: Pref<UUID>
-  
+
   @Inject
   lateinit var viewModel: BookOverviewViewModel
-  
+
   @Inject
   lateinit var galleryPicker: GalleryPicker
 
@@ -135,6 +135,11 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
         R.id.toggleGrid -> {
           val transaction = SettingsController().asTransaction()
           router.pushController(transaction)
+/**Оригинал*/
+          /**viewModel.useGrid(!useGrid)*/
+/*Изменено на настройки*/
+         /* val transaction = SettingsController().asTransaction()
+          router.pushController(transaction)*/
           true
         }
         else -> false
@@ -187,23 +192,28 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
         useGrid = state.useGrid
         val lm = recyclerView.layoutManager as GridLayoutManager
         lm.spanCount = state.columnCount
-		
+
         showPlaying(state.playing)
         gridMenuItem.item.apply {
           val useGrid = state.useGrid
           setTitle(if (useGrid) R.string.action_settings else R.string.action_settings)
-          /**  setTitle(if (useGrid) R.string.layout_list else R.string.layout_grid)
+/**Оригинал*/
+          /**setTitle(if (useGrid) R.string.layout_list else R.string.layout_grid)
           val drawableRes = if (useGrid) R.drawable.ic_view_list else R.drawable.ic_view_grid
           setIcon(drawableRes)*/
+/**Текст вместо значков*/
+          /**setTitle(if (useGrid) R.string.grid else R.string.list)*/
+/**Изменено на настройки*/
+          /**setTitle(if (useGrid) R.string.action_settings else R.string.action_settings)*/
         }
       }
       BookOverviewState.Loading -> {
         hideNoFolderWarning()
-        fab.isVisible = false
+        fab.isVisible = true
       }
       BookOverviewState.NoFolderSet -> {
         showNoFolderWarning()
-        fab.isVisible = false
+        fab.isVisible = false /**скрывать плавающую кнопку воспроизведения*/
       }
     }
 
@@ -224,7 +234,7 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
     this.currentTapTarget = null
   }
 
-  /** Show a warning that no audiobook folder was chosen */
+  /** Show a warning that no audiobook folder was chosen https://github.com/KeepSafe/TapTargetView*/
   private fun BookOverviewBinding.showNoFolderWarning() {
     if (currentTapTarget?.isVisible == true)
       return
@@ -240,7 +250,7 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
       .tintTarget(false)
       .outerCircleColor(R.color.accentDark)
       .descriptionTextColorInt(Color.WHITE)
-      .textColorInt(Color.WHITE)
+      .textColorInt(Color.BLACK)
       .targetCircleColorInt(Color.BLACK)
       .transparentTarget(true)
     currentTapTarget = TapTargetView.showFor(activity, target, object : TapTargetView.Listener() {

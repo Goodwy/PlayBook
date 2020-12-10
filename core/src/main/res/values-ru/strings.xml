@@ -87,7 +87,6 @@
     <string name="pref_support_contribute">Поддержка и предложения</string>
     <string name="pref_pay_title">Купить полную версию</string>
     <string name="pref_pay_message"><![CDATA[
-    <b>Version: 1.0.1</b><br/><br/>
     Вы используете бесплатную версию приложения <b>PlayBooks</b>. Бесплатная версия не содержит рекламы. Единственное отличие платной версии - в ней есть Темная тема. <br/>
 Если хотите поддержать разработку, то можете приобрести платную версию и оставить отзыв.<br/><br/>
  <i><font color="#0099CC">Спасибо!</font></i><br/>
@@ -95,7 +94,7 @@
     <string name="pref_about_title">О приложении</string>
     <string name="pref_licenses_title">Лицензия</string>
     <string name="pref_about_message"><![CDATA[
-    <b>Version: 1.0.1</b><br/><br/>
+    <b>Version: 1.0.2</b><br/><br/>
     <i><font color="#0099CC">Спасибо за использование PlayBooks!</font></i><br/><br/>
     <b>PlayBooks</b> - это плеер для аудио книг с открытым исходным кодом. Разработано на базе приложения <a href="https://github.com/PaulWoitaschek/Voice">Voice</a>.
     <br/><br/>
@@ -103,7 +102,7 @@
     Ссылки:
   ]]></string>
     <!--Misc-->
-    <string name="popup_edit">Редактировать</string>
+    <string name="popup_edit">Править</string>
     <string name="remove">Удалить</string>
     <string name="play_current">Играть текущую книгу</string>
     <!--hide folder dialog-->
@@ -124,4 +123,9 @@
     <string name="book_category_sort_by_name">Название</string>
     <string name="book_category_sort_by_last_played">Посл. прослуш.</string>
     <string name="book_category_sort_by_added">Дата</string>
+
+    <!-- PlayBooks -->
+    <string name="grid">Сетка</string>
+    <string name="list">Строки</string>
+    <string name="pref_changelog_title">Список изменений</string>
 </resources>

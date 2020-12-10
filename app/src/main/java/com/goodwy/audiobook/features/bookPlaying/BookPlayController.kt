@@ -100,7 +100,8 @@ class BookPlayController(bundle: Bundle) : ViewBindingController<BookPlayBinding
 
   private fun BookPlayBinding.render(viewState: BookPlayViewState) {
     Timber.d("render $viewState")
-    toolbar.title = viewState.title
+/*    toolbar.title = viewState.title*/ /*Имя книги в заголовке плеера*/
+    currentBookText.text = viewState.bookName
     currentChapterText.text = viewState.chapterName
     currentChapterContainer.isVisible = viewState.chapterName != null
     previous.isVisible = viewState.showPreviousNextButtons

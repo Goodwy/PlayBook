@@ -37,7 +37,8 @@ class BookMarkHolder(
     val bookmarkTitle = bookmark.title
     binding.title.text = when {
       bookmark.setBySleepTimer -> {
-        DateUtils.formatDateTime(itemView.context, bookmark.addedAt.toEpochMilli(), DateUtils.FORMAT_SHOW_TIME)
+        /**DateUtils.formatDateTime(itemView.context, bookmark.addedAt.toEpochMilli(), DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_SHOW_TIME or DateUtils.FORMAT_NUMERIC_DATE)*/
+        bookmarkTitle
       }
       bookmarkTitle != null && bookmarkTitle.isNotEmpty() -> bookmarkTitle
       else -> currentChapter.markForPosition(bookmark.time).name
