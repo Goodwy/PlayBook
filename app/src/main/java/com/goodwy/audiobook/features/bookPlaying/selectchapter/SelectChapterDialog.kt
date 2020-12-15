@@ -3,7 +3,9 @@ package com.goodwy.audiobook.features.bookPlaying.selectchapter
 import android.app.Dialog
 import android.os.Bundle
 import android.view.View
+import com.afollestad.materialdialogs.LayoutMode
 import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.bottomsheets.BottomSheet
 import com.afollestad.materialdialogs.list.customListAdapter
 import com.afollestad.materialdialogs.list.getRecyclerView
 import com.xwray.groupie.GroupAdapter
@@ -62,12 +64,15 @@ class SelectChapterDialog(bundle: Bundle) : DialogController(bundle) {
 
     val adapter = GroupAdapter<GroupieViewHolder>()
     adapter.addAll(items)
-    return MaterialDialog(activity!!).apply {
-      cornerRadius(16f)
+    return MaterialDialog(activity!!, BottomSheet(LayoutMode.WRAP_CONTENT)).apply {
+      cornerRadius(4f)
       customListAdapter(adapter)
+      icon(R.drawable.ic_contents)
+      title(R.string.contents)
       if (viewState.selectedIndex != null) {
         getRecyclerView().layoutManager!!.scrollToPosition(viewState.selectedIndex)
       }
+      positiveButton (R.string.dialog_ок)
     }
   }
 

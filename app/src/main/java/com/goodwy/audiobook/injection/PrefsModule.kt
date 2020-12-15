@@ -45,6 +45,14 @@ object PrefsModule {
   @Provides
   @JvmStatic
   @Singleton
+  @Named(PrefKeys.CONTENTS_BUTTON_MODE)
+  fun contentsButtonMode(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.CONTENTS_BUTTON_MODE, false)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
   @Named(PrefKeys.RESUME_ON_REPLUG)
   fun provideResumeOnReplugPreference(prefs: AndroidPreferences): Pref<Boolean> {
     return prefs.boolean(PrefKeys.RESUME_ON_REPLUG, true)

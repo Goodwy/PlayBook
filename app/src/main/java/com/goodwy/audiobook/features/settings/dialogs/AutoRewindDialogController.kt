@@ -41,7 +41,7 @@ class AutoRewindDialogController : DialogController() {
 
     return MaterialDialog(activity!!).apply {
       title(R.string.pref_auto_rewind_title)
-	  cornerRadius(16f)
+	  cornerRadius(4f)
       customView(view = binding.root, scrollable = true)
       positiveButton(R.string.dialog_confirm) {
         val newRewindAmount = binding.seekBar.progress / FACTOR + MIN

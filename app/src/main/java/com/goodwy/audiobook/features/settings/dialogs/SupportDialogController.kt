@@ -20,7 +20,7 @@ class SupportDialogController : DialogController() {
   override fun onCreateDialog(savedViewState: Bundle?): Dialog {
     return MaterialDialog(activity!!).apply {
       title(R.string.pref_support_title)
-	  cornerRadius(16f)
+	  cornerRadius(4f)
       listItems(R.array.pref_support_values) { _, index, _ ->
         when (index) {
           0 -> visitUri(GITHUB_URL)

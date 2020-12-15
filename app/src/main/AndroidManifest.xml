@@ -18,7 +18,7 @@
       android:label="@string/app_name"
       android:requestLegacyExternalStorage="true"
       android:supportsRtl="true"
-      android:theme="@style/AppTheme"
+      android:theme="@style/Theme.Cyanea.Light.NoActionBar"
       tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
 
         <meta-data
@@ -38,6 +38,7 @@
 
         <activity
           android:name=".features.MainActivity"
+          android:parentActivityName="com.jaredrummler.cyanea.CyaneaApp"
           android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,6 +52,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <!--android:parentActivityName=".features.MainActivity"-->
 
         <activity
           android:name=".features.externalStorageMissing.NoExternalStorageActivity"

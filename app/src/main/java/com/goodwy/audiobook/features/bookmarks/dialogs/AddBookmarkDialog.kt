@@ -23,7 +23,7 @@ class AddBookmarkDialog : DialogController() {
     val dialog = MaterialDialog(activity!!).apply {
 
       title(R.string.bookmark)
-	  cornerRadius(16f)
+	  cornerRadius(4f)
       input(hintRes = R.string.bookmark_edit_hint, allowEmpty = true, inputType = inputType) { _, charSequence ->
         val title = charSequence.toString()
         val callback = targetController as Callback

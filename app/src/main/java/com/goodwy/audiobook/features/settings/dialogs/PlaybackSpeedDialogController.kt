@@ -66,7 +66,7 @@ class PlaybackSpeedDialogController : DialogController() {
 
     return MaterialDialog(activity!!).apply {
       title(R.string.playback_speed)
-	  cornerRadius(16f)
+	  cornerRadius(4f)
       customView(view = binding.root, scrollable = true)
     }
   }

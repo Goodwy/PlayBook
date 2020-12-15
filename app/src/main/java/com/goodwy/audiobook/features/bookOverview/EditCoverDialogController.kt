@@ -71,7 +71,7 @@ class EditCoverDialogController(bundle: Bundle) : DialogController(bundle) {
     val dialog = MaterialDialog(activity!!).apply {
       customView(view = binding.root)
       title(R.string.cover)
-	  cornerRadius(16f)
+	  cornerRadius(4f)
       positiveButton(R.string.dialog_confirm)
     }
 

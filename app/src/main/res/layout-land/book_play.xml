@@ -4,7 +4,8 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/bookPlayRoot"
   android:layout_width="match_parent"
-  android:layout_height="match_parent">
+  android:layout_height="match_parent"
+  android:background="?backgroundColor">
 
     <androidx.constraintlayout.widget.Guideline
       android:id="@+id/x50"
@@ -31,6 +32,7 @@
       android:id="@+id/toolbar"
       android:layout_width="0dp"
       android:layout_height="?attr/actionBarSize"
+      android:background="?colorPrimary"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
@@ -248,6 +250,16 @@
       app:layout_constraintEnd_toEndOf="@+id/cover"
       app:layout_constraintTop_toBottomOf="@+id/toolbar"
       tools:text="00:34" />
+
+    <ImageView
+      android:id="@+id/contentList"
+      style="@style/FastForwardRewindStyle"
+      android:layout_marginBottom="10dp"
+      android:layout_marginEnd="10dp"
+      android:contentDescription="@string/fast_forward"
+      android:src="@drawable/ic_contents"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

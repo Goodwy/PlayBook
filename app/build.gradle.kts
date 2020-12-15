@@ -129,7 +129,10 @@ dependencies {
 
   implementation(Deps.MaterialDialog.core)
   implementation(Deps.MaterialDialog.input)
+  implementation(Deps.MaterialDialog.bottomsheets)
   implementation(Deps.materialCab)
+
+  implementation(Deps.Jaredrummler.cyanea)
 
   implementation(Deps.floatingActionButton)
 

@@ -82,7 +82,7 @@ class JumpToPositionDialogController : DialogController() {
     return MaterialDialog(activity!!).apply {
       customView(view = binding.root, scrollable = true)
       title(R.string.action_time_change)
-	  cornerRadius(16f)
+	  cornerRadius(4f)
       positiveButton(R.string.dialog_confirm) {
         val h = binding.numberHour.value
         val m = binding.numberMinute.value

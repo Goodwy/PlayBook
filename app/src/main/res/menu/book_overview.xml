@@ -4,22 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <item
+      android:id="@+id/toggleGrid"
+      android:title="@string/layout_grid"
+      app:showAsAction="always"
+      tools:ignore="AlwaysShowAction" />
+    <!--android:visible="false"-->
+
+    <item
         android:id="@+id/library"
         android:title="@string/popup_edit"
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />
 
     <item
-      android:id="@+id/toggleGrid"
-      android:title="@string/action_settings"
-      app:showAsAction="always"
-      tools:ignore="AlwaysShowAction" />
-    <!--android:title="@string/layout_grid"-->
-
-    <item
       android:id="@+id/action_settings"
       android:title="@string/action_settings"
-      android:visible="false"
       app:showAsAction="always" />
 
 </menu>

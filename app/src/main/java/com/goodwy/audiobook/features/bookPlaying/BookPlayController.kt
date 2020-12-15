@@ -6,6 +6,8 @@ import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
 import androidx.core.view.GestureDetectorCompat
+import androidx.core.view.forEach
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.google.android.material.slider.Slider
 import com.google.android.material.snackbar.Snackbar
@@ -26,13 +28,17 @@ import com.goodwy.audiobook.misc.formatTime
 import com.goodwy.audiobook.misc.getUUID
 import com.goodwy.audiobook.misc.putUUID
 import com.goodwy.audiobook.playback.player.Equalizer
+import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.uitools.PlayPauseDrawableSetter
+import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.util.UUID
 import javax.inject.Inject
+import javax.inject.Named
 import kotlin.time.Duration
+
 
 private const val NI_BOOK_ID = "niBookId"
 
@@ -47,6 +53,9 @@ class BookPlayController(bundle: Bundle) : ViewBindingController<BookPlayBinding
   lateinit var equalizer: Equalizer
   @Inject
   lateinit var viewModel: BookPlayViewModel
+
+  @field:[Inject Named(PrefKeys.CONTENTS_BUTTON_MODE)]
+  lateinit var contentsButtonMode: Pref<Boolean>
 
   private val bookId = bundle.getUUID(NI_BOOK_ID)
   private var coverLoaded = false
@@ -68,6 +77,18 @@ class BookPlayController(bundle: Bundle) : ViewBindingController<BookPlayBinding
     setupSlider()
     setupToolbar()
     play.apply {
+      outlineProvider = CircleOutlineProvider()
+      clipToOutline = true
+    }
+    rewind.apply {
+      outlineProvider = CircleOutlineProvider()
+      clipToOutline = true
+    }
+    fastForward.apply {
+      outlineProvider = CircleOutlineProvider()
+      clipToOutline = true
+    }
+    contentList.apply {
       outlineProvider = CircleOutlineProvider()
       clipToOutline = true
     }
@@ -104,6 +125,7 @@ class BookPlayController(bundle: Bundle) : ViewBindingController<BookPlayBinding
     currentBookText.text = viewState.bookName
     currentChapterText.text = viewState.chapterName
     currentChapterContainer.isVisible = viewState.chapterName != null
+    contentList.isVisible = contentsButtonMode.value
     previous.isVisible = viewState.showPreviousNextButtons
     next.isVisible = viewState.showPreviousNextButtons
     playedTime.text = formatTime(viewState.playedTime.toLongMilliseconds(), viewState.duration.toLongMilliseconds())
@@ -138,6 +160,9 @@ class BookPlayController(bundle: Bundle) : ViewBindingController<BookPlayBinding
     binding.previous.setOnClickListener { this.viewModel.previous() }
     binding.next.setOnClickListener { this.viewModel.next() }
     binding.currentChapterContainer.setOnClickListener {
+      SelectChapterDialog(bookId).showDialog(router)
+    }
+    binding.contentList.setOnClickListener {
       SelectChapterDialog(bookId).showDialog(router)
     }
 

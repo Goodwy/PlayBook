@@ -94,7 +94,6 @@
     <string name="pref_about_title">О приложении</string>
     <string name="pref_licenses_title">Лицензия</string>
     <string name="pref_about_message"><![CDATA[
-    <b>Version: 1.0.2</b><br/><br/>
     <i><font color="#0099CC">Спасибо за использование PlayBooks!</font></i><br/><br/>
     <b>PlayBooks</b> - это плеер для аудио книг с открытым исходным кодом. Разработано на базе приложения <a href="https://github.com/PaulWoitaschek/Voice">Voice</a>.
     <br/><br/>
@@ -115,6 +114,7 @@
     <string name="music_notification">Воспроизведение</string>
     <string name="onboarding_title">Добро пожаловать!</string>
     <string name="onboarding_content">Добавьте вашу первую аудиокнигу.</string>
+
     <!--book category-->
     <string name="book_header_current">Слушаю</string>
     <string name="book_header_not_started">Поледние добавленные</string>
@@ -127,5 +127,25 @@
     <!-- PlayBooks -->
     <string name="grid">Сетка</string>
     <string name="list">Строки</string>
+    <string name="contents">Главы</string>
     <string name="pref_changelog_title">Список изменений</string>
+    <string name="pref_contents_button_title">Отображать кнопку Главы</string>
+    <string name="pref_contents_button_summary">Кнопка Главы в плеере</string>
+    <string name="pref_category_playback">Настройки воспроизведения</string>
+    <string name="pref_category_support">Поддержка</string>
+    <string name="pref_theme_hint">Меню настройки темы приложения</string>
+
+    <!-- Theme -->
+    <string name="label_theme_picker">Выбор темы</string>
+    <string name="pref_theme_title">Настройка темы</string>
+    <string name="pref_theme_summary">Выбор предустановленных тем</string>
+    <string name="pref_primary_color_title">Основной цвет</string>
+    <string name="pref_primary_color_summary">Чаще всего отображается в вашем приложении</string>
+    <string name="pref_accent_color_title">Акцентный цвет</string>
+    <string name="pref_accent_color_summary">Влияет на некоторые части интерфейса</string>
+    <string name="pref_background_color_title">Цвет фона</string>
+    <string name="pref_background_color_summary">Основной цвет содержания приложения.</string>
+    <string name="pref_category_appearance">Внешний вид</string>
+    <string name="pref_colored_navigation_bar_title">Цветная панель навигации</string>
+    <string name="pref_colored_navigation_bar_summary">Окрашиывт панель навигации в основной цвет</string>
 </resources>

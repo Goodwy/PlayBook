@@ -24,4 +24,8 @@
     <color name="black">#000</color>
     <color name="progressColor">#E0E0E0</color>
     <color name="navBarColor">#E0E0E0</color>
+
+    <!--Cyanea-->
+    <color name="cyanea_primary_reference">#FFA000</color>
+    <color name="cyanea_accent_reference">#0288D1</color>
 </resources>

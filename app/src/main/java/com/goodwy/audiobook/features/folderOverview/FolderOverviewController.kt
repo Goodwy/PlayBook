@@ -59,7 +59,7 @@ class FolderOverviewController :
       val toDeleteName = toDelete.folder
       MaterialDialog(activity!!).show {
         title(R.string.delete_folder)
-		cornerRadius(16f)
+		cornerRadius(4f)
         message(text = "${context.getString(R.string.delete_folder_content)}\n$toDeleteName")
         positiveButton(R.string.remove) { presenter.removeFolder(toDelete) }
         negativeButton(R.string.dialog_cancel)

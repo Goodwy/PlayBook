@@ -3,12 +3,13 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="@color/primary">
+  android:background="?backgroundColor">
 
     <com.google.android.material.appbar.MaterialToolbar
       android:id="@+id/toolbar"
       android:layout_width="match_parent"
       android:layout_height="?attr/actionBarSize"
+      android:background="?colorPrimary"
       app:menu="@menu/menu_settings"
       app:navigationIcon="@drawable/ic_arrow_back"
       app:title="@string/action_settings" />
@@ -25,11 +26,36 @@
           android:layout_marginTop="8dp"
           android:orientation="vertical">
 
+            <com.goodwy.audiobook.features.settings.DividerSettingView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:div_description="@string/pref_category_appearance" />
+
+            <com.goodwy.audiobook.features.settings.DoubleSettingView
+              android:id="@+id/themes"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:dsv_title="@string/pref_theme_title"
+              app:dsv_description="@string/pref_theme_hint" />
+
             <com.goodwy.audiobook.features.settings.SwitchSettingView
               android:id="@+id/darkTheme"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              android:visibility="gone"
               app:ssv_title="@string/pref_theme_dark" />
+
+            <com.goodwy.audiobook.features.settings.SwitchSettingView
+              android:id="@+id/contentsButtonMode"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:ssv_title="@string/pref_contents_button_title"
+              app:ssv_description="@string/pref_contents_button_summary" />
+
+            <com.goodwy.audiobook.features.settings.DividerSettingView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:div_description="@string/pref_category_playback" />
 
             <com.goodwy.audiobook.features.settings.DoubleSettingView
               android:id="@+id/skipAmount"
@@ -49,6 +75,24 @@
               android:layout_height="wrap_content"
               app:ssv_description="@string/pref_resume_on_replug_hint"
               app:ssv_title="@string/pref_resume_on_replug" />
+
+            <com.goodwy.audiobook.features.settings.DividerSettingView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:div_description="@string/pref_category_support" />
+
+            <com.goodwy.audiobook.features.settings.DoubleSettingView
+              android:id="@+id/changelogDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:dsv_title="@string/pref_changelog_title"
+              app:dsv_description="@string/version" />
+
+            <com.goodwy.audiobook.features.settings.DoubleSettingView
+              android:id="@+id/aboutDialog"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:dsv_title="@string/pref_about_title" />
 
         </LinearLayout>
 

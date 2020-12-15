@@ -37,7 +37,7 @@ class EditBookTitleDialogController(args: Bundle) : DialogController(args) {
 
     return MaterialDialog(activity!!).apply {
       title(R.string.edit_book_title)
-	  cornerRadius(16f)
+	  cornerRadius(4f)
       val inputType = InputType.TYPE_CLASS_TEXT or
           InputType.TYPE_TEXT_FLAG_CAP_SENTENCES or InputType.TYPE_TEXT_FLAG_AUTO_CORRECT
       input(

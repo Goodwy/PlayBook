@@ -2,6 +2,7 @@ package com.goodwy.audiobook.features
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.ViewGroup
 import com.bluelinelabs.conductor.Controller
@@ -23,6 +24,10 @@ import com.goodwy.audiobook.misc.conductor.asTransaction
 import com.goodwy.audiobook.playback.PlayerController
 import com.goodwy.audiobook.playback.session.search.BookSearchHandler
 import com.goodwy.audiobook.playback.session.search.BookSearchParser
+import com.jaredrummler.cyanea.CyaneaResources
+import com.jaredrummler.cyanea.app.BaseCyaneaActivity
+import com.jaredrummler.cyanea.delegate.CyaneaDelegate
+import com.jaredrummler.cyanea.prefs.CyaneaSettingsActivity
 import kotlinx.android.synthetic.main.activity_book.*
 import java.util.UUID
 import javax.inject.Inject
@@ -31,7 +36,22 @@ import javax.inject.Named
 /**
  * Activity that coordinates the book shelf and play screens.
  */
-class MainActivity : BaseActivity(), RouterProvider {
+class MainActivity : BaseActivity(), RouterProvider,
+  BaseCyaneaActivity {
+
+  private val delegate: CyaneaDelegate by lazy {
+    CyaneaDelegate.create(this, cyanea, getThemeResId())
+  }
+
+  private val resources: CyaneaResources by lazy {
+    CyaneaResources(super.getResources(), cyanea)
+  }
+
+  override fun attachBaseContext(newBase: Context) {
+    super.attachBaseContext(delegate.wrap(newBase))
+  }
+
+  override fun getResources(): Resources = resources
 
   private lateinit var permissionHelper: PermissionHelper
   private lateinit var permissions: Permissions
@@ -54,6 +74,7 @@ class MainActivity : BaseActivity(), RouterProvider {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     appComponent.inject(this)
+    delegate.onCreate(savedInstanceState)
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_book)
 
@@ -148,11 +169,22 @@ class MainActivity : BaseActivity(), RouterProvider {
     }
   }
 
+  override fun onRestart() {
+    super.onRestart()
+    recreate()
+  }
+
   override fun onBackPressed() {
     if (router.backstackSize == 1) {
       super.onBackPressed()
     } else router.handleBack()
   }
+
+  override fun openOptionsMenu() {
+    super.openOptionsMenu()
+    startActivity(Intent(this, CyaneaSettingsActivity::class.java))
+  }
+
 
   companion object {
     private const val NI_GO_TO_BOOK = "niGotoBook"

@@ -19,7 +19,7 @@ class DeleteBookmarkDialog(args: Bundle) : DialogController(args) {
     val bookmarkTitle = args.getString(NI_BOOKMARK_TITLE)!!
     return MaterialDialog(activity!!).apply {
       title(R.string.bookmark_delete_title)
-	  cornerRadius(16f)
+	  cornerRadius(4f)
       message(text = bookmarkTitle)
       positiveButton(R.string.remove) {
         val callback = targetController as Callback

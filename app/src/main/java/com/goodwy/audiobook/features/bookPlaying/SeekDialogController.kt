@@ -38,7 +38,7 @@ class SeekDialogController : DialogController() {
 
     return MaterialDialog(activity!!).apply {
       title(R.string.pref_seek_time)
-	  cornerRadius(16f)
+	  cornerRadius(4f)
       customView(view = binding.root, scrollable = true)
       positiveButton(R.string.dialog_confirm) {
         val newSeekTime = binding.seekBar.progress / FACTOR + MIN

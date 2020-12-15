@@ -12,4 +12,9 @@
         <attr name="ssv_title" format="string" />
         <attr name="ssv_description" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="DividerSettingView">
+        <attr name="div_title" format="string" />
+        <attr name="div_description" format="string" />
+    </declare-styleable>
 </resources>

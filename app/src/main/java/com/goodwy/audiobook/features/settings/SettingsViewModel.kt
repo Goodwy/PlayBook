@@ -19,7 +19,9 @@ class SettingsViewModel
   @Named(PrefKeys.AUTO_REWIND_AMOUNT)
   private val autoRewindAmountPref: Pref<Int>,
   @Named(PrefKeys.SEEK_TIME)
-  private val seekTimePref: Pref<Int>
+  private val seekTimePref: Pref<Int>,
+  @Named(PrefKeys.CONTENTS_BUTTON_MODE)
+  private val contentsButtonMode: Pref<Boolean>
 ) {
 
   private val _viewEffects = BroadcastChannel<SettingsViewEffect>(1)
@@ -30,14 +32,16 @@ class SettingsViewModel
       useDarkTheme.flow,
       resumeOnReplugPref.flow,
       autoRewindAmountPref.flow,
-      seekTimePref.flow
-    ) { useDarkTheme, resumeOnreplug, autoRewindAmount, seekTime ->
+      seekTimePref.flow,
+      contentsButtonMode.flow
+    ) { useDarkTheme, resumeOnreplug, autoRewindAmount, seekTime, contentsButtonMode ->
       SettingsViewState(
         useDarkTheme = useDarkTheme,
         showDarkThemePref = DARK_THEME_SETTABLE,
         resumeOnReplug = resumeOnreplug,
         seekTimeInSeconds = seekTime,
-        autoRewindInSeconds = autoRewindAmount
+        autoRewindInSeconds = autoRewindAmount,
+        contentsButtonMode = contentsButtonMode
       )
     }
   }
@@ -56,5 +60,9 @@ class SettingsViewModel
 
   fun changeAutoRewindAmount() {
     _viewEffects.offer(SettingsViewEffect.ShowChangeAutoRewindAmountDialog(seekTimePref.value))
+  }
+
+  fun toggleContentsButtonMode() {
+    contentsButtonMode.value = !contentsButtonMode.value
   }
 }

@@ -4,7 +4,7 @@
   android:id="@+id/bookShelfRoot"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="@color/primary">
+  android:background="?backgroundColor">
 
     <com.google.android.material.appbar.AppBarLayout
       android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
           android:layout_width="match_parent"
           android:layout_height="100dp"
-          android:background="@color/primary"
+          android:background="?colorPrimary"
           app:expandedTitleMarginStart="12dp"
           app:expandedTitleMarginBottom="20dp"
           app:expandedTitleTextAppearance="@style/TextAppearance.App.CollapsingToolbar.Expanded"
@@ -23,13 +23,13 @@
       android:id="@+id/toolbar"
       android:layout_width="match_parent"
       android:layout_height="?attr/actionBarSize"
-      android:background="@color/primary"
+      android:background="?colorPrimary"
       android:layout_gravity="top"
       android:layoutDirection="rtl"
       app:title="@string/pref_root_folder_title"
-      android:theme="@style/AppToolbar"
       app:menu="@menu/book_overview"/>
-    <!--app:title="@string/app_name"-->
+    <!--app:title="@string/app_name"
+      android:theme="@style/AppToolbar"-->
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -59,7 +59,8 @@
       android:layout_gravity="end|bottom"
       android:layout_margin="16dp"
       android:contentDescription="@string/play_pause"
-      android:theme="@style/PlayButtonStyle"
+      android:theme="@style/AppTheme"
+      app:backgroundTint="?colorAccent"
       android:transitionName="@string/fab_transition"
       app:fab_size="normal"
       tools:ignore="UnusedAttribute" />

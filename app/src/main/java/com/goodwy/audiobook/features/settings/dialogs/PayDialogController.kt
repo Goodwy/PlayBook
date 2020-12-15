@@ -18,7 +18,7 @@ class PayDialogController : DialogController() {
   override fun onCreateDialog(savedViewState: Bundle?): Dialog {
     return MaterialDialog(activity!!).apply {
       icon(R.drawable.ic_pay)
-      cornerRadius(16f)
+      cornerRadius(4f)
       message(R.string.pref_pay_message) {
         html {  }
         lineSpacing(1.4f)

@@ -19,6 +19,7 @@ import com.goodwy.audiobook.misc.StrictModeInit
 import com.goodwy.audiobook.playback.androidauto.AndroidAutoConnectedReceiver
 import com.goodwy.audiobook.playback.di.PlaybackComponent
 import com.goodwy.audiobook.playback.di.PlaybackComponentFactoryProvider
+import com.jaredrummler.cyanea.Cyanea
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.collect
@@ -41,6 +42,7 @@ class App : Application(), PlaybackComponentFactoryProvider {
 
   override fun onCreate() {
     super.onCreate()
+    Cyanea.init(this, resources) /*initialize Cyanea*/
 
     if (BuildConfig.DEBUG) StrictModeInit.init()
 
@@ -52,7 +54,7 @@ class App : Application(), PlaybackComponentFactoryProvider {
     }
 
     CrashReporter.init(this)
-	
+
     GlobalScope.launch {
       if (BuildConfig.DEBUG) {
         Timber.plant(Timber.DebugTree())

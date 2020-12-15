@@ -1,5 +1,6 @@
 package com.goodwy.audiobook.features.settings
 
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.goodwy.audiobook.R
 import com.goodwy.audiobook.databinding.SettingsBinding
@@ -12,12 +13,17 @@ import com.goodwy.audiobook.features.settings.dialogs.PayDialogController
 import com.goodwy.audiobook.features.settings.dialogs.SupportDialogController
 import com.goodwy.audiobook.features.settings.dialogs.AboutDialogController
 import com.goodwy.audiobook.injection.appComponent
+import com.jaredrummler.cyanea.CyaneaResources
+import com.jaredrummler.cyanea.app.BaseCyaneaActivity
+import com.jaredrummler.cyanea.delegate.CyaneaDelegate
+import com.jaredrummler.cyanea.prefs.CyaneaSettingsActivity
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
-class SettingsController : ViewBindingController<SettingsBinding>(SettingsBinding::inflate) {
+class SettingsController : ViewBindingController<SettingsBinding>(SettingsBinding::inflate),
+  BaseCyaneaActivity {
 
   @Inject
   lateinit var viewModel: SettingsViewModel
@@ -30,13 +36,23 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
     setupToolbar()
 
     resumePlayback.onCheckedChanged { viewModel.toggleResumeOnReplug() }
-    darkTheme.onCheckedChanged { viewModel.toggleDarkTheme() }
+   /* darkTheme.onCheckedChanged { viewModel.toggleDarkTheme() }*/
+    contentsButtonMode.onCheckedChanged { viewModel.toggleContentsButtonMode() }
 
+    themes.setOnClickListener {
+      activity!!.openOptionsMenu()
+    }
     skipAmount.setOnClickListener {
       viewModel.changeSkipAmount()
     }
     autoRewind.setOnClickListener {
       viewModel.changeAutoRewindAmount()
+    }
+    changelogDialog.setOnClickListener {
+      ChangelogDialogController().showDialog(router)
+    }
+    aboutDialog.setOnClickListener {
+      AboutDialogController().showDialog(router)
     }
   }
 
@@ -67,8 +83,9 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
 
   private fun SettingsBinding.render(state: SettingsViewState) {
     Timber.d("render $state")
-    darkTheme.isVisible = state.showDarkThemePref
-    darkTheme.setChecked(state.useDarkTheme)
+    contentsButtonMode.setChecked(state.contentsButtonMode)
+    /*darkTheme.isVisible = state.showDarkThemePref
+    darkTheme.setChecked(state.useDarkTheme)*/
     resumePlayback.setChecked(state.resumeOnReplug)
     skipAmount.setDescription(resources!!.getQuantityString(R.plurals.seconds, state.seekTimeInSeconds, state.seekTimeInSeconds))
     autoRewind.setDescription(resources!!.getQuantityString(R.plurals.seconds, state.autoRewindInSeconds, state.autoRewindInSeconds))

@@ -133,8 +133,7 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
           true
         }
         R.id.toggleGrid -> {
-          val transaction = SettingsController().asTransaction()
-          router.pushController(transaction)
+          viewModel.useGrid(!useGrid)
 /**Оригинал*/
           /**viewModel.useGrid(!useGrid)*/
 /*Изменено на настройки*/
@@ -196,7 +195,9 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
         showPlaying(state.playing)
         gridMenuItem.item.apply {
           val useGrid = state.useGrid
-          setTitle(if (useGrid) R.string.action_settings else R.string.action_settings)
+          setTitle(if (useGrid) R.string.layout_list else R.string.layout_grid)
+          val drawableRes = if (useGrid) R.drawable.ic_view_list else R.drawable.ic_view_grid
+          setIcon(drawableRes)
 /**Оригинал*/
           /**setTitle(if (useGrid) R.string.layout_list else R.string.layout_grid)
           val drawableRes = if (useGrid) R.drawable.ic_view_list else R.drawable.ic_view_grid
@@ -218,7 +219,11 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
     }
 
     loadingProgress.isVisible = state == BookOverviewState.Loading
-    gridMenuItem.item.isVisible = state != BookOverviewState.Loading
+    gridMenuItem.item.isVisible = false
+    //*Оригинал*/
+    //*gridMenuItem.item.isVisible = state != BookOverviewState.Loading*/
+    /**Скрыть иконки изменения вида*/
+    /**gridMenuItem.item.isVisible = false*/
   }
 
   private fun showPlaying(playing: Boolean) {

@@ -60,7 +60,7 @@ class LoudnessDialog(args: Bundle) : DialogController(args) {
 
     return MaterialDialog(activity!!).apply {
       title(R.string.volume_boost)
-	  cornerRadius(16f)
+	  cornerRadius(4f)
       customView(view = binding.root, scrollable = true)
     }
   }

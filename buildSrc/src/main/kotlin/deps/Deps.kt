@@ -66,6 +66,12 @@ object Deps {
     private const val version = "3.3.0"
     const val core = "com.afollestad.material-dialogs:core:$version"
     const val input = "com.afollestad.material-dialogs:input:$version"
+    const val bottomsheets = "com.afollestad.material-dialogs:bottomsheets:$version"
+  }
+
+  object Jaredrummler {
+    private const val version = "1.0.2"
+    const val cyanea = "com.jaredrummler:cyanea:$version"
   }
 
   const val crashlytics = "com.crashlytics.sdk.android:crashlytics:2.10.1@aar"
@@ -129,7 +135,7 @@ fun configureBaseRepos(repositoryHandler: RepositoryHandler) {
         }
     maven { setUrl("https://jitpack.io") }
         .mavenContent {
-          includeGroupByRegex("com.github.PaulWoitaschek.*")
+        /**  includeGroupByRegex("com.github.PaulWoitaschek.*")*/
         }
     mavenCentral()
         .mavenContent {

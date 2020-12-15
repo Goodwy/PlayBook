@@ -1,14 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="AppTheme" parent="Theme.Cyanea.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
         <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
         <item name="android:windowActivityTransitions" tools:ignore="NewApi">true</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="background_overlay">@color/copy_primary_text_disabled_material_light</item>
 
-        <item name="colorPrimary">@color/blue1</item>
-        <item name="colorPrimaryDark">@color/blue2</item>
-        <item name="colorAccent">@color/accent</item>
         <item name="colorAccentDark">@color/accentDark</item>
         <item name="colorSecondary">@color/blue1</item>
         <item name="colorOnSecondary">@color/white</item>
@@ -45,7 +44,9 @@
     <style name="AppToolbar" parent="Widget.MaterialComponents.Toolbar.Surface">
         <!--<item name="android:elevation" tools:ignore="PrivateResource">@dimen/design_appbar_elevation</item>-->
         <item name="colorOnSurface">#3371bb</item>
-        <item name="android:background">@color/primary</item>
+        <item name="android:background">?colorPrimary</item>
+        <item name="android:colorPrimary">?colorPrimary</item>
+        <item name="android:windowBackground">?backgroundColor</item>
     </style>
 
     <style name="fab_label_style">
