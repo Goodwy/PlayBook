@@ -72,7 +72,6 @@ class BookStorage
   }
 
   suspend fun addOrUpdate(book: Book) {
-    // todo check if this leads to dupes
     synchronizedWithIoDispatcher {
       appDb.transaction {
         metaDataDao.insert(book.metaData)

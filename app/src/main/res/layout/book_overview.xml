@@ -8,12 +8,13 @@
 
     <com.google.android.material.appbar.AppBarLayout
       android:layout_width="match_parent"
-      android:layout_height="wrap_content">
+      android:layout_height="wrap_content"
+      app:elevation="0dp">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
           android:layout_width="match_parent"
           android:layout_height="100dp"
-          android:background="?colorPrimary"
+          android:background="?backgroundColor"
           app:expandedTitleMarginStart="12dp"
           app:expandedTitleMarginBottom="20dp"
           app:expandedTitleTextAppearance="@style/TextAppearance.App.CollapsingToolbar.Expanded"
@@ -23,7 +24,7 @@
       android:id="@+id/toolbar"
       android:layout_width="match_parent"
       android:layout_height="?attr/actionBarSize"
-      android:background="?colorPrimary"
+      android:background="?backgroundColor"
       android:layout_gravity="top"
       android:layoutDirection="rtl"
       app:title="@string/pref_root_folder_title"
@@ -59,9 +60,9 @@
       android:layout_gravity="end|bottom"
       android:layout_margin="16dp"
       android:contentDescription="@string/play_pause"
+      android:transitionName="@string/fab_transition"
       android:theme="@style/AppTheme"
       app:backgroundTint="?colorAccent"
-      android:transitionName="@string/fab_transition"
       app:fab_size="normal"
       tools:ignore="UnusedAttribute" />
     <!--android:theme="@style/PlayButtonStyle"-->

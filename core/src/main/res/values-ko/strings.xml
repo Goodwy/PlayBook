@@ -63,7 +63,7 @@
     <!--Settings-->
     <string name="action_settings">설정</string>
     <string name="pref_resume_on_replug">이어서 재생</string>
-    <string name="pref_resume_on_replug_hint">이어폰잭을 빼면 자동으로 일시정지, 끼면 이어서 재생됩니다.</string>
+    <string name="pref_resume_on_replug_hint">이어폰잭을 빼면 자동으로 일시정지, 끼면 이어서 재생됩니다</string>
     <string name="min">%s 분</string>
     <string name="delete_last_number">방금 입력한 숫자를 지웁니다</string>
     <plurals name="seconds">
@@ -102,4 +102,27 @@
     <string name="book_category_sort_by_name">이름</string>
     <string name="book_category_sort_by_last_played">최근에 재생됨</string>
     <string name="book_category_sort_by_added">추가됨</string>
+    <string name="grid">그리드</string>
+    <string name="list">명부</string>
+    <string name="contents">내용</string>
+    <string name="pref_changelog_title">변경 로그</string>
+    <string name="pref_default_theme_title">기본값으로 설정</string>
+    <string name="pref_category_playback">재생</string>
+    <string name="pref_category_support">지원하다</string>
+    <string name="pref_theme_hint">애플리케이션 테마 설정 메뉴</string>
+    <string name="pref_statusbar_color_title">상태 표시 줄 색상</string>
+    <string name="pref_statusbar_color_summary">상태 표시 줄 색상을 기본 색상과 다르게 설정합니다.</string>
+    <string name="only_the_first_5_colors_available">무료 버전에서는 처음 5 가지 색상 만 사용할 수 있습니다.</string>
+    <string name="label_theme_picker">테마 선택기</string>
+    <string name="pref_theme_title">테마</string>
+    <string name="pref_theme_summary">사전 설치된 테마 선택</string>
+    <string name="pref_primary_color_title">원색</string>
+    <string name="pref_primary_color_summary">활성 요소 및 상태 표시 줄의 색상</string>
+    <string name="pref_accent_color_title">강조 색상</string>
+    <string name="pref_accent_color_summary">악센트는 UI의 일부를 선택합니다.</string>
+    <string name="pref_background_color_title">배경색</string>
+    <string name="pref_background_color_summary">앱 콘텐츠의 기본 색상</string>
+    <string name="pref_category_appearance">외관</string>
+    <string name="pref_colored_navigation_bar_title">탐색 표시 줄 색상</string>
+    <string name="pref_colored_navigation_bar_summary">탐색 모음에 배경색 적용</string>
 </resources>

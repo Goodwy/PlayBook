@@ -42,6 +42,7 @@ class App : Application(), PlaybackComponentFactoryProvider {
 
   override fun onCreate() {
     super.onCreate()
+
     Cyanea.init(this, resources) /*initialize Cyanea*/
 
     if (BuildConfig.DEBUG) StrictModeInit.init()

@@ -3,6 +3,11 @@
     <attr name="colorAccentDark" format="reference" />
     <attr name="background_overlay" format="reference" />
 
+    <declare-styleable name="OneSettingView">
+        <attr name="osv_title" format="string" />
+        <attr name="osv_description" format="string" />
+    </declare-styleable>
+
     <declare-styleable name="DoubleSettingView">
         <attr name="dsv_title" format="string" />
         <attr name="dsv_description" format="string" />
@@ -16,5 +21,15 @@
     <declare-styleable name="DividerSettingView">
         <attr name="div_title" format="string" />
         <attr name="div_description" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ColorPrimarySettingView">
+        <attr name="cpv_title" format="string" />
+        <attr name="cpv_description" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ColorPrimaryDarkSettingView">
+        <attr name="cpdv_title" format="string" />
+        <attr name="cpdv_description" format="string" />
     </declare-styleable>
 </resources>

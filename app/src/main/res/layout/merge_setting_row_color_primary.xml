@@ -6,15 +6,15 @@
   tools:layout_width="match_parent"
   tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-      android:id="@+id/switchSetting"
+    <com.google.android.material.chip.Chip
+      android:id="@+id/colorPrimarySetting"
+      app:chipBackgroundColor="?colorPrimary"
+      app:rippleColor="?backgroundColor"
       style="@style/Widget.App.Switch"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="58dp"
+      android:layout_height="50dp"
       android:layout_marginEnd="16dp"
       android:clickable="false"
-      android:focusable="false"
-      android:focusableInTouchMode="false"
       android:saveEnabled="false"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintRight_toRightOf="parent"
@@ -22,21 +22,21 @@
       app:useMaterialThemeColors="false" />
 
     <TextView
-      android:id="@+id/switchTitle"
+      android:id="@+id/colorPrimaryTitle"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginLeft="16dp"
       android:layout_marginRight="16dp"
       android:textAppearance="?textAppearanceBody1"
-      app:layout_constraintBottom_toTopOf="@+id/switchDescription"
+      app:layout_constraintBottom_toTopOf="@+id/colorPrimaryDescription"
       app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toLeftOf="@id/switchSetting"
+      app:layout_constraintRight_toLeftOf="@id/colorPrimarySetting"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_chainStyle="packed"
       tools:text="Resume Playback" />
 
     <TextView
-      android:id="@+id/switchDescription"
+      android:id="@+id/colorPrimaryDescription"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginLeft="16dp"
@@ -45,8 +45,8 @@
       android:textColor="?android:attr/textColorSecondary"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toLeftOf="@id/switchSetting"
-      app:layout_constraintTop_toBottomOf="@id/switchTitle"
+      app:layout_constraintRight_toLeftOf="@id/colorPrimarySetting"
+      app:layout_constraintTop_toBottomOf="@id/colorPrimaryTitle"
       tools:text="If you paused by plugging headset out, it will resume on replug." />
 
 </merge>

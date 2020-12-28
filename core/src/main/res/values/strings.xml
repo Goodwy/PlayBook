@@ -87,7 +87,6 @@
     <string name="pref_about_url2">GitHub</string>
     <string name="pref_about_url3">Other apps</string>
     <string name="pref_about_message"><![CDATA[
-    <i><font color="#0099CC">Thanks for using PlayBooks!</font></i><br/><br/>
     An open source <b>PlayBooks</b> audiobook player. PlayBooks is based on the open source <a href="https://github.com/PaulWoitaschek/Voice">Voice</a> application.
     <br/><br/>
     I would be very grateful if you leave a review or rating about the application.<br/><br/>
@@ -95,9 +94,11 @@
   ]]></string>
     <string name="pref_licenses_title">Licenses</string>
     <string name="pref_pay_title">Buy full version</string>
-    <string name="pref_pay_message"><![CDATA[You are using the free version of the PlayBooks application. The free version contains no ads. The only difference between the paid version is that it has Dark theme.<br/>
-If you want to support the development, you can purchase a paid version and leave a review.<br/><br/>
- <i><font color="#0099CC">Thanks!</font></i><br/>
+    <string name="pref_pay_message"><![CDATA[
+ <b>Unlocks</b> extra features, such as <b>black theme</b> and <b>all theme colors</b>.<br/><br/>
+The source code of <b>PlayBooks</b> is available on <a href="https://github.com/Goodwy/PlayBooks">GitHub</a>. You are welcome to compile the full version yourself for free. However, if you want to support the development and receive updates through the Google Play, consider purchasing full version.<br/><br/>
+<i>Thank you,<br/>
+Goodwy</i>
   ]]></string>
     <!--Misc-->
     <string name="popup_edit">Edit</string>
@@ -129,23 +130,25 @@ If you want to support the development, you can purchase a paid version and leav
     <string name="list">List View</string>
     <string name="contents">Contents</string>
     <string name="pref_changelog_title">Changelog</string>
-    <string name="pref_contents_button_title">Show content button</string>
-    <string name="pref_contents_button_summary">Show content button in player</string>
+    <string name="pref_default_theme_title">Set default</string>
     <string name="pref_category_playback">Playback</string>
     <string name="pref_category_support">Support</string>
     <string name="pref_theme_hint">Application theme setting menu</string>
+    <string name="pref_statusbar_color_title">Statusbar color</string>
+    <string name="pref_statusbar_color_summary">Sets the status bar color to different from the primary</string>
+    <string name="only_the_first_5_colors_available">Only the first 5 colors are available in the free version.</string>
 
     <!-- Theme -->
     <string name="label_theme_picker">Theme Picker</string>
     <string name="pref_theme_title">Themes</string>
     <string name="pref_theme_summary">Select a pre-installed theme</string>
     <string name="pref_primary_color_title">Primary color</string>
-    <string name="pref_primary_color_summary">Displayed most frequently across your app</string>
+    <string name="pref_primary_color_summary">Color of active elements and status bar</string>
     <string name="pref_accent_color_title">Accent color</string>
     <string name="pref_accent_color_summary">Accents select parts of the UI</string>
     <string name="pref_background_color_title">Background color</string>
     <string name="pref_background_color_summary">The underlying color of the app’s content</string>
     <string name="pref_category_appearance">Appearance</string>
     <string name="pref_colored_navigation_bar_title">Navigation bar color</string>
-    <string name="pref_colored_navigation_bar_summary">Apply the primary color to the navigation bar</string>
+    <string name="pref_colored_navigation_bar_summary">Apply the background color to the navigation bar</string>
 </resources>

@@ -58,7 +58,7 @@
     <!--Settings-->
     <string name="action_settings">Nastavitve</string>
     <string name="pref_resume_on_replug">Nadaljuj predvajaje</string>
-    <string name="pref_resume_on_replug_hint">Če se je predvajanje ustavilo zaradi izključitve slušalk, se bo nadaljevalo ob ponovni priključitvi.</string>
+    <string name="pref_resume_on_replug_hint">Če se je predvajanje ustavilo zaradi izključitve slušalk, se bo nadaljevalo ob ponovni priključitvi</string>
     <string name="min">%s min</string>
     <string name="delete_last_number">Zbriše zadnjo vpisano številko</string>
     <plurals name="seconds">
@@ -92,5 +92,38 @@
     <string name="no_network">Ni povezave?</string>
     <string name="network_top">To se ni izšlo...</string>
     <string name="cover_crop">Prireži naslovnico</string>
+    <string name="music_notification">Predvajanje</string>
+    <string name="onboarding_title">Dobrodošli!</string>
+    <string name="onboarding_content">Dodajte svojo prvo zvočno knjigo.</string>
+    <string name="book_header_current">Trenutni</string>
+    <string name="book_header_not_started">Se še ni začelo</string>
+    <string name="book_header_completed">Dokončano</string>
+    <string name="book_category_sort">Razvrščanje</string>
+    <string name="book_category_sort_by_name">Ime</string>
+    <string name="book_category_sort_by_last_played">Nazadnje predvajano</string>
+    <string name="book_category_sort_by_added">Dodano</string>
+    <string name="grid">Mreža</string>
+    <string name="list">Seznam</string>
+    <string name="contents">Vsebina</string>
+    <string name="pref_changelog_title">Dnevnik sprememb</string>
+    <string name="pref_default_theme_title">Privzeto</string>
+    <string name="pref_category_playback">Predvajanje</string>
+    <string name="pref_category_support">Podpora</string>
+    <string name="pref_theme_hint">Meni za nastavitev teme aplikacije</string>
+    <string name="pref_statusbar_color_title">Barva vrstice stanja</string>
+    <string name="pref_statusbar_color_summary">Barva vrstice stanja nastavi na drugačno od primarne</string>
+    <string name="only_the_first_5_colors_available">Only the first 5 colors are available in the free version.</string>
+    <string name="label_theme_picker">Izbirnik tem</string>
+    <string name="pref_theme_title">Teme</string>
+    <string name="pref_theme_summary">Izberite vnaprej nameščeno temo</string>
+    <string name="pref_primary_color_title">Primarna barva</string>
+    <string name="pref_primary_color_summary">Barva aktivnih elementov in vrstica stanja</string>
+    <string name="pref_accent_color_title">Barva poudarka</string>
+    <string name="pref_accent_color_summary">Naglasi poudarijo izbrane dele uporabniškega vmesnika</string>
+    <string name="pref_background_color_title">Barva ozadja</string>
+    <string name="pref_background_color_summary">Osnovna barva vsebine aplikacije</string>
+    <string name="pref_category_appearance">Videz</string>
+    <string name="pref_colored_navigation_bar_title">Barva navigacijske vrstice</string>
+    <string name="pref_colored_navigation_bar_summary">Na navigacijsko vrstico uporabite barvo ozadja</string>
     <!--book category-->
 </resources>

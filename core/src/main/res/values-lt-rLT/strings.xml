@@ -63,7 +63,7 @@
     <!--Settings-->
     <string name="action_settings">Nustatymai</string>
     <string name="pref_resume_on_replug">Pratęsti atkūrimą</string>
-    <string name="pref_resume_on_replug_hint">Jei pristabdėte atkūrimą atjungdami ausines, atkūrimas prasitęs vėl jas prijungus.</string>
+    <string name="pref_resume_on_replug_hint">Jei pristabdėte atkūrimą atjungdami ausines, atkūrimas prasitęs vėl jas prijungus</string>
     <string name="min">%s min.</string>
     <string name="delete_last_number">Ištrina paskutinį įvestą skaičių</string>
     <plurals name="seconds">
@@ -109,4 +109,27 @@
     <string name="book_category_sort_by_name">Pavadinimas</string>
     <string name="book_category_sort_by_last_played">Paskutinio atkūrimo data</string>
     <string name="book_category_sort_by_added">Pridėjimo data</string>
+    <string name="grid">Tinklelis</string>
+    <string name="list">Sąrašas</string>
+    <string name="contents">Turinys</string>
+    <string name="pref_changelog_title">Changelog</string>
+    <string name="pref_default_theme_title">Nustatyti numatytąjį</string>
+    <string name="pref_category_playback">Atkūrimas</string>
+    <string name="pref_category_support">Parama</string>
+    <string name="pref_theme_hint">Programos temos nustatymo meniu</string>
+    <string name="pref_statusbar_color_title">Būsenos juostos spalva</string>
+    <string name="pref_statusbar_color_summary">Būsenos juostos spalva skiriasi nuo pagrindinės</string>
+    <string name="only_the_first_5_colors_available">Tik pirmosios 5 spalvos yra nemokamos versijos.</string>
+    <string name="label_theme_picker">Temos parinkėjas</string>
+    <string name="pref_theme_title">Temos</string>
+    <string name="pref_theme_summary">Pasirinkite iš anksto įdiegtą temą</string>
+    <string name="pref_primary_color_title">Pagrindinė spalva</string>
+    <string name="pref_primary_color_summary">Aktyvių elementų ir būsenos juostos spalva</string>
+    <string name="pref_accent_color_title">Akcento spalva</string>
+    <string name="pref_accent_color_summary">Akcentai parenka vartotojo sąsajos dalis</string>
+    <string name="pref_background_color_title">Fono spalva</string>
+    <string name="pref_background_color_summary">Pagrindinė programos turinio spalva</string>
+    <string name="pref_category_appearance">Išvaizda</string>
+    <string name="pref_colored_navigation_bar_title">Naršymo juostos spalva</string>
+    <string name="pref_colored_navigation_bar_summary">Taikykite fono spalvą naršymo juostoje</string>
 </resources>

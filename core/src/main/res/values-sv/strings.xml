@@ -63,7 +63,7 @@
     <!--Settings-->
     <string name="action_settings">Inställningar</string>
     <string name="pref_resume_on_replug">Återuppta uppspelning</string>
-    <string name="pref_resume_on_replug_hint">Om du pausade genom att koppla ur hörlurarna, återupptas det vid inkoppling.</string>
+    <string name="pref_resume_on_replug_hint">Om du pausade genom att koppla ur hörlurarna, återupptas det vid inkoppling</string>
     <string name="min">%s min</string>
     <string name="delete_last_number">Tar bort det senast angivna numret</string>
     <plurals name="seconds">
@@ -104,4 +104,27 @@
     <string name="book_category_sort_by_name">Namn</string>
     <string name="book_category_sort_by_last_played">Senast spelade</string>
     <string name="book_category_sort_by_added">Tillagd</string>
+    <string name="grid">Rutnät</string>
+    <string name="list">Lista</string>
+    <string name="contents">Innehåll</string>
+    <string name="pref_changelog_title">Changelog</string>
+    <string name="pref_default_theme_title">Standard</string>
+    <string name="pref_category_playback">Uppspelning</string>
+    <string name="pref_category_support">Stöd</string>
+    <string name="pref_theme_hint">Inställningsmeny för applikationstema</string>
+    <string name="pref_statusbar_color_title">Statusfältets färg</string>
+    <string name="pref_statusbar_color_summary">Ställer in statusfältets färg som skiljer sig från den primära</string>
+    <string name="only_the_first_5_colors_available">Endast de fem första färgerna finns i den fria versionen.</string>
+    <string name="label_theme_picker">Temaväljare</string>
+    <string name="pref_theme_title">Teman</string>
+    <string name="pref_theme_summary">Välj ett förinstallerat tema</string>
+    <string name="pref_primary_color_title">Grundfärg</string>
+    <string name="pref_primary_color_summary">Färg på aktiva element och statusfält</string>
+    <string name="pref_accent_color_title">Accentfärg</string>
+    <string name="pref_accent_color_summary">Accenter markerar delar av användargränssnittet</string>
+    <string name="pref_background_color_title">Bakgrundsfärg</string>
+    <string name="pref_background_color_summary">Den underliggande färgen på appens innehåll</string>
+    <string name="pref_category_appearance">Utseende</string>
+    <string name="pref_colored_navigation_bar_title">Navigationsfältets färg</string>
+    <string name="pref_colored_navigation_bar_summary">Applicera bakgrundsfärgen i navigeringsfältet</string>
 </resources>

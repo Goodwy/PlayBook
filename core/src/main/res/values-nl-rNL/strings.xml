@@ -105,4 +105,27 @@
     <string name="book_category_sort_by_name">Naam</string>
     <string name="book_category_sort_by_last_played">Laatst afgespeeld</string>
     <string name="book_category_sort_by_added">Toegevoegd</string>
+    <string name="grid">Raster</string>
+    <string name="list">Lijst</string>
+    <string name="contents">Inhoud</string>
+    <string name="pref_changelog_title">Log met wijzigingen</string>
+    <string name="pref_default_theme_title">Standaard instellen</string>
+    <string name="pref_category_playback">Afspelen</string>
+    <string name="pref_category_support">Ondersteuning</string>
+    <string name="pref_theme_hint">Menu voor het instellen van toepassingsthema</string>
+    <string name="pref_statusbar_color_title">Statusbalk kleur</string>
+    <string name="pref_statusbar_color_summary">Hiermee stelt u de kleur van de statusbalk in op een andere kleur dan de primaire kleur</string>
+    <string name="only_the_first_5_colors_available">Alleen de eerste 5 kleuren zijn beschikbaar in de gratis versie.</string>
+    <string name="label_theme_picker">Themakiezer</string>
+    <string name="pref_theme_title">Thema\'s</string>
+    <string name="pref_theme_summary">Selecteer een vooraf geïnstalleerd thema</string>
+    <string name="pref_primary_color_title">Primaire kleur</string>
+    <string name="pref_primary_color_summary">Kleur van actieve elementen en statusbalk</string>
+    <string name="pref_accent_color_title">Accent kleur</string>
+    <string name="pref_accent_color_summary">Accenten selecteren delen van de gebruikersinterface</string>
+    <string name="pref_background_color_title">Achtergrond kleur</string>
+    <string name="pref_background_color_summary">De onderliggende kleur van de inhoud van de app</string>
+    <string name="pref_category_appearance">Verschijning</string>
+    <string name="pref_colored_navigation_bar_title">Kleur van de navigatiebalk</string>
+    <string name="pref_colored_navigation_bar_summary">Pas de achtergrondkleur toe op de navigatiebalk</string>
 </resources>

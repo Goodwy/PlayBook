@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="AppTheme" parent="Theme.Cyanea.Light.DarkActionBar">
-        <item name="windowActionBar">false</item>
+    <style name="AppTheme" parent="Theme.Cyanea.Light.NoActionBar">
+        <item name="switchStyle">@style/Widget.App.Switch</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
         <item name="android:windowActivityTransitions" tools:ignore="NewApi">true</item>
@@ -11,7 +11,43 @@
         <item name="colorAccentDark">@color/accentDark</item>
         <item name="colorSecondary">@color/blue1</item>
         <item name="colorOnSecondary">@color/white</item>
-        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/navBarColor</item>
+        <item name="colorControlNormal">@color/colorOnSurface</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="android:statusBarColor">@color/primaryDark</item>
+        <!-- Dialogs color-->
+        <item name="md_color_button_text">?colorAccent</item>
+        <item name="md_background_color">?backgroundColorLight</item>
+        <item name="md_corner_radius">4dp</item>
+    </style>
+    <!-- Dialogs color
+    <item name="colorBackgroundFloating">?backgroundColor</item>
+    <item name="android:colorBackgroundFloating" tools:targetApi="23">?backgroundColor</item>-->
+
+    <style name="Widget.AppCompat.TextView" parent="">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Switch</item>
+    </style>
+
+    <style name="Widget.App.Switch" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Switch</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Switch" parent="">
+        <item name="colorOnSurface">@color/blue1</item>
+        <item name="colorSecondary">@color/blue1</item>
+    </style>
+
+    <style name="AppThemeOld" parent="Theme.Cyanea.Light.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
+        <item name="android:windowActivityTransitions" tools:ignore="NewApi">true</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="background_overlay">@color/copy_primary_text_disabled_material_light</item>
+
+        <item name="colorAccentDark">@color/accentDark</item>
+        <item name="colorSecondary">@color/blue1</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">?backgroundColor</item>
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">@bool/use_light_status
         </item>
         <item name="colorControlNormal">@color/colorOnSurface</item>
@@ -22,12 +58,12 @@
             @bool/use_light_navigation
         </item>
         <item name="toolbarStyle">@style/AppToolbar</item>
-        <item name="md_color_button_text">@color/accent</item>
         <!-- Dialogs color-->
-        <item name="colorBackgroundFloating">
-            @color/second</item>
-        <item name="android:colorBackgroundFloating" tools:targetApi="23">
-            @color/second</item>
+        <item name="colorBackgroundFloating">?backgroundColor</item>
+        <item name="android:colorBackgroundFloating" tools:targetApi="23">?backgroundColor</item>
+        <item name="md_color_button_text">?colorAccent</item>
+        <item name="md_background_color">?backgroundColor</item>
+        <item name="md_corner_radius">4dp</item>
     </style>
 
     <style name="PlayButtonStyle">
@@ -41,12 +77,10 @@
         <item name="android:scaleType">centerCrop</item>
     </style>
 
-    <style name="AppToolbar" parent="Widget.MaterialComponents.Toolbar.Surface">
+    <style name="AppToolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
         <!--<item name="android:elevation" tools:ignore="PrivateResource">@dimen/design_appbar_elevation</item>-->
         <item name="colorOnSurface">#3371bb</item>
         <item name="android:background">?colorPrimary</item>
-        <item name="android:colorPrimary">?colorPrimary</item>
-        <item name="android:windowBackground">?backgroundColor</item>
     </style>
 
     <style name="fab_label_style">
@@ -70,7 +104,7 @@
     <style name="BottomSheetRow">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">48dp</item>
-        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:background">?backgroundColor</item>
         <item name="android:drawablePadding">32dp</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingLeft">16dp</item>

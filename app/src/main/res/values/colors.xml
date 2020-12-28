@@ -20,12 +20,21 @@
 
 
    <!-- <color name="ic_shortcut_play_background">#FFFFFF</color>-->
-    <color name="white">#FFF</color>
-    <color name="black">#000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
     <color name="progressColor">#E0E0E0</color>
     <color name="navBarColor">#E0E0E0</color>
 
-    <!--Cyanea-->
-    <color name="cyanea_primary_reference">#FFA000</color>
-    <color name="cyanea_accent_reference">#0288D1</color>
+    <!--Cyanea default-->
+    <color name="cyanea_primary_reference">#4c86cb</color>
+    <color name="cyanea_primary_dark_reference">#E0E0E0</color>
+    <color name="cyanea_accent_reference">#4c86cb</color>
+    <color name="cyanea_navigation_bar_reference">#fafafa</color>
+    <color name="cyanea_background_light">#fafafa</color>
+    <color name="cyanea_background_dark">#1e2225</color>
+
+    <color name="cyanea_menu_icon_light">#FFFFFFFF</color>
+    <color name="cyanea_menu_icon_dark">#DE000000</color>
+    <color name="cyanea_sub_menu_icon_light">#B3FFFFFF</color>
+    <color name="cyanea_sub_menu_icon_dark">#8A000000</color>
 </resources>

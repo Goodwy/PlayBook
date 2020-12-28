@@ -13,6 +13,7 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
+            android:background="?backgroundColor"
             app:menu="@menu/image_picker"
             app:navigationIcon="@drawable/close"
             app:title="@string/cover"
@@ -81,6 +82,8 @@
                 android:layout_margin="16dp"
                 android:contentDescription="@string/cover_crop"
                 android:src="@drawable/crop"
+                android:theme="@style/AppTheme"
+                app:backgroundTint="?colorAccent"
                 tools:ignore="RtlHardcoded" />
 
         </FrameLayout>

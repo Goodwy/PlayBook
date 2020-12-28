@@ -253,7 +253,7 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
       )
       .cancelable(true)
       .tintTarget(false)
-      .outerCircleColor(R.color.accentDark)
+      .outerCircleColor(R.color.navBarColor)
       .descriptionTextColorInt(Color.WHITE)
       .textColorInt(Color.BLACK)
       .targetCircleColorInt(Color.BLACK)

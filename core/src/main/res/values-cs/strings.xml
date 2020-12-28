@@ -110,4 +110,27 @@
     <string name="book_category_sort_by_name">Jména</string>
     <string name="book_category_sort_by_last_played">Posledně přehrávané</string>
     <string name="book_category_sort_by_added">Přidáno</string>
+    <string name="pref_colored_navigation_bar_summary">Aplikujte barvu pozadí na navigační lištu</string>
+    <string name="pref_colored_navigation_bar_title">Barva navigační lišty</string>
+    <string name="pref_category_appearance">Vzhled</string>
+    <string name="pref_background_color_summary">Základní barva obsahu aplikace</string>
+    <string name="pref_background_color_title">Barva pozadí</string>
+    <string name="pref_accent_color_summary">Akcenty vyberte části uživatelského rozhraní</string>
+    <string name="pref_accent_color_title">Barva zvýraznění</string>
+    <string name="pref_primary_color_summary">Barva aktivních prvků a stavový řádek</string>
+    <string name="pref_primary_color_title">Základní barva</string>
+    <string name="pref_theme_summary">Vyberte předinstalované téma</string>
+    <string name="pref_theme_title">Motivy</string>
+    <string name="label_theme_picker">Výběr motivu</string>
+    <string name="only_the_first_5_colors_available">Ve bezplatné verzi je k dispozici pouze prvních 5 barev.</string>
+    <string name="pref_statusbar_color_summary">Nastaví barvu stavového řádku na jinou než primární</string>
+    <string name="pref_statusbar_color_title">Barva stavového řádku</string>
+    <string name="pref_theme_hint">Nabídka nastavení motivu aplikace</string>
+    <string name="pref_category_support">Podpora</string>
+    <string name="pref_category_playback">Přehrávání</string>
+    <string name="pref_default_theme_title">Nastavit výchozí</string>
+    <string name="pref_changelog_title">Seznam změn</string>
+    <string name="contents">Obsah</string>
+    <string name="grid">Mřížka</string>
+    <string name="list">Seznam</string>
 </resources>

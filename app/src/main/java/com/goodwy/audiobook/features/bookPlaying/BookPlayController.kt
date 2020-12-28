@@ -125,12 +125,12 @@ class BookPlayController(bundle: Bundle) : ViewBindingController<BookPlayBinding
     currentBookText.text = viewState.bookName
     currentChapterText.text = viewState.chapterName
     currentChapterContainer.isVisible = viewState.chapterName != null
-    contentList.isVisible = contentsButtonMode.value
+    contentList.isInvisible = true /* = contentsButtonMode.value*/
     previous.isVisible = viewState.showPreviousNextButtons
     next.isVisible = viewState.showPreviousNextButtons
     playedTime.text = formatTime(viewState.playedTime.toLongMilliseconds(), viewState.duration.toLongMilliseconds())
     maxTime.text = formatTime(viewState.duration.toLongMilliseconds(), viewState.duration.toLongMilliseconds())
-    slider.valueTo = viewState.duration.inMilliseconds.toFloat()
+    slider.valueTo = viewState.duration.inMilliseconds.toFloat() + 2000
     if (!slider.isPressed) {
       slider.value = viewState.playedTime.inMilliseconds.toFloat()
     }

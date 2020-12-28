@@ -88,5 +88,29 @@
     <string name="no_network">नेटवर्क नहीं है?</string>
     <string name="network_top">यह सही से नहीं चला...</string>
     <string name="cover_crop">कवर काटें</string>
+    <string name="grid">ग्रिड</string>
+    <string name="list">सूची</string>
+    <string name="contents">अंतर्वस्तु</string>
+    <string name="pref_changelog_title">बदलाव का</string>
+    <string name="pref_default_theme_title">डिफॉल्ट सेट करें</string>
+    <string name="pref_category_playback">प्लेबैक</string>
+    <string name="music_notification">प्लेबैक</string>
+    <string name="pref_category_support">सहयोग</string>
+    <string name="pref_theme_hint">एप्लिकेशन थीम सेटिंग मेनू</string>
+    <string name="pref_statusbar_color_title">स्थिति रंग</string>
+    <string name="pref_statusbar_color_summary">प्राइमरी से अलग करने के लिए स्टेटस बार का रंग सेट करता है</string>
+    <string name="only_the_first_5_colors_available">केवल पहले 5 रंग मुफ्त संस्करण में उपलब्ध हैं।</string>
+    <string name="label_theme_picker">थीम बीनने वाला</string>
+    <string name="pref_theme_title">विषयों</string>
+    <string name="pref_theme_summary">पहले से स्थापित थीम का चयन करें</string>
+    <string name="pref_primary_color_title">प्राथमिक रंग</string>
+    <string name="pref_primary_color_summary">सक्रिय तत्वों और स्थिति पट्टी का रंग</string>
+    <string name="pref_accent_color_title">स्वरोंका रंग</string>
+    <string name="pref_accent_color_summary">उच्चारण UI के कुछ भागों का चयन करते हैं</string>
+    <string name="pref_background_color_title">पीछे का रंग</string>
+    <string name="pref_background_color_summary">ऐप की सामग्री का अंतर्निहित रंग</string>
+    <string name="pref_category_appearance">दिखावट</string>
+    <string name="pref_colored_navigation_bar_title">नेविगेशन बार का रंग</string>
+    <string name="pref_colored_navigation_bar_summary">नेविगेशन पट्टी पर पृष्ठभूमि का रंग लागू करें</string>
     <!--book category-->
 </resources>

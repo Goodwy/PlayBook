@@ -104,4 +104,27 @@
     <string name="book_category_sort_by_name">Nome</string>
     <string name="book_category_sort_by_last_played">Ultima riproduzione</string>
     <string name="book_category_sort_by_added">Aggiunta</string>
+    <string name="grid">Griglia</string>
+    <string name="list">Elenco</string>
+    <string name="contents">Contenuti</string>
+    <string name="pref_changelog_title">Changelog</string>
+    <string name="pref_default_theme_title">Imposta default</string>
+    <string name="pref_category_playback">Riproduzione</string>
+    <string name="pref_category_support">Supporto</string>
+    <string name="pref_theme_hint">Menu di impostazione del tema dell\'applicazione</string>
+    <string name="pref_statusbar_color_title">Colore della barra di stato</string>
+    <string name="pref_statusbar_color_summary">Imposta il colore della barra di stato su diverso da quello principale</string>
+    <string name="only_the_first_5_colors_available">Solo i primi 5 colori sono disponibili nella versione gratuita.</string>
+    <string name="label_theme_picker">Selettore di temi</string>
+    <string name="pref_theme_title">Temi</string>
+    <string name="pref_theme_summary">Seleziona un tema preinstallato</string>
+    <string name="pref_primary_color_title">Colore primario</string>
+    <string name="pref_primary_color_summary">Colore degli elementi attivi e della barra di stato</string>
+    <string name="pref_accent_color_title">Colore accento</string>
+    <string name="pref_accent_color_summary">Gli accenti selezionano parti dell\'interfaccia utente</string>
+    <string name="pref_background_color_title">Colore di sfondo</string>
+    <string name="pref_background_color_summary">Il colore sottostante del contenuto dell\'app</string>
+    <string name="pref_category_appearance">Aspetto</string>
+    <string name="pref_colored_navigation_bar_title">Colore della barra di navigazione</string>
+    <string name="pref_colored_navigation_bar_summary">Applica il colore di sfondo alla barra di navigazione</string>
 </resources>

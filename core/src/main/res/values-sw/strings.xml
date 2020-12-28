@@ -65,21 +65,13 @@
     <string name="pref_support_contribute">Msaada na maoni</string>
     <string name="pref_pay_title">Nunua toleo kamili</string>
     <string name="pref_pay_message"><![CDATA[
-    <b>Version: 1.0.1</b><br/><br/>
-    Unatumia programu ya bure ya <b>PlayBooks</b>. Toleo la bure halina matangazo. Tofauti pekee kati ya toleo lililolipwa ni kwamba ina mandhari ya giza.<br/>
-Ikiwa unataka kuunga mkono maendeleo, unaweza kununua toleo lililolipwa na kuacha ukaguzi.<br/><br/>
- <i><font color="#0099CC">Asante!</font></i><br/>
+    Inafungua huduma za ziada, kama mada nyeusi na rangi zote za mandhari.<br/><br/>
+Nambari ya chanzo ya PlayBooks inapatikana kwenye <a href="https://github.com/Goodwy/PlayBooks">GitHub</a>. Unakaribishwa kukusanya toleo kamili mwenyewe bure. Walakini, ikiwa unataka kusaidia maendeleo na kupokea sasisho kupitia Google Play, fikiria ununuzi kamili.<br/><br/>
+<i>Asante,<br/>
+Goodwy</i>
   ]]></string>
     <string name="pref_about_title">Kuhusu</string>
     <string name="pref_licenses_title">Leseni</string>
-    <string name="pref_about_message"><![CDATA[
-    <b>Version: 1.0.1</b><br/><br/>
-    <i><font color="#0099CC">Asante kwa kutumia PlayBooks.!</font></i><br/><br/>
-    <b>PlayBooks</b> - hii ni kichezaji cha kitabu cha sauti cha chanzo wazi. Maombi Kulingana <a href="https://github.com/PaulWoitaschek/Voice">Voice</a>.
-    <br/><br/>
-     Ningefurahi sana ikiwa utaacha hakiki au kadirio juu ya programu kwenye Google Play, hii itasaidia maendeleo ya mradi.<br/><br/>
-    Marejeo:
-  ]]></string>
     <!--Misc-->
     <string name="popup_edit">Badili</string>
     <string name="remove">Toa</string>
@@ -100,4 +92,27 @@ Ikiwa unataka kuunga mkono maendeleo, unaweza kununua toleo lililolipwa na kuach
     <string name="book_category_sort_by_name">Jina</string>
     <string name="book_category_sort_by_last_played">Iliyo chezwa mwisho</string>
     <string name="book_category_sort_by_added">ilivyo ongezwa</string>
+    <string name="pref_colored_navigation_bar_summary">Tumia rangi ya mandharinyuma kwenye mwambaa wa kusogea</string>
+    <string name="pref_colored_navigation_bar_title">Rangi ya upau wa kusogea</string>
+    <string name="pref_category_appearance">Mwonekano</string>
+    <string name="pref_background_color_summary">Rangi ya msingi ya yaliyomo kwenye programu</string>
+    <string name="pref_background_color_title">Rangi ya asili</string>
+    <string name="pref_accent_color_summary">Lafudhi huchagua sehemu za UI</string>
+    <string name="pref_accent_color_title">Rangi ya lafudhi</string>
+    <string name="pref_primary_color_summary">Rangi ya vitu vya kazi na upau wa hali</string>
+    <string name="pref_primary_color_title">Rangi ya msingi</string>
+    <string name="pref_theme_summary">Chagua mandhari iliyosanikishwa mapema</string>
+    <string name="pref_theme_title">Mada</string>
+    <string name="label_theme_picker">Kiteua Mandhari</string>
+    <string name="only_the_first_5_colors_available">Rangi 5 tu za kwanza zinapatikana katika toleo la bure.</string>
+    <string name="pref_statusbar_color_summary">Inaweka rangi ya upau wa hali kuwa tofauti na ya msingi</string>
+    <string name="pref_statusbar_color_title">Rangi ya mwambaa wa hali</string>
+    <string name="pref_theme_hint">Menyu ya kuweka mandhari ya programu</string>
+    <string name="pref_category_support">Unga Mkono</string>
+    <string name="pref_category_playback">Uchezaji</string>
+    <string name="pref_default_theme_title">Chaguo-msingi</string>
+    <string name="pref_changelog_title">Mabadiliko</string>
+    <string name="contents">Yaliyomo</string>
+    <string name="list">Orodha</string>
+    <string name="grid">Gridi ya taifa</string>
 </resources>

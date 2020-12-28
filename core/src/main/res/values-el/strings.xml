@@ -63,7 +63,7 @@
     <!--Settings-->
     <string name="action_settings">Ρυθμίσεις</string>
     <string name="pref_resume_on_replug">Συνέχιση αναπαραγωγής</string>
-    <string name="pref_resume_on_replug_hint">Αν διακοψετε βγαζοντας τα ακουστικά, θα επαναληφθεί η διαδικασια.</string>
+    <string name="pref_resume_on_replug_hint">Αν διακοψετε βγαζοντας τα ακουστικά, θα επαναληφθεί η διαδικασια</string>
     <string name="min">%s λεπτά</string>
     <plurals name="seconds">
         <item quantity="one">%d δευτερόλεπτο</item>
@@ -103,4 +103,27 @@
     <string name="book_category_sort_by_name">Όνομα</string>
     <string name="book_category_sort_by_last_played">Ακούστηκαν τελευταία</string>
     <string name="book_category_sort_by_added">Προσθήκη</string>
+    <string name="grid">Πλέγμα</string>
+    <string name="list">Λίστα</string>
+    <string name="contents">Περιεχόμενα</string>
+    <string name="pref_changelog_title">Τσανγκολόγκ</string>
+    <string name="pref_default_theme_title">Ορισμός προεπιλογής</string>
+    <string name="pref_category_playback">Αναπαραγωγή</string>
+    <string name="pref_category_support">Υποστήριξη</string>
+    <string name="pref_theme_hint">Μενού ρύθμισης θέματος εφαρμογής</string>
+    <string name="pref_statusbar_color_title">Χρώμα γραμμής κατάστασης</string>
+    <string name="pref_statusbar_color_summary">Ορίζει το χρώμα της γραμμής κατάστασης σε διαφορετικό από το πρωτεύον</string>
+    <string name="only_the_first_5_colors_available">Μόνο τα πρώτα 5 χρώματα είναι διαθέσιμα στη δωρεάν έκδοση.</string>
+    <string name="label_theme_picker">Επιλογή θέματος</string>
+    <string name="pref_theme_title">Θέματα</string>
+    <string name="pref_theme_summary">Επιλέξτε ένα προεγκατεστημένο θέμα</string>
+    <string name="pref_primary_color_title">Πρωτεύον χρώμα</string>
+    <string name="pref_primary_color_summary">Χρώμα ενεργών στοιχείων και γραμμή κατάστασης</string>
+    <string name="pref_accent_color_title">Χρώμα έμφασης</string>
+    <string name="pref_accent_color_summary">Οι πινελιές επιλέγουν μέρη του περιβάλλοντος χρήστη</string>
+    <string name="pref_background_color_title">Χρώμα του φόντου</string>
+    <string name="pref_background_color_summary">Το υποκείμενο χρώμα του περιεχομένου της εφαρμογής</string>
+    <string name="pref_category_appearance">Εμφάνιση</string>
+    <string name="pref_colored_navigation_bar_title">Χρώμα γραμμής πλοήγησης</string>
+    <string name="pref_colored_navigation_bar_summary">Εφαρμόστε το χρώμα φόντου στη γραμμή πλοήγησης</string>
 </resources>

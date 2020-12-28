@@ -10,7 +10,6 @@ import com.bluelinelabs.conductor.ControllerChangeHandler
 import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.attachRouter
-import de.paulwoitaschek.flowpref.Pref
 import com.goodwy.audiobook.R
 import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.data.repo.BookRepository
@@ -27,7 +26,8 @@ import com.goodwy.audiobook.playback.session.search.BookSearchParser
 import com.jaredrummler.cyanea.CyaneaResources
 import com.jaredrummler.cyanea.app.BaseCyaneaActivity
 import com.jaredrummler.cyanea.delegate.CyaneaDelegate
-import com.jaredrummler.cyanea.prefs.CyaneaSettingsActivity
+import com.jaredrummler.cyanea.prefs.CyaneaThemePickerActivity
+import de.paulwoitaschek.flowpref.Pref
 import kotlinx.android.synthetic.main.activity_book.*
 import java.util.UUID
 import javax.inject.Inject
@@ -38,20 +38,6 @@ import javax.inject.Named
  */
 class MainActivity : BaseActivity(), RouterProvider,
   BaseCyaneaActivity {
-
-  private val delegate: CyaneaDelegate by lazy {
-    CyaneaDelegate.create(this, cyanea, getThemeResId())
-  }
-
-  private val resources: CyaneaResources by lazy {
-    CyaneaResources(super.getResources(), cyanea)
-  }
-
-  override fun attachBaseContext(newBase: Context) {
-    super.attachBaseContext(delegate.wrap(newBase))
-  }
-
-  override fun getResources(): Resources = resources
 
   private lateinit var permissionHelper: PermissionHelper
   private lateinit var permissions: Permissions
@@ -169,21 +155,49 @@ class MainActivity : BaseActivity(), RouterProvider,
     }
   }
 
-  override fun onRestart() {
-    super.onRestart()
-    recreate()
-  }
-
   override fun onBackPressed() {
     if (router.backstackSize == 1) {
       super.onBackPressed()
     } else router.handleBack()
   }
 
-  override fun openOptionsMenu() {
+  /*override fun openOptionsMenu() {
     super.openOptionsMenu()
-    startActivity(Intent(this, CyaneaSettingsActivity::class.java))
+    startActivity(Intent(this, CyaneaThemePickerActivity::class.java))
+    /*startActivity(Intent(this, CyaneaSettingsActivity::class.java))*/
+    /*startActivity(Intent(this, CyaneaThemePickerActivity::class.java))*/
   }
+
+  override fun closeContextMenu() {
+    super.closeContextMenu()
+    recreate()
+  }
+
+  override fun closeOptionsMenu() {
+    super.closeOptionsMenu()
+    if (contentsButtonMode.value) (
+    cyanea.edit {
+      shouldTintNavBar(true)
+    }.recreate(this)
+    ) else
+    cyanea.edit {
+      shouldTintNavBar(false)
+    }.recreate(this)
+  }*/
+
+    private val delegate: CyaneaDelegate by lazy {
+    CyaneaDelegate.create(this, cyanea, getThemeResId())
+  }
+
+  private val resources: CyaneaResources by lazy {
+    CyaneaResources(super.getResources(), cyanea)
+  }
+
+  override fun attachBaseContext(newBase: Context) {
+    super.attachBaseContext(delegate.wrap(newBase))
+  }
+
+  override fun getResources(): Resources = resources
 
 
   companion object {

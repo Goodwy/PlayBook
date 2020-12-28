@@ -63,7 +63,7 @@
     <!--Settings-->
     <string name="action_settings">Ustawienia</string>
     <string name="pref_resume_on_replug">Wznawiaj odtwarzanie</string>
-    <string name="pref_resume_on_replug_hint">Jeśli zatrzymałeś poprzez wyjęcie słuchawek, odtwarzanie wznowi się po ponownym podłączeniu.</string>
+    <string name="pref_resume_on_replug_hint">Jeśli zatrzymałeś poprzez wyjęcie słuchawek, odtwarzanie wznowi się po ponownym podłączeniu</string>
     <string name="min">%s min</string>
     <string name="delete_last_number">Usuwa ostatni wprowadzony numer</string>
     <plurals name="seconds">
@@ -109,4 +109,27 @@
     <string name="book_category_sort_by_name">Nazwa</string>
     <string name="book_category_sort_by_last_played">Ostatnio odtwarzane</string>
     <string name="book_category_sort_by_added">Dodane</string>
+    <string name="pref_colored_navigation_bar_summary">Zastosuj kolor tła do paska nawigacji</string>
+    <string name="pref_colored_navigation_bar_title">Kolor paska nawigacji</string>
+    <string name="grid">Krata</string>
+    <string name="list">Lista</string>
+    <string name="contents">Zawartość</string>
+    <string name="pref_changelog_title">Changelog</string>
+    <string name="pref_default_theme_title">Ustaw domyślne</string>
+    <string name="pref_category_playback">Odtwarzanie</string>
+    <string name="pref_category_support">Wsparcie</string>
+    <string name="pref_theme_hint">Menu ustawień motywu aplikacji</string>
+    <string name="pref_statusbar_color_title">Kolor paska stanu</string>
+    <string name="pref_statusbar_color_summary">Ustawia kolor paska stanu na inny niż podstawowy</string>
+    <string name="only_the_first_5_colors_available">W bezpłatnej wersji dostępnych jest tylko pierwszych 5 kolorów.</string>
+    <string name="label_theme_picker">Wybór motywu</string>
+    <string name="pref_theme_title">Motywy</string>
+    <string name="pref_theme_summary">Wybierz wstępnie zainstalowany motyw</string>
+    <string name="pref_primary_color_title">Kolor podstawowy</string>
+    <string name="pref_primary_color_summary">Kolor aktywnych elementów i paska stanu</string>
+    <string name="pref_accent_color_title">Kolor akcentujący</string>
+    <string name="pref_accent_color_summary">Akcenty wybierają części interfejsu użytkownika</string>
+    <string name="pref_background_color_title">Kolor tła</string>
+    <string name="pref_background_color_summary">Podstawowy kolor treści aplikacji</string>
+    <string name="pref_category_appearance">Wygląd</string>
 </resources>

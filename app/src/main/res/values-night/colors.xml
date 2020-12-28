@@ -7,4 +7,12 @@
     <color name="background_overlay">@color/copy_primary_text_disabled_material_dark</color>
 
     <color name="navBarColor">@color/primaryDark</color>
+
+    <!--Cyanea default-->
+    <color name="cyanea_primary_reference">#4c86cb</color>
+    <color name="cyanea_primary_dark_reference">#272f35</color>
+    <color name="cyanea_accent_reference">#4c86cb</color>
+    <color name="cyanea_navigation_bar_reference">#1e2225</color>
+    <color name="cyanea_background_light">#fafafa</color>
+    <color name="cyanea_background_dark">#1e2225</color>
 </resources>

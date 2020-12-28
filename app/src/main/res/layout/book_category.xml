@@ -3,13 +3,14 @@
   android:id="@+id/bookShelfRoot"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="@color/primary">
+  android:background="?backgroundColor">
 
     <com.google.android.material.appbar.MaterialToolbar
       android:id="@+id/toolbar"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      app:navigationIcon="@drawable/ic_arrow_back" />
+      app:navigationIcon="@drawable/ic_arrow_back"
+      android:background="?backgroundColor" />
 
     <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/recyclerView"

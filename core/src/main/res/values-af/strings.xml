@@ -97,4 +97,25 @@
     <string name="book_header_current">Huidig</string>
     <string name="book_header_not_started">Nog nie begin nie</string>
     <string name="book_header_completed">Voltooi</string>
+    <string name="contents">Inhoud</string>
+    <string name="pref_changelog_title">Changelog</string>
+    <string name="pref_default_theme_title">Stel verstek</string>
+    <string name="pref_category_playback">Terugspeel</string>
+    <string name="pref_category_support">Ondersteuning</string>
+    <string name="pref_theme_hint">Toepassings-menu vir die toepassing</string>
+    <string name="pref_statusbar_color_title">Statusbalk kleur</string>
+    <string name="pref_statusbar_color_summary">Stel die statusbalkleur anders as die primêre</string>
+    <string name="only_the_first_5_colors_available">Slegs die eerste vyf kleure is in die gratis weergawe beskikbaar.</string>
+    <string name="label_theme_picker">Tema-kieser</string>
+    <string name="pref_theme_title">Temas</string>
+    <string name="pref_theme_summary">Kies \'n vooraf geïnstalleerde tema</string>
+    <string name="pref_primary_color_title">Primêre kleur</string>
+    <string name="pref_primary_color_summary">Kleur van aktiewe elemente en statusbalk</string>
+    <string name="pref_accent_color_title">Aksentkleur</string>
+    <string name="pref_accent_color_summary">Aksente kies dele van die UI</string>
+    <string name="pref_background_color_title">Agtergrondkleur</string>
+    <string name="pref_background_color_summary">Die onderliggende kleur van die app se inhoud</string>
+    <string name="pref_category_appearance">Voorkoms</string>
+    <string name="pref_colored_navigation_bar_title">Navigasiebalk kleur</string>
+    <string name="pref_colored_navigation_bar_summary">Pas die agtergrondkleur op die navigasiebalk toe</string>
 </resources>

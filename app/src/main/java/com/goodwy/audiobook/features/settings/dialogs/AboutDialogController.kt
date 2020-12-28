@@ -18,7 +18,7 @@ import timber.log.Timber
 private val about_url1 = "https://play.google.com/store/apps/details?id=com.goodwy.audiobook".toUri()
 private val about_url2 = "https://github.com/Goodwy/PlayBooks".toUri()
 private val about_url3 = "https://play.google.com/store/apps/dev?id=8268163890866913014&hl=ru".toUri()
-private val about_url4 = "https://github.com/PaulWoitaschek/Voice".toUri()
+private val github_url = "https://github.com/PaulWoitaschek/Voice".toUri()
 
 class AboutDialogController : DialogController() {
 
@@ -29,7 +29,7 @@ class AboutDialogController : DialogController() {
       cornerRadius(4f)
       title(R.string.pref_about_title)
       message(R.string.pref_about_message) {
-        html { visitUri(about_url4)}
+        html { visitUri(github_url)}
       }
       listItems(R.array.pref_about_values) { _, index, _ ->
         when (index) {
@@ -39,7 +39,7 @@ class AboutDialogController : DialogController() {
           else -> error("Invalid index $index")
         }
       }
-      negativeButton(R.string.dialog_cancel)
+      negativeButton (R.string.dialog_ок)
     }
   }
 

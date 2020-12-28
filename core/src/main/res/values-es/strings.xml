@@ -59,7 +59,7 @@
     <!--Settings-->
     <string name="action_settings">Configuraciones</string>
     <string name="pref_resume_on_replug">Reanudar</string>
-    <string name="pref_resume_on_replug_hint">Si pausaste al desconectar tus audífonos, la reproducción continuará cuando los vuelvas a conectar.</string>
+    <string name="pref_resume_on_replug_hint">Si pausaste al desconectar tus audífonos, la reproducción continuará cuando los vuelvas a conectar</string>
     <string name="min">%s min</string>
     <string name="delete_last_number">Borra el último número introducido</string>
     <plurals name="seconds">
@@ -92,5 +92,35 @@
     <string name="music_notification">Reproducir</string>
     <string name="onboarding_title">¡Bienvenido!</string>
     <string name="onboarding_content">Comencemos agregando su primer audiolibro.</string>
+    <string name="pref_category_playback">Reproducir</string>
+    <string name="book_header_current">Actual</string>
+    <string name="book_header_not_started">No ha comenzado todavía</string>
+    <string name="book_header_completed">Terminado</string>
+    <string name="book_category_sort">Clasificación</string>
+    <string name="book_category_sort_by_name">Nombre</string>
+    <string name="book_category_sort_by_last_played">Último jugado</string>
+    <string name="book_category_sort_by_added">Adicional</string>
+    <string name="grid">Cuadrícula</string>
+    <string name="list">Lista</string>
+    <string name="contents">Contenido</string>
+    <string name="pref_changelog_title">Registro de cambios</string>
+    <string name="pref_default_theme_title">Defecto</string>
+    <string name="pref_category_support">Soporte</string>
+    <string name="pref_theme_hint">Menú de configuración del tema de la aplicación</string>
+    <string name="pref_statusbar_color_title">Color de la barra de estado</string>
+    <string name="pref_statusbar_color_summary">Establece el color de la barra de estado en un color diferente al primario.</string>
+    <string name="only_the_first_5_colors_available">Solo los primeros 5 colores están disponibles en la versión gratuita.</string>
+    <string name="label_theme_picker">Selector de temas</string>
+    <string name="pref_theme_title">Temas</string>
+    <string name="pref_theme_summary">Seleccione un tema preinstalado</string>
+    <string name="pref_primary_color_title">Color primario</string>
+    <string name="pref_primary_color_summary">Color de elementos activos y barra de estado</string>
+    <string name="pref_accent_color_title">Acentuar el color</string>
+    <string name="pref_accent_color_summary">Los acentos seleccionan partes de la interfaz de usuario</string>
+    <string name="pref_background_color_title">Color de fondo</string>
+    <string name="pref_background_color_summary">El color subyacente del contenido de la aplicación.</string>
+    <string name="pref_category_appearance">Apariencia</string>
+    <string name="pref_colored_navigation_bar_title">Color de la barra de navegación</string>
+    <string name="pref_colored_navigation_bar_summary">Aplicar el color de fondo a la barra de navegación</string>
     <!--book category-->
 </resources>

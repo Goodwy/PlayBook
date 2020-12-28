@@ -82,7 +82,7 @@ class FolderChooserActivity : RxBaseActivity<FolderChooserView, FolderChooserPre
 
     // spinner
     spinnerAdapter =
-        MultiLineSpinnerAdapter(toolSpinner, this, colorFromAttr(android.R.attr.textColorPrimary)) { file, _ ->
+        MultiLineSpinnerAdapter(toolSpinner, this, colorFromAttr(android.R.attr.colorAccent)) { file, _ ->
           if (file.absolutePath == FolderChooserPresenter.MARSHMALLOW_SD_FALLBACK) {
             getString(R.string.storage_all)
           } else {

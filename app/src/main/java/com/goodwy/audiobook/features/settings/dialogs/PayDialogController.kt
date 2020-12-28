@@ -5,14 +5,17 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import androidx.core.net.toUri
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItems
 import com.goodwy.audiobook.R
 import com.goodwy.audiobook.misc.DialogController
+import com.jaredrummler.cyanea.Cyanea
 import timber.log.Timber
 
 private val pref_pay_url = "https://play.google.com/store/apps/details?id=com.goodwy.audiobook".toUri()
+private val github_url = "https://github.com/Goodwy/PlayBooks".toUri()
 class PayDialogController : DialogController() {
 
   override fun onCreateDialog(savedViewState: Bundle?): Dialog {
@@ -20,16 +23,13 @@ class PayDialogController : DialogController() {
       icon(R.drawable.ic_pay)
       cornerRadius(4f)
       message(R.string.pref_pay_message) {
-        html {  }
+        html { visitUri(github_url) }
         lineSpacing(1.4f)
       }
-      listItems(R.array.pref_pay_values) { _, index, _ ->
-        when (index) {
-          0 -> visitUri(pref_pay_url)
-          else -> error("Invalid index $index")
-        }
+      positiveButton(R.string.pref_about_url1) {
+        visitUri(pref_pay_url)
       }
-      negativeButton(R.string.dialog_cancel)
+      neutralButton(R.string.dialog_cancel)
     }
   }
 

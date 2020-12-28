@@ -10,8 +10,8 @@ object Versions {
   const val compileSdk = 29
   const val minSdk = 24
   const val targetSdk = 29
-  const val versionCode = 102
-  const val versionName = "1.0.2"
+  const val versionCode = 103
+  const val versionName = "1.0.3"
 }
 
 object Deps {
@@ -67,6 +67,7 @@ object Deps {
     const val core = "com.afollestad.material-dialogs:core:$version"
     const val input = "com.afollestad.material-dialogs:input:$version"
     const val bottomsheets = "com.afollestad.material-dialogs:bottomsheets:$version"
+    const val color = "com.afollestad.material-dialogs:color:$version"
   }
 
   object Jaredrummler {

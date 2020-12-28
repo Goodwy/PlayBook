@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/primary"
+    android:background="?backgroundColor"
     android:focusableInTouchMode="true"
     android:orientation="vertical">
 
@@ -11,7 +11,8 @@
         android:id="@+id/toolbar"
         app:title="@string/bookmark"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize" />
+        android:layout_height="?attr/actionBarSize"
+        android:background="?backgroundColor" />
 
     <!-- 88 dp bottom padding is the sum of the FAB + vertical margins.
     that way, the controls for the last bookmark are always visible -->
@@ -29,6 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/plus" />
+        android:src="@drawable/plus"
+        android:theme="@style/AppTheme"
+        app:backgroundTint="?colorAccent" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

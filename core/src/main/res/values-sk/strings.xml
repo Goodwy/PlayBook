@@ -63,7 +63,7 @@
     <!--Settings-->
     <string name="action_settings">Nastavenie</string>
     <string name="pref_resume_on_replug">Obnoviť prehrávanie</string>
-    <string name="pref_resume_on_replug_hint">Ak je pozastavené odpojením slúchadiel, prehrávanie bude obnovené po pripojení.</string>
+    <string name="pref_resume_on_replug_hint">Ak je pozastavené odpojením slúchadiel, prehrávanie bude obnovené po pripojení</string>
     <string name="min">%smin.</string>
     <string name="delete_last_number">Vymazať naposledy zadané číslo</string>
     <plurals name="seconds">
@@ -109,4 +109,27 @@
     <string name="book_category_sort_by_name">Podľa mena</string>
     <string name="book_category_sort_by_last_played">Podľa naposledny prehratých</string>
     <string name="book_category_sort_by_added">Podľa pridaných</string>
+    <string name="grid">Mriežka</string>
+    <string name="list">Zoznam</string>
+    <string name="contents">Obsah</string>
+    <string name="pref_changelog_title">Zoznam zmien</string>
+    <string name="pref_default_theme_title">Predvolené</string>
+    <string name="pref_category_playback">Prehrávanie</string>
+    <string name="pref_category_support">Podpora</string>
+    <string name="pref_theme_hint">Ponuka nastavenia témy aplikácie</string>
+    <string name="pref_statusbar_color_title">Farba stavového riadku</string>
+    <string name="pref_statusbar_color_summary">Nastaví farbu stavového riadku na inú ako primárnu</string>
+    <string name="only_the_first_5_colors_available">V bezplatnej verzii je k dispozícii iba prvých 5 farieb.</string>
+    <string name="label_theme_picker">Výber témy</string>
+    <string name="pref_theme_title">Témy</string>
+    <string name="pref_theme_summary">Vyberte predinštalovaný motív</string>
+    <string name="pref_primary_color_title">Primárna farba</string>
+    <string name="pref_primary_color_summary">Farba aktívnych prvkov a stavový riadok</string>
+    <string name="pref_accent_color_title">Akcentová farba</string>
+    <string name="pref_accent_color_summary">Akcenty vyberajú časti používateľského rozhrania</string>
+    <string name="pref_background_color_title">Farba pozadia</string>
+    <string name="pref_background_color_summary">Podkladová farba obsahu aplikácie</string>
+    <string name="pref_category_appearance">Vzhľad</string>
+    <string name="pref_colored_navigation_bar_title">Farba navigačného panela</string>
+    <string name="pref_colored_navigation_bar_summary">Na navigačný panel použite farbu pozadia</string>
 </resources>

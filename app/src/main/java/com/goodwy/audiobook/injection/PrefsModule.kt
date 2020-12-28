@@ -46,7 +46,7 @@ object PrefsModule {
   @JvmStatic
   @Singleton
   @Named(PrefKeys.CONTENTS_BUTTON_MODE)
-  fun contentsButtonMode(prefs: AndroidPreferences): Pref<Boolean> {
+  fun tintNavBar(prefs: AndroidPreferences): Pref<Boolean> {
     return prefs.boolean(PrefKeys.CONTENTS_BUTTON_MODE, false)
   }
 

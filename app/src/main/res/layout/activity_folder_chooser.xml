@@ -6,7 +6,7 @@
     style="?android:buttonBarStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?backgroundColor"
+    android:background="@color/primary"
     android:orientation="vertical">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -37,7 +37,8 @@
                 android:layout_centerVertical="true"
                 android:layout_toStartOf="@id/toolSpinner"
                 android:text="@string/storage_pre_device"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                android:textColor="@color/colorOnSurface" />
 
         </RelativeLayout>
 
@@ -77,6 +78,7 @@
               android:text="@string/chosen_folder_description"
               android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
               android:visibility="gone"
+              android:textColor="@color/colorOnSurface"
               tools:text="This is the secondary text which is surprisingly too long long long" />
 
             <TextView
@@ -85,6 +87,7 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 style="@android:style/TextAppearance.Large"
+                android:textColor="@color/colorOnSurface"
                 tools:text="This is the primary text which is surprisingly too long long long" />
 
         </LinearLayout>
@@ -115,15 +118,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/dialog_cancel" />
+            android:text="@string/dialog_cancel"
+            android:textColor="?colorAccent" />
 
         <Button
-            android:id="@+id/choose"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/dialog_confirm" />
+          android:id="@+id/choose"
+          style="@style/Widget.MaterialComponents.Button.TextButton"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="@string/dialog_confirm"
+          android:textColor="?colorAccent" />
 
     </LinearLayout>
 

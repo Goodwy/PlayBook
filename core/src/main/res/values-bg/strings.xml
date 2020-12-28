@@ -92,5 +92,28 @@
     <string name="music_notification">Възпроизвеждане</string>
     <string name="onboarding_title">Добре дошли!</string>
     <string name="onboarding_content">Нека започнем като добавим първата Ви аудиокнига.</string>
+    <string name="contents">Съдържание</string>
+    <string name="grid">Решетка</string>
+    <string name="list">Списък</string>
+    <string name="pref_changelog_title">Дневник на промените</string>
+    <string name="pref_default_theme_title">Задайте по подразбиране</string>
+    <string name="pref_category_playback">Възпроизвеждане</string>
+    <string name="pref_category_support">Поддържа</string>
+    <string name="pref_theme_hint">Меню за настройка на темата на приложението</string>
+    <string name="pref_statusbar_color_title">Цвят на лентата на състоянието</string>
+    <string name="pref_statusbar_color_summary">Задава цвета на лентата на състоянието за различен от основния</string>
+    <string name="only_the_first_5_colors_available">Налични са само първите 5 цвята в безплатната версия.</string>
+    <string name="label_theme_picker">Избор на теми</string>
+    <string name="pref_theme_title">Теми</string>
+    <string name="pref_theme_summary">Изберете предварително инсталирана тема</string>
+    <string name="pref_primary_color_title">Основен цвят</string>
+    <string name="pref_primary_color_summary">Цвят на активните елементи и лентата на състоянието</string>
+    <string name="pref_accent_color_title">Цвят на акцента</string>
+    <string name="pref_accent_color_summary">Акценти избират части от потребителския интерфейс</string>
+    <string name="pref_background_color_title">Цвят на фона</string>
+    <string name="pref_background_color_summary">Основният цвят на съдържанието на приложението</string>
+    <string name="pref_category_appearance">Външен вид</string>
+    <string name="pref_colored_navigation_bar_title">Цвят на лентата за навигация</string>
+    <string name="pref_colored_navigation_bar_summary">Приложете цвета на фона към лентата за навигация</string>
     <!--book category-->
 </resources>

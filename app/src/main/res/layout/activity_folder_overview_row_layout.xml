@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="56dp"
-    android:background="?backgroundColor">
+    android:background="@color/primary">
 
     <ImageView
         android:id="@+id/icon"
@@ -28,6 +28,7 @@
         android:ellipsize="marquee"
         android:maxLines="2"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+      android:textColor="@color/colorOnSurface"
         tools:text="/storage/scard1/Audiobooks/subfolder/subsdfer/subfodsdfsdffder/subsbder/subfolder/subfolder" />
 
     <ImageView

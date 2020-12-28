@@ -63,7 +63,7 @@
     <!--Settings-->
     <string name="action_settings">Réglages</string>
     <string name="pref_resume_on_replug">Reprendre la lecture</string>
-    <string name="pref_resume_on_replug_hint">Si vous avez mis en pause en débranchant le casque, la lecture reprendra en le rebranchant.</string>
+    <string name="pref_resume_on_replug_hint">Si vous avez mis en pause en débranchant le casque, la lecture reprendra en le rebranchant</string>
     <string name="min">%s min</string>
     <string name="delete_last_number">Supprime le dernier nombre saisi</string>
     <plurals name="seconds">
@@ -105,4 +105,27 @@
     <string name="book_category_sort_by_name">Nom</string>
     <string name="book_category_sort_by_last_played">Dernière lecture</string>
     <string name="book_category_sort_by_added">Ajouté</string>
+    <string name="grid">Grille</string>
+    <string name="list">liste</string>
+    <string name="contents">Contenu</string>
+    <string name="pref_changelog_title">Changelog</string>
+    <string name="pref_default_theme_title">Définir par defaut</string>
+    <string name="pref_category_playback">Relecture</string>
+    <string name="pref_category_support">Soutien</string>
+    <string name="pref_theme_hint">Menu de paramétrage du thème de l\'application</string>
+    <string name="pref_statusbar_color_title">Couleur de la barre d\'état</string>
+    <string name="pref_statusbar_color_summary">Définit la couleur de la barre d\'état sur une couleur différente de la couleur principale</string>
+    <string name="only_the_first_5_colors_available">Seules les 5 premières couleurs sont disponibles dans la version gratuite.</string>
+    <string name="label_theme_picker">Sélecteur de thème</string>
+    <string name="pref_theme_title">Thèmes</string>
+    <string name="pref_theme_summary">Sélectionnez un thème pré-installé</string>
+    <string name="pref_primary_color_title">Couleur primaire</string>
+    <string name="pref_primary_color_summary">Couleur des éléments actifs et barre d\'état</string>
+    <string name="pref_accent_color_title">Couleur d\'accent</string>
+    <string name="pref_accent_color_summary">Les accents sélectionnent des parties de l\'interface utilisateur</string>
+    <string name="pref_background_color_title">Couleur de l\'arrière plan</string>
+    <string name="pref_background_color_summary">La couleur sous-jacente du contenu de l\'application</string>
+    <string name="pref_category_appearance">Apparence</string>
+    <string name="pref_colored_navigation_bar_title">Couleur de la barre de navigation</string>
+    <string name="pref_colored_navigation_bar_summary">Appliquer la couleur d\'arrière-plan à la barre de navigation</string>
 </resources>

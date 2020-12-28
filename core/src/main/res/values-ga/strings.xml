@@ -67,4 +67,27 @@
     <string name="book_category_sort_by_name">Ainm</string>
     <string name="book_category_sort_by_last_played">An uair dheirneach a sheinn</string>
     <string name="book_category_sort_by_added">Curtha le</string>
+    <string name="grid">Grid</string>
+    <string name="list">Liosta</string>
+    <string name="contents">Clàr-innse</string>
+    <string name="pref_changelog_title">Changelog</string>
+    <string name="pref_default_theme_title">Suidhich bunaiteach</string>
+    <string name="pref_category_playback">Cluich</string>
+    <string name="pref_category_support">Taic</string>
+    <string name="pref_theme_hint">Clàr-taice suidheachadh cuspair tagraidh</string>
+    <string name="pref_statusbar_color_title">Dath inbhe inbhe</string>
+    <string name="pref_statusbar_color_summary">A ’suidheachadh dath a’ bhàr inbhe gu eadar-dhealaichte bhon bhun-sgoil</string>
+    <string name="only_the_first_5_colors_available">Chan eil ach a ’chiad 5 dathan rim faighinn anns an dreach an-asgaidh.</string>
+    <string name="label_theme_picker">Neach-togail Cuspair</string>
+    <string name="pref_theme_title">Cuspairean</string>
+    <string name="pref_theme_summary">Tagh cuspair ro-stàlaichte</string>
+    <string name="pref_primary_color_title">Dath bun-sgoile</string>
+    <string name="pref_primary_color_summary">Dath nan eileamaidean gnìomhach agus bàr inbhe</string>
+    <string name="pref_accent_color_title">Dath stràc</string>
+    <string name="pref_accent_color_summary">Bidh sràcan a ’taghadh pàirtean den UI</string>
+    <string name="pref_background_color_title">Dath cùl-fhiosrachaidh</string>
+    <string name="pref_background_color_summary">An dath bunaiteach air susbaint na h-aplacaid</string>
+    <string name="pref_category_appearance">Coltas</string>
+    <string name="pref_colored_navigation_bar_title">Dath bàr seòlaidh</string>
+    <string name="pref_colored_navigation_bar_summary">Cuir an dath cùl-raoin ris a ’bhàr seòlaidh</string>
 </resources>

@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="version">Version: 1.0.2</string>
+    <string name="version">Version: 1.0.3</string>
     <string name="pref_changelog_message"><![CDATA[
 <body>
-<i><h4><font color="#4c86cb">Version 1.0.3</font></h4></i>
-<i><p>1. <b>IMPROVEMENT:</b> Changed dialogs</p></i>
-<i><p>1. <b>IMPROVEMENT:</b> Changed settings menu</p></i>
+<i><h4>Version 1.0.3</h4></i>
+<i><p>1. <b>NEW:</b> Added the ability to change interface colors</p></i>
+<i><p>2. <b>IMPROVEMENT:</b> Changed dialogs</p></i>
+<i><p>3. <b>IMPROVEMENT:</b> Changed settings menu</p></i>
+<i><p>4. <b>FIX:</b> Application error when finishing some books</p></i>
+<i><p>5. <b>FIX:</b> Translation</p></i>
 </body>
 <br>
 <body>
-<i><h4><font color="#4c86cb">Version 1.0.2</font></h4></i>
-<i><p>1. <b>NEW:</b> Added chengelog</p></i>
+<i><h4>Version 1.0.2</h4></i>
+<i><p>1. <b>NEW:</b> Added changelog</p></i>
 <i><p>2. <b>NEW:</b> Added support for folding devices</p></i>
 <i><p>3. <b>IMPROVEMENT:</b> The design of the application has been changed, the icons have become rounded</p></i>
 <i><p>4. <b>IMPROVEMENT:</b> Changed the name of the bookmark created by the sleep timer</p></i>
@@ -19,7 +22,7 @@
 </body>
 <br>
 <body>
-<i><h4><font color="#4c86cb">Version 1.0.1</font></h4></i>
+<i><h4>Version 1.0.1</h4></i>
 <i><p>1. <b>NEW:</b> Added silence skipping function</p></i>
 <i><p>2. <b>IMPROVEMENT:</b> After the sleep timer ended, for 30 seconds you have the chance to shake the phone to restart the playback</p></i>
 <i><p>3. <b>IMPROVEMENT:</b> Dialog background changed</p></i>
@@ -30,7 +33,7 @@
 </body>
 <br>
 <body>
-<i><h4><font color="#4c86cb">Version 1.0.0</font></h4></i>
+<i><h4>Version 1.0.0</h4></i>
 <i><p><p>1. <b>NEW:</b> Application release</p></i>
 </body>
   ]]></string>

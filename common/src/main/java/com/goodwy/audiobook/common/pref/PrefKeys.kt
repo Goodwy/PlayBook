@@ -11,5 +11,5 @@ object PrefKeys {
   const val CURRENT_BOOK = "currentBook2"
   const val DARK_THEME = "darkTheme"
   const val GRID_MODE = "gridView"
-  const val CONTENTS_BUTTON_MODE = "contentsButtonMode"
+  const val CONTENTS_BUTTON_MODE = "tintNavBar"
 }

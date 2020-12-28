@@ -11,7 +11,7 @@
       android:id="@+id/toolbar"
       android:layout_width="0dp"
       android:layout_height="?attr/actionBarSize"
-      android:background="?colorPrimary"
+      android:background="?backgroundColor"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
       app:layout_constraintTop_toTopOf="parent"
@@ -98,13 +98,14 @@
       android:layout_marginLeft="1dp"
       android:layout_marginRight="1dp"
       android:layout_marginBottom="7dp"
-      app:thumbRadius="8dp"
-      app:trackHeight="3dp"
-      app:trackColorActive="?colorAccent"
-      app:trackColorInactive="?attr/colorControlHighlight"
       app:layout_constraintBottom_toTopOf="@id/play"
       app:layout_constraintLeft_toLeftOf="@id/cover"
-      app:layout_constraintRight_toRightOf="@id/cover" />
+      app:layout_constraintRight_toRightOf="@id/cover"
+      app:thumbRadius="8dp"
+      app:thumbColor="?colorAccent"
+      app:trackColorActive="?colorAccent"
+      app:trackColorInactive="?attr/colorControlHighlight"
+      app:trackHeight="3dp" />
 
     <ImageView
       android:id="@+id/previous"

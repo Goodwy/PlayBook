@@ -103,4 +103,27 @@
     <string name="book_category_sort_by_name">名</string>
     <string name="book_category_sort_by_last_played">上一次播放</string>
     <string name="book_category_sort_by_added">已添加</string>
+    <string name="grid">格</string>
+    <string name="list">視圖</string>
+    <string name="contents">內容</string>
+    <string name="pref_changelog_title">變更日誌</string>
+    <string name="pref_default_theme_title">默認設置</string>
+    <string name="pref_category_playback">回放</string>
+    <string name="pref_category_support">支持</string>
+    <string name="pref_theme_hint">應用程序主題設置菜單</string>
+    <string name="pref_statusbar_color_title">狀態欄顏色</string>
+    <string name="pref_statusbar_color_summary">將狀態欄顏色設置為與主顏色不同</string>
+    <string name="only_the_first_5_colors_available">免費版僅提供前5種顏色。</string>
+    <string name="label_theme_picker">主題選擇器</string>
+    <string name="pref_theme_title">主題</string>
+    <string name="pref_theme_summary">選擇一個預裝的主題</string>
+    <string name="pref_primary_color_title">原色</string>
+    <string name="pref_primary_color_summary">活動元素和狀態欄的顏色</string>
+    <string name="pref_accent_color_title">口音顏色</string>
+    <string name="pref_accent_color_summary">口音選擇UI的一部分</string>
+    <string name="pref_background_color_title">背景顏色</string>
+    <string name="pref_background_color_summary">應用內容的基本顏色</string>
+    <string name="pref_category_appearance">出現</string>
+    <string name="pref_colored_navigation_bar_title">導航欄顏色</string>
+    <string name="pref_colored_navigation_bar_summary">將背景顏色應用於導航欄</string>
 </resources>

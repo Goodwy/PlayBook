@@ -21,7 +21,7 @@ class SettingsViewModel
   @Named(PrefKeys.SEEK_TIME)
   private val seekTimePref: Pref<Int>,
   @Named(PrefKeys.CONTENTS_BUTTON_MODE)
-  private val contentsButtonMode: Pref<Boolean>
+  private val tintNavBar: Pref<Boolean>
 ) {
 
   private val _viewEffects = BroadcastChannel<SettingsViewEffect>(1)
@@ -33,15 +33,15 @@ class SettingsViewModel
       resumeOnReplugPref.flow,
       autoRewindAmountPref.flow,
       seekTimePref.flow,
-      contentsButtonMode.flow
-    ) { useDarkTheme, resumeOnreplug, autoRewindAmount, seekTime, contentsButtonMode ->
+      tintNavBar.flow
+    ) { useDarkTheme, resumeOnreplug, autoRewindAmount, seekTime, tintNavBar ->
       SettingsViewState(
         useDarkTheme = useDarkTheme,
         showDarkThemePref = DARK_THEME_SETTABLE,
         resumeOnReplug = resumeOnreplug,
         seekTimeInSeconds = seekTime,
         autoRewindInSeconds = autoRewindAmount,
-        contentsButtonMode = contentsButtonMode
+        tintNavBar = tintNavBar
       )
     }
   }
@@ -62,7 +62,7 @@ class SettingsViewModel
     _viewEffects.offer(SettingsViewEffect.ShowChangeAutoRewindAmountDialog(seekTimePref.value))
   }
 
-  fun toggleContentsButtonMode() {
-    contentsButtonMode.value = !contentsButtonMode.value
+  fun toggleTintNavBar() {
+    tintNavBar.value = !tintNavBar.value
   }
 }

@@ -3,7 +3,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
-  tools:parentTag="com.goodwy.audiobook.features.settings.DividerSettingView">
+  tools:parentTag="com.goodwy.audiobook.features.settings.OneSettingView">
 
     <TextView
       android:id="@+id/title"
@@ -12,17 +12,17 @@
       android:layout_marginLeft="16dp"
       android:layout_marginRight="16dp"
       android:textAppearance="?textAppearanceBody1"
+      android:textColor="?android:textColorSecondary"
       tools:text="Audiobook Folder" />
 
     <TextView
       android:id="@+id/description"
-      style="@style/Widget.AppCompat.TextView"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginLeft="16dp"
       android:layout_marginRight="16dp"
       android:textAppearance="?textAppearanceBody2"
-      android:textColor="?colorAccent"
+      android:textColor="?android:textColorSecondary"
       tools:text="The selected audiobook folders" />
 
 </merge>

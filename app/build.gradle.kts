@@ -130,6 +130,7 @@ dependencies {
   implementation(Deps.MaterialDialog.core)
   implementation(Deps.MaterialDialog.input)
   implementation(Deps.MaterialDialog.bottomsheets)
+  implementation(Deps.MaterialDialog.color)
   implementation(Deps.materialCab)
 
   implementation(Deps.Jaredrummler.cyanea)

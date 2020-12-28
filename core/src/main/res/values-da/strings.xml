@@ -105,4 +105,27 @@
     <string name="book_category_sort_by_name">Navn</string>
     <string name="book_category_sort_by_last_played">Sidst spillet</string>
     <string name="book_category_sort_by_added">Lagt</string>
+    <string name="grid">Gitter</string>
+    <string name="list">Liste</string>
+    <string name="contents">Indhold</string>
+    <string name="pref_changelog_title">Changelog</string>
+    <string name="pref_default_theme_title">Sæt standard</string>
+    <string name="pref_category_playback">Afspilning</string>
+    <string name="pref_category_support">Support</string>
+    <string name="pref_theme_hint">Menu til indstilling af applikationstema</string>
+    <string name="pref_statusbar_color_title">Statuslinjefarve</string>
+    <string name="pref_statusbar_color_summary">Indstiller farven på statuslinjen til forskellig fra den primære</string>
+    <string name="only_the_first_5_colors_available">Kun de første 5 farver er tilgængelige i den gratis version.</string>
+    <string name="label_theme_picker">Temavælger</string>
+    <string name="pref_theme_title">Temaer</string>
+    <string name="pref_theme_summary">Vælg et forudinstalleret tema</string>
+    <string name="pref_primary_color_title">Primær farve</string>
+    <string name="pref_primary_color_summary">Farve på aktive elementer og statuslinje</string>
+    <string name="pref_accent_color_title">Accentfarve</string>
+    <string name="pref_accent_color_summary">Accenter vælger dele af brugergrænsefladen</string>
+    <string name="pref_background_color_title">Baggrundsfarve</string>
+    <string name="pref_background_color_summary">Den underliggende farve af appens indhold</string>
+    <string name="pref_category_appearance">Udseende</string>
+    <string name="pref_colored_navigation_bar_title">Navigationsbjælkens farve</string>
+    <string name="pref_colored_navigation_bar_summary">Anvend baggrundsfarven på navigationslinjen</string>
 </resources>

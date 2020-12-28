@@ -57,5 +57,26 @@
     <string name="network_top">هذا لا يعمل بشكل جيد جداً</string>
     <string name="cover_crop">إقتصاص الغطاء</string>
     <string name="onboarding_title">مرحباً!</string>
+    <string name="contents">محتويات</string>
+    <string name="pref_changelog_title">التغيير</string>
+    <string name="pref_default_theme_title">الوضع الإفتراضي</string>
+    <string name="pref_category_playback">تشغيل</string>
+    <string name="pref_category_support">الدعم</string>
+    <string name="pref_theme_hint">قائمة إعداد سمة التطبيق</string>
+    <string name="pref_statusbar_color_title">لون شريط الحالة</string>
+    <string name="pref_statusbar_color_summary">يضبط لون شريط الحالة ليختلف عن اللون الأساسي</string>
+    <string name="only_the_first_5_colors_available">تتوفر الألوان الخمسة الأولى فقط في الإصدار المجاني.</string>
+    <string name="label_theme_picker">منتقي الموضوع</string>
+    <string name="pref_theme_title">ثيمات</string>
+    <string name="pref_theme_summary">حدد سمة مثبتة مسبقًا</string>
+    <string name="pref_primary_color_title">لون أصلي</string>
+    <string name="pref_primary_color_summary">لون العناصر النشطة وشريط الحالة</string>
+    <string name="pref_accent_color_title">لون التمييز</string>
+    <string name="pref_accent_color_summary">اللكنات تحدد أجزاء من واجهة المستخدم</string>
+    <string name="pref_background_color_title">لون الخلفية</string>
+    <string name="pref_background_color_summary">اللون الأساسي لمحتوى التطبيق</string>
+    <string name="pref_category_appearance">مظهر خارجي</string>
+    <string name="pref_colored_navigation_bar_title">لون شريط التنقل</string>
+    <string name="pref_colored_navigation_bar_summary">قم بتطبيق لون الخلفية على شريط التنقل</string>
     <!--book category-->
 </resources>

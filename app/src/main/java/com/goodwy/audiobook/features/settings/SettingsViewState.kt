@@ -6,5 +6,5 @@ data class SettingsViewState(
   val resumeOnReplug: Boolean,
   val seekTimeInSeconds: Int,
   val autoRewindInSeconds: Int,
-  val contentsButtonMode: Boolean
+  val tintNavBar: Boolean
 )
