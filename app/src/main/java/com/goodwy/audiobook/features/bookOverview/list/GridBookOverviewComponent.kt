@@ -94,6 +94,9 @@ class BookOverviewHolder(
 
     cover.transitionName = model.transitionName
     remainingTime.text = formatTime(model.remainingTimeInMs)
+    playedTime.text = model.playedTimeInPer.toString()
+    val percent = '%'
+    percentText.text = percent.toString()
     this.progress.progress = model.progress
     loadBookCover.load(model.book)
 

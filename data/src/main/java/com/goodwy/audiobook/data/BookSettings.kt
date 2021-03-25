@@ -21,6 +21,8 @@ data class BookSettings(
   val loudnessGain: Int = 0,
   @ColumnInfo(name = "skipSilence")
   val skipSilence: Boolean = false,
+  @ColumnInfo(name = "showChapterNumbers")
+  val showChapterNumbers: Boolean = true,
   @ColumnInfo(name = "active")
   val active: Boolean,
   @ColumnInfo(name = "lastPlayedAtMillis")

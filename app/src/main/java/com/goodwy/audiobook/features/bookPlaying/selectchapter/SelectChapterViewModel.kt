@@ -31,7 +31,7 @@ class SelectChapterViewModel
     if (book == null) {
       Timber.d("no book found for $bookId. CloseScreen")
       _viewEffects.offer(SelectChapterViewEffect.CloseScreen)
-      return SelectChapterViewState(emptyList(), null)
+      return SelectChapterViewState(emptyList(), null, false)
     }
 
     val chapterMarks = book.content.chapters.flatMap {
@@ -39,7 +39,8 @@ class SelectChapterViewModel
     }
     val currentMark = book.content.currentChapter.markForPosition(book.content.positionInChapter)
     val selectedIndex = chapterMarks.indexOf(currentMark)
-    return SelectChapterViewState(chapterMarks, selectedIndex.takeUnless { it == -1 })
+    val showChapterNumbers = book.content.showChapterNumbers
+    return SelectChapterViewState(chapterMarks, selectedIndex.takeUnless { it == -1 }, showChapterNumbers)
   }
 
   fun chapterClicked(index: Int) {

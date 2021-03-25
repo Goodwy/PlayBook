@@ -84,5 +84,6 @@
     <string name="no_network">به شبکه متصل نیستید؟</string>
     <string name="network_top">این کار خیلی خوب پیش نرفت...</string>
     <string name="cover_crop">بریدن جلد</string>
+    <string name="pref_pay_title">از PlayBooks پشتیبانی کنید</string>
     <!--book category-->
 </resources>

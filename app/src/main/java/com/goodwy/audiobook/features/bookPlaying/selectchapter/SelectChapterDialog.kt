@@ -52,7 +52,11 @@ class SelectChapterDialog(bundle: Bundle) : DialogController(bundle) {
       ) { data, position ->
         root.setOnClickListener(listener)
         @Suppress("SetTextI18n")
-        textView.text = "${position + 1} - ${data.name}"
+        if (viewState.showChapterNumbers) {
+          textView.text = "${position + 1} - ${data.name}"
+        } else {
+          textView.text = "${data.name}"
+        }
         textView.setCompoundDrawablesWithIntrinsicBounds(
           0,
           0,
@@ -72,7 +76,7 @@ class SelectChapterDialog(bundle: Bundle) : DialogController(bundle) {
       if (viewState.selectedIndex != null) {
         getRecyclerView().layoutManager!!.scrollToPosition(viewState.selectedIndex)
       }
-      positiveButton (R.string.dialog_ок)
+      positiveButton (R.string.dialog_ok)
     }
   }
 

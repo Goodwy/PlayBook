@@ -25,7 +25,7 @@
     <!--Dialogs-->
     <string name="dialog_confirm">Set</string>
     <string name="dialog_cancel">Cancel</string>
-    <string name="dialog_ок">Ок</string>
+    <string name="dialog_ok">Ok</string>
     <!--EditBookDialog-->
     <string name="content_cover">Shows cover to choose</string>
     <string name="change_book_name">Name</string>
@@ -87,19 +87,39 @@
     <string name="pref_about_url2">GitHub</string>
     <string name="pref_about_url3">Other apps</string>
     <string name="pref_about_message"><![CDATA[
-    An open source <b>PlayBooks</b> audiobook player. PlayBooks is based on the open source <a href="https://github.com/PaulWoitaschek/Voice">Voice</a> application.
-    <br/><br/>
-    I would be very grateful if you leave a review or rating about the application.<br/><br/>
-    Links:
-  ]]></string>
+        An open source <b>PlayBooks</b> audiobook player. PlayBooks is based on the open source Voice application.
+        <br/><br/>
+
+        I would be very grateful if you leave a review or rating about the application.<br/>
+    ]]></string>
     <string name="pref_licenses_title">Licenses</string>
-    <string name="pref_pay_title">Buy full version</string>
+    <string name="pref_pay_title">Support PlayBooks</string>
     <string name="pref_pay_message"><![CDATA[
  <b>Unlocks</b> extra features, such as <b>black theme</b> and <b>all theme colors</b>.<br/><br/>
 The source code of <b>PlayBooks</b> is available on <a href="https://github.com/Goodwy/PlayBooks">GitHub</a>. You are welcome to compile the full version yourself for free. However, if you want to support the development and receive updates through the Google Play, consider purchasing full version.<br/><br/>
 <i>Thank you,<br/>
 Goodwy</i>
   ]]></string>
+    <string name="support_email" translatable="false">goodwy.dev@gmail.com</string>
+    <string name="email_subject_lifebuoy" translatable="false">Lifebuoy</string>
+    <string name="email_support_lifebuoy" translatable="false">Support and Suggestions</string>
+    <string name="email_chooser_title">Send Email</string>
+    <string name="special_thanks_message"><![CDATA[
+        <b>Paul Woitaschek</b> for contributing to the source code <b>Voice</b>.<br/>
+        <a href="https://paul-woitaschek.de/">Website</a>&nbsp;&nbsp;
+        <a href="https://github.com/PaulWoitaschek">GitHub</a>&nbsp;&nbsp;
+        <br/><br/>
+
+        <b>Aidan Follestad</b> for the best <b>Material Dialogs</b>.<br/>
+        <a href="https://af.codes/">Website</a>&nbsp;&nbsp;
+        <a href="https://github.com/afollestad">GitHub</a>&nbsp;&nbsp;
+        <br/><br/>
+
+        <b>Jared Rummler</b> for the best theme engine <b>Cyanea</b>.<br/>
+        <a href="https://portfolio.jaredrummler.com/">Website</a>&nbsp;&nbsp;
+        <a href="https://github.com/jaredrummler">GitHub</a>&nbsp;&nbsp;
+        <br/><br/>
+    ]]></string>
     <!--Misc-->
     <string name="popup_edit">Edit</string>
     <string name="remove">Remove</string>
@@ -129,14 +149,83 @@ Goodwy</i>
     <string name="grid">Grid View</string>
     <string name="list">List View</string>
     <string name="contents">Contents</string>
-    <string name="pref_changelog_title">Changelog</string>
+    <string name="only_the_first_5_colors_available">Only the first 5 colors are available in the free version.</string>
+    <string name="palettes">Color palettes</string>
+    <string name="original">Original design</string>
+    <string name="material">Material design</string>
+    <string name="ios">iOS design</string>
+    <string name="learn_more">LEARN MORE</string>
+    <string name="version">Version</string>
+    <string name="show_chapter_numbers">Show chapter numbers</string>
+    <string name="delete_file">Delete current file</string>
+
+    <!-- Settings -->
     <string name="pref_default_theme_title">Set default</string>
     <string name="pref_category_playback">Playback</string>
     <string name="pref_category_support">Support</string>
     <string name="pref_theme_hint">Application theme setting menu</string>
     <string name="pref_statusbar_color_title">Statusbar color</string>
     <string name="pref_statusbar_color_summary">Sets the status bar color to different from the primary</string>
-    <string name="only_the_first_5_colors_available">Only the first 5 colors are available in the free version.</string>
+    <string name="pref_pay_summary">Get PlayBooks to support future development and extra features</string>
+    <string name="pref_category_other">Other</string>
+    <string name="pref_skip_interval_title">Skip interval</string>
+    <string name="pref_skip_interval_summary">Amount skip and auto rewind settings</string>
+    <string name="pref_appearance_ui_title">Appearance UI</string>
+    <string name="pref_appearance_ui_summary">Customize user interface</string>
+    <string name="pref_screen_orientation_title">Screen orientation</string>
+    <string name="pref_screen_orientation_summary_portrait">Sets portrait orientation regardless of device settings</string>
+    <string name="pref_screen_orientation_summary_system">Screen orientation depends on device settings</string>
+    <string name="pref_screen_orientation_value_portrait">Portrait</string>
+    <string name="pref_screen_orientation_value_system">System</string>
+    <string name="pref_show_grid_view_auto_title">Automatic change view grid</string>
+    <string name="pref_show_grid_view_auto_summary">Depending on the screen size</string>
+
+    <!-- Beta -->
+    <string name="pref_beta_title">Beta</string>
+    <string name="pref_beta_summary">Experimental features</string>
+    <string name="pref_show_slider_volume_title">Volume Control</string>
+    <string name="pref_show_slider_volume_summary">Showing \'Volume Control\' on the playback screen</string>
+
+    <!-- About -->
+    <string name="pref_github_title">GitHub</string>
+    <string name="pref_github_summary">Join our project</string>
+    <string name="pref_rate_title">Rate PlayBooks</string>
+    <string name="pref_other_app_title">Other Apps</string>
+    <string name="pref_changelog_title">Changelog</string>
+    <string name="pref_privacy_title">Privacy policy</string>
+    <string name="pref_share_title">Share</string>
+
+    <!-- Appearance UI -->
+    <string name="pref_show_mini_player_title">Mini player style</string>
+    <string name="pref_show_mini_player_summary">Library screen mini player style</string>
+    <string name="pref_mini_player_floating_button">Button</string>
+    <string name="pref_mini_player_mini_player_floating">Floating player</string>
+    <string name="pref_rewind_buttons_style_title">Rewind buttons style</string>
+    <string name="pref_rewind_buttons_style_summary">Selecting the style of the rewind buttons in the player</string>
+    <string name="pref_rewind_buttons_style_classic">Classic</string>
+    <string name="pref_rewind_buttons_style_rounded">Rounded</string>
+
+    <!-- Rate -->
+    <string name="rate_dismiss">Dismiss</string>
+    <string name="rate_okay">OKAY!</string>
+    <string name="rate_title">Enjoying PlayBooks?</string>
+    <string name="rate_summary">Share some love and rate us on Google Play! It is very important for us.</string>
+
+    <!-- Support project -->
+    <string name="action_support_project">Support project</string>
+    <string name="get_playbooks">Get PlayBooks</string>
+    <string name="sp_dark_title">Dark Theme</string>
+    <string name="sp_dark_summary">Dark theme uses less power on AMOLED displays. Click to enable the dark theme, will remain in effect until the application is restarted.</string>
+    <string name="sp_color_title">Colors</string>
+    <string name="sp_color_summary">Carefully picked color themes, as well as color palettes recommended for use in Android and iOS.</string>
+    <string name="sp_plus_title">Support us</string>
+    <string name="sp_plus_summary">PlayBooks Lite is free, ad-free, Open Source and it will always remain that way. With your help we are able to implement more features and make PlayBooks even better.</string>
+    <string name="sp_lifebuoy_title">Lifebuoy</string>
+    <string name="sp_lifebuoy_summary">If you cannot afford this PlayBooks, but really want to use it, then write me an email.</string>
+    <string name="sp_participants_title">Participants:</string>
+    <string name="special_thanks_to">Special thanks to</string>
+    <string name="change_book_author">Author</string>
+    <string name="edit_book_author">Edit author</string>
 
     <!-- Theme -->
     <string name="label_theme_picker">Theme Picker</string>

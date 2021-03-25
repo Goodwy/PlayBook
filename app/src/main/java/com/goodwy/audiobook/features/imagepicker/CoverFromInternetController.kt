@@ -134,6 +134,7 @@ class CoverFromInternetController(bundle: Bundle) : ViewBindingController<ImageP
     cab = activity!!.createCab(R.id.cabStub) {
       menu(R.menu.crop_menu)
       closeDrawable(R.drawable.close)
+      closeDrawable(R.drawable.close)
       onSelection { item ->
         if (item.itemId == R.id.confirm) {
           val bitmap = takeWebViewScreenshot()

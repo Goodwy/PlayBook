@@ -10,6 +10,7 @@ import com.goodwy.audiobook.playback.session.forcedPrevious
 import com.goodwy.audiobook.playback.session.playPause
 import com.goodwy.audiobook.playback.session.setLoudnessGain
 import com.goodwy.audiobook.playback.session.setPosition
+import com.goodwy.audiobook.playback.session.showChapterNumbers
 import com.goodwy.audiobook.playback.session.skipSilence
 import timber.log.Timber
 import java.io.File
@@ -58,6 +59,8 @@ class PlayerController
   fun setLoudnessGain(mB: Int) = execute { it.setLoudnessGain(mB) }
 
   fun skipSilence(skip: Boolean) = execute { it.skipSilence(skip) }
+
+  fun showChapterNumbers(show: Boolean) = execute { it.showChapterNumbers(show) }
 
   fun fastForward() = execute { it.fastForward() }
 

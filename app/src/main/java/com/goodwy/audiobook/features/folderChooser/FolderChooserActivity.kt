@@ -70,12 +70,12 @@ class FolderChooserActivity : RxBaseActivity<FolderChooserView, FolderChooserPre
       presenter().fileSelected(it)
     }
     recycler.layoutManager = LinearLayoutManager(this)
-    recycler.addItemDecoration(
+   /* recycler.addItemDecoration(
         DividerItemDecoration(
             this,
             DividerItemDecoration.VERTICAL
         )
-    )
+    )*/
     recycler.adapter = adapter
     val itemAnimator = recycler.itemAnimator as DefaultItemAnimator
     itemAnimator.supportsChangeAnimations = false

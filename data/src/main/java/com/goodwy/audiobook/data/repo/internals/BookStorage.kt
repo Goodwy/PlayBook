@@ -89,6 +89,12 @@ class BookStorage
     }
   }
 
+  suspend fun updateBookAuthor(id: UUID, author: String) {
+    synchronizedWithIoDispatcher {
+      metaDataDao.updateBookAuthor(id, author)
+    }
+  }
+
   suspend fun updateLastPlayedAt(id: UUID, lastPlayedAt: Long) {
     synchronizedWithIoDispatcher {
       bookSettingsDao.updateLastPlayedAt(id, lastPlayedAt)

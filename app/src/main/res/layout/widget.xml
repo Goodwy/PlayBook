@@ -24,6 +24,7 @@
         android:adjustViewBounds="true"
         android:contentDescription="@string/content_cover"
       tools:ignore="HardcodedText"/>
+
     </LinearLayout>
 
     <LinearLayout

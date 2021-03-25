@@ -6,6 +6,7 @@ import com.goodwy.audiobook.features.bookOverview.list.header.BookOverviewCatego
 sealed class BookOverviewState {
 
   data class Content(
+    val miniPlayerStylePref: Int,
     val playing: Boolean,
     val currentBookPresent: Boolean,
     val categoriesWithContents: Map<BookOverviewCategory, BookOverviewCategoryContent>,

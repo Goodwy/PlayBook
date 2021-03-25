@@ -53,6 +53,70 @@ object PrefsModule {
   @Provides
   @JvmStatic
   @Singleton
+  @Named(PrefKeys.SHOW_RATING)
+  fun showRatingPref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.SHOW_RATING, true)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.SHOW_SLIDER_VOLUME)
+  fun showSliderVolumePref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.SHOW_SLIDER_VOLUME, false)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.DEV_MODE)
+  fun devModePref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.DEV_MODE, false)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.ICON_MODE)
+  fun iconModePref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.ICON_MODE, false)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.SCREEN_ORIENTATION)
+  fun screenOrientationPref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.SCREEN_ORIENTATION, false)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.SHOW_MINI_PLAYER)
+  fun showMiniPlayerPref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.SHOW_MINI_PLAYER, false)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.MINI_PLAYER_STYLE)
+  fun miniPlayerStylePref(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.MINI_PLAYER_STYLE, 1)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.REWIND_BUTTON_STYLE)
+  fun rewindButtonStylePref(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.REWIND_BUTTON_STYLE, 1)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
   @Named(PrefKeys.RESUME_ON_REPLUG)
   fun provideResumeOnReplugPreference(prefs: AndroidPreferences): Pref<Boolean> {
     return prefs.boolean(PrefKeys.RESUME_ON_REPLUG, true)
@@ -72,6 +136,14 @@ object PrefsModule {
   @Named(PrefKeys.SEEK_TIME)
   fun provideSeekTimePreference(prefs: AndroidPreferences): Pref<Int> {
     return prefs.int(PrefKeys.SEEK_TIME, 20)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.SEEK_TIME_REWIND)
+  fun provideSeekTimeRewindPreference(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.SEEK_TIME_REWIND, 20)
   }
 
   @Provides
@@ -112,5 +184,13 @@ object PrefsModule {
   @Named(PrefKeys.GRID_MODE)
   fun gridViewPref(prefs: AndroidPreferences): Pref<GridMode> {
     return prefs.enum(PrefKeys.GRID_MODE, GridMode.FOLLOW_DEVICE)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.GRID_AUTO)
+  fun gridViewAutoPref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.GRID_AUTO, true)
   }
 }

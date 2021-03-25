@@ -22,6 +22,8 @@ android {
     versionCode = Versions.versionCode
     versionName = Versions.versionName
 
+    setProperty("archivesBaseName", "${applicationId}-v${versionName}")
+
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
     ndk {
@@ -134,6 +136,8 @@ dependencies {
   implementation(Deps.materialCab)
 
   implementation(Deps.Jaredrummler.cyanea)
+
+  implementation(Deps.BillingClient.billing)
 
   implementation(Deps.floatingActionButton)
 

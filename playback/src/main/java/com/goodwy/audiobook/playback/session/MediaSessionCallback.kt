@@ -121,6 +121,10 @@ class MediaSessionCallback
         val skip = extras!!.getBoolean(SKIP_SILENCE_EXTRA)
         player.setSkipSilences(skip)
       }
+      SHOW_CHAPTER_NUMBER_ACTION -> {
+        val skip = extras!!.getBoolean(SHOW_CHAPTER_NUMBER_EXTRA)
+        player.setShowChapterNumbers(skip)
+      }
       SET_LOUDNESS_GAIN_ACTION -> {
         val mB = extras!!.getInt(SET_LOUDNESS_GAIN_EXTRA_MB)
         player.setLoudnessGain(mB)
@@ -156,6 +160,13 @@ private const val SKIP_SILENCE_EXTRA = "$SKIP_SILENCE_ACTION#value"
 
 fun TransportControls.skipSilence(skip: Boolean) = sendCustomAction(SKIP_SILENCE_ACTION) {
   putBoolean(SKIP_SILENCE_EXTRA, skip)
+}
+
+private const val SHOW_CHAPTER_NUMBER_ACTION = "showChapterNumbers"
+private const val SHOW_CHAPTER_NUMBER_EXTRA = "$SHOW_CHAPTER_NUMBER_ACTION#value"
+
+fun TransportControls.showChapterNumbers(skip: Boolean) = sendCustomAction(SHOW_CHAPTER_NUMBER_ACTION) {
+  putBoolean(SHOW_CHAPTER_NUMBER_EXTRA, skip)
 }
 
 private const val SET_LOUDNESS_GAIN_ACTION = "setLoudnessGain"

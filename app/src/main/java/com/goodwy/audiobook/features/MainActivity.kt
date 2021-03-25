@@ -2,9 +2,11 @@ package com.goodwy.audiobook.features
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.ViewGroup
+import android.widget.Toast
 import com.bluelinelabs.conductor.Controller
 import com.bluelinelabs.conductor.ControllerChangeHandler
 import com.bluelinelabs.conductor.Router
@@ -47,6 +49,8 @@ class MainActivity : BaseActivity(), RouterProvider,
   lateinit var singleBookFolderPref: Pref<Set<String>>
   @field:[Inject Named(PrefKeys.COLLECTION_BOOK_FOLDERS)]
   lateinit var collectionBookFolderPref: Pref<Set<String>>
+  @field:[Inject Named(PrefKeys.SCREEN_ORIENTATION)]
+  lateinit var screenOrientationPref: Pref<Boolean>
   @Inject
   lateinit var repo: BookRepository
   @Inject
@@ -59,10 +63,16 @@ class MainActivity : BaseActivity(), RouterProvider,
   private lateinit var router: Router
 
   override fun onCreate(savedInstanceState: Bundle?) {
+    setTheme(R.style.splashScreenTheme)
     appComponent.inject(this)
     delegate.onCreate(savedInstanceState)
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_book)
+    if (screenOrientationPref.value) {
+      setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+    } else {
+      setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER)
+    }
 
     permissions = Permissions(this)
     permissionHelper = PermissionHelper(this, permissions)
@@ -184,6 +194,15 @@ class MainActivity : BaseActivity(), RouterProvider,
       shouldTintNavBar(false)
     }.recreate(this)
   }*/
+
+  override fun closeOptionsMenu() {
+    super.closeOptionsMenu()
+    if (screenOrientationPref.value) {
+      setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+    } else {
+      setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER)
+    }
+  }
 
     private val delegate: CyaneaDelegate by lazy {
     CyaneaDelegate.create(this, cyanea, getThemeResId())

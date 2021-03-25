@@ -2,4 +2,6 @@
 <resources>
     <color name="primaryDark">#0c0b10</color>
     <color name="placeholderCoverColor">@color/primaryDark</color>
+    <color name="colorIcon">#FFFFFF</color> <!--Icons-->
+    <color name="colorIconSecond">#c6c6c7</color> <!--Icons-->
 </resources>

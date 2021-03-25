@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:layout_height="wrap_content"
+  tools:layout_width="wrap_content"
+  tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <ImageView
+      android:id="@+id/rewind"
+      style="@style/FastForwardRewindStyle"
+      android:layout_marginEnd="20dp"
+      android:contentDescription="@string/rewind"
+      android:src="@drawable/ic_fast_rewind"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toRightOf="@id/radioButton"
+      app:layout_constraintRight_toLeftOf="@id/fastForward"
+      app:layout_constraintTop_toTopOf="@id/title" />
+
+    <ImageView
+      android:id="@+id/fastForward"
+      style="@style/FastForwardRewindStyle"
+      android:layout_marginStart="20dp"
+      android:layout_marginEnd="60dp"
+      android:contentDescription="@string/fast_forward"
+      android:src="@drawable/ic_fast_forward"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toRightOf="@id/rewind"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@id/title" />
+
+    <TextView
+      android:id="@+id/title"
+      android:layout_width="0dp"
+      android:layout_height="40dp"
+      android:gravity="center_horizontal"
+      android:textAppearance="?textAppearanceBody1"
+      app:layout_constraintBottom_toTopOf="@+id/rewind"
+      app:layout_constraintEnd_toEndOf="@+id/fastForward"
+      app:layout_constraintStart_toStartOf="@+id/rewind"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_chainStyle="packed"
+      tools:text="Resume Playback" />
+
+    <RadioButton
+      android:id="@+id/radioButton"
+      style="@style/Widget.App.Switch"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="40dp"
+      android:layout_marginEnd="40dp"
+      android:clickable="false"
+      android:saveEnabled="false"
+      app:layout_constraintBottom_toBottomOf="@+id/rewind"
+      app:layout_constraintEnd_toStartOf="@+id/rewind"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/rewind"
+      app:useMaterialThemeColors="false" />
+
+</merge>

@@ -20,6 +20,7 @@ data class BookOverviewModel(
   val progress: Float,
   val book: Book,
   val remainingTimeInMs: Long,
+  val playedTimeInPer: Long,
   val isCurrentBook: Boolean,
   val useGridView: Boolean
 ) : BookOverviewItem() {
@@ -31,6 +32,7 @@ data class BookOverviewModel(
     book = book,
     progress = book.progress(),
     remainingTimeInMs = book.remainingTimeInMs(),
+    playedTimeInPer = book.playedTimeInPer(),
     isCurrentBook = isCurrentBook,
     useGridView = useGridView
   )
@@ -41,6 +43,7 @@ data class BookOverviewModel(
     return oldBook.id == newBook.id &&
         oldBook.content.position == newBook.content.position &&
         name == other.name &&
+        author == other.author &&
         isCurrentBook == other.isCurrentBook &&
         useGridView == other.useGridView
   }
@@ -67,4 +70,8 @@ private fun Book.progress(): Float {
 
 private fun Book.remainingTimeInMs(): Long {
   return content.duration - content.position
+}
+
+private fun Book.playedTimeInPer(): Long {
+  return (content.position * 100) / content.duration
 }

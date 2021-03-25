@@ -13,7 +13,7 @@
                 android:pivotY="12">
                 <path
                     android:name="path"
-                    android:fillColor="?attr/colorControlNormal"
+                    android:fillColor="@color/colorIcon"
                     android:pathData="M 8 19 C 9.1 19 10 18.1 10 17 C 10 15.889 10 14.778 10 13.667 L 10 10.333 C 10 9.222 10 8.111 10 7 C 10 5.9 9.1 5 8 5 C 6.9 5 6 5.9 6 7 L 6 17 C 6 18.1 6.9 19 8 19 C 8 19 8 19 8 19 M 14 7 L 14 7 C 14 5.9 14.9 5 16 5 C 17.1 5 18 5.9 18 7 L 18 17 C 18 18.1 17.1 19 16 19 C 14.9 19 14 18.1 14 17 L 14 7"
                     android:strokeWidth="1" />
             </group>

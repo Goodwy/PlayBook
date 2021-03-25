@@ -51,9 +51,9 @@ class FolderOverviewController :
     // preparing list
     val layoutManager = LinearLayoutManager(activity)
     recycler.layoutManager = layoutManager
-    recycler.addItemDecoration(
+   /* recycler.addItemDecoration(
         DividerItemDecoration(activity, DividerItemDecoration.VERTICAL)
-    )
+    )*/
 
     adapter = FolderOverviewAdapter { toDelete ->
       val toDeleteName = toDelete.folder

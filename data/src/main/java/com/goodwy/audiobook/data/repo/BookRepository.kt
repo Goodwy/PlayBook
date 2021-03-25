@@ -42,6 +42,7 @@ class BookRepository
 
   suspend fun addBook(book: Book) {
     Timber.v("addBook=${book.name}")
+    Timber.v("addBook=${book.author}")
     require(book.content.settings.active) {
       "Book $book must be active"
     }
@@ -60,11 +61,23 @@ class BookRepository
     storage.updateBookName(id, name)
   }
 
+  suspend fun updateBookAuthor(id: UUID, author: String) {
+    memory.updateBookAuthor(id, author)
+    storage.updateBookAuthor(id, author)
+  }
+
   suspend fun setBookActive(bookId: UUID, active: Boolean) {
     Timber.d("setBookActive(bookId=$bookId, active=$active)")
     memory.setBookActive(bookId, active)
     storage.setBookActive(bookId, active)
   }
+
+  /*suspend fun hideBook(idToDelete: UUID) {
+    val toDelete = ArrayList<Book>()
+    val aBook = bookById(idToDelete)
+    aBook?.let { toDelete.add(it) }
+    hideBook(toDelete)
+  }*/
 
   fun chapterByFile(file: File): Chapter? {
     memory.allBooks().forEach { book ->

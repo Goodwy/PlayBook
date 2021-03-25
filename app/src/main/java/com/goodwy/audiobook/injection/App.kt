@@ -13,6 +13,7 @@ import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.crashreporting.CrashLoggingTree
 import com.goodwy.audiobook.crashreporting.CrashReporter
 import com.goodwy.audiobook.features.BookAdder
+import com.goodwy.audiobook.features.settings.SettingsViewModel
 import com.goodwy.audiobook.features.widget.TriggerWidgetOnChange
 import com.goodwy.audiobook.misc.DARK_THEME_SETTABLE
 import com.goodwy.audiobook.misc.StrictModeInit
@@ -20,6 +21,7 @@ import com.goodwy.audiobook.playback.androidauto.AndroidAutoConnectedReceiver
 import com.goodwy.audiobook.playback.di.PlaybackComponent
 import com.goodwy.audiobook.playback.di.PlaybackComponentFactoryProvider
 import com.jaredrummler.cyanea.Cyanea
+import com.jaredrummler.cyanea.app.BaseCyaneaActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.collect
@@ -29,8 +31,11 @@ import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Named
 
-class App : Application(), PlaybackComponentFactoryProvider {
+class App : Application(), PlaybackComponentFactoryProvider,
+  BaseCyaneaActivity {
 
+  @Inject
+  lateinit var viewModel: SettingsViewModel
   @Inject
   lateinit var bookAdder: BookAdder
   @Inject
@@ -39,6 +44,8 @@ class App : Application(), PlaybackComponentFactoryProvider {
   lateinit var autoConnectedReceiver: AndroidAutoConnectedReceiver
   @field:[Inject Named(PrefKeys.DARK_THEME)]
   lateinit var useDarkTheme: Pref<Boolean>
+  @field:[Inject Named(PrefKeys.DARK_THEME)]
+  lateinit var darkThemePref: Pref<Boolean>
 
   override fun onCreate() {
     super.onCreate()
@@ -94,6 +101,22 @@ class App : Application(), PlaybackComponentFactoryProvider {
     autoConnectedReceiver.register(this)
 
     triggerWidgetOnChange.init()
+
+    // todo Lite
+   /* val backgroundLight: Int = android.graphics.Color.parseColor("#FFFAFAFA")
+    if (darkThemePref.value) (
+      cyanea.edit {
+        background(backgroundLight)
+        backgroundLight(backgroundLight)
+        backgroundLightLighter(backgroundLight) /*dialogs*/
+        backgroundLightDarker(backgroundLight)
+        navigationBar(backgroundLight)
+        baseTheme(Cyanea.BaseTheme.LIGHT)
+      }
+      )
+    if (darkThemePref.value) (
+      viewModel.toggleDarkTheme()
+      )*/
   }
 
   override fun factory(): PlaybackComponent.Factory {

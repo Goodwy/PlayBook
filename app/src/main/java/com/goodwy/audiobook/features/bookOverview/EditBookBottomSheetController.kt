@@ -3,6 +3,7 @@ package com.goodwy.audiobook.features.bookOverview
 import android.app.Dialog
 import android.os.Bundle
 import androidx.core.view.doOnLayout
+import com.afollestad.materialdialogs.MaterialDialog
 import com.bluelinelabs.conductor.Controller
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -56,6 +57,11 @@ class EditBookBottomSheetController(args: Bundle) : DialogController(args) {
       EditBookTitleDialogController(book).showDialog(router)
       dismissDialog()
     }
+    binding.author.setOnClickListener {
+      val router = (activity as RouterProvider).provideRouter()
+      EditBookAuthorDialogController(book).showDialog(router)
+      dismissDialog()
+    }
     binding.internetCover.setOnClickListener {
       callback().onInternetCoverRequested(book)
       dismissDialog()
@@ -69,6 +75,10 @@ class EditBookBottomSheetController(args: Bundle) : DialogController(args) {
       val controller = BookmarkController(book.id)
       router.pushController(controller.asTransaction())
 
+      dismissDialog()
+    }
+    binding.deleteFile.setOnClickListener {
+      showDeleteFileDialog()
       dismissDialog()
     }
 
@@ -95,5 +105,31 @@ class EditBookBottomSheetController(args: Bundle) : DialogController(args) {
   interface Callback {
     fun onInternetCoverRequested(book: Book)
     fun onFileCoverRequested(book: Book)
+    fun onFileDeletionRequested(book: Book)
+  }
+
+  // Dialogs Special Thanks
+  private fun showDeleteFileDialog() {
+    val book = repo.bookById(bookId)
+    if (book == null) {
+      Timber.e("book is null. Return early")
+    }
+    val bookContent = book?.content
+    val currentFile = bookContent?.currentFile
+    MaterialDialog(activity!!)
+      .title(R.string.delete_file)
+      .message(text = currentFile.toString()) {
+        html()
+        lineSpacing(1.2f)
+      }
+      .negativeButton(R.string.dialog_cancel)
+      .positiveButton(R.string.dialog_ok) {
+        if (book != null) {
+          callback().onFileDeletionRequested(book)
+          activity!!.recreate()
+        } else Timber.e("book is null. Return early")
+      }
+       .icon(R.drawable.delete)
+      .show()
   }
 }

@@ -22,4 +22,7 @@ interface BookMetaDataDao {
 
   @Query("UPDATE bookMetaData SET name = :name WHERE id = :id")
   fun updateBookName(id: UUID, name: String)
+
+  @Query("UPDATE bookMetaData SET author = :author WHERE id = :id")
+  fun updateBookAuthor(id: UUID, author: String)
 }

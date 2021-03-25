@@ -4,13 +4,24 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/root"
   android:layout_width="match_parent"
-  android:layout_height="wrap_content"
-  android:background="@drawable/book_overview_row_background">
+  android:layout_height="wrap_content">
+    <!--android:background="@drawable/book_overview_row_background"-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
       android:id="@+id/card"
       android:layout_width="match_parent"
       android:layout_height="wrap_content">
+
+        <ImageView
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:background="@drawable/book_overview_cover_background"
+          app:layout_constraintDimensionRatio="1:1"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          tools:background="@color/primary"
+          tools:ignore="ContentDescription" />
 
         <ImageView
           android:id="@+id/cover"
@@ -74,6 +85,54 @@
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="@+id/remainingTime"
           tools:ignore="ContentDescription" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:id="@+id/rateLayout"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginBottom="8dp"
+          android:background="@drawable/current_playing_circle_background"
+          app:layout_constraintBottom_toBottomOf="@+id/cover"
+          app:layout_constraintStart_toStartOf="@+id/cover">
+
+            <ImageView
+              android:id="@+id/percent"
+              android:layout_width="14dp"
+              android:layout_height="14dp"
+              android:layout_marginStart="4dp"
+              android:src="@drawable/ic_percent_white"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              tools:ignore="ContentDescription" />
+
+            <TextView
+              android:id="@+id/playedTime"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="4dp"
+              android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+              android:textColor="@android:color/white"
+              app:layout_constraintBottom_toBottomOf="@+id/percent"
+              app:layout_constraintStart_toEndOf="@+id/percent"
+              app:layout_constraintTop_toTopOf="@+id/percent"
+              tools:text="38" />
+
+            <TextView
+              android:id="@+id/percentText"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginEnd="4dp"
+              android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+              android:textColor="@android:color/white"
+              app:layout_constraintBottom_toBottomOf="@+id/percent"
+              app:layout_constraintStart_toEndOf="@+id/playedTime"
+              app:layout_constraintTop_toTopOf="@+id/percent"
+              app:layout_constraintEnd_toEndOf="parent"
+              tools:text="%" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.goodwy.audiobook.uitools.SquareProgressView
           android:id="@+id/progress"

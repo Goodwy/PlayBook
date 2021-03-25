@@ -53,6 +53,7 @@ class EditBookTitleDialogController(args: Bundle) : DialogController(args) {
         }
         positiveButton(R.string.dialog_confirm)
       }
+      negativeButton(R.string.dialog_cancel)
     }
   }
 }

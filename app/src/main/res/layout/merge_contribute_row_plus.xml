@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:layout_height="wrap_content"
+  tools:layout_width="match_parent"
+  tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <ImageView
+      android:id="@+id/contributePlusIcon"
+      style="@style/Widget.App.Switch"
+      android:contentDescription="@string/pref_pay_title"
+      android:src="@drawable/image_plus"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="20dp"
+      android:clickable="false"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:useMaterialThemeColors="false" />
+
+    <TextView
+      android:id="@+id/contributePlusTitle"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="16dp"
+      android:textAppearance="?textAppearanceBody1"
+      app:layout_constraintBottom_toTopOf="@+id/contributePlusDescription"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintLeft_toRightOf="@id/contributePlusIcon"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_chainStyle="packed"
+      tools:text="@string/pref_pay_title" />
+
+    <TextView
+      android:id="@+id/contributePlusDescription"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="16dp"
+      android:textAppearance="?textAppearanceBody2"
+      android:textColor="?android:attr/textColorSecondary"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintLeft_toRightOf="@id/contributePlusIcon"
+      app:layout_constraintTop_toBottomOf="@id/contributePlusTitle"
+      tools:text="@string/pref_pay_summary" />
+
+</merge>

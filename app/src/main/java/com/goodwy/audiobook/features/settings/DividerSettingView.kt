@@ -18,14 +18,14 @@ class DividerSettingView : LinearLayout {
   constructor(context: Context) : super(context)
   constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
     context.theme.obtainStyledAttributes(attrs, R.styleable.DividerSettingView, 0, 0).use {
-      title.text = it.getText(R.styleable.DividerSettingView_div_title)
+     // title.text = it.getText(R.styleable.DividerSettingView_div_title)
       description.text = it.getText(R.styleable.DividerSettingView_div_description)
     }
   }
 
   init {
-    /*foreground = context.drawableFromAttr(R.attr.selectableItemBackground)*/
-    foreground = context.getDrawable(R.drawable.book_overview_row_background)
+    foreground = context.drawableFromAttr(R.attr.selectableItemBackground)
+   // foreground = context.getDrawable(R.drawable.book_overview_row_background)
     gravity = Gravity.CENTER_VERTICAL
     orientation = VERTICAL
     val padding = context.dpToPxRounded(8F)

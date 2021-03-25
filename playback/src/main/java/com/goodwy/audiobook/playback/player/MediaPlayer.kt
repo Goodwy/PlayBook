@@ -52,6 +52,8 @@ constructor(
   private val autoRewindAmountPref: Pref<Int>,
   @Named(PrefKeys.SEEK_TIME)
   private val seekTimePref: Pref<Int>,
+  @Named(PrefKeys.SEEK_TIME_REWIND)
+  private val seekTimeRewindPref: Pref<Int>,
   private val equalizer: Equalizer,
   private val loudnessGain: LoudnessGain,
   private val dataSourceConverter: DataSourceConverter,
@@ -80,6 +82,7 @@ constructor(
     }
 
   private val seekTime: Duration get() = seekTimePref.value.seconds
+  private val seekTimeRewind: Duration get() = seekTimeRewindPref.value.seconds
   private var autoRewindAmount by autoRewindAmountPref
 
   init {
@@ -258,7 +261,7 @@ constructor(
 
   fun skip(forward: Boolean) {
     Timber.v("skip forward=$forward")
-    skip(skipAmount = if (forward) seekTime else -seekTime)
+    skip(skipAmount = if (forward) seekTime else -seekTimeRewind)
   }
 
   /** If current time is > 2000ms, seek to 0. Else play previous chapter if there is one. */
@@ -284,7 +287,7 @@ constructor(
       if (toNullOfNewTrack) {
         changePosition(0, previousChapter.file)
       } else {
-        val time = (previousChapter.duration.milliseconds - seekTime)
+        val time = (previousChapter.duration.milliseconds - seekTimeRewind)
           .coerceAtLeast(Duration.ZERO)
         changePosition(time.toLongMilliseconds(), previousChapter.file)
       }
@@ -415,6 +418,16 @@ constructor(
     bookContent?.let {
       bookContent = it.updateSettings { copy(skipSilence = skip) }
       player.setPlaybackParameters(it.playbackSpeed, skip)
+    }
+  }
+
+  fun setShowChapterNumbers(show: Boolean) {
+    checkMainThread()
+    Timber.v("setShowChapterNumbers to $show")
+    prepare()
+    bookContent?.let {
+      bookContent = it.updateSettings { copy(showChapterNumbers = show) }
+      player.setPlaybackParameters(it.playbackSpeed, show)
     }
   }
 

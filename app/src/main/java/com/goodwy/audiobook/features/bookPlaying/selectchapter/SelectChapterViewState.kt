@@ -4,5 +4,6 @@ import com.goodwy.audiobook.data.ChapterMark
 
 data class SelectChapterViewState(
   val chapters: List<ChapterMark>,
-  val selectedIndex: Int?
+  val selectedIndex: Int?,
+  val showChapterNumbers: Boolean
 )

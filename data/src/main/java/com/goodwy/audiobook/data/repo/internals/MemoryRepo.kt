@@ -38,6 +38,14 @@ class MemoryRepo
     }
   }
 
+  fun updateBookAuthor(id: UUID, author: String) {
+    updateBook(id) {
+      update(updateMetaData = {
+        copy(author = author)
+      })
+    }
+  }
+
   fun setBookActive(bookId: UUID, active: Boolean) {
     updateBook(bookId) {
       update(updateSettings = { copy(active = active) })

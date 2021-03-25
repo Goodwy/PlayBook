@@ -5,6 +5,7 @@ import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.data.Book
 import com.goodwy.audiobook.data.repo.BookRepository
 import com.goodwy.audiobook.features.BookAdder
+import com.goodwy.audiobook.features.MainActivity
 import com.goodwy.audiobook.features.bookOverview.list.BookOverviewModel
 import com.goodwy.audiobook.features.bookOverview.list.header.BookOverviewCategory
 import com.goodwy.audiobook.features.gridCount.GridCount
@@ -33,6 +34,8 @@ constructor(
   private val currentBookIdPref: Pref<UUID>,
   @Named(PrefKeys.GRID_MODE)
   private val gridModePref: Pref<GridMode>,
+  @Named(PrefKeys.MINI_PLAYER_STYLE)
+  private val miniPlayerStylePref: Pref<Int>,
   private val gridCount: GridCount
 ) {
 
@@ -111,11 +114,14 @@ constructor(
       }
     }
 
+    val miniPlayerStyle: Int = miniPlayerStylePref.value
+
     return BookOverviewState.Content(
       playing = playing,
       currentBookPresent = currentBookPresent,
       categoriesWithContents = categoriesWithContents,
-      columnCount = amountOfColumns
+      columnCount = amountOfColumns,
+      miniPlayerStylePref = miniPlayerStyle
     )
   }
 

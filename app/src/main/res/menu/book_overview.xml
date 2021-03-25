@@ -6,6 +6,7 @@
     <item
       android:id="@+id/toggleGrid"
       android:title="@string/layout_grid"
+      android:icon="@drawable/ic_view_grid"
       app:showAsAction="always"
       tools:ignore="AlwaysShowAction" />
     <!--android:visible="false"-->

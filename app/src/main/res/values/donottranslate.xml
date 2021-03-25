@@ -2,15 +2,20 @@
 <resources>
     <string name="app_name" translatable="false">PlayBooks</string>
     <string name="zeroTime" translatable="false">0:00:00</string>
+    <string name="zeroSec" translatable="false">00</string>
 
     <string-array name="pref_support_values">
         <item>@string/pref_support_contribute</item>
         <item>@string/pref_support_translations</item>
     </string-array>
-    <string-array name="pref_about_values">
-        <item>@string/pref_about_url1</item>
-        <item>@string/pref_about_url2</item>
-        <item>@string/pref_about_url3</item>
+    <string-array name="pref_palettes_values">
+        <item>@string/original</item>
+        <item>@string/material</item>
+        <item>@string/ios</item>
+    </string-array>
+    <string-array name="pref_screen_orientation">
+        <item>@string/pref_screen_orientation_value_system</item>
+        <item>@string/pref_screen_orientation_value_portrait</item>
     </string-array>
     <string-array name="pref_pay_values">
         <item>@string/pref_about_url1</item>

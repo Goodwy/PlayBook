@@ -19,25 +19,78 @@
       app:navigationIcon="@drawable/ic_arrow_back" />
 
     <ImageView
+      android:id="@+id/volumeDown"
+      style="@style/FastForwardRewindStyle"
+      android:layout_width="20dp"
+      android:layout_height="20dp"
+      android:layout_marginStart="5dp"
+      android:contentDescription="@string/rewind"
+      android:src="@drawable/ic_volume_down"
+      app:layout_constraintBottom_toBottomOf="@id/sliderVolume"
+      app:layout_constraintLeft_toLeftOf="@id/slider"
+      app:layout_constraintTop_toTopOf="@id/sliderVolume" />
+
+    <ImageView
+      android:id="@+id/volumeUp"
+      style="@style/FastForwardRewindStyle"
+      android:layout_width="18dp"
+      android:layout_height="18dp"
+      android:layout_marginEnd="5dp"
+      android:contentDescription="@string/rewind"
+      android:src="@drawable/ic_volume_up"
+      app:layout_constraintBottom_toBottomOf="@id/sliderVolume"
+      app:layout_constraintRight_toRightOf="@id/slider"
+      app:layout_constraintTop_toTopOf="@id/sliderVolume" />
+
+    <com.google.android.material.slider.Slider
+      android:id="@+id/sliderVolume"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
+      android:layout_marginBottom="24dp"
+      android:stepSize="1"
+      android:valueFrom="0"
+      android:valueTo="15"
+      app:thumbRadius="8dp"
+      app:trackHeight="3dp"
+      app:thumbColor="?colorAccent"
+      app:trackColorActive="?colorAccent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toRightOf="@id/volumeDown"
+      app:layout_constraintRight_toLeftOf="@id/volumeUp" />
+    <!-- заменяет в id/play  android:layout_marginBottom="36dp" -->
+    <FrameLayout
+      android:id="@+id/bottomContainer"
+      android:layout_width="0dp"
+      android:layout_height="14dp"
+      android:foreground="?attr/selectableItemBackground"
+      android:gravity="center"
+      app:layout_constraintBottom_toTopOf="@id/sliderVolume"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent" />
+<!--
+    <ImageView
       android:id="@+id/play"
       android:layout_width="100dp"
       android:layout_height="100dp"
-      android:layout_marginBottom="36dp"
+      android:layout_marginBottom="22dp"
       android:background="@android:color/transparent"
       android:contentDescription="@string/play_pause"
       android:elevation="0dp"
       android:foreground="?attr/selectableItemBackground"
       android:padding="16dp"
       android:transitionName="@string/fab_transition"
-      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintBottom_toTopOf="@id/bottomContainer"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent" />
-<!-- Кнопка плей/пауза с фоном
+      -->
+<!-- Кнопка плей/пауза с фоном-->
       <ImageView
       android:id="@+id/play"
       android:layout_width="83dp"
       android:layout_height="83dp"
-      android:layout_marginBottom="36dp"
+      android:layout_marginBottom="22dp"
       android:background="@drawable/play_button"
       android:contentDescription="@string/play_pause"
       android:elevation="8dp"
@@ -46,10 +99,10 @@
       android:theme="@style/PlayButtonStyle"
       android:tint="@color/white"
       android:transitionName="@string/fab_transition"
-      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintBottom_toTopOf="@id/bottomContainer"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent" />
--->
+
     <ImageView
       android:id="@+id/rewind"
       style="@style/FastForwardRewindStyle"
@@ -69,6 +122,52 @@
       app:layout_constraintBottom_toBottomOf="@id/play"
       app:layout_constraintLeft_toRightOf="@id/play"
       app:layout_constraintTop_toTopOf="@id/play" />
+
+    <ImageView
+      android:id="@+id/rewindTime"
+      style="@style/FastForwardRewindStyle"
+      android:layout_marginEnd="40dp"
+      android:contentDescription="@string/rewind"
+      android:src="@drawable/ic_fast_rewind_time"
+      app:layout_constraintBottom_toBottomOf="@id/play"
+      app:layout_constraintRight_toLeftOf="@id/play"
+      app:layout_constraintTop_toTopOf="@id/play" />
+
+    <TextView
+      android:id="@+id/seekRewindTimeText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/zeroSec"
+      android:textAppearance="?textAppearanceButton"
+      android:layout_marginTop="3dp"
+      android:textColor="@color/colorIcon"
+      app:layout_constraintLeft_toLeftOf="@id/rewindTime"
+      app:layout_constraintRight_toRightOf="@id/rewindTime"
+      app:layout_constraintTop_toTopOf="@id/rewindTime"
+      app:layout_constraintBottom_toBottomOf="@+id/rewindTime" />
+
+    <ImageView
+      android:id="@+id/fastForwardTime"
+      style="@style/FastForwardRewindStyle"
+      android:layout_marginStart="40dp"
+      android:contentDescription="@string/fast_forward"
+      android:src="@drawable/ic_fast_forward_time"
+      app:layout_constraintBottom_toBottomOf="@id/play"
+      app:layout_constraintLeft_toRightOf="@id/play"
+      app:layout_constraintTop_toTopOf="@id/play" />
+
+    <TextView
+      android:id="@+id/fastForwardTimeText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/zeroSec"
+      android:textAppearance="?textAppearanceButton"
+      android:layout_marginTop="3dp"
+      android:textColor="@color/colorIcon"
+      app:layout_constraintLeft_toLeftOf="@id/fastForwardTime"
+      app:layout_constraintRight_toRightOf="@id/fastForwardTime"
+      app:layout_constraintTop_toTopOf="@id/fastForwardTime"
+      app:layout_constraintBottom_toBottomOf="@+id/fastForwardTime" />
 
     <TextView
       android:id="@+id/playedTime"
@@ -103,7 +202,6 @@
       app:trackHeight="3dp"
       app:thumbColor="?colorAccent"
       app:trackColorActive="?colorAccent"
-      app:trackColorInactive="?attr/colorControlHighlight"
       app:layout_constraintBottom_toTopOf="@id/play"
       app:layout_constraintLeft_toRightOf="@id/playedTime"
       app:layout_constraintRight_toLeftOf="@id/maxTime" />
@@ -198,7 +296,7 @@
           android:minHeight="56dp"
           android:paddingTop="16dp"
           android:paddingBottom="16dp"
-          style="@android:style/TextAppearance.Medium"
+          style="@android:style/TextAppearance.Material.Small"
           app:layout_constrainedWidth="true"
           app:layout_constraintBottom_toTopOf="@+id/slider"
           app:layout_constraintEnd_toStartOf="@+id/next"
@@ -209,7 +307,7 @@
 
     <ImageView
       android:id="@+id/cover"
-      android:layout_width="0dp"
+      android:layout_width="wrap_content"
       android:layout_height="0dp"
       android:adjustViewBounds="true"
       android:contentDescription="@string/cover"
@@ -217,6 +315,7 @@
       android:layout_marginEnd="20dp"
       android:layout_marginTop="20dp"
       android:layout_marginBottom="20dp"
+      android:background="@drawable/book_play_cover_background"
       app:layout_constraintBottom_toTopOf="@+id/currentBookContainer"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"

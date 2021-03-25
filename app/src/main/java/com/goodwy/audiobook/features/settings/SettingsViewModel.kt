@@ -1,7 +1,12 @@
 package com.goodwy.audiobook.features.settings
 
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import de.paulwoitaschek.flowpref.Pref
 import com.goodwy.audiobook.common.pref.PrefKeys
+import com.goodwy.audiobook.features.bookOverview.GridMode
 import com.goodwy.audiobook.misc.DARK_THEME_SETTABLE
 import kotlinx.coroutines.channels.BroadcastChannel
 import kotlinx.coroutines.flow.Flow
@@ -12,6 +17,7 @@ import javax.inject.Named
 
 class SettingsViewModel
 @Inject constructor(
+  private val context: Context,
   @Named(PrefKeys.DARK_THEME)
   private val useDarkTheme: Pref<Boolean>,
   @Named(PrefKeys.RESUME_ON_REPLUG)
@@ -21,7 +27,15 @@ class SettingsViewModel
   @Named(PrefKeys.SEEK_TIME)
   private val seekTimePref: Pref<Int>,
   @Named(PrefKeys.CONTENTS_BUTTON_MODE)
-  private val tintNavBar: Pref<Boolean>
+  private val tintNavBar: Pref<Boolean>,
+  @Named(PrefKeys.SHOW_RATING)
+  private val showRatingPref: Pref<Boolean>,
+  @Named(PrefKeys.SCREEN_ORIENTATION)
+  private val screenOrientationPref: Pref<Boolean>,
+  @Named(PrefKeys.GRID_AUTO)
+  private val gridViewAutoPref: Pref<Boolean>,
+  @Named(PrefKeys.GRID_MODE)
+  private val gridModePref: Pref<GridMode>
 ) {
 
   private val _viewEffects = BroadcastChannel<SettingsViewEffect>(1)
@@ -31,17 +45,21 @@ class SettingsViewModel
     return combine(
       useDarkTheme.flow,
       resumeOnReplugPref.flow,
-      autoRewindAmountPref.flow,
-      seekTimePref.flow,
-      tintNavBar.flow
-    ) { useDarkTheme, resumeOnreplug, autoRewindAmount, seekTime, tintNavBar ->
+      //autoRewindAmountPref.flow,
+      //seekTimePref.flow,
+      tintNavBar.flow,
+      screenOrientationPref.flow,
+      gridViewAutoPref.flow
+    ) { useDarkTheme, resumeOnreplug, /*autoRewindAmount, seekTime,*/ tintNavBar, screenOrientationPref, gridViewAutoPref ->
       SettingsViewState(
         useDarkTheme = useDarkTheme,
         showDarkThemePref = DARK_THEME_SETTABLE,
         resumeOnReplug = resumeOnreplug,
-        seekTimeInSeconds = seekTime,
-        autoRewindInSeconds = autoRewindAmount,
-        tintNavBar = tintNavBar
+        //seekTimeInSeconds = seekTime,
+        //autoRewindInSeconds = autoRewindAmount,
+        tintNavBar = tintNavBar,
+        screenOrientationPref = screenOrientationPref,
+        gridViewAutoPref = gridViewAutoPref
       )
     }
   }
@@ -54,15 +72,55 @@ class SettingsViewModel
     useDarkTheme.value = !useDarkTheme.value
   }
 
-  fun changeSkipAmount() {
+  /*fun changeSkipAmount() {
     _viewEffects.offer(SettingsViewEffect.ShowChangeSkipAmountDialog(seekTimePref.value))
   }
 
   fun changeAutoRewindAmount() {
     _viewEffects.offer(SettingsViewEffect.ShowChangeAutoRewindAmountDialog(seekTimePref.value))
-  }
+  }*/
 
   fun toggleTintNavBar() {
     tintNavBar.value = !tintNavBar.value
   }
+
+  fun toggleGridViewAuto() {
+    gridViewAutoPref.value = !gridViewAutoPref.value
+    gridModePref.value = GridMode.FOLLOW_DEVICE
+  }
+
+  // Rate - >
+  fun rateIntent() {
+    showRatingPref.value = !showRatingPref.value
+    showRating()
+  }
+
+  fun showRating() {
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.goodwy.audiobook"))
+      .addFlags(
+        Intent.FLAG_ACTIVITY_NO_HISTORY
+          or Intent.FLAG_ACTIVITY_NEW_DOCUMENT
+          or Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
+
+    try {
+      startActivityExternal(intent)
+    } catch (e: ActivityNotFoundException) {
+      val url = "http://play.google.com/store/apps/details?id=com.goodwy.audiobook"
+      startActivityExternal(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+    }
+  }
+
+  private fun startActivity(intent: Intent) {
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    context.startActivity(intent)
+  }
+
+  private fun startActivityExternal(intent: Intent) {
+    if (intent.resolveActivity(context.packageManager) != null) {
+      startActivity(intent)
+    } else {
+      startActivity(Intent.createChooser(intent, null))
+    }
+  }
+  // <- Rate
 }

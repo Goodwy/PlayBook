@@ -5,12 +5,17 @@
 
     <declare-styleable name="OneSettingView">
         <attr name="osv_title" format="string" />
-        <attr name="osv_description" format="string" />
     </declare-styleable>
 
     <declare-styleable name="DoubleSettingView">
         <attr name="dsv_title" format="string" />
         <attr name="dsv_description" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="TripleSettingView">
+        <attr name="tsv_title" format="string" />
+        <attr name="tsv_description" format="string" />
+        <attr name="tsv_value" format="string" />
     </declare-styleable>
 
     <declare-styleable name="SwitchSettingView">
@@ -31,5 +36,15 @@
     <declare-styleable name="ColorPrimaryDarkSettingView">
         <attr name="cpdv_title" format="string" />
         <attr name="cpdv_description" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="PaySettingView">
+        <attr name="psv_title" format="string" />
+        <attr name="psv_description" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="DarkContributeView">
+        <attr name="dcv_title" format="string" />
+        <attr name="dcv_description" format="string" />
     </declare-styleable>
 </resources>

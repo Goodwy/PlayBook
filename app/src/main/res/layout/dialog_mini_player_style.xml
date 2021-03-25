@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:orientation="vertical"
+  android:paddingStart="@dimen/dialog_horizontal_padding"
+  android:paddingEnd="@dimen/dialog_horizontal_padding">
+
+    <TableRow
+      android:id="@+id/row1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:gravity="center">
+
+        <com.goodwy.audiobook.features.prefAppearanceUI.MiniPlayerButtonView
+          android:id="@+id/floatingButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:ssv_title="@string/pref_mini_player_floating_button" />
+
+        <com.goodwy.audiobook.features.prefAppearanceUI.MiniPlayerFloatingView
+          android:id="@+id/miniPlayer"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:ssv_title="@string/pref_mini_player_mini_player_floating" />
+
+    </TableRow>
+</TableLayout>

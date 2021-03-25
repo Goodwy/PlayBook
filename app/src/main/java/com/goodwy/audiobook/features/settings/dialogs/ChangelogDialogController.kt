@@ -13,7 +13,6 @@ import com.goodwy.audiobook.R
 import com.goodwy.audiobook.misc.DialogController
 import timber.log.Timber
 
-private val license_url = "https://www.gnu.org/licenses/".toUri()
 
 class ChangelogDialogController : DialogController() {
 
@@ -24,18 +23,10 @@ class ChangelogDialogController : DialogController() {
       icon(R.drawable.ic_changelog)
       title(R.string.pref_changelog_title)
       message(R.string.pref_changelog_message) {
-        html { visitUri(license_url) }
+        html {  }
         lineSpacing(1.0f)
       }
-      positiveButton (R.string.dialog_ок)
-    }
-  }
-
-  private fun visitUri(uri: Uri) {
-    try {
-      startActivity(Intent(Intent.ACTION_VIEW, uri))
-    } catch (exception: ActivityNotFoundException) {
-      Timber.e(exception)
+      positiveButton (R.string.dialog_ok)
     }
   }
 }

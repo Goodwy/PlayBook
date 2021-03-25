@@ -46,6 +46,12 @@
       app:showAsAction="never" />
 
     <item
+      android:id="@+id/show_chapter_numbers"
+      android:checkable="true"
+      android:title="@string/show_chapter_numbers"
+      app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_settings"
         android:title="@string/action_settings"
         app:showAsAction="never" />

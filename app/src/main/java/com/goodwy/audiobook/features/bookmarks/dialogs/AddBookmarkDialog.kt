@@ -12,7 +12,7 @@ import com.goodwy.audiobook.R
 import com.goodwy.audiobook.misc.DialogController
 
 /**
- * Dialog for chosing a title for a new bookmark.
+ * Dialog for choosing a title for a new bookmark.
  */
 class AddBookmarkDialog : DialogController() {
 

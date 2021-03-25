@@ -33,6 +33,7 @@ import com.goodwy.audiobook.data.repo.internals.migrations.Migration47
 import com.goodwy.audiobook.data.repo.internals.migrations.Migration48
 import com.goodwy.audiobook.data.repo.internals.migrations.Migration49
 import com.goodwy.audiobook.data.repo.internals.migrations.Migration50
+import com.goodwy.audiobook.data.repo.internals.migrations.Migration51to52
 import javax.inject.Singleton
 
 @Module
@@ -102,7 +103,8 @@ object PersistenceModule {
       Migration47(),
       Migration48(),
       Migration49(),
-      Migration50()
+      Migration50(),
+      Migration51to52()
     )
   }
 }

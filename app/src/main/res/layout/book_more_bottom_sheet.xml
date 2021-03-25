@@ -15,6 +15,21 @@
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
 
     <TextView
+      android:id="@+id/author"
+      style="@style/BottomSheetRow"
+      android:drawableStart="@drawable/format_author"
+      android:text="@string/change_book_author"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+    <TextView
+      android:id="@+id/deleteFile"
+      style="@style/BottomSheetRow"
+      android:drawableStart="@drawable/delete"
+      android:text="@string/delete_file"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+      android:visibility="visible"/>
+
+    <TextView
         android:id="@+id/internetCover"
         style="@style/BottomSheetRow"
         android:drawableStart="@drawable/ic_download"

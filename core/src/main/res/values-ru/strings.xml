@@ -25,6 +25,7 @@
     <!--Dialogs-->
     <string name="dialog_confirm">Установить</string>
     <string name="dialog_cancel">Отмена</string>
+    <string name="dialog_ok">Ok</string>
     <!--EditBookDialog-->
     <string name="content_cover">Показать выбранную обложку</string>
     <string name="change_book_name">Название</string>
@@ -85,7 +86,7 @@
     <string name="pref_support_title">Поддержка</string>
     <string name="pref_support_translations">Переводы</string>
     <string name="pref_support_contribute">Поддержка и предложения</string>
-    <string name="pref_pay_title">Купить полную версию</string>
+    <string name="pref_pay_title">Поддержите PlayBooks</string>
     <string name="pref_pay_message"><![CDATA[
     Открывает дополнительные функции, такие как черная тема и все цвета темы.<br/><br/>
 Исходный код PlayBooks доступен на <a href="https://github.com/Goodwy/PlayBooks">GitHub</a>. Вы можете бесплатно скомпилировать полную версию. Однако, если вы хотите поддержать разработку и получать обновления через Google Play, подумайте о покупке полной версии.<br/><br/>
@@ -95,11 +96,11 @@ Goodwy</i>
     <string name="pref_about_title">О приложении</string>
     <string name="pref_licenses_title">Лицензия</string>
     <string name="pref_about_message"><![CDATA[
-    <b>PlayBooks</b> - это плеер для аудио книг с открытым исходным кодом. Разработано на базе приложения <a href="https://github.com/PaulWoitaschek/Voice">Voice</a>.
-    <br/><br/>
-     Буду очень признателен, если вы оставите отзыв или оценку о приложении в Google Play, это поможет развитию проекта.<br/><br/>
-    Ссылки:
-  ]]></string>
+        <b>PlayBooks</b> - это плеер для аудио книг с открытым исходным кодом. Разработано на базе приложения Voice.
+        <br/><br/>
+
+        Буду очень признателен, если вы оставите отзыв или оценку о приложении в Google Play, это поможет развитию проекта.<br/>
+    ]]></string>
     <!--Misc-->
     <string name="popup_edit">Править</string>
     <string name="remove">Удалить</string>
@@ -128,14 +129,83 @@ Goodwy</i>
     <string name="grid">Сетка</string>
     <string name="list">Строки</string>
     <string name="contents">Главы</string>
-    <string name="pref_changelog_title">Список изменений</string>
+    <string name="only_the_first_5_colors_available">Только первые 5 цветов доступны в бесплатной версии.</string>
+    <string name="palettes">Цветовые палитры</string>
+    <string name="original">Original design</string>
+    <string name="material">Material design</string>
+    <string name="ios">iOS design</string>
+    <string name="learn_more">ПОДРОБНЕЕ</string>
+    <string name="version">Версия</string>
+    <string name="show_chapter_numbers">Показать номера глав</string>
+    <string name="delete_file">Удалить текущий файл</string>
+
+    <!-- Settings -->
     <string name="pref_default_theme_title">По умолчанию</string>
     <string name="pref_category_playback">Настройки воспроизведения</string>
     <string name="pref_category_support">Поддержка</string>
     <string name="pref_theme_hint">Меню настройки темы приложения</string>
     <string name="pref_statusbar_color_title">Цвет строки состояния</string>
     <string name="pref_statusbar_color_summary">Устанавливает цвет строки состояния, отличный от основного</string>
-    <string name="only_the_first_5_colors_available">Только первые 5 цветов доступны в бесплатной версии.</string>
+    <string name="pref_pay_summary">Приобретите PlayBooks для поддержки будущих разработок и получения дополнительных функций</string>
+    <string name="pref_category_other">Другое</string>
+    <string name="pref_skip_interval_title">Шаг перемотки</string>
+    <string name="pref_skip_interval_summary">Настройки шага перемотки и авто-перемотки</string>
+    <string name="pref_appearance_ui_title">Настройки интерфейса</string>
+    <string name="pref_appearance_ui_summary">Изменение внешнего вида элементов интерфейса</string>
+    <string name="pref_screen_orientation_title">Ориентация экрана</string>
+    <string name="pref_screen_orientation_summary_portrait">Портретная ориентацию независимо от настроек устройства</string>
+    <string name="pref_screen_orientation_summary_system">Ориентация экрана зависит от настроек устройства</string>
+    <string name="pref_screen_orientation_value_portrait">Портретная</string>
+    <string name="pref_screen_orientation_value_system">Система</string>
+    <string name="pref_show_grid_view_auto_title">Автоматическое изменение вида (список/сетка)</string>
+    <string name="pref_show_grid_view_auto_summary">В зависимости от размера экрана</string>
+
+    <!-- Beta -->
+    <string name="pref_beta_title">Beta</string>
+    <string name="pref_beta_summary">Эксперементальные функции</string>
+    <string name="pref_show_slider_volume_title">Панель громкости</string>
+    <string name="pref_show_slider_volume_summary">Показывать \'Панель громкости\' на экране воспроизведения</string>
+
+    <!-- About -->
+    <string name="pref_github_title">GitHub</string>
+    <string name="pref_github_summary">Присоединяйтесь к проекту</string>
+    <string name="pref_rate_title">Оценить PlayBooks</string>
+    <string name="pref_other_app_title">Другие приложения</string>
+    <string name="pref_changelog_title">Список изменений</string>
+    <string name="pref_privacy_title">Политика конфиденциальности</string>
+    <string name="pref_share_title">Поделиться</string>
+
+    <!-- Appearance UI -->
+    <string name="pref_show_mini_player_title">Стиль мини-плеера</string>
+    <string name="pref_show_mini_player_summary">Стиль мини-плеера на экране библиотеки</string>
+    <string name="pref_mini_player_floating_button">Кнопка</string>
+    <string name="pref_mini_player_mini_player_floating">Плавающий плеер</string>
+    <string name="pref_rewind_buttons_style_title">Стиль кнопок перемотки</string>
+    <string name="pref_rewind_buttons_style_summary">Выбор стиля кнопок перемотки в плеере</string>
+    <string name="pref_rewind_buttons_style_classic">Класические</string>
+    <string name="pref_rewind_buttons_style_rounded">Округлые</string>
+
+    <!-- Rate -->
+    <string name="rate_dismiss">Отклонить</string>
+    <string name="rate_okay">OK!</string>
+    <string name="rate_title">Нравится PlayBooks?</string>
+    <string name="rate_summary">Поделитесь любовью и оцените нас в Google Play! Для нас это очень важно.</string>
+
+    <!-- Support project -->
+    <string name="action_support_project">Поддержка проекта</string>
+    <string name="get_playbooks">Купить PlayBooks</string>
+    <string name="sp_dark_title">Темная тема</string>
+    <string name="sp_dark_summary">Темная тема потребляет меньше энергии на AMOLED дисплеях. Нажмите для включения темной темы, будет действовать до перезагрузки приложения.</string>
+    <string name="sp_color_title">Цвета</string>
+    <string name="sp_color_summary">Тщательно подобранные цветовые темы, а так же палитры цветов рекомендованные к применению в Android и iOS.</string>
+    <string name="sp_plus_title">Поддержите нас</string>
+    <string name="sp_plus_summary">PlayBooks Lite бесплатен, без рекламы, с открытым исходным кодом, и он таким останется. С Вашей помощью мы сможем реализовать больше возможностей и сделать PlayBooks еще лучше.</string>
+    <string name="sp_lifebuoy_title">Помощь</string>
+    <string name="sp_lifebuoy_summary">Если вы не можете позволить себе  PlayBooks, но действительно хотите им пользоваться, напишите мне по электронной почте.</string>
+    <string name="sp_participants_title">Участники:</string>
+    <string name="special_thanks_to">Особая благодарность</string>
+    <string name="change_book_author">Автор</string>
+    <string name="edit_book_author">Редактировать автора</string>
 
     <!-- Theme -->
     <string name="label_theme_picker">Выбор темы</string>
@@ -150,4 +220,5 @@ Goodwy</i>
     <string name="pref_category_appearance">Внешний вид</string>
     <string name="pref_colored_navigation_bar_title">Цветная панель навигации</string>
     <string name="pref_colored_navigation_bar_summary">Окрашивает панель навигации в цвет фона</string>
+    <string name="email_chooser_title">Отправить письмо</string>
 </resources>

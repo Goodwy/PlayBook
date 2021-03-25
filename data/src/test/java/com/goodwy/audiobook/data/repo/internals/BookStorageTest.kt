@@ -30,6 +30,8 @@ class BookStorageTest {
     val books = runBlocking {
       storage.addOrUpdate(BookFactory.create(name = "Name A", lastPlayedAtMillis = 5, id = bookAId))
       storage.addOrUpdate(BookFactory.create(name = "Name B", lastPlayedAtMillis = 10, id = bookBId))
+      storage.addOrUpdate(BookFactory.create(author = "Author A", lastPlayedAtMillis = 5, id = bookAId))
+      storage.addOrUpdate(BookFactory.create(author = "Author B", lastPlayedAtMillis = 10, id = bookBId))
       storage.books()
     }
 
@@ -43,6 +45,16 @@ class BookStorageTest {
       storage.updateBookName(bookA.id, "Name A2")
       val books = storage.books()
       val updatedBook = bookA.updateMetaData { copy(name = "Name A2") }
+      assertThat(books).containsExactly(updatedBook, bookB)
+    }
+  }
+
+  @Test
+  fun updateAuthor() {
+    runBlocking {
+      storage.updateBookAuthor(bookA.id, "Author A2")
+      val books = storage.books()
+      val updatedBook = bookA.updateMetaData { copy(author = "Author A2") }
       assertThat(books).containsExactly(updatedBook, bookB)
     }
   }

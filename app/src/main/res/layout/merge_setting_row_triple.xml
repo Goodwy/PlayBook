@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:layout_height="wrap_content"
+  tools:layout_width="match_parent"
+  tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <TextView
+      android:id="@+id/title"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="40dp"
+      android:textAppearance="?textAppearanceBody1"
+      app:layout_constraintBottom_toTopOf="@+id/description"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toLeftOf="@id/value"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_chainStyle="packed"
+      tools:text="Audiobook Folder" />
+
+    <TextView
+      android:id="@+id/description"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="40dp"
+      android:textAppearance="?textAppearanceBody2"
+      android:textColor="?android:attr/textColorSecondary"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toLeftOf="@id/value"
+      app:layout_constraintTop_toBottomOf="@id/title"
+      tools:text="The selected audiobook folders" />
+
+    <TextView
+      android:id="@+id/value"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="24dp"
+      android:gravity="right"
+      android:textAppearance="?textAppearanceBody2"
+      android:textColor="?android:attr/textColorSecondary"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="Values" />
+
+</merge>

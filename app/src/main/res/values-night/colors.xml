@@ -3,16 +3,19 @@
     <color name="primary">#1e2225</color>
     <color name="second">#272f35</color> <!-- Dialogs color-->
     <color name="colorOnSurface">@color/white</color>
+    <color name="divider">#37373a</color>
 
     <color name="background_overlay">@color/copy_primary_text_disabled_material_dark</color>
 
-    <color name="navBarColor">@color/primaryDark</color>
+    <color name="rate_background">#1c2529</color>
+    <color name="mini_player_background">#000000</color>
 
     <!--Cyanea default-->
     <color name="cyanea_primary_reference">#4c86cb</color>
-    <color name="cyanea_primary_dark_reference">#272f35</color>
+    <color name="cyanea_primary_dark_reference">#272f35</color><!-- если ставлю 000000 - глючит светная тема-->
     <color name="cyanea_accent_reference">#4c86cb</color>
     <color name="cyanea_navigation_bar_reference">#1e2225</color>
     <color name="cyanea_background_light">#fafafa</color>
     <color name="cyanea_background_dark">#1e2225</color>
+    <color name="cyanea_bg_light_lighter">#FF1E2225</color><!-- Dialogs color-->
 </resources>

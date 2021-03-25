@@ -31,6 +31,7 @@ data class BookContent(
   val positionInChapter = settings.positionInChapter
   val loudnessGain = settings.loudnessGain
   val skipSilence = settings.skipSilence
+  val showChapterNumbers = settings.showChapterNumbers
   val playbackSpeed = settings.playbackSpeed
 }
 

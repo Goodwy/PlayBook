@@ -6,34 +6,53 @@
   android:layout_height="match_parent"
   android:background="?backgroundColor">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/toolbarLayout"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      app:elevation="0dp">
+      android:layout_gravity="top|start"
+      app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
+        <com.google.android.material.appbar.MaterialToolbar
+          android:id="@+id/toolbar"
           android:layout_width="match_parent"
-          android:layout_height="100dp"
-          android:background="?backgroundColor"
-          app:expandedTitleMarginStart="12dp"
-          app:expandedTitleMarginBottom="20dp"
-          app:expandedTitleTextAppearance="@style/TextAppearance.App.CollapsingToolbar.Expanded"
-          app:collapsedTitleTextAppearance="@style/TextAppearance.App.CollapsingToolbar.Collapsed">
+          android:layout_height="wrap_content"
+          android:layout_gravity="top"
+          android:background="@color/primary"
+          android:theme="@style/AppToolbar"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:menu="@menu/book_overview" />
+        <!--app:title="@string/app_name"
+          android:layoutDirection="rtl"-->
 
-    <com.google.android.material.appbar.MaterialToolbar
-      android:id="@+id/toolbar"
-      android:layout_width="match_parent"
-      android:layout_height="?attr/actionBarSize"
-      android:background="?backgroundColor"
-      android:layout_gravity="top"
-      android:layoutDirection="rtl"
-      app:title="@string/pref_root_folder_title"
-      app:menu="@menu/book_overview"/>
-    <!--app:title="@string/app_name"
-      android:theme="@style/AppToolbar"-->
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+        <Button
+          android:id="@+id/settingsButton"
+          style="@style/Widget.MaterialComponents.Button.TextButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginStart="3dp"
+          android:text="@string/action_settings"
+          android:textColor="?colorAccent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="@+id/toolbar"
+          app:layout_constraintBottom_toBottomOf="@+id/toolbar" />
 
+        <Button
+          android:id="@+id/libraryButton"
+          style="@style/Widget.MaterialComponents.Button.TextButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="@string/popup_edit"
+          android:textColor="?colorAccent"
+          app:layout_constraintStart_toEndOf="@+id/settingsButton"
+          app:layout_constraintTop_toTopOf="@+id/toolbar"
+          app:layout_constraintBottom_toBottomOf="@+id/toolbar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/recyclerView"
@@ -65,6 +84,64 @@
       android:transitionName="@string/fab_transition"
       app:fab_size="normal"
       tools:ignore="UnusedAttribute" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/miniPlayer"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom|start"
+      android:background="@drawable/mini_player"
+      app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+          android:id="@+id/miniPlayerIcon"
+          android:layout_width="28dp"
+          android:layout_height="28dp"
+          android:layout_marginStart="24dp"
+          android:src="@drawable/ic_chevron_up"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/miniPlayerTitle"
+          android:layout_width="250dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="12dp"
+          android:layout_marginStart="16dp"
+          android:maxLines="1"
+          android:textAppearance="?textAppearanceBody2"
+          app:layout_constraintStart_toEndOf="@+id/miniPlayerIcon"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toTopOf="@id/miniPlayerSummary"
+          tools:text="Book"/>
+
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/miniPlayerSummary"
+          android:layout_width="250dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="2dp"
+          android:layout_marginStart="16dp"
+          android:layout_marginBottom="12dp"
+          android:maxLines="1"
+          android:textAppearance="?textAppearanceBody2"
+          android:textColor="?android:textColorSecondary"
+          app:layout_constraintStart_toEndOf="@+id/miniPlayerIcon"
+          app:layout_constraintTop_toBottomOf="@id/miniPlayerTitle"
+          app:layout_constraintBottom_toBottomOf="parent"
+          tools:text="Chapter"/>
+
+        <ImageView
+          android:id="@+id/miniPlayerFab"
+          android:layout_width="42dp"
+          android:layout_height="42dp"
+          android:layout_marginEnd="16dp"
+          android:src="@drawable/ic_play_white_36dp"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
       android:layout_width="match_parent"

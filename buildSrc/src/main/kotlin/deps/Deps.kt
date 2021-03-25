@@ -10,8 +10,8 @@ object Versions {
   const val compileSdk = 29
   const val minSdk = 24
   const val targetSdk = 29
-  const val versionCode = 103
-  const val versionName = "1.0.3"
+  const val versionCode = 110
+  const val versionName = "1.1.0"
 }
 
 object Deps {
@@ -73,6 +73,11 @@ object Deps {
   object Jaredrummler {
     private const val version = "1.0.2"
     const val cyanea = "com.jaredrummler:cyanea:$version"
+  }
+
+  object BillingClient {
+    private const val version = "1.2.2"
+    const val billing = "com.android.billingclient:billing:$version"
   }
 
   const val crashlytics = "com.crashlytics.sdk.android:crashlytics:2.10.1@aar"

@@ -1,9 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="version">Version: 1.0.3</string>
     <string name="pref_changelog_message"><![CDATA[
 <body>
-<i><h4>Version 1.0.3</h4></i>
+<i><h4><a href="">Version 1.1.0</a></h4></i>
+<i><p>1. <b>IMPROVEMENT:</b> Added translations</p></i>
+<i><p>2. <b>FIX:</b> Fixed work of setting screen orientation</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.0.9</a></h4></i>
+<i><p>1. <b>NEW:</b> Added setting for changing the style of the mini player</p></i>
+<i><p>2. <b>NEW:</b> Added setting for changing the style of rewind buttons</p></i>
+<i><p>3. <b>NEW:</b> Added setting \'Screen orientation\'</p></i>
+<i><p>4. <b>NEW:</b> Added setting for manual switching of list/grid view</p></i>
+<i><p>5. <b>IMPROVEMENT:</b> Rewind step settings changed</p></i>
+<i><p>6. <b>FIX:</b> Application error when finishing some books</p></i>
+<i><p>7. <b>FIX:</b> Fixed display of shadows on some devices with long screen</p></i>
+<i><p>8. <b>FIX:</b> Translation</p></i>
+<i><p>9. <b>BETA:</b> Some settings removed</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.0.8</a></h4></i>
+<i><p>1. <b>IMPROVEMENT:</b> Changed the style of icons in the widget and notification panel</p></i>
+<i><p>2. <b>FIX:</b> Fixed orientation sensor</p></i>
+<i><p>3. <b>FIX:</b> Translation</p></i>
+<i><p>4. <b>BETA:</b> Added mini player</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.0.7</a></h4></i>
+<i><p>1. <b>NEW:</b> Added display of the percentage of the progress of reading the book</p></i>
+<i><p>2. <b>NEW:</b> Added the ability to delete books (or chapters) files</p></i>
+<i><p>3. <b>NEW:</b> Added developer mode</p></i>
+<i><p>4. <b>IMPROVEMENT:</b> Changed menu item \'About\'</p></i>
+<i><p>5. <b>FIX:</b> Translation</p></i>
+<i><p>6. <b>BETA:</b> Added setting showing \'Volume Control\' on the playback screen</p></i>
+<i><p>7. <b>BETA:</b> Added setting \'New rewind icons\'</p></i>
+<i><p>8. <b>BETA:</b> Added setting \'Portrait orientation\'</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.0.6</a></h4></i>
+<i><p>1. <b>NEW:</b> For each book, added setting for displaying chapter numbering in the table of contents</p></i>
+<i><p>2. <b>NEW:</b> Added colors for the status bar</p></i>
+<i><p>3. <b>NEW:</b> Added the ability to change the author</p></i>
+<i><p>4. <b>NEW:</b> Added \'Support and suggestions\' section to settings</p></i>
+<i><p>5. <b>IMPROVEMENT:</b> Separators changed</p></i>
+<i><p>6. <b>IMPROVEMENT:</b> Logo instead of blank screen when loading app</p></i>
+<i><p>7. <b>FIX:</b> Fixed checkbox colors</p></i>
+<i><p>8. <b>FIX:</b> Translation</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.0.4 - 1.0.5</a></h4></i>
+<i><p>1. <b>NEW:</b> Added new color palettes</p></i>
+<i><p>2. <b>NEW:</b> Added special thanks section</p></i>
+<i><p>3. <b>IMPROVEMENT:</b> Returned the colored play/pause button</p></i>
+<i><p>4. <b>IMPROVEMENT:</b> Changed settings</p></i>
+<i><p>5. <b>FIX:</b> Landscape view</p></i>
+<i><p>6. <b>FIX:</b> Translation</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.0.3</a></h4></i>
 <i><p>1. <b>NEW:</b> Added the ability to change interface colors</p></i>
 <i><p>2. <b>IMPROVEMENT:</b> Changed dialogs</p></i>
 <i><p>3. <b>IMPROVEMENT:</b> Changed settings menu</p></i>
@@ -12,7 +72,7 @@
 </body>
 <br>
 <body>
-<i><h4>Version 1.0.2</h4></i>
+<i><h4><a href="">Version 1.0.2</a></h4></i>
 <i><p>1. <b>NEW:</b> Added changelog</p></i>
 <i><p>2. <b>NEW:</b> Added support for folding devices</p></i>
 <i><p>3. <b>IMPROVEMENT:</b> The design of the application has been changed, the icons have become rounded</p></i>
@@ -22,7 +82,7 @@
 </body>
 <br>
 <body>
-<i><h4>Version 1.0.1</h4></i>
+<i><h4><a href="">Version 1.0.1</a></h4></i>
 <i><p>1. <b>NEW:</b> Added silence skipping function</p></i>
 <i><p>2. <b>IMPROVEMENT:</b> After the sleep timer ended, for 30 seconds you have the chance to shake the phone to restart the playback</p></i>
 <i><p>3. <b>IMPROVEMENT:</b> Dialog background changed</p></i>
@@ -33,7 +93,7 @@
 </body>
 <br>
 <body>
-<i><h4>Version 1.0.0</h4></i>
+<i><h4><a href="">Version 1.0.0</a></h4></i>
 <i><p><p>1. <b>NEW:</b> Application release</p></i>
 </body>
   ]]></string>

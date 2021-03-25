@@ -26,6 +26,23 @@
           android:layout_marginTop="8dp"
           android:orientation="vertical">
 
+            <com.goodwy.audiobook.features.settings.PaySettingView
+              android:id="@+id/pay"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:psv_title="@string/pref_pay_title"
+              app:psv_description="@string/pref_pay_summary"  />
+
+            <View
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:layout_marginTop="10dp"
+              android:layout_marginBottom="16dp"
+              android:layout_marginStart="15dp"
+              android:layout_marginEnd="15dp"
+              android:background="@drawable/divider_settings"
+              android:visibility="gone" />
+
             <com.goodwy.audiobook.features.settings.DividerSettingView
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
@@ -59,11 +76,34 @@
               app:ssv_title="@string/pref_colored_navigation_bar_title"
               app:ssv_description="@string/pref_colored_navigation_bar_summary" />
 
+            <com.goodwy.audiobook.features.settings.ChevronSettingView
+              android:id="@+id/appearanceUI"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:dsv_title="@string/pref_appearance_ui_title"
+              app:dsv_description="@string/pref_appearance_ui_summary" />
+
+            <View
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:layout_marginTop="10dp"
+              android:layout_marginBottom="16dp"
+              android:layout_marginStart="15dp"
+              android:layout_marginEnd="15dp"
+              android:background="@drawable/divider_settings" />
+
             <com.goodwy.audiobook.features.settings.DividerSettingView
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               app:div_description="@string/pref_category_playback" />
 
+            <com.goodwy.audiobook.features.settings.ChevronSettingView
+              android:id="@+id/skipInterval"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:dsv_title="@string/pref_skip_interval_title"
+              app:dsv_description="@string/pref_skip_interval_summary" />
+<!--
             <com.goodwy.audiobook.features.settings.DoubleSettingView
               android:id="@+id/skipAmount"
               android:layout_width="match_parent"
@@ -75,7 +115,7 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               app:dsv_title="@string/pref_auto_rewind_title" />
-
+-->
             <com.goodwy.audiobook.features.settings.SwitchSettingView
               android:id="@+id/resumePlayback"
               android:layout_width="match_parent"
@@ -83,28 +123,145 @@
               app:ssv_description="@string/pref_resume_on_replug_hint"
               app:ssv_title="@string/pref_resume_on_replug" />
 
+            <View
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:layout_marginTop="10dp"
+              android:layout_marginBottom="16dp"
+              android:layout_marginStart="15dp"
+              android:layout_marginEnd="15dp"
+              android:background="@drawable/divider_settings" />
+
+            <com.goodwy.audiobook.features.settings.DividerSettingView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:div_description="@string/pref_category_other" />
+
+            <com.goodwy.audiobook.features.settings.TripleSettingView
+              android:id="@+id/screenOrientation"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:tsv_title="@string/pref_screen_orientation_title" />
+
+            <com.goodwy.audiobook.features.settings.SwitchSettingView
+              android:id="@+id/gridViewAuto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:ssv_title="@string/pref_show_grid_view_auto_title"
+              app:ssv_description="@string/pref_show_grid_view_auto_summary" />
+
+            <com.goodwy.audiobook.features.settings.ChevronSettingView
+              android:id="@+id/prefBeta"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:dsv_title="@string/pref_beta_title"
+              app:dsv_description="@string/pref_beta_summary" />
+
+            <View
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:layout_marginTop="10dp"
+              android:layout_marginBottom="16dp"
+              android:layout_marginStart="15dp"
+              android:layout_marginEnd="15dp"
+              android:background="@drawable/divider_settings" />
+
             <com.goodwy.audiobook.features.settings.DividerSettingView
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               app:div_description="@string/pref_category_support" />
 
             <com.goodwy.audiobook.features.settings.DoubleSettingView
-              android:id="@+id/changelogDialog"
+              android:id="@+id/supportAndSuggestions"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              app:dsv_title="@string/pref_changelog_title" />
+              app:dsv_title="@string/pref_support_contribute"
+              app:dsv_description="@string/email_chooser_title" />
 
-            <com.goodwy.audiobook.features.settings.DoubleSettingView
+            <com.goodwy.audiobook.features.settings.ChevronSettingView
               android:id="@+id/aboutDialog"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               app:dsv_title="@string/pref_about_title" />
 
-            <com.goodwy.audiobook.features.settings.OneSettingView
-              android:id="@+id/version"
+            <androidx.constraintlayout.widget.ConstraintLayout
+              android:id="@+id/rateLayout"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              app:osv_title="@string/version" />
+              android:layout_marginStart="10dp"
+              android:layout_marginTop="20dp"
+              android:layout_marginEnd="10dp"
+              android:background="@drawable/outline"
+              app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                  android:id="@+id/rateIcon"
+                  android:layout_width="28dp"
+                  android:layout_height="28dp"
+                  android:layout_marginStart="24dp"
+                  android:src="@drawable/ic_favorite"
+                  app:layout_constraintBottom_toBottomOf="@id/rateSummary"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="@id/rateTitle" />
+
+                <com.google.android.material.textview.MaterialTextView
+                  android:id="@+id/rateTitle"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="24dp"
+                  android:layout_marginTop="16dp"
+                  android:layout_marginEnd="16dp"
+                  android:text="@string/rate_title"
+                  android:textAppearance="?textAppearanceBody1"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toEndOf="@id/rateIcon"
+                  app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                  android:id="@+id/rateSummary"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="2dp"
+                  android:layout_marginEnd="16dp"
+                  android:text="@string/rate_summary"
+                  android:textAppearance="?textAppearanceBody2"
+                  android:textColor="?android:textColorSecondary"
+                  app:layout_constraintEnd_toEndOf="@id/rateTitle"
+                  app:layout_constraintStart_toStartOf="@id/rateTitle"
+                  app:layout_constraintTop_toBottomOf="@id/rateTitle" />
+
+                <Button
+                  android:id="@+id/rateDismiss"
+                  style="@style/Widget.MaterialComponents.Button.TextButton"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_weight="1"
+                  android:layout_marginStart="16dp"
+                  android:layout_marginTop="8dp"
+                  android:text="@string/rate_dismiss"
+                  app:layout_constraintEnd_toStartOf="@id/rateOkay"
+                  app:layout_constraintTop_toBottomOf="@id/rateSummary" />
+
+                <Button
+                  android:id="@+id/rateOkay"
+                  style="@style/Widget.MaterialComponents.Button.TextButton"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_weight="1"
+                  android:layout_marginTop="8dp"
+                  android:layout_marginEnd="8dp"
+                  android:text="@string/rate_okay"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toBottomOf="@id/rateSummary" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.goodwy.audiobook.features.settings.OneSettingView
+              android:id="@+id/empty"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
 
         </LinearLayout>
 

@@ -17,7 +17,9 @@ data class BookPlayViewState(
   val duration: Duration,
   val playing: Boolean,
   val cover: BookPlayCover,
-  val skipSilence: Boolean
+  val skipSilence: Boolean,
+  val showChapterNumbers: Boolean,
+  val rewindButtonStylePref: Int
 )
 
 data class BookPlayCover(private val book: Book) {

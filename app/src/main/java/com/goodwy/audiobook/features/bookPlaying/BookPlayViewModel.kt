@@ -1,5 +1,9 @@
 package com.goodwy.audiobook.features.bookPlaying
 
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import de.paulwoitaschek.flowpref.Pref
 import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.data.Book
@@ -30,7 +34,9 @@ class BookPlayViewModel
   private val playStateManager: PlayStateManager,
   private val bookmarkRepo: BookmarkRepo,
   @Named(PrefKeys.CURRENT_BOOK)
-  private val currentBookIdPref: Pref<UUID>
+  private val currentBookIdPref: Pref<UUID>,
+  @Named(PrefKeys.REWIND_BUTTON_STYLE)
+  private val rewindButtonStylePref: Pref<Int>
 ) {
 
   private val scope = MainScope()
@@ -48,6 +54,7 @@ class BookPlayViewModel
     ) { book, playState, sleepTime ->
       val currentMark = book.content.currentChapter.markForPosition(book.content.positionInChapter)
       val hasMoreThanOneChapter = book.hasMoreThanOneChapter()
+      val rewindButtonStyle = rewindButtonStylePref.value
       BookPlayViewState(
         sleepTime = sleepTime,
         playing = playState == PlayStateManager.PlayState.Playing,
@@ -58,7 +65,9 @@ class BookPlayViewModel
         duration = currentMark.durationMs.milliseconds,
         playedTime = (book.content.positionInChapter - currentMark.startMs).milliseconds,
         cover = BookPlayCover(book),
-        skipSilence = book.content.skipSilence
+        skipSilence = book.content.skipSilence,
+        showChapterNumbers = book.content.showChapterNumbers,
+        rewindButtonStylePref = rewindButtonStyle
       )
     }
   }
@@ -124,6 +133,14 @@ class BookPlayViewModel
       val skipSilence = repo.bookById(bookId)?.content?.skipSilence
         ?: return@launch
       player.skipSilence(!skipSilence)
+    }
+  }
+
+  fun toggleShowChapterNumbers() {
+    scope.launch {
+      val showChapterNumbers = repo.bookById(bookId)?.content?.showChapterNumbers
+        ?: return@launch
+      player.showChapterNumbers(!showChapterNumbers)
     }
   }
 }

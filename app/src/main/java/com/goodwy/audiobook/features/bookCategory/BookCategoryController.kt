@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.goodwy.audiobook.R
 import com.goodwy.audiobook.data.Book
 import com.goodwy.audiobook.data.BookComparator
+import com.goodwy.audiobook.data.repo.BookRepository
 import com.goodwy.audiobook.databinding.BookCategoryBinding
 import com.goodwy.audiobook.features.GalleryPicker
 import com.goodwy.audiobook.features.ViewBindingController
@@ -25,6 +26,10 @@ import com.goodwy.audiobook.misc.conductor.popOrBack
 import com.goodwy.audiobook.uitools.BookChangeHandler
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import timber.log.Timber
 import java.util.UUID
 import javax.inject.Inject
 
@@ -38,6 +43,8 @@ class BookCategoryController(bundle: Bundle) : ViewBindingController<BookCategor
   lateinit var viewModel: BookCategoryViewModel
   @Inject
   lateinit var galleryPicker: GalleryPicker
+  @Inject
+  lateinit var repo: BookRepository
 
   constructor(category: BookOverviewCategory) : this(Bundle().apply {
     putSerializable(NI_CATEGORY, category)
@@ -130,6 +137,15 @@ class BookCategoryController(bundle: Bundle) : ViewBindingController<BookCategor
 
   override fun onFileCoverRequested(book: Book) {
     galleryPicker.pick(book.id, this)
+  }
+
+  override fun onFileDeletionRequested(book: Book) {
+    GlobalScope.launch (Dispatchers.IO) {
+      val bookContent = book.content
+      val currentFile = bookContent.currentFile
+      currentFile.delete()
+      //repo.hideBook(book.id)
+    }
   }
 }
 

@@ -13,6 +13,8 @@ import de.paulwoitaschek.flowpref.Pref
 import com.goodwy.audiobook.R
 import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.data.Book
+import com.goodwy.audiobook.data.markForPosition
+import com.goodwy.audiobook.data.repo.BookRepository
 import com.goodwy.audiobook.databinding.BookOverviewBinding
 import com.goodwy.audiobook.features.GalleryPicker
 import com.goodwy.audiobook.features.ViewBindingController
@@ -32,8 +34,12 @@ import com.goodwy.audiobook.misc.conductor.clearAfterDestroyViewNullable
 import com.goodwy.audiobook.misc.postedIfComputingLayout
 import com.goodwy.audiobook.uitools.BookChangeHandler
 import com.goodwy.audiobook.uitools.PlayPauseDrawableSetter
+import com.goodwy.audiobook.uitools.PlayPauseColorDrawableSetter
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.util.UUID
@@ -56,13 +62,20 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
   @field:[Inject Named(PrefKeys.CURRENT_BOOK)]
   lateinit var currentBookIdPref: Pref<UUID>
 
+  @field:[Inject Named(PrefKeys.GRID_AUTO)]
+  lateinit var gridViewAutoPref: Pref<Boolean>
+
   @Inject
   lateinit var viewModel: BookOverviewViewModel
 
   @Inject
   lateinit var galleryPicker: GalleryPicker
 
+  @Inject
+  lateinit var repo: BookRepository
+
   private var playPauseDrawableSetter: PlayPauseDrawableSetter by clearAfterDestroyView()
+  private var playPauseColorDrawableSetter: PlayPauseColorDrawableSetter by clearAfterDestroyView()
   private var adapter: BookOverviewAdapter by clearAfterDestroyView()
   private var currentTapTarget by clearAfterDestroyViewNullable<TapTargetView>()
   private var useGrid = false
@@ -70,6 +83,7 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
   override fun BookOverviewBinding.onBindingCreated() {
     setupToolbar()
     setupFab()
+    setupMiniPlayerFab()
     setupRecyclerView()
     lifecycleScope.launch {
       viewModel.coverChanged.collect {
@@ -77,11 +91,28 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
         bookCoverChanged(it)
       }
     }
+    miniPlayer.setOnClickListener {
+      val bookid = currentBookIdPref.value
+      val book = repo.bookById(bookid)
+      book?.let { it1 -> invokeBookSelectionCallback(it1) }
+    }
+    settingsButton.setOnClickListener {
+      val transaction = SettingsController().asTransaction()
+      router.pushController(transaction)
+    }
+    libraryButton.setOnClickListener {
+      toFolderOverview()
+    }
   }
 
   private fun BookOverviewBinding.setupFab() {
     binding.fab.setOnClickListener { viewModel.playPause() }
     playPauseDrawableSetter = PlayPauseDrawableSetter(fab)
+  }
+
+  private fun BookOverviewBinding.setupMiniPlayerFab() {
+    binding.miniPlayerFab.setOnClickListener { viewModel.playPause() }
+    playPauseColorDrawableSetter = PlayPauseColorDrawableSetter(miniPlayerFab)
   }
 
   private fun BookOverviewBinding.setupRecyclerView() {
@@ -134,11 +165,6 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
         }
         R.id.toggleGrid -> {
           viewModel.useGrid(!useGrid)
-/**Оригинал*/
-          /**viewModel.useGrid(!useGrid)*/
-/*Изменено на настройки*/
-         /* val transaction = SettingsController().asTransaction()
-          router.pushController(transaction)*/
           true
         }
         else -> false
@@ -147,6 +173,8 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
   }
 
   private fun BookOverviewBinding.gridMenuItem(): GridMenuItem = GridMenuItem(toolbar.menu.findItem(R.id.toggleGrid))
+  private fun BookOverviewBinding.settingMenuItem(): SettingMenuItem = SettingMenuItem(toolbar.menu.findItem(R.id.action_settings))
+  private fun BookOverviewBinding.libraryMenuItem(): LibraryMenuItem = LibraryMenuItem(toolbar.menu.findItem(R.id.library))
 
   private fun toFolderOverview() {
     val controller = FolderOverviewController()
@@ -170,7 +198,7 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
     router.pushController(transaction)
   }
 
-  private fun BookOverviewBinding.render(state: BookOverviewState, gridMenuItem: GridMenuItem) {
+  private fun BookOverviewBinding.render(state: BookOverviewState, gridMenuItem: GridMenuItem, settingMenuItem: SettingMenuItem, libraryMenuItem: LibraryMenuItem) {
     Timber.i("render ${state.javaClass.simpleName}")
     val adapterContent = when (state) {
       is BookOverviewState.Content -> buildList {
@@ -187,6 +215,9 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
       is BookOverviewState.Content -> {
         hideNoFolderWarning()
         fab.isVisible = state.currentBookPresent
+        fab.isVisible = state.miniPlayerStylePref == 1
+        miniPlayer.isVisible = state.currentBookPresent
+        miniPlayer.isVisible = state.miniPlayerStylePref == 2
 
         useGrid = state.useGrid
         val lm = recyclerView.layoutManager as GridLayoutManager
@@ -204,31 +235,57 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
           setIcon(drawableRes)*/
 /**Текст вместо значков*/
           /**setTitle(if (useGrid) R.string.grid else R.string.list)*/
-/**Изменено на настройки*/
-          /**setTitle(if (useGrid) R.string.action_settings else R.string.action_settings)*/
         }
+        /* Заменяем текст на иконки
+        if (showMiniPlayerPref.value) {
+          settingMenuItem.item.apply {
+            val drawableRes = R.drawable.ic_settings
+            setIcon(drawableRes)
+          }
+          libraryMenuItem.item.apply {
+            val drawableRes = R.drawable.audiobook
+            setIcon(drawableRes)
+          }
+        }*/
       }
       BookOverviewState.Loading -> {
         hideNoFolderWarning()
         fab.isVisible = true
+        miniPlayer.isVisible = true
       }
       BookOverviewState.NoFolderSet -> {
         showNoFolderWarning()
         fab.isVisible = false /**скрывать плавающую кнопку воспроизведения*/
+        miniPlayer.isVisible = false
       }
     }
 
     loadingProgress.isVisible = state == BookOverviewState.Loading
-    gridMenuItem.item.isVisible = false
+    gridMenuItem.item.isVisible = !gridViewAutoPref.value
     //*Оригинал*/
     //*gridMenuItem.item.isVisible = state != BookOverviewState.Loading*/
     /**Скрыть иконки изменения вида*/
     /**gridMenuItem.item.isVisible = false*/
+    settingMenuItem.item.isVisible = false
+    libraryMenuItem.item.isVisible = false
+    val bookid = currentBookIdPref.value
+    val book = repo.bookById(bookid)
+    if (book == null) {
+      Timber.e("book is null. Return early")
+    }
+    val currentBookName = book?.name
+    val currentMark = book?.content?.currentChapter?.markForPosition(book.content.positionInChapter)
+    val currentChapterName = currentMark?.name
+    if (currentBookName != null && currentChapterName != null) {
+      miniPlayerTitle.text = currentBookName.toString()
+      miniPlayerSummary.text = currentChapterName.toString()
+    }
   }
 
   private fun showPlaying(playing: Boolean) {
     Timber.i("Called showPlaying $playing")
     playPauseDrawableSetter.setPlaying(playing = playing)
+    playPauseColorDrawableSetter.setPlaying(playing = playing)
   }
 
   private fun hideNoFolderWarning() {
@@ -245,15 +302,14 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
       return
 
     val target = TapTarget
-      .forToolbarMenuItem(
-        toolbar,
-        R.id.library,
+      .forView(
+        binding.libraryButton,
         activity!!.getString(R.string.onboarding_title),
         activity!!.getString(R.string.onboarding_content)
       )
       .cancelable(true)
       .tintTarget(false)
-      .outerCircleColor(R.color.navBarColor)
+      .outerCircleColor(R.color.progressColor)
       .descriptionTextColorInt(Color.WHITE)
       .textColorInt(Color.BLACK)
       .targetCircleColorInt(Color.BLACK)
@@ -296,13 +352,26 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
   override fun BookOverviewBinding.onAttach() {
     viewModel.attach()
     val gridMenuItem = gridMenuItem()
+    val settingMenuItem = settingMenuItem()
+    val libraryMenuItem = libraryMenuItem()
     lifecycleScope.launch {
       viewModel.state()
         .collect {
-          render(it, gridMenuItem)
+          render(it, gridMenuItem, settingMenuItem, libraryMenuItem)
         }
+    }
+  }
+
+  override fun onFileDeletionRequested(book: Book) {
+    GlobalScope.launch (Dispatchers.IO) {
+      val bookContent = book.content
+      val currentFile = bookContent.currentFile
+      currentFile.delete()
+      //repo.hideBook(book.id)
     }
   }
 }
 
 private inline class GridMenuItem(val item: MenuItem)
+private inline class SettingMenuItem(val item: MenuItem)
+private inline class LibraryMenuItem(val item: MenuItem)

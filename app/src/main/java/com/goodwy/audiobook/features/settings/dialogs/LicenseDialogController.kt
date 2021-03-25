@@ -22,13 +22,13 @@ class LicenseDialogController : DialogController() {
     return MaterialDialog(activity!!, BottomSheet(LayoutMode.WRAP_CONTENT)).apply {
       setPeekHeight(res = R.dimen.dialog_80)
       cornerRadius(4f)
-      icon(R.drawable.ic_gplv3)
+      icon(R.drawable.ic_licenses)
       title(R.string.pref_licenses_title)
       message(R.string.pref_licenses_message) {
         html { visitUri(license_url) }
         lineSpacing(1.0f)
       }
-      positiveButton (R.string.dialog_ок)
+      positiveButton (R.string.dialog_ok)
     }
   }
 
