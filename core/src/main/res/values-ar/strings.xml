@@ -161,5 +161,34 @@
     <string name="volume_boost">زيادة الحجم</string>
     <string name="show_all">عرض الكل</string>
     <string name="pref_pay_title">دعم PlayBooks</string>
+    <string name="pref_show_progress_bar_summary">إظهار شريط التقدم في المكتبة</string>
+    <string name="pref_show_progress_bar_title">شريط التقدم</string>
+    <string name="mark_as_not_started">وضع علامة على أنه لم يبدأ</string>
+    <string name="mark_as_completed">وضع علامة \"مكتمل\"</string>
+    <string name="version">الإصدار</string>
+    <string name="mark_as_current">وضع علامة كتيار</string>
+    <string name="folder_add_library_book">مجلد مع مجلدات فرعية متعددة</string>
+    <string name="end_of_current_chapter">نهاية الفصل الحالي</string>
+    <string name="sleep_timer_note">لإعادة التشغيل، هز الجهاز في غضون 30 ثانية بعد الانتهاء</string>
+    <string name="custom">تقليد</string>
+    <string name="pref_show_divider_title">إظهار المقسمات</string>
+    <string name="pref_show_divider_summary">إظهار الفواصل بين الكتب في المكتبة</string>
+    <string name="sp_plus_summary">PlayBooks Lite مجاني وخالي من ال الإعلانية ومفتوح المصدر وسيظل دائما على هذا النحو. بمساعدتك نحن قادرون على تنفيذ المزيد من الميزات وجعل PlayBooks أفضل.</string>
+    <string name="pref_translate_title">مساعدة الترجمة</string>
+    <string name="pref_translate_summary">المساعدة في تصحيح الأخطاء وإكمال الترجمة</string>
+    <string name="pref_use_english_title">استخدام اللغة الإنجليزية</string>
+    <string name="pref_use_english_summary">سيؤدي تغيير الإعداد إلى إعادة تشغيل التطبيق</string>
+    <string name="repeat_mode">كرر</string>
+    <string name="pref_appearance_ui_library_title">مظهر واجهة المستخدم للمكتبة</string>
+    <string name="pref_appearance_ui_library_summary">تخصيص واجهة المستخدم للمكتبة</string>
+    <string name="pref_appearance_ui_player_title">مظهر واجهة المستخدم للاعب</string>
+    <string name="pref_appearance_ui_player_summary">تخصيص واجهة المستخدم الخاصة بالمشغل</string>
+    <string name="pref_play_buttons_style_title">نمط زر التشغيل</string>
+    <string name="pref_play_buttons_style_summary">تحديد نمط زر التشغيل في المشغل</string>
+    <string name="pref_show_slider_volume_title">التحكم في مستوى الصوت</string>
+    <string name="pref_show_slider_volume_summary">عرض \'التحكم في مستوى الصوت\' على شاشة التشغيل</string>
+    <string name="pref_cover_settings_title">إعدادات الغلاف</string>
+    <string name="pref_cover_corner_radius_title">نصف قطر زوايا الغطاء</string>
+    <string name="pref_cover_elevation_title">ارتفاع الغطاء</string>
     <!--book category-->
 </resources>

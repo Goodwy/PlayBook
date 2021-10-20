@@ -7,18 +7,18 @@ object Versions {
   val sourceCompatibility = JavaVersion.VERSION_1_8
   val targetCompatibility = JavaVersion.VERSION_1_8
 
-  const val compileSdk = 29
+  const val compileSdk = 30
   const val minSdk = 24
-  const val targetSdk = 29
-  const val versionCode = 110
-  const val versionName = "1.1.0"
+  const val targetSdk = 30
+  const val versionCode = 121
+  const val versionName = "1.2.1"
 }
 
 object Deps {
 
   object AndroidX {
     const val supportAnnotations = "androidx.annotation:annotation:1.0.0"
-    const val appCompat = "androidx.appcompat:appcompat:1.1.0"
+    const val appCompat = "androidx.appcompat:appcompat:1.3.0-rc01"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:1.1.3"
     const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
     const val transitions = "androidx.transition:transition:1.3.1"
@@ -41,7 +41,7 @@ object Deps {
   }
 
   const val androidGradlePlugin = "com.android.tools.build:gradle:3.6.3"
-  const val material = "com.google.android.material:material:1.2.0-alpha06"
+  const val material = "com.google.android.material:material:1.3.0"
   const val floatingActionButton = "com.getbase:floatingactionbutton:1.10.1"
   const val materialCab = "com.afollestad:material-cab:2.0.1"
   const val picasso = "com.squareup.picasso:picasso:2.71828"
@@ -73,11 +73,6 @@ object Deps {
   object Jaredrummler {
     private const val version = "1.0.2"
     const val cyanea = "com.jaredrummler:cyanea:$version"
-  }
-
-  object BillingClient {
-    private const val version = "1.2.2"
-    const val billing = "com.android.billingclient:billing:$version"
   }
 
   const val crashlytics = "com.crashlytics.sdk.android:crashlytics:2.10.1@aar"

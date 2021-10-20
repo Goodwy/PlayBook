@@ -5,6 +5,12 @@
     tools:ignore="AlwaysShowAction">
 
     <item
+      android:id="@+id/repeat_mode"
+      android:icon="@drawable/ic_repeat_off"
+      android:title="@string/repeat_mode"
+      app:showAsAction="always" />
+
+    <item
       android:id="@+id/action_time_lapse"
       android:icon="@drawable/speedometer"
       android:title="@string/playback_speed"

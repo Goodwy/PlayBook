@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="?android:attr/windowBackground"
+    android:background="?backgroundColor"
     android:orientation="vertical">
 
     <FrameLayout
@@ -69,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-            <com.goodwy.audiobook.features.imagepicker.CropOverlay
+            <com.goodwy.audiobooklite.features.imagepicker.CropOverlay
                 android:id="@+id/cropOverlay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

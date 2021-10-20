@@ -170,5 +170,33 @@
     <string name="change_book_author">लेखक</string>
     <string name="edit_book_author">लेखक को संपादित करें</string>
     <string name="pref_pay_title">PlayBooks का समर्थन करें</string>
+    <string name="pref_show_progress_bar_summary">लाइब्रेरी में प्रगति बार दिखाएं</string>
+    <string name="pref_show_progress_bar_title">प्रोगेस बार</string>
+    <string name="mark_as_completed">पूर्ण के रूप में चिह्नित करें</string>
+    <string name="mark_as_not_started">मार्क नॉट स्टार्टेड</string>
+    <string name="version">संस्करण</string>
+    <string name="mark_as_current">वर्तमान के रूप में मार्क</string>
+    <string name="folder_add_library_book">कई सबफोल्डर के साथ फ़ोल्डर</string>
+    <string name="end_of_current_chapter">वर्तमान अध्याय का अंत</string>
+    <string name="sleep_timer_note">पुनः आरंभ करने के लिए, खत्म होने के बाद 30 सेकंड के भीतर डिवाइस को हिलाएं</string>
+    <string name="custom">परम्परा</string>
+    <string name="pref_show_divider_title">डिवाइडर दिखाएं</string>
+    <string name="pref_show_divider_summary">पुस्तकालय में पुस्तकों के बीच डिवाइडर दिखाएं</string>
+    <string name="pref_translate_title">अनुवाद सहायता</string>
+    <string name="pref_translate_summary">गलतियों को सही करने और अनुवाद पूरा करने में मदद करें</string>
+    <string name="pref_use_english_title">अंग्रेजी भाषा का प्रयोग करें</string>
+    <string name="pref_use_english_summary">सेटिंग बदलने से आवेदन फिर से शुरू होगा</string>
+    <string name="repeat_mode">दोहराना</string>
+    <string name="pref_appearance_ui_library_title">लाइब्रेरी यूआई उपस्थिति</string>
+    <string name="pref_appearance_ui_library_summary">लाइब्रेरी के यूजर इंटरफेस को कस्टमाइज़ करें</string>
+    <string name="pref_appearance_ui_player_title">खिलाड़ी यूआई उपस्थिति</string>
+    <string name="pref_appearance_ui_player_summary">खिलाड़ी के यूजर इंटरफेस को कस्टमाइज़ करें</string>
+    <string name="pref_play_buttons_style_title">बटन शैली खेलें</string>
+    <string name="pref_play_buttons_style_summary">खिलाड़ी में खेल बटन की शैली का चयन</string>
+    <string name="pref_show_slider_volume_title">वॉल्यूम कंट्रोल</string>
+    <string name="pref_show_slider_volume_summary">प्लेबैक स्क्रीन पर \'वॉल्यूम कंट्रोल\' दिखा</string>
+    <string name="pref_cover_settings_title">कवर सेटिंग्स</string>
+    <string name="pref_cover_corner_radius_title">कवर कोनों का त्रिज्या</string>
+    <string name="pref_cover_elevation_title">कवर की ऊंचाई</string>
     <!--book category-->
 </resources>

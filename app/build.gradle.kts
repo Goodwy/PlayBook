@@ -15,7 +15,7 @@ android {
   compileSdkVersion(Versions.compileSdk)
 
   defaultConfig {
-    applicationId = "com.goodwy.audiobook"
+    applicationId = "com.goodwy.audiobooklite"
     minSdkVersion(Versions.minSdk)
     targetSdkVersion(Versions.targetSdk)
 
@@ -136,8 +136,6 @@ dependencies {
   implementation(Deps.materialCab)
 
   implementation(Deps.Jaredrummler.cyanea)
-
-  implementation(Deps.BillingClient.billing)
 
   implementation(Deps.floatingActionButton)
 

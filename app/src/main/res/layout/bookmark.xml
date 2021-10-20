@@ -32,6 +32,7 @@
         android:layout_margin="16dp"
         android:src="@drawable/plus"
         android:theme="@style/AppTheme"
-        app:backgroundTint="?colorAccent" />
+        app:backgroundTint="?colorAccent"
+      android:contentDescription="@string/bookmark_added" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

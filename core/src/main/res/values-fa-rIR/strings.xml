@@ -85,5 +85,30 @@
     <string name="network_top">این کار خیلی خوب پیش نرفت...</string>
     <string name="cover_crop">بریدن جلد</string>
     <string name="pref_pay_title">از PlayBooks پشتیبانی کنید</string>
+    <string name="version">نسخهٔ</string>
+    <string name="mark_as_current">علامت گذاری به عنوان جریان</string>
+    <string name="folder_add_library_book">پوشه با چند زیر پوشه</string>
+    <string name="end_of_current_chapter">پایان فصل جاری</string>
+    <string name="sleep_timer_note">برای راه اندازی مجدد، دستگاه را در عرض 30 ثانیه پس از اتمام تکان دهید</string>
+    <string name="custom">سفارشی</string>
+    <string name="pref_show_divider_title">نمایش تقسیم کننده ها</string>
+    <string name="pref_show_divider_summary">نمایش تقسیم بین کتاب ها در کتابخانه</string>
+    <string name="sp_plus_summary">PlayBooks Lite رایگان است، بدون آگهی، منبع باز و آن را همیشه به این شکل باقی خواهد ماند. با کمک شما ما قادر به پیاده سازی ویژگی های بیشتر و PlayBooks حتی بهتر است.</string>
+    <string name="pref_translate_title">کمک ترجمه</string>
+    <string name="pref_translate_summary">کمک به تصحیح اشتباهات و تکمیل ترجمه</string>
+    <string name="pref_use_english_title">استفاده از زبان انگلیسی</string>
+    <string name="pref_use_english_summary">تغییر تنظیمات برنامه را راه اندازی مجدد خواهد کرد</string>
+    <string name="repeat_mode">تکرار</string>
+    <string name="pref_appearance_ui_library_title">کتابخانه ظاهر رابط کاربر</string>
+    <string name="pref_appearance_ui_library_summary">سفارشی کردن رابط کاربری کتابخانه</string>
+    <string name="pref_appearance_ui_player_title">ظاهر پلیر UI</string>
+    <string name="pref_appearance_ui_player_summary">سفارشی کردن رابط کاربری بازیکن</string>
+    <string name="pref_play_buttons_style_title">بازی سبک دکمه</string>
+    <string name="pref_play_buttons_style_summary">انتخاب سبک دکمه بازی در بازیکن</string>
+    <string name="pref_show_slider_volume_title">کنترل حجم</string>
+    <string name="pref_show_slider_volume_summary">نمایش \'کنترل حجم\' بر روی صفحه پخش</string>
+    <string name="pref_cover_settings_title">تنظیمات پوشش</string>
+    <string name="pref_cover_corner_radius_title">شعاع گوشه های پوشش</string>
+    <string name="pref_cover_elevation_title">ارتفاع پوشش</string>
     <!--book category-->
 </resources>

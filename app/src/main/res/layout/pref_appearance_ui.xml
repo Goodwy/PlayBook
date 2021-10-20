@@ -11,7 +11,7 @@
       android:layout_height="?attr/actionBarSize"
       android:background="?backgroundColor"
       app:navigationIcon="@drawable/ic_arrow_back"
-      app:title="@string/pref_beta_title" />
+      app:title="@string/pref_appearance_ui_library_title" />
 
     <androidx.core.widget.NestedScrollView
       android:layout_width="match_parent"
@@ -25,19 +25,26 @@
           android:layout_marginTop="8dp"
           android:orientation="vertical">
 
-            <com.goodwy.audiobook.features.settings.TripleSettingView
+            <com.goodwy.audiobooklite.features.settings.TripleSettingView
               android:id="@+id/miniPlayerStyle"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               app:tsv_title="@string/pref_show_mini_player_title"
               app:tsv_description="@string/pref_show_mini_player_summary" />
 
-            <com.goodwy.audiobook.features.settings.TripleSettingView
-              android:id="@+id/rewindButtonStyle"
+            <com.goodwy.audiobooklite.features.settings.SwitchSettingView
+              android:id="@+id/showProgressBar"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              app:tsv_title="@string/pref_rewind_buttons_style_title"
-              app:tsv_description="@string/pref_rewind_buttons_style_summary" />
+              app:ssv_title="@string/pref_show_progress_bar_title"
+              app:ssv_description="@string/pref_show_progress_bar_summary" />
+
+            <com.goodwy.audiobooklite.features.settings.SwitchSettingView
+              android:id="@+id/showDivider"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:ssv_title="@string/pref_show_divider_title"
+              app:ssv_description="@string/pref_show_divider_summary" />
 
         </LinearLayout>
 

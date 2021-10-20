@@ -172,5 +172,33 @@
     <string name="show_all">Покажи всичко</string>
     <string name="email_chooser_title">Изпратете имейл</string>
     <string name="pref_pay_title">Поддръжка на PlayBooks</string>
+    <string name="mark_as_completed">Означаване като завършено</string>
+    <string name="mark_as_not_started">Означаване като не започнало</string>
+    <string name="pref_show_progress_bar_title">Лента за напредъка</string>
+    <string name="pref_show_progress_bar_summary">Показване на лентата за напредъка в библиотеката</string>
+    <string name="version">Версия</string>
+    <string name="mark_as_current">Маркирай като текущ</string>
+    <string name="folder_add_library_book">Папка с няколко подпапки</string>
+    <string name="end_of_current_chapter">Край на текущата глава</string>
+    <string name="sleep_timer_note">За да рестартирате, разклатете устройството в рамките на 30 секунди след</string>
+    <string name="custom">Обичай</string>
+    <string name="pref_show_divider_title">Покажи разделителите</string>
+    <string name="pref_show_divider_summary">Показване на разделителите между книгите в библиотеката</string>
+    <string name="pref_translate_title">Помощ за превод</string>
+    <string name="pref_translate_summary">Помага за коригиране на грешки и завършване на превода</string>
+    <string name="pref_use_english_title">Използване на английски език</string>
+    <string name="pref_use_english_summary">Промяната на настройката ще рестартира приложението</string>
+    <string name="repeat_mode">Повтарям</string>
+    <string name="pref_appearance_ui_library_title">Външен вид на потребителския интерфейс на библиотеката</string>
+    <string name="pref_appearance_ui_library_summary">Персонализиране на потребителския интерфейс на библиотеката</string>
+    <string name="pref_appearance_ui_player_title">Външен вид на ПИ на играча</string>
+    <string name="pref_appearance_ui_player_summary">Персонализиране на потребителския интерфейс на плейъра</string>
+    <string name="pref_play_buttons_style_title">Стил на бутон за възпроизвеждане</string>
+    <string name="pref_play_buttons_style_summary">Избор на стила на бутона за възпроизвеждане в плейъра</string>
+    <string name="pref_show_slider_volume_title">Управление на силата на звука</string>
+    <string name="pref_show_slider_volume_summary">Показване на \"Контрол на силата на звука\" на екрана за възпроизвеждане</string>
+    <string name="pref_cover_settings_title">Настройки на корицата</string>
+    <string name="pref_cover_corner_radius_title">Радиус на завивките</string>
+    <string name="pref_cover_elevation_title">Издигане на капака</string>
     <!--book category-->
 </resources>

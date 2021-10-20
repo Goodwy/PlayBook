@@ -3,11 +3,13 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="72dp"
+  android:layout_height="wrap_content"
   android:background="?attr/selectableItemBackground"
   android:descendantFocusability="blocksDescendants"
   android:gravity="center_vertical"
   android:orientation="horizontal"
+  android:paddingTop="4dp"
+  android:paddingBottom="6dp"
   tools:ignore="Overdraw">
 
     <ImageView
@@ -18,7 +20,7 @@
       android:contentDescription="@string/popup_edit"
       android:paddingLeft="16dp"
       android:paddingRight="16dp"
-      android:src="@drawable/ic_more_vert"
+      android:src="@drawable/ic_more_horiz"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
@@ -31,10 +33,10 @@
       android:layout_marginEnd="16dp"
       android:drawablePadding="4dp"
       android:ellipsize="end"
-      android:maxLines="1"
+      android:maxLines="3"
       android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
       app:layout_constrainedWidth="true"
-      app:layout_constraintBottom_toTopOf="@+id/summary"
+      app:layout_constraintBottom_toTopOf="@+id/file"
       app:layout_constraintEnd_toStartOf="@+id/edit"
       app:layout_constraintHorizontal_bias="0"
       app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +44,23 @@
       app:layout_constraintVertical_chainStyle="packed"
       tools:drawableStart="@drawable/ic_sleep"
       tools:text="Fictive bookmark title that might be too long to fit" />
+
+    <TextView
+      android:id="@+id/file"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="start"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="8dp"
+      android:ellipsize="end"
+      android:maxLines="1"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+      android:textSize="12sp"
+      app:layout_constraintBottom_toTopOf="@+id/summary"
+      app:layout_constraintEnd_toStartOf="@+id/edit"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/title"
+      tools:text="File name" />
 
     <TextView
       android:id="@+id/summary"
@@ -57,7 +76,7 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toStartOf="@+id/time"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/title"
+      app:layout_constraintTop_toBottomOf="@+id/file"
       tools:text="(4/102)" />
 
     <TextView

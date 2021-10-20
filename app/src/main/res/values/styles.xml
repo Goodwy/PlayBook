@@ -96,8 +96,10 @@
     </style>
 
     <style name="timer_text_view_style">
-        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">30dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
         <item name="android:layout_gravity">right|end</item>
         <item name="android:layout_margin">8dp</item>
         <item name="android:background">@drawable/current_playing_circle_background</item>
@@ -111,8 +113,8 @@
     <style name="BottomSheetRow">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">48dp</item>
-        <item name="android:background">?backgroundColor</item>
-        <item name="android:drawablePadding">32dp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:drawablePadding">26dp</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
@@ -136,6 +138,10 @@
 
     <style name="splashScreenTheme" parent="AppTheme">
         <item name="android:windowBackground">@drawable/splash_screen</item>
-        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/cyanea_background_dark</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/cyanea_background_light</item>
+        <item name="android:statusBarColor">@color/cyanea_background_light</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
     </style>
+    <!--<item name="android:windowSplashscreenContent" tools:ignore="NewApi">@drawable/splash_screen</item>-->
 </resources>

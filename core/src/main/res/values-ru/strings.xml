@@ -99,8 +99,9 @@ Goodwy</i>
         <b>PlayBooks</b> - это плеер для аудио книг с открытым исходным кодом. Разработано на базе приложения Voice.
         <br/><br/>
 
-        Буду очень признателен, если вы оставите отзыв или оценку о приложении в Google Play, это поможет развитию проекта.<br/>
+        Буду очень признателен, если вы оставите отзыв или оценку о приложении в Google Play, это очень поможет развитию проекта.<br/>
     ]]></string>
+    <string name="email_chooser_title">Отправить письмо</string>
     <!--Misc-->
     <string name="popup_edit">Править</string>
     <string name="remove">Удалить</string>
@@ -118,7 +119,7 @@ Goodwy</i>
 
     <!--book category-->
     <string name="book_header_current">Слушаю</string>
-    <string name="book_header_not_started">Поледние добавленные</string>
+    <string name="book_header_not_started">Последние добавленные</string>
     <string name="book_header_completed">Прослушанные</string>
     <string name="book_category_sort">Сортировка</string>
     <string name="book_category_sort_by_name">Название</string>
@@ -138,6 +139,13 @@ Goodwy</i>
     <string name="version">Версия</string>
     <string name="show_chapter_numbers">Показать номера глав</string>
     <string name="delete_file">Удалить текущий файл</string>
+    <string name="mark_as_current">Отметить как текущее</string>
+    <string name="mark_as_completed">Отметить как прослушанное</string>
+    <string name="mark_as_not_started">Отметить как непрослушанное</string>
+    <string name="folder_add_library_book">Папка с несколькими подпапками</string>
+    <string name="end_of_current_chapter">До конца текущей главы</string>
+    <string name="sleep_timer_note">Для перезапуска встряхните устройство в течение 30 секунд после окончания</string>
+    <string name="custom">Индивидуально</string>
 
     <!-- Settings -->
     <string name="pref_default_theme_title">По умолчанию</string>
@@ -159,12 +167,20 @@ Goodwy</i>
     <string name="pref_screen_orientation_value_system">Система</string>
     <string name="pref_show_grid_view_auto_title">Автоматическое изменение вида (список/сетка)</string>
     <string name="pref_show_grid_view_auto_summary">В зависимости от размера экрана</string>
+    <string name="pref_show_progress_bar_title">Полосы прогресса</string>
+    <string name="pref_show_progress_bar_summary">Отображать полосы прогресса для книг в библиотеке</string>
+    <string name="pref_show_divider_title">Показывать разделители</string>
+    <string name="pref_show_divider_summary">Отображать разделители между книг в библиотеке</string>
+    <string name="pref_use_english_title">Использовать английский язык</string>
+    <string name="pref_use_english_summary">Изменение настройки перезапустит приложение</string>
+    <string name="pref_appearance_ui_library_title">Настройки интерфейса библиотеки</string>
+    <string name="pref_appearance_ui_library_summary">Изменение внешнего вида элементов интерфейса библиотеки</string>
+    <string name="pref_appearance_ui_player_title">Настройки интерфейса плеера</string>
+    <string name="pref_appearance_ui_player_summary">Изменение внешнего вида элементов интерфейса плеера</string>
 
     <!-- Beta -->
     <string name="pref_beta_title">Beta</string>
     <string name="pref_beta_summary">Эксперементальные функции</string>
-    <string name="pref_show_slider_volume_title">Панель громкости</string>
-    <string name="pref_show_slider_volume_summary">Показывать \'Панель громкости\' на экране воспроизведения</string>
 
     <!-- About -->
     <string name="pref_github_title">GitHub</string>
@@ -174,6 +190,8 @@ Goodwy</i>
     <string name="pref_changelog_title">Список изменений</string>
     <string name="pref_privacy_title">Политика конфиденциальности</string>
     <string name="pref_share_title">Поделиться</string>
+    <string name="pref_translate_title">Помощь в переводе</string>
+    <string name="pref_translate_summary">Помогите исправить ошибки и дополнить перевод приложения</string>
 
     <!-- Appearance UI -->
     <string name="pref_show_mini_player_title">Стиль мини-плеера</string>
@@ -182,8 +200,15 @@ Goodwy</i>
     <string name="pref_mini_player_mini_player_floating">Плавающий плеер</string>
     <string name="pref_rewind_buttons_style_title">Стиль кнопок перемотки</string>
     <string name="pref_rewind_buttons_style_summary">Выбор стиля кнопок перемотки в плеере</string>
-    <string name="pref_rewind_buttons_style_classic">Класические</string>
-    <string name="pref_rewind_buttons_style_rounded">Округлые</string>
+    <string name="pref_rewind_buttons_style_classic">Класический</string>
+    <string name="pref_rewind_buttons_style_rounded">Округлый</string>
+    <string name="pref_play_buttons_style_title">Стиль кнопки воспроизведения</string>
+    <string name="pref_play_buttons_style_summary">Выбор стиля кнопки воспроизведения в плеере</string>
+    <string name="pref_show_slider_volume_title">Панель громкости</string>
+    <string name="pref_show_slider_volume_summary">Показывать \'Панель громкости\' на экране воспроизведения</string>
+    <string name="pref_cover_settings_title">Настройки обложки</string>
+    <string name="pref_cover_corner_radius_title">Радиус углов обложки</string>
+    <string name="pref_cover_elevation_title">Возвышение обложки</string>
 
     <!-- Rate -->
     <string name="rate_dismiss">Отклонить</string>
@@ -220,5 +245,5 @@ Goodwy</i>
     <string name="pref_category_appearance">Внешний вид</string>
     <string name="pref_colored_navigation_bar_title">Цветная панель навигации</string>
     <string name="pref_colored_navigation_bar_summary">Окрашивает панель навигации в цвет фона</string>
-    <string name="email_chooser_title">Отправить письмо</string>
+    <string name="repeat_mode">Повтор</string>
 </resources>

@@ -7,13 +7,13 @@
   android:paddingStart="@dimen/dialog_horizontal_padding"
   android:paddingEnd="@dimen/dialog_horizontal_padding">
 
-        <com.goodwy.audiobook.features.prefAppearanceUI.RewindStyleClassicView
+        <com.goodwy.audiobooklite.features.prefAppearanceUIPlayer.RewindStyleClassicView
           android:id="@+id/classicButton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           app:ssv_title="@string/pref_rewind_buttons_style_classic" />
 
-        <com.goodwy.audiobook.features.prefAppearanceUI.RewindStyleRoundedView
+        <com.goodwy.audiobooklite.features.prefAppearanceUIPlayer.RewindStyleRoundedView
           android:id="@+id/roundedButton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"

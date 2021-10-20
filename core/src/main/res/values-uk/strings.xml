@@ -135,8 +135,8 @@
     <string name="pref_mini_player_mini_player_floating">Плаваючий плеєр</string>
     <string name="pref_rewind_buttons_style_title">Стиль кнопок перемотування</string>
     <string name="pref_rewind_buttons_style_summary">Вибір стилю кнопок перемотування в плеєрі</string>
-    <string name="pref_rewind_buttons_style_classic">Класичні</string>
-    <string name="pref_rewind_buttons_style_rounded">Округлі</string>
+    <string name="pref_rewind_buttons_style_classic">Класичний</string>
+    <string name="pref_rewind_buttons_style_rounded">Округлий</string>
     <string name="rate_dismiss">Відхилити</string>
     <string name="rate_okay">OK!</string>
     <string name="rate_title">Подобається PlayBooks?</string>
@@ -182,5 +182,30 @@
     <string name="pref_theme_dark">Темна тема</string>
     <string name="email_chooser_title">Відправити лист</string>
     <string name="pref_pay_title">Підтримай PlayBooks</string>
+    <string name="mark_as_completed">Повідомити про прослуханий</string>
+    <string name="mark_as_not_started">pref_show_progress_bar_title</string>
+    <string name="pref_show_progress_bar_title">Смуги прогресу</string>
+    <string name="pref_show_progress_bar_summary">Відображати смуги прогресу для книг в бібліотеці</string>
+    <string name="mark_as_current">Повідомити про поточне</string>
+    <string name="folder_add_library_book">Папка з декількома подпапками</string>
+    <string name="end_of_current_chapter">До кінця поточної глави</string>
+    <string name="sleep_timer_note">Для перезапуску струсіть пристрій протягом 30 секунд після закінчення</string>
+    <string name="custom">Iндивідуально</string>
+    <string name="pref_show_divider_title">Показувати роздільники</string>
+    <string name="pref_show_divider_summary">Відображати роздільники між книг в бібліотеці</string>
+    <string name="pref_translate_title">Допомога в перекладі</string>
+    <string name="pref_translate_summary">Допоможіть виправити помилки і доповнити переклад додатки</string>
+    <string name="pref_use_english_title">Використовувати англійську мову</string>
+    <string name="pref_use_english_summary">Зміна налаштувань перезапустить програму</string>
+    <string name="repeat_mode">Повтор</string>
+    <string name="pref_appearance_ui_library_title">Налаштування інтерфейсу бібліотеки</string>
+    <string name="pref_appearance_ui_library_summary">Зміна зовнішнього вигляду елементів інтерфейсу бібліотеки</string>
+    <string name="pref_appearance_ui_player_title">Налаштування інтерфейсу плеєра</string>
+    <string name="pref_appearance_ui_player_summary">Зміна зовнішнього вигляду елементів інтерфейсу плеєра</string>
+    <string name="pref_play_buttons_style_title">Стиль кнопки відтворення</string>
+    <string name="pref_play_buttons_style_summary">Вибір стилю кнопки відтворення в плеєрі</string>
+    <string name="pref_cover_settings_title">Параметри обкладинки</string>
+    <string name="pref_cover_corner_radius_title">Радіус кутів обкладинки</string>
+    <string name="pref_cover_elevation_title">Піднесення обкладинки</string>
     <!--book category-->
 </resources>

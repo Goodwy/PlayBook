@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:orientation="vertical"
+  android:paddingTop="8dp"
+  android:paddingBottom="8dp"
+  android:background="@drawable/bottom_sheet">
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+      android:id="@+id/shakeToResetSwitch"
+      style="@style/Widget.App.Switch"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="6dp"
+      android:layout_gravity="center"
+      android:minHeight="36dp"
+      android:text="@string/shake_to_reset"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+      android:textColor="?android:attr/textColorPrimary"
+      app:useMaterialThemeColors="false" />
+
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="6dp"
+      android:layout_marginStart="15dp"
+      android:layout_marginEnd="15dp"
+      android:background="@drawable/divider_settings" />
+
+    <TextView
+      android:id="@+id/custom"
+      style="@style/BottomSheetRow"
+      android:text="@string/custom"
+      android:gravity="center"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+    <TextView
+      android:id="@+id/endOfCurrentChapter"
+      style="@style/BottomSheetRow"
+      android:text="@string/end_of_current_chapter"
+      android:gravity="center"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="6dp"
+      android:layout_marginStart="15dp"
+      android:layout_marginEnd="15dp"
+      android:background="@drawable/divider_settings" />
+
+    <TextView
+      android:id="@+id/x5"
+      style="@style/BottomSheetRow"
+      android:text="@string/min"
+      android:gravity="center"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+    <TextView
+      android:id="@+id/x10"
+      style="@style/BottomSheetRow"
+      android:text="@string/min"
+      android:gravity="center"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+    <TextView
+      android:id="@+id/x20"
+      style="@style/BottomSheetRow"
+      android:text="@string/min"
+      android:gravity="center"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+    <TextView
+      android:id="@+id/x30"
+      style="@style/BottomSheetRow"
+      android:text="@string/min"
+      android:gravity="center"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+    <TextView
+      android:id="@+id/x45"
+      style="@style/BottomSheetRow"
+      android:text="@string/min"
+      android:gravity="center"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+    <TextView
+      android:id="@+id/x60"
+      style="@style/BottomSheetRow"
+      android:text="@string/min"
+      android:gravity="center"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="6dp"
+      android:layout_marginStart="15dp"
+      android:layout_marginEnd="15dp"
+      android:background="@drawable/divider_settings" />
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:gravity="center_vertical"
+      android:orientation="horizontal">
+
+        <TextView
+          android:id="@+id/note"
+          style="@style/BottomSheetRow"
+          android:gravity="center_vertical|start"
+          android:text="@string/sleep_timer_note"
+          android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+          android:textSize="10sp"
+          android:layout_weight="1"
+          tools:ignore="NestedWeights,SmallSp" />
+
+        <TextView
+          android:id="@+id/cancel"
+          style="@style/BottomSheetRow"
+          android:gravity="center_vertical|end"
+          android:text="@string/dialog_cancel"
+          android:layout_weight="1"
+          android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+          android:textColor="?colorPrimary" />
+
+    </LinearLayout>
+
+</LinearLayout>

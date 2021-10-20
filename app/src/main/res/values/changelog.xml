@@ -2,6 +2,74 @@
 <resources>
     <string name="pref_changelog_message"><![CDATA[
 <body>
+<i><h4><a href="">Version 1.2.1</a></h4></i>
+<i><p>1. <b>NEW:</b> The sound fades out slowly when the sleep timer ends</p></i>
+<i><p>2. <b>NEW:</b> Added \'Shake to reset\' option to sleep timer</p></i>
+<i><p>3. <b>FIX:</b> Bug fixes, stability improvements</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.2.0</a></h4></i>
+<i><p>1. <b>NEW:</b> Added setting \'Volume Control\'</p></i>
+<i><p>2. <b>NEW:</b> Added setting \'Cover settings\'</p></i>
+<i><p>3. <b>NEW:</b> Added setting \'Play button style\'</p></i>
+<i><p>4. <b>NEW:</b> Added \'Repeat\' button</p></i>
+<i><p>5. <b>FIX:</b> Bug fixes, stability improvements</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.1.6</a></h4></i>
+<i><p>1. <b>IMPROVEMENT:</b> Chapters list changed</p></i>
+<i><p>2. <b>FIX:</b> Bug fixes, stability improvements</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.1.5</a></h4></i>
+<i><p>1. <b>NEW:</b> Added \'End of current chapter\' option to the sleep timer</p></i>
+<i><p>2. <b>NEW:</b> Added setting \'Use English language\'</p></i>
+<i><p>3. <b>NEW:</b> Added setting \'Show dividers\'</p></i>
+<i><p>4. <b>NEW:</b> Added \'More\' button</p></i>
+<i><p>5. <b>IMPROVEMENT:</b> Sleep timer interface changed</p></i>
+<i><p>6. <b>IMPROVEMENT:</b> Maximum playback speed increased to x4</p></i>
+<i><p>7. <b>IMPROVEMENT:</b> Added translations</p></i>
+<i><p>8. <b>FIX:</b> Fixed setting \'Show progress bar\'</p></i>
+<i><p>9. <b>FIX:</b> Fixed changing the color of the status bar when turning on/off dark mode</p></i>
+<i><p>10. <b>FIX:</b> Fixed sending support message and suggestions</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.1.4</a></h4></i>
+<i><p>1. <b>NEW:</b> Added folder selection \'Folder with multiple subfolders\'</p></i>
+<i><p>2. <b>IMPROVEMENT:</b> The sleep timer no longer remembers the last entered value</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.1.3</a></h4></i>
+<i><p>1. <b>NEW:</b> Added the ability to mark books as current</p></i>
+<i><p>2. <b>NEW:</b> Long press on a bookmark opens editing</p></i>
+<i><p>3. <b>IMPROVEMENT:</b> Increased the number of displayed characters in bookmarks</p></i>
+<i><p>4. <b>IMPROVEMENT:</b> Changed the progress bar, now it is round</p></i>
+<i><p>5. <b>IMPROVEMENT:</b> Changed some icons</p></i>
+<i><p>6. <b>FIX:</b> Translation</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.1.2</a></h4></i>
+<i><p>1. <b>FIX:</b> Fixed sleep timer window</p></i>
+<i><p>2. <b>FIX:</b> Fixed incorrect display of the cover in the player on some devices</p></i>
+<i><p>3. <b>FIX:</b> Fixed background when choosing cover from the internet</p></i>
+<i><p>4. <b>IMPROVEMENT:</b> Changed some icons</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.1.1</a></h4></i>
+<i><p>1. <b>NEW:</b> Added the ability to mark books as finished or unfinished</p></i>
+<i><p>2. <b>NEW:</b> Added setting \'Progress bar\'</p></i>
+<i><p>3. <b>IMPROVEMENT:</b> Changed some icons</p></i>
+<i><p>4. <b>IMPROVEMENT:</b> Added translations</p></i>
+</body>
+<br>
+<body>
 <i><h4><a href="">Version 1.1.0</a></h4></i>
 <i><p>1. <b>IMPROVEMENT:</b> Added translations</p></i>
 <i><p>2. <b>FIX:</b> Fixed work of setting screen orientation</p></i>

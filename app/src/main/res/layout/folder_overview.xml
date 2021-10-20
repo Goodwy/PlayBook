@@ -68,6 +68,17 @@
               app:fab_size="mini"
               app:fab_title="@string/folder_add_collection" />
 
+            <com.getbase.floatingactionbutton.FloatingActionButton
+              android:id="@+id/addAsAllLibrary"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:contentDescription="@string/folder_add_library_book"
+              android:theme="@style/PlayButtonStyle"
+              app:fab_colorNormal="?attr/colorAccent"
+              app:fab_colorPressed="@color/cyanea_sub_menu_icon_light"
+              app:fab_size="mini"
+              app:fab_title="@string/folder_add_library_book" />
+
         </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
     </FrameLayout>

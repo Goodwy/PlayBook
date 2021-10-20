@@ -44,7 +44,7 @@
       style="@style/FastForwardRewindStyle"
       android:layout_width="20dp"
       android:layout_height="20dp"
-      android:layout_marginStart="5dp"
+      android:layout_marginStart="10dp"
       android:contentDescription="@string/rewind"
       android:src="@drawable/ic_volume_down"
       app:layout_constraintBottom_toBottomOf="@id/sliderVolume"
@@ -56,7 +56,7 @@
       style="@style/FastForwardRewindStyle"
       android:layout_width="18dp"
       android:layout_height="18dp"
-      android:layout_marginEnd="5dp"
+      android:layout_marginEnd="12dp"
       android:contentDescription="@string/rewind"
       android:src="@drawable/ic_volume_up"
       app:layout_constraintBottom_toBottomOf="@id/sliderVolume"
@@ -67,9 +67,9 @@
       android:id="@+id/sliderVolume"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
+      android:layout_marginBottom="25dp"
       android:layout_marginStart="4dp"
       android:layout_marginEnd="4dp"
-      android:layout_marginBottom="0dp"
       android:stepSize="1"
       android:valueFrom="0"
       android:valueTo="15"
@@ -77,19 +77,10 @@
       app:trackHeight="3dp"
       app:thumbColor="?colorAccent"
       app:trackColorActive="?colorAccent"
-      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintLeft_toRightOf="@id/volumeDown"
-      app:layout_constraintRight_toLeftOf="@id/volumeUp" />
+      app:layout_constraintRight_toLeftOf="@id/volumeUp"
+      app:layout_constraintBottom_toBottomOf="parent" />
     <!-- заменяет в id/play  android:layout_marginBottom="24dp" -->
-    <FrameLayout
-      android:id="@+id/bottomContainer"
-      android:layout_width="0dp"
-      android:layout_height="14dp"
-      android:foreground="?attr/selectableItemBackground"
-      android:gravity="center"
-      app:layout_constraintBottom_toTopOf="@id/sliderVolume"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent" />
 <!--
     <ImageView
       android:id="@+id/play"
@@ -120,11 +111,12 @@
       android:foreground="?attr/selectableItemBackground"
       android:padding="16dp"
       android:theme="@style/PlayButtonStyle"
-      android:tint="@color/white"
       android:transitionName="@string/fab_transition"
-      app:layout_constraintBottom_toTopOf="@id/bottomContainer"
+      app:layout_constraintBottom_toTopOf="@id/sliderVolume"
       app:layout_constraintEnd_toEndOf="@+id/x75"
-      app:layout_constraintStart_toStartOf="@+id/x75" />
+      app:layout_constraintStart_toStartOf="@+id/x75"
+      app:tint="@color/white"
+      app:layout_goneMarginBottom="56dp" />
 
     <ImageView
       android:id="@+id/rewind"
@@ -196,25 +188,25 @@
       android:id="@+id/playedTime"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="8dp"
+      android:layout_marginTop="36dp"
+      android:layout_marginStart="18dp"
       android:text="@string/zeroTime"
       android:textAppearance="?textAppearanceBody2"
       android:layout_marginBottom="20dp"
-      app:layout_constraintBottom_toTopOf="@+id/play"
       app:layout_constraintStart_toEndOf="@+id/x50"
-      app:layout_constraintTop_toBottomOf="@+id/slider" />
+      app:layout_constraintTop_toTopOf="@+id/slider" />
 
     <TextView
       android:id="@+id/maxTime"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginEnd="8dp"
+      android:layout_marginTop="36dp"
+      android:layout_marginEnd="18dp"
       android:text="@string/zeroTime"
       android:textAppearance="?textAppearanceBody2"
       android:layout_marginBottom="20dp"
-      app:layout_constraintBottom_toTopOf="@+id/play"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/slider" />
+      app:layout_constraintTop_toTopOf="@+id/slider" />
 
     <com.google.android.material.slider.Slider
       android:id="@+id/slider"
@@ -238,7 +230,7 @@
       android:contentDescription="@string/previous_track"
       android:foreground="?attr/selectableItemBackgroundBorderless"
       android:padding="12dp"
-      android:src="@drawable/ic_skip_previous"
+      android:src="@drawable/ic_chevron_left"
       app:layout_constraintStart_toEndOf="@+id/x50"
       app:layout_constraintTop_toTopOf="@+id/currentChapterContainer" />
 
@@ -249,7 +241,7 @@
       android:contentDescription="@string/next_track"
       android:foreground="?attr/selectableItemBackgroundBorderless"
       android:padding="12dp"
-      android:src="@drawable/ic_skip_next"
+      android:src="@drawable/ic_chevron_right"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="@+id/currentChapterContainer" />
 
@@ -260,9 +252,9 @@
       android:layout_marginBottom="0dp"
       android:foreground="?attr/selectableItemBackground"
       android:layout_marginStart="8dp"
-      android:layout_marginTop="16dp"
       android:layout_marginEnd="8dp"
       android:gravity="center"
+      app:layout_constraintTop_toBottomOf="@+id/toolbar"
       app:layout_constraintBottom_toTopOf="@+id/currentChapterContainer"
       app:layout_constraintEnd_toStartOf="@+id/next"
       app:layout_constraintStart_toEndOf="@+id/previous"
@@ -270,6 +262,7 @@
 
         <TextView
           android:id="@+id/currentBookText"
+          style="@android:style/TextAppearance.Medium"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_gravity="center"
@@ -277,10 +270,8 @@
           android:ellipsize="end"
           android:gravity="center"
           android:maxLines="1"
-          android:minHeight="56dp"
-          android:paddingTop="16dp"
+          android:paddingTop="5dp"
           android:paddingBottom="0dp"
-          style="@android:style/TextAppearance.Medium"
           app:layout_constrainedWidth="true"
           app:layout_constraintBottom_toTopOf="@+id/currentChapterContainer"
           app:layout_constraintEnd_toStartOf="@+id/next"
@@ -296,7 +287,7 @@
       android:layout_marginStart="8dp"
       android:layout_marginTop="0dp"
       android:layout_marginEnd="8dp"
-      android:layout_marginBottom="8dp"
+      android:layout_marginBottom="0dp"
       android:foreground="?attr/selectableItemBackground"
       android:gravity="center"
       app:layout_constraintBottom_toTopOf="@+id/slider"
@@ -308,47 +299,61 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_gravity="center"
-          android:drawableEnd="@drawable/ic_chevron_down"
           android:drawablePadding="4dp"
           android:ellipsize="end"
           android:gravity="center"
           android:maxLines="2"
-          android:minHeight="56dp"
+          android:minHeight="46dp"
           android:paddingTop="0dp"
-          android:paddingBottom="16dp"
+          android:paddingBottom="0dp"
           style="@android:style/TextAppearance.Material.Small"
           app:layout_constrainedWidth="true"
           app:layout_constraintBottom_toTopOf="@+id/slider"
           app:layout_constraintEnd_toStartOf="@+id/next"
           app:layout_constraintStart_toEndOf="@+id/previous"
-          tools:text="This is the end" />
+          tools:text="This is the end"
+          app:drawableEndCompat="@drawable/ic_chevron_down" />
 
     </FrameLayout>
 
-    <ImageView
-      android:id="@+id/cover"
-      android:layout_width="wrap_content"
-      android:layout_height="0dp"
-      android:adjustViewBounds="true"
-      android:contentDescription="@string/cover"
+    <androidx.cardview.widget.CardView
+      android:id="@+id/coverCard"
+      android:layout_width="250dp"
+      android:layout_height="250dp"
+      app:cardCornerRadius="16dp"
       android:layout_marginStart="20dp"
       android:layout_marginEnd="20dp"
       android:layout_marginTop="20dp"
       android:layout_marginBottom="20dp"
       android:scaleType="centerCrop"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintVertical_bias="0.0"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toStartOf="@+id/x50"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/toolbar"
-      tools:ignore="UnusedAttribute"
-      tools:src="@android:color/darker_gray" />
+      app:layout_goneMarginBottom="16dp">
 
-    <TextView
-      android:id="@+id/timerCountdownView"
-      style="@style/timer_text_view_style"
-      app:layout_constraintEnd_toEndOf="@+id/cover"
-      app:layout_constraintTop_toBottomOf="@+id/toolbar"
-      tools:text="00:34" />
+        <ImageView
+          android:id="@+id/cover"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:contentDescription="@string/cover"
+          android:layout_marginLeft="-4dp"
+          android:layout_marginTop="-4dp"
+          android:layout_marginRight="-4dp"
+          android:layout_marginBottom="-4dp"
+          tools:ignore="UnusedAttribute"
+          tools:src="@android:color/darker_gray" />
+
+        <TextView
+          android:id="@+id/timerCountdownView"
+          style="@style/timer_text_view_style"
+          app:layout_constraintEnd_toEndOf="@id/coverCard"
+          app:layout_constraintTop_toBottomOf="@id/coverCard"
+          tools:text="00:34" />
+
+    </androidx.cardview.widget.CardView>
 
     <ImageView
       android:id="@+id/contentList"

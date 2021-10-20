@@ -40,7 +40,7 @@
       app:layout_constraintStart_toStartOf="@+id/rewind"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_chainStyle="packed"
-      tools:text="Resume Playback" />
+      tools:text="Classic" />
 
     <RadioButton
       android:id="@+id/radioButton"

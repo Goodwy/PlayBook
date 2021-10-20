@@ -174,5 +174,33 @@
     <string name="special_thanks_to">Posebna zahvala</string>
     <string name="change_book_author">Avtor</string>
     <string name="edit_book_author">Uredi avtorja</string>
+    <string name="pref_show_progress_bar_summary">Pokaži vrstico napredovanja v knjižnici</string>
+    <string name="pref_show_progress_bar_title">Vrstica napredka</string>
+    <string name="mark_as_completed">Označi kot dokončano</string>
+    <string name="mark_as_not_started">Označi kot Ni začelo</string>
+    <string name="version">Različica</string>
+    <string name="mark_as_current">Označi kot trenutno</string>
+    <string name="folder_add_library_book">Mapa z več podmapami</string>
+    <string name="end_of_current_chapter">Konec trenutnega poglavja</string>
+    <string name="sleep_timer_note">Če želite znova zagnati napravo v 30 sekundah po končanem</string>
+    <string name="custom">Običaj</string>
+    <string name="pref_show_divider_title">Pokaži delilnike</string>
+    <string name="pref_show_divider_summary">Pokaži delilnike med knjigami v knjižnici</string>
+    <string name="pref_translate_title">Prevajalska pomoč</string>
+    <string name="pref_translate_summary">Pomagajte popraviti napake in dokončati prevod</string>
+    <string name="pref_use_english_title">Uporaba angleškega jezika</string>
+    <string name="pref_use_english_summary">Zmenou nastavenia sa aplikácia reštartuje</string>
+    <string name="repeat_mode">Ponoviti</string>
+    <string name="pref_appearance_ui_library_title">Videz UI knjižnice</string>
+    <string name="pref_appearance_ui_library_summary">Prilagajanje uporabniškega vmesnika knjižnice</string>
+    <string name="pref_appearance_ui_player_title">Videz UI predvajalnika</string>
+    <string name="pref_appearance_ui_player_summary">Prilagajanje uporabniškega vmesnika predvajalnika</string>
+    <string name="pref_play_buttons_style_title">Slog gumba za predvajanje</string>
+    <string name="pref_play_buttons_style_summary">Izbira sloga gumba za predvajanje v predvajalniku</string>
+    <string name="pref_show_slider_volume_title">Nadzor glasnosti</string>
+    <string name="pref_show_slider_volume_summary">Prikaz \"Nadzor glasnosti\" na zaslonu za predvajanje</string>
+    <string name="pref_cover_settings_title">Nastavitve pokrova</string>
+    <string name="pref_cover_corner_radius_title">Polmer pokrovnih vogalov</string>
+    <string name="pref_cover_elevation_title">Dvig pokrova</string>
     <!--book category-->
 </resources>

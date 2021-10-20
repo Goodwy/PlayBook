@@ -171,5 +171,33 @@
     <string name="palettes">Paletas de colores</string>
     <string name="email_chooser_title">Enviar correo electrónico</string>
     <string name="pref_pay_title">PlayBooks de soporte</string>
+    <string name="mark_as_not_started">Marcar como no iniciado</string>
+    <string name="mark_as_completed">Marcar como completado</string>
+    <string name="pref_show_progress_bar_title">Barra de progreso</string>
+    <string name="pref_show_progress_bar_summary">Mostrar barra de progreso en la biblioteca</string>
+    <string name="version">Versión</string>
+    <string name="mark_as_current">Marcar como actual</string>
+    <string name="folder_add_library_book">Carpeta con varias subcarpetas</string>
+    <string name="end_of_current_chapter">Fin del capítulo actual</string>
+    <string name="sleep_timer_note">Para reiniciar, agite el dispositivo en un plazo de 30 segundos después de finalizar</string>
+    <string name="custom">Costumbre</string>
+    <string name="pref_show_divider_title">Mostrar divisores</string>
+    <string name="pref_show_divider_summary">Mostrar divisores entre los libros de la biblioteca</string>
+    <string name="pref_translate_title">Asistencia de traducción</string>
+    <string name="pref_translate_summary">Ayuda a corregir errores y completa la traducción</string>
+    <string name="pref_use_english_title">Usar el idioma inglés</string>
+    <string name="pref_use_english_summary">Al cambiar la configuración, se reiniciará la aplicación</string>
+    <string name="repeat_mode">Repetir</string>
+    <string name="pref_appearance_ui_library_title">Apariencia de la interfaz de usuario de la biblioteca</string>
+    <string name="pref_appearance_ui_library_summary">Personalizar la interfaz de usuario de la biblioteca</string>
+    <string name="pref_appearance_ui_player_title">Apariencia de la interfaz de usuario del jugador</string>
+    <string name="pref_appearance_ui_player_summary">Personalizar la interfaz de usuario del reproductor</string>
+    <string name="pref_play_buttons_style_title">Estilo de botón de reproducción</string>
+    <string name="pref_play_buttons_style_summary">Selección del estilo del botón de reproducción en el reproductor</string>
+    <string name="pref_show_slider_volume_title">Control de volumen</string>
+    <string name="pref_show_slider_volume_summary">Mostrando \'Control de volumen\' en la pantalla de reproducción</string>
+    <string name="pref_cover_settings_title">Configuración de la cubierta</string>
+    <string name="pref_cover_corner_radius_title">Radio de las esquinas de la cubierta</string>
+    <string name="pref_cover_elevation_title">Elevación de la cubierta</string>
     <!--book category-->
 </resources>
