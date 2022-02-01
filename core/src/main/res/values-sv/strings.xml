@@ -205,4 +205,19 @@
     <string name="pref_cover_settings_title">Omslagsinställningar</string>
     <string name="pref_cover_corner_radius_title">Radie av täckhörn</string>
     <string name="pref_cover_elevation_title">Höljets höjd</string>
+    <string name="folders">Mappar</string>
+    <string name="pref_icon_mode_title">Visa ikoner</string>
+    <string name="pref_icon_mode_summary">Visa menyikoner i stället för text</string>
+    <string name="pref_statusbar_mode_title">Statusfältsläge</string>
+    <string name="pref_statusbar_mode_summary">Ange utseendet på statusbary</string>
+    <string name="pref_statusbar_mode_value_transparent">Genomskinlig</string>
+    <string name="pref_statusbar_mode_value_color">Färg</string>
+    <string name="left">%s vänster</string>
+    <string name="left_in_audiobook">%s till vänster i ljudboken</string>
+    <string name="pref_player_background_title">Spelarbakgrund</string>
+    <string name="pref_player_background_summary">Välja en bakgrundsstil i spelaren</string>
+    <string name="pref_player_background_theme">Appbakgrund</string>
+    <string name="pref_player_background_cover_color">Huvudomslag färg</string>
+    <string name="pref_player_background_blurred_cover">Suddigt omslag</string>
+    <string name="pref_cover_shadow_title">Täck skugga</string>
 </resources>

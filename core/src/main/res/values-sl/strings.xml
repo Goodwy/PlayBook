@@ -202,5 +202,20 @@
     <string name="pref_cover_settings_title">Nastavitve pokrova</string>
     <string name="pref_cover_corner_radius_title">Polmer pokrovnih vogalov</string>
     <string name="pref_cover_elevation_title">Dvig pokrova</string>
+    <string name="folders">Mape</string>
+    <string name="pref_icon_mode_title">Pokaži ikone</string>
+    <string name="pref_icon_mode_summary">Pokaži ikone menija namesto besedila</string>
+    <string name="pref_statusbar_mode_title">Način statusne vrstice</string>
+    <string name="pref_statusbar_mode_summary">Nastavitev videza stanja</string>
+    <string name="pref_statusbar_mode_value_transparent">Prosojen</string>
+    <string name="pref_statusbar_mode_value_color">Barva</string>
+    <string name="left">%s levo</string>
+    <string name="left_in_audiobook">%s levo v zvočni knjigi</string>
+    <string name="pref_player_background_title">Ozadje predvajalnika</string>
+    <string name="pref_player_background_summary">Izbira sloga ozadja v predvajalniku</string>
+    <string name="pref_player_background_theme">Ozadje aplikacije</string>
+    <string name="pref_player_background_cover_color">Barva glavnega pokrova</string>
+    <string name="pref_player_background_blurred_cover">Zamegljen pokrov</string>
+    <string name="pref_cover_shadow_title">Senca pokrova</string>
     <!--book category-->
 </resources>

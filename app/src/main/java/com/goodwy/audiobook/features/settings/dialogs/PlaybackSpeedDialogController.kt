@@ -32,8 +32,10 @@ class PlaybackSpeedDialogController : DialogController() {
 
   @Inject
   lateinit var repo: BookRepository
+
   @field:[Inject Named(PrefKeys.CURRENT_BOOK)]
   lateinit var currentBookIdPref: Pref<UUID>
+
   @Inject
   lateinit var playerController: PlayerController
 
@@ -75,6 +77,6 @@ class PlaybackSpeedDialogController : DialogController() {
     private const val MAX = Book.SPEED_MAX
     private const val MIN = Book.SPEED_MIN
     private const val FACTOR = 100F
-    private val speedFormatter = DecimalFormat("0.0 x")
+    private val speedFormatter = DecimalFormat("0.0x")
   }
 }

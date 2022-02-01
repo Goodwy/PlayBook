@@ -10,12 +10,12 @@
       style="@style/FastForwardRewindStyle"
       android:layout_width="20dp"
       android:layout_height="20dp"
-      android:layout_marginStart="8dp"
+      android:layout_marginStart="4dp"
       android:contentDescription="@string/current_book"
       android:src="@drawable/ic_point"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
       android:id="@+id/textView"
@@ -24,15 +24,15 @@
       android:ellipsize="end"
       android:foreground="?attr/selectableItemBackground"
       android:maxLines="2"
-      android:paddingStart="8dp"
+      android:paddingStart="4dp"
       android:paddingTop="8dp"
-      android:paddingEnd="24dp"
+      android:paddingEnd="20dp"
       android:text="@string/contents"
       android:textAppearance="?textAppearanceBody1"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toEndOf="@+id/current"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintBottom_toTopOf="@+id/textTime"     />
+      app:layout_constraintBottom_toTopOf="@+id/textTime"/>
 
     <TextView
       android:id="@+id/textTime"
@@ -42,13 +42,13 @@
       android:ellipsize="end"
       android:foreground="?attr/selectableItemBackground"
       android:maxLines="1"
-      android:paddingStart="8dp"
+      android:paddingStart="4dp"
       android:paddingEnd="24dp"
       android:paddingBottom="8dp"
       android:text="@string/zeroTime"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintStart_toEndOf="@+id/current"
-      app:layout_constraintTop_toBottomOf="@+id/textView" />
+      app:layout_constraintTop_toBottomOf="@+id/textView"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

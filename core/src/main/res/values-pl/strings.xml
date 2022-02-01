@@ -209,4 +209,19 @@
     <string name="pref_cover_settings_title">Ustawienia okładki</string>
     <string name="pref_cover_corner_radius_title">Promień narożników pokrywy</string>
     <string name="pref_cover_elevation_title">Elewacja pokrywy</string>
+    <string name="folders">Folderów</string>
+    <string name="pref_icon_mode_title">Pokaż ikony</string>
+    <string name="pref_icon_mode_summary">Pokazywanie ikon menu zamiast tekstu</string>
+    <string name="pref_statusbar_mode_title">Tryb paska stanu</string>
+    <string name="pref_statusbar_mode_summary">Ustawianie wyglądu słupka stanu</string>
+    <string name="pref_statusbar_mode_value_transparent">Przejrzysty</string>
+    <string name="pref_statusbar_mode_value_color">Kolor</string>
+    <string name="left">%s pozostało</string>
+    <string name="left_in_audiobook">%s pozostawione w audiobooku</string>
+    <string name="pref_player_background_title">Tło gracza</string>
+    <string name="pref_player_background_summary">Wybieranie stylu tła w odtwarzaczu</string>
+    <string name="pref_player_background_theme">Tło aplikacji</string>
+    <string name="pref_player_background_cover_color">Kolor okładki głównej</string>
+    <string name="pref_player_background_blurred_cover">Rozmyta pokrywa</string>
+    <string name="pref_cover_shadow_title">Cień osłony</string>
 </resources>

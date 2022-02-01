@@ -5,7 +5,6 @@ import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.data.Book
 import com.goodwy.audiobook.data.repo.BookRepository
 import com.goodwy.audiobook.features.BookAdder
-import com.goodwy.audiobook.features.MainActivity
 import com.goodwy.audiobook.features.bookOverview.list.BookOverviewModel
 import com.goodwy.audiobook.features.bookOverview.list.header.BookOverviewCategory
 import com.goodwy.audiobook.features.gridCount.GridCount
@@ -36,6 +35,10 @@ constructor(
   private val gridModePref: Pref<GridMode>,
   @Named(PrefKeys.MINI_PLAYER_STYLE)
   private val miniPlayerStylePref: Pref<Int>,
+  @Named(PrefKeys.SHOW_PROGRESS_BAR)
+  private val showProgressBarPref: Pref<Boolean>,
+  @Named(PrefKeys.SHOW_DIVIDER)
+  private val showDividerPref: Pref<Boolean>,
   private val gridCount: GridCount
 ) {
 
@@ -142,7 +145,7 @@ constructor(
       BookOverviewCategory.FINISHED -> 2
     }
     val models = booksOfCategory.take(rows * amountOfColumns).map {
-      BookOverviewModel(book = it, isCurrentBook = it.id == currentBookId, useGridView = amountOfColumns > 1)
+      BookOverviewModel(book = it, isCurrentBook = it.id == currentBookId, useGridView = amountOfColumns > 1, showProgressBar = showProgressBarPref.value, showDivider = showDividerPref.value)
     }
     val hasMore = models.size != booksOfCategory.size
     return BookOverviewCategoryContent(models, hasMore)

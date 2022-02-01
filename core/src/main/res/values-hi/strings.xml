@@ -198,5 +198,20 @@
     <string name="pref_cover_settings_title">कवर सेटिंग्स</string>
     <string name="pref_cover_corner_radius_title">कवर कोनों का त्रिज्या</string>
     <string name="pref_cover_elevation_title">कवर की ऊंचाई</string>
+    <string name="folders">फ़ोल्डर</string>
+    <string name="pref_icon_mode_title">आइकन दिखाएं</string>
+    <string name="pref_icon_mode_summary">पाठ के बजाय मेनू आइकन दिखाएं</string>
+    <string name="pref_statusbar_mode_title">स्टेटसबार मोड</string>
+    <string name="pref_statusbar_mode_summary">स्थिति बैरी की उपस्थिति सेट करें</string>
+    <string name="pref_statusbar_mode_value_transparent">पारदर्शी</string>
+    <string name="pref_statusbar_mode_value_color">रंग</string>
+    <string name="left">%s एस बाएं</string>
+    <string name="left_in_audiobook">ऑडियोबुक में %s बचा है</string>
+    <string name="pref_player_background_title">खिलाड़ी पृष्ठभूमि</string>
+    <string name="pref_player_background_summary">खिलाड़ी में एक पृष्ठभूमि शैली का चयन</string>
+    <string name="pref_player_background_theme">ऐप बैकग्राउंड</string>
+    <string name="pref_player_background_cover_color">मुख्य कवर रंग</string>
+    <string name="pref_player_background_blurred_cover">धुंधला कवर</string>
+    <string name="pref_cover_shadow_title">कवर छाया</string>
     <!--book category-->
 </resources>

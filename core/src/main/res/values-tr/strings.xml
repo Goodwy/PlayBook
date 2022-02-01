@@ -205,4 +205,19 @@
     <string name="pref_cover_settings_title">Kapak ayarları</string>
     <string name="pref_cover_corner_radius_title">Kapak köşelerinin yarıçapı</string>
     <string name="pref_cover_elevation_title">Kapağın yüksekliği</string>
+    <string name="folders">Klasör</string>
+    <string name="pref_icon_mode_title">Simgeleri göster</string>
+    <string name="pref_icon_mode_summary">Metin yerine menü simgelerini göster</string>
+    <string name="pref_statusbar_mode_title">Durum çubuğu modu</string>
+    <string name="pref_statusbar_mode_summary">Bary durumunun görünümünü ayarlama</string>
+    <string name="pref_statusbar_mode_value_transparent">Saydam</string>
+    <string name="pref_statusbar_mode_value_color">Renk</string>
+    <string name="left">%s sol</string>
+    <string name="left_in_audiobook">Sesli defterde %s kaldı</string>
+    <string name="pref_player_background_title">Oyuncu arka planı</string>
+    <string name="pref_player_background_summary">Oynatıcıda arka plan stili seçme</string>
+    <string name="pref_player_background_theme">Uygulama arka planı</string>
+    <string name="pref_player_background_cover_color">Ana kapak rengi</string>
+    <string name="pref_player_background_blurred_cover">Bulanık kapak</string>
+    <string name="pref_cover_shadow_title">Kapak gölgesi</string>
 </resources>

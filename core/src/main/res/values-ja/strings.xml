@@ -199,4 +199,19 @@
     <string name="pref_cover_settings_title">カバーの設定</string>
     <string name="pref_cover_corner_radius_title">カバーコーナーの半径</string>
     <string name="pref_cover_elevation_title">カバーの標高</string>
+    <string name="folders">フォルダー</string>
+    <string name="pref_icon_mode_title">アイコンを表示する</string>
+    <string name="pref_icon_mode_summary">テキストの代わりにメニュー アイコンを表示する</string>
+    <string name="pref_statusbar_mode_title">ステータスバーモード</string>
+    <string name="pref_statusbar_mode_summary">ステータス バーリーの外観を設定する</string>
+    <string name="pref_statusbar_mode_value_transparent">透明</string>
+    <string name="pref_statusbar_mode_value_color">色</string>
+    <string name="left">%s 左</string>
+    <string name="left_in_audiobook">オーディオブックに残された %s</string>
+    <string name="pref_player_background_title">プレイヤーの背景</string>
+    <string name="pref_player_background_summary">プレーヤーでの背景スタイルの選択</string>
+    <string name="pref_player_background_theme">アプリの背景</string>
+    <string name="pref_player_background_cover_color">メインカバーカラー</string>
+    <string name="pref_player_background_blurred_cover">ぼやけたカバー</string>
+    <string name="pref_cover_shadow_title">カバーシャドウ</string>
 </resources>

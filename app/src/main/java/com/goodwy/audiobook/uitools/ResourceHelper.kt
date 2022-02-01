@@ -1,5 +1,6 @@
 package com.goodwy.audiobook.uitools
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import androidx.annotation.AnyRes
@@ -18,6 +19,7 @@ fun Context.attrToResource(@AttrRes attrId: Int): Int {
   }
 }
 
+@SuppressLint("UseCompatLoadingForDrawables")
 @CheckResult
 fun Context.drawableFromAttr(@AttrRes attrId: Int): Drawable {
   val res = attrToResource(attrId)

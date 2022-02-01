@@ -25,14 +25,27 @@ import com.goodwy.audiobook.features.folderOverview.FolderOverviewPresenter
 import com.goodwy.audiobook.features.imagepicker.CoverFromInternetController
 import com.goodwy.audiobook.features.contribute.ContributeController
 import com.goodwy.audiobook.features.about.AboutController
+import com.goodwy.audiobook.features.bookOverview.list.BookOverviewHolder
 import com.goodwy.audiobook.features.bookPlaying.SeekRewindDialogController
+import com.goodwy.audiobook.features.bookPlaying.SleepTimerListDialogController
+import com.goodwy.audiobook.features.bookmarks.BookmarkController
+import com.goodwy.audiobook.features.folderOverview.FolderOverviewController
 import com.goodwy.audiobook.features.prefAppearanceUI.PrefAppearanceUIController
 import com.goodwy.audiobook.features.prefAppearanceUI.MiniPlayerStyleDialogController
-import com.goodwy.audiobook.features.prefAppearanceUI.RewindStyleDialogController
+import com.goodwy.audiobook.features.prefAppearanceUIPlayer.CoverSettingsDialogController
+import com.goodwy.audiobook.features.prefAppearanceUIPlayer.PlayStyleDialogController
+import com.goodwy.audiobook.features.prefAppearanceUIPlayer.RewindStyleDialogController
+import com.goodwy.audiobook.features.prefAppearanceUIPlayer.PrefAppearanceUIPlayerController
 import com.goodwy.audiobook.features.prefBeta.PrefBetaController
 import com.goodwy.audiobook.features.prefSkipInterval.PrefSkipIntervalController
 import com.goodwy.audiobook.features.settings.SettingsController
 import com.goodwy.audiobook.features.settings.dialogs.AutoRewindDialogController
+import com.goodwy.audiobook.features.settings.dialogs.ColorAccentIosDialogController
+import com.goodwy.audiobook.features.settings.dialogs.ColorAccentMaterialDialogController
+import com.goodwy.audiobook.features.settings.dialogs.ColorAccentOriginalDialogController
+import com.goodwy.audiobook.features.settings.dialogs.ColorPrimaryIosDialogController
+import com.goodwy.audiobook.features.settings.dialogs.ColorPrimaryMaterialDialogController
+import com.goodwy.audiobook.features.settings.dialogs.ColorPrimaryOriginalDialogController
 import com.goodwy.audiobook.features.settings.dialogs.PlaybackSpeedDialogController
 import com.goodwy.audiobook.features.widget.BaseWidgetProvider
 import com.goodwy.audiobook.misc.MediaAnalyzer
@@ -65,23 +78,35 @@ interface AppComponent {
   fun inject(target: AutoRewindDialogController)
   fun inject(target: BaseWidgetProvider)
   fun inject(target: BookCategoryController)
+  fun inject(target: BookmarkController)
   fun inject(target: BookOverviewController)
   fun inject(target: BookPlayController)
+  fun inject(target: ColorAccentIosDialogController)
+  fun inject(target: ColorAccentMaterialDialogController)
+  fun inject(target: ColorAccentOriginalDialogController)
+  fun inject(target: ColorPrimaryIosDialogController)
+  fun inject(target: ColorPrimaryMaterialDialogController)
+  fun inject(target: ColorPrimaryOriginalDialogController)
   fun inject(target: ContributeController)
   fun inject(target: CoverFromInternetController)
+  fun inject(target: CoverSettingsDialogController)
   fun inject(target: EditBookBottomSheetController)
   fun inject(target: EditBookTitleDialogController)
   fun inject(target: EditBookAuthorDialogController)
   fun inject(target: EditCoverDialogController)
   fun inject(target: FolderChooserPresenter)
+  fun inject(target: FolderOverviewController)
   fun inject(target: FolderOverviewPresenter)
+  fun inject(target: BookOverviewHolder)
   fun inject(target: JumpToPositionDialogController)
   fun inject(target: LoadBookCover)
   fun inject(target: LoudnessDialog)
   fun inject(target: MainActivity)
   fun inject(target: MiniPlayerStyleDialogController)
   fun inject(target: PlaybackSpeedDialogController)
+  fun inject(target: PlayStyleDialogController)
   fun inject(target: PrefAppearanceUIController)
+  fun inject(target: PrefAppearanceUIPlayerController)
   fun inject(target: PrefBetaController)
   fun inject(target: PrefSkipIntervalController)
   fun inject(target: RewindStyleDialogController)
@@ -90,6 +115,7 @@ interface AppComponent {
   fun inject(target: SettingsController)
   fun inject(target: SelectChapterDialog)
   fun inject(target: SleepTimerDialogController)
+  fun inject(target: SleepTimerListDialogController)
 
   fun playbackComponentFactory(): PlaybackComponent.Factory
 

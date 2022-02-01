@@ -217,7 +217,7 @@ class CropOverlay @JvmOverloads constructor(
 
     // preserve max size
     val dragW = dragRect.width()
-    val boundsSize = Math.min(bounds.width(), bounds.height()) - circleSize
+    val boundsSize = Math.min(bounds.width(), bounds.height()) - 2f//circleSize
     val diff = dragW - boundsSize
     if (diff > 0) {
       dragRect.squareInset(diff / 2f)

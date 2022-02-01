@@ -200,5 +200,20 @@
     <string name="pref_cover_settings_title">Настройки на корицата</string>
     <string name="pref_cover_corner_radius_title">Радиус на завивките</string>
     <string name="pref_cover_elevation_title">Издигане на капака</string>
+    <string name="folders">Папки</string>
+    <string name="pref_icon_mode_title">Показване на икони</string>
+    <string name="pref_icon_mode_summary">Показване на иконите на менюто вместо текст</string>
+    <string name="pref_statusbar_mode_title">Режим на лентата на състоянието</string>
+    <string name="pref_statusbar_mode_summary">Задаване на външния вид на състоянието бари</string>
+    <string name="pref_statusbar_mode_value_transparent">Прозрачен</string>
+    <string name="pref_statusbar_mode_value_color">Цвят</string>
+    <string name="left">%s наляво</string>
+    <string name="left_in_audiobook">%s наляво в аудиокнигата</string>
+    <string name="pref_player_background_title">Фон на играча</string>
+    <string name="pref_player_background_summary">Избор на фонов стил в плейъра</string>
+    <string name="pref_player_background_theme">Фон на приложението</string>
+    <string name="pref_player_background_cover_color">Основен цвят на капака</string>
+    <string name="pref_player_background_blurred_cover">Размазан капак</string>
+    <string name="pref_cover_shadow_title">Сянка на капака</string>
     <!--book category-->
 </resources>

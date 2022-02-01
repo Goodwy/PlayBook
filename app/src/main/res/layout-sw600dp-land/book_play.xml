@@ -7,6 +7,7 @@
   android:layout_height="match_parent"
   android:paddingRight="20dp"
   android:background="?backgroundColor"
+  android:fitsSystemWindows="true"
   tools:ignore="RtlHardcoded,RtlSymmetry">
 
     <androidx.constraintlayout.widget.Guideline
@@ -34,7 +35,7 @@
       android:id="@+id/toolbar"
       android:layout_width="0dp"
       android:layout_height="?attr/actionBarSize"
-      android:background="?backgroundColor"
+      android:background="@android:color/transparent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
@@ -191,22 +192,36 @@
       android:id="@+id/playedTime"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="36dp"
+      android:layout_marginTop="32dp"
       android:layout_marginStart="18dp"
       android:text="@string/zeroTime"
       android:textAppearance="?textAppearanceBody2"
+      android:textSize="12sp"
       android:layout_marginBottom="20dp"
       app:layout_constraintStart_toEndOf="@+id/x50"
       app:layout_constraintTop_toTopOf="@+id/slider" />
 
     <TextView
+      android:id="@+id/remainingTime"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="32dp"
+      android:text="@string/zeroTime"
+      android:textAppearance="?textAppearanceBody2"
+      android:textSize="12sp"
+      app:layout_constraintTop_toTopOf="@id/slider"
+      app:layout_constraintLeft_toLeftOf="@id/slider"
+      app:layout_constraintRight_toRightOf="@id/slider" />
+
+    <TextView
       android:id="@+id/maxTime"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="36dp"
+      android:layout_marginTop="32dp"
       android:layout_marginEnd="18dp"
       android:text="@string/zeroTime"
       android:textAppearance="?textAppearanceBody2"
+      android:textSize="12sp"
       android:layout_marginBottom="20dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="@+id/slider" />

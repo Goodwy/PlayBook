@@ -205,4 +205,19 @@
     <string name="pref_cover_settings_title">Ρυθμίσεις εξωφύλλου</string>
     <string name="pref_cover_corner_radius_title">Ακτίνα γωνιών κάλυψης</string>
     <string name="pref_cover_elevation_title">Ανύψωση του καλύμματος</string>
+    <string name="folders">Φακέλους</string>
+    <string name="pref_icon_mode_title">Εμφάνιση εικονιδίων</string>
+    <string name="pref_icon_mode_summary">Εμφάνιση εικονιδίων μενού αντί για κείμενο</string>
+    <string name="pref_statusbar_mode_title">Κατάσταση λειτουργίας γραμμής κατάστασης</string>
+    <string name="pref_statusbar_mode_summary">Ορισμός της εμφάνισης του βάρβαρου κατάστασης</string>
+    <string name="pref_statusbar_mode_value_transparent">Διαφανής</string>
+    <string name="pref_statusbar_mode_value_color">Χρώμα</string>
+    <string name="left">%s αριστερά</string>
+    <string name="left_in_audiobook">%s αριστερά στο ηχοβιβλίο</string>
+    <string name="pref_player_background_title">Φόντο παίκτη</string>
+    <string name="pref_player_background_summary">Επιλογή στυλ φόντου στη συσκευή αναπαραγωγής</string>
+    <string name="pref_player_background_theme">Φόντο εφαρμογής</string>
+    <string name="pref_player_background_cover_color">Κύριο χρώμα κάλυψης</string>
+    <string name="pref_player_background_blurred_cover">Θολό κάλυμμα</string>
+    <string name="pref_cover_shadow_title">Σκιά κάλυψης</string>
 </resources>

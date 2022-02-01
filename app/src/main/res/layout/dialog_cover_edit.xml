@@ -17,7 +17,7 @@
         android:adjustViewBounds="true"
         android:contentDescription="@string/content_cover" />
 
-    <com.goodwy.audiobooklite.features.imagepicker.CropOverlay
+    <com.goodwy.audiobook.features.imagepicker.CropOverlay
         android:id="@+id/cropOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

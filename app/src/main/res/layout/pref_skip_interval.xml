@@ -25,13 +25,13 @@
           android:layout_marginTop="8dp"
           android:orientation="vertical">
 
-            <com.goodwy.audiobooklite.features.settings.SingleSettingView
+            <com.goodwy.audiobook.features.settings.SingleSettingView
               android:id="@+id/skipAmountForward"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               app:tsv_title="@string/fast_forward" />
 
-            <com.goodwy.audiobooklite.features.settings.SingleSettingView
+            <com.goodwy.audiobook.features.settings.SingleSettingView
               android:id="@+id/skipAmountRewind"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
@@ -39,14 +39,14 @@
 
             <View
               android:layout_width="match_parent"
-              android:layout_height="1dp"
+              android:layout_height="1px"
               android:layout_marginTop="10dp"
               android:layout_marginBottom="16dp"
               android:layout_marginStart="15dp"
               android:layout_marginEnd="15dp"
               android:background="@drawable/divider_settings" />
 
-            <com.goodwy.audiobooklite.features.settings.TripleSettingView
+            <com.goodwy.audiobook.features.settings.TripleSettingView
               android:id="@+id/autoRewind"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"

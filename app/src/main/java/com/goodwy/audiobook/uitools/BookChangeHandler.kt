@@ -37,10 +37,13 @@ class BookChangeHandler : TransitionChangeHandler() {
       .addTransition(ChangeTransform())
       .addTransition(ChangeClipBounds())
       .addTransition(ChangeImageTransform())
+      .addTarget(R.id.miniPlayerFab)
       .addTarget(R.id.fab)
       .addTarget(R.id.play)
+      .addTarget(R.id.title)
+      .addTarget(R.id.currentBookText)
       .excludeTarget(R.id.toolbar, true)
-      .addTarget(R.id.cover)
+      //.addTarget(R.id.cover) // анимация обложки
       .apply {
         transitionName?.let { addTarget(it) }
       }

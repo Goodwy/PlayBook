@@ -10,7 +10,7 @@
       android:id="@+id/payIcon"
       style="@style/Widget.App.Switch"
       android:contentDescription="@string/pref_pay_title"
-      android:src="@mipmap/ic_playbooks"
+      android:src="@mipmap/ic_launcher"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="16dp"

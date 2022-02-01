@@ -207,5 +207,27 @@
     <string name="pref_cover_settings_title">Параметри обкладинки</string>
     <string name="pref_cover_corner_radius_title">Радіус кутів обкладинки</string>
     <string name="pref_cover_elevation_title">Піднесення обкладинки</string>
+    <string name="folders">Папки</string>
+    <string name="pref_icon_mode_title">Показувати іконки</string>
+    <string name="pref_icon_mode_summary">Іконки меню замість тексту</string>
+    <string name="pref_statusbar_mode_title">Режим смужки стану</string>
+    <string name="pref_statusbar_mode_summary">Установлення вигляду рядка стану</string>
+    <string name="hours_letter">ч</string>
+    <string name="minutes_letter">м</string>
+    <string name="seconds_letter">с</string>
+    <string name="pref_statusbar_mode_value_transparent">Прозора</string>
+    <string name="pref_statusbar_mode_value_color">Кольорова</string>
+    <string name="left">Залишається %s</string>
+    <string name="left_in_audiobook">В аудіокнизі залишилося %s</string>
+    <string name="pref_player_background_title">Задній фон програвача</string>
+    <string name="pref_player_background_summary">Вибір стиль заднього фону в плеєрі</string>
+    <string name="pref_player_background_theme">Фон програми</string>
+    <string name="pref_player_background_cover_color">Основний колір обкладинки</string>
+    <string name="pref_player_background_blurred_cover">Розмита обкладинка</string>
+    <string name="show_all">Показати все</string>
+    <string name="layout_grid">Сітка</string>
+    <string name="layout_list">Перелік</string>
+    <string name="pref_what_new_title">Що нового</string>
+    <string name="pref_cover_shadow_title">Тінь кришки</string>
     <!--book category-->
 </resources>

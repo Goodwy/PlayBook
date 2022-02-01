@@ -29,6 +29,12 @@ class BookMarkHolder(
         listener.onBookmarkClicked(bookmark)
       }
     }
+    itemView.setOnLongClickListener {
+      boundBookmark?.let { bookmark ->
+        listener.onBookmarkLongClicked(bookmark)
+        true
+      } ?: false
+    }
   }
 
   fun bind(bookmark: Bookmark, chapters: List<Chapter>) {
@@ -44,9 +50,9 @@ class BookMarkHolder(
       else -> currentChapter.markForPosition(bookmark.time).name
     }
     binding.title.setCompoundDrawablesRelativeWithIntrinsicBounds(if (bookmark.setBySleepTimer) R.drawable.ic_sleep else 0, 0, 0, 0)
+    binding.file.text = bookmark.mediaFile.toString().substringAfterLast("/")
     val size = chapters.size
     val index = chapters.indexOf(currentChapter)
-
     binding.summary.text = itemView.context.getString(
       R.string.format_bookmarks_n_of,
       index + 1,

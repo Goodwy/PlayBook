@@ -209,4 +209,19 @@
     <string name="pref_cover_settings_title">Viršelio parametrai</string>
     <string name="pref_cover_corner_radius_title">Dangčio kampų spindulys</string>
     <string name="pref_cover_elevation_title">Dangčio aukštis</string>
+    <string name="folders">Aplankus</string>
+    <string name="pref_icon_mode_title">Rodyti piktogramas</string>
+    <string name="pref_icon_mode_summary">Rodyti meniu piktogramas vietoj teksto</string>
+    <string name="pref_statusbar_mode_title">Būsenos juostos režimas</string>
+    <string name="pref_statusbar_mode_summary">Būsenos bario išvaizdos nustatymas</string>
+    <string name="pref_statusbar_mode_value_transparent">Skaidrus</string>
+    <string name="pref_statusbar_mode_value_color">Spalva</string>
+    <string name="left">%s kairėje</string>
+    <string name="left_in_audiobook">%s liko audioknygoje</string>
+    <string name="pref_player_background_title">Leistuvo fonas</string>
+    <string name="pref_player_background_summary">Fono stiliaus pasirinkimas grotuve</string>
+    <string name="pref_player_background_theme">Programos fonas</string>
+    <string name="pref_player_background_cover_color">Pagrindinė viršelio spalva</string>
+    <string name="pref_player_background_blurred_cover">Neryškus viršelis</string>
+    <string name="pref_cover_shadow_title">Viršelio šešėlis</string>
 </resources>

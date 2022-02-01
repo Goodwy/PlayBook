@@ -11,6 +11,7 @@ import com.goodwy.audiobook.data.durationMs
 import com.goodwy.audiobook.data.markForPosition
 import com.goodwy.audiobook.data.repo.BookRepository
 import com.goodwy.audiobook.data.repo.BookmarkRepo
+import com.goodwy.audiobook.features.bookOverview.list.remainingTimeInMs
 import com.goodwy.audiobook.playback.PlayerController
 import com.goodwy.audiobook.playback.SleepTimer
 import com.goodwy.audiobook.playback.playstate.PlayStateManager
@@ -36,7 +37,11 @@ class BookPlayViewModel
   @Named(PrefKeys.CURRENT_BOOK)
   private val currentBookIdPref: Pref<UUID>,
   @Named(PrefKeys.REWIND_BUTTON_STYLE)
-  private val rewindButtonStylePref: Pref<Int>
+  private val rewindButtonStylePref: Pref<Int>,
+  @Named(PrefKeys.CURRENT_VOLUME)
+  private val currentVolumePref: Pref<Int>,
+  @Named(PrefKeys.REPEAT_MODE)
+  private val repeatModePref: Pref<Int>
 ) {
 
   private val scope = MainScope()
@@ -50,8 +55,8 @@ class BookPlayViewModel
     currentBookIdPref.value = bookId
 
     return combine(
-      repo.flow(bookId).filterNotNull(), playStateManager.playStateFlow(), sleepTimer.leftSleepTimeFlow
-    ) { book, playState, sleepTime ->
+      repo.flow(bookId).filterNotNull(), playStateManager.playStateFlow(), sleepTimer.leftSleepTimeFlow, currentVolumePref.flow, repeatModePref.flow
+    ) { book, playState, sleepTime, currentVolumePref, repeatModePref ->
       val currentMark = book.content.currentChapter.markForPosition(book.content.positionInChapter)
       val hasMoreThanOneChapter = book.hasMoreThanOneChapter()
       val rewindButtonStyle = rewindButtonStylePref.value
@@ -67,7 +72,11 @@ class BookPlayViewModel
         cover = BookPlayCover(book),
         skipSilence = book.content.skipSilence,
         showChapterNumbers = book.content.showChapterNumbers,
-        rewindButtonStylePref = rewindButtonStyle
+        remainingTimeInMs = book.remainingTimeInMs(),
+        rewindButtonStylePref = rewindButtonStyle,
+        currentVolumePref = currentVolumePref,
+        repeatModePref = repeatModePref,
+        timeLapse = book.content.playbackSpeed
       )
     }
   }
@@ -122,7 +131,7 @@ class BookPlayViewModel
 
   fun toggleSleepTimer() {
     if (sleepTimer.sleepTimerActive()) {
-      sleepTimer.setActive(false)
+      sleepTimer.setActive(false, true)
     } else {
       _viewEffects.offer(BookPlayViewEffect.ShowSleepTimeDialog)
     }
@@ -141,6 +150,16 @@ class BookPlayViewModel
       val showChapterNumbers = repo.bookById(bookId)?.content?.showChapterNumbers
         ?: return@launch
       player.showChapterNumbers(!showChapterNumbers)
+    }
+  }
+
+  fun toggleRepeat() {
+    if (repeatModePref.value == 0) repeatModePref.value = 1
+    else if (repeatModePref.value == 1) repeatModePref.value = 2
+    else repeatModePref.value = 0
+    scope.launch {
+      val repeat = repeatModePref.value
+      player.setRepeat(repeat)
     }
   }
 }

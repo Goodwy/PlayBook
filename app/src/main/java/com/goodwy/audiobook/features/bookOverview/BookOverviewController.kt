@@ -2,7 +2,9 @@ package com.goodwy.audiobook.features.bookOverview
 
 import android.content.Intent
 import android.graphics.Color
+import android.view.Gravity
 import android.view.MenuItem
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.SimpleItemAnimator
@@ -31,16 +33,17 @@ import com.goodwy.audiobook.injection.appComponent
 import com.goodwy.audiobook.misc.conductor.asTransaction
 import com.goodwy.audiobook.misc.conductor.clearAfterDestroyView
 import com.goodwy.audiobook.misc.conductor.clearAfterDestroyViewNullable
+import com.goodwy.audiobook.misc.conductor.context
 import com.goodwy.audiobook.misc.postedIfComputingLayout
 import com.goodwy.audiobook.uitools.BookChangeHandler
 import com.goodwy.audiobook.uitools.PlayPauseDrawableSetter
 import com.goodwy.audiobook.uitools.PlayPauseColorDrawableSetter
+import com.jaredrummler.cyanea.app.BaseCyaneaActivity
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.util.UUID
 import javax.inject.Inject
@@ -53,7 +56,8 @@ import kotlin.collections.component2
  */
 class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOverviewBinding::inflate),
   EditCoverDialogController.Callback, EditBookBottomSheetController.Callback,
-  CoverFromInternetController.Callback {
+  CoverFromInternetController.Callback,
+  BaseCyaneaActivity {
 
   init {
     appComponent.inject(this)
@@ -64,6 +68,12 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
 
   @field:[Inject Named(PrefKeys.GRID_AUTO)]
   lateinit var gridViewAutoPref: Pref<Boolean>
+
+  @field:[Inject Named(PrefKeys.ICON_MODE)]
+  lateinit var iconModePref: Pref<Boolean>
+
+  @field:[Inject Named(PrefKeys.PADDING)]
+  lateinit var paddingPref: Pref<String>
 
   @Inject
   lateinit var viewModel: BookOverviewViewModel
@@ -189,6 +199,7 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
   }
 
   private fun invokeBookSelectionCallback(book: Book) {
+    // анимация перехода
     currentBookIdPref.value = book.id
     val transaction = RouterTransaction.with(BookPlayController(book.id))
     val transition = BookChangeHandler()
@@ -196,10 +207,22 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
     transaction.pushChangeHandler(transition)
       .popChangeHandler(transition)
     router.pushController(transaction)
+    //router.pushController(BookPlayController(book.id).asTransaction())
   }
 
   private fun BookOverviewBinding.render(state: BookOverviewState, gridMenuItem: GridMenuItem, settingMenuItem: SettingMenuItem, libraryMenuItem: LibraryMenuItem) {
     Timber.i("render ${state.javaClass.simpleName}")
+    /*if (tintNavBar.value) {
+      activity!!.window.navigationBarColor = cyanea.navigationBar
+      cyanea.edit {
+        shouldTintNavBar(true)
+      }
+    } else {
+      cyanea.edit {
+        shouldTintNavBar(false)
+      }
+    }
+    activity!!.window.statusBarColor = cyanea.primaryDark*/
     val adapterContent = when (state) {
       is BookOverviewState.Content -> buildList {
           state.categoriesWithContents.forEach { (category, content) ->
@@ -214,10 +237,17 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
     when (state) {
       is BookOverviewState.Content -> {
         hideNoFolderWarning()
-        fab.isVisible = state.currentBookPresent
-        fab.isVisible = state.miniPlayerStylePref == 1
-        miniPlayer.isVisible = state.currentBookPresent
-        miniPlayer.isVisible = state.miniPlayerStylePref == 2
+        fab.isVisible = state.miniPlayerStylePref == 1 && state.currentBookPresent
+
+        if (state.miniPlayerStylePref == 2 && state.currentBookPresent) {
+          miniPlayer.isVisible = true
+          miniPlayerFab.transitionName = activity!!.getString(R.string.fab_transition)
+          fab.transitionName = null
+        } else {
+          miniPlayer.isVisible = false
+          miniPlayerFab.transitionName = null
+          fab.transitionName = activity!!.getString(R.string.fab_transition)
+        }
 
         useGrid = state.useGrid
         val lm = recyclerView.layoutManager as GridLayoutManager
@@ -255,7 +285,7 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
       }
       BookOverviewState.NoFolderSet -> {
         showNoFolderWarning()
-        fab.isVisible = false /**скрывать плавающую кнопку воспроизведения*/
+        fab.isVisible = false
         miniPlayer.isVisible = false
       }
     }
@@ -280,6 +310,30 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
       miniPlayerTitle.text = currentBookName.toString()
       miniPlayerSummary.text = currentChapterName.toString()
     }
+
+    if (iconModePref.value) {
+      val density = context.resources.displayMetrics.density
+      val width_52dp = (52 * density + 0.5f).toInt()
+
+      val layoutParamsSettings = settingsButton.layoutParams
+      layoutParamsSettings?.height = width_52dp
+      layoutParamsSettings?.width = width_52dp //ViewGroup.LayoutParams.MATCH_PARENT
+      settingsButton.layoutParams = layoutParamsSettings
+
+      val layoutParamsLibrary = libraryButton.layoutParams
+      layoutParamsLibrary?.height = width_52dp
+      layoutParamsLibrary?.width = width_52dp //ViewGroup.LayoutParams.MATCH_PARENT
+      libraryButton.layoutParams = layoutParamsLibrary
+
+      settingsButton.foreground = getDrawable(context, R.drawable.ic_setting)
+      settingsButton.foregroundGravity = Gravity.CENTER
+      settingsButton.text = ""
+      libraryButton.foreground = getDrawable(context, R.drawable.ic_folder_24dp)
+      libraryButton.foregroundGravity = Gravity.CENTER
+      libraryButton.text = ""
+      //settingsButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_setting, 0, 0, 0)
+      //libraryButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.image_plus, 0, 0, 0)
+    }
   }
 
   private fun showPlaying(playing: Boolean) {
@@ -298,8 +352,9 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
 
   /** Show a warning that no audiobook folder was chosen https://github.com/KeepSafe/TapTargetView*/
   private fun BookOverviewBinding.showNoFolderWarning() {
-    if (currentTapTarget?.isVisible == true)
+    if (currentTapTarget != null) {
       return
+    }
 
     val target = TapTarget
       .forView(
@@ -359,6 +414,16 @@ class BookOverviewController : ViewBindingController<BookOverviewBinding>(BookOv
         .collect {
           render(it, gridMenuItem, settingMenuItem, libraryMenuItem)
         }
+    }
+    //padding for Edge-to-edge
+    lifecycleScope.launch {
+      paddingPref.flow.collect {
+        val top = paddingPref.value.substringBefore(';').toInt()
+        val bottom = paddingPref.value.substringAfter(';').substringBefore(';').toInt()
+        val left = paddingPref.value.substringBeforeLast(';').substringAfterLast(';').toInt()
+        val right = paddingPref.value.substringAfterLast(';').toInt()
+        root.setPadding(left, top, right, bottom)
+      }
     }
   }
 

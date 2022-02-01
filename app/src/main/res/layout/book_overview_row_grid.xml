@@ -100,7 +100,7 @@
               app:layout_constraintStart_toStartOf="parent"
               tools:ignore="ContentDescription" />
 
-            <com.goodwy.audiobooklite.uitools.RoundProgressView
+            <com.goodwy.audiobook.uitools.RoundProgressView
               android:id="@+id/roundProgress"
               android:layout_width="0dp"
               android:layout_height="0dp"
@@ -128,7 +128,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.goodwy.audiobooklite.uitools.SquareProgressView
+        <com.goodwy.audiobook.uitools.SquareProgressView
           android:id="@+id/progress"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
@@ -153,10 +153,11 @@
 
         <ImageView
           android:id="@+id/more"
-          android:layout_width="20dp"
-          android:layout_height="20dp"
-          android:layout_marginTop="18dp"
-          android:layout_marginEnd="22dp"
+          android:layout_width="36dp"
+          android:layout_height="36dp"
+          android:padding="8dp"
+          android:layout_marginTop="14dp"
+          android:layout_marginEnd="18dp"
           android:src="@drawable/ic_more_horiz"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintTop_toTopOf="parent"

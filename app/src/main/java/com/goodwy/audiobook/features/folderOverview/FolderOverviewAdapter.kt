@@ -1,5 +1,6 @@
 package com.goodwy.audiobook.features.folderOverview
 
+import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import java.util.ArrayList
@@ -20,6 +21,7 @@ class FolderOverviewAdapter(private val deleteClicked: (toDelete: FolderModel) -
     holder.bind(model)
   }
 
+  @SuppressLint("NotifyDataSetChanged")
   fun newItems(newItems: Collection<FolderModel>) {
     val newItemsSorted = newItems.sorted()
     val hadItems = this.items.isNotEmpty()

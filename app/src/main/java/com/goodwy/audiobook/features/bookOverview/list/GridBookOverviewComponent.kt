@@ -1,15 +1,30 @@
 package com.goodwy.audiobook.features.bookOverview.list
 
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import com.goodwy.audiobook.R
+import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.data.Book
+import com.goodwy.audiobook.injection.appComponent
 import com.goodwy.audiobook.misc.RoundRectOutlineProvider
 import com.goodwy.audiobook.misc.dpToPx
 import com.goodwy.audiobook.misc.formatTime
 import com.goodwy.audiobook.misc.recyclerComponent.AdapterComponent
 import com.goodwy.audiobook.uitools.ExtensionsHolder
+import de.paulwoitaschek.flowpref.Pref
+import kotlinx.android.synthetic.main.book_overview_row_grid.*
 import kotlinx.android.synthetic.main.book_overview_row_list.*
+import kotlinx.android.synthetic.main.book_overview_row_list.cover
+import kotlinx.android.synthetic.main.book_overview_row_list.more
+import kotlinx.android.synthetic.main.book_overview_row_list.playedTime
+import kotlinx.android.synthetic.main.book_overview_row_list.playingIndicator
+import kotlinx.android.synthetic.main.book_overview_row_list.progress
+import kotlinx.android.synthetic.main.book_overview_row_list.remainingTime
+import kotlinx.android.synthetic.main.book_overview_row_list.roundProgress
+import kotlinx.android.synthetic.main.book_overview_row_list.title
+import javax.inject.Inject
+import javax.inject.Named
 
 class GridBookOverviewComponent(private val listener: BookClickListener) :
   AdapterComponent<BookOverviewModel, BookOverviewHolder>(BookOverviewModel::class) {
@@ -61,18 +76,29 @@ class BookOverviewHolder(
   private val listener: BookClickListener
 ) : ExtensionsHolder(parent, layoutRes) {
 
+  @field:[Inject Named(PrefKeys.COVER_RADIUS)]
+  lateinit var coverRadiusPref: Pref<Int>
+
+  @field:[Inject Named(PrefKeys.COVER_ELEVATION)]
+  lateinit var coverElevationPref: Pref<Int>
+
   private var boundBook: Book? = null
   private val loadBookCover = LoadBookCover(this)
 
   init {
-    cover.clipToOutline = true
-    cover.outlineProvider = RoundRectOutlineProvider(itemView.context.dpToPx(4F))
+    appComponent.inject(this)
     itemView.setOnClickListener {
       boundBook?.let { book ->
         listener(book, BookOverviewClick.REGULAR)
       }
     }
     itemView.setOnLongClickListener {
+      boundBook?.let { book ->
+        listener(book, BookOverviewClick.MENU)
+        true
+      } ?: false
+    }
+    more.setOnClickListener {
       boundBook?.let { book ->
         listener(book, BookOverviewClick.MENU)
         true
@@ -92,13 +118,25 @@ class BookOverviewHolder(
       title.maxLines = if (model.author == null) 2 else 1
     }
 
-    cover.transitionName = model.transitionName
+    cover.clipToOutline = true
+    cover.outlineProvider = RoundRectOutlineProvider(itemView.context.dpToPx(coverRadiusPref.value.toFloat()/3)) // TODO RADIUS COVER
+    //cover.transitionName = model.transitionName //анимация обложки
+    title.transitionName = model.transitionName
     remainingTime.text = formatTime(model.remainingTimeInMs)
-    playedTime.text = model.playedTimeInPer.toString()
-    val percent = '%'
-    percentText.text = percent.toString()
+    val playedTimeVal = (model.playedTimeInPer.toString() + '%')
+    //val playedTimeVal = (formatTime(model.positionTimeInMs) + '/' + formatTime(model.durationTimeInMs))
+    playedTime.text = playedTimeVal
+    if (model.showProgressBar) {this.progress.visibility = View.VISIBLE} else {this.progress.visibility = View.GONE}
+    //this.progress.visibility = View.GONE
+    if (model.showDivider) {this.divider?.visibility = View.VISIBLE} else {this.divider?.visibility = View.GONE}
     this.progress.progress = model.progress
+    this.roundProgress.progress = model.progress
     loadBookCover.load(model.book)
+    cover.elevation = coverElevationPref.value.toFloat()/4
+    if (model.useGridView) {
+      percentLayout.elevation = coverElevationPref.value.toFloat()/4
+      more.elevation = coverElevationPref.value.toFloat()/4
+    }
 
     playingIndicator.isVisible = model.isCurrentBook
   }

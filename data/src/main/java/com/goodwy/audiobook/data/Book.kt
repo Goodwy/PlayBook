@@ -56,11 +56,13 @@ data class Book(
     COLLECTION_FOLDER,
     COLLECTION_FILE,
     SINGLE_FOLDER,
-    SINGLE_FILE
+    SINGLE_FILE,
+    LIBRARY_FOLDER,
+    LIBRARY_FILE
   }
 
   companion object {
-    const val SPEED_MAX = 2.5F
+    const val SPEED_MAX = 4.0F
     const val SPEED_MIN = 0.5F
   }
 }

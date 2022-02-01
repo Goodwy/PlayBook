@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.goodwy.audiobook.R
+import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.data.Bookmark
 import com.goodwy.audiobook.data.Chapter
 import com.goodwy.audiobook.databinding.BookmarkBinding
@@ -24,7 +25,12 @@ import com.goodwy.audiobook.misc.getUUID
 import com.goodwy.audiobook.misc.putUUID
 import com.goodwy.audiobook.mvp.MvpController
 import com.goodwy.audiobook.uitools.VerticalDividerItemDecoration
+import de.paulwoitaschek.flowpref.Pref
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import java.util.UUID
+import javax.inject.Inject
+import javax.inject.Named
 
 /**
  * Dialog for creating a bookmark
@@ -40,8 +46,15 @@ class BookmarkController(args: Bundle) :
     putUUID(NI_BOOK_ID, bookId)
   })
 
+  @field:[Inject Named(PrefKeys.PADDING)]
+  lateinit var paddingPref: Pref<String>
+
   private val bookId = args.getUUID(NI_BOOK_ID)
   private val adapter = BookmarkAdapter(this)
+
+  init {
+    appComponent.inject(this)
+  }
 
   override fun createPresenter() = appComponent.bookmarkPresenter.apply {
     bookId = this@BookmarkController.bookId
@@ -67,6 +80,10 @@ class BookmarkController(args: Bundle) :
     router.popController(this)
   }
 
+  override fun onBookmarkLongClicked(bookmark: Bookmark) {
+    showEditBookmarkDialog(bookmark)
+  }
+
   override fun onEditBookmark(id: UUID, title: String) {
     presenter.editBookmark(id, title)
   }
@@ -85,6 +102,19 @@ class BookmarkController(args: Bundle) :
 
     addBookmarkFab.setOnClickListener {
       showAddBookmarkDialog()
+    }
+  }
+
+  override fun BookmarkBinding.onAttach() {
+    //padding for Edge-to-edge
+    lifecycleScope.launch {
+      paddingPref.flow.collect {
+        val top = paddingPref.value.substringBefore(';').toInt()
+        val bottom = paddingPref.value.substringAfter(';').substringBefore(';').toInt()
+        val left = paddingPref.value.substringBeforeLast(';').substringAfterLast(';').toInt()
+        val right = paddingPref.value.substringAfterLast(';').toInt()
+        root.setPadding(left, top, right, bottom)
+      }
     }
   }
 

@@ -1,13 +1,16 @@
 package com.goodwy.audiobook.uitools
 
+import android.annotation.SuppressLint
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.widget.ImageView
 import com.goodwy.audiobook.R
 
 class PlayPauseDrawableSetter(private val fab: ImageView) {
 
+  @SuppressLint("UseCompatLoadingForDrawables")
   private val playToPause =
     fab.context.getDrawable(R.drawable.avd_play_to_pause)!! as AnimatedVectorDrawable
+  @SuppressLint("UseCompatLoadingForDrawables")
   private val pauseToPlay =
     fab.context.getDrawable(R.drawable.avd_pause_to_play)!! as AnimatedVectorDrawable
 

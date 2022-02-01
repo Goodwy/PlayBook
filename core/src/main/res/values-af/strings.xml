@@ -201,4 +201,19 @@
     <string name="pref_cover_settings_title">Omslaginstellings</string>
     <string name="pref_cover_corner_radius_title">Radius van dekhoeke</string>
     <string name="pref_cover_elevation_title">Hoogte van die deksel</string>
+    <string name="folders">Vouers</string>
+    <string name="pref_icon_mode_title">Wys ikone</string>
+    <string name="pref_icon_mode_summary">Wys kieslysikone in plaas van teks</string>
+    <string name="pref_statusbar_mode_title">Statusbalkmodus</string>
+    <string name="pref_statusbar_mode_summary">Stel die voorkoms van die status bary</string>
+    <string name="pref_statusbar_mode_value_transparent">Deursigtige</string>
+    <string name="pref_statusbar_mode_value_color">Kleur</string>
+    <string name="left">%s links</string>
+    <string name="left_in_audiobook">%s links in oudioboek</string>
+    <string name="pref_player_background_title">Speler agtergrond</string>
+    <string name="pref_player_background_summary">Kies \'n agtergrondstyl in die speler</string>
+    <string name="pref_player_background_theme">Programagtergrond</string>
+    <string name="pref_player_background_cover_color">Hoofbedekkingskleur</string>
+    <string name="pref_player_background_blurred_cover">Blurry dekking</string>
+    <string name="pref_cover_shadow_title">Bedek skaduwee</string>
 </resources>

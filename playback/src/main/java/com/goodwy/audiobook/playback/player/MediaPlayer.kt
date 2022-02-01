@@ -1,6 +1,7 @@
 package com.goodwy.audiobook.playback.player
 
 import android.support.v4.media.session.PlaybackStateCompat
+import android.view.animation.AccelerateInterpolator
 import com.google.android.exoplayer2.C
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -18,6 +19,7 @@ import com.goodwy.audiobook.playback.playstate.PlayStateManager
 import com.goodwy.audiobook.playback.playstate.PlayStateManager.PlayState
 import com.goodwy.audiobook.playback.playstate.PlayerState
 import com.goodwy.audiobook.playback.session.ChangeNotifier
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
@@ -42,6 +44,8 @@ import javax.inject.Named
 import kotlin.time.Duration
 import kotlin.time.milliseconds
 import kotlin.time.seconds
+
+val FADE_OUT_DURATION = 10.seconds
 
 @PerService
 class MediaPlayer
@@ -427,8 +431,44 @@ constructor(
     prepare()
     bookContent?.let {
       bookContent = it.updateSettings { copy(showChapterNumbers = show) }
-      player.setPlaybackParameters(it.playbackSpeed, show)
     }
+  }
+
+  fun setRepeatMode(repeat: Int) {
+    if (repeat == 1) {
+      player.setRepeatMode(Player.REPEAT_MODE_ONE)
+    } else if (repeat == 2)  {
+      player.setRepeatMode(Player.REPEAT_MODE_ALL)
+    } else {
+      player.setRepeatMode(Player.REPEAT_MODE_OFF)
+    }
+  }
+
+  private var fadeOutJob: Job? = null
+
+  fun fadeOut() {
+    if (fadeOutJob?.isActive == true) {
+      return
+    }
+    fadeOutJob = scope.launch {
+      var timeLeft = FADE_OUT_DURATION
+      val step = 100.milliseconds
+      while (timeLeft > Duration.ZERO) {
+        delay(step)
+        timeLeft -= step
+        player.volume = volumeForFadeOutTimeLeft(timeLeft)
+      }
+      pause(rewind = false)
+      skip(-FADE_OUT_DURATION)
+      player.volume = 1F
+      player.stop()
+    }
+  }
+
+  fun cancelFadeOut() {
+    fadeOutJob?.cancel()
+    player.volume = 1F
+    play()
   }
 
   fun release() {
@@ -436,6 +476,14 @@ constructor(
     scope.cancel()
   }
 }
+
+private fun volumeForFadeOutTimeLeft(timeLeft: Duration): Float {
+  val fraction = (timeLeft / FADE_OUT_DURATION).toFloat()
+  return FADE_OUT_INTERPOLATOR.getInterpolation(fraction)
+    .also { Timber.i("set volume to $it") }
+}
+
+private val FADE_OUT_INTERPOLATOR = AccelerateInterpolator()
 
 private fun Chapter.nextMark(positionInChapterMs: Long): ChapterMark? {
   val markForPosition = markForPosition(positionInChapterMs)

@@ -7,6 +7,7 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import com.goodwy.audiobook.R
+import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.data.Book
 import com.goodwy.audiobook.data.BookComparator
 import com.goodwy.audiobook.data.repo.BookRepository
@@ -24,14 +25,14 @@ import com.goodwy.audiobook.misc.conductor.asTransaction
 import com.goodwy.audiobook.misc.conductor.clearAfterDestroyView
 import com.goodwy.audiobook.misc.conductor.popOrBack
 import com.goodwy.audiobook.uitools.BookChangeHandler
+import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import timber.log.Timber
 import java.util.UUID
 import javax.inject.Inject
+import javax.inject.Named
 
 private const val NI_CATEGORY = "ni#category"
 
@@ -45,6 +46,9 @@ class BookCategoryController(bundle: Bundle) : ViewBindingController<BookCategor
   lateinit var galleryPicker: GalleryPicker
   @Inject
   lateinit var repo: BookRepository
+
+  @field:[Inject Named(PrefKeys.PADDING)]
+  lateinit var paddingPref: Pref<String>
 
   constructor(category: BookOverviewCategory) : this(Bundle().apply {
     putSerializable(NI_CATEGORY, category)
@@ -97,6 +101,19 @@ class BookCategoryController(bundle: Bundle) : ViewBindingController<BookCategor
           layoutManager.spanCount = it.gridColumnCount
           adapter.submitList(it.models)
         }
+    }
+  }
+
+  override fun BookCategoryBinding.onAttach() {
+    //padding for Edge-to-edge
+    lifecycleScope.launch {
+      paddingPref.flow.collect {
+        val top = paddingPref.value.substringBefore(';').toInt()
+        val bottom = paddingPref.value.substringAfter(';').substringBefore(';').toInt()
+        val left = paddingPref.value.substringBeforeLast(';').substringAfterLast(';').toInt()
+        val right = paddingPref.value.substringAfterLast(';').toInt()
+        root.setPadding(left, top, right, bottom)
+      }
     }
   }
 

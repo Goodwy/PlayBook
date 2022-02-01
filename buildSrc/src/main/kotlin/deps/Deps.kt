@@ -10,8 +10,8 @@ object Versions {
   const val compileSdk = 30
   const val minSdk = 24
   const val targetSdk = 30
-  const val versionCode = 121
-  const val versionName = "1.2.1"
+  const val versionCode = 134
+  const val versionName = "1.3.4"
 }
 
 object Deps {
@@ -70,7 +70,7 @@ object Deps {
     const val color = "com.afollestad.material-dialogs:color:$version"
   }
 
-  object Jaredrummler {
+  object JaredRummler {
     private const val version = "1.0.2"
     const val cyanea = "com.jaredrummler:cyanea:$version"
   }

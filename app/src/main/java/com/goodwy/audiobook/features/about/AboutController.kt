@@ -1,5 +1,6 @@
 package com.goodwy.audiobook.features.about
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -20,7 +21,6 @@ import com.goodwy.audiobook.features.ViewBindingController
 import com.goodwy.audiobook.features.settings.dialogs.LicenseDialogController
 import com.goodwy.audiobook.features.settings.dialogs.ChangelogDialogController
 import com.goodwy.audiobook.injection.appComponent
-import com.jaredrummler.cyanea.Cyanea
 import com.jaredrummler.cyanea.app.BaseCyaneaActivity
 import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.flow.collect
@@ -38,6 +38,9 @@ class AboutController : ViewBindingController<AboutBinding>(AboutBinding::inflat
   @Inject
   lateinit var viewModel: AboutViewModel
 
+  @field:[Inject Named(PrefKeys.PADDING)]
+  lateinit var paddingPref: Pref<String>
+
   init {
     appComponent.inject(this)
   }
@@ -45,10 +48,10 @@ class AboutController : ViewBindingController<AboutBinding>(AboutBinding::inflat
   private var count: Int = 0
   private val encod1 = "WW91IGFyZSBhbG1vc3QgdGhlcmUh"
   private val encod2 = "RGV2ZWxvcGVyIG1vZGU="
-  // todo Lite
   private val PLAYBOOKS_GP_URL = "https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}".toUri()
   private val GOODWY_GP_URL = "https://play.google.com/store/apps/dev?id=8268163890866913014".toUri()
   private val PLAYBOOKS_GH_URL = "https://github.com/Goodwy/PlayBooks".toUri()
+  private val DISCUSSION_GH_URL = "https://github.com/Goodwy/Discussion".toUri()
   private val PRIVACY_GH_URL = "https://github.com/Goodwy/PlayBooks/blob/master/PRIVACY.md".toUri()
 
 
@@ -92,6 +95,11 @@ class AboutController : ViewBindingController<AboutBinding>(AboutBinding::inflat
       intent.data = GOODWY_GP_URL
       startActivity(intent)
     }
+    translateLayout.setOnClickListener {
+      val intent = Intent(Intent.ACTION_VIEW)
+      intent.data = DISCUSSION_GH_URL
+      startActivity(intent)
+    }
     changelogLayout.setOnClickListener {
       ChangelogDialogController().showDialog(router)
     }
@@ -128,8 +136,19 @@ class AboutController : ViewBindingController<AboutBinding>(AboutBinding::inflat
         render(it)
       }
     }
+    //padding for Edge-to-edge
+    lifecycleScope.launch {
+      paddingPref.flow.collect {
+        val top = paddingPref.value.substringBefore(';').toInt()
+        val bottom = paddingPref.value.substringAfter(';').substringBefore(';').toInt()
+        val left = paddingPref.value.substringBeforeLast(';').substringAfterLast(';').toInt()
+        val right = paddingPref.value.substringAfterLast(';').toInt()
+        root.setPadding(left, top, right, bottom)
+      }
+    }
   }
 
+  @SuppressLint("ObsoleteSdkInt")
   fun String.toSpanned(): Spanned {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
       return Html.fromHtml(this, Html.FROM_HTML_MODE_LEGACY)

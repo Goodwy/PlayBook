@@ -199,5 +199,20 @@
     <string name="pref_cover_settings_title">Configuración de la cubierta</string>
     <string name="pref_cover_corner_radius_title">Radio de las esquinas de la cubierta</string>
     <string name="pref_cover_elevation_title">Elevación de la cubierta</string>
+    <string name="folders">Carpetas</string>
+    <string name="pref_icon_mode_title">Mostrar iconos</string>
+    <string name="pref_icon_mode_summary">Mostrar iconos de menú en lugar de texto</string>
+    <string name="pref_statusbar_mode_title">Modo de barra de estado</string>
+    <string name="pref_statusbar_mode_summary">Establecer la apariencia de la barra de estado</string>
+    <string name="pref_statusbar_mode_value_transparent">Transparente</string>
+    <string name="pref_statusbar_mode_value_color">Color</string>
+    <string name="left">%s a la izquierda</string>
+    <string name="left_in_audiobook">%s a la izquierda en el audiolibro</string>
+    <string name="pref_player_background_title">Antecedentes del jugador</string>
+    <string name="pref_player_background_summary">Elegir un estilo de fondo en el reproductor</string>
+    <string name="pref_player_background_theme">Fondo de la aplicación</string>
+    <string name="pref_player_background_cover_color">Color de la cubierta principal</string>
+    <string name="pref_player_background_blurred_cover">Cubierta borrosa</string>
+    <string name="pref_cover_shadow_title">Sombra de portada</string>
     <!--book category-->
 </resources>

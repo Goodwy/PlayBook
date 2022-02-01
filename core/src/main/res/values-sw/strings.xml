@@ -192,4 +192,19 @@ Goodwy</i>
     <string name="pref_cover_settings_title">Mipangilio ya kifuniko</string>
     <string name="pref_cover_corner_radius_title">Radius ya pembe za kifuniko</string>
     <string name="pref_cover_elevation_title">Mwinuko wa kifuniko</string>
+    <string name="folders">Kabrasha</string>
+    <string name="pref_icon_mode_title">Onyesha ikoni</string>
+    <string name="pref_icon_mode_summary">Onyesha ikoni za menyu badala ya matini</string>
+    <string name="pref_statusbar_mode_title">Halibari hali</string>
+    <string name="pref_statusbar_mode_summary">Seti mwonekano wa mwambaa hali</string>
+    <string name="pref_statusbar_mode_value_transparent">Angavu</string>
+    <string name="pref_statusbar_mode_value_color">Rangi</string>
+    <string name="left">%s kushoto</string>
+    <string name="left_in_audiobook">%s kushoto katika kitabu cha sauti</string>
+    <string name="pref_player_background_title">Mandharinyuma ya kichezeshi</string>
+    <string name="pref_player_background_summary">Kuchagua mtindo wa mandharinyuma katika mchezaji</string>
+    <string name="pref_player_background_theme">Mandharinyuma ya programu</string>
+    <string name="pref_player_background_cover_color">Rangi kuu ya kifuniko</string>
+    <string name="pref_player_background_blurred_cover">Kifuniko cha Blurry</string>
+    <string name="pref_cover_shadow_title">Kivuli cha kifuniko</string>
 </resources>

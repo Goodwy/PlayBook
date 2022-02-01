@@ -4,6 +4,7 @@
   android:id="@+id/bookShelfRoot"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:fitsSystemWindows="true"
   android:background="?backgroundColor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,7 +47,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_weight="1"
-          android:text="@string/popup_edit"
+          android:text="@string/folders"
           android:textColor="?colorAccent"
           app:layout_constraintStart_toEndOf="@+id/settingsButton"
           app:layout_constraintTop_toTopOf="@+id/toolbar"
@@ -79,7 +80,6 @@
       android:layout_gravity="end|bottom"
       android:layout_margin="16dp"
       android:contentDescription="@string/play_pause"
-      android:transitionName="@string/fab_transition"
       android:theme="@style/AppTheme"
       app:backgroundTint="?colorAccent"
       app:fab_size="normal"

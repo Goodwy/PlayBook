@@ -2,6 +2,8 @@ package com.goodwy.audiobook.features.bookPlaying.selectchapter
 
 import com.goodwy.audiobook.data.markForPosition
 import com.goodwy.audiobook.data.repo.BookRepository
+import com.goodwy.audiobook.features.bookOverview.list.remainingTimeInMs
+import com.goodwy.audiobook.features.bookPlaying.BookPlayCover
 import com.goodwy.audiobook.playback.PlayerController
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.channels.BroadcastChannel
@@ -31,7 +33,7 @@ class SelectChapterViewModel
     if (book == null) {
       Timber.d("no book found for $bookId. CloseScreen")
       _viewEffects.offer(SelectChapterViewEffect.CloseScreen)
-      return SelectChapterViewState(emptyList(), null, false)
+      return SelectChapterViewState(emptyList(), null, null, null, false, BookPlayCover(book!!), null, null)
     }
 
     val chapterMarks = book.content.chapters.flatMap {
@@ -40,7 +42,12 @@ class SelectChapterViewModel
     val currentMark = book.content.currentChapter.markForPosition(book.content.positionInChapter)
     val selectedIndex = chapterMarks.indexOf(currentMark)
     val showChapterNumbers = book.content.showChapterNumbers
-    return SelectChapterViewState(chapterMarks, selectedIndex.takeUnless { it == -1 }, showChapterNumbers)
+    val bookName = book.name
+    val bookAuthor = book.author
+    val bookDuration = book.content.duration
+    val cover = BookPlayCover(book)
+    val remainingTimeInMs = book.remainingTimeInMs()
+    return SelectChapterViewState(chapterMarks, selectedIndex.takeUnless { it == -1 }, bookName, bookDuration, showChapterNumbers, cover, bookAuthor, remainingTimeInMs)
   }
 
   fun chapterClicked(index: Int) {

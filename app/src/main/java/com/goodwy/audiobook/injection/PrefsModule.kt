@@ -14,6 +14,7 @@ import com.goodwy.audiobook.BuildConfig
 import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.features.bookOverview.GridMode
 import com.goodwy.audiobook.misc.UUIDAdapter
+import de.paulwoitaschek.flowpref.android.string
 import java.util.UUID
 import javax.inject.Named
 import javax.inject.Singleton
@@ -35,6 +36,13 @@ object PrefsModule {
   }
 
   @Provides
+  @Singleton
+  @Named(PrefKeys.VERSION)
+  fun versionPref(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.VERSION, 0)
+  }
+
+  @Provides
   @JvmStatic
   @Singleton
   @Named(PrefKeys.DARK_THEME)
@@ -46,7 +54,7 @@ object PrefsModule {
   @JvmStatic
   @Singleton
   @Named(PrefKeys.CONTENTS_BUTTON_MODE)
-  fun tintNavBar(prefs: AndroidPreferences): Pref<Boolean> {
+  fun tintNavBarPref(prefs: AndroidPreferences): Pref<Boolean> {
     return prefs.boolean(PrefKeys.CONTENTS_BUTTON_MODE, false)
   }
 
@@ -77,6 +85,14 @@ object PrefsModule {
   @Provides
   @JvmStatic
   @Singleton
+  @Named(PrefKeys.USE_ENGLISH)
+  fun useEnglishPref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.USE_ENGLISH, false)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
   @Named(PrefKeys.ICON_MODE)
   fun iconModePref(prefs: AndroidPreferences): Pref<Boolean> {
     return prefs.boolean(PrefKeys.ICON_MODE, false)
@@ -101,6 +117,22 @@ object PrefsModule {
   @Provides
   @JvmStatic
   @Singleton
+  @Named(PrefKeys.SHOW_PROGRESS_BAR)
+  fun showProgressBarPref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.SHOW_PROGRESS_BAR, false)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.SHOW_DIVIDER)
+  fun showDividerPref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.SHOW_DIVIDER, true)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
   @Named(PrefKeys.MINI_PLAYER_STYLE)
   fun miniPlayerStylePref(prefs: AndroidPreferences): Pref<Int> {
     return prefs.int(PrefKeys.MINI_PLAYER_STYLE, 1)
@@ -112,6 +144,22 @@ object PrefsModule {
   @Named(PrefKeys.REWIND_BUTTON_STYLE)
   fun rewindButtonStylePref(prefs: AndroidPreferences): Pref<Int> {
     return prefs.int(PrefKeys.REWIND_BUTTON_STYLE, 1)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.PLAY_BUTTON_STYLE)
+  fun playButtonStylePref(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.PLAY_BUTTON_STYLE, 2)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.PLAYER_BACKGROUND)
+  fun playerBackgroundPref(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.PLAYER_BACKGROUND, 0)
   }
 
   @Provides
@@ -149,9 +197,57 @@ object PrefsModule {
   @Provides
   @JvmStatic
   @Singleton
+  @Named(PrefKeys.COVER_RADIUS)
+  fun coverRadiusPreference(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.COVER_RADIUS, 8)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.COVER_ELEVATION)
+  fun coverElevationPreference(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.COVER_ELEVATION, 80)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.SHAKE_TO_RESET)
+  fun provideShakeToResetPreference(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.SHAKE_TO_RESET, false)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
   @Named(PrefKeys.SLEEP_TIME)
   fun provideSleepTimePreference(prefs: AndroidPreferences): Pref<Int> {
-    return prefs.int(PrefKeys.SLEEP_TIME, 20)
+    return prefs.int(PrefKeys.SLEEP_TIME, 0)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.SLEEP_TIMER_CURRENT_CHAPTER)
+  fun provideSleepTimerCurrentChapterPreference(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.SLEEP_TIMER_CURRENT_CHAPTER, 1)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.CURRENT_VOLUME)
+  fun currentVolumePreference(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.CURRENT_VOLUME, 0)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.REPEAT_MODE)
+  fun repeatModePreference(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.REPEAT_MODE, 0)
   }
 
   @Provides
@@ -168,6 +264,13 @@ object PrefsModule {
   @Named(PrefKeys.COLLECTION_BOOK_FOLDERS)
   fun provideCollectionFoldersPreference(prefs: AndroidPreferences): Pref<Set<String>> {
     return prefs.stringSet(PrefKeys.COLLECTION_BOOK_FOLDERS, emptySet())
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.LIBRARY_BOOK_FOLDERS)
+  fun provideLibraryFoldersPreference(prefs: AndroidPreferences): Pref<Set<String>> {
+    return prefs.stringSet(PrefKeys.LIBRARY_BOOK_FOLDERS, emptySet())
   }
 
   @Provides
@@ -192,5 +295,28 @@ object PrefsModule {
   @Named(PrefKeys.GRID_AUTO)
   fun gridViewAutoPref(prefs: AndroidPreferences): Pref<Boolean> {
     return prefs.boolean(PrefKeys.GRID_AUTO, true)
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.PADDING)
+  fun paddingPref(prefs: AndroidPreferences): Pref<String> {
+    return prefs.string(PrefKeys.PADDING, "0;0;0;0")
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.STATUS_BAR_MODE)
+  fun statusBarModePref(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.STATUS_BAR_MODE, 1)
+  }
+
+  @Provides
+  @JvmStatic
+  @Singleton
+  @Named(PrefKeys.PRO)
+  fun isProPref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.PRO, true) //TODO LITE
   }
 }

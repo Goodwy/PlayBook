@@ -202,4 +202,19 @@
     <string name="pref_cover_settings_title">Thiết đặt bìa</string>
     <string name="pref_cover_corner_radius_title">Bán kính các góc che</string>
     <string name="pref_cover_elevation_title">Độ cao của bìa</string>
+    <string name="folders">Thư mục</string>
+    <string name="pref_icon_mode_title">Hiện biểu tượng</string>
+    <string name="pref_icon_mode_summary">Hiện biểu tượng menu thay vì văn bản</string>
+    <string name="pref_statusbar_mode_title">Chế độ Thanh trạng thái</string>
+    <string name="pref_statusbar_mode_summary">Đặt sự xuất hiện của bary trạng thái</string>
+    <string name="pref_statusbar_mode_value_transparent">Trong suốt</string>
+    <string name="pref_statusbar_mode_value_color">Màu</string>
+    <string name="left">%s trái</string>
+    <string name="left_in_audiobook">%s còn lại trong sách nói</string>
+    <string name="pref_player_background_title">Nền người chơi</string>
+    <string name="pref_player_background_summary">Chọn kiểu nền trong trình phát</string>
+    <string name="pref_player_background_theme">Nền ứng dụng</string>
+    <string name="pref_player_background_cover_color">Màu bìa chính</string>
+    <string name="pref_player_background_blurred_cover">Nắp mờ</string>
+    <string name="pref_cover_shadow_title">Che bóng</string>
 </resources>

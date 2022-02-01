@@ -205,4 +205,19 @@
     <string name="pref_cover_settings_title">Dekkingsinstellingen</string>
     <string name="pref_cover_corner_radius_title">Straal van de afdekhoeken</string>
     <string name="pref_cover_elevation_title">Hoogte van de afdekking</string>
+    <string name="folders">Mappen</string>
+    <string name="pref_icon_mode_title">Toon iconen</string>
+    <string name="pref_icon_mode_summary">Menupictogrammen weergeven in plaats van tekst</string>
+    <string name="pref_statusbar_mode_title">Statusbalkmodus</string>
+    <string name="pref_statusbar_mode_summary">Het uiterlijk van de statusbalk instellen</string>
+    <string name="pref_statusbar_mode_value_transparent">Doorzichtig</string>
+    <string name="pref_statusbar_mode_value_color">Kleur</string>
+    <string name="left">%s links</string>
+    <string name="left_in_audiobook">%s links in audioboek</string>
+    <string name="pref_player_background_title">Achtergrond van de speler</string>
+    <string name="pref_player_background_summary">Een achtergrondstijl kiezen in de speler</string>
+    <string name="pref_player_background_theme">App achtergrond</string>
+    <string name="pref_player_background_cover_color">Kleur hoofddeksel</string>
+    <string name="pref_player_background_blurred_cover">Wazige cover</string>
+    <string name="pref_cover_shadow_title">Schaduw bedekken</string>
 </resources>

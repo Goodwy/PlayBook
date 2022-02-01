@@ -25,21 +25,28 @@
           android:layout_marginTop="8dp"
           android:orientation="vertical">
 
-            <com.goodwy.audiobooklite.features.settings.TripleSettingView
+            <com.goodwy.audiobook.features.settings.TripleSettingView
+              android:id="@+id/playerBackground"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:tsv_title="@string/pref_player_background_title"
+              app:tsv_description="@string/pref_player_background_summary" />
+
+            <com.goodwy.audiobook.features.settings.TripleSettingView
               android:id="@+id/playButtonStyle"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               app:tsv_title="@string/pref_play_buttons_style_title"
               app:tsv_description="@string/pref_play_buttons_style_summary" />
 
-            <com.goodwy.audiobooklite.features.settings.TripleSettingView
+            <com.goodwy.audiobook.features.settings.TripleSettingView
               android:id="@+id/rewindButtonStyle"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               app:tsv_title="@string/pref_rewind_buttons_style_title"
               app:tsv_description="@string/pref_rewind_buttons_style_summary" />
 
-            <com.goodwy.audiobooklite.features.settings.SwitchSettingView
+            <com.goodwy.audiobook.features.settings.SwitchSettingView
               android:id="@+id/showSliderVolume"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"

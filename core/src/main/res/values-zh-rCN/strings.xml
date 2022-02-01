@@ -203,4 +203,19 @@
     <string name="pref_cover_settings_title">封面設置</string>
     <string name="pref_cover_corner_radius_title">封面角度半徑</string>
     <string name="pref_cover_elevation_title">提升封面</string>
+    <string name="folders">資料夾</string>
+    <string name="pref_icon_mode_title">顯示圖示</string>
+    <string name="pref_icon_mode_summary">顯示功能表圖示而不是文本</string>
+    <string name="pref_statusbar_mode_title">狀態列模式</string>
+    <string name="pref_statusbar_mode_summary">設置狀態列的外觀</string>
+    <string name="pref_statusbar_mode_value_transparent">透明</string>
+    <string name="pref_statusbar_mode_value_color">顏色</string>
+    <string name="left">%s 左</string>
+    <string name="left_in_audiobook">有聲讀物中剩餘的%s</string>
+    <string name="pref_player_background_title">播放器的後部背景</string>
+    <string name="pref_player_background_summary">在播放機中選擇背景樣式</string>
+    <string name="pref_player_background_theme">應用背景</string>
+    <string name="pref_player_background_cover_color">主要封面顏色</string>
+    <string name="pref_player_background_blurred_cover">模糊封面</string>
+    <string name="pref_cover_shadow_title">覆蓋陰影</string>
 </resources>

@@ -45,7 +45,7 @@
                   app:layout_constraintBottom_toBottomOf="parent"
                   android:contentDescription="@string/app_name" />
 
-                <com.goodwy.audiobooklite.features.settings.DoubleSettingView
+                <com.goodwy.audiobook.features.settings.DoubleSettingView
                   android:id="@+id/appDialog"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
@@ -137,7 +137,7 @@
                   app:layout_constraintBottom_toBottomOf="parent"
                   android:contentDescription="@string/pref_changelog_title" />
 
-                <com.goodwy.audiobooklite.features.settings.DoubleSettingView
+                <com.goodwy.audiobook.features.settings.DoubleSettingView
                   android:id="@+id/translateDialog"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
@@ -181,7 +181,7 @@
                   app:layout_constraintBottom_toBottomOf="parent"
                   android:contentDescription="@string/pref_changelog_title" />
 
-                <com.goodwy.audiobooklite.features.settings.OneSettingView
+                <com.goodwy.audiobook.features.settings.OneSettingView
                   android:id="@+id/changelogDialog"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
@@ -224,7 +224,7 @@
                   app:layout_constraintBottom_toBottomOf="parent"
                   android:contentDescription="@string/pref_licenses_title" />
 
-                <com.goodwy.audiobooklite.features.settings.OneSettingView
+                <com.goodwy.audiobook.features.settings.OneSettingView
                   android:id="@+id/licensesDialog"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
@@ -267,7 +267,7 @@
                   app:layout_constraintBottom_toBottomOf="parent"
                   android:contentDescription="@string/pref_privacy_title" />
 
-                <com.goodwy.audiobooklite.features.settings.OneSettingView
+                <com.goodwy.audiobook.features.settings.OneSettingView
                   android:id="@+id/privacyDialog"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
@@ -310,7 +310,7 @@
                   app:layout_constraintBottom_toBottomOf="parent"
                   android:contentDescription="@string/pref_github_title" />
 
-                <com.goodwy.audiobooklite.features.settings.DoubleSettingView
+                <com.goodwy.audiobook.features.settings.DoubleSettingView
                   android:id="@+id/ginhubDialog"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"

@@ -17,6 +17,7 @@ import com.bluelinelabs.conductor.Controller
 import com.squareup.picasso.Picasso
 import com.goodwy.audiobook.R
 import com.goodwy.audiobook.common.ImageHelper
+import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.data.repo.BookRepository
 import com.goodwy.audiobook.databinding.ImagePickerBinding
 import com.goodwy.audiobook.features.ViewBindingController
@@ -25,6 +26,7 @@ import com.goodwy.audiobook.misc.conductor.popOrBack
 import com.goodwy.audiobook.misc.coverFile
 import com.goodwy.audiobook.misc.getUUID
 import com.goodwy.audiobook.misc.putUUID
+import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
@@ -38,8 +40,12 @@ import timber.log.Timber
 import java.net.URLEncoder
 import java.util.UUID
 import javax.inject.Inject
+import javax.inject.Named
 
 class CoverFromInternetController(bundle: Bundle) : ViewBindingController<ImagePickerBinding>(bundle, ImagePickerBinding::inflate) {
+
+  @field:[Inject Named(PrefKeys.PADDING)]
+  lateinit var paddingPref: Pref<String>
 
   init {
     appComponent.inject(this)
@@ -128,6 +134,19 @@ class CoverFromInternetController(bundle: Bundle) : ViewBindingController<ImageP
     }
 
     setupToolbar()
+  }
+
+  override fun ImagePickerBinding.onAttach() {
+    //padding for Edge-to-edge
+    lifecycleScope.launch {
+      paddingPref.flow.collect {
+        val top = paddingPref.value.substringBefore(';').toInt()
+        val bottom = paddingPref.value.substringAfter(';').substringBefore(';').toInt()
+        val left = paddingPref.value.substringBeforeLast(';').substringAfterLast(';').toInt()
+        val right = paddingPref.value.substringAfterLast(';').toInt()
+        root.setPadding(left, top, right, bottom)
+      }
+    }
   }
 
   private fun ImagePickerBinding.showCab() {
@@ -257,7 +276,7 @@ class CoverFromInternetController(bundle: Bundle) : ViewBindingController<ImageP
   override fun onRestoreViewState(view: View, savedViewState: Bundle) {
     // load the last page loaded or the original one of there is none
     val url: String? = savedViewState.getString(SI_URL)
-    binding.webView.loadUrl(url)
+    binding.webView.loadUrl(url!!)
   }
 
   override fun handleBack(): Boolean {

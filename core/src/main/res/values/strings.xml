@@ -83,7 +83,7 @@
     <string name="pref_support_translations">Translations</string>
     <string name="pref_support_contribute">Support and suggestions</string>
     <string name="pref_about_title">About</string>
-    <string name="pref_about_url1">Google Play</string>
+    <string name="pref_about_url1" translatable="false">Google Play</string>
     <string name="pref_about_message"><![CDATA[
         An open source <b>PlayBooks</b> audiobook player. PlayBooks is based on the open source Voice application.
         <br/><br/>
@@ -164,12 +164,22 @@ Goodwy</i>
     <string name="sleep_timer_note">To restart, shake the device within 30 seconds after finishing</string>
     <string name="custom">Custom</string>
     <string name="repeat_mode">Repeat</string>
+    <string name="folders">Folders</string>
+    <string name="left">%s left</string>
+    <string name="left_in_audiobook">%s left in audiobook</string>
+    <string name="seconds_letter">s</string>
+    <string name="minutes_letter">m</string>
+    <string name="hours_letter">h</string>
 
     <!-- Settings -->
     <string name="pref_default_theme_title">Set default</string>
     <string name="pref_category_playback">Playback</string>
     <string name="pref_category_support">Support</string>
     <string name="pref_theme_hint">Application theme setting menu</string>
+    <string name="pref_statusbar_mode_title">Statusbar mode</string>
+    <string name="pref_statusbar_mode_summary">Set the appearance of the status bary</string>
+    <string name="pref_statusbar_mode_value_transparent">Transparent</string>
+    <string name="pref_statusbar_mode_value_color">Color</string>
     <string name="pref_statusbar_color_title">Statusbar color</string>
     <string name="pref_statusbar_color_summary">Sets the status bar color to different from the primary</string>
     <string name="pref_pay_summary">Get PlayBooks to support future development and extra features</string>
@@ -195,13 +205,14 @@ Goodwy</i>
     <string name="pref_appearance_ui_library_summary">Customize the user interface of the library</string>
     <string name="pref_appearance_ui_player_title">Player UI appearance</string>
     <string name="pref_appearance_ui_player_summary">Customize the player\'s user interface</string>
+    <string name="pref_what_new_title">What\'s new</string>
 
     <!-- Beta -->
-    <string name="pref_beta_title">Beta</string>
+    <string name="pref_beta_title" translatable="false">Beta</string>
     <string name="pref_beta_summary">Experimental features</string>
 
     <!-- About -->
-    <string name="pref_github_title">GitHub</string>
+    <string name="pref_github_title" translatable="false">GitHub</string>
     <string name="pref_github_summary">Join our project</string>
     <string name="pref_rate_title">Rate PlayBooks</string>
     <string name="pref_other_app_title">Other Apps</string>
@@ -227,6 +238,14 @@ Goodwy</i>
     <string name="pref_cover_settings_title">Cover settings</string>
     <string name="pref_cover_corner_radius_title">Cover corner radius</string>
     <string name="pref_cover_elevation_title">Cover elevation</string>
+    <string name="pref_cover_shadow_title">Cover shadow</string>
+    <string name="pref_icon_mode_title">Show icons</string>
+    <string name="pref_icon_mode_summary">Show menu icons instead of text</string>
+    <string name="pref_player_background_title">Player background</string>
+    <string name="pref_player_background_summary">Selecting the background style of the player</string>
+    <string name="pref_player_background_theme">App background</string>
+    <string name="pref_player_background_cover_color">Main cover color</string>
+    <string name="pref_player_background_blurred_cover">Blurred cover</string>
 
     <!-- Rate -->
     <string name="rate_dismiss">Dismiss</string>

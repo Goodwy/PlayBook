@@ -209,4 +209,19 @@
     <string name="pref_cover_settings_title">Nastavenia krytu</string>
     <string name="pref_cover_corner_radius_title">Polomer rohov krytu</string>
     <string name="pref_cover_elevation_title">Zvýšenie krytu</string>
+    <string name="folders">Priečinky</string>
+    <string name="pref_icon_mode_title">Zobraziť ikony</string>
+    <string name="pref_icon_mode_summary">Zobraziť ikony ponuky namiesto textu</string>
+    <string name="pref_statusbar_mode_title">Režim stavu</string>
+    <string name="pref_statusbar_mode_summary">Nastavenie vzhľadu stavového riadku</string>
+    <string name="pref_statusbar_mode_value_transparent">Priehľadný</string>
+    <string name="pref_statusbar_mode_value_color">Farba</string>
+    <string name="left">%s vľavo</string>
+    <string name="left_in_audiobook">%s vľavo v audioknihe</string>
+    <string name="pref_player_background_title">Pozadie prehrávača</string>
+    <string name="pref_player_background_summary">Výber štýlu pozadia v prehrávači</string>
+    <string name="pref_player_background_theme">Pozadie aplikácie</string>
+    <string name="pref_player_background_cover_color">Farba hlavného krytu</string>
+    <string name="pref_player_background_blurred_cover">Rozmazaný kryt</string>
+    <string name="pref_cover_shadow_title">Tieň krytu</string>
 </resources>

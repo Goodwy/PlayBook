@@ -202,4 +202,19 @@
     <string name="pref_cover_settings_title">커버 설정</string>
     <string name="pref_cover_corner_radius_title">커버 모서리 반경</string>
     <string name="pref_cover_elevation_title">커버의 표고</string>
+    <string name="folders">폴더</string>
+    <string name="pref_icon_mode_title">아이콘 표시</string>
+    <string name="pref_icon_mode_summary">텍스트 대신 메뉴 아이콘 표시</string>
+    <string name="pref_statusbar_mode_title">상태 표시줄 모드</string>
+    <string name="pref_statusbar_mode_summary">상태 바리의 모양 설정</string>
+    <string name="pref_statusbar_mode_value_transparent">투명한</string>
+    <string name="pref_statusbar_mode_value_color">색</string>
+    <string name="left">%s 왼쪽</string>
+    <string name="left_in_audiobook">오디오북에 남은 %s</string>
+    <string name="pref_player_background_title">플레이어 배경</string>
+    <string name="pref_player_background_summary">플레이어에서 배경 스타일 선택</string>
+    <string name="pref_player_background_theme">앱 배경</string>
+    <string name="pref_player_background_cover_color">메인 커버 칼라</string>
+    <string name="pref_player_background_blurred_cover">흐릿한 커버</string>
+    <string name="pref_cover_shadow_title">커버 섀도우</string>
 </resources>

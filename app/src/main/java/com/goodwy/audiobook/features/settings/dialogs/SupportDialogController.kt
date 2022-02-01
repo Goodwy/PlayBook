@@ -1,5 +1,6 @@
 package com.goodwy.audiobook.features.settings.dialogs
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -17,6 +18,7 @@ private val TRANSLATION_URL = "https://play.google.com/store/apps/dev?id=8268163
 
 class SupportDialogController : DialogController() {
 
+  @SuppressLint("CheckResult")
   override fun onCreateDialog(savedViewState: Bundle?): Dialog {
     return MaterialDialog(activity!!).apply {
       title(R.string.pref_support_title)

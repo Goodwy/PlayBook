@@ -6,7 +6,8 @@ data class SettingsViewState(
   val resumeOnReplug: Boolean,
   //val seekTimeInSeconds: Int,
   //val autoRewindInSeconds: Int,
-  val tintNavBar: Boolean,
+  //val tintNavBar: Boolean,
+  val statusBarModePref: Int,
   val screenOrientationPref: Boolean,
   val gridViewAutoPref: Boolean
 )

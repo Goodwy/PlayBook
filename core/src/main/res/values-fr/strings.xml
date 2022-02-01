@@ -205,4 +205,19 @@
     <string name="pref_cover_settings_title">Paramètres de couverture</string>
     <string name="pref_cover_corner_radius_title">Rayon des coins de couverture</string>
     <string name="pref_cover_elevation_title">Élévation de la couverture</string>
+    <string name="folders">Dossiers</string>
+    <string name="pref_icon_mode_title">Afficher les icônes</string>
+    <string name="pref_icon_mode_summary">Afficher les icônes de menu au lieu du texte</string>
+    <string name="pref_statusbar_mode_title">Mode Barre d’état</string>
+    <string name="pref_statusbar_mode_summary">Définir l’apparence de l’état bary</string>
+    <string name="pref_statusbar_mode_value_transparent">Transparent</string>
+    <string name="pref_statusbar_mode_value_color">Couleur</string>
+    <string name="left">%s gauche</string>
+    <string name="left_in_audiobook">%s restant dans le livre audio</string>
+    <string name="pref_player_background_title">Arrière-plan du joueur</string>
+    <string name="pref_player_background_summary">Choix d’un style d’arrière-plan dans le lecteur</string>
+    <string name="pref_player_background_theme">Arrière-plan de l’application</string>
+    <string name="pref_player_background_cover_color">Couleur de la couverture principale</string>
+    <string name="pref_player_background_blurred_cover">Couverture floue</string>
+    <string name="pref_cover_shadow_title">Ombre de couverture</string>
 </resources>

@@ -3,6 +3,7 @@ package com.goodwy.audiobook.features.prefSkipInterval
 import android.content.Context
 import androidx.annotation.StringRes
 import com.goodwy.audiobook.R
+import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.databinding.PrefSkipIntervalBinding
 import com.goodwy.audiobook.features.ViewBindingController
 import com.goodwy.audiobook.features.bookPlaying.SeekDialogController
@@ -11,10 +12,12 @@ import com.goodwy.audiobook.features.contribute.ContributeViewModel
 import com.goodwy.audiobook.features.settings.dialogs.AutoRewindDialogController
 import com.goodwy.audiobook.injection.appComponent
 import com.jaredrummler.cyanea.app.BaseCyaneaActivity
+import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
+import javax.inject.Named
 
 class PrefSkipIntervalController : ViewBindingController<PrefSkipIntervalBinding>(PrefSkipIntervalBinding::inflate),
   BaseCyaneaActivity {
@@ -25,6 +28,9 @@ class PrefSkipIntervalController : ViewBindingController<PrefSkipIntervalBinding
   lateinit var viewModel: PrefSkipIntervalViewModel
   @Inject
   lateinit var contributeViewModel: ContributeViewModel
+
+  @field:[Inject Named(PrefKeys.PADDING)]
+  lateinit var paddingPref: Pref<String>
 
   init {
     appComponent.inject(this)
@@ -54,10 +60,19 @@ class PrefSkipIntervalController : ViewBindingController<PrefSkipIntervalBinding
         handleViewEffect(it)
       }
     }
-
     lifecycleScope.launch {
       viewModel.viewState().collect {
         render(it)
+      }
+    }
+    //padding for Edge-to-edge
+    lifecycleScope.launch {
+      paddingPref.flow.collect {
+        val top = paddingPref.value.substringBefore(';').toInt()
+        val bottom = paddingPref.value.substringAfter(';').substringBefore(';').toInt()
+        val left = paddingPref.value.substringBeforeLast(';').substringAfterLast(';').toInt()
+        val right = paddingPref.value.substringAfterLast(';').toInt()
+        root.setPadding(left, top, right, bottom)
       }
     }
   }

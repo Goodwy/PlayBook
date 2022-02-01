@@ -1,6 +1,8 @@
 package com.goodwy.audiobook.injection
 
+import android.annotation.SuppressLint
 import android.app.Application
+import android.content.res.Configuration
 import android.os.Build
 import android.webkit.WebView
 import androidx.annotation.VisibleForTesting
@@ -12,6 +14,7 @@ import com.goodwy.audiobook.BuildConfig
 import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.crashreporting.CrashLoggingTree
 import com.goodwy.audiobook.crashreporting.CrashReporter
+import com.goodwy.audiobook.features.BaseActivity
 import com.goodwy.audiobook.features.BookAdder
 import com.goodwy.audiobook.features.settings.SettingsViewModel
 import com.goodwy.audiobook.features.widget.TriggerWidgetOnChange
@@ -28,6 +31,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import timber.log.Timber
+import java.util.Locale
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -44,13 +48,16 @@ class App : Application(), PlaybackComponentFactoryProvider,
   lateinit var autoConnectedReceiver: AndroidAutoConnectedReceiver
   @field:[Inject Named(PrefKeys.DARK_THEME)]
   lateinit var useDarkTheme: Pref<Boolean>
-  @field:[Inject Named(PrefKeys.DARK_THEME)]
-  lateinit var darkThemePref: Pref<Boolean>
+  @field:[Inject Named(PrefKeys.USE_ENGLISH)]
+  lateinit var useEnglishPref: Pref<Boolean>
+  @field:[Inject Named(PrefKeys.PRO)]
+  lateinit var isProPref: Pref<Boolean>
 
+  @SuppressLint("ObsoleteSdkInt")
   override fun onCreate() {
     super.onCreate()
 
-    Cyanea.init(this, resources) /*initialize Cyanea*/
+    Cyanea.init(this, resources) //initialize Cyanea
 
     if (BuildConfig.DEBUG) StrictModeInit.init()
 
@@ -76,6 +83,19 @@ class App : Application(), PlaybackComponentFactoryProvider,
     appComponent = AppComponent.factory()
       .create(this)
     appComponent.inject(this)
+
+    //language ->
+    var change = ""
+    //val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+    //val language = sharedPreferences.getString("language", "bak")
+    //if (language == "English") {
+    if (useEnglishPref.value) {
+      change="en"
+    } else {
+      change =""
+    }
+    BaseActivity.dLocale = Locale(change) //set any locale you want here
+    //<- language
 
     if (DARK_THEME_SETTABLE && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
       // instantiating a web-view for the first time changes the day night theme.
@@ -103,8 +123,51 @@ class App : Application(), PlaybackComponentFactoryProvider,
     triggerWidgetOnChange.init()
 
     // todo Lite
-   /* val backgroundLight: Int = android.graphics.Color.parseColor("#FFFAFAFA")
-    if (darkThemePref.value) (
+    if (!isProPref.value) {
+      val grey: Int = android.graphics.Color.parseColor("#FFE0E0E0")
+      val dark: Int = android.graphics.Color.parseColor("#FF272f35")
+      val backgroundLight: Int = android.graphics.Color.parseColor("#FFFAFAFA")
+      if (useDarkTheme.value) (
+        cyanea.edit {
+          background(backgroundLight)
+          backgroundLight(backgroundLight)
+          backgroundLightLighter(backgroundLight) /*dialogs*/
+          backgroundLightDarker(backgroundLight)
+          navigationBar(backgroundLight)
+          baseTheme(Cyanea.BaseTheme.LIGHT)
+          if (cyanea.primaryDark == dark) {
+            primaryDark(grey)
+          }
+        }
+        )
+      if (useDarkTheme.value) (
+        viewModel.toggleDarkTheme()
+        )
+    }
+  }
+
+  private fun isUsingSystemDarkTheme() = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_YES != 0
+
+  fun setSystemTheme() {
+    val grey: Int = android.graphics.Color.parseColor("#FFE0E0E0")
+    val dark: Int = android.graphics.Color.parseColor("#FF272f35")
+    val backgroundLight: Int = android.graphics.Color.parseColor("#FFFAFAFA")
+    val backgroundDark: Int = android.graphics.Color.parseColor("#FF1E2225")
+    if (isUsingSystemDarkTheme()) {
+      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+      useDarkTheme.value = true
+      cyanea.edit {
+        background(backgroundDark)
+        backgroundDark(backgroundDark)
+        backgroundDarkDarker(backgroundDark)
+        backgroundDarkLighter(backgroundDark) /*dialogs*/
+        navigationBar(backgroundDark)
+        baseTheme(Cyanea.BaseTheme.DARK)
+        if (cyanea.primaryDark == grey) {primaryDark(dark)}
+      }
+    } else {
+      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+      useDarkTheme.value = false
       cyanea.edit {
         background(backgroundLight)
         backgroundLight(backgroundLight)
@@ -112,11 +175,9 @@ class App : Application(), PlaybackComponentFactoryProvider,
         backgroundLightDarker(backgroundLight)
         navigationBar(backgroundLight)
         baseTheme(Cyanea.BaseTheme.LIGHT)
+        if (cyanea.primaryDark == dark) {primaryDark(grey)}
       }
-      )
-    if (darkThemePref.value) (
-      viewModel.toggleDarkTheme()
-      )*/
+    }
   }
 
   override fun factory(): PlaybackComponent.Factory {

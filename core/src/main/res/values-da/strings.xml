@@ -205,4 +205,19 @@
     <string name="pref_cover_settings_title">Indstillinger for omslag</string>
     <string name="pref_cover_corner_radius_title">Radius af dækhjørner</string>
     <string name="pref_cover_elevation_title">Højde af dækslet</string>
+    <string name="folders">Mapper</string>
+    <string name="pref_icon_mode_title">Vis ikoner</string>
+    <string name="pref_icon_mode_summary">Vis menuikoner i stedet for tekst</string>
+    <string name="pref_statusbar_mode_title">Statuslinjetilstand</string>
+    <string name="pref_statusbar_mode_summary">Angive statuslinjens udseende</string>
+    <string name="pref_statusbar_mode_value_transparent">Gennemsigtig</string>
+    <string name="pref_statusbar_mode_value_color">Farve</string>
+    <string name="left">%s tilbage</string>
+    <string name="left_in_audiobook">%s tilbage i lydbog</string>
+    <string name="pref_player_background_title">Spillerbaggrund</string>
+    <string name="pref_player_background_summary">Vælge en baggrundsstil i afspilleren</string>
+    <string name="pref_player_background_theme">Appbaggrund</string>
+    <string name="pref_player_background_cover_color">Hoveddækselfarve</string>
+    <string name="pref_player_background_blurred_cover">Sløret dækning</string>
+    <string name="pref_cover_shadow_title">Skygge for dæk</string>
 </resources>

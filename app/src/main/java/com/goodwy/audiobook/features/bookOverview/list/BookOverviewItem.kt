@@ -19,22 +19,30 @@ data class BookOverviewModel(
   @FloatRange(from = 0.0, to = 1.0)
   val progress: Float,
   val book: Book,
+  val durationTimeInMs: Long,
+  val positionTimeInMs: Long,
   val remainingTimeInMs: Long,
   val playedTimeInPer: Long,
   val isCurrentBook: Boolean,
-  val useGridView: Boolean
+  val useGridView: Boolean,
+  val showProgressBar: Boolean,
+  val showDivider: Boolean
 ) : BookOverviewItem() {
 
-  constructor(book: Book, isCurrentBook: Boolean, useGridView: Boolean) : this(
+  constructor(book: Book, isCurrentBook: Boolean, useGridView: Boolean, showProgressBar: Boolean, showDivider: Boolean) : this(
     name = book.name,
     author = book.author,
     transitionName = book.coverTransitionName,
     book = book,
     progress = book.progress(),
+    durationTimeInMs = book.durationTimeInMs(),
+    positionTimeInMs = book.positionTimeInMs(),
     remainingTimeInMs = book.remainingTimeInMs(),
     playedTimeInPer = book.playedTimeInPer(),
     isCurrentBook = isCurrentBook,
-    useGridView = useGridView
+    useGridView = useGridView,
+    showProgressBar = showProgressBar,
+    showDivider = showDivider
   )
 
   fun areContentsTheSame(other: BookOverviewModel): Boolean {
@@ -68,7 +76,15 @@ private fun Book.progress(): Float {
   return progress.coerceIn(0F, 1F)
 }
 
-private fun Book.remainingTimeInMs(): Long {
+private fun Book.durationTimeInMs(): Long {
+  return content.duration
+}
+
+private fun Book.positionTimeInMs(): Long {
+  return content.position
+}
+
+fun Book.remainingTimeInMs(): Long {
   return content.duration - content.position
 }
 

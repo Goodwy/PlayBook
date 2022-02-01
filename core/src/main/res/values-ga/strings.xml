@@ -185,4 +185,22 @@
     <string name="pref_cover_settings_title">Suidhichidhean còmhdaich</string>
     <string name="pref_cover_corner_radius_title">Radius oisean còmhdaich</string>
     <string name="pref_cover_elevation_title">Àrdachadh còmhdach</string>
+    <string name="folders">Filltearan</string>
+    <string name="pref_icon_mode_title">Seall ìomhaighean</string>
+    <string name="pref_icon_mode_summary">Seall ìomhaighean clàr-taice an àite teacsa</string>
+    <string name="pref_statusbar_mode_title">Modh inbhe-barra</string>
+    <string name="pref_statusbar_mode_summary">Suidhich coltas an inbhe bary</string>
+    <string name="pref_statusbar_mode_value_transparent">Follaiseach</string>
+    <string name="pref_statusbar_mode_value_color">Dath</string>
+    <string name="hours_letter">u</string>
+    <string name="minutes_letter">m</string>
+    <string name="seconds_letter">d</string>
+    <string name="left">%s air fhàgail</string>
+    <string name="left_in_audiobook">%s air fhàgail ann an leabhar-èisteachd</string>
+    <string name="pref_player_background_title">Cúlra an imreora</string>
+    <string name="pref_player_background_summary">Stíl chúlra an imreora a roghnú</string>
+    <string name="pref_player_background_theme">Cúlra an aip</string>
+    <string name="pref_player_background_cover_color">Dath an phríomhchlúdaigh</string>
+    <string name="pref_player_background_blurred_cover">Clúdach doiléir</string>
+    <string name="pref_cover_shadow_title">Clúdaigh scáth</string>
 </resources>

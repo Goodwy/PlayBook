@@ -5,10 +5,14 @@ import com.squareup.picasso.Picasso
 import com.goodwy.audiobook.R
 import com.goodwy.audiobook.common.CoverReplacement
 import com.goodwy.audiobook.common.MAX_IMAGE_SIZE
+import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.covercolorextractor.CoverColorExtractor
 import com.goodwy.audiobook.data.Book
+import com.goodwy.audiobook.features.bookOverview.GridMode
+import com.goodwy.audiobook.features.gridCount.GridCount
 import com.goodwy.audiobook.injection.appComponent
 import com.goodwy.audiobook.misc.coverFile
+import de.paulwoitaschek.flowpref.Pref
 import kotlinx.android.synthetic.main.book_overview_row_list.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -17,11 +21,17 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
+import javax.inject.Named
 
 class LoadBookCover(holder: BookOverviewHolder) {
 
+  @field:[Inject Named(PrefKeys.GRID_MODE)]
+  lateinit var gridModePref: Pref<GridMode>
+
   @Inject
   lateinit var coverColorExtractor: CoverColorExtractor
+  @Inject
+  lateinit var gridCount: GridCount
 
   init {
     appComponent.inject(this)
@@ -29,8 +39,11 @@ class LoadBookCover(holder: BookOverviewHolder) {
 
   private val context = holder.itemView.context
   private val progress = holder.progress
+  private val roundProgress = holder.roundProgress
   private val cover = holder.cover
   private val defaultProgressColor = context.getColor(R.color.progressColor)
+  private val defaultRoundProgressColor = context.getColor(R.color.colorIcon)
+  private val white = context.getColor(R.color.white)
 
   private var boundFileLength: Long = Long.MIN_VALUE
   private var boundName: String? = null
@@ -52,9 +65,12 @@ class LoadBookCover(holder: BookOverviewHolder) {
         progress.color = defaultProgressColor
       }
       val extractedColor = coverColorExtractor.extract(coverFile)
+      val amountOfColumns = gridCount.gridColumnCount(gridModePref.value)
+      val extractedColorRound = if (amountOfColumns > 1) white else defaultRoundProgressColor
       val shouldLoadImage = coverFileLength in 1 until MAX_IMAGE_SIZE
       withContext(Dispatchers.Main) {
         progress.color = extractedColor ?: defaultProgressColor
+        roundProgress.colorForeground = extractedColorRound
         val coverReplacement = CoverReplacement(bookName, context)
         if (!isActive) return@withContext
         if (shouldLoadImage) {

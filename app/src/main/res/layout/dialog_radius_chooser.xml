@@ -16,7 +16,7 @@
       android:layout_gravity="center"
       android:layout_marginTop="20dp"
       android:adjustViewBounds="true"
-      app:cardCornerRadius="8dp" >
+      app:cardCornerRadius="8dp">
 
     </androidx.cardview.widget.CardView>
 
@@ -25,7 +25,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
-      android:layout_marginTop="20dp"
+      android:layout_marginTop="28dp"
       android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
       tools:text="Cover corner radius 10" />
 
@@ -34,7 +34,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
-      android:layout_marginTop="16dp" />
+      android:layout_marginTop="6dp" />
 
     <TextView
       android:id="@+id/textViewElevation"
@@ -50,6 +50,6 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
-      android:layout_marginTop="16dp" />
+      android:layout_marginTop="6dp" />
 
 </LinearLayout>

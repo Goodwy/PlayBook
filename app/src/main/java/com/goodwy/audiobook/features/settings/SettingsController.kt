@@ -3,6 +3,8 @@ package com.goodwy.audiobook.features.settings
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
+import android.os.Process
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import com.afollestad.materialdialogs.LayoutMode
@@ -20,6 +22,8 @@ import com.goodwy.audiobook.features.bookPlaying.SeekDialogController
 import com.goodwy.audiobook.features.contribute.ContributeController
 import com.goodwy.audiobook.features.contribute.ContributeViewModel
 import com.goodwy.audiobook.features.prefAppearanceUI.PrefAppearanceUIController
+import com.goodwy.audiobook.features.prefAppearanceUIPlayer.CoverSettingsDialogController
+import com.goodwy.audiobook.features.prefAppearanceUIPlayer.PrefAppearanceUIPlayerController
 import com.goodwy.audiobook.features.prefBeta.PrefBetaController
 import com.goodwy.audiobook.features.prefSkipInterval.PrefSkipIntervalController
 import com.goodwy.audiobook.features.settings.dialogs.AutoRewindDialogController
@@ -36,8 +40,10 @@ import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
+import java.util.Timer
 import javax.inject.Inject
 import javax.inject.Named
+import kotlin.concurrent.schedule
 
 class SettingsController : ViewBindingController<SettingsBinding>(SettingsBinding::inflate),
   BaseCyaneaActivity {
@@ -50,7 +56,7 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
   lateinit var contributeViewModel: ContributeViewModel
 
   @field:[Inject Named(PrefKeys.CONTENTS_BUTTON_MODE)]
-  lateinit var contentsButtonMode: Pref<Boolean>
+  lateinit var tintNavBarPref: Pref<Boolean>
 
   @field:[Inject Named(PrefKeys.SHOW_RATING)]
   lateinit var showRatingPref: Pref<Boolean>
@@ -64,6 +70,18 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
   @field:[Inject Named(PrefKeys.SCREEN_ORIENTATION)]
   lateinit var screenOrientationPref: Pref<Boolean>
 
+  @field:[Inject Named(PrefKeys.USE_ENGLISH)]
+  lateinit var useEnglishPref: Pref<Boolean>
+
+  @field:[Inject Named(PrefKeys.PRO)]
+  lateinit var isProPref: Pref<Boolean>
+
+  @field:[Inject Named(PrefKeys.PADDING)]
+  lateinit var paddingPref: Pref<String>
+
+  @field:[Inject Named(PrefKeys.STATUS_BAR_MODE)]
+  lateinit var statusBarModePref: Pref<Int>
+
   init {
     appComponent.inject(this)
   }
@@ -72,6 +90,8 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
   private val encod = "WW91IGFyZSBhbG1vc3QgdGhlcmUh"
   private val backgroundLight: Int = android.graphics.Color.parseColor("#FFFAFAFA")
   private val backgroundDark: Int = android.graphics.Color.parseColor("#FF1E2225")
+  private val grey: Int = android.graphics.Color.parseColor("#FFE0E0E0")
+  private val dark: Int = android.graphics.Color.parseColor("#FF272f35")
 
 
   override fun SettingsBinding.onBindingCreated() {
@@ -84,33 +104,55 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
     }
 
     darkTheme.onCheckedChanged {
-      viewModel.toggleDarkTheme()
-      if (darkThemePref.value) (
-        cyanea.edit {
-          background(backgroundDark)
-          backgroundDark(backgroundDark)
-          backgroundDarkDarker(backgroundDark)
-          backgroundDarkLighter(backgroundDark) /*dialogs*/
-          navigationBar(backgroundDark)
-          baseTheme(Cyanea.BaseTheme.DARK)
+      if (isProPref.value) {
+        viewModel.toggleDarkTheme()
+        if (darkThemePref.value) {
+          cyanea.edit {
+            background(backgroundDark)
+            backgroundDark(backgroundDark)
+            backgroundDarkDarker(backgroundDark)
+            backgroundDarkLighter(backgroundDark) /*dialogs*/
+            navigationBar(backgroundDark)
+            baseTheme(Cyanea.BaseTheme.DARK)
+            if (cyanea.primaryDark == grey) {
+              primaryDark(dark)
+            }
+          }
+        } else {
+          cyanea.edit {
+            background(backgroundLight)
+            backgroundLight(backgroundLight)
+            backgroundLightLighter(backgroundLight) /*dialogs*/
+            backgroundLightDarker(backgroundLight)
+            navigationBar(backgroundLight)
+            baseTheme(Cyanea.BaseTheme.LIGHT)
+            if (cyanea.primaryDark == dark) {
+              primaryDark(grey)
+            }
+          }
         }
-        ) else
-        cyanea.edit {
-          background(backgroundLight)
-          backgroundLight(backgroundLight)
-          backgroundLightLighter(backgroundLight) /*dialogs*/
-          backgroundLightDarker(backgroundLight)
-          navigationBar(backgroundLight)
-          baseTheme(Cyanea.BaseTheme.LIGHT)
-        }
-      activity!!.recreate()
-      //todo Lite
-      /*val transaction = ContributeController().asTransaction()
-      router.pushController(transaction)*/
+        activity!!.recreate()
+      } else {
+        val transaction = ContributeController().asTransaction()
+        router.pushController(transaction)
+      }
     }
-    tintNavBar.onCheckedChanged {
+    colorPrimary.setOnClickListener {
+      ColorPrinaryPalettesDialogController().showDialog(router)
+    }
+    statusBarMode.onCheckedChanged {
+      statusBarModeDialog()
+    }
+    colorAccent.setOnClickListener {
+      if (statusBarModePref.value != 0) {
+        return@setOnClickListener
+      } else {
+        ColorAccentPalettesDialogController().showDialog(router)
+      }
+    }
+    /*tintNavBar.onCheckedChanged {
       viewModel.toggleTintNavBar()
-      if (contentsButtonMode.value) (
+      if (tintNavBarPref.value) (
         cyanea.edit {
           shouldTintNavBar(true)
         }
@@ -119,15 +161,16 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
           shouldTintNavBar(false)
         }
       activity!!.recreate()
-    }
-    colorPrimary.setOnClickListener {
-      ColorPrinaryPalettesDialogController().showDialog(router)
-    }
-    colorAccent.setOnClickListener {
-      ColorAccentPalettesDialogController().showDialog(router)
+    }*/
+    coverSettings.setOnClickListener {
+      viewModel.changeCoverSettings()
     }
     appearanceUI.setOnClickListener {
       val transaction = PrefAppearanceUIController().asTransaction()
+      router.pushController(transaction)
+    }
+    appearanceUIPlayer.setOnClickListener {
+      val transaction = PrefAppearanceUIPlayerController().asTransaction()
       router.pushController(transaction)
     }
 
@@ -143,17 +186,9 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
     }*/
     resumePlayback.onCheckedChanged { viewModel.toggleResumeOnReplug() }
 
-    supportAndSuggestions.setOnClickListener {
-      val address = getString(R.string.support_email)
-      val subject = getString(R.string.email_support_lifebuoy)
-      val chooserTitle = getString(R.string.email_chooser_title)
-      val emailIntent = Intent(
-        Intent.ACTION_SENDTO, Uri.fromParts(
-          "mailto", address, null
-        )
-      )
-      emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
-      startActivity(Intent.createChooser(emailIntent, chooserTitle))
+    useEnglish.onCheckedChanged {
+      viewModel.toggleUseEnglish()
+      restartApp()
     }
     screenOrientation.setOnClickListener {
       screenOrientationDialog()
@@ -166,6 +201,21 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
       val transaction = PrefBetaController().asTransaction()
       router.pushController(transaction)
     }
+
+    supportAndSuggestions.setOnClickListener {
+      val emailIntent = Intent(Intent.ACTION_SENDTO)
+      emailIntent.data = Uri.parse("mailto:")
+      emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.support_email)))
+      emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name) + ": " + getString(R.string.email_subject_support))
+      emailIntent.putExtra(Intent.EXTRA_TEXT, StringBuilder("\n\n")
+        .append("\n\n--- Please write your message above this line ---\n\n")
+        .append("Package: ${context.packageName}\n")
+        .append("Version: ${BuildConfig.VERSION_NAME}\n")
+        .append("Device: ${Build.BRAND} ${Build.MODEL}\n")
+        .append("SDK: ${Build.VERSION.SDK_INT}\n")
+        .toString())
+      startActivity(Intent.createChooser(emailIntent, getString(R.string.email_chooser_title)))
+    }
     aboutDialog.setOnClickListener {
       //showAboutDialog()
       val transaction = AboutController().asTransaction()
@@ -173,14 +223,24 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
     }
     rateDismiss.setOnClickListener {
       contributeViewModel.toggleShowRating()
-      activity!!.recreate()
+      //activity!!.recreate()
     }
     rateOkay.setOnClickListener {
       contributeViewModel.rateIntent()
     }
     empty.setOnClickListener {
       contributeViewModel.toggleShowRating()
-      activity!!.recreate()
+      //activity!!.recreate()
+    }
+  }
+
+  fun restartApp() {
+    Timer("SettingUp", false).schedule(500) {
+      val intent = activity!!.baseContext.packageManager.getLaunchIntentForPackage(activity!!.baseContext.packageName)
+      intent!!.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+      startActivity(intent)
+      Process.killProcess(Process.myPid())
+      System.exit(0)
     }
   }
 
@@ -194,10 +254,24 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
         handleViewEffect(it)
       }
     }
-
     lifecycleScope.launch {
       viewModel.viewState().collect {
         render(it)
+      }
+    }
+    lifecycleScope.launch {
+      showRatingPref.flow.collect {
+        rateLayout.isVisible = showRatingPref.value
+      }
+    }
+    //padding for Edge-to-edge
+    lifecycleScope.launch {
+      paddingPref.flow.collect {
+        val top = paddingPref.value.substringBefore(';').toInt()
+        val bottom = paddingPref.value.substringAfter(';').substringBefore(';').toInt()
+        val left = paddingPref.value.substringBeforeLast(';').substringAfterLast(';').toInt()
+        val right = paddingPref.value.substringAfterLast(';').toInt()
+        root.setPadding(left, top, right, bottom)
       }
     }
   }
@@ -210,22 +284,36 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
       is SettingsViewEffect.ShowChangeAutoRewindAmountDialog -> {
         AutoRewindDialogController().showDialog(router)
       }
+      is SettingsViewEffect.ShowChangeCoverSettingsDialog -> {
+        CoverSettingsDialogController().showDialog(router)
+      }
     }
   }
 
   private fun SettingsBinding.render(state: SettingsViewState) {
     Timber.d("render $state")
-    // todo Lite
-    pay.isVisible = false
-    tintNavBar.setChecked(state.tintNavBar)
+    pay.isVisible = !isProPref.value
     darkTheme.isVisible = state.showDarkThemePref
     darkTheme.setChecked(state.useDarkTheme)
+    //tintNavBar.setChecked(state.tintNavBar)
+    when (state.statusBarModePref) {
+      0 -> {
+        statusBarMode.setValue(context.getString(R.string.pref_statusbar_mode_value_color))
+        colorAccent.alpha = 1f
+      }
+      1 -> {
+        statusBarMode.setValue(context.getString(R.string.pref_statusbar_mode_value_transparent))
+        colorAccent.alpha = 0.4f
+      }
+    }
+    coverSettings.setDescription(activity!!.resources.getString(R.string.pref_cover_corner_radius_title) + ", " + activity!!.resources.getString(R.string.pref_cover_shadow_title))
+
     resumePlayback.setChecked(state.resumeOnReplug)
    // skipAmount.setDescription(resources!!.getQuantityString(R.plurals.seconds, state.seekTimeInSeconds, state.seekTimeInSeconds))
    // autoRewind.setDescription(resources!!.getQuantityString(R.plurals.seconds, state.autoRewindInSeconds, state.autoRewindInSeconds))
-    aboutDialog.setDescription(context.getString(R.string.version) + " " + (BuildConfig.VERSION_NAME))
-    rateLayout.isVisible = showRatingPref.value
-    prefBeta.isVisible = devModePref.value
+
+    useEnglish.isVisible = useEnglishPref.value || java.util.Locale.getDefault().language != "en"
+    useEnglish.setChecked(useEnglishPref.value)
     if (state.screenOrientationPref) {
       screenOrientation.setDescription(context.getString(R.string.pref_screen_orientation_summary_portrait))
       screenOrientation.setValue(context.getString(R.string.pref_screen_orientation_value_portrait))
@@ -234,6 +322,12 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
       screenOrientation.setValue(context.getString(R.string.pref_screen_orientation_value_system))
     }
     gridViewAuto.setChecked(state.gridViewAutoPref)
+    prefBeta.isVisible = devModePref.value
+
+    aboutDialog.setDescription(context.getString(R.string.version) + " " + (BuildConfig.VERSION_NAME))
+    rateLayout.isVisible = showRatingPref.value
+
+    if (isProPref.value) darkTheme.alpha = 1f else darkTheme.alpha = 0.4f
   }
 
   private fun SettingsBinding.setupToolbar() {
@@ -258,12 +352,6 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
         true
       } else
         false
-      //todo Lite
-     /* if (it.itemId == R.id.action_pay) {
-        PayDialogController().showDialog(router)
-        true
-      } else
-        false*/
     }
     toolbar.setNavigationOnClickListener {
       activity!!.onBackPressed()
@@ -315,6 +403,26 @@ class SettingsController : ViewBindingController<SettingsBinding>(SettingsBindin
             activity!!.closeOptionsMenu()}
           1 -> {screenOrientationPref.value = true
             activity!!.closeOptionsMenu()}
+          else -> error("Invalid index $index")
+        }
+      }
+      .show()
+  }
+
+  // Dialogs Status Bar Mode
+  private fun statusBarModeDialog() {
+    val initialSelect = if (statusBarModePref.value == 1) 0 else 1
+    MaterialDialog(activity!!)
+      .title(R.string.pref_statusbar_mode_title)
+      .listItemsSingleChoice(R.array.pref_statusbar_mode, initialSelection = initialSelect) { _, index, _ ->
+        when (index) {
+          0 -> {statusBarModePref.value = 1
+            activity!!.recreate()}
+          1 -> {statusBarModePref.value = 0
+            cyanea.edit {
+              primaryDark(cyanea.primaryDark)
+            }
+            activity!!.recreate()}
           else -> error("Invalid index $index")
         }
       }

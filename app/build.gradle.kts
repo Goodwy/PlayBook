@@ -15,7 +15,7 @@ android {
   compileSdkVersion(Versions.compileSdk)
 
   defaultConfig {
-    applicationId = "com.goodwy.audiobooklite"
+    applicationId = "com.goodwy.audiobook"
     minSdkVersion(Versions.minSdk)
     targetSdkVersion(Versions.targetSdk)
 
@@ -135,7 +135,7 @@ dependencies {
   implementation(Deps.MaterialDialog.color)
   implementation(Deps.materialCab)
 
-  implementation(Deps.Jaredrummler.cyanea)
+  implementation(Deps.JaredRummler.cyanea)
 
   implementation(Deps.floatingActionButton)
 

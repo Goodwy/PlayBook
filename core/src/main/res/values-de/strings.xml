@@ -205,4 +205,19 @@
     <string name="pref_cover_settings_title">Cover-Einstellungen</string>
     <string name="pref_cover_corner_radius_title">Radius der Abdeckecken</string>
     <string name="pref_cover_elevation_title">Höhe der Abdeckung</string>
+    <string name="folders">Faltprospekte</string>
+    <string name="pref_icon_mode_title">Symbole anzeigen</string>
+    <string name="pref_icon_mode_summary">Menüsymbole anstelle von Text anzeigen</string>
+    <string name="pref_statusbar_mode_title">Statusleistenmodus</string>
+    <string name="pref_statusbar_mode_summary">Festlegen des Erscheinungsbilds des Statusleistens</string>
+    <string name="pref_statusbar_mode_value_transparent">Durchsichtig</string>
+    <string name="pref_statusbar_mode_value_color">Farbe</string>
+    <string name="left">%s links</string>
+    <string name="left_in_audiobook">%s übrig im Hörbuch</string>
+    <string name="pref_player_background_title">Spielerhintergrund</string>
+    <string name="pref_player_background_summary">Auswählen eines Hintergrundstils im Player</string>
+    <string name="pref_player_background_theme">App-Hintergrund</string>
+    <string name="pref_player_background_cover_color">Farbe des Hauptcovers</string>
+    <string name="pref_player_background_blurred_cover">Unscharfe Abdeckung</string>
+    <string name="pref_cover_shadow_title">Schatten abdecken</string>
 </resources>

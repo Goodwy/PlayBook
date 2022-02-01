@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewAnimationUtils
 import androidx.annotation.ColorInt
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -16,10 +17,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.afollestad.materialdialogs.MaterialDialog
 import com.getbase.floatingactionbutton.FloatingActionsMenu
 import com.goodwy.audiobook.R
+import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.databinding.FolderOverviewBinding
 import com.goodwy.audiobook.features.folderChooser.FolderChooserActivity
+import com.goodwy.audiobook.injection.appComponent
 import com.goodwy.audiobook.misc.conductor.context
 import com.goodwy.audiobook.mvp.MvpController
+import de.paulwoitaschek.flowpref.Pref
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+import javax.inject.Named
 import kotlin.math.max
 
 private const val SI_BACKGROUND_VISIBILITY = "si#overlayVisibility"
@@ -29,6 +37,13 @@ private const val SI_BACKGROUND_VISIBILITY = "si#overlayVisibility"
  */
 class FolderOverviewController :
   MvpController<FolderOverviewController, FolderOverviewPresenter, FolderOverviewBinding>(FolderOverviewBinding::inflate) {
+
+  @field:[Inject Named(PrefKeys.PADDING)]
+  lateinit var paddingPref: Pref<String>
+
+  init {
+    appComponent.inject(this)
+  }
 
   override fun createPresenter(): FolderOverviewPresenter = FolderOverviewPresenter()
 
@@ -40,6 +55,9 @@ class FolderOverviewController :
     }
     addAsLibrary.setOnClickListener {
       startFolderChooserActivity(FolderChooserActivity.OperationMode.COLLECTION_BOOK)
+    }
+    addAsAllLibrary.setOnClickListener {
+      startFolderChooserActivity(FolderChooserActivity.OperationMode.LIBRARY_BOOK)
     }
 
     overlay.isInvisible = true
@@ -69,13 +87,30 @@ class FolderOverviewController :
 
     fam.setOnFloatingActionsMenuUpdateListener(famMenuListener)
 
-    addAsSingle.setIconDrawable(context.getDrawable(R.drawable.ic_folder)!!.tinted(Color.WHITE))
-    addAsLibrary.setIconDrawable(context.getDrawable(R.drawable.folder_multiple)!!.tinted(Color.WHITE))
+    addAsSingle.setIconDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_folder)!!.tinted(Color.WHITE))
+    addAsLibrary.setIconDrawable(AppCompatResources.getDrawable(context, R.drawable.folder_multiple)!!.tinted(Color.WHITE))
+    addAsAllLibrary.setIconDrawable(AppCompatResources.getDrawable(context, R.drawable.folder_libraries)!!.tinted(Color.WHITE))
     addAsSingle.title =
-      "${context.getString(R.string.folder_add_single_book)}"
-    addAsLibrary.title = "${context.getString(R.string.folder_add_collection)}"
+      "${context.getString(R.string.folder_add_single_book)}\n${context.getString(R.string.for_example)} Sherlock Holmes"
+    addAsLibrary.title = "${context.getString(R.string.folder_add_collection)}\n${context.getString(R.string.for_example)} Audiobook Folders" +
+      "\n/Sherlock Holmes"
+    addAsAllLibrary.title = "${context.getString(R.string.folder_add_library_book)}\n${context.getString(R.string.for_example)} Audiobook Folders" +
+      "\n/Conan Doyle/Sherlock Holmes"
 
     setupToolbar()
+  }
+
+  override fun FolderOverviewBinding.onAttach() {
+    //padding for Edge-to-edge
+    lifecycleScope.launch {
+      paddingPref.flow.collect {
+        val top = paddingPref.value.substringBefore(';').toInt()
+        val bottom = paddingPref.value.substringAfter(';').substringBefore(';').toInt()
+        val left = paddingPref.value.substringBeforeLast(';').substringAfterLast(';').toInt()
+        val right = paddingPref.value.substringAfterLast(';').toInt()
+        root.setPadding(left, top, right, bottom)
+      }
+    }
   }
 
   private fun setupToolbar() {

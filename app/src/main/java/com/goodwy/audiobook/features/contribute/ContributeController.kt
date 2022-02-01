@@ -17,6 +17,8 @@ import com.goodwy.audiobook.injection.appComponent
 import com.jaredrummler.cyanea.Cyanea
 import com.jaredrummler.cyanea.app.BaseCyaneaActivity
 import de.paulwoitaschek.flowpref.Pref
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Named
@@ -29,6 +31,9 @@ class ContributeController : ViewBindingController<ContributeBinding>(Contribute
 
   @field:[Inject Named(PrefKeys.DARK_THEME)]
   lateinit var darkThemePref: Pref<Boolean>
+
+  @field:[Inject Named(PrefKeys.PADDING)]
+  lateinit var paddingPref: Pref<String>
 
   init {
     appComponent.inject(this)
@@ -55,6 +60,8 @@ class ContributeController : ViewBindingController<ContributeBinding>(Contribute
       startActivity(intent)
     }
 
+    val grey: Int = android.graphics.Color.parseColor("#FFE0E0E0")
+    val darkColor: Int = android.graphics.Color.parseColor("#FF272f35")
     dark.onCheckedChanged {
       viewModel.toggleDarkTheme()
       if (darkThemePref.value) (
@@ -65,6 +72,7 @@ class ContributeController : ViewBindingController<ContributeBinding>(Contribute
           backgroundDarkLighter(backgroundDark) /*dialogs*/
           navigationBar(backgroundDark)
           baseTheme(Cyanea.BaseTheme.DARK)
+          if (cyanea.primaryDark == grey) {primaryDark(darkColor)}
         }
         ) else
         cyanea.edit {
@@ -74,6 +82,7 @@ class ContributeController : ViewBindingController<ContributeBinding>(Contribute
           backgroundLightDarker(backgroundLight)
           navigationBar(backgroundLight)
           baseTheme(Cyanea.BaseTheme.LIGHT)
+          if (cyanea.primaryDark == darkColor) {primaryDark(grey)}
         }
       activity!!.recreate()
     }
@@ -82,16 +91,11 @@ class ContributeController : ViewBindingController<ContributeBinding>(Contribute
     plus.setOnClickListener {
     }
     lifebuoy.setOnClickListener {
-      val address = getString(R.string.support_email)
-      val subject = getString(R.string.email_subject_lifebuoy)
-      val chooserTitle = getString(R.string.email_chooser_title)
-      val emailIntent = Intent(
-        Intent.ACTION_SENDTO, Uri.fromParts(
-          "mailto", address, null
-        )
-      )
-      emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
-      startActivity(Intent.createChooser(emailIntent, chooserTitle))
+      val emailIntent = Intent(Intent.ACTION_SENDTO)
+      emailIntent.data = Uri.parse("mailto:")
+      emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.support_email)))
+      emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject_lifebuoy))
+      startActivity(Intent.createChooser(emailIntent, getString(R.string.email_chooser_title)))
     }
     participants.setOnClickListener {
       val intent = Intent(Intent.ACTION_VIEW)
@@ -100,6 +104,19 @@ class ContributeController : ViewBindingController<ContributeBinding>(Contribute
     }
     specialThanks.setOnClickListener {
       showSpecialThanksDialog()
+    }
+  }
+
+  override fun ContributeBinding.onAttach() {
+    //padding for Edge-to-edge
+    lifecycleScope.launch {
+      paddingPref.flow.collect {
+        val top = paddingPref.value.substringBefore(';').toInt()
+        val bottom = paddingPref.value.substringAfter(';').substringBefore(';').toInt()
+        val left = paddingPref.value.substringBeforeLast(';').substringAfterLast(';').toInt()
+        val right = paddingPref.value.substringAfterLast(';').toInt()
+        root.setPadding(left, top, right, bottom)
+      }
     }
   }
 

@@ -110,5 +110,20 @@
     <string name="pref_cover_settings_title">تنظیمات پوشش</string>
     <string name="pref_cover_corner_radius_title">شعاع گوشه های پوشش</string>
     <string name="pref_cover_elevation_title">ارتفاع پوشش</string>
+    <string name="folders">پوشه</string>
+    <string name="pref_icon_mode_title">نمایش آیکون ها</string>
+    <string name="pref_icon_mode_summary">نمایش آیکون های منو به جای متن</string>
+    <string name="pref_statusbar_mode_title">حالت وضعیت</string>
+    <string name="pref_statusbar_mode_summary">تنظیم ظاهر وضعیت باری</string>
+    <string name="pref_statusbar_mode_value_transparent">شفاف</string>
+    <string name="pref_statusbar_mode_value_color">رنگ</string>
+    <string name="left">%s سمت چپ</string>
+    <string name="left_in_audiobook">%s سمت چپ در کتاب صوتی</string>
+    <string name="pref_player_background_title">پس زمینه بازیکن</string>
+    <string name="pref_player_background_summary">انتخاب سبک پس زمینه در بازیکن</string>
+    <string name="pref_player_background_theme">پس زمینه برنامه</string>
+    <string name="pref_player_background_cover_color">رنگ پوشش اصلی</string>
+    <string name="pref_player_background_blurred_cover">پوشش تار</string>
+    <string name="pref_cover_shadow_title">سایه را بپوشانید</string>
     <!--book category-->
 </resources>

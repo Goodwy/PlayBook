@@ -122,8 +122,12 @@ class MediaSessionCallback
         player.setSkipSilences(skip)
       }
       SHOW_CHAPTER_NUMBER_ACTION -> {
-        val skip = extras!!.getBoolean(SHOW_CHAPTER_NUMBER_EXTRA)
-        player.setShowChapterNumbers(skip)
+        val show = extras!!.getBoolean(SHOW_CHAPTER_NUMBER_EXTRA)
+        player.setShowChapterNumbers(show)
+      }
+      REPEAT_ACTION -> {
+        val mode = extras!!.getInt(REPEAT_EXTRA)
+        player.setRepeatMode(mode)
       }
       SET_LOUDNESS_GAIN_ACTION -> {
         val mB = extras!!.getInt(SET_LOUDNESS_GAIN_EXTRA_MB)
@@ -133,6 +137,12 @@ class MediaSessionCallback
         val file = File(extras!!.getString(SET_POSITION_EXTRA_FILE)!!)
         val time = extras.getLong(SET_POSITION_EXTRA_TIME)
         player.changePosition(time, file)
+      }
+      FADE_OUT_ACTION -> {
+        player.fadeOut()
+      }
+      CANCEL_FADE_OUT_ACTION -> {
+        player.cancelFadeOut()
       }
       FORCED_PREVIOUS -> {
         player.previous(toNullOfNewTrack = true)
@@ -169,6 +179,13 @@ fun TransportControls.showChapterNumbers(skip: Boolean) = sendCustomAction(SHOW_
   putBoolean(SHOW_CHAPTER_NUMBER_EXTRA, skip)
 }
 
+private const val REPEAT_ACTION = "setRepeat"
+private const val REPEAT_EXTRA = "$REPEAT_ACTION#value"
+
+fun TransportControls.setRepeat(mode: Int) = sendCustomAction(REPEAT_ACTION) {
+  putInt(REPEAT_EXTRA, mode)
+}
+
 private const val SET_LOUDNESS_GAIN_ACTION = "setLoudnessGain"
 private const val SET_LOUDNESS_GAIN_EXTRA_MB = "$SET_LOUDNESS_GAIN_ACTION#mb"
 
@@ -184,6 +201,14 @@ fun TransportControls.setPosition(time: Long, file: File) = sendCustomAction(SET
   putString(SET_POSITION_EXTRA_FILE, file.absolutePath)
   putLong(SET_POSITION_EXTRA_TIME, time)
 }
+
+private const val FADE_OUT_ACTION = "fadeOut"
+
+fun TransportControls.fadeOut() = sendCustomAction(FADE_OUT_ACTION)
+
+private const val CANCEL_FADE_OUT_ACTION = "cancelFadeOut"
+
+fun TransportControls.cancelFadeOut() = sendCustomAction(CANCEL_FADE_OUT_ACTION)
 
 const val ANDROID_AUTO_ACTION_FAST_FORWARD = "fast_forward"
 const val ANDROID_AUTO_ACTION_REWIND = "rewind"

@@ -1,5 +1,6 @@
 package com.goodwy.audiobook.features.settings
 
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
@@ -7,6 +8,7 @@ import android.net.Uri
 import de.paulwoitaschek.flowpref.Pref
 import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.features.bookOverview.GridMode
+import com.goodwy.audiobook.features.prefAppearanceUIPlayer.PrefAppearanceUIPlayerViewEffect
 import com.goodwy.audiobook.misc.DARK_THEME_SETTABLE
 import kotlinx.coroutines.channels.BroadcastChannel
 import kotlinx.coroutines.flow.Flow
@@ -28,6 +30,8 @@ class SettingsViewModel
   private val seekTimePref: Pref<Int>,
   @Named(PrefKeys.CONTENTS_BUTTON_MODE)
   private val tintNavBar: Pref<Boolean>,
+  @Named(PrefKeys.STATUS_BAR_MODE)
+  private val statusBarModePref: Pref<Int>,
   @Named(PrefKeys.SHOW_RATING)
   private val showRatingPref: Pref<Boolean>,
   @Named(PrefKeys.SCREEN_ORIENTATION)
@@ -35,7 +39,11 @@ class SettingsViewModel
   @Named(PrefKeys.GRID_AUTO)
   private val gridViewAutoPref: Pref<Boolean>,
   @Named(PrefKeys.GRID_MODE)
-  private val gridModePref: Pref<GridMode>
+  private val gridModePref: Pref<GridMode>,
+  @Named(PrefKeys.USE_ENGLISH)
+  private val useEnglishPref: Pref<Boolean>,
+  @Named(PrefKeys.COVER_RADIUS)
+  private val coverRadiusPref: Pref<Int>
 ) {
 
   private val _viewEffects = BroadcastChannel<SettingsViewEffect>(1)
@@ -47,17 +55,19 @@ class SettingsViewModel
       resumeOnReplugPref.flow,
       //autoRewindAmountPref.flow,
       //seekTimePref.flow,
-      tintNavBar.flow,
+      //tintNavBar.flow,
+      statusBarModePref.flow,
       screenOrientationPref.flow,
       gridViewAutoPref.flow
-    ) { useDarkTheme, resumeOnreplug, /*autoRewindAmount, seekTime,*/ tintNavBar, screenOrientationPref, gridViewAutoPref ->
+    ) { useDarkTheme, resumeOnreplug, /*autoRewindAmount, seekTime, tintNavBar,*/ statusBarModePref, screenOrientationPref, gridViewAutoPref ->
       SettingsViewState(
         useDarkTheme = useDarkTheme,
         showDarkThemePref = DARK_THEME_SETTABLE,
         resumeOnReplug = resumeOnreplug,
         //seekTimeInSeconds = seekTime,
         //autoRewindInSeconds = autoRewindAmount,
-        tintNavBar = tintNavBar,
+        //tintNavBar = tintNavBar,
+        statusBarModePref = statusBarModePref,
         screenOrientationPref = screenOrientationPref,
         gridViewAutoPref = gridViewAutoPref
       )
@@ -84,9 +94,17 @@ class SettingsViewModel
     tintNavBar.value = !tintNavBar.value
   }
 
+  fun changeCoverSettings() {
+    _viewEffects.offer(SettingsViewEffect.ShowChangeCoverSettingsDialog(coverRadiusPref.value))
+  }
+
   fun toggleGridViewAuto() {
     gridViewAutoPref.value = !gridViewAutoPref.value
     gridModePref.value = GridMode.FOLLOW_DEVICE
+  }
+
+  fun toggleUseEnglish() {
+    useEnglishPref.value = !useEnglishPref.value
   }
 
   // Rate - >
@@ -115,6 +133,7 @@ class SettingsViewModel
     context.startActivity(intent)
   }
 
+  @SuppressLint("QueryPermissionsNeeded")
   private fun startActivityExternal(intent: Intent) {
     if (intent.resolveActivity(context.packageManager) != null) {
       startActivity(intent)

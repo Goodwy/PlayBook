@@ -38,35 +38,35 @@
               android:textAppearance="?textAppearanceBody2"
               tools:ignore="HardcodedText" />
 
-            <!--<com.goodwy.audiobooklite.features.settings.SwitchSettingView
+            <!--<com.goodwy.audiobook.features.settings.SwitchSettingView
               android:id="@+id/showSliderVolume"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               app:ssv_title="@string/pref_show_slider_volume_title"
               app:ssv_description="@string/pref_show_slider_volume_summary" />
 
-            <com.goodwy.audiobooklite.features.settings.SwitchSettingView
+            <com.goodwy.audiobook.features.settings.SwitchSettingView
               android:id="@+id/iconMode"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               app:ssv_title="@string/pref_icon_mode_title"
               app:ssv_description="@string/pref_icon_mode_summary" />
 
-            <com.goodwy.audiobooklite.features.settings.SwitchSettingView
+            <com.goodwy.audiobook.features.settings.SwitchSettingView
               android:id="@+id/screenOrientation"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               app:ssv_title="@string/pref_screen_orientation_title"
               app:ssv_description="@string/pref_screen_orientation_summary" />
 
-            <com.goodwy.audiobooklite.features.settings.SwitchSettingView
+            <com.goodwy.audiobook.features.settings.SwitchSettingView
               android:id="@+id/showMiniPlayer"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               app:ssv_title="@string/pref_show_mini_player_title"
               app:ssv_description="@string/pref_show_mini_player_summary" />
 
-            <com.goodwy.audiobooklite.features.settings.SwitchSettingView
+            <com.goodwy.audiobook.features.settings.SwitchSettingView
               android:id="@+id/gridViewAuto"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"

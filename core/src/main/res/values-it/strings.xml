@@ -204,4 +204,19 @@
     <string name="pref_cover_settings_title">Impostazioni della copertina</string>
     <string name="pref_cover_corner_radius_title">Raggio degli angoli di copertura</string>
     <string name="pref_cover_elevation_title">Elevazione della copertura</string>
+    <string name="folders">Cartelle</string>
+    <string name="pref_icon_mode_title">Mostra icone</string>
+    <string name="pref_icon_mode_summary">Mostra icone di menu anziché testo</string>
+    <string name="pref_statusbar_mode_title">Modalità barra di stato</string>
+    <string name="pref_statusbar_mode_summary">Impostare l\'aspetto dello stato bary</string>
+    <string name="pref_statusbar_mode_value_transparent">Trasparente</string>
+    <string name="pref_statusbar_mode_value_color">Colore</string>
+    <string name="left">%s sinistra</string>
+    <string name="left_in_audiobook">%s lasciato nell\'audiolibro</string>
+    <string name="pref_player_background_title">Sfondo del giocatore</string>
+    <string name="pref_player_background_summary">Scelta di uno stile di sfondo nel lettore</string>
+    <string name="pref_player_background_theme">Sfondo dell\'app</string>
+    <string name="pref_player_background_cover_color">Colore copertina principale</string>
+    <string name="pref_player_background_blurred_cover">Copertina sfocata</string>
+    <string name="pref_cover_shadow_title">Ombra di copertina</string>
 </resources>

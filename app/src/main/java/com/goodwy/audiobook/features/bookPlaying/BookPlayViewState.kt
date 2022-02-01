@@ -15,11 +15,15 @@ data class BookPlayViewState(
   val sleepTime: Duration,
   val playedTime: Duration,
   val duration: Duration,
+  val remainingTimeInMs: Long,
   val playing: Boolean,
   val cover: BookPlayCover,
   val skipSilence: Boolean,
   val showChapterNumbers: Boolean,
-  val rewindButtonStylePref: Int
+  val rewindButtonStylePref: Int,
+  val currentVolumePref: Int,
+  val repeatModePref: Int,
+  val timeLapse: Float
 )
 
 data class BookPlayCover(private val book: Book) {

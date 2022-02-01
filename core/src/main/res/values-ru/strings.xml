@@ -146,12 +146,22 @@ Goodwy</i>
     <string name="end_of_current_chapter">До конца текущей главы</string>
     <string name="sleep_timer_note">Для перезапуска встряхните устройство в течение 30 секунд после окончания</string>
     <string name="custom">Индивидуально</string>
+    <string name="folders">Папки</string>
+    <string name="left">Остается %s</string>
+    <string name="left_in_audiobook">В аудиокниге осталось %s</string>
+    <string name="seconds_letter">с</string>
+    <string name="minutes_letter">м</string>
+    <string name="hours_letter">ч</string>
 
     <!-- Settings -->
     <string name="pref_default_theme_title">По умолчанию</string>
     <string name="pref_category_playback">Настройки воспроизведения</string>
     <string name="pref_category_support">Поддержка</string>
     <string name="pref_theme_hint">Меню настройки темы приложения</string>
+    <string name="pref_statusbar_mode_title">Режим строки состояния</string>
+    <string name="pref_statusbar_mode_summary">Установлевает внешний вид бары статуса</string>
+    <string name="pref_statusbar_mode_value_transparent">Прозрачная</string>
+    <string name="pref_statusbar_mode_value_color">Цветная</string>
     <string name="pref_statusbar_color_title">Цвет строки состояния</string>
     <string name="pref_statusbar_color_summary">Устанавливает цвет строки состояния, отличный от основного</string>
     <string name="pref_pay_summary">Приобретите PlayBooks для поддержки будущих разработок и получения дополнительных функций</string>
@@ -179,11 +189,9 @@ Goodwy</i>
     <string name="pref_appearance_ui_player_summary">Изменение внешнего вида элементов интерфейса плеера</string>
 
     <!-- Beta -->
-    <string name="pref_beta_title">Beta</string>
     <string name="pref_beta_summary">Эксперементальные функции</string>
 
     <!-- About -->
-    <string name="pref_github_title">GitHub</string>
     <string name="pref_github_summary">Присоединяйтесь к проекту</string>
     <string name="pref_rate_title">Оценить PlayBooks</string>
     <string name="pref_other_app_title">Другие приложения</string>
@@ -209,6 +217,14 @@ Goodwy</i>
     <string name="pref_cover_settings_title">Настройки обложки</string>
     <string name="pref_cover_corner_radius_title">Радиус углов обложки</string>
     <string name="pref_cover_elevation_title">Возвышение обложки</string>
+    <string name="pref_cover_shadow_title">Тень обложки</string>
+    <string name="pref_icon_mode_title">Показывать иконки</string>
+    <string name="pref_icon_mode_summary">Иконки меню вместо текста</string>
+    <string name="pref_player_background_title">Задний фон плеера</string>
+    <string name="pref_player_background_summary">Выбор стиля заднего фона в плеере</string>
+    <string name="pref_player_background_theme">Фон приложения</string>
+    <string name="pref_player_background_cover_color">Основной цвет обложки</string>
+    <string name="pref_player_background_blurred_cover">Размытая обложка</string>
 
     <!-- Rate -->
     <string name="rate_dismiss">Отклонить</string>
@@ -246,4 +262,5 @@ Goodwy</i>
     <string name="pref_colored_navigation_bar_title">Цветная панель навигации</string>
     <string name="pref_colored_navigation_bar_summary">Окрашивает панель навигации в цвет фона</string>
     <string name="repeat_mode">Повтор</string>
+    <string name="pref_what_new_title">Что нового</string>
 </resources>

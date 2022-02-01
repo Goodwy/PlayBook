@@ -8,7 +8,6 @@ import android.text.format.DateUtils
 import android.widget.FrameLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import de.paulwoitaschek.flowpref.Pref
 import com.goodwy.audiobook.R
 import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.data.repo.BookRepository
@@ -21,6 +20,7 @@ import com.goodwy.audiobook.misc.getUUID
 import com.goodwy.audiobook.misc.putUUID
 import com.goodwy.audiobook.playback.ShakeDetector
 import com.goodwy.audiobook.playback.SleepTimer
+import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -82,7 +82,7 @@ class SleepTimerDialogController(bundle: Bundle) : DialogController(bundle) {
 		updateTimeState()
 	}
 
-    selectedMinutes = savedViewState?.getInt(SI_MINUTES) ?: sleepTimePref.value
+   // selectedMinutes = savedViewState?.getInt(SI_MINUTES) ?: sleepTimePref.value
     updateTimeState()
 
     // find views and prepare clicks
@@ -128,7 +128,7 @@ class SleepTimerDialogController(bundle: Bundle) : DialogController(bundle) {
           )
         }
 
-      sleepTimer.setActive(true)
+      sleepTimer.setActive(true, true)
       dismissDialog()
     }
 

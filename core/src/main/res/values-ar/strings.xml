@@ -190,5 +190,20 @@
     <string name="pref_cover_settings_title">إعدادات الغلاف</string>
     <string name="pref_cover_corner_radius_title">نصف قطر زوايا الغطاء</string>
     <string name="pref_cover_elevation_title">ارتفاع الغطاء</string>
+    <string name="folders">المجلدات</string>
+    <string name="pref_icon_mode_title">إظهار الرموز</string>
+    <string name="pref_icon_mode_summary">إظهار رموز القائمة بدلا من النص</string>
+    <string name="pref_statusbar_mode_title">وضع شريط الحالة</string>
+    <string name="pref_statusbar_mode_summary">تعيين مظهر شريطي الحالة</string>
+    <string name="pref_statusbar_mode_value_transparent">شفاف</string>
+    <string name="pref_statusbar_mode_value_color">لون</string>
+    <string name="left">%s لليسار</string>
+    <string name="left_in_audiobook">%s متبقي في الكتاب الصوتي</string>
+    <string name="pref_player_background_title">خلفية اللاعب</string>
+    <string name="pref_player_background_summary">اختيار نمط الخلفية في اللاعب</string>
+    <string name="pref_player_background_theme">خلفية التطبيق</string>
+    <string name="pref_player_background_cover_color">لون الغلاف الرئيسي</string>
+    <string name="pref_player_background_blurred_cover">غطاء ضبابي</string>
+    <string name="pref_cover_shadow_title">ظل الغلاف</string>
     <!--book category-->
 </resources>

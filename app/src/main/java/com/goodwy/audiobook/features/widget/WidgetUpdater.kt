@@ -13,6 +13,7 @@ import android.support.v4.media.session.PlaybackStateCompat.ACTION_REWIND
 import android.view.View
 import android.view.WindowManager
 import android.widget.RemoteViews
+import androidx.core.content.ContextCompat.getColor
 import androidx.media.session.MediaButtonReceiver.buildMediaButtonPendingIntent
 import com.squareup.picasso.Picasso
 import dagger.Reusable
@@ -28,6 +29,7 @@ import com.goodwy.audiobook.features.MainActivity
 import com.goodwy.audiobook.misc.coverFile
 import com.goodwy.audiobook.misc.dpToPxRounded
 import com.goodwy.audiobook.playback.playstate.PlayStateManager
+import com.goodwy.audiobook.uitools.RoundedTransformation
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -44,6 +46,8 @@ class WidgetUpdater @Inject constructor(
   private val repo: BookRepository,
   @Named(PrefKeys.CURRENT_BOOK)
   private val currentBookIdPref: Pref<UUID>,
+  @Named(PrefKeys.DARK_THEME)
+  private val useDarkTheme: Pref<Boolean>,
   private val imageHelper: ImageHelper,
   private val playStateManager: PlayStateManager,
   private val windowManager: Provider<WindowManager>
@@ -148,9 +152,11 @@ class WidgetUpdater @Inject constructor(
     val rewindPI = buildMediaButtonPendingIntent(context, ACTION_REWIND)
     remoteViews.setOnClickPendingIntent(R.id.rewind, rewindPI)
 
+    val play = if (useDarkTheme.value) R.drawable.ic_play_white_36dp else R.drawable.ic_play_black_36dp
+    val pause = if (useDarkTheme.value) R.drawable.ic_pause_white_36dp else R.drawable.ic_pause_black_36dp
     val playIcon = if (playStateManager.playState == PlayStateManager.PlayState.Playing) {
-      R.drawable.ic_pause_white_36dp
-    } else R.drawable.ic_play_white_36dp
+      pause
+    } else play
     remoteViews.setImageViewResource(R.id.playPause, playIcon)
 
     // if we have any book, init the views and have a click on the whole widget start BookPlay.
@@ -176,6 +182,7 @@ class WidgetUpdater @Inject constructor(
         Picasso.get()
           .load(coverFile)
           .resize(sizeForPicasso, sizeForPicasso)
+          .transform(RoundedTransformation(16, 0))
           .get()
       } catch (e: IOException) {
         Timber.e(e)
@@ -194,8 +201,21 @@ class WidgetUpdater @Inject constructor(
       )
     }
 
+    // изменение цвета виджета
     remoteViews.setImageViewBitmap(R.id.imageView, cover)
     remoteViews.setOnClickPendingIntent(R.id.wholeWidget, wholeWidgetClickPI)
+    val bg = if (useDarkTheme.value) R.drawable.widget_background else R.drawable.widget_white_background
+    remoteViews.setInt(R.id.wholeWidget, "setBackgroundResource", bg)
+
+    val rewindIcon = if (useDarkTheme.value) R.drawable.ic_rewind_white_36dp else R.drawable.ic_rewind_black_36dp
+    remoteViews.setImageViewResource(R.id.rewind, rewindIcon)
+
+    val fastForwardIcon = if (useDarkTheme.value) R.drawable.ic_fast_forward_white_36dp else R.drawable.ic_fast_forward_black_36dp
+    remoteViews.setImageViewResource(R.id.fastForward, fastForwardIcon)
+
+    val textColor = if (useDarkTheme.value) R.color.copy_primary_text_default_material_dark else R.color.copy_primary_text_default_material_light
+    remoteViews.setTextColor(R.id.title, getColor(context, textColor))
+    remoteViews.setTextColor(R.id.summary, getColor(context, textColor))
   }
 
   private fun setVisibilities(

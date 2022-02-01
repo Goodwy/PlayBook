@@ -1,73 +1,43 @@
 package com.goodwy.audiobook.features.settings.dialogs
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
-import android.os.Handler
 import android.widget.Toast
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.color.colorChooser
 import com.goodwy.audiobook.R
+import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.features.contribute.ContributeController
+import com.goodwy.audiobook.injection.appComponent
 import com.goodwy.audiobook.misc.DialogController
 import com.goodwy.audiobook.misc.conductor.asTransaction
-import com.jaredrummler.cyanea.Cyanea
+import com.goodwy.audiobook.uitools.*
 import com.jaredrummler.cyanea.app.BaseCyaneaActivity
+import de.paulwoitaschek.flowpref.Pref
+import javax.inject.Inject
+import javax.inject.Named
 
 class ColorPrimaryOriginalDialogController : DialogController(),
   BaseCyaneaActivity {
 
-  val Vintage2: Int = android.graphics.Color.parseColor("#FF8C2D2D")
-  val Meetup: Int = android.graphics.Color.parseColor("#FFED1744")
-  val Oblivion: Int = android.graphics.Color.parseColor("#FFD25252")
-  val Waaark: Int = android.graphics.Color.parseColor("#FFF76C6C")
-  val Vibrant: Int = android.graphics.Color.parseColor("#FFEC691E")
-  val Amazon: Int = android.graphics.Color.parseColor("#FFFF9900")
-  val Bing: Int = android.graphics.Color.parseColor("#FFFFB900")
-  val Flax2: Int = android.graphics.Color.parseColor("#FFECBC1B")
-  val Desert2: Int = android.graphics.Color.parseColor("#FF90A04A")
-  val Tasty: Int = android.graphics.Color.parseColor("#FF437356")
-  val Rio: Int = android.graphics.Color.parseColor("#FF0B4239")
-  val Weber: Int = android.graphics.Color.parseColor("#FF729F98")
-  val Periscope: Int = android.graphics.Color.parseColor("#FF40A4C4")
-  val Obsidian: Int = android.graphics.Color.parseColor("#FF678CB1")
-  val blue: Int = android.graphics.Color.parseColor("#FF4C86CB")
-  val Vitamin: Int = android.graphics.Color.parseColor("#FF0359AE")
-  val Philips: Int = android.graphics.Color.parseColor("#FF2F435E")
-  val Inkpot: Int = android.graphics.Color.parseColor("#FF6068B2")
-  val Twitch: Int = android.graphics.Color.parseColor("#FF7E57C2")
-  val Fresh2: Int = android.graphics.Color.parseColor("#FF8A36BB")
+  @field:[Inject Named(PrefKeys.PRO)]
+  lateinit var isProPref: Pref<Boolean>
 
-  //statusbar
-  val Vintage2Dark: Int = android.graphics.Color.parseColor("#FF772626")
-  val MeetupDark: Int = android.graphics.Color.parseColor("#FFC91339")
-  val OblivionDark: Int = android.graphics.Color.parseColor("#FFB24545")
-  val WaaarkDark: Int = android.graphics.Color.parseColor("#FFD15B5B")
-  val VibrantDark: Int = android.graphics.Color.parseColor("#FFC85919")
-  val AmazonDark: Int = android.graphics.Color.parseColor("#FFD88200")
-  val BingDark: Int = android.graphics.Color.parseColor("#FFD89D00")
-  val Flax2Dark: Int = android.graphics.Color.parseColor("#FFC89F16")
-  val Desert2Dark: Int = android.graphics.Color.parseColor("#FF7A883E")
-  val TastyDark: Int = android.graphics.Color.parseColor("#FF386149")
-  val RioDark: Int = android.graphics.Color.parseColor("#FF093830")
-  val WeberDark: Int = android.graphics.Color.parseColor("#FF608781")
-  val PeriscopeDark: Int = android.graphics.Color.parseColor("#FF368BA6")
-  val ObsidianDark: Int = android.graphics.Color.parseColor("#FF577796")
-  val blueDark: Int = android.graphics.Color.parseColor("#FF4D6CA2")
-  val VitaminDark: Int = android.graphics.Color.parseColor("#FF024B93")
-  val PhilipsDark: Int = android.graphics.Color.parseColor("#FF27384F")
-  val InkpotDark: Int = android.graphics.Color.parseColor("#FF515897")
-  val TwitchDark: Int = android.graphics.Color.parseColor("#FF6B49A4")
-  val Fresh2Dark: Int = android.graphics.Color.parseColor("#FF752D9E")
-
-  val colors = intArrayOf(Vintage2, Meetup, Oblivion, Waaark, Vibrant, Amazon, Bing, Flax2, Desert2,
+  private val colors = intArrayOf(Vintage2, Meetup, Oblivion, Waaark, Vibrant, Amazon, Bing, Flax2, Desert2,
     Tasty, Rio, Weber, Periscope, Obsidian, blue, Vitamin, Philips, Inkpot, Twitch, Fresh2)
 
+  init {
+    appComponent.inject(this)
+  }
 
+  @SuppressLint("CheckResult")
   override fun onCreateDialog(savedViewState: Bundle?): Dialog {
     return MaterialDialog(activity!!).apply {
       cornerRadius(4f)
       title(R.string.pref_primary_color_title)
-      colorChooser(colors, initialSelection = cyanea.primary) { dialog, color ->
+      colorChooser(colors, initialSelection = cyanea.primary) { _, color ->
+        if (isProPref.value) {
         when (color) {
           Vintage2 -> cyanea.edit {
             primary(Vintage2)
@@ -249,14 +219,62 @@ class ColorPrimaryOriginalDialogController : DialogController(),
             accentLight(Fresh2)
             accentDark(Fresh2)
           }
-          //todo Lite
-          /*else -> {
+        }
+        } else { //lite
+          when (color) {
+            Vintage2 -> cyanea.edit {
+              primary(Vintage2)
+              primaryLight(Vintage2)
+              primaryDark(Vintage2Dark) /*statusbar*/
+              navigationBar(cyanea.backgroundColor)
+              accent(Vintage2)
+              accentLight(Vintage2)
+              accentDark(Vintage2)
+            }
+            Meetup -> cyanea.edit {
+              primary(Meetup)
+              primaryLight(Meetup)
+              primaryDark(MeetupDark) /*statusbar*/
+              navigationBar(cyanea.backgroundColor)
+              accent(Meetup)
+              accentLight(Meetup)
+              accentDark(Meetup)
+            }
+            Oblivion -> cyanea.edit {
+              primary(Oblivion)
+              primaryLight(Oblivion)
+              primaryDark(OblivionDark) /*statusbar*/
+              navigationBar(cyanea.backgroundColor)
+              accent(Oblivion)
+              accentLight(Oblivion)
+              accentDark(Oblivion)
+            }
+            Waaark -> cyanea.edit {
+              primary(Waaark)
+              primaryLight(Waaark)
+              primaryDark(WaaarkDark) /*statusbar*/
+              navigationBar(cyanea.backgroundColor)
+              accent(Waaark)
+              accentLight(Waaark)
+              accentDark(Waaark)
+            }
+            Vibrant -> cyanea.edit {
+              primary(Vibrant)
+              primaryLight(Vibrant)
+              primaryDark(VibrantDark) /*statusbar*/
+              navigationBar(cyanea.backgroundColor)
+              accent(Vibrant)
+              accentLight(Vibrant)
+              accentDark(Vibrant)
+            }
+            else -> {
             val text = (R.string.only_the_first_5_colors_available)
             val duration = Toast.LENGTH_LONG
             Toast.makeText(applicationContext, text, duration).show()
             val transaction = ContributeController().asTransaction()
             router.pushController(transaction)
-          }*/
+            }
+          }
         }
       }
       positiveButton(R.string.dialog_ok) {
@@ -264,9 +282,8 @@ class ColorPrimaryOriginalDialogController : DialogController(),
           activity!!.recreate()
         //}, 1000)
       }
-      negativeButton(R.string.dialog_cancel) { dialog ->
-      }
-      neutralButton(R.string.palettes) { dialog ->
+      negativeButton(R.string.dialog_cancel)
+      neutralButton(R.string.palettes) {
         ColorPrinaryPalettesDialogController().showDialog(router)
       }
     }

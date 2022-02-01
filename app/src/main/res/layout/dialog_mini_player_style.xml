@@ -4,9 +4,7 @@
   android:layout_width="wrap_content"
   android:layout_height="wrap_content"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:orientation="vertical"
-  android:paddingStart="@dimen/dialog_horizontal_padding"
-  android:paddingEnd="@dimen/dialog_horizontal_padding">
+  android:orientation="vertical">
 
     <TableRow
       android:id="@+id/row1"
@@ -15,13 +13,13 @@
       android:gravity="center"
       tools:ignore="UselessParent">
 
-        <com.goodwy.audiobooklite.features.prefAppearanceUI.MiniPlayerButtonView
+        <com.goodwy.audiobook.features.prefAppearanceUI.MiniPlayerButtonView
           android:id="@+id/floatingButton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           app:ssv_title="@string/pref_mini_player_floating_button" />
 
-        <com.goodwy.audiobooklite.features.prefAppearanceUI.MiniPlayerFloatingView
+        <com.goodwy.audiobook.features.prefAppearanceUI.MiniPlayerFloatingView
           android:id="@+id/miniPlayer"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"

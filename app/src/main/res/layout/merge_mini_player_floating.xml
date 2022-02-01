@@ -11,9 +11,8 @@
       style="@style/Widget.App.Switch"
       android:contentDescription="@string/pref_mini_player_mini_player_floating"
       android:src="@drawable/mini_player_floating"
-      android:layout_width="120dp"
-      android:layout_height="240dp"
-      android:layout_marginStart="10dp"
+      android:layout_width="140dp"
+      android:layout_height="220dp"
       android:layout_marginEnd="10dp"
       android:clickable="false"
       app:layout_constraintBottom_toTopOf="@+id/title"
@@ -25,7 +24,7 @@
     <TextView
       android:id="@+id/title"
       android:layout_width="0dp"
-      android:layout_height="40dp"
+      android:layout_height="26dp"
       android:gravity="center_horizontal"
       android:textAppearance="?textAppearanceBody1"
       app:layout_constraintBottom_toTopOf="@+id/radioButton"
@@ -35,18 +34,17 @@
       app:layout_constraintVertical_chainStyle="packed"
       tools:text="Resume Playback" />
 
-    <RadioButton
+    <CheckBox
       android:id="@+id/radioButton"
       style="@style/Widget.App.Switch"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:rotation="90"
+      android:rotation="180"
       android:clickable="false"
       android:saveEnabled="false"
-      app:layout_constraintBottom_toBottomOf="parent"
+      android:button="@drawable/checkbox_selector"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/title"
+      app:layout_constraintTop_toTopOf="parent"
       app:useMaterialThemeColors="false" />
 
 </merge>

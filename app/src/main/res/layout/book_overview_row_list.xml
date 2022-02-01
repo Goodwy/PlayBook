@@ -16,7 +16,7 @@
         <ImageView
           android:id="@+id/divider"
           android:layout_width="match_parent"
-          android:layout_height="1dp"
+          android:layout_height="1px"
           android:background="@drawable/divider_settings"
           android:layout_marginStart="10dp"
           android:layout_marginEnd="10dp"
@@ -32,12 +32,15 @@
           android:layout_marginTop="12dp"
           android:layout_marginBottom="12dp"
           android:elevation="6dp"
+          android:outlineAmbientShadowColor="@color/shadow_elevation"
+          android:outlineSpotShadowColor="@color/shadow_elevation"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintDimensionRatio="1:1"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="@+id/divider"
           tools:background="@color/primary"
-          tools:ignore="ContentDescription" />
+          tools:ignore="ContentDescription"
+          tools:targetApi="p" />
 
         <TextView
           android:id="@+id/author"
@@ -57,14 +60,12 @@
 
         <ImageView
           android:id="@+id/more"
-          android:layout_width="20dp"
-          android:layout_height="20dp"
-          android:layout_marginTop="0dp"
-          android:layout_marginEnd="12dp"
+          android:layout_width="46dp"
+          android:layout_height="46dp"
+          android:padding="12dp"
           android:src="@drawable/ic_more_horiz"
-          app:layout_constraintBottom_toBottomOf="@+id/author"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toTopOf="@+id/author"
+          app:layout_constraintTop_toTopOf="parent"
           tools:ignore="ContentDescription" />
 
         <TextView
@@ -115,7 +116,7 @@
           app:layout_constraintTop_toTopOf="@+id/playedTime"
           tools:ignore="ContentDescription" />
 
-        <com.goodwy.audiobooklite.uitools.RoundProgressView
+        <com.goodwy.audiobook.uitools.RoundProgressView
           android:id="@+id/roundProgress"
           android:layout_width="0dp"
           android:layout_height="0dp"
@@ -139,7 +140,7 @@
           app:layout_constraintTop_toTopOf="@+id/clock"
           tools:text="38%" />
 
-        <com.goodwy.audiobooklite.uitools.SquareProgressView
+        <com.goodwy.audiobook.uitools.SquareProgressView
           android:id="@+id/progress"
           android:layout_width="0dp"
           android:layout_height="wrap_content"

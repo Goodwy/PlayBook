@@ -1,5 +1,6 @@
 package com.goodwy.audiobook.features.bookmarks.dialogs
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import android.text.InputType
@@ -16,6 +17,7 @@ import com.goodwy.audiobook.misc.DialogController
  */
 class AddBookmarkDialog : DialogController() {
 
+  @SuppressLint("CheckResult")
   override fun onCreateDialog(savedViewState: Bundle?): Dialog {
     val inputType = InputType.TYPE_CLASS_TEXT or
         InputType.TYPE_TEXT_FLAG_CAP_SENTENCES or

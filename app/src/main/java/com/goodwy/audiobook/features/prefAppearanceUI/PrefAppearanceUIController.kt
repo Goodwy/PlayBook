@@ -3,15 +3,18 @@ package com.goodwy.audiobook.features.prefAppearanceUI
 import android.content.Context
 import androidx.annotation.StringRes
 import com.goodwy.audiobook.R
+import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.databinding.PrefAppearanceUiBinding
 import com.goodwy.audiobook.features.ViewBindingController
 import com.goodwy.audiobook.features.contribute.ContributeViewModel
 import com.goodwy.audiobook.injection.appComponent
 import com.jaredrummler.cyanea.app.BaseCyaneaActivity
+import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
+import javax.inject.Named
 
 class PrefAppearanceUIController : ViewBindingController<PrefAppearanceUiBinding>(PrefAppearanceUiBinding::inflate),
   BaseCyaneaActivity {
@@ -23,6 +26,9 @@ class PrefAppearanceUIController : ViewBindingController<PrefAppearanceUiBinding
   @Inject
   lateinit var contributeViewModel: ContributeViewModel
 
+  @field:[Inject Named(PrefKeys.PADDING)]
+  lateinit var paddingPref: Pref<String>
+
   init {
     appComponent.inject(this)
   }
@@ -33,9 +39,9 @@ class PrefAppearanceUIController : ViewBindingController<PrefAppearanceUiBinding
     miniPlayerStyle.onCheckedChanged {
       viewModel.changeMiniPlayerStyle()
     }
-    rewindButtonStyle.onCheckedChanged {
-      viewModel.changeRewindButtonStyle()
-    }
+    showProgressBar.onCheckedChanged { viewModel.toggleProgressBar() }
+    showDivider.onCheckedChanged { viewModel.toggleDivider() }
+    iconMode.onCheckedChanged { viewModel.toggleIconMode() }
   }
 
   fun getString(@StringRes resId: Int): String {
@@ -48,10 +54,19 @@ class PrefAppearanceUIController : ViewBindingController<PrefAppearanceUiBinding
         handleViewEffect(it)
       }
     }
-
     lifecycleScope.launch {
       viewModel.viewState().collect {
         render(it)
+      }
+    }
+    //padding for Edge-to-edge
+    lifecycleScope.launch {
+      paddingPref.flow.collect {
+        val top = paddingPref.value.substringBefore(';').toInt()
+        val bottom = paddingPref.value.substringAfter(';').substringBefore(';').toInt()
+        val left = paddingPref.value.substringBeforeLast(';').substringAfterLast(';').toInt()
+        val right = paddingPref.value.substringAfterLast(';').toInt()
+        root.setPadding(left, top, right, bottom)
       }
     }
   }
@@ -60,9 +75,6 @@ class PrefAppearanceUIController : ViewBindingController<PrefAppearanceUiBinding
     when (effect) {
       is PrefAppearanceUIViewEffect.ShowChangeMiniPlayerStyleDialog -> {
         MiniPlayerStyleDialogController().showDialog(router)
-      }
-      is PrefAppearanceUIViewEffect.ShowChangeRewindButtonStyleDialog -> {
-        RewindStyleDialogController().showDialog(router)
       }
     }
   }
@@ -74,11 +86,9 @@ class PrefAppearanceUIController : ViewBindingController<PrefAppearanceUiBinding
     } else {
       miniPlayerStyle.setValue(context.getString(R.string.pref_mini_player_mini_player_floating))
     }
-    if (state.rewindButtonStylePref == 1) {
-      rewindButtonStyle.setValue(context.getString(R.string.pref_rewind_buttons_style_classic))
-    } else {
-      rewindButtonStyle.setValue(context.getString(R.string.pref_rewind_buttons_style_rounded))
-    }
+    showProgressBar.setChecked(state.showProgressBarPref)
+    showDivider.setChecked(state.showDividerPref)
+    iconMode.setChecked(state.iconModePref)
   }
 
   private fun PrefAppearanceUiBinding.setupToolbar() {

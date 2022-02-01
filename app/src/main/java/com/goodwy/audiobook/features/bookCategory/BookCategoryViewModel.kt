@@ -21,6 +21,10 @@ class BookCategoryViewModel
   private val currentBookIdPref: Pref<UUID>,
   @Named(PrefKeys.GRID_MODE)
   private val gridModePref: Pref<GridMode>,
+  @Named(PrefKeys.SHOW_PROGRESS_BAR)
+  private val showProgressBarPref: Pref<Boolean>,
+  @Named(PrefKeys.SHOW_DIVIDER)
+  private val showDividerPref: Pref<Boolean>,
   private val gridCount: GridCount,
   private val comparatorPrefForCategory: @JvmSuppressWildcards Map<BookOverviewCategory, Pref<BookComparator>>
 ) {
@@ -38,6 +42,8 @@ class BookCategoryViewModel
     ) { gridMode, books, comparator ->
       val gridColumnCount = gridCount.gridColumnCount(gridMode)
       val currentBookId = currentBookIdPref.value
+      val showProgressBarPref = showProgressBarPref.value
+      val showDividerPref = showDividerPref.value
       val models = books.asSequence()
         .filter(category.filter)
         .sortedWith(comparator)
@@ -45,7 +51,9 @@ class BookCategoryViewModel
           BookOverviewModel(
             book = book,
             isCurrentBook = book.id == currentBookId,
-            useGridView = gridColumnCount > 1
+            useGridView = gridColumnCount > 1,
+            showProgressBar = showProgressBarPref,
+            showDivider = showDividerPref
           )
         }
         .toList()

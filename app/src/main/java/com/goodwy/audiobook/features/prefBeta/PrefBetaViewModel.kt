@@ -1,5 +1,6 @@
 package com.goodwy.audiobook.features.prefBeta
 
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
@@ -116,6 +117,7 @@ class PrefBetaViewModel
     context.startActivity(intent)
   }
 
+  @SuppressLint("QueryPermissionsNeeded")
   private fun startActivityExternal(intent: Intent) {
     if (intent.resolveActivity(context.packageManager) != null) {
       startActivity(intent)

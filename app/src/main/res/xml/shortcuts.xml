@@ -7,7 +7,7 @@
         android:shortcutShortLabel="@string/play_current">
         <intent
             android:action="playCurrent"
-            android:targetClass="com.goodwy.audiobooklite.features.MainActivity"
-            android:targetPackage="com.goodwy.audiobooklite" />
+            android:targetClass="com.goodwy.audiobook.features.MainActivity"
+            android:targetPackage="com.goodwy.audiobook" />
     </shortcut>
 </shortcuts>

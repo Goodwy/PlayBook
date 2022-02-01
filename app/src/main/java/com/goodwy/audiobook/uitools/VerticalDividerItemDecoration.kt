@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView.State
 /**
  * A item decoration with a left offset.
  */
-class VerticalDividerItemDecoration(context: Context, @Px private val leftMargin: Int = 0) :
+class VerticalDividerItemDecoration(context: Context, @Px private val leftMargin: Int = 50) :
   ItemDecoration() {
 
   private val divider: Drawable
@@ -26,7 +26,7 @@ class VerticalDividerItemDecoration(context: Context, @Px private val leftMargin
   }
 
   override fun onDraw(c: Canvas, parent: RecyclerView, state: State) {
-    val right = parent.width - parent.paddingRight
+    val right = parent.width - parent.paddingRight - 50
     val childCount = parent.childCount
 
     // don't draw the bottom-most divider

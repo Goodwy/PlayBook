@@ -205,4 +205,19 @@
     <string name="pref_cover_settings_title">Configurações de cobertura</string>
     <string name="pref_cover_corner_radius_title">Raio de cantos de cobertura</string>
     <string name="pref_cover_elevation_title">Elevação da tampa</string>
+    <string name="folders">Pastas</string>
+    <string name="pref_icon_mode_title">Mostrar ícones</string>
+    <string name="pref_icon_mode_summary">Mostrar ícones do menu em vez de texto</string>
+    <string name="pref_statusbar_mode_title">Modo barra de status</string>
+    <string name="pref_statusbar_mode_summary">Definir a aparência do status bary</string>
+    <string name="pref_statusbar_mode_value_transparent">Transparente</string>
+    <string name="pref_statusbar_mode_value_color">Cor</string>
+    <string name="left">%s esquerda</string>
+    <string name="left_in_audiobook">%s deixado em audiolivro</string>
+    <string name="pref_player_background_title">Fundo do jogador</string>
+    <string name="pref_player_background_summary">Escolhendo um estilo de fundo no jogador</string>
+    <string name="pref_player_background_theme">Plano de fundo do aplicativo</string>
+    <string name="pref_player_background_cover_color">Cor da tampa principal</string>
+    <string name="pref_player_background_blurred_cover">Capa embaçada</string>
+    <string name="pref_cover_shadow_title">Sombra de cobertura</string>
 </resources>

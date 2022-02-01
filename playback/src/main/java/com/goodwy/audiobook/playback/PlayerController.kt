@@ -5,11 +5,14 @@ import android.content.Context
 import android.support.v4.media.MediaBrowserCompat
 import android.support.v4.media.session.MediaControllerCompat
 import com.goodwy.audiobook.playback.session.PlaybackService
+import com.goodwy.audiobook.playback.session.cancelFadeOut
+import com.goodwy.audiobook.playback.session.fadeOut
 import com.goodwy.audiobook.playback.session.forcedNext
 import com.goodwy.audiobook.playback.session.forcedPrevious
 import com.goodwy.audiobook.playback.session.playPause
 import com.goodwy.audiobook.playback.session.setLoudnessGain
 import com.goodwy.audiobook.playback.session.setPosition
+import com.goodwy.audiobook.playback.session.setRepeat
 import com.goodwy.audiobook.playback.session.showChapterNumbers
 import com.goodwy.audiobook.playback.session.skipSilence
 import timber.log.Timber
@@ -62,6 +65,8 @@ class PlayerController
 
   fun showChapterNumbers(show: Boolean) = execute { it.showChapterNumbers(show) }
 
+  fun setRepeat(mode: Int) = execute { it.setRepeat(mode) }
+
   fun fastForward() = execute { it.fastForward() }
 
   fun rewind() = execute { it.rewind() }
@@ -77,6 +82,10 @@ class PlayerController
   fun pause() = execute { it.pause() }
 
   fun setSpeed(speed: Float) = execute { it.setPlaybackSpeed(speed) }
+
+  fun fadeOut() = execute { it.fadeOut() }
+
+  fun cancelFadeout() = execute { it.cancelFadeOut() }
 
   private inline fun execute(action: (MediaControllerCompat.TransportControls) -> Unit) {
     _controller?.transportControls?.let(action)

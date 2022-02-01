@@ -1,22 +1,25 @@
 package com.goodwy.audiobook.features
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.Resources
+import android.media.AudioManager
 import android.os.Bundle
 import android.view.ViewGroup
-import android.widget.Toast
 import com.bluelinelabs.conductor.Controller
 import com.bluelinelabs.conductor.ControllerChangeHandler
 import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.attachRouter
+import com.goodwy.audiobook.BuildConfig
 import com.goodwy.audiobook.R
 import com.goodwy.audiobook.common.pref.PrefKeys
 import com.goodwy.audiobook.data.repo.BookRepository
 import com.goodwy.audiobook.features.bookOverview.BookOverviewController
 import com.goodwy.audiobook.features.bookPlaying.BookPlayController
+import com.goodwy.audiobook.features.settings.dialogs.WhatNewDialogController
 import com.goodwy.audiobook.injection.appComponent
 import com.goodwy.audiobook.misc.PermissionHelper
 import com.goodwy.audiobook.misc.Permissions
@@ -25,10 +28,13 @@ import com.goodwy.audiobook.misc.conductor.asTransaction
 import com.goodwy.audiobook.playback.PlayerController
 import com.goodwy.audiobook.playback.session.search.BookSearchHandler
 import com.goodwy.audiobook.playback.session.search.BookSearchParser
+import com.goodwy.audiobook.uitools.AudioVolumeObserver
+import com.goodwy.audiobook.uitools.OnAudioVolumeChangedListener
+import com.goodwy.audiobook.uitools.setWindowTransparency
+import com.google.android.exoplayer2.util.Log
 import com.jaredrummler.cyanea.CyaneaResources
 import com.jaredrummler.cyanea.app.BaseCyaneaActivity
 import com.jaredrummler.cyanea.delegate.CyaneaDelegate
-import com.jaredrummler.cyanea.prefs.CyaneaThemePickerActivity
 import de.paulwoitaschek.flowpref.Pref
 import kotlinx.android.synthetic.main.activity_book.*
 import java.util.UUID
@@ -39,18 +45,41 @@ import javax.inject.Named
  * Activity that coordinates the book shelf and play screens.
  */
 class MainActivity : BaseActivity(), RouterProvider,
-  BaseCyaneaActivity {
+  BaseCyaneaActivity, OnAudioVolumeChangedListener {
 
   private lateinit var permissionHelper: PermissionHelper
   private lateinit var permissions: Permissions
+
+  @field:[Inject Named(PrefKeys.VERSION)]
+  lateinit var versionPref: Pref<Int>
+
   @field:[Inject Named(PrefKeys.CURRENT_BOOK)]
   lateinit var currentBookIdPref: Pref<UUID>
+
   @field:[Inject Named(PrefKeys.SINGLE_BOOK_FOLDERS)]
   lateinit var singleBookFolderPref: Pref<Set<String>>
+
   @field:[Inject Named(PrefKeys.COLLECTION_BOOK_FOLDERS)]
   lateinit var collectionBookFolderPref: Pref<Set<String>>
+
+  @field:[Inject Named(PrefKeys.LIBRARY_BOOK_FOLDERS)]
+  lateinit var libraryBookFolderPref: Pref<Set<String>>
+
   @field:[Inject Named(PrefKeys.SCREEN_ORIENTATION)]
   lateinit var screenOrientationPref: Pref<Boolean>
+
+  @field:[Inject Named(PrefKeys.CURRENT_VOLUME)]
+  lateinit var currentVolumePref: Pref<Int>
+
+  @field:[Inject Named(PrefKeys.SHOW_SLIDER_VOLUME)]
+  lateinit var showSliderVolumePref: Pref<Boolean>
+
+  @field:[Inject Named(PrefKeys.PADDING)]
+  lateinit var paddingPref: Pref<String>
+
+  @field:[Inject Named(PrefKeys.STATUS_BAR_MODE)]
+  lateinit var statusBarModePref: Pref<Int>
+
   @Inject
   lateinit var repo: BookRepository
   @Inject
@@ -61,10 +90,15 @@ class MainActivity : BaseActivity(), RouterProvider,
   lateinit var playerController: PlayerController
 
   private lateinit var router: Router
+  private var audioVolumeObserver: AudioVolumeObserver? = null
 
+  private val audioManager: AudioManager?
+    get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+
+  @SuppressLint("SourceLockedOrientationActivity")
   override fun onCreate(savedInstanceState: Bundle?) {
-    setTheme(R.style.splashScreenTheme)
     appComponent.inject(this)
+    //setTheme(R.style.splashScreenTheme)
     delegate.onCreate(savedInstanceState)
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_book)
@@ -72,6 +106,18 @@ class MainActivity : BaseActivity(), RouterProvider,
       setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
     } else {
       setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER)
+    }
+
+    // Прозрачные статусбар и навибар
+    setWindowTransparency (statusBarModePref.value == 0) { statusBarSize, bottomNavigationBarSize, leftNavigationBarSize, rightNavigationBarSize ->
+      Log.i(
+        "west statusbarSize=",
+        "west statusbarSize=$statusBarSize bottomNavigationBarSize=$bottomNavigationBarSize " +
+          "leftNavigationBarSize=$leftNavigationBarSize rightNavigationBarSize=$rightNavigationBarSize"
+      )
+      //root.setPadding(leftNavigationBarSize, statusBarSize, rightNavigationBarSize, bottomNavigationBarSize)
+      val statusBar = if (statusBarModePref.value == 0) 0 else statusBarSize
+      paddingPref.value = "$statusBar;$bottomNavigationBarSize;$leftNavigationBarSize;$rightNavigationBarSize"
     }
 
     permissions = Permissions(this)
@@ -107,6 +153,36 @@ class MainActivity : BaseActivity(), RouterProvider,
     )
 
     setupFromIntent(intent)
+
+    // what's new
+    if (versionPref.value == 0) {
+      versionPref.value = BuildConfig.VERSION_CODE
+    } else if (versionPref.value != BuildConfig.VERSION_CODE) {
+      WhatNewDialogController().showDialog(router)
+      versionPref.value = BuildConfig.VERSION_CODE
+    }
+  }
+
+  override fun onResume() {
+    super.onResume()
+   // if (showSliderVolumePref.value) {
+      if (audioVolumeObserver == null) {
+        audioVolumeObserver = AudioVolumeObserver(this)
+      }
+      audioVolumeObserver?.register(AudioManager.STREAM_MUSIC, this)
+
+      val audioManager = audioManager
+      if (audioManager != null) {
+        currentVolumePref.value = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+      }
+   // }
+  }
+
+  override fun onDestroy() {
+    super.onDestroy()
+    if (audioVolumeObserver != null) {
+      audioVolumeObserver!!.unregister()
+    }
   }
 
   override fun onNewIntent(intent: Intent?) {
@@ -159,7 +235,7 @@ class MainActivity : BaseActivity(), RouterProvider,
   override fun onStart() {
     super.onStart()
 
-    val anyFolderSet = collectionBookFolderPref.value.size + singleBookFolderPref.value.size > 0
+    val anyFolderSet = collectionBookFolderPref.value.size + singleBookFolderPref.value.size + libraryBookFolderPref.value.size > 0
     if (anyFolderSet) {
       permissionHelper.storagePermission()
     }
@@ -195,6 +271,7 @@ class MainActivity : BaseActivity(), RouterProvider,
     }.recreate(this)
   }*/
 
+  @SuppressLint("SourceLockedOrientationActivity")
   override fun closeOptionsMenu() {
     super.closeOptionsMenu()
     if (screenOrientationPref.value) {
@@ -204,7 +281,7 @@ class MainActivity : BaseActivity(), RouterProvider,
     }
   }
 
-    private val delegate: CyaneaDelegate by lazy {
+  private val delegate: CyaneaDelegate by lazy {
     CyaneaDelegate.create(this, cyanea, getThemeResId())
   }
 
@@ -227,5 +304,10 @@ class MainActivity : BaseActivity(), RouterProvider,
       putExtra(NI_GO_TO_BOOK, bookId.toString())
       flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
     }
+  }
+
+  override fun onAudioVolumeChanged(currentVolume: Int, maxVolume: Int) {
+    currentVolumePref.value = audioManager!!.getStreamVolume(AudioManager.STREAM_MUSIC)
+    //  return
   }
 }

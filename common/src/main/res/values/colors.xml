@@ -5,4 +5,5 @@
     <color name="placeholderCoverColor">@color/grey200</color> <!--@color/grey200-->
     <color name="colorIcon">#37373a</color> <!--Icons-->
     <color name="colorIconSecond">#37373a</color> <!--Icons-->
+    <color name="colorlogo">#E6E6E6</color>
 </resources>

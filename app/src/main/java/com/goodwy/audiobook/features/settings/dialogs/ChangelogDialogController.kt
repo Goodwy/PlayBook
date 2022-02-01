@@ -19,7 +19,7 @@ class ChangelogDialogController : DialogController() {
   override fun onCreateDialog(savedViewState: Bundle?): Dialog {
     return MaterialDialog(activity!!, BottomSheet()).apply {
       setPeekHeight(res = R.dimen.dialog_80)
-      cornerRadius(4f)
+      cornerRadius(res = R.dimen.md_corner_radius)
       icon(R.drawable.ic_changelog)
       title(R.string.pref_changelog_title)
       message(R.string.pref_changelog_message) {

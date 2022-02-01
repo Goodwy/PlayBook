@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
+import android.graphics.Paint
 import android.graphics.drawable.Drawable
 import android.view.WindowManager
 import com.goodwy.audiobook.ffmpeg.ffmpeg
@@ -17,6 +18,15 @@ import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
 import kotlin.math.min
+import android.graphics.PorterDuff
+
+import android.graphics.PorterDuffXfermode
+import android.graphics.Rect
+
+import android.graphics.RectF
+
+
+
 
 // 500 kb
 const val MAX_IMAGE_SIZE = 500 * 1024
@@ -34,7 +44,24 @@ constructor(
     val canvas = Canvas(bitmap)
     drawable.setBounds(0, 0, canvas.width, canvas.height)
     drawable.draw(canvas)
-    return bitmap
+    return  getRoundedCornerBitmap(bitmap, 60)
+  }
+
+  fun getRoundedCornerBitmap(bitmap: Bitmap, radius: Int): Bitmap {
+    val output = Bitmap.createBitmap(
+      bitmap.width, bitmap
+        .height, Bitmap.Config.ARGB_8888
+    )
+    val canvas = Canvas(output)
+    val paint = Paint()
+    val rect = Rect(0, 0, bitmap.width, bitmap.height)
+    val rectF = RectF(rect)
+    paint.setAntiAlias(true)
+    canvas.drawARGB(0, 0, 0, 0)
+    canvas.drawRoundRect(rectF, radius.toFloat(), radius.toFloat(), paint)
+    paint.setXfermode(PorterDuffXfermode(PorterDuff.Mode.SRC_IN))
+    canvas.drawBitmap(bitmap, rect, rect, paint)
+    return output
   }
 
   suspend fun saveCover(bitmap: Bitmap, destination: File) = withContext(Dispatchers.IO) {

@@ -5,20 +5,21 @@
     tools:ignore="AlwaysShowAction">
 
     <item
+      android:id="@+id/action_time_lapse"
+      android:icon="@drawable/speedometer"
+      android:title="@string/playback_speed"
+      app:showAsAction="always" />
+    <!--android:icon="@drawable/speedometer"-->
+
+    <item
       android:id="@+id/repeat_mode"
       android:icon="@drawable/ic_repeat_off"
       android:title="@string/repeat_mode"
       app:showAsAction="always" />
 
     <item
-      android:id="@+id/action_time_lapse"
-      android:icon="@drawable/speedometer"
-      android:title="@string/playback_speed"
-      app:showAsAction="always" />
-
-    <item
         android:id="@+id/action_sleep"
-        android:icon="@drawable/alarm_off"
+        android:icon="@drawable/alarm"
         android:title="@string/action_sleep"
         app:showAsAction="always" />
 

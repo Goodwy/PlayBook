@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">PlayBooks Lite</string>
+    <string name="app_name" translatable="false">PlayBooks</string>
     <string name="zeroTime" translatable="false">0:00:00</string>
     <string name="zeroSec" translatable="false">00</string>
 
@@ -13,9 +13,18 @@
         <item>@string/material</item>
         <item>@string/ios</item>
     </string-array>
+    <string-array name="pref_statusbar_mode">
+        <item>@string/pref_statusbar_mode_value_transparent</item>
+        <item>@string/pref_statusbar_mode_value_color</item>
+    </string-array>
     <string-array name="pref_screen_orientation">
         <item>@string/pref_screen_orientation_value_system</item>
         <item>@string/pref_screen_orientation_value_portrait</item>
+    </string-array>
+    <string-array name="pref_player_background">
+        <item>@string/pref_player_background_theme</item>
+        <item>@string/pref_player_background_cover_color</item>
+        <item>@string/pref_player_background_blurred_cover</item>
     </string-array>
     <string-array name="pref_pay_values">
         <item>@string/pref_about_url1</item>

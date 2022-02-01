@@ -40,7 +40,7 @@ fun formatTimeSeconds(timeMs: Long, durationMs: Long = 0): String {
   }
 }
 
-private fun Long.digits(): Int {
+fun Long.digits(): Int {
   return if (this == 0L) {
     0
   } else {
@@ -48,8 +48,8 @@ private fun Long.digits(): Int {
   }
 }
 
-private fun Long.hours() = TimeUnit.MILLISECONDS.toHours(this)
+fun Long.hours() = TimeUnit.MILLISECONDS.toHours(this)
 
-private fun Long.minutes() = TimeUnit.MILLISECONDS.toMinutes(this) % 60
+fun Long.minutes() = TimeUnit.MILLISECONDS.toMinutes(this) % 60
 
-private fun Long.seconds() = TimeUnit.MILLISECONDS.toSeconds(this) % 60
+fun Long.seconds() = TimeUnit.MILLISECONDS.toSeconds(this) % 60

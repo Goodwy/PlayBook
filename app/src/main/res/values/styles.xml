@@ -8,6 +8,8 @@
         <item name="windowActionModeOverlay">true</item>
         <item name="background_overlay">@color/copy_primary_text_disabled_material_light</item>
         <item name="android:statusBarColor">@color/cyanea_primary_dark_reference</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">@bool/use_light_status</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">@bool/use_light_navigation</item>
 
         <item name="colorAccentDark">@color/accentDark</item>
         <item name="colorSecondary">@color/blue1</item>
@@ -48,8 +50,7 @@
         <item name="colorSecondary">@color/blue1</item>
         <item name="colorOnSecondary">@color/white</item>
         <item name="android:navigationBarColor" tools:ignore="NewApi">?backgroundColor</item>
-        <item name="android:windowLightStatusBar" tools:ignore="NewApi">@bool/use_light_status
-        </item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">@bool/use_light_status</item>
         <item name="colorControlNormal">@color/colorOnSurface</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorOnSurface">@color/colorOnSurface</item>
@@ -138,10 +139,11 @@
 
     <style name="splashScreenTheme" parent="AppTheme">
         <item name="android:windowBackground">@drawable/splash_screen</item>
-        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/cyanea_background_light</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@color/cyanea_background_dark</item>
+        <item name="android:statusBarColor">@color/cyanea_background_dark</item>
+    </style>
+    <!--
         <item name="android:statusBarColor">@color/cyanea_background_light</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
-    </style>
-    <!--<item name="android:windowSplashscreenContent" tools:ignore="NewApi">@drawable/splash_screen</item>-->
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>-->
 </resources>

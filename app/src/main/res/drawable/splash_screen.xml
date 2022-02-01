@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:opacity="opaque">
     <!-- The background color, preferably the same as your normal theme -->
-    <item android:drawable="@color/cyanea_background_light"/> <!--@android:color/white-->
+    <item android:drawable="@color/cyanea_background_dark"/> <!--@android:color/white-->
     <!-- Your product logo - 144dp color version of your app icon -->
-    <item>
-        <bitmap
-          android:src="@drawable/logo_shadow"
-          android:gravity="center"/>
-    </item>
-    <item>
-        <bitmap
-          android:src="@drawable/logo"
-          android:gravity="center"/>
-    </item>
+    <item android:drawable="@drawable/logo"
+      android:width="144dp"
+      android:height="144dp"
+      android:gravity="center"/>
 </layer-list>

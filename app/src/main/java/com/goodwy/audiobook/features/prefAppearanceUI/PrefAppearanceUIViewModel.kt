@@ -13,8 +13,12 @@ class PrefAppearanceUIViewModel
 @Inject constructor(
   @Named(PrefKeys.MINI_PLAYER_STYLE)
   private val miniPlayerStylePref: Pref<Int>,
-  @Named(PrefKeys.REWIND_BUTTON_STYLE)
-  private val rewindButtonStylePref: Pref<Int>
+  @Named(PrefKeys.SHOW_PROGRESS_BAR)
+  private val showProgressBarPref: Pref<Boolean>,
+  @Named(PrefKeys.SHOW_DIVIDER)
+  private val showDividerPref: Pref<Boolean>,
+  @Named(PrefKeys.ICON_MODE)
+private val iconModePref: Pref<Boolean>
 ) {
 
   private val _viewEffects = BroadcastChannel<PrefAppearanceUIViewEffect>(1)
@@ -23,11 +27,15 @@ class PrefAppearanceUIViewModel
   fun viewState(): Flow<PrefAppearanceUIViewState> {
     return combine(
       miniPlayerStylePref.flow,
-      rewindButtonStylePref.flow
-    ) { miniPlayerStylePref, rewindButtonStylePref ->
+      showProgressBarPref.flow,
+      showDividerPref.flow,
+      iconModePref.flow
+    ) { miniPlayerStylePref, showProgressBarPref, showDividerPref, iconMode ->
       PrefAppearanceUIViewState(
         miniPlayerStylePref = miniPlayerStylePref,
-        rewindButtonStylePref = rewindButtonStylePref
+        showProgressBarPref = showProgressBarPref,
+        showDividerPref = showDividerPref,
+        iconModePref = iconMode
       )
     }
   }
@@ -36,7 +44,15 @@ class PrefAppearanceUIViewModel
     _viewEffects.offer(PrefAppearanceUIViewEffect.ShowChangeMiniPlayerStyleDialog(miniPlayerStylePref.value))
   }
 
-  fun changeRewindButtonStyle() {
-    _viewEffects.offer(PrefAppearanceUIViewEffect.ShowChangeRewindButtonStyleDialog(miniPlayerStylePref.value))
+  fun toggleProgressBar() {
+    showProgressBarPref.value = !showProgressBarPref.value
+  }
+
+  fun toggleDivider() {
+    showDividerPref.value = !showDividerPref.value
+  }
+
+  fun toggleIconMode() {
+    iconModePref.value = !iconModePref.value
   }
 }

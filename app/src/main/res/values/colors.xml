@@ -7,8 +7,9 @@
     <color name="colorOnSurface">@color/black</color> <!--Icons-->
     <color name="blue1">#4c86cb</color>
     <color name="blue2">#e7eef5</color>
-    <color name="red">#ff2d55</color>
+    <color name="red">#FFEB5545</color>
     <color name="divider">#c6c6c7</color>
+    <color name="shadow_elevation">#000000</color>
     <color name="background_overlay">@color/copy_primary_text_disabled_material_light</color> <!--При нажатии кнопки + в окне добавления каталогов-->
     <!-- copied private resources from appcompat -->
     <color name="copy_primary_text_disabled_material_dark">#4Dffffff</color>

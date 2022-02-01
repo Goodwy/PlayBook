@@ -48,7 +48,9 @@ class BookAdder
   @Named(PrefKeys.SINGLE_BOOK_FOLDERS)
   private val singleBookFolderPref: Pref<Set<String>>,
   @Named(PrefKeys.COLLECTION_BOOK_FOLDERS)
-  private val collectionBookFolderPref: Pref<Set<String>>
+  private val collectionBookFolderPref: Pref<Set<String>>,
+  @Named(PrefKeys.LIBRARY_BOOK_FOLDERS)
+  private val libraryBookFolderPref: Pref<Set<String>>
 ) {
 
   private val _scannerActive = ConflatedBroadcastChannel(false)
@@ -113,7 +115,34 @@ class BookAdder
         checkBook(f, Book.Type.COLLECTION_FOLDER)
       }
     }
+    val libraryBooks = libraryBookFiles
+    for (f in libraryBooks) {
+      if (f.isFile && f.canRead()) {
+        checkBook(f, Book.Type.LIBRARY_FILE)
+      } else if (f.isDirectory && f.canRead()) {
+        scanFolderLibrary(f)
+      }
+    }
   }
+
+  private suspend fun scanFolderLibrary(file: File){
+    var hasFiles = false;
+    file.listFiles()?.forEach { i ->
+      if(i.isDirectory){
+        scanFolderLibrary(i)
+      }else if (i.isFile){
+        hasFiles=true;
+      }
+    }
+    if(hasFiles){
+      checkBook(file, Book.Type.LIBRARY_FOLDER)
+    }
+  }
+
+  private val libraryBookFiles: List<File>
+    get() = libraryBookFolderPref.value
+      .map(::File)
+      .sortedWith(NaturalOrderComparator.fileComparator)
 
   private val singleBookFiles: List<File>
     get() = singleBookFolderPref.value
@@ -166,6 +195,27 @@ class BookAdder
             // multi file book
             if (book.root == it.absolutePath) {
               bookExists = true
+            }
+          }
+        }
+        Book.Type.LIBRARY_FILE -> libraryBookFiles.forEach {
+          if (it.isFile) {
+            val chapters = book.content.chapters
+            val singleBookChapterFile = chapters.first().file
+            if (singleBookChapterFile.absolutePath.startsWith(it.absolutePath)) {
+              if(singleBookChapterFile.exists()){
+                bookExists = true
+              }
+            }
+          }
+        }
+        Book.Type.LIBRARY_FOLDER -> libraryBookFiles.forEach {
+          if (it.isDirectory) {
+            // multi file book
+            if (book.root.startsWith(it.absolutePath)) {
+              if(File(book.root).exists()){
+                bookExists = true
+              }
             }
           }
         }

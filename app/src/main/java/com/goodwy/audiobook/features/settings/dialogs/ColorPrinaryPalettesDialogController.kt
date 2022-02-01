@@ -1,21 +1,20 @@
 package com.goodwy.audiobook.features.settings.dialogs
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItems
 import com.goodwy.audiobook.R
 import com.goodwy.audiobook.misc.DialogController
+import com.goodwy.audiobook.uitools.*
 import com.jaredrummler.cyanea.Cyanea
 import com.jaredrummler.cyanea.app.BaseCyaneaActivity
 
 class ColorPrinaryPalettesDialogController : DialogController(),
   BaseCyaneaActivity {
 
-  val grey: Int = android.graphics.Color.parseColor("#FFE0E0E0")
-  val dark: Int = android.graphics.Color.parseColor("#FF272f35")
-  val blue: Int = android.graphics.Color.parseColor("#FF4C86CB")
-
+  @SuppressLint("CheckResult")
   override fun onCreateDialog(savedViewState: Bundle?): Dialog {
     return MaterialDialog(activity!!).apply {
       icon(R.drawable.ic_palettes)
@@ -30,9 +29,8 @@ class ColorPrinaryPalettesDialogController : DialogController(),
         }
         dismiss()
       }
-      negativeButton(R.string.dialog_cancel) { dialog ->
-      }
-      neutralButton(R.string.pref_default_theme_title) { dialog ->
+      negativeButton(R.string.dialog_cancel)
+      neutralButton(R.string.pref_default_theme_title) {
         if (cyanea.baseTheme == Cyanea.BaseTheme.LIGHT) {
           cyanea.edit {
             primary(blue)

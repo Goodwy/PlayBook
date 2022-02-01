@@ -32,6 +32,8 @@ class FolderChooserPresenter : Presenter<FolderChooserView>() {
   lateinit var singleBookFolderPref: Pref<Set<String>>
   @field:[Inject Named(PrefKeys.COLLECTION_BOOK_FOLDERS)]
   lateinit var collectionBookFolderPref: Pref<Set<String>>
+  @field:[Inject Named(PrefKeys.LIBRARY_BOOK_FOLDERS)]
+  lateinit var libraryBookFolderPref: Pref<Set<String>>
   @Inject
   lateinit var storageDirFinder: StorageDirFinder
 
@@ -118,6 +120,15 @@ class FolderChooserPresenter : Presenter<FolderChooserView>() {
         }
         view.finish()
         Timber.v("chosenSingleBook = $chosen")
+      }
+      FolderChooserActivity.OperationMode.LIBRARY_BOOK -> {
+        if (canAddNewFolder(chosen.absolutePath)) {
+          val libraryBooks = HashSet(libraryBookFolderPref.value)
+          libraryBooks.add(chosen.absolutePath)
+          libraryBookFolderPref.value = libraryBooks
+        }
+        view.finish()
+        Timber.v("chosenLibraryBook = $chosen")
       }
     }
   }

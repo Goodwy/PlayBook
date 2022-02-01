@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:orientation="vertical"
+  android:paddingTop="8dp"
+  android:paddingBottom="8dp"
+  android:background="@drawable/bottom_sheet">
+
+    <TextView
+      android:id="@+id/shakeToResetSwitchText"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="12dp"
+      android:layout_marginStart="10dp"
+      android:layout_marginEnd="10dp"
+      android:gravity="center"
+      android:text="@string/shake_to_reset"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+      android:textSize="16sp"
+      android:layout_weight="1"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintLeft_toLeftOf="@+id/time"
+      app:layout_constraintRight_toRightOf="@+id/time"
+      tools:ignore="NestedWeights,SmallSp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/toggleButton"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="2dp"
+      android:layout_marginEnd="2dp"
+      android:checked="true"
+      app:layout_constraintTop_toBottomOf="@+id/shakeToResetSwitchText"
+      app:layout_constraintLeft_toLeftOf="@+id/time"
+      app:layout_constraintRight_toRightOf="@+id/time"
+      app:useMaterialThemeColors="false">
+
+        <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/x50"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          app:layout_constraintGuide_percent="0.5" />
+
+        <com.google.android.material.chip.Chip
+          android:id="@+id/chip_off"
+          style="@style/Widget.App.Switch"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="6dp"
+          android:layout_marginBottom="12dp"
+          android:saveEnabled="true"
+          android:elevation="8dp"
+          android:text="Off"
+          android:textAlignment="center"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintRight_toRightOf="@+id/x50"
+          app:useMaterialThemeColors="false"
+          tools:ignore="HardcodedText" />
+
+        <com.google.android.material.chip.Chip
+          android:id="@+id/chip_on"
+          style="@style/Widget.App.Switch"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="6dp"
+          android:layout_marginBottom="12dp"
+          android:saveEnabled="true"
+          android:elevation="8dp"
+          android:text="On"
+          android:textAlignment="center"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintLeft_toLeftOf="@+id/x50"
+          app:layout_constraintRight_toRightOf="parent"
+          app:useMaterialThemeColors="false" />
+
+        <FrameLayout
+          android:id="@+id/bg"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:background="@drawable/chip_background"
+          android:layout_marginTop="6dp"
+          android:layout_marginBottom="6dp"
+          android:layout_marginStart="0dp"
+          android:layout_marginEnd="1dp"
+          android:elevation="7dp"
+          android:alpha="0.1"
+          app:layout_constraintTop_toTopOf="@+id/chip_off"
+          app:layout_constraintBottom_toBottomOf="@+id/chip_off"
+          app:layout_constraintLeft_toLeftOf="@+id/chip_off"
+          app:layout_constraintRight_toRightOf="@+id/chip_on" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.chip.Chip
+      android:id="@+id/custom"
+      style="@style/Widget.App.Switch"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="10dp"
+      android:layout_marginEnd="10dp"
+      android:clickable="false"
+      android:saveEnabled="false"
+      android:elevation="8dp"
+      android:text="@string/custom"
+      android:textAlignment="center"
+      app:layout_constraintTop_toBottomOf="@+id/toggleButton"
+      app:layout_constraintLeft_toLeftOf="@+id/time"
+      app:layout_constraintRight_toRightOf="@+id/time"
+      app:useMaterialThemeColors="false" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/time"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="12dp"
+      android:layout_gravity="center"
+      app:layout_constraintTop_toBottomOf="@+id/custom"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent" >
+
+        <com.google.android.material.chip.Chip
+          android:id="@+id/x10"
+          style="@style/Widget.App.Switch"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="6dp"
+          android:layout_marginEnd="8dp"
+          android:clickable="false"
+          android:saveEnabled="false"
+          android:elevation="8dp"
+          android:text="10"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintRight_toLeftOf="@+id/x20"
+          app:useMaterialThemeColors="false"
+          tools:ignore="HardcodedText" />
+
+        <com.google.android.material.chip.Chip
+          android:id="@+id/x20"
+          style="@style/Widget.App.Switch"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="8dp"
+          android:clickable="false"
+          android:saveEnabled="false"
+          android:elevation="8dp"
+          android:text="20"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintRight_toLeftOf="@+id/x30"
+          app:useMaterialThemeColors="false"
+          tools:ignore="HardcodedText" />
+
+        <com.google.android.material.chip.Chip
+          android:id="@+id/x30"
+          style="@style/Widget.App.Switch"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="12dp"
+          android:clickable="false"
+          android:saveEnabled="false"
+          android:elevation="8dp"
+          android:text="30"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:useMaterialThemeColors="false"
+          tools:ignore="HardcodedText" />
+
+        <com.google.android.material.chip.Chip
+          android:id="@+id/x45"
+          style="@style/Widget.App.Switch"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:clickable="false"
+          android:saveEnabled="false"
+          android:elevation="8dp"
+          android:text="45"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintLeft_toRightOf="@+id/x30"
+          app:useMaterialThemeColors="false"
+          tools:ignore="HardcodedText" />
+
+        <com.google.android.material.chip.Chip
+          android:id="@+id/x60"
+          style="@style/Widget.App.Switch"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="6dp"
+          android:clickable="false"
+          android:saveEnabled="false"
+          android:elevation="8dp"
+          android:text="60"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintLeft_toRightOf="@+id/x45"
+          app:useMaterialThemeColors="false"
+          tools:ignore="HardcodedText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.chip.Chip
+      android:id="@+id/endOfCurrentChapter"
+      style="@style/Widget.App.Switch"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="10dp"
+      android:layout_marginEnd="10dp"
+      android:clickable="false"
+      android:saveEnabled="false"
+      android:elevation="8dp"
+      android:text="@string/end_of_current_chapter"
+      android:textAlignment="center"
+      app:layout_constraintTop_toBottomOf="@+id/time"
+      app:layout_constraintLeft_toLeftOf="@+id/time"
+      app:layout_constraintRight_toRightOf="@+id/time"
+      app:useMaterialThemeColors="false" />
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:layout_marginTop="16dp"
+      android:gravity="center_vertical"
+      android:orientation="horizontal"
+      app:layout_constraintTop_toBottomOf="@+id/endOfCurrentChapter">
+
+        <TextView
+          android:id="@+id/note"
+          style="@style/BottomSheetRow"
+          android:gravity="center_vertical|start"
+          android:text="@string/sleep_timer_note"
+          android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+          android:textSize="10sp"
+          android:layout_weight="1"
+          tools:ignore="NestedWeights,SmallSp" />
+
+        <TextView
+          android:id="@+id/cancel"
+          style="@style/BottomSheetRow"
+          android:gravity="center_vertical|end"
+          android:text="@string/dialog_cancel"
+          android:layout_weight="1"
+          android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+          android:textColor="?colorPrimary" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@
   android:id="@+id/bookPlayRoot"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:fitsSystemWindows="true"
   android:background="?backgroundColor">
 
     <androidx.constraintlayout.widget.Guideline
@@ -18,7 +19,7 @@
       android:id="@+id/toolbar"
       android:layout_width="0dp"
       android:layout_height="?attr/actionBarSize"
-      android:background="?backgroundColor"
+      android:background="@android:color/transparent"
       android:theme="@style/AppToolbarCheckbox"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
@@ -131,22 +132,36 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="14dp"
-      android:layout_marginBottom="8dp"
+      android:layout_marginTop="32dp"
       android:text="@string/zeroTime"
       android:textAppearance="?textAppearanceBody2"
+      android:textSize="12sp"
       app:layout_constraintLeft_toLeftOf="@id/slider"
-      app:layout_constraintBottom_toTopOf="@+id/play" />
+      app:layout_constraintTop_toTopOf="@id/slider" />
+
+    <TextView
+      android:id="@+id/remainingTime"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="32dp"
+      android:text="@string/zeroTime"
+      android:textAppearance="?textAppearanceBody2"
+      android:textSize="12sp"
+      app:layout_constraintTop_toTopOf="@id/slider"
+      app:layout_constraintLeft_toLeftOf="@id/slider"
+      app:layout_constraintRight_toRightOf="@id/slider" />
 
     <TextView
       android:id="@+id/maxTime"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginEnd="14dp"
-      android:layout_marginBottom="8dp"
+      android:layout_marginTop="32dp"
       android:text="@string/zeroTime"
       android:textAppearance="?textAppearanceBody2"
+      android:textSize="12sp"
       app:layout_constraintRight_toRightOf="@id/slider"
-      app:layout_constraintBottom_toTopOf="@+id/play" />
+      app:layout_constraintTop_toTopOf="@id/slider" />
 
     <com.google.android.material.slider.Slider
       android:id="@+id/slider"

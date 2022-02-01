@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_what_new_message"><![CDATA[
+<body>
+<i><p>1. <b>IMPROVEMENT:</b> Play speed icon now shows speed</p></i>
+<i><p>2. <b>FIX:</b> Fixed translations</p></i>
+</body>
+  ]]></string>
     <string name="pref_changelog_message"><![CDATA[
+<body>
+<i><h4><a href="">Version 1.3.4</a></h4></i>
+<i><p>1. <b>IMPROVEMENT:</b> Play speed icon now shows speed</p></i>
+<i><p>2. <b>FIX:</b> Fixed translations</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.3.2</a></h4></i>
+<i><p>1. <b>FIX:</b> Remaining time has been fixed in the player</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.3.1</a></h4></i>
+<i><p>1. <b>FIX:</b> Fixed access to storage for Android 11 or above</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.3.0</a></h4></i>
+<i><p>1. <b>NEW:</b> Added the remaining time to the player</p></i>
+<i><p>2. <b>NEW:</b> Added setting \'Statusbar mode\'</p></i>
+<i><p>3. <b>NEW:</b> Added setting \'Player background\'</p></i>
+<i><p>4. <b>IMPROVEMENT:</b> Changed the animation of opening the player</p></i>
+<i><p>5. <b>IMPROVEMENT:</b> Chapters list changed</p></i>
+<i><p>6. <b>IMPROVEMENT:</b> Changed the animation of opening the player</p></i>
+<i><p>7. <b>IMPROVEMENT:</b> Changed cover shadow color for dark theme</p></i>
+<i><p>8. <b>FIX:</b> Fixed access to storage for Android 11 or above</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.2.3</a></h4></i>
+<i><p>1. <b>NEW:</b> Added the ability to display icons instead of text</p></i>
+<i><p>2. <b>NEW:</b> The color of the widget changes with the theme</p></i>
+<i><p>3. <b>IMPROVEMENT:</b> The Edit button has been renamed to Folders</p></i>
+</body>
+<br>
+<body>
+<i><h4><a href="">Version 1.2.2</a></h4></i>
+<i><p>1. <b>IMPROVEMENT:</b> Changed dialogs for selecting a mini player, play buttons, rewind buttons</p></i>
+<i><p>2. <b>FIX:</b> Fixed cropping of album cover</p></i>
+<i><p>3. <b>FIX:</b> Bug fixes, stability improvements</p></i>
+</body>
+<br>
 <body>
 <i><h4><a href="">Version 1.2.1</a></h4></i>
 <i><p>1. <b>NEW:</b> The sound fades out slowly when the sleep timer ends</p></i>
