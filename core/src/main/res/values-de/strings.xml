@@ -27,7 +27,7 @@
     <string name="dialog_cancel">Abbrechen</string>
     <!--EditBookDialog-->
     <string name="content_cover">Zeigt aktuelles Cover an</string>
-    <string name="change_book_name">Name ändern</string>
+    <string name="change_book_name">Namen ändern</string>
     <string name="download_book_cover">Cover herunterladen</string>
     <string name="pick_book_cover">Cover auswählen</string>
     <string name="edit_book_title">Buchtitel bearbeiten</string>
@@ -137,7 +137,7 @@
     <string name="pref_category_other">Andere</string>
     <string name="pref_skip_interval_title">Intervall überspringen</string>
     <string name="pref_skip_interval_summary">Einstellungen für das Überspringen von Mengen und das automatische Zurückspulen</string>
-    <string name="pref_appearance_ui_title">Benutzeroberfläche des Erscheinungsbildes</string>
+    <string name="pref_appearance_ui_title">Erscheinungsbild der Benutzeroberfläche</string>
     <string name="pref_appearance_ui_summary">Benutzeroberfläche anpassen</string>
     <string name="pref_screen_orientation_title">Bildschirmausrichtung</string>
     <string name="pref_screen_orientation_summary_portrait">Legt die Ausrichtung des Porträts unabhängig von den Geräteeinstellungen fest</string>
