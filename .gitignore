@@ -5,8 +5,6 @@ captures
 audiobook/build
 build
 .gradle/
-*~
-*.log
 local.properties
 MaterialAudiobookPlayer.iml
 .kobalt
