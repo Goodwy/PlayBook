@@ -1,56 +1,57 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation" tools:locale="en">
     <!--BookShelf-->
-    <string name="current_book">当前书籍</string>
-    <string name="layout_grid">格状布局</string>
+    <string name="current_book">当前在读</string>
+    <string name="layout_grid">网格布局</string>
     <string name="layout_list">列表布局</string>
-    <!--in the book-overview the show-all button which displays all books of a category-->
+    <!-- in the book-overview the show-all button which displays all books of a category -->
     <string name="show_all">显示全部</string>
     <!--BookPlayFragment-->
     <string name="cover">封面</string>
     <string name="play_pause">播放 / 暂停</string>
-    <string name="action_sleep">睡眠定时器</string>
-    <string name="rewind">倒回</string>
+    <string name="action_sleep">定时关闭</string>
+    <string name="rewind">快退</string>
     <string name="fast_forward">快进</string>
-    <string name="previous_track">上一节</string>
-    <string name="next_track">下一节</string>
+    <string name="previous_track">上一章</string>
+    <string name="next_track">下一章</string>
     <string name="play">播放</string>
     <string name="pause">暂停</string>
     <string name="equalizer">均衡器</string>
     <string name="volume_boost">音量提升</string>
     <string name="skip_silence">跳过空白部分</string>
     <!--NoExternalStorage-->
-    <string name="no_external_storage">外部存储不可用。请确保外部存储已连接且没有被挂载在您的计算机上。</string>
-    <string name="no_external_storage_action_bar_title">外部存储</string>
+    <string name="no_external_storage">外部存储器不可用.请确保外部存储器已连接且已被挂载.</string>
+    <string name="no_external_storage_action_bar_title">外部存储器</string>
     <!--Dialogs-->
-    <string name="dialog_confirm">设定</string>
+    <string name="dialog_confirm">确定</string>
     <string name="dialog_cancel">取消</string>
+    <string name="dialog_ok">好的</string>
     <!--EditBookDialog-->
     <string name="content_cover">显示可选封面</string>
-    <string name="change_book_name">名称</string>
-    <string name="download_book_cover">从互联网寻找封面图片</string>
-    <string name="pick_book_cover">从本机目录寻找封面图片</string>
+    <string name="change_book_name">书名</string>
+    <string name="download_book_cover">从互联网寻找封面</string>
+    <string name="pick_book_cover">从本地目录寻找封面</string>
     <string name="edit_book_title">编辑书名</string>
-    <!--JumpToPosition-->
+    l    <!--JumpToPosition-->
     <string name="action_time_change">跳转到</string>
     <!--BookAdding-->
-    <string name="adding_failed_subfolder">目录不应该互为子目录：</string>
+    <string name="adding_failed_subfolder">与现有目录有重叠.</string>
     <string name="audiobook_folders_title">有声书目录</string>
-    <string name="chosen_folder_description">选择目录：</string>
-    <string name="delete_folder">从书库中删除吗？</string>
-    <string name="delete_folder_content">要从书库中删除以下目录吗？</string>
-    <string name="folder_add_single_book">单册书籍</string>
+    <string name="chosen_folder_description">当前目录:</string>
+    <string name="delete_folder">确认移除吗?</string>
+    <string name="delete_folder_content">要从书库中移除以下目录吗?</string>
+    <string name="folder_add_single_book">包含单册书籍的目录</string>
     <string name="folder_add_collection">包含多册书籍的目录</string>
     <string name="for_example">例如</string>
     <string name="content_add_book">添加书籍</string>
     <string name="content_is_folder">目录</string>
     <string name="content_is_file">文件</string>
-    <string name="content_navigate_up">跳转到上级目录</string>
-    <string name="permission_external_new_explanation">权限不足，无法读取书籍</string>
-    <string name="permission_retry">重试？</string>
-    <string name="permission_goto_settings">配置选项</string>
-    <string name="storage_pre_device">内置存储：</string>
-    <string name="storage_all">所有音频</string>
+    <string name="content_navigate_up">返回上层目录</string>
+    <string name="permission_external_new_explanation">权限不足,无法读取书籍.</string>
+    <string name="permission_retry">重试?</string>
+    <string name="permission_goto_settings">设置</string>
+    <string name="storage_pre_device">内部存储:</string>
+    <string name="storage_all">所有目录</string>
     <!--PlaybackSpeed-->
     <string name="playback_speed">播放速度</string>
     <!--Bookmarks-->
@@ -59,163 +60,223 @@
     <string name="bookmark_edit_title">编辑书签</string>
     <string name="bookmark_edit_hint">书签名</string>
     <string name="bookmark_added">书签已添加</string>
-    <string name="bookmark_delete_title">删除书签吗？</string>
+    <string name="bookmark_delete_title">删除此书签吗?</string>
     <!--Settings-->
-    <string name="action_settings">设定值</string>
-    <string name="pref_resume_on_replug">继续播放</string>
-    <string name="pref_resume_on_replug_hint">若因拔出耳机而暂停，插入耳机后将继续播放。</string>
+    <string name="action_settings">设置</string>
+    <string name="pref_resume_on_replug">恢复播放</string>
+    <string name="pref_resume_on_replug_hint">若因拔出耳机而暂停,在插入耳机后将恢复播放.</string>
     <string name="min">%s 分钟</string>
-    <string name="delete_last_number">删除最后输入的数字</string>
+    <string name="delete_last_number">删除之前输入的数字</string>
     <plurals name="seconds">
+        <item quantity="one">%d 秒</item>
         <item quantity="other">%d 秒</item>
     </plurals>
     <string name="pref_seek_time">跳过时间</string>
-    <string name="pref_root_folder_title">图书馆</string>
-    <string name="pref_theme_dark">暗黑主题</string>
+    <string name="pref_root_folder_title">书库</string>
+    <string name="pref_theme_dark">深色主题</string>
     <string name="pref_auto_rewind_title">自动倒回</string>
     <plurals name="pref_auto_rewind_summary">
-        <item quantity="other">手动暂停后自动倒回 %d 秒。</item>
+        <item quantity="one">手动暂停后自动倒回 %d 秒.</item>
+        <item quantity="other">手动暂停后自动倒回 %d 秒.</item>
     </plurals>
     <string name="pref_support_title">支持</string>
     <string name="pref_support_translations">翻译</string>
     <string name="pref_support_contribute">支持和建议</string>
     <string name="pref_about_title">关于</string>
-    <string name="pref_licenses_title">执照</string>
+    <string name="pref_about_url1" translatable="false">Google Play</string>
+    <string name="pref_about_message"><![CDATA[
+        An open source <b>PlayBooks</b> audiobook player. PlayBooks is based on the open source Voice application.
+        <br/><br/>
+        I would be very grateful if you leave a review or rating about the application on Google Play, it will greatly help the development of the project.<br/>
+    ]]></string>
+    <string name="pref_licenses_title">许可</string>
+    <string name="pref_pay_title">支持PlayBooks</string>
+    <string name="pref_pay_message"><![CDATA[
+ <b>Unlocks</b> extra features, such as <b>black theme</b> and <b>all theme colors</b>.<br/><br/>
+The source code of <b>PlayBooks</b> is available on <a href="https://github.com/Goodwy/PlayBooks">GitHub</a>. You are welcome to compile the full version yourself for free. However, if you want to support the development and receive updates through the Google Play, consider purchasing full version.<br/><br/>
+<i>Thank you,<br/>
+Goodwy</i>
+  ]]></string>
+    <string name="support_email" translatable="false">goodwy.dev@gmail.com</string>
+    <string name="email_subject_lifebuoy" translatable="false">PlayBooks Lifebuoy</string>
+    <string name="email_subject_support" translatable="false">Support and Suggestions</string>
+    <string name="email_chooser_title">发送电子邮件</string>
+    <string name="special_thanks_message" translatable="false"><![CDATA[
+        <b>Paul Woitaschek</b> for contributing to the source code <b>Voice</b>.<br/>
+        <a href="https://paul-woitaschek.de/">Website</a>&nbsp;&nbsp;
+        <a href="https://github.com/PaulWoitaschek">GitHub</a>&nbsp;&nbsp;
+        <br/><br/>
+        <b>Aidan Follestad</b> for the best <b>Material Dialogs</b>.<br/>
+        <a href="https://af.codes/">Website</a>&nbsp;&nbsp;
+        <a href="https://github.com/afollestad">GitHub</a>&nbsp;&nbsp;
+        <br/><br/>
+        <b>Jared Rummler</b> for the best theme engine <b>Cyanea</b>.<br/>
+        <a href="https://portfolio.jaredrummler.com/">Website</a>&nbsp;&nbsp;
+        <a href="https://github.com/jaredrummler">GitHub</a>&nbsp;&nbsp;
+        <br/><br/>
+    ]]></string>
     <!--Misc-->
     <string name="popup_edit">编辑</string>
-    <string name="remove">删除</string>
+    <string name="remove">移除</string>
     <string name="play_current">播放当前书籍</string>
-    <!--hide folder dialog-->
-    <!--license activity-->
+    <!-- hide folder dialog -->
+    <!-- license activity -->
     <string name="refresh">刷新</string>
     <string name="reset">重置</string>
-    <string name="no_network">没有网络连接？</string>
-    <string name="network_top">出了一些小问题...</string>
-    <string name="cover_crop">封面裁剪</string>
-    <string name="music_notification">播放</string>
-    <string name="onboarding_title">欢迎！</string>
-    <string name="onboarding_content">请从加入您的第一部有声书开始。</string>
-    <!--book category-->
-    <string name="book_header_current">正在播放</string>
-    <string name="book_header_not_started">尚未开始播放</string>
-    <string name="book_header_completed">已经播放完毕</string>
+    <string name="no_network">没有网络连接?</string>
+    <string name="network_top">出了些小问题…</string>
+    <string name="cover_crop">封面</string>
+    <string name="music_notification">Playback</string>
+
+    <string name="onboarding_title">欢迎!</string>
+    <string name="onboarding_content">添加你的第一本有声书吧!</string>
+
+    <!-- book category -->
+    <string name="book_header_current">当前在播</string>
+    <string name="book_header_not_started">尚未播放</string>
+    <string name="book_header_completed">播放完毕</string>
     <string name="book_category_sort">排序中</string>
-    <string name="book_category_sort_by_name">名</string>
-    <string name="book_category_sort_by_last_played">上一次播放</string>
-    <string name="book_category_sort_by_added">已添加</string>
-    <string name="grid">格</string>
-    <string name="list">視圖</string>
-    <string name="contents">內容</string>
-    <string name="pref_changelog_title">變更日誌</string>
-    <string name="pref_default_theme_title">默認設置</string>
-    <string name="pref_category_playback">回放</string>
-    <string name="pref_category_support">支持</string>
-    <string name="pref_theme_hint">應用程序主題設置菜單</string>
-    <string name="pref_statusbar_color_title">狀態欄顏色</string>
-    <string name="pref_statusbar_color_summary">將狀態欄顏色設置為與主顏色不同</string>
-    <string name="only_the_first_5_colors_available">免費版僅提供前5種顏色。</string>
-    <string name="label_theme_picker">主題選擇器</string>
-    <string name="pref_theme_title">主題</string>
-    <string name="pref_theme_summary">選擇一個預裝的主題</string>
-    <string name="pref_primary_color_title">原色</string>
-    <string name="pref_primary_color_summary">活動元素和狀態欄的顏色</string>
-    <string name="pref_accent_color_title">口音顏色</string>
-    <string name="pref_accent_color_summary">口音選擇UI的一部分</string>
-    <string name="pref_background_color_title">背景顏色</string>
-    <string name="pref_background_color_summary">應用內容的基本顏色</string>
-    <string name="pref_category_appearance">出現</string>
-    <string name="pref_colored_navigation_bar_title">導航欄顏色</string>
-    <string name="pref_colored_navigation_bar_summary">將背景顏色應用於導航欄</string>
+    <string name="book_category_sort_by_name">书名</string>
+    <string name="book_category_sort_by_last_played">上次播放</string>
+    <string name="book_category_sort_by_added">添加时间</string>
+
+    <!-- PlayBooks -->
+    <string name="grid">网格视图</string>
+    <string name="list">列表视图</string>
+    <string name="contents">内容</string>
+    <string name="only_the_first_5_colors_available">免费版仅提供5种颜色.</string>
     <string name="palettes">调色板</string>
+    <string name="original">Original配色</string>
+    <string name="material">Material配色</string>
+    <string name="ios">iOS配色</string>
     <string name="learn_more">了解更多</string>
+    <string name="version">版本</string>
     <string name="show_chapter_numbers">显示章节编号</string>
     <string name="delete_file">删除当前文件</string>
-    <string name="pref_pay_summary">获取PlayBooks以支持未来的开发和其他功能</string>
+    <string name="mark_as_current">标记为当前在播</string>
+    <string name="mark_as_completed">标记为播放完毕</string>
+    <string name="mark_as_not_started">标记为尚未播放</string>
+    <string name="folder_add_library_book">包含多个子目录的目录</string>
+    <string name="end_of_current_chapter">本章末尾</string>
+    <string name="sleep_timer_note">在定时结束后30秒内摇动设备以重新开始定时</string>
+    <string name="custom">自定义</string>
+    <string name="repeat_mode">重复</string>
+    <string name="folders">Folders</string>
+    <string name="left">剩余 %s</string>
+    <string name="left_in_audiobook">在有声书中剩余 %s</string>
+    <string name="seconds_letter">s</string>
+    <string name="minutes_letter">m</string>
+    <string name="hours_letter">h</string>
+
+    <!-- Settings -->
+    <string name="pref_default_theme_title">设置默认主题</string>
+    <string name="pref_category_playback">回放</string>
+    <string name="pref_category_support">支持</string>
+    <string name="pref_theme_hint">应用程序主题设置菜单</string>
+    <string name="pref_statusbar_mode_title">状态栏外观</string>
+    <string name="pref_statusbar_mode_summary">设置状态栏外观</string>
+    <string name="pref_statusbar_mode_value_transparent">透明</string>
+    <string name="pref_statusbar_mode_value_color">颜色</string>
+    <string name="pref_statusbar_color_title">状态栏颜色</string>
+    <string name="pref_statusbar_color_summary">设置状态栏颜色</string>
+    <string name="pref_pay_summary">帮助PlayBooks继续开发更多功能</string>
     <string name="pref_category_other">其他</string>
-    <string name="pref_skip_interval_title">跳过间隔</string>
-    <string name="pref_skip_interval_summary">跳过量和自动快退设置</string>
-    <string name="pref_appearance_ui_title">外观界面</string>
+    <string name="pref_skip_interval_title">快进快退间量</string>
+    <string name="pref_skip_interval_summary">设置快进快退间量和自动倒回</string>
+    <string name="pref_appearance_ui_title">用户界面</string>
     <string name="pref_appearance_ui_summary">自定义用户界面</string>
     <string name="pref_screen_orientation_title">屏幕方向</string>
-    <string name="pref_screen_orientation_summary_portrait">设置纵向方向，与设备设置无关</string>
-    <string name="pref_screen_orientation_summary_system">屏幕方向取决于设备设置</string>
-    <string name="pref_screen_orientation_value_portrait">肖像</string>
-    <string name="pref_screen_orientation_value_system">系统</string>
-    <string name="pref_show_grid_view_auto_title">自动更改视图网格</string>
-    <string name="pref_show_grid_view_auto_summary">取决于屏幕尺寸</string>
+    <string name="pref_screen_orientation_summary_portrait">设置为竖屏显示</string>
+    <string name="pref_screen_orientation_summary_system">跟随系统设置</string>
+    <string name="pref_screen_orientation_value_portrait">竖屏显示</string>
+    <string name="pref_screen_orientation_value_system">跟随系统</string>
+    <string name="pref_show_grid_view_auto_title">自动改变视图</string>
+    <string name="pref_show_grid_view_auto_summary">根据屏幕尺寸自动确定网格或者列表视图</string>
+    <string name="pref_show_progress_bar_title">显示进度条</string>
+    <string name="pref_show_progress_bar_summary">在书库中显示进度条</string>
+    <string name="pref_show_divider_title">显示分割线</string>
+    <string name="pref_show_divider_summary">在书库中显示分割线</string>
+    <string name="pref_use_english_title">切换为英语</string>
+    <string name="pref_use_english_summary">改变此设定会使应用程序重启</string>
+    <string name="pref_appearance_ui_library_title">书库用户界面</string>
+    <string name="pref_appearance_ui_library_summary">自定义书库用户界面</string>
+    <string name="pref_appearance_ui_player_title">播放器用户界面</string>
+    <string name="pref_appearance_ui_player_summary">自定义播放器用户界面</string>
+    <string name="pref_what_new_title">新特性</string>
+
+    <!-- Beta -->
+    <string name="pref_beta_title" translatable="false">Beta</string>
+    <string name="pref_beta_summary">试验特性</string>
+
+    <!-- About -->
+    <string name="pref_github_title" translatable="false">GitHub</string>
     <string name="pref_github_summary">加入我们的项目</string>
-    <string name="pref_rate_title">评价PlayBooks</string>
-    <string name="pref_other_app_title">其他应用</string>
+    <string name="pref_rate_title">给PlayBooks评分</string>
+    <string name="pref_other_app_title">其他应用程序</string>
+    <string name="pref_changelog_title">更新日志</string>
     <string name="pref_privacy_title">隐私政策</string>
     <string name="pref_share_title">分享</string>
-    <string name="pref_show_mini_player_title">迷你玩家风格</string>
-    <string name="pref_show_mini_player_summary">图书馆屏幕迷你播放器样式</string>
+    <string name="pref_translate_title">协助翻译</string>
+    <string name="pref_translate_summary">帮助完善翻译</string>
+
+    <!-- Appearance UI -->
+    <string name="pref_show_mini_player_title">迷你播放器样式</string>
+    <string name="pref_show_mini_player_summary">书库用户界面中显示迷你播放器</string>
     <string name="pref_mini_player_floating_button">按钮</string>
-    <string name="pref_mini_player_mini_player_floating">浮动球员</string>
-    <string name="pref_rewind_buttons_style_title">倒带按钮样式</string>
-    <string name="pref_rewind_buttons_style_summary">在播放器中选择快退按钮的样式</string>
-    <string name="pref_rewind_buttons_style_classic">经典的</string>
-    <string name="pref_rewind_buttons_style_rounded">四舍五入</string>
-    <string name="rate_dismiss">拒绝</string>
-    <string name="rate_title">享受 PlayBooks？</string>
-    <string name="rate_summary">在Google Play上分享一些爱心并给我们评分！ 这对我们来说非常重要。</string>
-    <string name="action_support_project">支持项目</string>
-    <string name="get_playbooks">取得PlayBooks</string>
-    <string name="sp_dark_title">黑暗主题</string>
-    <string name="sp_dark_summary">深色主题在AMOLED显示器上使用的功率更少。 单击以启用深色主题，该主题将一直有效，直到重新启动应用程序。</string>
+    <string name="pref_mini_player_mini_player_floating">悬浮条</string>
+    <string name="pref_rewind_buttons_style_title">快进快退按钮样式</string>
+    <string name="pref_rewind_buttons_style_summary">选择播放器中快进快退按钮样式</string>
+    <string name="pref_rewind_buttons_style_classic">经典</string>
+    <string name="pref_rewind_buttons_style_rounded">圆润</string>
+    <string name="pref_play_buttons_style_title">播放按钮样式</string>
+    <string name="pref_play_buttons_style_summary">选择播放器中播放按钮样式</string>
+    <string name="pref_show_slider_volume_title">音量控制条</string>
+    <string name="pref_show_slider_volume_summary">在播放器中显示音量控制条</string>
+    <string name="pref_cover_settings_title">封面设置</string>
+    <string name="pref_cover_corner_radius_title">封面圆角</string>
+    <string name="pref_cover_elevation_title">封面提升</string>
+    <string name="pref_cover_shadow_title">封面阴影</string>
+    <string name="pref_icon_mode_title">显示图标</string>
+    <string name="pref_icon_mode_summary">在书库上方用功能图标代替文字</string>
+    <string name="pref_player_background_title">播放器背景</string>
+    <string name="pref_player_background_summary">选择播放器背景样式</string>
+    <string name="pref_player_background_theme">默认背景</string>
+    <string name="pref_player_background_cover_color">封面主色</string>
+    <string name="pref_player_background_blurred_cover">模糊封面</string>
+
+    <!-- Rate -->
+    <string name="rate_dismiss">取消</string>
+    <string name="rate_okay">好的!</string>
+    <string name="rate_title">喜欢PlayBooks?</string>
+    <string name="rate_summary">期待你在Google Play上的评价,这对我们很重要.</string>
+
+    <!-- Support project -->
+    <string name="action_support_project">支持本项目</string>
+    <string name="get_playbooks">获取PlayBooks</string>
+    <string name="sp_dark_title">深色主题</string>
+    <string name="sp_dark_summary">AMOLED显示屏使用深色主题功耗更小,点击以启用深色主题,在重启应用程序前该主题将一直有效.</string>
     <string name="sp_color_title">颜色</string>
-    <string name="sp_color_summary">精心挑选的颜色主题，以及推荐用于Android和iOS的调色板。</string>
+    <string name="sp_color_summary">精心挑选的颜色主题,以及推荐用于Android和iOS系统的调色板.</string>
     <string name="sp_plus_title">支持我们</string>
-    <string name="sp_plus_summary">PlayBooks Lite 是免费的，无广告的开放源代码，并且它将一直保持这种状态。 在您的帮助下，我们能够实现更多功能，并使PlayBook变得更好。</string>
+    <string name="sp_plus_summary">PlayBooks Lite将一直保持免费开源无广告,您的帮助将使PlayBooks变得更好.</string>
     <string name="sp_lifebuoy_title">救生圈</string>
-    <string name="sp_lifebuoy_summary">如果您买不起这本PlayBooks，但真的想使用它，请给我写一封电子邮件。</string>
-    <string name="sp_participants_title">参加者：</string>
+    <string name="sp_lifebuoy_summary">如果你确实喜欢PlayBooks但无法负担费用,请发电子邮件给我.</string>
+    <string name="sp_participants_title">参与者:</string>
     <string name="special_thanks_to">特别感谢</string>
     <string name="change_book_author">作者</string>
     <string name="edit_book_author">编辑作者</string>
-    <string name="email_chooser_title">发送电子邮件</string>
-    <string name="pref_pay_title">支持PlayBooks</string>
-    <string name="pref_show_progress_bar_title">进度条</string>
-    <string name="pref_show_progress_bar_summary">在库中显示进度栏</string>
-    <string name="mark_as_completed">标记为已完成</string>
-    <string name="mark_as_not_started">标记为未开始</string>
-    <string name="version">版本</string>
-    <string name="mark_as_current">標記為當前</string>
-    <string name="folder_add_library_book">帶多個子摺疊的資料夾</string>
-    <string name="end_of_current_chapter">本章末尾</string>
-    <string name="sleep_timer_note">要重新啟動，請在完成後 30 秒內搖動設備</string>
-    <string name="custom">習慣</string>
-    <string name="pref_show_divider_title">顯示分隔線</string>
-    <string name="pref_show_divider_summary">在圖書館中顯示圖書之間的分隔</string>
-    <string name="pref_translate_title">翻譯輔助</string>
-    <string name="pref_translate_summary">説明糾正錯誤並完成翻譯</string>
-    <string name="pref_use_english_title">使用英語</string>
-    <string name="pref_use_english_summary">更改設置將重新啟動應用程式</string>
-    <string name="repeat_mode">重複</string>
-    <string name="pref_appearance_ui_library_title">庫UI外觀</string>
-    <string name="pref_appearance_ui_library_summary">自訂庫的用戶介面</string>
-    <string name="pref_appearance_ui_player_title">玩家UI外觀</string>
-    <string name="pref_appearance_ui_player_summary">自定義玩家的用戶介面</string>
-    <string name="pref_play_buttons_style_title">播放按鈕樣式</string>
-    <string name="pref_play_buttons_style_summary">選擇播放機中的播放按鈕的樣式</string>
-    <string name="pref_show_slider_volume_title">體積控制</string>
-    <string name="pref_show_slider_volume_summary">在播放螢幕上顯示「音量控制」</string>
-    <string name="pref_cover_settings_title">封面設置</string>
-    <string name="pref_cover_corner_radius_title">封面角度半徑</string>
-    <string name="pref_cover_elevation_title">提升封面</string>
-    <string name="folders">資料夾</string>
-    <string name="pref_icon_mode_title">顯示圖示</string>
-    <string name="pref_icon_mode_summary">顯示功能表圖示而不是文本</string>
-    <string name="pref_statusbar_mode_title">狀態列模式</string>
-    <string name="pref_statusbar_mode_summary">設置狀態列的外觀</string>
-    <string name="pref_statusbar_mode_value_transparent">透明</string>
-    <string name="pref_statusbar_mode_value_color">顏色</string>
-    <string name="left">%s 左</string>
-    <string name="left_in_audiobook">有聲讀物中剩餘的%s</string>
-    <string name="pref_player_background_title">播放器的後部背景</string>
-    <string name="pref_player_background_summary">在播放機中選擇背景樣式</string>
-    <string name="pref_player_background_theme">應用背景</string>
-    <string name="pref_player_background_cover_color">主要封面顏色</string>
-    <string name="pref_player_background_blurred_cover">模糊封面</string>
-    <string name="pref_cover_shadow_title">覆蓋陰影</string>
+
+    <!-- Theme -->
+    <string name="label_theme_picker">主题选取器</string>
+    <string name="pref_theme_title">主题</string>
+    <string name="pref_theme_summary">选择一个预装主题</string>
+    <string name="pref_primary_color_title">主色</string>
+    <string name="pref_primary_color_summary">设置活动元素和状态栏的颜色</string>
+    <string name="pref_accent_color_title">配色</string>
+    <string name="pref_accent_color_summary">部分用户界面的配色</string>
+    <string name="pref_background_color_title">背景色</string>
+    <string name="pref_background_color_summary">应用程序的背景色</string>
+    <string name="pref_category_appearance">外观</string>
+    <string name="pref_colored_navigation_bar_title">导航条颜色</string>
+    <string name="pref_colored_navigation_bar_summary">将背景色用于导航条</string>
 </resources>
