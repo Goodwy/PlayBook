@@ -12,25 +12,25 @@
     <string name="action_sleep">Einschlaf-Timer</string>
     <string name="rewind">Zurückspulen</string>
     <string name="fast_forward">Vorspulen</string>
-    <string name="previous_track">Voriger Song</string>
-    <string name="next_track">Nächster Song</string>
+    <string name="previous_track">Voriger Titel</string>
+    <string name="next_track">Nächster Titel</string>
     <string name="play">Abspielen</string>
     <string name="pause">Pause</string>
     <string name="equalizer">Equalizer</string>
     <string name="volume_boost">Lautstärke erhöhen</string>
     <string name="skip_silence">Stille überspringen</string>
     <!--NoExternalStorage-->
-    <string name="no_external_storage">Der externe Speicher ist nicht verfügbar. Prüfen Sie, ob Ihre Speicherkarte eingesteckt und nicht mit dem Computer verbunden ist.</string>
+    <string name="no_external_storage">Der externe Speicher ist nicht verfügbar. Prüfen Sie, ob Ihre Speicherkarte eingesteckt und nicht mit dem Gerät verbunden ist.</string>
     <string name="no_external_storage_action_bar_title">Externer Speicher</string>
     <!--Dialogs-->
     <string name="dialog_confirm">Okay</string>
     <string name="dialog_cancel">Abbrechen</string>
     <!--EditBookDialog-->
     <string name="content_cover">Zeigt aktuelles Cover an</string>
-    <string name="change_book_name">Name</string>
-    <string name="download_book_cover">Cover (Internet)</string>
-    <string name="pick_book_cover">Cover (Lokal)</string>
-    <string name="edit_book_title">Buch bearbeiten</string>
+    <string name="change_book_name">Namen ändern</string>
+    <string name="download_book_cover">Cover herunterladen</string>
+    <string name="pick_book_cover">Cover auswählen</string>
+    <string name="edit_book_title">Buchtitel bearbeiten</string>
     <!--JumpToPosition-->
     <string name="action_time_change">Zu Stelle springen</string>
     <!--BookAdding-->
@@ -38,7 +38,7 @@
     <string name="audiobook_folders_title">Hörbuch Ordner</string>
     <string name="chosen_folder_description">Gewählter Ordner: </string>
     <string name="delete_folder">Ordner entfernen</string>
-    <string name="delete_folder_content">Möchten Sie den folgenden Ordner aus Ihrer Bücherei entfernen?</string>
+    <string name="delete_folder_content">Möchten Sie den folgenden Ordner aus Ihrer Bibliothek entfernen?</string>
     <string name="folder_add_single_book">Einzelnes Buch</string>
     <string name="folder_add_collection">Ordner mit mehreren Büchern</string>
     <string name="for_example">z.B.</string>
@@ -63,7 +63,7 @@
     <!--Settings-->
     <string name="action_settings">Einstellungen</string>
     <string name="pref_resume_on_replug">Wiedergabe fortsetzen</string>
-    <string name="pref_resume_on_replug_hint">Nimmt die Wiedergabe beim Einstecken der Kopfhörer wieder auf</string>
+    <string name="pref_resume_on_replug_hint">Nimmt die Wiedergabe beim Anschließen der Kopfhörer wieder auf</string>
     <string name="min">%s min</string>
     <string name="delete_last_number">Löscht die zuletzt eingegebene Zahl</string>
     <plurals name="seconds">
@@ -91,7 +91,7 @@
     <!--license activity-->
     <string name="refresh">Neu laden</string>
     <string name="reset">Zurücksetzen</string>
-    <string name="no_network">Kein Internet?</string>
+    <string name="no_network">Keine Internetverbindung?</string>
     <string name="network_top">Das lief nicht besonders gut...</string>
     <string name="cover_crop">Cover zurechtschneiden</string>
     <string name="music_notification">Musik</string>
@@ -137,8 +137,8 @@
     <string name="pref_category_other">Andere</string>
     <string name="pref_skip_interval_title">Intervall überspringen</string>
     <string name="pref_skip_interval_summary">Einstellungen für das Überspringen von Mengen und das automatische Zurückspulen</string>
-    <string name="pref_appearance_ui_title">Benutzeroberfläche für das Erscheinungsbild</string>
-    <string name="pref_appearance_ui_summary">Passen Sie die Benutzeroberfläche an</string>
+    <string name="pref_appearance_ui_title">Erscheinungsbild der Benutzeroberfläche</string>
+    <string name="pref_appearance_ui_summary">Benutzeroberfläche anpassen</string>
     <string name="pref_screen_orientation_title">Bildschirmausrichtung</string>
     <string name="pref_screen_orientation_summary_portrait">Legt die Ausrichtung des Porträts unabhängig von den Geräteeinstellungen fest</string>
     <string name="pref_screen_orientation_summary_system">Die Bildschirmausrichtung hängt von den Geräteeinstellungen ab</string>
@@ -160,7 +160,7 @@
     <string name="pref_rewind_buttons_style_classic">Klassisch</string>
     <string name="pref_rewind_buttons_style_rounded">Gerundet</string>
     <string name="rate_dismiss">Entlassen</string>
-    <string name="rate_title">PlayBooks genießen?</string>
+    <string name="rate_title">Genießen sie PlayBooks bislang?</string>
     <string name="rate_summary">Teilen Sie etwas Liebe und bewerten Sie uns auf Google Play! Das ist sehr wichtig für uns.</string>
     <string name="action_support_project">Projekt unterstützen</string>
     <string name="get_playbooks">Holen Sie sich PlayBooks</string>
@@ -176,7 +176,7 @@
     <string name="special_thanks_to">Besonderer Dank an</string>
     <string name="change_book_author">Autor</string>
     <string name="edit_book_author">Autor bearbeiten</string>
-    <string name="pref_pay_title">Unterstützt PlayBooks</string>
+    <string name="pref_pay_title">PlayBooks unterstützen</string>
     <string name="pref_show_progress_bar_summary">Fortschrittsbalken in der Bibliothek anzeigen</string>
     <string name="pref_show_progress_bar_title">Fortschrittsanzeige</string>
     <string name="mark_as_not_started">Als nicht gestartet markieren</string>
@@ -186,7 +186,7 @@
     <string name="folder_add_library_book">Ordner mit mehreren Unterordnern</string>
     <string name="end_of_current_chapter">Ende des aktuellen Kapitels</string>
     <string name="sleep_timer_note">Schütteln Sie das Gerät zum Neustart innerhalb von 30 Sekunden nach Abschluss</string>
-    <string name="custom">Coutume</string>
+    <string name="custom">eigene Zeit</string>
     <string name="pref_show_divider_title">Trennwände anzeigen</string>
     <string name="pref_show_divider_summary">Trennwände zwischen Büchern in der Bibliothek anzeigen</string>
     <string name="pref_translate_title">Übersetzungsunterstützung</string>
@@ -205,14 +205,14 @@
     <string name="pref_cover_settings_title">Cover-Einstellungen</string>
     <string name="pref_cover_corner_radius_title">Radius der Abdeckecken</string>
     <string name="pref_cover_elevation_title">Höhe der Abdeckung</string>
-    <string name="folders">Faltprospekte</string>
+    <string name="folders">Ordner</string>
     <string name="pref_icon_mode_title">Symbole anzeigen</string>
     <string name="pref_icon_mode_summary">Menüsymbole anstelle von Text anzeigen</string>
     <string name="pref_statusbar_mode_title">Statusleistenmodus</string>
     <string name="pref_statusbar_mode_summary">Festlegen des Erscheinungsbilds des Statusleistens</string>
     <string name="pref_statusbar_mode_value_transparent">Durchsichtig</string>
     <string name="pref_statusbar_mode_value_color">Farbe</string>
-    <string name="left">%s links</string>
+    <string name="left">%s übrig</string>
     <string name="left_in_audiobook">%s übrig im Hörbuch</string>
     <string name="pref_player_background_title">Spielerhintergrund</string>
     <string name="pref_player_background_summary">Auswählen eines Hintergrundstils im Player</string>
