@@ -177,11 +177,11 @@ Goodwy</i>
     <string name="pref_category_support">Support</string>
     <string name="pref_theme_hint">Application theme setting menu</string>
     <string name="pref_statusbar_mode_title">Statusbar mode</string>
-    <string name="pref_statusbar_mode_summary">Set the appearance of the status bary</string>
+    <string name="pref_statusbar_mode_summary">Set the appearance of the status bar</string>
     <string name="pref_statusbar_mode_value_transparent">Transparent</string>
     <string name="pref_statusbar_mode_value_color">Color</string>
     <string name="pref_statusbar_color_title">Statusbar color</string>
-    <string name="pref_statusbar_color_summary">Sets the status bar color to different from the primary</string>
+    <string name="pref_statusbar_color_summary">Sets the status bar color to be different from the primary</string>
     <string name="pref_pay_summary">Get PlayBooks to support future development and extra features</string>
     <string name="pref_category_other">Other</string>
     <string name="pref_skip_interval_title">Skip interval</string>
