@@ -1,34 +1,31 @@
-import deps.Deps
-import deps.Versions
-
 plugins {
-  id("com.android.library")
-  id("kotlin-android")
+  id("voice.library")
+  id("voice.compose")
+  id("kotlin-parcelize")
+  alias(libs.plugins.anvil)
+  alias(libs.plugins.kotlin.serialization)
 }
 
-android {
-
-  compileSdkVersion(Versions.compileSdk)
-
-  defaultConfig {
-    minSdkVersion(Versions.minSdk)
-    targetSdkVersion(Versions.targetSdk)
-  }
-
-  compileOptions {
-    sourceCompatibility = Versions.sourceCompatibility
-    targetCompatibility = Versions.targetCompatibility
-  }
+anvil {
+  generateDaggerFactories.set(true)
 }
 
 dependencies {
-  implementation(project(":ffmpeg"))
-  implementation(Deps.Kotlin.std)
-  implementation(Deps.AndroidX.appCompat)
-  implementation(Deps.Kotlin.coroutines)
-  implementation(Deps.Dagger.core)
-  implementation(Deps.timber)
+  implementation(projects.strings)
+  implementation(libs.appCompat)
+  implementation(libs.dagger.core)
+  implementation(libs.material)
+  api(libs.immutable)
+  implementation(libs.prefs.core)
+  api(libs.conductor)
+  implementation(libs.androidxCore)
+  implementation(libs.viewBinding)
+  implementation(libs.serialization.json)
+  implementation(files("libs/material-color-util.jar"))
 
-  testImplementation(Deps.truth)
-  testImplementation(Deps.junit)
+  testImplementation(libs.junit)
+  testImplementation(libs.androidX.test.core)
+  testImplementation(libs.androidX.test.junit)
+  testImplementation(libs.androidX.test.runner)
+  testImplementation(libs.robolectric)
 }

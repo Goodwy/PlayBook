@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--设置-->
+  <string name="pref_about_title">关于</string>
+  <string name="pref_follow_system">跟随系统</string>
+  <string name="pref_forward">转发</string>
+  <string name="pref_grid_view">查看网格</string>
+  <string name="pref_layout_list">列表视图</string>
+  <string name="pref_layout_grid">网格视图</string>
+  <string name="pref_mini_player_floating_button">按钮</string>
+  <string name="pref_mini_player_mini_player_floating">悬浮条</string>
+  <string name="pref_player_background_title">播放器背景</string>
+  <string name="pref_player_background_theme">默认背景</string>
+  <string name="pref_player_background_blurred_cover">模糊封面</string>
+  <string name="pref_play_buttons_style_title">播放按钮样式</string>
+  <string name="pref_rewind">倒带</string>
+  <string name="pref_rewind_buttons_style_title">快进快退按钮样式</string>
+  <string name="pref_rewind_buttons_style_classic">经典</string>
+  <string name="pref_rewind_buttons_style_rounded">圆润</string>
+  <string name="pref_rewind_buttons_style_square">正方形</string>
+  <string name="pref_show_mini_player_title">迷你播放器样式</string>
+  <string name="pref_show_slider_volume_title">音量控制条</string>
+  <string name="pref_use_transparent_navigation">使用透明导航栏</string>
+  <string name="pref_use_chapter_cover">使用章节封面</string>
+
+  <!-- 主题 -->
+  <string name="theme">主题</string>
+  <string name="light_theme">灯光</string>
+  <string name="dark_theme">黑暗</string>
+
+  <!--设置标题-->
+  <string name="pref_category_appearance">用户界面</string>
+  <string name="pref_appearance_ui_library_title">书库用户界面</string>
+  <string name="pref_appearance_ui_player_title">播放器用户界面</string>
+  <string name="pref_category_other">其他</string>
+
+  <!--设置颜色-->
+  <string name="pref_basic_color">基本色</string>
+  <string name="pref_basic_color_summary">输入自定义键颜色，自动分配一组互补色调。</string>
+  <string name="pref_default_theme_title">设置默认主题</string>
+
+  <!--图书播放-->
+  <string name="custom">自定义</string>
+  <string name="end_of_current_chapter">本章末尾</string>
+  <string name="left">剩余 %s</string>
+  <string name="left_in_audiobook">在有声书中剩余 %s</string>
+  <string name="hours_letter">小时</string>
+  <string name="minutes_letter">分钟</string>
+  <string name="seconds_letter">秒</string>
+  <string name="show_chapter_numbers">显示章节编号</string>
+  <string name="sleep_timer_note">在定时结束后30秒内摇动设备以重新开始定时</string>
+  <string name="repeat">重复</string>
+
+  <!--图书概览-->
+  <string name="folders">文件夹</string>
+  <string name="settings">设定值</string>
+
+  <!--文件夹选择器-->
+  <string name="internal_storage">内部存储</string>
+
+  <!--其他-->
+  <string name="copied_to_clipboard_show">复制到剪贴板：\n%s</string>
+
+  <!--关于-->
+  <string name="pref_about_message"><![CDATA[
+开源 <b>PlayBook</b> 有声读物播放器。 PlayBook 基于开源语音应用程序。
+<br/><br/>
+
+如果您在 Google Play 上对应用程序发表评论或评分，我将不胜感激，这将极大地帮助项目的发展。<br/>
+]]></string>
+  <string name="pref_rate_title">评价应用</string>
+  <string name="pref_other_app_title">其他应用程序</string>
+  <string name="pref_privacy_title">隐私政策</string>
+  <string name="pref_share_title">分享</string>
+
+  <!--购买-->
+  <string name="tipping_jar_title">小费罐</string>
+  <string name="tip_kind">小费</string>
+  <string name="tip_excellent">优秀提示</string>
+  <string name="tip_incredible">难以置信的提示</string>
+  <string name="action_support_project">支持本项目</string>
+  <string name="action_support_project_summary">获取付费应用以支持未来的开发并获得额外的功能</string>
+  <string name="learn_more">了解更多</string>
+  <string name="theme_summary">深色主题在 AMOLED 显示器上使用更少的电量</string>
+  <string name="color_title">颜色</string>
+  <string name="color_summary">精心挑选的配色方案以匹配您最喜爱的书籍</string>
+  <string name="plus_title">支持我们</string>
+  <string name="plus_summary">我们所有的应用程序都是无广告的、开源的，而且它将永远保持这种状态。在您的帮助下，我们能够实现更多功能并使它们变得更好</string>
+  <string name="lifebuoy_title">我们会支持你</string>
+  <string name="lifebuoy_summary">如果你确实喜欢PlayBook但无法负担费用,请发电子邮件给我.</string>
+  <string name="participants_title">参与者</string>
+  <string name="special_thanks_to">特别感谢</string>
+
+  <!--计费-->
+  <string name="tipping_jar_dialog_sucess_title">非常感谢！</string>
+  <string name="tipping_jar_dialog_sucess_message">非常感谢您支持 PlayBook 的开发。你很棒，开发者永远不会忘记你！</string>
+  <string name="tipping_jar_dialog_sucess_button_title">不客气</string>
+  <string name="tipping_jar_dialog_error_title">打赏失败</string>
+  <string name="tipping_jar_dialog_error_message">不幸的是，在执行小费交易时发生了一些不好的事情。不要难过，下次再试一次，享受PlayBook</string>
+</resources>

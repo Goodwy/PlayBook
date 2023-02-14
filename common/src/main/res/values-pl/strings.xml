@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Ustawienia-->
+  <string name="pref_about_title">Informacje</string>
+  <string name="pref_follow_system">Podążaj za systemem</string>
+  <string name="pref_forward">Przekaż</string>
+  <string name="pref_grid_view">Wyświetl siatkę</string>
+  <string name="pref_layout_list">Układ listy</string>
+  <string name="pref_layout_grid">Układ siatki</string>
+  <string name="pref_mini_player_floating_button">Przycisk</string>
+  <string name="pref_mini_player_mini_player_floating">Pływający gracz</string>
+  <string name="pref_player_background_title">Tło gracza</string>
+  <string name="pref_player_background_theme">Tło aplikacji</string>
+  <string name="pref_player_background_blurred_cover">Niewyraźna okładka</string>
+  <string name="pref_play_buttons_style_title">Odtwórz styl przycisku</string>
+  <string name="pref_rewind">Przewiń do tyłu</string>
+  <string name="pref_rewind_buttons_style_title">Styl przycisków przewijania do tyłu</string>
+  <string name="pref_rewind_buttons_style_classic">Klasyczny</string>
+  <string name="pref_rewind_buttons_style_rounded">Zaokrąglone</string>
+  <string name="pref_rewind_buttons_style_square">Kwadrat</string>
+  <string name="pref_show_mini_player_title">Styl mini odtwarzacza</string>
+  <string name="pref_show_slider_volume_title">Regulacja głośności</string>
+  <string name="pref_use_transparent_navigation">Użyj przezroczystego paska nawigacji</string>
+  <string name="pref_use_chapter_cover">Użyj okładki rozdziału</string>
+
+  <!-- Tematy -->
+  <string name="theme">Motyw</string>
+  <string name="light_theme">Światło</string>
+  <string name="dark_theme">Ciemny</string>
+
+  <!--Ustawianie nagłówków-->
+  <string name="pref_category_appearance">Wygląd</string>
+  <string name="pref_appearance_ui_library_title">Wygląd interfejsu biblioteki</string>
+  <string name="pref_appearance_ui_player_title">Wygląd interfejsu gracza</string>
+  <string name="pref_category_other">Inne</string>
+
+  <!--Ustawianie kolorów-->
+  <string name="pref_basic_color">Kolor podstawowy</string>
+  <string name="pref_basic_color_summary">Wprowadź niestandardowy kolor klucza, który automatycznie otrzyma zestaw uzupełniających się tonów.</string>
+  <string name="pref_default_theme_title">Ustaw domyślne</string>
+
+  <!--BookPlay-->
+  <string name="custom">Niestandardowy</string>
+  <string name="end_of_current_chapter">Koniec bieżącego rozdziału</string>
+  <string name="left">%s pozostało</string>
+  <string name="left_in_audiobook">%s pozostało w audiobooku</string>
+  <string name="hours_letter">h</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Pokaż numery rozdziałów</string>
+  <string name="sleep_timer_note">Aby ponownie uruchomić, potrząśnij urządzeniem w ciągu 30 sekund po zakończeniu</string>
+  <string name="repeat">Powtórz</string>
+
+  <!--Przegląd książki-->
+  <string name="folders">Foldery</string>
+  <string name="settings">Ustawienia</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">Pamięć wewnętrzna</string>
+
+  <!--Inne-->
+  <string name="copied_to_clipboard_show">Skopiowano do schowka:\n%s</string>
+
+  <!--O-->
+  <string name="pref_about_message"><![CDATA[
+Odtwarzacz audiobooków <b>PlayBook</b> typu open source. PlayBook jest oparty na aplikacji Voice typu open source.
+<br/><br/>
+
+Byłbym bardzo wdzięczny za pozostawienie recenzji lub oceny aplikacji w Google Play, bardzo pomoże to w rozwoju projektu.<br/>
+]]></string>
+  <string name="pref_rate_title">Oceń aplikację</string>
+  <string name="pref_other_app_title">Inne aplikacje</string>
+  <string name="pref_privacy_title">Polityka prywatności</string>
+  <string name="pref_share_title">Udostępnij</string>
+
+  <!--Zakup-->
+  <string name="tipping_jar_title">Słoik z napiwkami</string>
+  <string name="tip_kind">Miła wskazówka</string>
+  <string name="tip_excellent">Doskonała wskazówka</string>
+  <string name="tip_incredible">Niesamowita wskazówka</string>
+  <string name="action_support_project">Projekt wsparcia</string>
+  <string name="action_support_project_summary">Pobierz płatną aplikację, aby wspierać przyszłe zmiany i uzyskać dodatkowe funkcje</string>
+  <string name="learn_more">Dowiedz się więcej</string>
+  <string name="theme_summary">Ciemny motyw zużywa mniej energii na wyświetlaczach AMOLED</string>
+  <string name="color_title">Kolory</string>
+  <string name="color_summary">Starannie dobrane schematy kolorów pasujące do Twoich ulubionych książek</string>
+  <string name="plus_title">Wesprzyj nas</string>
+  <string name="plus_summary">Wszystkie nasze aplikacje są wolne od reklam, Open Source i zawsze tak pozostanie. Z Twoją pomocą możemy wdrożyć więcej funkcji i uczynić je jeszcze lepszymi</string>
+  <string name="lifebuoy_title">Będziemy Cię wspierać</string>
+  <string name="lifebuoy_summary">Jeśli z jakiegoś powodu nie stać Cię na naszą aplikację, ale naprawdę chcesz korzystać ze wszystkich funkcji, po prostu napisz do nas</string>
+  <string name="participants_title">Uczestnicy</string>
+  <string name="special_thanks_to">Specjalne podziękowania dla</string>
+
+  <!--Płatności-->
+  <string name="tipping_jar_dialog_sucess_title">Wielkie dzięki!</string>
+  <string name="tipping_jar_dialog_sucess_message">Wielkie dzięki za wsparcie rozwoju PlayBook. Jesteś wielki, a programista nigdy o tobie nie zapomni!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">Nie ma za co</string>
+  <string name="tipping_jar_dialog_error_title">Nie udało się przekazać napiwku</string>
+  <string name="tipping_jar_dialog_error_message">Niestety coś złego stało się podczas wykonywania transakcji napiwku. Nie smuć się, po prostu spróbuj ponownie innym razem i ciesz się PlayBook</string>
+</resources>

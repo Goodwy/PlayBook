@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Nastavitve-->
+  <string name="pref_about_title">O</string>
+  <string name="pref_follow_system">Sledi sistemu</string>
+  <string name="pref_forward">Posreduj</string>
+  <string name="pref_grid_view">Ogled mreže</string>
+  <string name="pref_layout_list">Postavitev seznama</string>
+  <string name="pref_layout_grid">Postavitev mreže</string>
+  <string name="pref_mini_player_floating_button">Gumb</string>
+  <string name="pref_mini_player_mini_player_floating">Lebdeči predvajalnik</string>
+  <string name="pref_player_background_title">Ozadje igralca</string>
+  <string name="pref_player_background_theme">Ozadje aplikacije</string>
+  <string name="pref_player_background_blurred_cover">Zamegljena naslovnica</string>
+  <string name="pref_play_buttons_style_title">Slog gumba za predvajanje</string>
+  <string name="pref_rewind">Previjanje nazaj</string>
+  <string name="pref_rewind_buttons_style_title">Slog gumbov za previjanje nazaj</string>
+  <string name="pref_rewind_buttons_style_classic">Klasično</string>
+  <string name="pref_rewind_buttons_style_rounded">Zaokroženo</string>
+  <string name="pref_rewind_buttons_style_square">Kvadrat</string>
+  <string name="pref_show_mini_player_title">Slog mini predvajalnika</string>
+  <string name="pref_show_slider_volume_title">Nadzor glasnosti</string>
+  <string name="pref_use_transparent_navigation">Uporabi pregledno navigacijsko vrstico</string>
+  <string name="pref_use_chapter_cover">Uporabi naslovnico poglavja</string>
+
+  <!-- Teme -->
+  <string name="theme">Tema</string>
+  <string name="light_theme">Svetloba</string>
+  <string name="dark_theme">Temno</string>
+
+  <!--Nastavitev glav-->
+  <string name="pref_category_appearance">Videz</string>
+  <string name="pref_appearance_ui_library_title">Videz uporabniškega vmesnika knjižnice</string>
+  <string name="pref_appearance_ui_player_title">Videz uporabniškega vmesnika predvajalnika</string>
+  <string name="pref_category_other">Drugo</string>
+
+  <!--Nastavitev barv-->
+  <string name="pref_basic_color">Osnovna barva</string>
+  <string name="pref_basic_color_summary">Vnesite barvo tipk po meri, ki se ji samodejno dodeli niz komplementarnih tonov.</string>
+  <string name="pref_default_theme_title">Nastavi privzeto</string>
+
+  <!--BookPlay-->
+  <string name="custom">Po meri</string>
+  <string name="end_of_current_chapter">Konec trenutnega poglavja</string>
+  <string name="left">Še %s</string>
+  <string name="left_in_audiobook">Še %s v zvočni knjigi</string>
+  <string name="hours_letter">h</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Prikaži številke poglavij</string>
+  <string name="sleep_timer_note">Za ponovni zagon pretresite napravo v 30 sekundah po koncu</string>
+  <string name="repeat">Ponovi</string>
+
+  <!--BookOverview-->
+  <string name="folders">Mape</string>
+  <string name="settings">Nastavitve</string>
+
+  <!--Izbirnik map-->
+  <string name="internal_storage">Notranji pomnilnik</string>
+
+  <!--Drugo-->
+  <string name="copied_to_clipboard_show">Kopirano v odložišče:\n%s</string>
+
+  <!--O-->
+  <string name="pref_about_message"><![CDATA[
+Odprtokodni predvajalnik zvočnih knjig <b>PlayBook</b>. PlayBook temelji na odprtokodni aplikaciji Voice.
+<br/><br/>
+
+Zelo bi vam bil hvaležen, če bi pustili mnenje ali oceno o aplikaciji v Googlu Play, saj bo to zelo pripomoglo k razvoju projekta.<br/>
+]]></string>
+  <string name="pref_rate_title">Ocenite aplikacijo</string>
+  <string name="pref_other_app_title">Druge aplikacije</string>
+  <string name="pref_privacy_title">Politika zasebnosti</string>
+  <string name="pref_share_title">Skupna raba</string>
+
+  <!--Nakup-->
+  <string name="tipping_jar_title">Kozarec za nasvet</string>
+  <string name="tip_kind">Prijazen namig</string>
+  <string name="tip_excellent">Odličen namig</string>
+  <string name="tip_incredible">Neverjeten namig</string>
+  <string name="action_support_project">Podporni projekt</string>
+  <string name="action_support_project_summary">Prenesite plačljivo aplikacijo za podporo prihodnjega razvoja in pridobite dodatne funkcije</string>
+  <string name="learn_more">Več o tem</string>
+  <string name="theme_summary">Temna tema porabi manj energije na zaslonih AMOLED</string>
+  <string name="color_title">Barve</string>
+  <string name="color_summary">Skrbno izbrane barvne sheme, ki ustrezajo vašim najljubšim knjigam</string>
+  <string name="plus_title">Podprite nas</string>
+  <string name="plus_summary">Vse naše aplikacije so brez oglasov, odprtokodne in tako bo vedno ostalo. Z vašo pomočjo lahko implementiramo več funkcij in jih naredimo še boljše</string>
+  <string name="lifebuoy_title">Podprli vas bomo</string>
+  <string name="lifebuoy_summary">Če si iz nekega razloga ne morete privoščiti naše aplikacije, a resnično želite uporabljati vse funkcije, nam preprosto pošljite e-pošto</string>
+  <string name="participants_title">Udeleženci</string>
+  <string name="special_thanks_to">Posebej hvala</string>
+
+  <!--Obračunavanje-->
+  <string name="tipping_jar_dialog_sucess_title">Hvala lepa!</string>
+  <string name="tipping_jar_dialog_sucess_message">Najlepša hvala za podporo pri razvoju PlayBooka. Super ste in razvijalec vas ne bo nikoli pozabil!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">Ne vabimo</string>
+  <string name="tipping_jar_dialog_error_title">Napitnina ni uspela</string>
+  <string name="tipping_jar_dialog_error_message">Na žalost se je med izvajanjem transakcije napitnine zgodilo nekaj slabega. Ne bodite žalostni, poskusite znova drugič in uživajte v PlayBook</string>
+</resources>

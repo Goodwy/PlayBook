@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--सेटिङ्स-->
+  <string name="pref_about_title">को बारेमा</string>
+  <string name = "pref_follow_system"> प्रणाली पछ्याउनुहोस्</string>
+  <string name="pref_forward">फर्वार्ड</string>
+  <string name="pref_grid_view">ग्रिड हेर्नुहोस्</string>
+  <string name="pref_layout_list">सूची लेआउट</string>
+  <string name="pref_layout_grid">ग्रिड लेआउट</string>
+  <string name="pref_mini_player_floating_button">बटन</string>
+  <string name="pref_mini_player_mini_player_floating">फ्लोटिंग प्लेयर</string>
+  <string name="pref_player_background_title">खेलाडी पृष्ठभूमि</string>
+  <string name="pref_player_background_theme">अनुप्रयोग पृष्ठभूमि</string>
+  <string name = "pref_player_background_blurred_cover"> धमिलो आवरण</string>
+  <string name="pref_play_buttons_style_title">प्ले बटन शैली</string>
+  <string name="pref_rewind">रिवाइन्ड</string>
+  <string name="pref_rewind_buttons_style_title"> रिवाइन्ड बटन शैली</string>
+  <string name="pref_rewind_buttons_style_classic">क्लासिक</string>
+  <string name="pref_rewind_buttons_style_rounded">गोलाकार</string>
+  <string name="pref_rewind_buttons_style_square">वर्ग</string>
+  <string name="pref_show_mini_player_title">मिनी प्लेयर शैली</string>
+  <string name = "pref_show_slider_volume_title"> भोल्युम नियन्त्रण</string>
+  <string name="pref_use_transparent_navigation">पारदर्शी नेभिगेसन पट्टी प्रयोग गर्नुहोस्</string>
+  <string name = "pref_use_chapter_cover"> अध्याय आवरण प्रयोग गर्नुहोस्</string>
+
+  <!-- विषयवस्तुहरू -->
+  <string name="theme">विषय</string>
+  <string name = "light_theme"> प्रकाश</string>
+  <string name = "dark_theme"> गाढा</string>
+
+  <!--हेडरहरू सेट गर्दै-->
+  <string name = "pref_category_appearance"> उपस्थिति</string>
+  <string name="pref_appearance_ui_library_title">लाइब्रेरी UI उपस्थिति</string>
+  <string name="pref_appearance_ui_player_title">खेलाडी UI उपस्थिति</string>
+  <string name="pref_category_other">अन्य</string>
+
+  <!--रङहरू सेट गर्दै-->
+  <string name="pref_basic_color">आधारभूत रंग</string>
+  <string name="pref_basic_color_summary">अनुकूल कुञ्जी रङ इनपुट गर्नुहोस् जुन स्वचालित रूपमा पूरक टोनहरूको सेट तोकिन्छ।</string>
+  <string name="pref_default_theme_title">पूर्वनिर्धारित सेट गर्नुहोस्</string>
+
+  <!--BookPlay-->
+  <string name="custom">अनुकूलन</string>
+  <string name="end_of_current_chapter">हालको अध्यायको अन्त्य</string>
+  <string name="left">%s बाँकी</string>
+  <string name="left_in_audiobook"> अडियोबुकमा %s बाँकी</string>
+  <string name = "hours_letter">h</string>
+  <string name = "minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name = "show_chapter_numbers"> अध्याय नम्बरहरू देखाउनुहोस्</string>
+  <string name = "sleep_timer_note"> पुन: सुरु गर्न, समाप्त भएपछि 30 सेकेन्ड भित्र यन्त्र हल्लाउनुहोस्</string>
+  <string name="repeat">दोहोर्याउनुहोस्</string>
+
+  <!--BookOverview-->
+  <string name = "folders"> फोल्डरहरू</string>
+  <string name="settings">सेटिङहरू</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">आन्तरिक भण्डारण</string>
+
+  <!--अन्य-->
+  <string name="copied_to_clipboard_show">क्लिपबोर्डमा प्रतिलिपि गरियो:\n%s</string>
+
+  <!--को बारेमा-->
+  <string name="pref_about_message"><![CDATA[
+एउटा खुला स्रोत <b>PlayBook</b> अडियोबुक प्लेयर। PlayBook खुला स्रोत आवाज अनुप्रयोगमा आधारित छ।
+<br/><br/>
+
+यदि तपाईंले Google Play मा अनुप्रयोगको बारेमा समीक्षा वा मूल्याङ्कन छोड्नुभयो भने म धेरै आभारी हुनेछु, यसले परियोजनाको विकासमा ठूलो मद्दत गर्नेछ।<br/>
+]]></string>
+  <string name="pref_rate_title">अनुप्रयोग दर गर्नुहोस्</string>
+  <string name="pref_other_app_title">अन्य एपहरू</string>
+  <string name="pref_privacy_title">गोपनीयता नीति</string>
+  <string name="pref_share_title">साझेदारी</string>
+
+  <!--खरीद-->
+  <string name="tipping_jar_title">टिप जार</string>
+  <string name = "tip_kind"> प्रकारको टिप</string>
+  <string name="tip_excellent">को उत्कृष्ट टिप</string>
+  <string name = "tip_incredible">को अविश्वसनीय टिप</string>
+  <string name = "action_support_project"> समर्थन परियोजना</string>
+  <string name = "action_support_project_summary"> भविष्यका विकासहरूलाई समर्थन गर्न र अतिरिक्त सुविधाहरू प्राप्त गर्न सशुल्क एप प्राप्त गर्नुहोस्</string>
+  <string name="learn_more">थप जान्नुहोस्</string>
+  <string name = "theme_summary"> अँध्यारो थिमले AMOLED डिस्प्लेमा कम पावर प्रयोग गर्छ</string>
+  <string name="color_title">रङहरू</string>
+  <string name="color_summary">तपाईँको मनपर्ने पुस्तकहरूसँग मेल खाने रङ योजनाहरू सावधानीपूर्वक छानिएका छन्</string>
+  <string name="plus_title">हामीलाई समर्थन गर्नुहोस्</string>
+  <string name="plus_summary">हाम्रा सबै एपहरू विज्ञापन-रहित, खुला स्रोत हुन् र यो सधैं यस्तै रहनेछ। तपाईंको मद्दतले हामी थप सुविधाहरू लागू गर्न र तिनीहरूलाई अझ राम्रो बनाउन सक्षम छौं।</string>
+  <string name="lifebuoy_title">हामी तपाईंलाई समर्थन गर्नेछौं</string>
+  <string name="lifebuoy_summary">यदि कुनै कारणले तपाइँ हाम्रो एप खर्च गर्न सक्नुहुन्न, तर वास्तवमा सबै सुविधाहरू प्रयोग गर्न चाहनुहुन्छ भने, हामीलाई इमेल गर्नुहोस्</string>
+  <string name="participants_title">सहभागीहरू</string>
+  <string name="special_thanks_to">विशेष धन्यवाद</string>
+
+  <!--बिलिङ-->
+  <string name="tipping_jar_dialog_sucess_title">एक गुच्छा धन्यवाद!</string>
+  <string name="tipping_jar_dialog_sucess_message">PlayBook को विकासमा सहयोग गर्नुभएकोमा धेरै धेरै धन्यवाद। तपाईं महान हुनुहुन्छ र विकासकर्ताले तपाईंलाई कहिल्यै बिर्सने छैन!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">तपाईंलाई स्वागत छ</string>
+  <string name="tipping_jar_dialog_error_title">टिप गर्न असफल भयो</string>
+  <string name="tipping_jar_dialog_error_message">दुर्भाग्यवश टिपिङ कारोबार प्रदर्शन गर्दा केही नराम्रो भयो। दुखी नहुनुहोस्, फेरि प्रयास गर्नुहोस् र PlayBook को मजा लिनुहोस्</string>
+</resources>

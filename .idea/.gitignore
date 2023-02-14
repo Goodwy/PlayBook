@@ -1,7 +1,14 @@
-
+/androidTestResultsUserPreferences.xml
 # Default ignored files
 /workspace.xml
 /libraries
 /caches
 vcs.xml
 kotlinScripting.xml
+/jarRepositories.xml
+/compiler.xml
+/assetWizardSettings.xml
+/gradle.xml
+/misc.xml
+/deploymentTargetDropDown.xml
+/.name

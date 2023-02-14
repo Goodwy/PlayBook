@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Settings-->
+  <string name="pref_about_title">Über</string>
+  <string name="pref_follow_system">System folgen</string>
+  <string name="pref_forward">Vorspulen</string>
+  <string name="pref_grid_view">Gitter ansehen</string>
+  <string name="pref_layout_list">Listenlayout</string>
+  <string name="pref_layout_grid">Gitterstruktur</string>
+  <string name="pref_mini_player_floating_button">Taste</string>
+  <string name="pref_mini_player_mini_player_floating">Schwebender Spieler</string>
+  <string name="pref_player_background_title">Hintergrund des Spielers</string>
+  <string name="pref_player_background_theme">App-Hintergrund</string>
+  <string name="pref_player_background_blurred_cover">Verschwommene Abdeckung</string>
+  <string name="pref_play_buttons_style_title">Play-Button-Stil</string>
+  <string name="pref_rewind">Zurückspulen</string>
+  <string name="pref_rewind_buttons_style_title">Stil der Schaltflächen zurückspulen</string>
+  <string name="pref_rewind_buttons_style_classic">Klassisch</string>
+  <string name="pref_rewind_buttons_style_rounded">Gerundet</string>
+  <string name="pref_rewind_buttons_style_square">Quadrat</string>
+  <string name="pref_show_mini_player_title">Mini-Player-Stil</string>
+  <string name="pref_show_slider_volume_title">Lautstärkeregelung</string>
+  <string name="pref_use_transparent_navigation">Verwenden Sie eine transparente Navigationsleiste</string>
+  <string name="pref_use_chapter_cover">Kapitelabdeckung verwenden</string>
+
+  <!-- Themes -->
+  <string name="theme">Theme</string>
+  <string name="light_theme">Licht</string>
+  <string name="dark_theme">Dunkelheit</string>
+
+  <!--Setting headers-->
+  <string name="pref_category_appearance">Erscheinungsbild der Benutzeroberfläche</string>
+  <string name="pref_appearance_ui_library_title">Erscheinungsbild der Benutzeroberfläche des Players</string>
+  <string name="pref_appearance_ui_player_title">Erscheinungsbild der Benutzeroberfläche der Bibliothek</string>
+  <string name="pref_category_other">Andere</string>
+
+  <!--Setting colors-->
+  <string name="pref_basic_color">Grundfarbe</string>
+  <string name="pref_basic_color_summary">Eingabe einer benutzerdefinierten Schlüsselfarbe, der automatisch eine Reihe von Komplementärtönen zugewiesen wird.</string>
+  <string name="pref_default_theme_title">Standard einstellen</string>
+
+  <!--BookPlay-->
+  <string name="custom">Eigene Zeit</string>
+  <string name="end_of_current_chapter">Ende des Kapitels</string>
+  <string name="left">%s übrig</string>
+  <string name="left_in_audiobook">%s übrig im Hörbuch</string>
+  <string name="hours_letter">std</string>
+  <string name="minutes_letter">p</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Kapitelnummern anzeigen</string>
+  <string name="sleep_timer_note">Um das Gerät neu zu starten, schütteln Sie es innerhalb von 30 Sekunden nach Beendigung</string>
+  <string name="repeat">Wiederholen Sie</string>
+
+  <!--BookOverview-->
+  <string name="folders">Ordner</string>
+  <string name="settings">Einstellungen</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">Interne Speicher</string>
+
+  <!--Other-->
+  <string name="copied_to_clipboard_show">In die Zwischenablage kopiert:\n%s</string>
+
+  <!--About-->
+  <string name="pref_about_message"><![CDATA[
+        Ein quelloffener <b>PlayBook</b> -Hörbuch-Player. PlayBooks basiert auf der quelloffenen Anwendung Voice.
+        <br/><br/>
+
+        Ich wäre Ihnen sehr dankbar, wenn Sie eine Rezension oder eine Bewertung über die Anwendung auf Google Play hinterlassen würden, da dies der Entwicklung des Projekts sehr helfen wird.<br/>
+    ]]></string>
+  <string name="pref_rate_title">App bewerten</string>
+  <string name="pref_other_app_title">Andere Apps</string>
+  <string name="pref_privacy_title">Datenschutzbestimmungen</string>
+  <string name="pref_share_title">Teilen Sie</string>
+
+  <!--Purchase-->
+  <string name="tipping_jar_title">Tipp-Glas</string>
+  <string name="tip_kind">Kleine Spende</string>
+  <string name="tip_excellent">Große Spende</string>
+  <string name="tip_incredible">Unglaubliche Spende</string>
+  <string name="action_support_project">Projekt unterstützen</string>
+  <string name="action_support_project_summary">Kaufen Sie die kostenpflichtige App, um zukünftige Entwicklungen zu unterstützen und zusätzliche Funktionen zu erhalten.</string>
+  <string name="learn_more">Mehr erfahren</string>
+  <string name="theme_summary">Dunkles Thema verbraucht weniger Strom auf AMOLED-Displays</string>
+  <string name="color_title">Farben</string>
+  <string name="color_summary">Sorgfältig ausgewählte Farbschemata, die zu Ihren Lieblingsbüchern passen</string>
+  <string name="plus_title">Unterstützen Sie uns</string>
+  <string name="plus_summary">Alle unsere Apps sind werbefrei, Open Source und das wird auch immer so bleiben. Mit Ihrer Hilfe können wir weitere Funktionen implementieren und sie noch besser machen</string>
+  <string name="lifebuoy_title">Wir werden Sie unterstützen</string>
+  <string name="lifebuoy_summary">Wenn Sie sich unsere App aus irgendeinem Grund nicht leisten können, aber wirklich alle Funktionen nutzen wollen, schicken Sie uns einfach eine E-Mail</string>
+  <string name="participants_title">Teilnehmer</string>
+  <string name="special_thanks_to">Besonderen Dank an</string>
+
+  <!--Billing-->
+  <string name="tipping_jar_dialog_sucess_title">Vielen Dank!</string>
+  <string name="tipping_jar_dialog_sucess_message">Vielen Dank für die Unterstützung der Entwicklung des PlayBook. Sie sind großartig und der Entwickler wird Sie nie vergessen!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">Sie sind herzlich willkommen</string>
+  <string name="tipping_jar_dialog_error_title">Gescheitert</string>
+  <string name="tipping_jar_dialog_error_message">Leider ist bei der Durchführung des Tippvorgangs etwas Schlimmes passiert. Seien Sie nicht traurig, versuchen Sie es einfach ein anderes Mal und genießen Sie das PlayBook</string>
+</resources>

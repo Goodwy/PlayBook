@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--تنظیمات-->
+  <string name="pref_about_title">درباره</string>
+  <string name="pref_follow_system">دنبال کردن سیستم</string>
+  <string name="pref_forward">به جلو</string>
+  <string name="pref_grid_view">مشاهده شبکه</string>
+  <string name="pref_layout_list">طرح بندی فهرست</string>
+  <string name="pref_layout_grid">طرح شبکه</string>
+  <string name="pref_mini_player_floating_button">دکمه</string>
+  <string name="pref_mini_player_mini_player_floating">پخش کننده شناور</string>
+  <string name="pref_player_background_title">پس‌زمینه پخش کننده</string>
+  <string name="pref_player_background_theme">پس‌زمینه برنامه</string>
+  <string name="pref_player_background_blurred_cover">جلد تار</string>
+  <string name="pref_play_buttons_style_title">سبک دکمه پخش</string>
+  <string name="pref_rewind">عقب</string>
+  <string name="pref_rewind_buttons_style_title">سبک دکمه‌های عقب بردن</string>
+  <string name="pref_rewind_buttons_style_classic">کلاسیک</string>
+  <string name="pref_rewind_buttons_style_rounded">گرد</string>
+  <string name="pref_rewind_buttons_style_square">مربع</string>
+  <string name="pref_show_mini_player_title">سبک پخش کوتاه</string>
+  <string name="pref_show_slider_volume_title">کنترل میزان صدا</string>
+  <string name="pref_use_transparent_navigation">استفاده از نوار پیمایش شفاف</string>
+  <string name="pref_use_chapter_cover">از جلد فصل استفاده کنید</string>
+
+  <!-- تم -->
+  <string name="theme">موضوع</string>
+  <string name="light_theme">نور</string>
+  <string name="dark_theme">تاریک</string>
+
+  <!--تنظیم سرصفحه ها-->
+  <string name="pref_category_appearance">ظاهر</string>
+  <string name="pref_appearance_ui_library_title">نمای رابط کاربری کتابخانه</string>
+  <string name="pref_appearance_ui_player_title">ظاهر رابط کاربری بازیکن</string>
+  <string name="pref_category_other">سایر</string>
+
+  <!--تنظیم رنگ ها-->
+  <string name="pref_basic_color">رنگ اصلی</string>
+  <string name="pref_basic_color_summary">یک رنگ کلید سفارشی را وارد کنید که به‌طور خودکار مجموعه‌ای از زنگ‌های مکمل تخصیص می‌یابد.</string>
+  <string name="pref_default_theme_title">تنظیم پیش‌فرض</string>
+
+  <!--BookPlay-->
+  <string name="custom">سفارشی</string>
+  <string name="end_of_current_chapter">پایان فصل جاری</string>
+  <string name="left">%s باقی مانده</string>
+  <string name="left_in_audiobook">%s در کتاب صوتی باقی مانده است</string>
+  <string name="hours_letter">h</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">نمایش شماره فصل</string>
+  <string name="sleep_timer_note">برای راه اندازی مجدد، دستگاه را ظرف 30 ثانیه پس از اتمام تکان دهید</string>
+  <string name="repeat">تکرار</string>
+
+  <!--BookOverview-->
+  <string name="folders">پوشه‌ها</string>
+  <string name="settings">تنظیمات</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">حافظه داخلی</string>
+
+  <!--دیگر-->
+  <string name="copied_to_clipboard_show">در کلیپ بورد کپی شد:\n%s</string>
+
+  <!--درباره-->
+  <string name="pref_about_message"><![CDATA[
+یک پخش کننده کتاب صوتی <b>PlayBook</b> منبع باز. PlayBooks بر اساس برنامه متن باز Voice است.
+<br/><br/>
+
+اگر نظر یا امتیازی در مورد برنامه در Google Play بگذارید، بسیار سپاسگزار خواهم بود، این به توسعه پروژه کمک زیادی خواهد کرد.<br/>
+]]></string>
+  <string name="pref_rate_title">به برنامه امتیاز دهید</string>
+  <string name="pref_other_app_title">برنامه های دیگر</string>
+  <string name="pref_privacy_title">خط مشی رازداری</string>
+  <string name="pref_share_title">اشتراک گذاری</string>
+
+  <!--خرید-->
+  <string name="tipping_jar_title">شیشه نوک</string>
+  <string name="tip_kind">نکات بسیار خوب</string>
+  <string name="tip_excellent">نکات عالی</string>
+  <string name="tip_incredible">نوک باورنکردنی</string>
+  <string name="action_support_project">پروژه پشتیبانی</string>
+  <string name="action_support_project_summary">برنامه پولی را برای پشتیبانی از پیشرفت‌های آینده و دریافت ویژگی‌های اضافی دریافت کنید</string>
+  <string name="learn_more">بیشتر بیاموزید</string>
+  <string name="theme_summary">طرح زمینه تیره انرژی کمتری در نمایشگرهای AMOLED مصرف می‌کند</string>
+  <string name="color_title">رنگ‌ها</string>
+  <string name="color_summary">طرح‌های رنگی را با دقت انتخاب کرده‌اید تا با کتاب‌های مورد علاقه شما مطابقت داشته باشد</string>
+  <string name="plus_title">از ما حمایت کنید</string>
+  <string name="plus_summary">همه برنامه‌های ما بدون آگهی و منبع باز هستند و همیشه همینطور باقی می‌مانند. با کمک شما می توانیم ویژگی های بیشتری را پیاده سازی کنیم و آنها را حتی بهتر کنیم</string>
+  <string name="lifebuoy_title">ما از شما حمایت خواهیم کرد</string>
+  <string name="lifebuoy_summary">اگر به دلایلی نمی‌توانید برنامه ما را بپردازید، اما واقعاً می‌خواهید از همه ویژگی‌ها استفاده کنید، فقط به ما ایمیل بزنید</string>
+  <string name="participants_title">شرکت کنندگان</string>
+  <string name="special_thanks_to">با تشکر ویژه از</string>
+
+  <!--صورتحساب-->
+  <string name="tipping_jar_dialog_sucess_title">خیلی ممنون!</string>
+  <string name="tipping_jar_dialog_sucess_message">با تشکر فراوان برای حمایت از توسعه PlayBook. شما عالی هستید و توسعه دهنده هرگز شما را فراموش نخواهد کرد!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">خوش آمدید</string>
+  <string name="tipping_jar_dialog_error_title">انعام داده نشد</string>
+  <string name="tipping_jar_dialog_error_message">متاسفانه هنگام انجام تراکنش انعام اتفاق بدی افتاد. ناراحت نباشید، فقط یک بار دیگر امتحان کنید و از PlayBook</string> لذت ببرید
+</resources>

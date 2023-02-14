@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Nastavenia-->
+  <string name="pref_about_title">O</string>
+  <string name="pref_follow_system">Sledovať systém</string>
+  <string name="pref_forward">Poslať ďalej</string>
+  <string name="pref_grid_view">Zobraziť mriežku</string>
+  <string name="pref_layout_list">Rozloženie zoznamu</string>
+  <string name="pref_layout_grid">Rozloženie mriežky</string>
+  <string name="pref_mini_player_floating_button">Tlačidlo</string>
+  <string name="pref_mini_player_mini_player_floating">Plávajúci prehrávač</string>
+  <string name="pref_player_background_title">Pozadie prehrávača</string>
+  <string name="pref_player_background_theme">Pozadie aplikácie</string>
+  <string name="pref_player_background_blurred_cover">Rozmazaný obal</string>
+  <string name="pref_play_buttons_style_title">Štýl tlačidla prehrávania</string>
+  <string name="pref_rewind">Pretočiť dozadu</string>
+  <string name="pref_rewind_buttons_style_title">Štýl tlačidiel pretáčania dozadu</string>
+  <string name="pref_rewind_buttons_style_classic">Klasické</string>
+  <string name="pref_rewind_buttons_style_rounded">Zaoblené</string>
+  <string name="pref_rewind_buttons_style_square">Štvorec</string>
+  <string name="pref_show_mini_player_title">Štýl miniprehrávača</string>
+  <string name="pref_show_slider_volume_title">Ovládanie hlasitosti</string>
+  <string name="pref_use_transparent_navigation">Použiť priehľadný navigačný panel</string>
+  <string name="pref_use_chapter_cover">Použiť obal kapitoly</string>
+
+  <!-- Témy -->
+  <string name="theme">Motív</string>
+  <string name="light_theme">Svetlo</string>
+  <string name="dark_theme">Tmavý</string>
+
+  <!--Nastavenie hlavičiek-->
+  <string name="pref_category_appearance">Vzhľad</string>
+  <string name="pref_appearance_ui_library_title">Vzhľad používateľského rozhrania knižnice</string>
+  <string name="pref_appearance_ui_player_title">Vzhľad používateľského rozhrania prehrávača</string>
+  <string name="pref_category_other">Iné</string>
+
+  <!--Nastavenie farieb-->
+  <string name="pref_basic_color">Základná farba</string>
+  <string name="pref_basic_color_summary">Zadajte vlastnú farbu klávesu, ktorej sa automaticky priradí sada doplnkových tónov.</string>
+  <string name="pref_default_theme_title">Nastaviť predvolené</string>
+
+  <!--BookPlay-->
+  <string name="custom">Vlastné</string>
+  <string name="end_of_current_chapter">Koniec aktuálnej kapitoly</string>
+  <string name="left">zostáva %s</string>
+  <string name="left_in_audiobook">Zostáva %s v audioknihe</string>
+  <string name="hours_letter">h</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Zobraziť čísla kapitol</string>
+  <string name="sleep_timer_note">Ak chcete reštartovať, zatraste zariadením do 30 sekúnd po dokončení</string>
+  <string name="repeat">Opakovať</string>
+
+  <!--Prehľad knihy-->
+  <string name="folders">Priečinky</string>
+  <string name="settings">Nastavenia</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">Interné úložisko</string>
+
+  <!--Iné-->
+  <string name="copied_to_clipboard_show">Skopírované do schránky:\n%s</string>
+
+  <!--O-->
+  <string name="pref_about_message">><![CDATA[
+Prehrávač audiokníh <b>PlayBook</b> s otvoreným zdrojom. PlayBook je založený na open source aplikácii Voice.
+<br/><br/>
+
+Bol by som veľmi vďačný, keby ste na Google Play zanechali recenziu alebo hodnotenie aplikácie, veľmi to pomôže rozvoju projektu.<br/>
+]]></string>
+  <string name="pref_rate_title">Ohodnoťte aplikáciu</string>
+  <string name="pref_other_app_title">Iné aplikácie</string>
+  <string name="pref_privacy_title">Zásady ochrany osobných údajov</string>
+  <string name="pref_share_title">Zdieľať</string>
+
+  <!--Kúpa-->
+  <string name="tipping_jar_title">Pohár s tipom</string>
+  <string name="tip_kind">Dobrý tip</string>
+  <string name="tip_excellent">Výborný tip</string>
+  <string name="tip_incredible">Neuveriteľný tip</string>
+  <string name="action_support_project">Projekt podpory</string>
+  <string name="action_support_project_summary">Získajte platenú aplikáciu na podporu budúceho vývoja a získajte ďalšie funkcie</string>
+  <string name="learn_more">Viac informácií</string>
+  <string name="theme_summary">Tmavý motív spotrebuje menej energie na displejoch AMOLED</string>
+  <string name="color_title">Farby</string>
+  <string name="color_summary">Starostlivo vybrané farebné schémy, ktoré zodpovedajú vašim obľúbeným knihám</string>
+  <string name="plus_title">Podporte nás</string>
+  <string name="plus_summary">Všetky naše aplikácie sú bez reklám, s otvoreným zdrojom a tak to vždy zostane. S vašou pomocou sme schopní implementovať viac funkcií a urobiť ich ešte lepšími</string>
+  <string name="lifebuoy_title">Budeme vás podporovať</string>
+  <string name="lifebuoy_summary">Ak si z nejakého dôvodu nemôžete dovoliť našu aplikáciu, ale naozaj chcete využívať všetky funkcie, napíšte nám</string>
+  <string name="participants_title">Účastníci</string>
+  <string name="special_thanks_to">Špeciálne poďakovanie</string>
+
+  <!--Fakturácia-->
+  <string name="tipping_jar_dialog_sucess_title">Ďakujeme!</string>
+  <string name="tipping_jar_dialog_sucess_message">Veľká vďaka za podporu vývoja PlayBook. Ste skvelí a vývojár na vás nikdy nezabudne!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">Ste vítaní</string>
+  <string name="tipping_jar_dialog_error_title">Nepodarilo sa podať tip</string>
+  <string name="tipping_jar_dialog_error_message">Bohužiaľ, počas transakcie s tipovaním sa stalo niečo zlé. Nebuďte smutní, skúste to znova inokedy a užite si PlayBook</string>
+</resources>

@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Configuración-->
+  <string name="pref_about_title">Acerca de</string>
+  <string name="pref_follow_system">Sistema de seguimiento</string>
+  <string name="pref_forward">Adelante</string>
+  <string name="pref_grid_view">Ver cuadrícula</string>
+  <string name="pref_layout_list">Diseño de lista</string>
+  <string name="pref_layout_grid">Diseño de cuadrícula</string>
+  <string name="pref_mini_player_floating_button">Botón</string>
+  <string name="pref_mini_player_mini_player_floating">Jugador flotante</string>
+  <string name="pref_player_background_title">Fondo del jugador</string>
+  <string name="pref_player_background_theme">Fondo de la aplicación</string>
+  <string name="pref_player_background_blurred_cover">Portada borrosa</string>
+  <string name="pref_play_buttons_style_title">Estilo del botón de reproducción</string>
+  <string name="pref_rewind">Rebobinar</string>
+  <string name="pref_rewind_buttons_style_title">Estilo de botones de rebobinado</string>
+  <string name="pref_rewind_buttons_style_classic">Clásico</string>
+  <string name="pref_rewind_buttons_style_rounded">Redondeado</string>
+  <string name="pref_rewind_buttons_style_square">Cuadrado</string>
+  <string name="pref_show_mini_player_title">Estilo de mini reproductor</string>
+  <string name="pref_show_slider_volume_title">Control de volumen</string>
+  <string name="pref_use_transparent_navigation">Usar barra de navegación transparente</string>
+  <string name="pref_use_chapter_cover">Usar portada de capítulo</string>
+
+  <!-- Temas -->
+  <string name="theme">Tema</string>
+  <string name="light_theme">Luz</string>
+  <string name="dark_theme">Oscuro</string>
+
+  <!--Configuración de encabezados-->
+  <string name="pref_category_appearance">Apariencia</string>
+  <string name="pref_appearance_ui_library_title">Aspecto de la interfaz de usuario de la biblioteca</string>
+  <string name="pref_appearance_ui_player_title">Aspecto de la interfaz de usuario del jugador</string>
+  <string name="pref_category_other">Otro</string>
+
+  <!--Establecer colores-->
+  <string name="pref_basic_color">Color básico</string>
+  <string name="pref_basic_color_summary">Ingrese un color clave personalizado al que se le asigna automáticamente un conjunto de tonos complementarios.</string>
+  <string name="pref_default_theme_title">Establecer predeterminado</string>
+
+  <!--BookPlay-->
+  <string name="custom">Personalizado</string>
+  <string name="end_of_current_chapter">Fin del capítulo actual</string>
+  <string name="left">%s izquierda</string>
+  <string name="left_in_audiobook">Queda %s en el audiolibro</string>
+  <string name="hours_letter">h</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Mostrar números de capítulo</string>
+  <string name="sleep_timer_note">Para reiniciar, agite el dispositivo dentro de los 30 segundos después de terminar</string>
+  <string name="repeat">Repetir</string>
+
+  <!--Resumen del libro-->
+  <string name="folders">Carpetas</string>
+  <string name="settings">Ajustes</string>
+
+  <!--Seleccionador de carpetas-->
+  <string name="internal_storage">Almacenamiento interno</string>
+
+  <!--Otro-->
+  <string name="copied_to_clipboard_show">Copiado al portapapeles:\n%s</string>
+
+  <!--Acerca de-->
+  <string name="pref_about_message"><![CDATA[
+Un reproductor de audiolibros <b>PlayBook</b> de código abierto. PlayBook se basa en la aplicación Voice de código abierto.
+<br/><br/>
+
+Le agradecería mucho si deja una reseña o calificación sobre la aplicación en Google Play, ayudará mucho al desarrollo del proyecto.<br/>
+]]></string>
+  <string name="pref_rate_title">Valorar aplicación</string>
+  <string name="pref_other_app_title">Otras aplicaciones</string>
+  <string name="pref_privacy_title">Política de privacidad</string>
+  <string name="pref_share_title">Compartir</string>
+
+  <!--Comprar-->
+  <string name="tipping_jar_title">Tarro de propinas</string>
+  <string name="tip_kind">Consejo amable de</string>
+  <string name="tip_excellent">Excelente consejo de</string>
+  <string name="tip_incredible">Increíble consejo de</string>
+  <string name="action_support_project">Apoya el proyecto</string>
+  <string name="action_support_project_summary">Obtenga la aplicación paga para respaldar desarrollos futuros y obtener funciones adicionales</string>
+  <string name="learn_more">Más información</string>
+  <string name="theme_summary">El tema oscuro consume menos energía en las pantallas AMOLED</string>
+  <string name="color_title">Colores</string>
+  <string name="color_summary">Esquemas de color cuidadosamente seleccionados para que coincidan con tus libros favoritos</string>
+  <string name="plus_title">Apóyanos</string>
+  <string name="plus_summary">Todas nuestras aplicaciones no tienen publicidad, son de código abierto y siempre seguirán siendo así. Con su ayuda, podemos implementar más funciones y mejorarlas aún más</string>
+  <string name="lifebuoy_title">Te apoyaremos</string>
+  <string name="lifebuoy_summary">Si por alguna razón no puede pagar nuestra aplicación, pero realmente quiere usar todas las funciones, envíenos un correo electrónico</string>
+  <string name="participants_title">Participantes</string>
+  <string name="special_thanks_to">Gracias especiales a</string>
+
+  <!--Facturación-->
+  <string name="tipping_jar_dialog_sucess_title">¡Muchas gracias!</string>
+  <string name="tipping_jar_dialog_sucess_message">Muchas gracias por apoyar el desarrollo de PlayBook. ¡Eres genial y el desarrollador nunca te olvidará!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">De nada</string>
+  <string name="tipping_jar_dialog_error_title">Error al enviar la propina</string>
+  <string name="tipping_jar_dialog_error_message">Desafortunadamente, sucedió algo malo mientras realizaba la transacción de propinas. No estés triste, solo inténtalo de nuevo en otro momento y disfruta de PlayBook</string>
+</resources>

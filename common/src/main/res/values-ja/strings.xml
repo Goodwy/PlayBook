@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--設定-->
+  <string name="pref_about_title">アプリ情報</string>
+  <string name="pref_follow_system">システムをフォロー</string>
+  <string name="pref_forward">進む</string>
+  <string name="pref_grid_view">グリッドを表示</string>
+  <string name="pref_layout_list">リストのレイアウト</string>
+  <string name="pref_layout_grid">グリッド レイアウト</string>
+  <string name="pref_mini_player_floating_button">ボタン</string>
+  <string name="pref_mini_player_mini_player_floating">フローティング プレーヤー</string>
+  <string name="pref_player_background_title">プレーヤーの背景</string>
+  <string name="pref_player_background_theme">アプリの背景</string>
+  <string name="pref_player_background_blurred_cover">ぼやけたカバー</string>
+  <string name="pref_play_buttons_style_title">再生ボタンのスタイル</string>
+  <string name="pref_rewind">巻き戻し</string>
+  <string name="pref_rewind_buttons_style_title">巻き戻しボタンのスタイル</string>
+  <string name="pref_rewind_buttons_style_classic">クラシック</string>
+  <string name="pref_rewind_buttons_style_rounded">丸め</string>
+  <string name="pref_rewind_buttons_style_square">スクエア</string>
+  <string name="pref_show_mini_player_title">ミニプレーヤーのスタイル</string>
+  <string name="pref_show_slider_volume_title">音量調節</string>
+  <string name="pref_use_transparent_navigation">透明なナビゲーション バーを使用する</string>
+  <string name="pref_use_chapter_cover">チャプターカバーを使用</string>
+
+  <!-- テーマ -->
+  <string name="theme">テーマ</string>
+  <string name="light_theme">ライト</string>
+  <string name="dark_theme">ダーク</string>
+
+  <!-- ヘッダーの設定 -->
+  <string name="pref_category_appearance">外観</string>
+  <string name="pref_appearance_ui_library_title">ライブラリ UI の外観</string>
+  <string name="pref_appearance_ui_player_title">プレーヤー UI の外観</string>
+  <string name="pref_category_other">その他</string>
+
+  <!--色の設定-->
+  <string name="pref_basic_color">基本色</string>
+  <string name="pref_basic_color_summary">補色のセットが自動的に割り当てられるカスタム キー カラーを入力してください。</string>
+  <string name="pref_default_theme_title">デフォルトに設定</string>
+
+  <!--BookPlay-->
+  <string name="custom">カスタム</string>
+  <string name="end_of_current_chapter">現在の章の終わり</string>
+  <string name="left">残り %s</string>
+  <string name="left_in_audiobook">オーディオブック 残り %s</string>
+  <string name="hours_letter">時</string>
+  <string name="minutes_letter">分</string>
+  <string name="seconds_letter">秒</string>
+  <string name="show_chapter_numbers">チャプター番号を表示する</string>
+  <string name="sleep_timer_note">再起動するには、終了後 30 秒以内にデバイスを振ってください</string>
+  <string name="repeat">繰り返す</string>
+
+  <!--本の概要-->
+  <string name="folders">フォルダ</string>
+  <string name="settings">設定</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">内部ストレージ</string>
+
+  <!--その他-->
+  <string name="copied_to_clipboard_show">クリップボードにコピーしました:\n%s</string>
+
+  <!--概要-->
+  <string name="pref_about_message"><![CDATA[
+オープン ソースの <b>PlayBook</b> オーディオブック プレーヤー。 PlayBook は、オープン ソースの Voice アプリケーションに基づいています。
+<br/><br/>
+
+Google Play でアプリのレビューや評価を残していただければ、プロジェクトの発展に大いに役立ちます。<br/>
+]]></string>
+  <string name="pref_rate_title">アプリを評価</string>
+  <string name="pref_other_app_title">その他のアプリ</string>
+  <string name="pref_privacy_title">プライバシーポリシー</string>
+  <string name="pref_share_title">共有</string>
+
+  <!--購入-->
+  <string name="tipping_jar_title">チップジャー</string>
+  <string name="tip_kind">親切なヒント</string>
+  <string name="tip_excellent">すばらしいヒント</string>
+  <string name="tip_incredible">すばらしいヒント</string>
+  <string name="action_support_project">支援プロジェクト</string>
+  <string name="action_support_project_summary">有料アプリを入手して、将来の開発をサポートし、追加機能を入手してください</string>
+  <string name="learn_more">詳細</string>
+  <string name="theme_summary">ダーク テーマは AMOLED ディスプレイの消費電力を抑えます</string>
+  <string name="color_title">色</string>
+  <string name="color_summary">お気に入りの本に合わせて厳選された配色</string>
+  <string name="plus_title">サポート</string>
+  <string name="plus_summary">私たちのアプリはすべて広告なしのオープン ソースであり、今後もそのままです。皆様のご支援により、より多くの機能を実装し、さらに改善することができます</string>
+  <string name="lifebuoy_title">救命ブイ</string>
+  <string name="lifebuoy_summary">このPlayBooksを買う余裕がないけれど、本当に使いたい場合は、私にメールを書いてください。</string>
+  <string name="participants_title">参加者</string>
+  <string name="special_thanks_to">特別な感謝</string>
+
+  <!--請求-->
+  <string name="tipping_jar_dialog_sucess_title">ありがとうございます!</string>
+  <string name="tipping_jar_dialog_sucess_message">PlayBook の開発をサポートしていただき、誠にありがとうございます。あなたは素晴らしく、開発者はあなたを決して忘れません!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">どういたしまして</string>
+  <string name="tipping_jar_dialog_error_title">チップに失敗しました</string>
+  <string name="tipping_jar_dialog_error_message">残念ながら、チップの処理中に問題が発生しました。悲しまないで、もう一度やり直して PlayBook を楽しんでください</string>
+</resources>

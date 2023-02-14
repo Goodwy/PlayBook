@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Settings-->
+  <string name="pref_about_title">حول</string>
+  <string name="pref_follow_system">اتبع النظام</string>
+  <string name="pref_forward">إعادة توجيه</string>
+  <string name="pref_grid_view">عرض الشبكة</string>
+  <string name="pref_layout_list">تخطيط القائمة</string>
+  <string name="pref_layout_grid">تخطيط الشبكة</string>
+  <string name="pref_mini_player_floating_button">زر</string>
+  <string name="pref_mini_player_mini_player_floating">مشغل عائم</string>
+  <string name="pref_player_background_title">خلفية المشغل</string>
+  <string name="pref_player_background_theme">خلفية التطبيق</string>
+  <string name="pref_player_background_blurred_cover">غطاء غير واضح</string>
+  <string name="pref_play_buttons_style_title">نمط زر التشغيل</string>
+  <string name="pref_rewind">ترجيع</string>
+  <string name="pref_rewind_buttons_style_title">نمط أزرار الترجيع</string>
+  <string name="pref_rewind_buttons_style_classic">كلاسيكي</string>
+  <string name="pref_rewind_buttons_style_rounded">مدور</string>
+  <string name="pref_rewind_buttons_style_square">مربع</string>
+  <string name="pref_show_mini_player_title">أسلوب المشغل الصغير</string>
+  <string name="pref_show_slider_volume_title">التحكم في مستوى الصوت</string>
+  <string name="pref_use_transparent_navigation">استخدم شريط التنقل الشفاف</string>
+  <string name="pref_use_chapter_cover">استخدم غلاف الفصل</string>
+
+  <!--المظاهر-->
+  <string name="theme">الموضوع</string>
+  <string name="light_theme">الضوء</string>
+  <string name="dark_theme">داكن</string>
+
+  <!--ضبط الرؤوس-->
+  <string name="pref_category_appearance">المظهر</string>
+  <string name="pref_appearance_ui_library_title">مظهر واجهة مستخدم المكتبة</string>
+  <string name="pref_appearance_ui_player_title">مظهر واجهة مستخدم المشغل</string>
+  <string name="pref_category_other">أخرى</string>
+
+  <!--ضبط الألوان-->
+  <string name="pref_basic_color">اللون الأساسي</string>
+  <string name="pref_basic_color_summary">أدخل لون مفتاح مخصص يتم تعيينه تلقائيًا لمجموعة من النغمات التكميلية.</string>
+  <string name="pref_default_theme_title">تعيين افتراضي</string>
+
+  <!--BookPlay-->
+  <string name="custom">مخصص</string>
+  <string name="end_of_current_chapter">نهاية الفصل الحالي</string>
+  <string name="left">٪ s يسار</string>
+  <string name="left_in_audiobook">٪ s متبقية في الكتاب المسموع</string>
+  <string name="hours_letter">h </string>
+  <string name="minutes_letter">m </string>
+  <string name="seconds_letter">s </string>
+  <string name="show_chapter_numbers">إظهار أرقام الفصول</string>
+  <string name="sleep_timer_note">لإعادة التشغيل ، هز الجهاز في غضون 30 ثانية بعد الانتهاء</string>
+  <string name="repeat">كرر</string>
+
+  <!--نظرة عامة حول الكتاب-->
+  <string name="folders">المجلدات</string>
+  <string name="settings">الإعدادات</string>
+
+  <!--منتقي المجلدات-->
+  <string name="internal_storage">التخزين الداخلي</string>
+
+  <!--أخرى-->
+  <string name="copied_to_clipboard_show">تم النسخ إلى الحافظة: \ n٪ s </string>
+
+  <!--حول-->
+  <string name="pref_about_message"><![CDATA[مشغل كتب مسموع <b> PlayBook </b> مفتوح المصدر. تعتمد PlayBooks على تطبيق Voice مفتوح المصدر.<br/> <br/>
+سأكون ممتنًا جدًا إذا تركت تعليقًا أو تقييمًا حول التطبيق على Google Play ، فسيساعد ذلك بشكل كبير في تطوير المشروع. <br/>
+    ]]></string>
+  <string name="pref_rate_title">تقييم التطبيق</string>
+  <string name="pref_other_app_title">تطبيقات أخرى</string>
+  <string name="pref_privacy_title">سياسة الخصوصية</string>
+  <string name="pref_share_title">مشاركة</string>
+
+  <!--شراء-->
+  <string name="tipping_jar_title">صندوق الإرشاد</string>
+  <string name="tip_kind">نصيحة جيدة من</string>
+  <string name="tip_excellent">نصيحة ممتازة لـ</string>
+  <string name="tip_incredible">نصيحة رائعة من</string>
+  <string name="action_support_project">مشروع الدعم</string>
+  <string name="action_support_project_summary">احصل على التطبيق المدفوع لدعم التطورات المستقبلية والحصول على ميزات إضافية</string>
+  <string name="learn_more">اعرف المزيد</string>
+  <string name="theme_summary">يستخدم المظهر الداكن طاقة أقل على شاشات AMOLED</string>
+  <string name="color_title">الألوان</string>
+  <string name="color_summary">أنظمة ألوان منتقاة بعناية لتلائم كتبك المفضلة</string>
+  <string name="plus_title">ادعمنا</string>
+  <string name="plus_summary">جميع تطبيقاتنا خالية من الإعلانات ومفتوحة المصدر وستظل دائمًا على هذا النحو. بمساعدتك ، يمكننا تنفيذ المزيد من الميزات وتحسينها</string>
+  <string name="lifebuoy_title">سندعمك</string>
+  <string name="lifebuoy_summary">إذا كنت لسبب ما لا تستطيع تحمل تكاليف تطبيقنا ، ولكنك تريد حقًا استخدام جميع الميزات ، فما عليك سوى مراسلتنا عبر البريد الإلكتروني</string>
+  <string name="participants_title">المشاركون</string>
+  <string name="special_thanks_to">شكر خاص لـ</string>
+
+  <!--الفواتير-->
+  <string name="tipping_jar_dialog_sucess_title">شكرًا جزيلاً!</string>
+  <string name="tipping_jar_dialog_sucess_message">شكراً جزيلاً لدعم تطوير PlayBook. أنت رائع ولن ينساك المطور أبدًا!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">مرحبًا بك</string>
+  <string name="tipping_jar_dialog_error_title">فشل تقديم التلميح</string>
+  <string name="tipping_jar_dialog_error_message">لسوء الحظ حدث شيء سيء أثناء إجراء معاملة البقشيش. لا تحزن ، فقط حاول مرة أخرى في وقت آخر واستمتع بـ PlayBook </string>
+</resources>

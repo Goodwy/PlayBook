@@ -1,0 +1,208 @@
+package voice.app.features.imagepicker
+
+import android.annotation.SuppressLint
+import android.graphics.Bitmap
+import android.os.Bundle
+import android.view.View
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import com.afollestad.materialcab.attached.AttachedCab
+import com.afollestad.materialcab.attached.destroy
+import com.afollestad.materialcab.createCab
+import de.paulwoitaschek.flowpref.Pref
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import voice.app.R
+import voice.app.databinding.ImagePickerBinding
+import voice.app.injection.appComponent
+import voice.app.misc.conductor.popOrBack
+import voice.app.scanner.CoverSaver
+import voice.common.BookId
+import voice.common.conductor.ViewBindingController
+import voice.common.dpToPx
+import voice.common.pref.PrefKeys
+import voice.data.getBookId
+import voice.data.putBookId
+import voice.data.repo.BookRepository
+import java.net.URLEncoder
+import javax.inject.Inject
+import javax.inject.Named
+
+private const val NI_BOOK_ID = "ni"
+private const val SI_URL = "savedUrl"
+
+class CoverFromInternetController(bundle: Bundle) : ViewBindingController<ImagePickerBinding>(bundle, ImagePickerBinding::inflate) {
+
+  constructor(bookId: BookId) : this(
+    Bundle().apply {
+      putBookId(NI_BOOK_ID, bookId)
+    },
+  )
+
+  @field:[Inject Named(PrefKeys.PADDING)]
+  lateinit var paddingPref: Pref<String>
+
+  init {
+    appComponent.inject(this)
+  }
+
+  @Inject
+  lateinit var repo: BookRepository
+
+  @Inject
+  lateinit var coverSaver: CoverSaver
+
+  private var cab: AttachedCab? = null
+
+  private val book by lazy {
+    val id = bundle.getBookId(NI_BOOK_ID)!!
+    runBlocking {
+      repo.get(id)!!
+    }
+  }
+  private val originalUrl by lazy {
+    val encodedSearch = URLEncoder.encode("${book.content.name} audiobook cover", Charsets.UTF_8.name())
+    "https://www.google.com/search?safe=on&site=imghp" +
+      "&tbm=isch&tbs=isz:lt,islt:qsvga&q=$encodedSearch"
+  }
+
+  @SuppressLint("SetJavaScriptEnabled")
+  override fun ImagePickerBinding.onBindingCreated() {
+    with(webView.settings) {
+      setSupportZoom(true)
+      builtInZoomControls = true
+      displayZoomControls = false
+      javaScriptEnabled = true
+    }
+    webView.webViewClient = object : WebViewClient() {
+
+      @Suppress("OverridingDeprecatedMember")
+      @Deprecated("")
+      override fun onReceivedError(
+        view: WebView,
+        errorCode: Int,
+        description: String?,
+        failingUrl: String?,
+      ) {
+        view.loadUrl(originalUrl)
+      }
+    }
+
+    webView.loadUrl(originalUrl)
+
+    fab.setOnClickListener {
+      cropOverlay.selectionOn = true
+      showCab()
+      fab.hide()
+    }
+
+    setupToolbar()
+  }
+
+  override fun ImagePickerBinding.onAttach() {
+    //padding for Edge-to-edge
+    lifecycleScope.launch {
+      paddingPref.flow.collect {
+        val top = paddingPref.value.substringBefore(';').toInt()
+        val bottom = paddingPref.value.substringAfter(';').substringBefore(';').toInt()
+        val left = paddingPref.value.substringBeforeLast(';').substringAfterLast(';').toInt()
+        val right = paddingPref.value.substringAfterLast(';').toInt()
+        root.setPadding(activity!!.dpToPx(left.toFloat()).toInt(), activity!!.dpToPx(top.toFloat()).toInt(), activity!!.dpToPx(right.toFloat()).toInt(), activity!!.dpToPx(bottom.toFloat()).toInt())
+      }
+    }
+  }
+
+  private fun ImagePickerBinding.showCab() {
+    cab = activity!!.createCab(R.id.cabStub) {
+      menu(R.menu.crop_menu)
+      closeDrawable(R.drawable.close)
+      onSelection { item ->
+        if (item.itemId == R.id.confirm) {
+          lifecycleScope.launch {
+            val bitmap = takeWebViewScreenshot()
+            saveCover(bitmap)
+            destroy()
+            router.popCurrentController()
+          }
+          true
+        } else {
+          false
+        }
+      }
+      onDestroy {
+        cropOverlay.selectionOn = false
+        fab.show()
+        true
+      }
+      slideDown()
+    }
+  }
+
+  @Suppress("DEPRECATION")
+  private fun ImagePickerBinding.takeWebViewScreenshot(): Bitmap {
+    webView.isDrawingCacheEnabled = true
+    webView.buildDrawingCache()
+    val drawingCache = webView.drawingCache
+    val bitmap = drawingCache.copy(drawingCache.config, false)
+    webView.isDrawingCacheEnabled = false
+    return bitmap
+  }
+
+  private suspend fun ImagePickerBinding.saveCover(bitmap: Bitmap) {
+    val cropRect = cropOverlay.selectedRect
+    val left = cropRect.left
+    val top = cropRect.top
+    val width = cropRect.width()
+    val height = cropRect.height()
+
+    val screenShot = Bitmap.createBitmap(
+      bitmap,
+      left,
+      top,
+      width,
+      height,
+    )
+    bitmap.recycle()
+
+    coverSaver.save(book.id, screenShot)
+    screenShot.recycle()
+  }
+
+  @SuppressLint("InflateParams")
+  private fun ImagePickerBinding.setupToolbar() {
+    toolbar.setNavigationOnClickListener { popOrBack() }
+    toolbar.setOnMenuItemClickListener {
+      when (it.itemId) {
+        R.id.reset -> {
+          webView.loadUrl(originalUrl)
+          true
+        }
+        R.id.refresh -> {
+          webView.reload()
+          true
+        }
+        else -> false
+      }
+    }
+  }
+
+  override fun onRestoreViewState(view: View, savedViewState: Bundle) {
+    // load the last page loaded or the original one of there is none
+    val url: String? = savedViewState.getString(SI_URL)
+    if (url != null) {
+      binding.webView.loadUrl(url)
+    }
+  }
+
+  override fun handleBack(): Boolean {
+    if (cab.destroy()) {
+      return true
+    }
+
+    return false
+  }
+
+  override fun onSaveViewState(view: View, outState: Bundle) {
+    outState.putString(SI_URL, binding.webView.url)
+  }
+}

@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Ρυθμίσεις-->
+  <string name="pref_about_title">Σχετικά με</string>
+  <string name="pref_follow_system">Ακολουθήστε το σύστημα</string>
+  <string name="pref_forward">Προώθηση</string>
+  <string name="pref_grid_view">Προβολή πλέγματος</string>
+  <string name="pref_layout_list">Διάταξη λίστας</string>
+  <string name="pref_layout_grid">Διάταξη πλέγματος</string>
+  <string name="pref_mini_player_floating_button">Κουμπί</string>
+  <string name="pref_mini_player_mini_player_floating">Πλωτή συσκευή αναπαραγωγής</string>
+  <string name="pref_player_background_title">Φόντο προγράμματος αναπαραγωγής</string>
+  <string name="pref_player_background_theme">Φόντο εφαρμογής</string>
+  <string name="pref_player_background_blurred_cover">Θολό εξώφυλλο</string>
+  <string name="pref_play_buttons_style_title">Στυλ κουμπιού αναπαραγωγής</string>
+  <string name="pref_rewind">Επιστροφή</string>
+  <string name="pref_rewind_buttons_style_title">Στυλ κουμπιών επαναφοράς</string>
+  <string name="pref_rewind_buttons_style_classic">Κλασικό</string>
+  <string name="pref_rewind_buttons_style_rounded">Στρογγυλεμένα</string>
+  <string name="pref_rewind_buttons_style_square">Τετράγωνο</string>
+  <string name="pref_show_mini_player_title">Στιλ mini player</string>
+  <string name="pref_show_slider_volume_title">Έλεγχος έντασης ήχου</string>
+  <string name="pref_use_transparent_navigation">Χρήση διαφανούς γραμμής πλοήγησης</string>
+  <string name="pref_use_chapter_cover">Χρησιμοποιήστε το εξώφυλλο κεφαλαίου</string>
+
+  <!-- Θέματα -->
+  <string name="theme">Θέμα</string>
+  <string name="light_theme">Φως</string>
+  <string name="dark_theme">Σκούρο</string>
+
+  <!--Ρύθμιση κεφαλίδων-->
+  <string name="pref_category_appearance">Εμφάνιση</string>
+  <string name="pref_appearance_ui_library_title">Εμφάνιση διεπαφής χρήστη βιβλιοθήκης</string>
+  <string name="pref_appearance_ui_player_title">Εμφάνιση διεπαφής χρήστη του προγράμματος αναπαραγωγής</string>
+  <string name="pref_category_other">Άλλο</string>
+
+  <!--Ρύθμιση χρωμάτων-->
+  <string name="pref_basic_color">Βασικό χρώμα</string>
+  <string name="pref_basic_color_summary">Εισαγάγετε ένα προσαρμοσμένο χρώμα κλειδιού στο οποίο εκχωρείται αυτόματα ένα σύνολο συμπληρωματικών τόνων.</string>
+  <string name="pref_default_theme_title">Ορισμός προεπιλογής</string>
+
+  <!--BookPlay-->
+  <string name="custom">Προσαρμοσμένο</string>
+  <string name="end_of_current_chapter">Τέλος τρέχοντος κεφαλαίου</string>
+  <string name="left">Απομένει %s</string>
+  <string name="left_in_audiobook">Απομένει %s στο ηχητικό βιβλίο</string>
+  <string name="hours_letter">ω</string>
+  <string name="minutes_letter">μ</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Εμφάνιση αριθμών κεφαλαίων</string>
+  <string name="sleep_timer_note">Για επανεκκίνηση, ανακινήστε τη συσκευή εντός 30 δευτερολέπτων μετά την ολοκλήρωση</string>
+  <string name="repeat">Επανάληψη</string>
+
+  <!--BookOverview-->
+  <string name="folders">Φάκελοι</string>
+  <string name="settings">Ρυθμίσεις</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">Εσωτερικός χώρος αποθήκευσης</string>
+
+  <!--Άλλα-->
+  <string name="copied_to_clipboard_show">Αντιγράφηκε στο πρόχειρο:\n%s</string>
+
+  <!--Σχετικά-->
+  <string name="pref_about_message"><![CDATA[
+Ένα πρόγραμμα αναπαραγωγής ακουστικών βιβλίων ανοιχτού κώδικα <b>PlayBook</b>. Το PlayBooks βασίζεται στην εφαρμογή Voice ανοιχτού κώδικα.
+<br/><br/>
+
+Θα σας ήμουν πολύ ευγνώμων εάν αφήσετε μια κριτική ή αξιολόγηση σχετικά με την εφαρμογή στο Google Play, θα βοηθήσει πολύ στην ανάπτυξη του έργου.<br/>
+]]></string>
+  <string name="pref_rate_title">Αξιολόγηση εφαρμογής</string>
+  <string name="pref_other_app_title">Άλλες εφαρμογές</string>
+  <string name="pref_privacy_title">Πολιτική απορρήτου</string>
+  <string name="pref_share_title">Κοινή χρήση</string>
+
+  <!--Αγορά-->
+  <string name="tipping_jar_title">Βάζο συμβουλών</string>
+  <string name="tip_kind">Ευγενική συμβουλή για</string>
+  <string name="tip_excellent">Εξαιρετική συμβουλή του</string>
+  <string name="tip_incredible">Απίστευτη συμβουλή του</string>
+  <string name="action_support_project">Υποστήριξη έργου</string>
+  <string name="action_support_project_summary">Αποκτήστε την εφαρμογή επί πληρωμή για να υποστηρίξετε μελλοντικές εξελίξεις και να αποκτήσετε επιπλέον λειτουργίες</string>
+  <string name="learn_more">Μάθετε περισσότερα</string>
+  <string name="theme_summary">Το σκοτεινό θέμα καταναλώνει λιγότερη ενέργεια στις οθόνες AMOLED</string>
+  <string name="color_title">Χρώματα</string>
+  <string name="color_summary">Προεκτικά επιλεγμένοι χρωματικοί συνδυασμοί για να ταιριάζουν με τα αγαπημένα σας βιβλία</string>
+  <string name="plus_title">Υποστηρίξτε μας</string>
+  <string name="plus_summary">Όλες οι εφαρμογές μας είναι χωρίς διαφημίσεις, ανοιχτού κώδικα και θα παραμείνει πάντα έτσι. Με τη βοήθειά σας είμαστε σε θέση να εφαρμόσουμε περισσότερες δυνατότητες και να τις κάνουμε ακόμα καλύτερες</string>
+  <string name="lifebuoy_title">Θα σας υποστηρίξουμε</string>
+  <string name="lifebuoy_summary">Εάν για κάποιο λόγο δεν μπορείτε να αντέξετε οικονομικά την εφαρμογή μας, αλλά θέλετε πραγματικά να χρησιμοποιήσετε όλες τις δυνατότητες, απλώς στείλτε μας email</string>
+  <string name="participants_title">Συμμετέχοντες</string>
+  <string name="special_thanks_to">Ευχαριστώ ιδιαίτερα τον</string>
+
+  <!--Χρέωση-->
+  <string name="tipping_jar_dialog_sucess_title">Ευχαριστώ πολύ!</string>
+  <string name="tipping_jar_dialog_sucess_message">Ευχαριστούμε πολύ για την υποστήριξη της ανάπτυξης του PlayBook. Είστε υπέροχοι και ο προγραμματιστής δεν θα σας ξεχάσει ποτέ!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">Είστε ευπρόσδεκτοι</string>
+  <string name="tipping_jar_dialog_error_title">Απέτυχε συμβουλή</string>
+  <string name="tipping_jar_dialog_error_message">Δυστυχώς κάτι κακό συνέβη κατά την εκτέλεση της συναλλαγής φιλοδωρήματος. Μην λυπάστε, απλώς δοκιμάστε ξανά άλλη φορά και απολαύστε το PlayBook</string>
+</resources>

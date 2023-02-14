@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="primaryDark">@color/grey200</color>
-    <color name="grey200">#EEEEEE</color>
-    <color name="placeholderCoverColor">@color/grey200</color> <!--@color/grey200-->
-    <color name="colorIcon">#37373a</color> <!--Icons-->
-    <color name="colorIconSecond">#37373a</color> <!--Icons-->
-    <color name="colorlogo">#E6E6E6</color>
-</resources>

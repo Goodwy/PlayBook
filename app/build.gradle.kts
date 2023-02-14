@@ -1,53 +1,82 @@
-import deps.Deps
-import deps.Versions
+@file:Suppress("UnstableApiUsage")
+
+import com.android.build.api.dsl.ManagedVirtualDevice
 import java.util.Properties
 
 plugins {
-  id("com.android.application")
-  id("kotlin-android")
-  id("kotlin-android-extensions")
-  id("kotlinx-serialization")
+  id("voice.app")
+  id("voice.compose")
+  id("kotlin-parcelize")
   id("kotlin-kapt")
+  alias(libs.plugins.kotlin.serialization)
+  alias(libs.plugins.anvil)
+  alias(libs.plugins.crashlytics) apply false
+  alias(libs.plugins.googleServices) apply false
+  alias(libs.plugins.playPublish)
 }
+
+val enableCrashlytics = project.hasProperty("enableCrashlytics")
+if (enableCrashlytics) {
+  pluginManager.apply(libs.plugins.crashlytics.get().pluginId)
+  pluginManager.apply(libs.plugins.googleServices.get().pluginId)
+}
+
+play {
+  defaultToAppBundles.value(true)
+  val serviceAccountJson = file("play_service_account.json")
+  if (serviceAccountJson.exists()) {
+    serviceAccountCredentials.set(serviceAccountJson)
+  }
+}
+
+kapt {
+  arguments {
+    arg("dagger.fastInit", "enabled")
+    arg("dagger.fullBindingGraphValidation", "ERROR")
+  }
+}
+
 
 android {
 
-  compileSdkVersion(Versions.compileSdk)
+  namespace = "voice.app"
 
   defaultConfig {
-    applicationId = "com.goodwy.audiobook"
-    minSdkVersion(Versions.minSdk)
-    targetSdkVersion(Versions.targetSdk)
-
-    versionCode = Versions.versionCode
-    versionName = Versions.versionName
-
-    setProperty("archivesBaseName", "${applicationId}-v${versionName}")
+    applicationId = "com.goodwy.audiobook" //TODO application ID
+    versionCode = libs.versions.versionCode.get().toInt()
+    versionName = libs.versions.versionName.get()
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
     ndk {
-      setAbiFilters(
-        listOf(
-          "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
-        )
-      )
+      abiFilters.clear()
+      abiFilters += setOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
     }
+
+    val properties = Properties().apply {
+      load(rootProject.file("local.properties").reader())
+    }
+    buildConfigField("String", "PRODUCT_ID_X1", "\"${properties["PRODUCT_ID_X1"]}\"")
+    buildConfigField("String", "PRODUCT_ID_X2", "\"${properties["PRODUCT_ID_X2"]}\"")
+    buildConfigField("String", "PRODUCT_ID_X3", "\"${properties["PRODUCT_ID_X3"]}\"")
   }
 
   signingConfigs {
     create("release") {
-      val props = Properties()
-      var propsFile = File(rootDir, "signing/signing.properties")
-      if (!propsFile.canRead()) {
-        println("Use CI keystore.")
-        propsFile = File(rootDir, "signing/ci/signing.properties")
+      val properties = Properties()
+      val keyStoreName = if (providers.gradleProperty("voice.signing.play").get().toBoolean()) {
+        "play"
+      } else {
+        "github"
       }
-      props.load(propsFile.inputStream())
-      storeFile = File(propsFile.parentFile, props["STORE_FILE"] as String)
-      storePassword = props["STORE_PASSWORD"] as String
-      keyAlias = props["KEY_ALIAS"] as String
-      keyPassword = props["KEY_PASSWORD"] as String
+      val propertiesFile = rootProject.file("signing/$keyStoreName/signing.properties")
+        .takeIf { it.canRead() }
+        ?: rootProject.file("signing/ci/signing.properties")
+      properties.load(propertiesFile.inputStream())
+      storeFile = File(propertiesFile.parentFile, "signing.keystore")
+      storePassword = properties["STORE_PASSWORD"] as String
+      keyAlias = properties["KEY_ALIAS"] as String
+      keyPassword = properties["KEY_PASSWORD"] as String
     }
   }
 
@@ -55,18 +84,14 @@ android {
     getByName("release") {
       isMinifyEnabled = true
       isShrinkResources = true
-      ext["enableCrashlytics"] = false
-      multiDexEnabled = true
     }
     getByName("debug") {
       isMinifyEnabled = false
       isShrinkResources = false
-      ext["enableCrashlytics"] = false
-      multiDexEnabled = true
     }
     all {
       signingConfig = signingConfigs.getByName("release")
-      setProguardFiles(listOf(getDefaultProguardFile("proguard-android.txt"), "proguard.pro"))
+      setProguardFiles(listOf(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard.pro"))
     }
   }
 
@@ -74,112 +99,122 @@ android {
     unitTests.isReturnDefaultValues = true
     animationsDisabled = true
     unitTests.isIncludeAndroidResources = true
+    execution = "ANDROIDX_TEST_ORCHESTRATOR"
+    managedDevices {
+      devices.create<ManagedVirtualDevice>("pixel5") {
+        device = "Pixel 5"
+        apiLevel = 31
+      }
+      devices.create<ManagedVirtualDevice>("nexus7") {
+        device = "Nexus 7"
+        apiLevel = 31
+      }
+      devices.create<ManagedVirtualDevice>("nexus10") {
+        device = "Nexus 10"
+        apiLevel = 31
+      }
+      groups.create("screenshotDevices") {
+        targetDevices.addAll(devices.toList())
+      }
+    }
   }
 
-  lintOptions {
-    isCheckDependencies = true
-    isIgnoreTestSources = true
-    isWarningsAsErrors = true
-  }
-
-  compileOptions {
-    sourceCompatibility = Versions.sourceCompatibility
-    targetCompatibility = Versions.targetCompatibility
+  lint {
+    checkDependencies = true
+    ignoreTestSources = true
+    warningsAsErrors = true
+    lintConfig = rootProject.file("lint.xml")
   }
 
   packagingOptions {
-    pickFirst("META-INF/atomicfu.kotlin_module")
-	pickFirst("META-INF/core.kotlin_module")
-  }
-
-  flavorDimensions("free")
-  productFlavors {
-    create("opensource") {
-      setDimension("free")
-    }
-    create("proprietary") {
-      setDimension("free")
+    with(resources.pickFirsts) {
+      add("META-INF/atomicfu.kotlin_module")
+      add("META-INF/core.kotlin_module")
     }
   }
 
-  viewBinding.isEnabled = true
-}
-
-androidExtensions {
-  isExperimental = true
+  buildFeatures {
+    viewBinding = true
+  }
 }
 
 dependencies {
-  implementation(project(":core"))
-  implementation(project(":common"))
-  implementation(project(":data"))
-  implementation(project(":covercolorextractor"))
-  implementation(project(":crashreporting"))
-  implementation(project(":playback"))
-  implementation(project(":prefs"))
-  implementation(project(":ffmpeg"))
+  implementation(projects.strings)
+  implementation(projects.common)
+  implementation(projects.data)
+  implementation(projects.playback)
+  implementation(projects.ffmpeg)
+  implementation(projects.scanner)
+  implementation(projects.playbackScreen)
+  implementation(projects.sleepTimer)
+  implementation(projects.settings)
+  implementation(projects.folderPicker)
+  implementation(projects.bookOverview)
+  implementation(projects.migration)
+  implementation(projects.search)
 
-  implementation(Deps.AndroidX.appCompat)
-  implementation(Deps.AndroidX.recyclerView)
-  implementation(Deps.material)
-  implementation(Deps.AndroidX.transitions)
-  implementation(Deps.AndroidX.constraintLayout)
-  implementation(Deps.AndroidX.mediaCompat)
+  implementation(libs.appCompat)
+  implementation(libs.recyclerView)
+  implementation(libs.material)
+  implementation(libs.constraintLayout)
+  implementation(libs.media)
+  implementation(libs.datastore)
+  implementation(libs.appStartup)
 
-  implementation(Deps.picasso)
-  implementation(Deps.Kotlin.Serialization.runtime)
+  implementation(libs.serialization.json)
 
-  implementation(Deps.MaterialDialog.core)
-  implementation(Deps.MaterialDialog.input)
-  implementation(Deps.MaterialDialog.bottomsheets)
-  implementation(Deps.MaterialDialog.color)
-  implementation(Deps.materialCab)
+  implementation(libs.materialDialog.core)
+  implementation(libs.materialDialog.input)
+  implementation(libs.materialCab)
+  implementation(libs.coil)
 
-  implementation(Deps.JaredRummler.cyanea)
+  if (enableCrashlytics) {
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.analytics)
+    implementation(projects.logging.crashlytics)
+  }
 
-  implementation(Deps.floatingActionButton)
+  debugImplementation(projects.logging.debug)
 
-  implementation(Deps.Dagger.core)
-  kapt(Deps.Dagger.compiler)
+  implementation(libs.dagger.core)
+  kapt(libs.dagger.compiler)
 
-  implementation(Deps.AndroidX.ktx)
+  implementation(libs.androidxCore)
 
-  testImplementation(Deps.junit)
-  testImplementation(Deps.truth)
-  testImplementation(Deps.mockk)
+  testImplementation(libs.junit)
+  testImplementation(libs.mockk)
 
-  implementation(Deps.Kotlin.std)
-  implementation(Deps.Kotlin.coroutines)
-  implementation(Deps.Kotlin.coroutinesAndroid)
+  implementation(libs.media3.exoplayer)
 
-  implementation(Deps.timber)
+  implementation(libs.conductor)
 
-  implementation(Deps.ExoPlayer.core)
-  implementation(Deps.ExoPlayer.flac) { isTransitive = false }
+  implementation(libs.lifecycle)
 
-  implementation(Deps.Conductor.core)
-  implementation(Deps.Conductor.transition)
+  implementation(libs.prefs.android)
+  testImplementation(libs.prefs.inMemory)
 
-  implementation(Deps.lifecycle)
+  testImplementation(libs.androidX.test.runner)
+  testImplementation(libs.androidX.test.junit)
+  testImplementation(libs.androidX.test.core)
+  testImplementation(libs.robolectric)
+  testImplementation(libs.coroutines.test)
 
-  implementation(Deps.groupie)
-  implementation(Deps.ThreeTen.android)
+  androidTestUtil(libs.androidTest.orchestrator)
+  androidTestUtil(libs.androidTest.services.testServices)
+  androidTestImplementation(libs.androidTest.services.storage)
 
-  implementation(Deps.Prefs.android)
-  testImplementation(Deps.Prefs.inMemory)
+  androidTestImplementation(libs.androidTest.espresso)
+  androidTestImplementation(libs.androidTest.rules)
+  androidTestImplementation(libs.koTest.assert)
+  androidTestImplementation(libs.junit)
+  androidTestImplementation(libs.compose.ui.test)
+  debugImplementation(libs.compose.ui.testManifest)
+  androidTestImplementation(libs.compose.ui.testJunit)
+  androidTestImplementation(libs.androidX.test.runner)
+  androidTestImplementation(libs.androidX.test.core)
+  androidTestImplementation(libs.androidX.test.junit)
+  androidTestImplementation(libs.uiautomator)
 
-  implementation(Deps.tapTarget)
-  testImplementation(Deps.AndroidX.Test.runner)
-  testImplementation(Deps.AndroidX.Test.junit)
-  testImplementation(Deps.AndroidX.Test.core)
-  testImplementation(Deps.robolectric)
-  testImplementation(Deps.Kotlin.coroutinesTest)
-
-  androidTestImplementation(Deps.truth)
-  androidTestImplementation(Deps.junit)
-  androidTestImplementation(Deps.AndroidX.Test.runner)
-  androidTestImplementation(Deps.AndroidX.Test.core)
-  androidTestImplementation(Deps.AndroidX.Test.junit)
+  //PlayBook
+  implementation("com.android.billingclient:billing:5.1.0")
 }
-
-tasks.create("fdroid").dependsOn(":app:assembleOpensourceRelease")

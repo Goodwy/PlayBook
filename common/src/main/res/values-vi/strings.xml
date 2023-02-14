@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Cài đặt-->
+  <string name="pref_about_title">Giới thiệu</string>
+  <string name="pref_follow_system">Theo dõi hệ thống</string>
+  <string name="pref_forward">Chuyển tiếp</string>
+  <string name="pref_grid_view">Xem lưới</string>
+  <string name="pref_layout_list">Bố cục danh sách</string>
+  <string name="pref_layout_grid">Bố cục lưới</string>
+  <string name="pref_mini_player_floating_button">Nút</string>
+  <string name="pref_mini_player_mini_player_floating">Trình phát nổi</string>
+  <string name="pref_player_background_title">Nền của trình phát</string>
+  <string name="pref_player_background_theme">Nền ứng dụng</string>
+  <string name="pref_player_background_blurred_cover">Bìa mờ</string>
+  <string name="pref_play_buttons_style_title">Kiểu nút phát</string>
+  <string name="pref_rewind">Tua lại</string>
+  <string name="pref_rewind_buttons_style_title">Tua lại kiểu nút</string>
+  <string name="pref_rewind_buttons_style_classic">Cổ điển</string>
+  <string name="pref_rewind_buttons_style_rounded">Tròn</string>
+  <string name="pref_rewind_buttons_style_square">Hình vuông</string>
+  <string name="pref_show_mini_player_title">Kiểu trình phát mini</string>
+  <string name="pref_show_slider_volume_title">Điều khiển âm lượng</string>
+  <string name="pref_use_transparent_navigation">Sử dụng thanh điều hướng trong suốt</string>
+  <string name="pref_use_chapter_cover">Sử dụng bìa chương</string>
+
+  <!-- Chủ đề -->
+  <string name="theme">Chủ đề</string>
+  <string name="light_theme">Ánh sáng</string>
+  <string name="dark_theme">Bóng tối</string>
+
+  <!--Đặt tiêu đề-->
+  <string name="pref_category_appearance">Ngoại hình</string>
+  <string name="pref_appearance_ui_library_title">Giao diện thư viện</string>
+  <string name="pref_appearance_ui_player_title">Giao diện người chơi</string>
+  <string name="pref_category_other">Khác</string>
+
+  <!--Đặt màu-->
+  <string name="pref_basic_color">Màu cơ bản</string>
+  <string name="pref_basic_color_summary">Nhập một màu chính tùy chỉnh sẽ tự động được chỉ định một tập hợp các tông màu bổ sung.</string>
+  <string name="pref_default_theme_title">Đặt mặc định</string>
+
+  <!--BookPlay-->
+  <string name="custom">Tùy chỉnh</string>
+  <string name="end_of_current_chapter">Kết thúc chương hiện tại</string>
+  <string name="left">Còn %s</string>
+  <string name="left_in_audiobook">Còn %s trong sách nói</string>
+  <string name="hours_letter">h</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Hiển thị số chương</string>
+  <string name="sleep_timer_note">Để khởi động lại, hãy lắc thiết bị trong vòng 30 giây sau khi kết thúc</string>
+  <string name="repeat">Lặp lại</string>
+
+  <!--Tổng quan về sách-->
+  <string name="folders">Thư mục</string>
+  <string name="settings">Cài đặt</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">Bộ nhớ trong</string>
+
+  <!--Khác-->
+  <string name="copied_to_clipboard_show">Đã sao chép vào khay nhớ tạm:\n%s</string>
+
+  <!--Giới thiệu-->
+  <string name="pref_about_message"><![CDATA[
+Trình phát sách nói <b>PlayBook</b> mã nguồn mở. PlayBook dựa trên ứng dụng Voice mã nguồn mở.
+<br/><br/>
+
+Tôi sẽ rất biết ơn nếu bạn để lại đánh giá hoặc xếp hạng về ứng dụng trên Google Play, nó sẽ giúp ích rất nhiều cho sự phát triển của dự án.<br/>
+]]></string>
+  <string name="pref_rate_title">Đánh giá ứng dụng</string>
+  <string name="pref_other_app_title">Ứng dụng khác</string>
+  <string name="pref_privacy_title">Chính sách bảo mật</string>
+  <string name="pref_share_title">Chia sẻ</string>
+
+  <!--Mua hàng-->
+  <string name="tipping_jar_title">Bình tip</string>
+  <string name="tip_kind">Mẹo nhỏ</string>
+  <string name="tip_excellent">Mẹo hay</string>
+  <string name="tip_incredible">Mẹo đáng kinh ngạc</string>
+  <string name="action_support_project">Dự án hỗ trợ</string>
+  <string name="action_support_project_summary">Tải ứng dụng trả phí để hỗ trợ các bước phát triển trong tương lai và nhận các tính năng bổ sung</string>
+  <string name="learn_more">Tìm hiểu thêm</string>
+  <string name="theme_summary">Chủ đề tối sử dụng ít năng lượng hơn trên màn hình AMOLED</string>
+  <string name="color_title">Màu sắc</string>
+  <string name="color_summary">Phối màu được lựa chọn cẩn thận để phù hợp với những cuốn sách yêu thích của bạn</string>
+  <string name="plus_title">Hỗ trợ chúng tôi</string>
+  <string name="plus_summary">Tất cả các ứng dụng của chúng tôi đều không có quảng cáo, Nguồn mở và nó sẽ luôn như vậy. Với sự giúp đỡ của bạn, chúng tôi có thể triển khai nhiều tính năng hơn và làm cho chúng thậm chí còn tốt hơn</string>
+  <string name="lifebuoy_title">Chúng tôi sẽ hỗ trợ bạn</string>
+  <string name="lifebuoy_summary">Nếu vì lý do nào đó bạn không đủ tiền mua ứng dụng của chúng tôi nhưng thực sự muốn sử dụng tất cả các tính năng, chỉ cần gửi email cho chúng tôi</string>
+  <string name="participants_title">Người tham gia</string>
+  <string name="special_thanks_to">Cảm ơn đặc biệt</string>
+
+  <!--Thanh toán-->
+  <string name="tipping_jar_dialog_sucess_title">Cảm ơn rất nhiều!</string>
+  <string name="tipping_jar_dialog_sucess_message">Xin chân thành cảm ơn bạn đã hỗ trợ phát triển PlayBook. Bạn thật tuyệt và nhà phát triển sẽ không bao giờ quên bạn!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">Không có chi</string>
+  <string name="tipping_jar_dialog_error_title">Không boa được</string>
+  <string name="tipping_jar_dialog_error_message">Thật không may, đã xảy ra sự cố khi thực hiện giao dịch tiền boa. Đừng buồn, hãy thử lại vào lần khác và thưởng thức PlayBook</string>
+</resources>

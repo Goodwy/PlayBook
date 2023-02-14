@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Mipangilio-->
+  <string name="pref_about_title">Kuhusu</string>
+  <string name="pref_follow_system">Fuata mfumo</string>
+  <string name="pref_forward">Sambaza</string>
+  <string name="pref_grid_view">Angalia gridi</string>
+  <string name="pref_layout_list">Mpangilio wa orodha</string>
+  <string name="pref_layout_grid">Mpangilio wa gridi</string>
+  <string name="pref_mini_player_floating_button">Kitufe</string>
+  <string name="pref_mini_player_mini_player_floating">Kichezaji kinachoelea</string>
+  <string name="pref_player_background_title">Mandharinyuma ya kicheza</string>
+  <string name="pref_player_background_theme">Mandharinyuma ya programu</string>
+  <string name="pref_player_background_blurred_cover">Jalada lenye ukungu</string>
+  <string name="pref_play_buttons_style_title">Mtindo wa vitufe vya kucheza</string>
+  <string name="pref_rewind">Rejesha nyuma</string>
+  <string name="pref_rewind_buttons_style_title">Mtindo wa vitufe vya kurejesha nyuma</string>
+  <string name="pref_rewind_buttons_style_classic">Classic</string>
+  <string name="pref_rewind_buttons_style_rounded">Mviringo</string>
+  <string name="pref_rewind_buttons_style_square">Mraba</string>
+  <string name="pref_show_mini_player_title">Mtindo wa kichezaji kidogo</string>
+  <string name="pref_show_slider_volume_title">Udhibiti wa Sauti</string>
+  <string name="pref_use_transparent_navigation">Tumia upau wa kusogeza wenye uwazi</string>
+  <string name="pref_use_chapter_cover">Tumia jalada la sura</string>
+
+  <!-- Mandhari -->
+  <string name="theme">Mandhari</string>
+  <string name="light_theme">Nyepesi</string>
+  <string name="dark_theme">Nyeusi</string>
+
+  <!--Kuweka vichwa-->
+  <string name="pref_category_appearance">Muonekano</string>
+  <string name="pref_appearance_ui_library_title">Mwonekano wa kiolesura cha maktaba</string>
+  <string name="pref_appearance_ui_player_title">Mwonekano wa kiolesura cha kichezaji</string>
+  <string name="pref_category_other">Nyingine</string>
+
+  <!--Kuweka rangi-->
+  <string name="pref_basic_color">Rangi ya msingi</string>
+  <string name="pref_basic_color_summary">Weka rangi ya ufunguo maalum ambayo hupewa kiotomatiki seti ya toni za ziada.</string>
+  <string name="pref_default_theme_title">Weka chaguomsingi</string>
+
+  <!--BookPlay-->
+  <string name="custom">Custom</string>
+  <string name="end_of_current_chapter">Mwisho wa sura ya sasa</string>
+  <string name="left">%s imesalia</string>
+  <string name="left_in_audiobook">%s zimesalia kwenye kitabu cha sauti</string>
+  <string name="hours_letter">h</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Onyesha nambari za sura</string>
+  <string name="sleep_timer_note">Ili kuwasha upya, mtikisa kifaa ndani ya sekunde 30 baada ya kumaliza</string>
+  <string name="repeat">Rudia</string>
+
+  <!--Muhtasari wa Kitabu-->
+  <string name="folders">Folda</string>
+  <string name="settings">Mipangilio</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">Hifadhi ya Ndani</string>
+
+  <!--Nyingine-->
+  <string name="copied_to_clipboard_show">Imenakiliwa kwenye ubao wa kunakili:\n%s</string>
+
+  <!--Kuhusu-->
+  <string name="pref_about_message"><![CDATA[
+Kicheza kitabu cha sauti cha <b>PlayBook</b> huria. PlayBook ni msingi wa programu huria ya Sauti.
+<br/><br/>
+
+Nitashukuru sana ukiacha ukaguzi au ukadiriaji kuhusu programu kwenye Google Play, itasaidia sana maendeleo ya mradi.<br/>
+]]></string>
+  <string name="pref_rate_title">Kadiria Programu</string>
+  <string name="pref_other_app_title">Programu Nyingine</string>
+  <string name="pref_privacy_title">Sera ya faragha</string>
+  <string name="pref_share_title">Shiriki</string>
+
+  <!--Purchase-->
+  <string name="tipping_jar_title">Jari la Kidokezo</string>
+  <string name="tip_kind">Kidokezo cha aina ya</string>
+  <string name="tip_excellent">Kidokezo bora cha</string>
+  <string name="tip_incredible">Kidokezo cha ajabu cha</string>
+  <string name="action_support_project">Mradi wa usaidizi</string>
+  <string name="action_support_project_summary">Pata programu inayolipishwa ili kusaidia maendeleo ya siku zijazo na upate vipengele vya ziada</string>
+  <string name="learn_more">Pata maelezo zaidi</string>
+  <string name="theme_summary">Mandhari meusi hutumia nguvu kidogo kwenye skrini za AMOLED</string>
+  <string name="color_title">Rangi</string>
+  <string name="color_summary">Umechagua kwa uangalifu mipango ya rangi ili ilingane na vitabu unavyopenda</string>
+  <string name="plus_title">Tusaidie</string>
+  <string name="plus_summary">Programu zetu zote hazina matangazo, Open Source na itaendelea kuwa hivyo kila wakati. Kwa msaada wako tunaweza kutekeleza vipengele zaidi na kuvifanya kuwa bora zaidi</string>
+  <string name="lifebuoy_title">Tutakuunga mkono</string>
+  <string name="lifebuoy_summary">Ikiwa kwa sababu fulani huwezi kumudu programu yetu, lakini unataka kutumia vipengele vyote, tutumie barua pepe tu</string>
+  <string name="participants_title">Washiriki</string>
+  <string name="special_thanks_to">Shukrani maalum kwa</string>
+
+  <!--Malipo-->
+  <string name="tipping_jar_dialog_sucess_title">Shukrani nyingi!</string>
+  <string name="tipping_jar_dialog_sucess_message" msgid="4000000000000">"Shukrani kubwa kwa kusaidia uundaji wa PlayBook. Wewe ni mzuri na msanidi hatakusahau kamwe!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">Unakaribishwa</string>
+  <string name="tipping_jar_dialog_error_title">Imeshindwa kudokeza</string>
+  <string name="tipping_jar_dialog_error_message" msgid="40000000000000">"Kwa bahati mbaya, jambo baya lilitokea wakati wa kutekeleza shughuli ya kudokeza. Usisikitike, jaribu tena wakati mwingine na ufurahie PlayBook</string>
+</resources>

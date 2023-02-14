@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation" tools:locale="en">
+  <!--PlayBook strings-->
+  <!--Beállítások-->
+  <string name="pref_about_title">Névjegy</string>
+  <string name="pref_follow_system">A rendszer követése</string>
+  <string name="pref_forward">Továbbítás</string>
+  <string name="pref_grid_view">Rács megtekintése</string>
+  <string name="pref_layout_list">Lista elrendezése</string>
+  <string name="pref_layout_grid">Rács elrendezése</string>
+  <string name="pref_mini_player_floating_button">Gomb</string>
+  <string name="pref_mini_player_mini_player_floating">Lebegő lejátszó</string>
+  <string name="pref_player_background_title">Lejátszó háttér</string>
+  <string name="pref_player_background_theme">Alkalmazás háttere</string>
+  <string name="pref_player_background_blurred_cover">Elmosódott borító</string>
+  <string name="pref_play_buttons_style_title">Lejátszás gombstílus</string>
+  <string name="pref_rewind">Tekerje vissza</string>
+  <string name="pref_rewind_buttons_style_title">Visszatekerés gombstílus</string>
+  <string name="pref_rewind_buttons_style_classic">Klasszikus</string>
+  <string name="pref_rewind_buttons_style_rounded">Kerekített</string>
+  <string name="pref_rewind_buttons_style_square">Négyzet</string>
+  <string name="pref_show_mini_player_title">Mini lejátszóstílus</string>
+  <string name="pref_show_slider_volume_title">Hangerőszabályzó</string>
+  <string name="pref_use_transparent_navigation">Az átlátszó navigációs sáv használata</string>
+  <string name="pref_use_chapter_cover">Használja a fejezetborítót</string>
+
+  <!-- Témák -->
+  <string name="theme">Téma</string>
+  <string name="light_theme">Fény</string>
+  <string name="dark_theme">Sötét</string>
+
+  <!--Fejlécek beállítása-->
+  <string name="pref_category_appearance">Megjelenés</string>
+  <string name="pref_appearance_ui_library_title">Könyvtári felhasználói felület megjelenése</string>
+  <string name="pref_appearance_ui_player_title">A lejátszó felhasználói felületének megjelenése</string>
+  <string name="pref_category_other">Egyéb</string>
+
+  <!--Színek beállítása-->
+  <string name="pref_basic_color">Alapszín</string>
+  <string name="pref_basic_color_summary">Adjon meg egy egyéni kulcsszínt, amely automatikusan hozzárendel egy sor kiegészítő hangot.</string>
+  <string name="pref_default_theme_title">Alapértelmezés beállítása</string>
+
+  <!--BookPlay-->
+  <string name="custom">Egyéni</string>
+  <string name="end_of_current_chapter">Az aktuális fejezet vége</string>
+  <string name="left">%s maradt</string>
+  <string name="left_in_audiobook">%s maradt a hangoskönyvből</string>
+  <string name="hours_letter">h</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Fejezetszámok megjelenítése</string>
+  <string name="sleep_timer_note">Újraindításhoz a befejezést követően 30 másodpercen belül rázza meg az eszközt</string>
+  <string name="repeat">Ismétlés</string>
+
+  <!--Könyváttekintés-->
+  <string name="folders">Mappák</string>
+  <string name="settings">Beállítások</string>
+
+  <!--Mappaválasztó-->
+  <string name="internal_storage">Belső tárhely</string>
+
+  <!--Egyéb-->
+  <string name="copied_to_clipboard_show">Vágólapra másolva:\n%s</string>
+
+  <!--Körülbelül-->
+  <string name="pref_about_message"><![CDATA[
+Nyílt forráskódú <b>PlayBook</b> hangoskönyv-lejátszó. A PlayBook a nyílt forráskódú Voice alkalmazáson alapul.
+<br/><br/>
+
+Nagyon hálás lennék, ha véleményt vagy értékelést írna az alkalmazásról a Google Playen, ez nagyban segíti a projekt fejlesztését.<br/>
+]]></string>
+  <string name="pref_rate_title">Alkalmazás értékelése</string>
+  <string name="pref_other_app_title">Egyéb alkalmazások</string>
+  <string name="pref_privacy_title">Adatvédelmi irányelvek</string>
+  <string name="pref_share_title">Megosztás</string>
+
+  <!--Vásárlás-->
+  <string name="tipping_jar_title">Tip Jar</string>
+  <string name="tip_kind">Kedves tipp</string>
+  <string name="tip_excellent">Kiváló tipp</string>
+  <string name="tip_incredible">Hihetetlen tipp</string>
+  <string name="action_support_project">Támogatja a projektet</string>
+  <string name="action_support_project_summary">Szerezze be a fizetős alkalmazást a jövőbeli fejlesztések támogatásához és további funkciókhoz</string>
+  <string name="learn_more">További információ</string>
+  <string name="theme_summary">A sötét téma kevesebb energiát használ az AMOLED kijelzőkön</string>
+  <string name="color_title">Színek</string>
+  <string name="color_summary">Gondosan kiválasztott színsémák kedvenc könyveihez</string>
+  <string name="plus_title">Támogass minket</string>
+  <string name="plus_summary">Minden alkalmazásunk reklámmentes, nyílt forráskódú, és ez mindig így is marad. Segítségével több funkciót tudunk megvalósítani és még jobbá tenni</string>
+  <string name="lifebuoy_title">Támogatni fogjuk Önt</string>
+  <string name="lifebuoy_summary">Ha valamilyen okból nem engedheti meg magának alkalmazásunkat, de valóban használni szeretné az összes funkciót, csak írjon nekünk e-mailt</string>
+  <string name="participants_title">Résztvevők</string>
+  <string name="special_thanks_to">Külön köszönet neki</string>
+
+  <!--Számlázás-->
+  <string name="tipping_jar_dialog_sucess_title">Köszönjük szépen!</string>
+  <string name="tipping_jar_dialog_sucess_message">Nagyon köszönöm, hogy támogatod a PlayBook fejlesztését. Nagyszerű vagy, és a fejlesztő soha nem felejt el!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">Üdvözöljük</string>
+  <string name="tipping_jar_dialog_error_title">Nem sikerült a tipp</string>
+  <string name="tipping_jar_dialog_error_message">Sajnos valami rossz történt a borravaló tranzakció végrehajtása közben. Ne légy szomorú, csak próbáld újra máskor, és élvezd a PlayBook</string>t
+</resources>

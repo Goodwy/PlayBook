@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Ayarlar-->
+  <string name="pref_about_title">Hakkında</string>
+  <string name="pref_follow_system">Sistemi takip et</string>
+  <string name="pref_forward">İleri</string>
+  <string name="pref_grid_view">Kılavuzu görüntüle</string>
+  <string name="pref_layout_list">Liste düzeni</string>
+  <string name="pref_layout_grid">Kılavuz düzeni</string>
+  <string name="pref_mini_player_floating_button">Düğme</string>
+  <string name="pref_mini_player_mini_player_floating">Kayan oyuncu</string>
+  <string name="pref_player_background_title">Oyuncu arka planı</string>
+  <string name="pref_player_background_theme">Uygulama arka planı</string>
+  <string name="pref_player_background_blurred_cover">Bulanık kapak</string>
+  <string name="pref_play_buttons_style_title">Oynat düğmesi stili</string>
+  <string name="pref_rewind">Geri Sar</string>
+  <string name="pref_rewind_buttons_style_title">Geri sarma düğmeleri stili</string>
+  <string name="pref_rewind_buttons_style_classic">Klasik</string>
+  <string name="pref_rewind_buttons_style_rounded">Yuvarlanmış</string>
+  <string name="pref_rewind_buttons_style_square">Kare</string>
+  <string name="pref_show_mini_player_title">Mini oyuncu stili</string>
+  <string name="pref_show_slider_volume_title">Ses Kontrolü</string>
+  <string name="pref_use_transparent_navigation">Şeffaf gezinme çubuğu kullanın</string>
+  <string name="pref_use_chapter_cover">Bölüm kapağını kullan</string>
+
+  <!-- Temalar -->
+  <string name="theme">Tema</string>
+  <string name="light_theme">Açık</string>
+  <string name="dark_theme">Koyu</string>
+
+  <!--Başlıkları ayarlama-->
+  <string name="pref_category_appearance">Görünüm</string>
+  <string name="pref_appearance_ui_library_title">Kitaplık kullanıcı arabirimi görünümü</string>
+  <string name="pref_appearance_ui_player_title">Oyuncu arayüzü görünümü</string>
+  <string name="pref_category_other">Diğer</string>
+
+  <!--Renklerin ayarlanması-->
+  <string name="pref_basic_color">Temel renk</string>
+  <string name="pref_basic_color_summary">Otomatik olarak bir dizi tamamlayıcı ton atanan özel bir anahtar rengi girin.</string>
+  <string name="pref_default_theme_title">Varsayılanı ayarla</string>
+
+  <!--Kitap Oynatma-->
+  <string name="custom">Özel</string>
+  <string name="end_of_current_chapter">Mevcut bölümün sonu</string>
+  <string name="left">%s kaldı</string>
+  <string name="left_in_audiobook">Sesli kitapta %s kaldı</string>
+  <string name="hours_letter">s</string>
+  <string name="minutes_letter">d</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Bölüm numaralarını göster</string>
+  <string name="sleep_timer_note">Yeniden başlatmak için, bitirdikten sonra 30 saniye içinde cihazı sallayın</string>
+  <string name="repeat">Tekrarla</string>
+
+  <!--Kitaba Genel Bakış-->
+  <string name="folders">Klasörler</string>
+  <string name="settings">Ayarlar</string>
+
+  <!--Klasör Seçici-->
+  <string name="internal_storage">Dahili Depolama</string>
+
+  <!--Diğer-->
+  <string name="copied_to_clipboard_show">Panoya kopyalandı:\n%s</string>
+
+  <!--Hakkında-->
+  <string name="pref_about_message"><![CDATA[
+Açık kaynaklı bir <b>PlayBook</b> sesli kitap oynatıcısı. PlayBook, açık kaynaklı Voice uygulamasını temel alır.
+<br/><br/>
+
+Google Play\'de uygulama hakkında bir inceleme veya derecelendirme bırakırsanız çok minnettar olurum, bu projenin gelişimine büyük ölçüde yardımcı olacaktır.<br/>
+]]></string>
+  <string name="pref_rate_title">Uygulamayı Derecelendir</string>
+  <string name="pref_other_app_title">Diğer Uygulamalar</string>
+  <string name="pref_privacy_title">Gizlilik politikası</string>
+  <string name="pref_share_title">Paylaş</string>
+
+  <!--Satın Al-->
+  <string name="tipping_jar_title">İpucu Kavanozu</string>
+  <string name="tip_kind">Nazik bir ipucu</string>
+  <string name="tip_excellent">Mükemmel bir ipucu</string>
+  <string name="tip_incredible">İnanılmaz ipucu</string>
+  <string name="action_support_project">Destek projesi</string>
+  <string name="action_support_project_summary">Gelecekteki geliştirmeleri desteklemek ve ekstra özelliklere sahip olmak için ücretli uygulamayı edinin</string>
+  <string name="learn_more">Daha fazla bilgi edinin</string>
+  <string name="theme_summary">Karanlık tema, AMOLED ekranlarda daha az güç kullanır</string>
+  <string name="color_title">Renkler</string>
+  <string name="color_summary">En sevdiğiniz kitaplara uyması için özenle seçilmiş renk şemaları</string>
+  <string name="plus_title">Bizi destekleyin</string>
+  <string name="plus_summary">Tüm uygulamalarımız reklamsızdır, Açık Kaynaklıdır ve bu her zaman böyle kalacaktır. Yardımınızla daha fazla özellik uygulayabilir ve onları daha da iyi hale getirebiliriz</string>
+  <string name="lifebuoy_title">Sizi destekleyeceğiz</string>
+  <string name="lifebuoy_summary">Herhangi bir nedenle uygulamamızı karşılayamıyorsanız, ancak gerçekten tüm özellikleri kullanmak istiyorsanız, bize e-posta gönderin</string>
+  <string name="participants_title">Katılımcılar</string>
+  <string name="special_thanks_to">Özel teşekkürler</string>
+
+  <!--Faturalandırma-->
+  <string name="tipping_jar_dialog_sucess_title">Çok teşekkürler!</string>
+  <string name="tipping_jar_dialog_sucess_message">PlayBook\'un gelişimini desteklediğiniz için çok teşekkürler. Harikasın ve geliştirici seni asla unutmayacak!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">Rica ederim</string>
+  <string name="tipping_jar_dialog_error_title">İpucu verilemedi</string>
+  <string name="tipping_jar_dialog_error_message">Bahşiş işlemi yapılırken maalesef kötü bir şey oldu. Üzülmeyin, bir dahaki sefere tekrar deneyin ve PlayBook\'un keyfini çıkarın</string>
+</resources>

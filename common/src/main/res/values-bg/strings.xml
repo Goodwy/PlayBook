@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Настройки-->
+  <string name="pref_about_title">Относно</string>
+  <string name="pref_follow_system">Следвайте системата</string>
+  <string name="pref_forward">Напред</string>
+  <string name="pref_grid_view">Преглед на мрежата</string>
+  <string name="pref_layout_list">Оформление на списък</string>
+  <string name="pref_layout_grid">Оформление на мрежата</string>
+  <string name="pref_mini_player_floating_button">Бутон</string>
+  <string name="pref_mini_player_mini_player_floating">Плаващ плейър</string>
+  <string name="pref_player_background_title">Фон на играча</string>
+  <string name="pref_player_background_theme">Фон на приложението</string>
+  <string name="pref_player_background_blurred_cover">Замъглена корица</string>
+  <string name="pref_play_buttons_style_title">Стил на бутона за възпроизвеждане</string>
+  <string name="pref_rewind">Превъртане назад</string>
+  <string name="pref_rewind_buttons_style_title">Стил на бутоните за превъртане назад</string>
+  <string name="pref_rewind_buttons_style_classic">Класически</string>
+  <string name="pref_rewind_buttons_style_rounded">Закръглено</string>
+  <string name="pref_rewind_buttons_style_square">Квадрат</string>
+  <string name="pref_show_mini_player_title">Стил на мини плейър</string>
+  <string name="pref_show_slider_volume_title">Контрол на силата на звука</string>
+  <string name="pref_use_transparent_navigation">Използване на прозрачна лента за навигация</string>
+  <string name="pref_use_chapter_cover">Използване на корицата на глава</string>
+
+  <!-- Теми -->
+  <string name="theme">Тема</string>
+  <string name="light_theme">Светлина</string>
+  <string name="dark_theme">Тъмно</string>
+
+  <!--Задаване на заглавки-->
+  <string name="pref_category_appearance">Външен вид</string>
+  <string name="pref_appearance_ui_library_title">Изглед на потребителския интерфейс на библиотеката</string>
+  <string name="pref_appearance_ui_player_title">Изглед на потребителския интерфейс на плейъра</string>
+  <string name="pref_category_other">Друго</string>
+
+  <!--Задаване на цветове-->
+  <string name="pref_basic_color">Основен цвят</string>
+  <string name="pref_basic_color_summary">Въведете персонализиран цвят на клавишите, на който автоматично се присвоява набор от допълващи се тонове.</string>
+  <string name="pref_default_theme_title">Задаване по подразбиране</string>
+
+  <!--BookPlay-->
+  <string name="custom">Персонализиран</string>
+  <string name="end_of_current_chapter">Край на текущата глава</string>
+  <string name="left">Остава %s</string>
+  <string name="left_in_audiobook">Остават %s в аудиокнига</string>
+  <string name="hours_letter">h</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Показване на номерата на главите</string>
+  <string name="sleep_timer_note">За да рестартирате, разклатете устройството в рамките на 30 секунди след приключване</string>
+  <string name="repeat">Повтаряне</string>
+
+  <!--BookOverview-->
+  <string name="folders">Папки</string>
+  <string name="settings">Настройки</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">Вътрешно хранилище</string>
+
+  <!--Други-->
+  <string name="copied_to_clipboard_show">Копирано в клипборда:\n%s</string>
+
+  <!--Относно-->
+  <string name="pref_about_message"><![CDATA[
+Плейър за аудиокниги <b>PlayBook</b> с отворен код. PlayBooks е базиран на приложението Voice с отворен код.
+<br/><br/>
+
+Ще бъда много благодарен, ако оставите отзив или оценка за приложението в Google Play, това значително ще помогне за развитието на проекта.<br/>
+]]></string>
+  <string name="pref_rate_title">Оценете приложението</string>
+  <string name="pref_other_app_title">Други приложения</string>
+  <string name="pref_privacy_title">Политика за поверителност</string>
+  <string name="pref_share_title">Споделяне</string>
+
+  <!--Покупка-->
+  <string name="tipping_jar_title">Буркан със съвети</string>
+  <string name="tip_kind">Любезен съвет на</string>
+  <string name="tip_excellent">Отличен съвет на</string>
+  <string name="tip_incredible">Невероятен съвет на</string>
+  <string name="action_support_project">Проект за поддръжка</string>
+  <string name="action_support_project_summary">Вземете платеното приложение, за да поддържате бъдещи разработки и да получите допълнителни функции</string>
+  <string name="learn_more">Научете повече</string>
+  <string name="theme_summary">Тъмната тема използва по-малко енергия на AMOLED дисплеи</string>
+  <string name="color_title">Цветове</string>
+  <string name="color_summary">Внимателно подбрани цветови схеми, които да съответстват на любимите ви книги</string>
+  <string name="plus_title">Подкрепете ни</string>
+  <string name="plus_summary">Всички наши приложения са без реклами, с отворен код и винаги ще остане така. С ваша помощ можем да приложим повече функции и да ги направим още по-добри</string>
+  <string name="lifebuoy_title">Ние ще ви подкрепим</string>
+  <string name="lifebuoy_summary">Ако по някаква причина не можете да си позволите нашето приложение, но наистина искате да използвате всички функции, просто ни изпратете имейл</string>
+  <string name="participants_title">Участници</string>
+  <string name="special_thanks_to">Специални благодарности на</string>
+
+  <!--Таксуване-->
+  <string name="tipping_jar_dialog_sucess_title">Много благодаря!</string>
+  <string name="tipping_jar_dialog_sucess_message">Голями благодарности за подкрепата за разработването на PlayBook. Вие сте страхотни и разработчикът никога няма да ви забрави!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">Заповядайте</string>
+  <string name="tipping_jar_dialog_error_title">Неуспешен съвет</string>
+  <string name="tipping_jar_dialog_error_message">За съжаление нещо лошо се случи при извършване на транзакцията за бакшиш. Не тъгувайте, просто опитайте отново друг път и се насладете на PlayBook</string>
+</resources>

@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Settings-->
+<string name="pref_about_title">Meer oor</string>
+<string name="pref_follow_system">Volg stelsel</string>
+<string name="pref_forward">Stuur aan</string>
+<string name="pref_grid_view">Bekyk rooster</string>
+<string name="pref_layout_list">Lysuitleg</string>
+<string name="pref_layout_grid">Roosteruitleg</string>
+<string name="pref_mini_player_floating_button">Knoppie</string>
+<string name="pref_mini_player_mini_player_floating">Swewende speler</string>
+<string name="pref_player_background_title">Speleragtergrond</string>
+<string name="pref_player_background_theme">Appagtergrond</string>
+<string name="pref_player_background_blurred_cover">Vaige omslag</string>
+<string name="pref_play_buttons_style_title">Speelknoppiestyl</string>
+<string name="pref_rewind">Terugspoel</string>
+<string name="pref_rewind_buttons_style_title">Terugspoel knoppiesstyl</string>
+<string name="pref_rewind_buttons_style_classic">Klassiek</string>
+<string name="pref_rewind_buttons_style_rounded">Gerond</string>
+<string name="pref_rewind_buttons_style_square">Vierkant</string>
+<string name="pref_show_mini_player_title">Minispelerstyl</string>
+<string name="pref_show_slider_volume_title">Volumebeheer</string>
+<string name="pref_use_transparent_navigation">Gebruik deursigtige navigasiebalk</string>
+<string name="pref_use_chapter_cover">Gebruik hoofstukomslag</string>
+
+<!-- Themes -->
+<string name="theme">Tema</string>
+<string name="light_theme">Lig</string>
+<string name="dark_theme">Donker</string>
+
+<!--Setting headers-->
+<string name="pref_category_appearance">Voorkoms</string>
+<string name="pref_appearance_ui_library_title">Biblioteek-UI-voorkoms</string>
+<string name="pref_appearance_ui_player_title">Speler-UI-voorkoms</string>
+<string name="pref_category_other">Ander</string>
+
+<!--Setting colors-->
+<string name="pref_basic_color">Basiese kleur</string>
+<string name="pref_basic_color_summary">Voer \'n pasgemaakte sleutelkleur in wat outomaties \'n stel komplementêre tone toegeken word.</string>
+<string name="pref_default_theme_title">Stel verstek</string>
+
+<!-- BookPlay -->
+<string name="custom">Gepasmaak</string>
+<string name="end_of_current_chapter">Einde van huidige hoofstuk</string>
+<string name="left">%s oor</string>
+<string name="left_in_audiobook">%s oor in oudioboek</string>
+<string name="hours_letter">h</string>
+<string name="minutes_letter">m</string>
+<string name="seconds_letter">s</string>
+<string name="show_chapter_numbers">Wys hoofstuknommers</string>
+<string name="sleep_timer_note">Om te herbegin, skud die toestel binne 30 sekondes nadat dit klaar is</string>
+<string name="repeat">Herhaal</string>
+
+<!-- BookOverview -->
+<string name="folders">vouers</string>
+<string name="settings">Instellings</string>
+
+<!-- FolderPicker -->
+<string name="internal_storage">Interne berging</string>
+
+<!--Other-->
+<string name="copied_to_clipboard_show">Gekopieer na knipbord:\n%s</string>
+
+<!--About-->
+<string name="pref_about_message"><![CDATA[
+\'n Oopbron <b> PlayBook </b> oudioboekspeler. PlayBooks is gebaseer op die oopbron Voice-toepassing.
+< br />< br />
+
+Ek sal baie dankbaar wees as jy \'n resensie of beoordeling oor die toepassing op Google Play laat, dit sal die ontwikkeling van die projek baie help.< br />
+]]></string>
+<string name="pref_rate_title">Beoordeel toepassing</string>
+<string name="pref_other_app_title">Ander programme</string>
+<string name="pref_privacy_title">Privaatheidsbeleid</string>
+<string name="pref_share_title">Deel</string>
+
+<!--Purchase-->
+<string name="tipping_jar_title">Wenkpot</string>
+<string name="tip_kind">Vriendelike wenk van</string>
+<string name="tip_excellent">Uitstekende wenk van</string>
+<string name="tip_incredible">Ongelooflike wenk van</string>
+<string name="action_support_project">Ondersteuningsprojek</string>
+<string name="action_support_project_summary">Kry die betaalde toepassing om toekomstige ontwikkelings te ondersteun en ekstra kenmerke te kry</string>
+<string name="learn_more">Kom meer te wete</string>
+<string name="theme_summary">Donker tema gebruik minder krag op AMOLED-skerms</string>
+<string name="color_title">Kleure</string>
+<string name="color_summary">Versigtig uitgesoekte kleurskemas om by jou gunsteling boeke te pas</string>
+<string name="plus_title">Ondersteun ons</string>
+<string name="plus_summary">Al ons programme is advertensievry, oopbron en dit sal altyd so bly. Met jou hulp is ons in staat om meer kenmerke te implementeer en dit selfs beter te maak</string>
+<string name="lifebuoy_title">Ons sal jou ondersteun</string>
+<string name="lifebuoy_summary">As jy om een of ander rede nie ons toepassing kan bekostig nie, maar regtig al die kenmerke wil gebruik, stuur \'n e-pos aan ons</string>
+<string name="participants_title">Deelnemers</string>
+<string name="special_thanks_to">Spesiale dank aan</string>
+
+<!--Billing-->
+<string name="tipping_jar_dialog_sucess_title">Baie dankie!</string>
+<string name="tipping_jar_dialog_sucess_message">Baie dankie vir die ondersteuning van die ontwikkeling van PlayBook . Jy is wonderlik en die ontwikkelaar sal jou nooit vergeet nie!</string>
+<string name="tipping_jar_dialog_sucess_button_title">Jy is welkom</string>
+<string name="tipping_jar_dialog_error_title">Kon nie wenk gee nie</string>
+<string name="tipping_jar_dialog_error_message">Ongelukkig het iets sleg gebeur terwyl die wiptransaksie uitgevoer is. Moenie hartseer wees nie, probeer net weer \'n ander keer en geniet PlayBook </string>
+</resources>

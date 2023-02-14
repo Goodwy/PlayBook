@@ -1,44 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="accent">@color/blue1</color>
-    <color name="accentDark">@color/blue2</color>
-    <color name="primary">#fafafa</color>
-    <color name="second">#fcfcfc</color>
-    <color name="colorOnSurface">@color/black</color> <!--Icons-->
-    <color name="blue1">#4c86cb</color>
-    <color name="blue2">#e7eef5</color>
-    <color name="red">#FFEB5545</color>
-    <color name="divider">#c6c6c7</color>
-    <color name="shadow_elevation">#000000</color>
-    <color name="background_overlay">@color/copy_primary_text_disabled_material_light</color> <!--При нажатии кнопки + в окне добавления каталогов-->
-    <!-- copied private resources from appcompat -->
-    <color name="copy_primary_text_disabled_material_dark">#4Dffffff</color>
-    <color name="copy_primary_text_disabled_material_light">#39000000</color>
-    <color name="copy_primary_text_default_material_dark">#ffffffff</color>
-    <color name="copy_primary_text_default_material_light">#de000000</color>
-    <color name="copy_background_material_dark">@color/material_grey_850</color>
-    <color name="copy_secondary_text_disabled_material_dark">#36ffffff</color>
-    <color name="copy_secondary_text_default_material_dark">#b3ffffff</color>
+  <!-- copied private resources from appcompat -->
+  <color name="copy_primary_text_disabled_material_dark">#4Dffffff</color>
+  <color name="copy_primary_text_default_material_dark">#ffffffff</color>
+  <color name="copy_background_material_dark">@color/material_grey_850</color>
+  <color name="copy_secondary_text_disabled_material_dark">#36ffffff</color>
+  <color name="copy_secondary_text_default_material_dark">#b3ffffff</color>
 
-    <color name="rate_background">#efefef</color>
-    <color name="mini_player_background">#ffffff</color>
+  <color name="ic_shortcut_play_background">#FFFFFF</color>
 
-   <!-- <color name="ic_shortcut_play_background">#FFFFFF</color>-->
-    <color name="white">#FFFFFF</color>
-    <color name="black">#000000</color>
-    <color name="progressColor">#E0E0E0</color>
-
-    <!--Cyanea default-->
-    <color name="cyanea_primary_reference">#4c86cb</color>
-    <color name="cyanea_primary_dark_reference">#E0E0E0</color>
-    <color name="cyanea_accent_reference">#4c86cb</color>
-    <color name="cyanea_navigation_bar_reference">#fafafa</color>
-    <color name="cyanea_background_light">#fafafa</color>
-    <color name="cyanea_background_dark">#1e2225</color>
-    <color name="cyanea_bg_light_lighter">#FFFAFAFA</color><!-- Dialogs color-->
-
-    <color name="cyanea_menu_icon_light">#FFFFFFFF</color>
-    <color name="cyanea_menu_icon_dark">#DE000000</color>
-    <color name="cyanea_sub_menu_icon_light">#B3FFFFFF</color>
-    <color name="cyanea_sub_menu_icon_dark">#8A000000</color>
+  <!-- PlayBook -->
+  <color name="ic_launcher_background">#1B2529</color>
+  <color name="ic_splash_background">#000000</color>
 </resources>

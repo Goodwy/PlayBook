@@ -4,25 +4,45 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/plugins" name="plugins">
+                <projects>
+                  <project path="$PROJECT_DIR$/plugins" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="11" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/bookOverview" />
             <option value="$PROJECT_DIR$/common" />
-            <option value="$PROJECT_DIR$/core" />
-            <option value="$PROJECT_DIR$/covercolorextractor" />
-            <option value="$PROJECT_DIR$/crashreporting" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/ffmpeg" />
+            <option value="$PROJECT_DIR$/folderPicker" />
+            <option value="$PROJECT_DIR$/logging" />
+            <option value="$PROJECT_DIR$/logging/core" />
+            <option value="$PROJECT_DIR$/logging/crashlytics" />
+            <option value="$PROJECT_DIR$/logging/debug" />
+            <option value="$PROJECT_DIR$/migration" />
             <option value="$PROJECT_DIR$/playback" />
-            <option value="$PROJECT_DIR$/prefs" />
+            <option value="$PROJECT_DIR$/playbackScreen" />
+            <option value="$PROJECT_DIR$/plugins" />
+            <option value="$PROJECT_DIR$/scanner" />
+            <option value="$PROJECT_DIR$/search" />
+            <option value="$PROJECT_DIR$/settings" />
+            <option value="$PROJECT_DIR$/sleepTimer" />
+            <option value="$PROJECT_DIR$/strings" />
           </set>
         </option>
-        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

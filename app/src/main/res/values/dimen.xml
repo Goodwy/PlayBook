@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- material specs -->
-    <dimen name="list_text_primary_size">16sp</dimen>
-    <dimen name="list_text_secondary_size">14sp</dimen>
-    <dimen name="list_single_item_height">48dp</dimen>
-
-    <dimen name="dialog_horizontal_padding">24dp</dimen>
-
-    <dimen name="dialog_70">600dp</dimen>
-    <dimen name="dialog_80">700dp</dimen>
-    <dimen name="dialog_90">800dp</dimen>
-
-    <!-- material dialog -->
-    <dimen name="md_dialog_frame_margin_vertical_less">0dp</dimen> <!-- нижний отступ узаголовка списка глав -->
-    <dimen name="md_corner_radius">8dp</dimen> <!-- радиус углов -->
+  <!-- material specs -->
+  <dimen name="list_text_primary_size">16sp</dimen>
+  <dimen name="list_text_secondary_size">14sp</dimen>
 </resources>

@@ -1,38 +1,28 @@
-import deps.Deps
-import deps.Versions
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-  id("com.android.library")
-  id("kotlin-android")
-  id("kotlinx-serialization")
+  id("voice.library")
+  id("kotlin-parcelize")
   id("kotlin-kapt")
+  alias(libs.plugins.kotlin.serialization)
+  alias(libs.plugins.anvil)
+  alias(libs.plugins.ksp)
+}
+
+anvil {
+  generateDaggerFactories.set(true)
+}
+
+ksp {
+  @Suppress("DEPRECATION")
+  blockOtherCompilerPlugins = false
+  arg("room.schemaLocation", "$projectDir/schemas")
 }
 
 android {
 
-  compileSdkVersion(Versions.compileSdk)
-
   defaultConfig {
-    minSdkVersion(Versions.minSdk)
-    targetSdkVersion(Versions.targetSdk)
-
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-    javaCompileOptions {
-      annotationProcessorOptions {
-        arguments = mapOf("room.schemaLocation" to "$projectDir/schemas")
-      }
-    }
-  }
-
-  flavorDimensions("free")
-  productFlavors {
-    create("opensource") {
-      setDimension("free")
-    }
-    create("proprietary") {
-      setDimension("free")
-    }
   }
 
   sourceSets {
@@ -40,43 +30,35 @@ android {
       assets.srcDir(project.file("schemas"))
     }
   }
+}
 
-  testOptions {
-    unitTests.isReturnDefaultValues = true
-    animationsDisabled = true
-    unitTests.isIncludeAndroidResources = true
-  }
-
-  compileOptions {
-    sourceCompatibility = Versions.sourceCompatibility
-    targetCompatibility = Versions.targetCompatibility
-  }
+tasks.withType<KotlinCompile>().configureEach {
+  // workaround for https://youtrack.jetbrains.com/issue/KT-38576
+  usePreciseJavaTracking = false
 }
 
 dependencies {
-  implementation(project(":common"))
-  implementation(project(":crashreporting"))
-  implementation(Deps.AndroidX.appCompat)
-  implementation(Deps.timber)
-  implementation(Deps.Kotlin.coroutines)
-  implementation(Deps.Kotlin.coroutinesAndroid)
-  implementation(Deps.AndroidX.ktx)
-  implementation(Deps.Kotlin.Serialization.runtime)
+  api(projects.common)
+  implementation(libs.appCompat)
+  implementation(libs.androidxCore)
+  implementation(libs.serialization.json)
+  implementation(libs.prefs.core)
 
-  api(Deps.AndroidX.Room.runtime)
-  kapt(Deps.AndroidX.Room.compiler)
+  api(libs.room.runtime)
+  ksp(libs.room.compiler)
 
-  implementation(Deps.Dagger.core)
-  kapt(Deps.Dagger.compiler)
+  implementation(libs.dagger.core)
+  kaptTest(libs.dagger.compiler)
+  implementation(libs.datastore)
+  implementation(libs.documentFile)
 
-  testImplementation(Deps.AndroidX.Room.testing)
-  testImplementation(Deps.AndroidX.Test.core)
-  testImplementation(Deps.AndroidX.Test.junit)
-  testImplementation(Deps.AndroidX.Test.runner)
-  testImplementation(Deps.junit)
-  testImplementation(Deps.robolectric)
-  testImplementation(Deps.truth)
-
-  api(Deps.ThreeTen.android)
-  testImplementation(Deps.ThreeTen.jvm)
+  testImplementation(libs.room.testing)
+  testImplementation(libs.androidX.test.core)
+  testImplementation(libs.androidX.test.junit)
+  testImplementation(libs.androidX.test.runner)
+  testImplementation(libs.junit)
+  testImplementation(libs.robolectric)
+  testImplementation(libs.prefs.inMemory)
+  testImplementation(libs.koTest.assert)
+  testImplementation(libs.coroutines.test)
 }

@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Inställningar-->
+  <string name="pref_about_title">Om</string>
+  <string name="pref_follow_system">Följ systemet</string>
+  <string name="pref_forward">Vidarebefordra</string>
+  <string name="pref_grid_view">Visa rutnät</string>
+  <string name="pref_layout_list">Listlayout</string>
+  <string name="pref_layout_grid">Gridlayout</string>
+  <string name="pref_mini_player_floating_button">Knapp</string>
+  <string name="pref_mini_player_mini_player_floating">Flytande spelare</string>
+  <string name="pref_player_background_title">Spelarens bakgrund</string>
+  <string name="pref_player_background_theme">Appbakgrund</string>
+  <string name="pref_player_background_blurred_cover">Suddig omslag</string>
+  <string name="pref_play_buttons_style_title">Spela knappstil</string>
+  <string name="pref_rewind">Spolning bakåt</string>
+  <string name="pref_rewind_buttons_style_title">Spolning av knappstil</string>
+  <string name="pref_rewind_buttons_style_classic">Klassisk</string>
+  <string name="pref_rewind_buttons_style_rounded">Rundad</string>
+  <string name="pref_rewind_buttons_style_square">Kvadrat</string>
+  <string name="pref_show_mini_player_title">Minispelarestil</string>
+  <string name="pref_show_slider_volume_title">Volymkontroll</string>
+  <string name="pref_use_transparent_navigation">Använd genomskinligt navigeringsfält</string>
+  <string name="pref_use_chapter_cover">Använd kapitelomslag</string>
+
+  <!-- Teman -->
+  <string name="theme">Tema</string>
+  <string name="light_theme">Ljus</string>
+  <string name="dark_theme">Mörkt</string>
+
+  <!--Ställa in rubriker-->
+  <string name="pref_category_appearance">Utseende</string>
+  <string name="pref_appearance_ui_library_title">Utseende på bibliotekets användargränssnitt</string>
+  <string name="pref_appearance_ui_player_title">Utseende på spelargränssnittet</string>
+  <string name="pref_category_other">Övrigt</string>
+
+  <!--Ställa in färger-->
+  <string name="pref_basic_color">Grundfärg</string>
+  <string name="pref_basic_color_summary">Mata in en anpassad nyckelfärg som automatiskt tilldelas en uppsättning kompletterande toner.</string>
+  <string name="pref_default_theme_title">Ange standard</string>
+
+  <!--BookPlay-->
+  <string name="custom">Anpassad</string>
+  <string name="end_of_current_chapter">Slut på aktuellt kapitel</string>
+  <string name="left">%s kvar</string>
+  <string name="left_in_audiobook">%s kvar i ljudboken</string>
+  <string name="hours_letter">h</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Visa kapitelnummer</string>
+  <string name="sleep_timer_note">För att starta om, skaka enheten inom 30 sekunder efter avslutad </string>
+  <string name="repeat">Upprepa</string>
+
+  <!--BookOverview-->
+  <string name="folders">Mappar</string>
+  <string name="settings">Inställningar</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">Intern lagring</string>
+
+  <!--Övrigt-->
+  <string name="copied_to_clipboard_show">Kopierat till urklipp:\n%s</string>
+
+  <!--Om-->
+  <string name="pref_about_message"><![CDATA[
+En <b>PlayBook</b>-ljudboksspelare med öppen källkod. PlayBook är baserat på Voice-applikationen med öppen källkod.
+<br/><br/>
+
+Jag skulle vara mycket tacksam om du lämnar en recension eller betyg om applikationen på Google Play, det kommer i hög grad att hjälpa utvecklingen av projektet.<br/>
+]]></string>
+  <string name="pref_rate_title">Betygsätt app</string>
+  <string name="pref_other_app_title">Andra appar</string>
+  <string name="pref_privacy_title">Sekretesspolicy</string>
+  <string name="pref_share_title">Dela</string>
+
+  <!--Köp-->
+  <string name="tipping_jar_title">Dipburk</string>
+  <string name="tip_kind">Snälla tips av</string>
+  <string name="tip_excellent">Utmärkt tips av</string>
+  <string name="tip_incredible">Otroligt tips av</string>
+  <string name="action_support_project">Stödprojekt</string>
+  <string name="action_support_project_summary">Skaffa den betalda appen för att stödja framtida utveckling och få extra funktioner</string>
+  <string name="learn_more">Läs mer</string>
+  <string name="theme_summary">Mörkt tema använder mindre ström på AMOLED-skärmar</string>
+  <string name="color_title">Färger</string>
+  <string name="color_summary">Noggrant utvalda färgscheman som matchar dina favoritböcker</string>
+  <string name="plus_title">Stöd oss</string>
+  <string name="plus_summary">Alla våra appar är annonsfria, öppen källkod och det kommer alltid att förbli så. Med din hjälp kan vi implementera fler funktioner och göra dem ännu bättre</string>
+  <string name="lifebuoy_title">Vi kommer att stödja dig</string>
+  <string name="lifebuoy_summary">Om du av någon anledning inte har råd med vår app, men verkligen vill använda alla funktioner, är det bara att maila oss</string>
+  <string name="participants_title">Deltagare</string>
+  <string name="special_thanks_to">Särskilt tack till</string>
+
+  <!--Fakturering-->
+  <string name="tipping_jar_dialog_sucess_title">Tack så mycket!</string>
+  <string name="tipping_jar_dialog_sucess_message">Stort tack för att du stödjer utvecklingen av PlayBook. Du är fantastisk och utvecklaren kommer aldrig att glömma dig!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">Välkommen</string>
+  <string name="tipping_jar_dialog_error_title">Det gick inte att tipsa</string>
+  <string name="tipping_jar_dialog_error_message">Tyvärr hände något dåligt när drickstransaktionen utfördes. Var inte ledsen, försök bara igen en annan gång och njut av PlayBook</string>
+</resources>

@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--सेटिंग्स-->
+  <string name="pref_about_title">के बारे में</string>
+  <string name="pref_follow_system">सिस्टम का पालन करें</string>
+  <string name="pref_forward">आगे</string>
+  <string name="pref_grid_view">ग्रिड देखें</string>
+  <string name="pref_layout_list">सूची लेआउट</string>
+  <string name="pref_layout_grid">ग्रिड लेआउट</string>
+  <string name="pref_mini_player_floating_button">बटन</string>
+  <string name="pref_mini_player_mini_player_floating">फ्लोटिंग प्लेयर</string>
+  <string name="pref_player_background_title">प्लेयर बैकग्राउंड</string>
+  <string name="pref_player_background_theme">ऐप बैकग्राउंड</string>
+  <string name="pref_player_background_blurred_cover">धुंधला कवर</string>
+  <string name="pref_play_buttons_style_title">बटन शैली चलाएं</string>
+  <string name="pref_rewind">रिवाइंड करें</string>
+  <string name="pref_rewind_buttons_style_title">रिवाइंड बटन शैली</string>
+  <string name="pref_rewind_buttons_style_classic">क्लासिक</string>
+  <string name="pref_rewind_buttons_style_rounded">राउंडेड</string>
+  <string name="pref_rewind_buttons_style_square">स्क्वायर</string>
+  <string name="pref_show_mini_player_title">मिनी प्लेयर शैली</string>
+  <string name="pref_show_slider_volume_title">वॉल्यूम नियंत्रण</string>
+  <string name="pref_use_transparent_navigation">पारदर्शी नेविगेशन बार का प्रयोग करें</string>
+  <string name="pref_use_chapter_cover">अध्याय कवर का उपयोग करें</string>
+
+  <!-- थीम्स -->
+  <string name="theme">थीम</string>
+  <string name="light_theme">लाइट</string>
+  <string name="dark_theme">गहरा</string>
+
+  <!--सेटिंग हेडर-->
+  <string name="pref_category_appearance">उपस्थिति</string>
+  <string name="pref_appearance_ui_library_title">लाइब्रेरी UI उपस्थिति</string>
+  <string name="pref_appearance_ui_player_title">खिलाड़ी यूआई उपस्थिति</string>
+  <string name="pref_category_other">अन्य</string>
+
+  <!--सेटिंग रंग-->
+  <string name="pref_basic_color">मूल रंग</string>
+  <string name="pref_basic_color_summary">एक कस्टम कुंजी रंग इनपुट करें जो स्वचालित रूप से पूरक टोन का एक सेट असाइन करता है।</string>
+  <string name="pref_default_theme_title">डिफ़ॉल्ट सेट करें</string>
+
+  <!--BookPlay-->
+  <string name="custom">कस्टम</string>
+  <string name="end_of_current_chapter">वर्तमान अध्याय का अंत</string>
+  <string name="left">%s शेष</string>
+  <string name="left_in_audiobook">ऑडियोबुक में %s शेष हैं</string>
+  <string name="hours_letter">h</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">अध्याय संख्याएं दिखाएं</string>
+  <string name="sleep_timer_note">रीस्टार्ट करने के लिए, पूरा करने के बाद 30 सेकंड के भीतर डिवाइस को हिलाएं</string>
+  <string name="repeat">repeat</string>
+
+  <!--BookOverview-->
+  <string name="folders">फ़ोल्डर्स</string>
+  <string name="settings">सेटिंग्स</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">आंतरिक संग्रहण</string>
+
+  <!--अन्य-->
+  <string name="copied_to_clipboard_show">क्लिपबोर्ड पर कॉपी किया गया:\n%s</string>
+
+  <!--के बारे में-->
+  <string name="pref_about_message"><![CDATA[
+एक खुला स्रोत <b>PlayBook</b> ऑडियोबुक प्लेयर। PlayBook ओपन सोर्स वॉयस एप्लिकेशन पर आधारित है।
+<br/><br/>
+
+यदि आप Google Play पर एप्लिकेशन के बारे में समीक्षा या रेटिंग छोड़ते हैं तो मैं बहुत आभारी रहूंगा, इससे परियोजना के विकास में बहुत मदद मिलेगी।<br/>
+]]></string>
+  <string name="pref_rate_title">ऐप को रेट करें</string>
+  <string name="pref_other_app_title">अन्य ऐप्स</string>
+  <string name="pref_privacy_title">गोपनीयता नीति</string>
+  <string name="pref_share_title">साझा करें</string>
+
+  <!--खरीदारी-->
+  <string name="tipping_jar_title">टिप जार</string>
+  <string name="tip_kind">की तरह की युक्ति</string>
+  <string name="tip_excellent">की उत्कृष्ट युक्ति</string>
+  <string name="tip_incredible">की अविश्वसनीय युक्ति</string>
+  <string name="action_support_project"> सहायता परियोजना </string>
+  <string name="action_support_project_summary">भविष्य के विकास का समर्थन करने और अतिरिक्त सुविधाएं प्राप्त करने के लिए सशुल्क ऐप प्राप्त करें</string>
+  <string name="learn_more">और जानें</string>
+  <string name="theme_summary">AMOLED डिस्प्ले पर डार्क थीम कम पावर का इस्तेमाल करती है</string>
+  <string name="color_title">रंग</string>
+  <string name="color_summary">अपनी पसंदीदा पुस्तकों से मिलान करने के लिए सावधानी से चुनी गई रंग योजनाएं</string>
+  <string name="plus_title">हमारा समर्थन करें</string>
+  <string name="plus_summary">हमारे सभी ऐप्स विज्ञापन-मुक्त, ओपन सोर्स हैं और यह हमेशा ऐसा ही रहेगा। आपकी मदद से हम और अधिक सुविधाओं को लागू करने और उन्हें और भी बेहतर बनाने में सक्षम हैं</string>
+  <string name="lifebuoy_title">हम आपका समर्थन करेंगे</string>
+  <string name="lifebuoy_summary">यदि किसी कारण से आप हमारे ऐप का खर्च नहीं उठा सकते हैं, लेकिन वास्तव में सभी सुविधाओं का उपयोग करना चाहते हैं, तो बस हमें ईमेल करें</string>
+  <string name="participants_title">प्रतिभागी</string>
+  <string name="special_thanks_to">विशेष धन्यवाद</string>
+
+  <!--बिलिंग-->
+  <string name="tipping_jar_dialog_sucess_title">बहुत बहुत धन्यवाद!</string>
+  <string name="tipping_jar_dialog_sucess_message">PlayBook के विकास में सहयोग करने के लिए बहुत-बहुत धन्यवाद। आप महान हैं और डेवलपर आपको कभी नहीं भूलेगा!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">आपका स्वागत है</string>
+  <string name="tipping_jar_dialog_error_title">टिप करने में विफल</string>
+  <string name="tipping_jar_dialog_error_message">दुर्भाग्यवश टिपिंग लेन-देन करते समय कुछ गलत हो गया। उदास न हों, बस दूसरी बार फिर से प्रयास करें और PlayBook का आनंद लें</string>
+</resources>

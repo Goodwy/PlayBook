@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Socruithe-->
+  <string name="pref_about_title">Maidir le</string>
+  <string name="pref_follow_system">Lean an córas</string>
+  <string name="pref_forward">Ar aghaidh</string>
+  <string name="pref_grid_view">Féach ar an ngreille</string>
+  <string name="pref_layout_list">Leagan amach an liosta</string>
+  <string name="pref_layout_grid">Leagan amach greille</string>
+  <string name="pref_mini_player_floating_button">Cnaipe</string>
+  <string name="pref_mini_player_mini_player_floating">Seinnteoir ar snámh</string>
+  <string name="pref_player_background_title">Cúlra an imreora</string>
+  <string name="pref_player_background_theme">Cúlra na haipe</string>
+  <string name="pref_player_background_blurred_cover">Clúdach doiléir</string>
+  <string name="pref_play_buttons_style_title">Stíl an chnaipe seinnte</string>
+  <string name="pref_rewind">Athchasadh</string>
+  <string name="pref_rewind_buttons_style_title">Stíl na gcnaipí Athchasadh</string>
+  <string name="pref_rewind_buttons_style_classic">Classic</string>
+  <string name="pref_rewind_buttons_style_rounded">Rounded</string>
+  <string name="pref_rewind_buttons_style_square">Cearnóg</string>
+  <string name="pref_show_mini_player_title">Stíl mion-imreoir</string>
+  <string name="pref_show_slider_volume_title">Rialú Imleabhar</string>
+  <string name="pref_use_transparent_navigation">Úsáid barra nascleanúna trédhearcach</string>
+  <string name="pref_use_chapter_cover">Úsáid clúdach caibidle</string>
+
+  <!-- Téamaí -->
+  <string name="theme">Téama</string>
+  <string name="light_theme">Solas</string>
+  <string name="dark_theme">Dorcha</string>
+
+  <!-- Ceanntásca a shocrú-->
+  <string name="pref_category_appearance"> Dealramh</string>
+  <string name="pref_appearance_ui_library_title"> Cuma Chomhéadain na Leabharlainne</string>
+  <string name="pref_appearance_ui_player_title"> Cuma Chomhéadain Imreoir</string>
+  <string name="pref_category_other">Eile</string>
+
+  <!-- Ag socrú dathanna-->
+  <string name="pref_basic_color">Dath bunúsach</string>
+  <string name="pref_basic_color_summary">Ionchuir dath eochrach saincheaptha a sanntar sraith toin chomhlántacha dó go huathoibríoch.</string>
+  <string name="pref_default_theme_title">Socraigh réamhshocrú</string>
+
+  <!--BookPlay-->
+  <string name="custom">Saincheaptha</string>
+  <string name="end_of_current_chapter">Deireadh na caibidle reatha</string>
+  <string name="left">D\'fhág %s</string>
+  <string name="left_in_audiobook">%s fágtha sa chlosleabhar</string>
+  <string name="hours_letter">h</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Taispeáin uimhreacha na gcaibidlí</string>
+  <string name="sleep_timer_note">Chun atosú, croith an gléas laistigh de 30 soicind tar éis críochnú</string>
+  <string name="repeat">Athdhéan</string>
+
+  <!--BookOverview-->
+  <string name="folders">Fillteáin</string>
+  <string name="settings">Socruithe</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">Stóráil Inmheánach</string>
+
+  <!--Eile-->
+  <string name="copied_to_clipboard_show">Cóipeáladh chuig an ngearrthaisce:\n%s</string>
+
+  <!--Maidir le-->
+  <string name="pref_about_message"><![CDATA[
+Seinnteoir fuaime foinse oscailte <b>PlayBook</b>. Tá PlayBook bunaithe ar an bhfeidhmchlár foinse oscailte Voice.
+<br/><br/>
+
+Bheinn an-bhuíoch dá bhfágann tú léirmheas nó rátáil faoin bhfeidhmchlár ar Google Play, cabhróidh sé go mór le forbairt an tionscadail.<br/>
+]]></string>
+  <string name="pref_rate_title">Rátáil aip</string>
+  <string name="pref_other_app_title">Aipeanna Eile</string>
+  <string name="pref_privacy_title">Polasaí príobháideachais</string>
+  <string name="pref_share_title"> Roinn</string>
+
+  <!--Ceannaigh-->
+  <string name="tipping_jar_title">Próca Leid</string>
+  <string name="tip_kind">Leid chineál</string>
+  <string name="tip_excellent">Leid den scoth</string>
+  <string name="tip_incredible">Leid dochreidte ar</string>
+  <string name="action_support_project">Tionscadal tacaíochta</string>
+  <string name="action_support_project_summary">Faigh an aip íoctha chun tacú le forbairtí amach anseo agus chun gnéithe breise a fháil</string>
+  <string name="learn_more">Foghlaim tuilleadh</string>
+  <string name="theme_summary">Úsáideann téama dorcha níos lú cumhachta ar thaispeántais AMOLED</string>
+  <string name="color_title">Dathanna</string>
+  <string name="color_summary">Scéimeanna dathanna roghnaithe go cúramach chun teacht le do leabhair is fearr leat</string>
+  <string name="plus_title">Tacaigh linn</string>
+  <string name="plus_summary">Tá ár n-aipeanna go léir saor ó fhógraí, Open Source agus fanfaidh sé mar sin i gcónaí. Le do chabhair is féidir linn níos mó gnéithe a chur i bhfeidhm agus iad a dhéanamh níos fearr fós</string>
+  <string name="lifebuoy_title">Tabharfaimid tacaíocht duit</string>
+  <string name="lifebuoy_summary">Mura bhfuil tú in ann ár n-aip a íoc ar chúis éigin, ach gur mhaith leat na gnéithe go léir a úsáid, seol ríomhphost chugainn</string>
+  <string name="participants_title">Rannpháirtithe</string>
+  <string name="special_thanks_to">Buíochas ar leith le</string>
+
+  <!--Billeáil-->
+  <string name="tipping_jar_dialog_sucess_title">Go raibh maith agat!</string>
+  <string name="tipping_jar_dialog_sucess_message"> Míle buíochas as tacú le forbairt PlayBook. Tá tú ar fheabhas agus ní dhéanfaidh an forbróir dearmad ort choíche!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">Tá fáilte romhat</string>
+  <string name="tipping_jar_dialog_error_title">Theip ar an leid</string>
+  <string name="tipping_jar_dialog_error_message">Ar an drochuair, tharla rud éigin dona agus an t-idirbheart diúscartha á dhéanamh. Ná bíodh brón ort, bain triail eile as uair eile agus bain sult as PlayBook</string>
+</resources>

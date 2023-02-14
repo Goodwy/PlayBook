@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Settings-->
+  <string name="pref_about_title">О приложении</string>
+  <string name="pref_follow_system">Как в системе</string>
+  <string name="pref_forward">Вперед</string>
+  <string name="pref_grid_view">Вид</string>
+  <string name="pref_layout_list">Список</string>
+  <string name="pref_layout_grid">Сетка</string>
+  <string name="pref_mini_player_floating_button">Кнопка</string>
+  <string name="pref_mini_player_mini_player_floating">Плавающий плеер</string>
+  <string name="pref_player_background_title">Задний фон плеера</string>
+  <string name="pref_player_background_theme">Фон приложения</string>
+  <string name="pref_player_background_blurred_cover">Размытая обложка</string>
+  <string name="pref_play_buttons_style_title">Стиль кнопки воспроизведения</string>
+  <string name="pref_rewind">Назад</string>
+  <string name="pref_rewind_buttons_style_title">Стиль кнопок перемотки</string>
+  <string name="pref_rewind_buttons_style_classic">Классический</string>
+  <string name="pref_rewind_buttons_style_rounded">Круглый</string>
+  <string name="pref_rewind_buttons_style_square">Квадратный</string>
+  <string name="pref_show_mini_player_title">Сталь мини плеера</string>
+  <string name="pref_show_slider_volume_title">Панель громкости</string>
+  <string name="pref_use_transparent_navigation">Прозрачная системная панель навигации</string>
+  <string name="pref_use_chapter_cover">Использовать обложку главы</string>
+
+  <!-- Themes -->
+  <string name="theme">Тема</string>
+  <string name="light_theme">Светлая</string>
+  <string name="dark_theme">Темная</string>
+
+  <!--Setting headers-->
+  <string name="pref_category_appearance">Внешний вид</string>
+  <string name="pref_appearance_ui_library_title">Интерфейс библиотеки</string>
+  <string name="pref_appearance_ui_player_title">Интерфейс плеера</string>
+  <string name="pref_category_other">Другое</string>
+
+  <!--Setting colors-->
+  <string name="pref_basic_color">Основной цвет</string>
+  <string name="pref_basic_color_summary">Введите ключевой цвет, из которого автоматически определится набор дополнительных тонов.</string>
+  <string name="pref_default_theme_title">По умолчанию</string>
+
+  <!--BookPlay-->
+  <string name="custom">Индивидуально</string>
+  <string name="end_of_current_chapter">До конца главы</string>
+  <string name="left">Остается %s</string>
+  <string name="left_in_audiobook">В аудиокниге осталось %s</string>
+  <string name="hours_letter">ч</string>
+  <string name="minutes_letter">м</string>
+  <string name="seconds_letter">с</string>
+  <string name="show_chapter_numbers">Показать номера глав</string>
+  <string name="sleep_timer_note">Для перезапуска встряхните устройство в течение 30 секунд после окончания таймера</string>
+  <string name="repeat">Повтор</string>
+
+  <!--BookOverview-->
+  <string name="folders">Папки</string>
+  <string name="settings">Настройки</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">Внутреннее хранилище</string>
+
+  <!--Other-->
+  <string name="copied_to_clipboard_show">Скопировано в буфер обмена:\n%s</string>
+
+  <!--About-->
+  <string name="pref_about_message"><![CDATA[
+        <b>PlayBook</b> - это плеер для аудио книг с открытым исходным кодом. Разработано на базе приложения Voice.
+        <br/><br/>
+
+        Буду очень признателен, если вы оставите отзыв или оценку о приложении в Google Play, это очень поможет развитию проекта.<br/>
+    ]]></string>
+  <string name="pref_rate_title">Оценить приложение</string>
+  <string name="pref_other_app_title">Другие приложения</string>
+  <string name="pref_privacy_title">Политика конфиденциальности</string>
+  <string name="pref_share_title">Поделиться</string>
+
+  <!--Purchase-->
+  <string name="tipping_jar_title">Поддержать</string>
+  <string name="tip_kind">Хорошая поддержка</string>
+  <string name="tip_excellent">Отличная поддержка</string>
+  <string name="tip_incredible">Потрясающая поддержка</string>
+  <string name="action_support_project">Поддержка проекта</string>
+  <string name="action_support_project_summary">Приобретите приложение для поддержки будущих разработок и получения дополнительных функций</string>
+  <string name="learn_more">Подробнее</string>
+  <string name="theme_summary">Темная тема потребляет меньше энергии на AMOLED дисплеях</string>
+  <string name="color_title">Цвета</string>
+  <string name="color_summary">Тщательно подобранные цветовые схемы, что бы соответствовать вашим любимым книгам</string>
+  <string name="plus_title">Поддержите нас</string>
+  <string name="plus_summary">Все наши приложения без рекламы, с открытым исходным кодом, и так будет всегда. С Вашей помощью мы сможем реализовать больше функций и сделать их еще лучше</string>
+  <string name="lifebuoy_title">Мы поддержим Вас</string>
+  <string name="lifebuoy_summary">Если по какой то причине Вы не можете позволить себе наше приложение, но очень хотите использовать все функции, просто напишите нам</string>
+  <string name="participants_title">Участники</string>
+  <string name="special_thanks_to">Особая благодарность</string>
+
+  <!--Billing-->
+  <string name="tipping_jar_dialog_sucess_title">Огромное спасибо!</string>
+  <string name="tipping_jar_dialog_sucess_message">Большое спасибо за поддержку развития PlayBook. Ты молодец и разработчик никогда тебя не забудет!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">Пожалуйста</string>
+  <string name="tipping_jar_dialog_error_title">Не удалось</string>
+  <string name="tipping_jar_dialog_error_message">К сожалению, что-то нехорошее произошло во время транзакции чаевых. Не грусти, просто попробуй в другой раз и наслаждайся PlayBook</string>
+</resources>

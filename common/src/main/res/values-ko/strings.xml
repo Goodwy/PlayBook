@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--설정-->
+  <string name="pref_about_title">정보</string>
+  <string name="pref_follow_system">시스템 팔로우</string>
+  <string name="pref_forward">앞으로</string>
+  <string name="pref_grid_view">그리드 보기</string>
+  <string name="pref_layout_list">목록 레이아웃</string>
+  <string name="pref_layout_grid">그리드 레이아웃</string>
+  <string name="pref_mini_player_floating_button">버튼</string>
+  <string name="pref_mini_player_mini_player_floating">플로팅 플레이어</string>
+  <string name="pref_player_background_title">플레이어 배경</string>
+  <string name="pref_player_background_theme">앱 배경</string>
+  <string name="pref_player_background_blurred_cover">흐리게 표지</string>
+  <string name="pref_play_buttons_style_title">재생 버튼 스타일</string>
+  <string name="pref_rewind">되감기</string>
+  <string name="pref_rewind_buttons_style_title">되감기 버튼 스타일</string>
+  <string name="pref_rewind_buttons_style_classic">클래식</string>
+  <string name="pref_rewind_buttons_style_rounded">둥글게</string>
+  <string name="pref_rewind_buttons_style_square">정사각형</string>
+  <string name="pref_show_mini_player_title">미니 플레이어 스타일</string>
+  <string name="pref_show_slider_volume_title">볼륨 조절</string>
+  <string name="pref_use_transparent_navigation">투명 내비게이션 바 사용</string>
+  <string name="pref_use_chapter_cover">장 표지 사용</string>
+
+  <!-- 테마 -->
+  <string name="theme">테마</string>
+  <string name="light_theme">빛</string>
+  <string name="dark_theme">어두움</string>
+
+  <!--헤더 설정-->
+  <string name="pref_category_appearance">외모</string>
+  <string name="pref_appearance_ui_library_title">라이브러리 UI 모양</string>
+  <string name="pref_appearance_ui_player_title">플레이어 UI 모습</string>
+  <string name="pref_category_other">기타</string>
+
+  <!--색상 설정-->
+  <string name="pref_basic_color">기본 색상</string>
+  <string name="pref_basic_color_summary">자동으로 보색 세트를 지정하는 맞춤 키 색상을 입력하세요.</string>
+  <string name="pref_default_theme_title">기본 설정</string>
+
+  <!--북플레이-->
+  <string name="custom">커스텀</string>
+  <string name="end_of_current_chapter">현재 장의 끝</string>
+  <string name="left">%s 남음</string>
+  <string name="left_in_audiobook">오디오북에 %s 남음</string>
+  <string name="hours_letter">시간</string>
+  <string name="minutes_letter">분</string>
+  <string name="seconds_letter">초</string>
+  <string name="show_chapter_numbers">챕터 번호 보기</string>
+  <string name="sleep_timer_note">다시 시작하려면 종료 후 30초 이내에 기기를 흔들어 주세요</string>
+  <string name="repeat">반복</string>
+
+  <!--도서개요-->
+  <string name="folders">폴더</string>
+  <string name="settings">설정</string>
+
+  <!--폴더 선택기-->
+  <string name="internal_storage">내부 저장소</string>
+
+  <!--기타-->
+  <string name="copied_to_clipboard_show">클립보드에 복사됨:\n%s</string>
+
+  <!--소개-->
+  <string name="pref_about_message"><![CDATA[
+오픈 소스 <b>PlayBook</b> 오디오북 플레이어. PlayBook는 오픈 소스 음성 애플리케이션을 기반으로 합니다.
+<br/><br/>
+
+Google Play에 애플리케이션에 대한 리뷰나 평가를 남겨주시면 매우 감사하겠습니다. 이는 프로젝트 개발에 큰 도움이 됩니다.<br/>
+]]></string>
+  <string name="pref_rate_title">앱 평가하기</string>
+  <string name="pref_other_app_title">기타 앱</string>
+  <string name="pref_privacy_title">개인정보 보호정책</string>
+  <string name="pref_share_title">공유</string>
+
+  <!--구매-->
+  <string name="tipping_jar_title">팁 병</string>
+  <string name="tip_kind">친절한 팁</string>
+  <string name="tip_excellent">훌륭한 팁</string>
+  <string name="tip_incredible">믿을 수 없는 팁</string>
+  <string name="action_support_project">지원 프로젝트</string>
+  <string name="action_support_project_summary">유료 앱을 다운로드하여 향후 개발을 지원하고 추가 기능을 받으세요</string>
+  <string name="learn_more">자세히 알아보기</string>
+  <string name="theme_summary">어두운 테마는 AMOLED 디스플레이에서 더 적은 전력을 사용합니다</string>
+  <string name="color_title">색상</string>
+  <string name="color_summary">좋아하는 책과 일치하도록 신중하게 선택한 색 구성표</string>
+  <string name="plus_title">지원</string>
+  <string name="plus_summary">우리의 모든 앱은 광고가 없는 오픈 소스이며 앞으로도 계속 그럴 것입니다. 여러분의 도움으로 우리는 더 많은 기능을 구현하고 더 좋게 만들 수 있습니다</string>
+  <string name="lifebuoy_title">우리는 당신을 지원할 것입니다</string>
+  <string name="lifebuoy_summary">어떤 이유로 저희 앱을 살 형편이 안 되지만 모든 기능을 정말 사용하고 싶으시면 저희에게 이메일을 보내주세요</string>
+  <string name="participants_title">참가자</string>
+  <string name="special_thanks_to">특별한 감사</string>
+
+  <!--결제-->
+  <string name="tipping_jar_dialog_sucess_title">많은 감사를 드립니다!</string>
+  <string name="tipping_jar_dialog_sucess_message">PlayBook 개발을 지원해 주셔서 대단히 감사합니다. 당신은 훌륭하고 개발자는 당신을 절대 잊지 않을 것입니다!</string>
+  <string name="tipping_jar_dialog_sucess_button_title">천만에요</string>
+  <string name="tipping_jar_dialog_error_title">팁을 주지 못했습니다</string>
+  <string name="tipping_jar_dialog_error_message">안타깝게도 팁 거래를 수행하는 동안 문제가 발생했습니다. 슬퍼하지 말고 다음에 다시 시도하고 PlayBook을 즐기세요.</string>
+</resources>
