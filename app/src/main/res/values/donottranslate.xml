@@ -2,4 +2,10 @@
 <resources>
   <!--PlayBooks-->
   <string name="format_bookmarks_n_of" translatable="false">%1$d/%2$d</string>
+
+  <string-array name="pref_sorting_bookmark">
+    <item>@string/pref_sorting_last_added</item>
+    <item>@string/pref_sorting_time</item>
+    <item>@string/migration_detail_content_name</item>
+  </string-array>
 </resources>

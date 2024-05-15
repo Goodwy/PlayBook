@@ -33,12 +33,13 @@
   <string name="pref_category_appearance"> Dealramh</string>
   <string name="pref_appearance_ui_library_title"> Cuma Chomhéadain na Leabharlainne</string>
   <string name="pref_appearance_ui_player_title"> Cuma Chomhéadain Imreoir</string>
+  <string name="pref_playback">Athsheinm</string>
   <string name="pref_category_other">Eile</string>
 
   <!-- Ag socrú dathanna-->
   <string name="pref_basic_color">Dath bunúsach</string>
   <string name="pref_basic_color_summary">Ionchuir dath eochrach saincheaptha a sanntar sraith toin chomhlántacha dó go huathoibríoch.</string>
-  <string name="pref_default_theme_title">Socraigh réamhshocrú</string>
+  <string name="pref_default_theme">Socraigh réamhshocrú</string>
 
   <!--BookPlay-->
   <string name="custom">Saincheaptha</string>
@@ -93,9 +94,30 @@ Bheinn an-bhuíoch dá bhfágann tú léirmheas nó rátáil faoin bhfeidhmchlá
   <string name="special_thanks_to">Buíochas ar leith le</string>
 
   <!--Billeáil-->
-  <string name="tipping_jar_dialog_sucess_title">Go raibh maith agat!</string>
-  <string name="tipping_jar_dialog_sucess_message"> Míle buíochas as tacú le forbairt PlayBook. Tá tú ar fheabhas agus ní dhéanfaidh an forbróir dearmad ort choíche!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Tá fáilte romhat</string>
+  <string name="tipping_jar_dialog_success_title">Go raibh maith agat!</string>
+  <string name="tipping_jar_dialog_success_message"> Míle buíochas as tacú le forbairt PlayBook. Tá tú ar fheabhas agus ní dhéanfaidh an forbróir dearmad ort choíche!</string>
+  <string name="tipping_jar_dialog_success_button_title">Tá fáilte romhat</string>
   <string name="tipping_jar_dialog_error_title">Theip ar an leid</string>
   <string name="tipping_jar_dialog_error_message">Ar an drochuair, tharla rud éigin dona agus an t-idirbheart diúscartha á dhéanamh. Ná bíodh brón ort, bain triail eile as uair eile agus bain sult as PlayBook</string>
+  <string name="pref_use_haptic_feedback">Bain úsáid as aiseolas haptic</string>
+  <string name="pref_widget">Giuirléid</string>
+  <string name="pref_scan_chapter_covers">Scan clúdaigh na caibidle</string>
+  <string name="pref_subtitle_scan_chapter_covers">Glanfaidh an t-athrú na clúdaigh leabhar reatha. Beidh cuimhne bhreise ar an bhfeiste i gclúdaigh na caibidle</string>
+  <string name="pref_delete_cover_files">Scrios na comhaid chlúdaigh</string>
+  <string name="pref_subtitle_delete_cover_files">Scriosfar aon chlúdaigh shábháilte san aip. Déanfar na clúdaigh a athlódáil ó chomhaid na leabhar</string>
+  <string name="pref_use_menu_icons">Úsáid deilbhíní roghchláir</string>
+  <string name="pref_category_general">Ginearálta</string>
+  <string name="pref_sorting">Sórtáil de réir</string>
+  <string name="pref_sorting_last">An uair dheireanach a cuireadh leis nó a úsáideadh</string>
+  <string name="pref_sorting_last_added">Cuireadh leis an uair dheireanach</string>
+  <string name="pref_sorting_time">Am</string>
+  <string name="change_book_author">Údar</string>
+  <string name="edit_book_author">Cuir an t-údar in eagar</string>
+  <string name="onboarding_gestures_title">Bain úsáid as gothaí</string>
+  <string name="onboarding_show_player">Taispeáin imreoir</string>
+  <string name="onboarding_show_list_chapters">Taispeáin liosta na gcaibidlí</string>
+  <string name="onboarding_double_tap">Tapáil faoi dhó chun imirt nó sos</string>
+  <string name="per_month">%s/mí</string>
+  <string name="per_year">%s/bliain</string>
+  <string name="restore_purchase">Athchóirigh ceannach</string>
 </resources>

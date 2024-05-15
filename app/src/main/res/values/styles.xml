@@ -8,7 +8,7 @@
     <item name="android:navigationBarColor">?attr/colorSurface</item> <!--TODO navigationBar color-->
     <item name="android:windowLightStatusBar">@bool/use_light_status</item>
     <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">@bool/use_light_status</item> <!--TODO navigationBar icon color-->
-    <item name="bottomSheetDialogTheme">@style/ThemeOverlay.My.BottomSheetDialog</item>
+    <item name="bottomSheetDialogTheme">@style/ModalBottomSheetDialog</item>
   </style>
 
   <style name="splashScreenTheme" parent="AppTheme">
@@ -19,12 +19,12 @@
     <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
   </style>
 
-  <style name="ThemeOverlay.My.BottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
-    <item name="bottomSheetStyle">@style/Widget.My.BottomSheet</item>
+  <style name="ModalBottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+    <item name="bottomSheetStyle">@style/ModalBottomSheet</item>
     <item name="android:windowIsFloating">false</item>
     <item name="android:statusBarColor">@android:color/transparent</item>
     <item name="android:navigationBarColor">?attr/colorSurface</item>
   </style>
 
-  <style name="Widget.My.BottomSheet" parent="Widget.MaterialComponents.BottomSheet"/>
+  <style name="ModalBottomSheet" parent="Widget.Material3.BottomSheet.Modal"/>
 </resources>

@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation" tools:locale="en">
+  <!--PlayBook strings-->
+  <!--Settings-->
+  <string name="pref_about_title">About</string>
+  <string name="pref_follow_system">Follow system</string>
+  <string name="pref_forward">Forward</string>
+  <string name="pref_grid_view">View grid</string>
+  <string name="pref_layout_list">List layout</string>
+  <string name="pref_layout_grid">Grid layout</string>
+  <string name="pref_mini_player_floating_button">Button</string>
+  <string name="pref_mini_player_mini_player_floating">Floating player</string>
+  <string name="pref_player_background_title">Player background</string>
+  <string name="pref_player_background_theme">App background</string>
+  <string name="pref_player_background_blurred_cover">Blurred cover</string>
+  <string name="pref_play_buttons_style_title">Play button style</string>
+  <string name="pref_rewind">Rewind</string>
+  <string name="pref_rewind_buttons_style_title">Rewind buttons style</string>
+  <string name="pref_rewind_buttons_style_classic">Classic</string>
+  <string name="pref_rewind_buttons_style_rounded">Rounded</string>
+  <string name="pref_rewind_buttons_style_square">Square</string>
+  <string name="pref_show_mini_player_title">Mini player style</string>
+  <string name="pref_show_slider_volume_title">Volume Control</string>
+  <string name="pref_use_transparent_navigation">Use transparent navigation bar</string>
+  <string name="pref_use_chapter_cover">Use chapter cover</string>
+  <string name="pref_use_haptic_feedback">Use haptic feedback</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Scan the chapter covers</string>
+  <string name="pref_subtitle_scan_chapter_covers">The change will clear the current book covers. The chapter covers will occupy additional memory on the device</string>
+  <string name="pref_delete_cover_files">Delete the cover files</string>
+  <string name="pref_subtitle_delete_cover_files">Any saved covers in the app will be deleted. The covers will be reloaded from the book files</string>
+  <string name="pref_use_menu_icons">Use menu icons</string>
+
+  <!-- Themes -->
+  <string name="theme">Theme</string>
+  <string name="light_theme">Light</string>
+  <string name="dark_theme">Dark</string>
+
+  <!--Setting headers-->
+  <string name="pref_category_appearance">Appearance</string>
+  <string name="pref_appearance_ui_library_title">Library UI appearance</string>
+  <string name="pref_appearance_ui_player_title">Player UI appearance</string>
+  <string name="pref_playback">Playback</string>
+  <string name="pref_category_other">Other</string>
+  <string name="pref_category_general">General</string>
+
+  <!--Setting colors-->
+  <string name="pref_basic_color">Basic color</string>
+  <string name="pref_basic_color_summary">Input a custom key color that automatically gets assigned a set of complementary tones.</string>
+  <string name="pref_default_theme">Set default</string>
+
+  <!--BookPlay-->
+  <string name="custom">Custom</string>
+  <string name="end_of_current_chapter">End of current chapter</string>
+  <string name="left">%s left</string>
+  <string name="left_in_audiobook">%s left in audiobook</string>
+  <string name="hours_letter">h</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Show chapter numbers</string>
+  <string name="sleep_timer_note">To restart, shake the device within 30 seconds after finishing</string>
+  <string name="repeat">Repeat</string>
+  <plurals name="chapters_count">
+    <item quantity="one">%d chapter</item>
+    <item quantity="other">%d chapters</item>
+  </plurals>
+
+  <!--Setting sorting-->
+  <string name="pref_sorting">Sorting by</string>
+  <string name="pref_sorting_last">Last added or used</string>
+  <string name="pref_sorting_last_added">Last added</string>
+  <string name="pref_sorting_time">Time</string>
+
+  <!--BookOverview-->
+  <string name="folders">Folders</string>
+  <string name="settings">Settings</string>
+
+  <!--EditBookDialog-->
+  <string name="change_book_author">Author</string>
+  <string name="edit_book_author">Edit author</string>
+  <string name="ok">Ok</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">Internal Storage</string>
+
+  <!--Other-->
+  <string name="copied_to_clipboard_show">Copied to clipboard:\n%s</string>
+  <string name="cleared">Cleared</string>
+
+  <!--About-->
+  <string name="pref_about_message"><![CDATA[
+        An open source <b>PlayBook</b> audiobook player. PlayBook is based on the open source Voice application.
+        <br/><br/>
+
+        I would be very grateful if you leave a review or rating about the application on Google Play, it will greatly help the development of the project.<br/>
+    ]]></string>
+  <string name="pref_rate_title">Rate App</string>
+  <string name="pref_other_app_title">Other Apps</string>
+  <string name="pref_privacy_title">Privacy policy</string>
+  <string name="pref_share_title">Share</string>
+
+  <!--Purchase-->
+  <string name="tipping_jar_title">Tip Jar</string>
+  <string name="tip_kind">Kind tip of</string>
+  <string name="tip_excellent">Excellent tip of</string>
+  <string name="tip_incredible">Incredible tip of</string>
+  <string name="action_support_project">Support project</string>
+  <string name="action_support_project_summary">Get the paid app to support future developments and get extra features</string>
+  <string name="learn_more">Learn more</string>
+  <string name="theme_summary">Dark theme uses less power on AMOLED displays</string>
+  <string name="color_title">Colors</string>
+  <string name="color_summary">Carefully picked color schemes to match your favorite books</string>
+  <string name="plus_title">Support us</string>
+  <string name="plus_summary">All of our apps are ad-free, Open Source and it will always remain that way. With your help we are able to implement more features and make them even better</string>
+  <string name="lifebuoy_title">We will support you</string>
+  <string name="lifebuoy_summary">If for some reason you can\'t afford our app, but really want to use all the features, just email us</string>
+  <string name="participants_title">Participants</string>
+  <string name="special_thanks_to">Special thanks to</string>
+
+  <!--Billing-->
+  <string name="tipping_jar_dialog_success_title">Thanks a bunch!</string>
+  <string name="tipping_jar_dialog_success_message">Big thanks for supporting the development of PlayBook. You are great and the developer will never forget you!</string>
+  <string name="tipping_jar_dialog_success_button_title">You are welcome</string>
+  <string name="tipping_jar_dialog_error_title">Failed to tip</string>
+  <string name="tipping_jar_dialog_error_message">Unfortunately something bad happened while performing the tipping transaction. Do not be sad, just try again another time and enjoy PlayBook</string>
+
+  <!--Onboarding-->
+  <string name="onboarding_welcome_title_g">Welcome to PlayBook!</string>
+  <string name="onboarding_gestures_title">Use gestures</string>
+  <string name="onboarding_show_player">Show player</string>
+  <string name="onboarding_show_list_chapters">Show list of chapters</string>
+  <string name="onboarding_double_tap">Double-tap to play or pause</string>
+
+  <!--RuStore-->
+  <string name="billing_purchase_confirm_in_progress">Confirming the purchase…</string>
+  <string name="billing_purchase_delete_in_progress">Deleting a purchase…</string>
+  <string name="billing_product_confirmed">Product confirmed</string>
+  <string name="billing_product_deleted">Purchase cancelled</string>
+  <string name="billing_subscriptions">Subscriptions</string>
+  <string name="no_connection">No connection</string>
+  <string name="per_month">%s/month</string>
+  <string name="per_year">%s/year</string>
+  <string name="restore_purchase">Restore purchase</string>
+  <string name="unlock">Unlock</string>
+  <string name="donate_text">
+        <![CDATA[
+            For those who do not use Google Play, it is possible to unlock all functions of the application. <br>
+            If you like our apps which are offline, non-intrusive and have no ads, please consider supporting us in some way. We would be very grateful.<br><br>
+            Thank you!
+        ]]>
+    </string>
+</resources>

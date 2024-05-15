@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Görünüm</string>
   <string name="pref_appearance_ui_library_title">Kitaplık kullanıcı arabirimi görünümü</string>
   <string name="pref_appearance_ui_player_title">Oyuncu arayüzü görünümü</string>
+  <string name="pref_playback">Geriye oynatım</string>
   <string name="pref_category_other">Diğer</string>
 
   <!--Renklerin ayarlanması-->
   <string name="pref_basic_color">Temel renk</string>
   <string name="pref_basic_color_summary">Otomatik olarak bir dizi tamamlayıcı ton atanan özel bir anahtar rengi girin.</string>
-  <string name="pref_default_theme_title">Varsayılanı ayarla</string>
+  <string name="pref_default_theme">Varsayılanı ayarla</string>
 
   <!--Kitap Oynatma-->
   <string name="custom">Özel</string>
@@ -93,9 +94,30 @@ Google Play\'de uygulama hakkında bir inceleme veya derecelendirme bırakırsan
   <string name="special_thanks_to">Özel teşekkürler</string>
 
   <!--Faturalandırma-->
-  <string name="tipping_jar_dialog_sucess_title">Çok teşekkürler!</string>
-  <string name="tipping_jar_dialog_sucess_message">PlayBook\'un gelişimini desteklediğiniz için çok teşekkürler. Harikasın ve geliştirici seni asla unutmayacak!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Rica ederim</string>
+  <string name="tipping_jar_dialog_success_title">Çok teşekkürler!</string>
+  <string name="tipping_jar_dialog_success_message">PlayBook\'un gelişimini desteklediğiniz için çok teşekkürler. Harikasın ve geliştirici seni asla unutmayacak!</string>
+  <string name="tipping_jar_dialog_success_button_title">Rica ederim</string>
   <string name="tipping_jar_dialog_error_title">İpucu verilemedi</string>
   <string name="tipping_jar_dialog_error_message">Bahşiş işlemi yapılırken maalesef kötü bir şey oldu. Üzülmeyin, bir dahaki sefere tekrar deneyin ve PlayBook\'un keyfini çıkarın</string>
+    <string name="pref_use_haptic_feedback">Dokunsal geri bildirim kullanın</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Bölüm kapaklarını tarayın</string>
+  <string name="pref_subtitle_scan_chapter_covers">Değişiklik, mevcut kitap kapaklarını temizleyecektir. Bölüm kapakları, cihazda ek bellek kaplar</string>
+  <string name="pref_delete_cover_files">Kapak dosyalarını silin</string>
+  <string name="pref_subtitle_delete_cover_files">Uygulamada kaydedilen tüm kapaklar silinecektir. Kapaklar kitap dosyalarından yeniden yüklenecektir</string>
+  <string name="pref_use_menu_icons">Menü simgelerini kullanma</string>
+  <string name="pref_category_general">Genel</string>
+  <string name="pref_sorting">Sıralama ölçütü</string>
+  <string name="pref_sorting_last">Son eklenen veya kullanılan</string>
+  <string name="pref_sorting_last_added">Son eklenen</string>
+  <string name="pref_sorting_time">Saat</string>
+  <string name="change_book_author">Yaratıcı</string>
+  <string name="edit_book_author">Yazarı düzenle</string>
+  <string name="onboarding_gestures_title">Hareketleri kullanma</string>
+  <string name="onboarding_show_player">Oyuncuyu göster</string>
+  <string name="onboarding_show_list_chapters">Bölüm listesini göster</string>
+  <string name="onboarding_double_tap">Oynatmak veya duraklatmak için iki kez dokunun</string>
+  <string name="per_month">%s/ay</string>
+  <string name="per_year">%s/yıl</string>
+  <string name="restore_purchase">Satın alma işlemini geri yükle</string>
 </resources>

@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Settings-->
+  <string name="pref_about_title">Аб дадатку</string>
+  <string name="pref_follow_system">Як у сістэме</string>
+  <string name="pref_forward">Наперад</string>
+  <string name="pref_grid_view">Выгляд</string>
+  <string name="pref_layout_list">Спіс</string>
+  <string name="pref_layout_grid">Сетка</string>
+  <string name="pref_mini_player_floating_button">Кнопка</string>
+  <string name="pref_mini_player_mini_player_floating">Плаваючы плэер</string>
+  <string name="pref_player_background_title">Задні фон плэера</string>
+  <string name="pref_player_background_theme">Фон прыкладання</string>
+  <string name="pref_player_background_blurred_cover">Размытая вокладка</string>
+  <string name="pref_play_buttons_style_title">Стыль кнопкі прайгравання</string>
+  <string name="pref_rewind">Назад</string>
+  <string name="pref_rewind_buttons_style_title">Стыль кнопак перамоткі</string>
+  <string name="pref_rewind_buttons_style_classic">Класічны</string>
+  <string name="pref_rewind_buttons_style_rounded">Круглы</string>
+  <string name="pref_rewind_buttons_style_square">Квадратны</string>
+  <string name="pref_show_mini_player_title">Стыль міні плэера</string>
+  <string name="pref_show_slider_volume_title">Панэль гучнасці</string>
+  <string name="pref_use_transparent_navigation">Празрыстая сістэмная панэль навігацыі</string>
+  <string name="pref_use_chapter_cover">Выкарыстоўваць вокладку кіраўніка</string>
+  <string name="pref_use_haptic_feedback">Выкарыстоўваць вібраадгук</string>
+  <string name="pref_widget">Віджэт</string>
+  <string name="pref_scan_chapter_covers">Сканаваць вокладкі кіраўнікоў</string>
+  <string name="pref_subtitle_scan_chapter_covers">У выніку змены бягучыя вокладкі кніг будуць выдаленыя. Вокладкі кіраўнікоў будуць займаць дадатковую памяць на прыладзе.</string>
+  <string name="pref_delete_cover_files">Выдаліць файлы вокладак</string>
+  <string name="pref_subtitle_delete_cover_files">Усе захаваныя ў дадатку вокладкі будуць выдаленыя. Вокладкі будуць зноўку загружаны з файлаў кніг</string>
+  <string name="pref_use_menu_icons">Выкарыстоўваць абразкі меню</string>
+
+  <!-- Themes -->
+  <string name="theme">Тэма</string>
+  <string name="light_theme">Светлая</string>
+  <string name="dark_theme">Цёмная</string>
+
+  <!--Setting headers-->
+  <string name="pref_category_appearance">Вонкавы выгляд</string>
+  <string name="pref_appearance_ui_library_title">Інтэрфейс бібліятэкі</string>
+  <string name="pref_appearance_ui_player_title">Інтэрфейс плэера</string>
+  <string name="pref_playback">Прайграванне</string>
+  <string name="pref_category_other">Іншае</string>
+  <string name="pref_category_general">Агульнае</string>
+
+  <!--Setting colors-->
+  <string name="pref_basic_color">Асноўны колер</string>
+  <string name="pref_basic_color_summary">Увядзіце ключавы колер, з якога аўтаматычна вызначыцца набор дадатковых тонаў.</string>
+  <string name="pref_default_theme">Па змаўчанні</string>
+
+  <!--BookPlay-->
+  <string name="custom">Індывідуальна</string>
+  <string name="end_of_current_chapter">Да канца раздзела</string>
+  <string name="left">Застаецца %s</string>
+  <string name="left_in_audiobook">У аўдыёкнізе засталося %s</string>
+  <string name="hours_letter">ч</string>
+  <string name="minutes_letter">м</string>
+  <string name="seconds_letter">з</string>
+  <string name="show_chapter_numbers">Паказаць нумары кіраўнікоў</string>
+  <string name="sleep_timer_note">Для перазапуску падтрасіце прыладу на працягу 30 секунд пасля заканчэння таймера</string>
+  <string name="repeat">Паўтор</string>
+  <plurals name="chapters_count">
+    <item quantity="one">%d раздзел</item>
+    <item quantity="few">%d раздзела</item>
+    <item quantity="many">%d раздзелаў</item>
+  </plurals>
+
+  <!--Setting sorting-->
+  <string name="pref_sorting">Сартаванне па</string>
+  <string name="pref_sorting_last">Апошняе даданне або выкарыстанне</string>
+  <string name="pref_sorting_last_added">Апошняе даданне</string>
+  <string name="pref_sorting_time">Час</string>
+
+  <!--BookOverview-->
+  <string name="folders">Тэчкі</string>
+  <string name="settings">Налады</string>
+
+  <!--EditBookDialog-->
+  <string name="change_book_author">Аўтар</string>
+  <string name="edit_book_author">Рэдагаваць аўтара</string>
+  <string name="ok">Ok</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">Унутранае сховішча</string>
+
+  <!--Other-->
+  <string name="copied_to_clipboard_show">Скапіявана ў буфер абмену:\n%s</string>
+  <string name="cleared">Ачышчана</string>
+
+  <!--About-->
+  <string name="pref_about_message"><![CDATA[
+        <b>PlayBook</b> - гэта плэер для аўдыё кніг з адкрытым зыходным кодам. Распрацавана на базе прыкладання Voice.
+        <br/><br/>
+
+        Буду вельмі ўдзячны, калі вы пакінеце водгук або адзнаку аб дадатку ў Google Play, гэта вельмі дапаможа развіццю праекта.<br/>
+    ]]></string>
+  <string name="pref_rate_title">Ацаніць дадатак</string>
+  <string name="pref_other_app_title">Іншыя прыкладанні</string>
+  <string name="pref_privacy_title">Палітыка канфідэнцыйнасці</string>
+  <string name="pref_share_title">Падзяліцца</string>
+
+  <!--Purchase-->
+  <string name="tipping_jar_title">Падтрымаць</string>
+  <string name="tip_kind">Добрая падтрымка</string>
+  <string name="tip_excellent">Выдатная падтрымка</string>
+  <string name="tip_incredible">Узрушаючая падтрымка</string>
+  <string name="action_support_project">Падтрымка праекта</string>
+  <string name="action_support_project_summary">Набудзьце прыкладанне для падтрымкі будучых распрацовак і атрымання дадатковых функцый</string>
+  <string name="learn_more">Больш падрабязна</string>
+  <string name="theme_summary">Цёмная тэма спажывае менш энергіі на AMOLED дысплеях</string>
+  <string name="color_title">Колеры</string>
+  <string name="color_summary">Дбайна падабраныя каляровыя схемы, каб адпавядаць вашым любімым кнігам</string>
+  <string name="plus_title">Падтрымайце нас</string>
+  <string name="plus_summary">Усе нашы прыкладанні без рэкламы, з адкрытым зыходным кодам, і так будзе заўсёды. З Вашай дапамогай мы зможам рэалізаваць больш функцый і зрабіць іх яшчэ лепш.</string>
+  <string name="lifebuoy_title">Мы падтрымаем Вас</string>
+  <string name="lifebuoy_summary">Калі па нейкай прычыне Вы не можаце дазволіць сабе наша дадатак, але вельмі хочаце выкарыстоўваць усе функцыі, проста напішыце нам</string>
+  <string name="participants_title">Удзельнікі</string>
+  <string name="special_thanks_to">Асобая падзяка</string>
+
+  <!--Billing-->
+  <string name="tipping_jar_dialog_success_title">Вялікі дзякуй!</string>
+  <string name="tipping_jar_dialog_success_message">Вялікі дзякуй за падтрымку развіцця PlayBook. Ты малайчына і распрацоўшчык ніколі цябе не забудзе!</string>
+  <string name="tipping_jar_dialog_success_button_title">Калі ласка</string>
+  <string name="tipping_jar_dialog_error_title">Не атрымалася</string>
+  <string name="tipping_jar_dialog_error_message">Нажаль, нешта нядобрае адбылося падчас транзакцыі чаявых. Не сумуй, проста паспрабуй у іншы раз і атрымлівай асалоду ад PlayBook</string>
+
+  <!--Onboarding-->
+  <string name="onboarding_welcome_title_g">Сардэчна запрашаем у PlayBook!</string>
+  <string name="onboarding_gestures_title">Выкарыстоўвайце жэсты</string>
+  <string name="onboarding_show_player">Паказаць плэер</string>
+  <string name="onboarding_show_list_chapters">Паказаць спіс кіраўнікоў</string>
+  <string name="onboarding_double_tap">Падвойны націск для прайгравання або паўзы</string>
+
+  <!--RuStore-->
+  <string name="billing_purchase_confirm_in_progress">Пацвярджаем пакупку…</string>
+  <string name="billing_purchase_delete_in_progress">Выдаляем куплю…</string>
+  <string name="billing_product_confirmed">Прадукт пацверджаны</string>
+  <string name="billing_product_deleted">Купля адменена</string>
+  <string name="billing_subscriptions">Падпіскі</string>
+  <string name="no_connection">Няма сувязі</string>
+  <string name="per_month">%s/месяц</string>
+  <string name="per_year">%s/год</string>
+  <string name="restore_purchase">Аднавіць пакупкі</string>
+
+  <string name="unlock">Разблакаваць</string>
+  <string name="donate_text">
+        <![CDATA[
+            Для тых, хто не карыстаецца Google Play, ёсць магчымасць разблакаваць усе функцыі прыкладання. <br>
+            Калі вам падабаюцца нашы прыкладанні, якія працуюць аўтаномна, не дакучлівыя і не ўтрымліваюць рэкламы, калі ласка, падумайце аб тым, каб падтрымаць нас якім-небудзь чынам. Мы будзем вельмі ўдзячныя.<br><br>
+            Дзякуй!
+        ]]>
+    </string>
+</resources>

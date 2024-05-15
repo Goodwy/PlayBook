@@ -15,7 +15,6 @@ import com.afollestad.materialdialogs.actions.getActionButton
 import com.afollestad.materialdialogs.customview.customView
 import kotlinx.coroutines.launch
 import kotlinx.parcelize.Parcelize
-import voice.app.R
 import voice.app.databinding.DialogCoverEditBinding
 import voice.app.injection.appComponent
 import voice.app.misc.conductor.context
@@ -26,6 +25,7 @@ import voice.common.conductor.DialogController
 import voice.common.parcelable
 import voice.data.repo.BookRepository
 import javax.inject.Inject
+import voice.strings.R as StringsR
 
 private const val NI_ARGS = "ni#bundle"
 
@@ -55,15 +55,15 @@ class EditCoverDialogController(bundle: Bundle) : DialogController(bundle) {
 
     val dialog = MaterialDialog(activity!!).apply {
       customView(view = binding.root)
-      title(R.string.cover)
-      positiveButton(R.string.dialog_confirm)
+      title(StringsR.string.cover)
+      positiveButton(StringsR.string.dialog_confirm)
     }
 
     // use a click listener so the dialog stays open till the image was saved
     dialog.getActionButton(WhichButton.POSITIVE).setOnClickListener {
       val r = binding.cropOverlay.selectedRect
       if (!r.isEmpty) {
-        lifecycleScope.launch {
+        onCreateViewScope?.launch {
           val bitmap = context.imageLoader
             .execute(
               ImageRequest.Builder(context)
@@ -71,11 +71,12 @@ class EditCoverDialogController(bundle: Bundle) : DialogController(bundle) {
                 .transformations(CropTransformation(binding.cropOverlay, binding.coverImage))
                 .build(),
             )
-            .drawable!!.toBitmap()
+            .drawable?.toBitmap()
 
-          coverSaver.save(arguments.bookId, bitmap)
-
-          dismissDialog()
+          if (bitmap != null) {
+            coverSaver.save(arguments.bookId, bitmap)
+            dismissDialog()
+          }
         }
       } else {
         dismissDialog()

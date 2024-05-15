@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Erscheinungsbild der Benutzeroberfläche</string>
   <string name="pref_appearance_ui_library_title">Erscheinungsbild der Benutzeroberfläche des Players</string>
   <string name="pref_appearance_ui_player_title">Erscheinungsbild der Benutzeroberfläche der Bibliothek</string>
+  <string name="pref_playback">Musik</string>
   <string name="pref_category_other">Andere</string>
 
   <!--Setting colors-->
   <string name="pref_basic_color">Grundfarbe</string>
   <string name="pref_basic_color_summary">Eingabe einer benutzerdefinierten Schlüsselfarbe, der automatisch eine Reihe von Komplementärtönen zugewiesen wird.</string>
-  <string name="pref_default_theme_title">Standard einstellen</string>
+  <string name="pref_default_theme">Standard einstellen</string>
 
   <!--BookPlay-->
   <string name="custom">Eigene Zeit</string>
@@ -93,9 +94,31 @@
   <string name="special_thanks_to">Besonderen Dank an</string>
 
   <!--Billing-->
-  <string name="tipping_jar_dialog_sucess_title">Vielen Dank!</string>
-  <string name="tipping_jar_dialog_sucess_message">Vielen Dank für die Unterstützung der Entwicklung des PlayBook. Sie sind großartig und der Entwickler wird Sie nie vergessen!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Sie sind herzlich willkommen</string>
+  <string name="tipping_jar_dialog_success_title">Vielen Dank!</string>
+  <string name="tipping_jar_dialog_success_message">Vielen Dank für die Unterstützung der Entwicklung des PlayBook. Sie sind großartig und der Entwickler wird Sie nie vergessen!</string>
+  <string name="tipping_jar_dialog_success_button_title">Sie sind herzlich willkommen</string>
   <string name="tipping_jar_dialog_error_title">Gescheitert</string>
   <string name="tipping_jar_dialog_error_message">Leider ist bei der Durchführung des Tippvorgangs etwas Schlimmes passiert. Seien Sie nicht traurig, versuchen Sie es einfach ein anderes Mal und genießen Sie das PlayBook</string>
+    <string name="pref_use_haptic_feedback">Verwenden Sie haptisches Feedback</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Scannen Sie die Kapitelumschläge</string>
+  <string name="pref_subtitle_scan_chapter_covers">Durch die Änderung werden die aktuellen Buchumschläge gelöscht. Die Kapitelabdeckungen belegen zusätzlichen Speicher auf dem Gerät</string>
+  <string name="pref_delete_cover_files">Löschen der Cover-Dateien</string>
+  <string name="pref_subtitle_delete_cover_files">Alle in der App gespeicherten Cover werden gelöscht. Die Cover werden aus den Buchdateien neu geladen</string>
+  <string name="pref_use_menu_icons">Verwenden Sie Menüsymbole</string>
+  <string name="pref_category_general">Allgemein</string>
+  <string name="pref_sorting">Sortieren nach</string>
+  <string name="pref_sorting_last">Zuletzt hinzugefügt oder verwendet</string>
+  <string name="pref_sorting_last_added">Zuletzt hinzugefügt</string>
+  <string name="pref_sorting_time">Zeit</string>
+  <string name="change_book_author">Verfasser</string>
+  <string name="edit_book_author">Autor bearbeiten</string>
+  <string name="onboarding_welcome_title_g">Willkommen bei PlayBook!</string>
+  <string name="onboarding_gestures_title">Verwenden von Gesten</string>
+  <string name="onboarding_show_player">Player anzeigen</string>
+  <string name="onboarding_show_list_chapters">Liste der Kapitel anzeigen</string>
+  <string name="onboarding_double_tap">Doppeltippen zum Abspielen oder Anhalten</string>
+  <string name="per_month">%s/Monat</string>
+  <string name="per_year">%s/Jahr</string>
+  <string name="restore_purchase">Kauf wiederherstellen</string>
 </resources>

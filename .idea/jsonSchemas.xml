@@ -22,7 +22,23 @@
             </SchemaInfo>
           </value>
         </entry>
-      </map>
+         <entry key="GitHub Workflow">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="GitHub Workflow" />
+              <option name="relativePathToSchema" value="https://json.schemastore.org/github-workflow.json" />
+              <option name="applicationDefined" value="true" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value=".github/workflows/main.yml" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+     </map>
     </state>
   </component>
 </project>

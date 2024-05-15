@@ -8,34 +8,37 @@ import io.kotest.matchers.collections.shouldContainExactly
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.annotation.Config
 import voice.data.repo.internals.AppDb
 import voice.data.repo.internals.dao.RecentBookSearchDao
 
 @RunWith(AndroidJUnit4::class)
+@Config(sdk = [33])
 class RecentBookSearchTest {
 
   @Test
   fun `add delete replace`() = runTest {
     val db = Room.inMemoryDatabaseBuilder(ApplicationProvider.getApplicationContext(), AppDb::class.java)
       .build()
-    val dao = db.recentBookSearchDao()
 
-    dao.recentBookSearch().shouldBeEmpty()
+    with(db.recentBookSearchDao()) {
+      recentBookSearch().shouldBeEmpty()
 
-    dao.add("cats")
-    dao.add("dogs")
-    dao.add("unicorns")
+      add("cats")
+      recentBookSearch().shouldContainExactly("cats")
 
-    dao.recentBookSearch().shouldContainExactly("cats", "dogs", "unicorns")
+      add("dogs")
+      recentBookSearch().shouldContainExactly("cats", "dogs")
 
-    dao.delete("dogs")
+      add("unicorns")
+      recentBookSearch().shouldContainExactly("cats", "dogs", "unicorns")
 
-    dao.recentBookSearch().shouldContainExactly("cats", "unicorns")
+      delete("dogs")
+      recentBookSearch().shouldContainExactly("cats", "unicorns")
 
-    dao.add("cats")
-
-    dao.recentBookSearch().shouldContainExactly("unicorns", "cats")
-
+      add("cats")
+      recentBookSearch().shouldContainExactly("unicorns", "cats")
+    }
     db.close()
   }
 
@@ -50,7 +53,8 @@ class RecentBookSearchTest {
       dao.add(it)
     }
 
-    dao.recentBookSearch().shouldContainExactly(terms.takeLast(RecentBookSearchDao.LIMIT))
+    dao.recentBookSearch()
+      .shouldContainExactly(terms.takeLast(RecentBookSearchDao.LIMIT))
 
     db.close()
   }

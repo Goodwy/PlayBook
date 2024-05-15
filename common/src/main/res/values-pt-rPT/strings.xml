@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Aparência</string>
   <string name="pref_appearance_ui_library_title">Aparência da interface do usuário da biblioteca</string>
   <string name="pref_appearance_ui_player_title">Aparência da IU do player</string>
+  <string name="pref_playback">Reproduzir</string>
   <string name="pref_category_other">Outro</string>
 
   <!--Definindo cores-->
   <string name="pref_basic_color">Cor básica</string>
   <string name="pref_basic_color_summary">Insira uma cor-chave personalizada que recebe automaticamente um conjunto de tons complementares.</string>
-  <string name="pref_default_theme_title">Definir padrão</string>
+  <string name="pref_default_theme">Definir padrão</string>
 
   <!--BookPlay-->
   <string name="custom">Personalizado</string>
@@ -93,9 +94,30 @@ Ficarei muito grato se você deixar um comentário ou avaliação sobre o aplica
   <string name="special_thanks_to">Agradecimentos especiais a</string>
 
   <!--Faturamento-->
-  <string name="tipping_jar_dialog_sucess_title">Muito obrigado!</string>
-  <string name="tipping_jar_dialog_sucess_message">Muito obrigado por apoiar o desenvolvimento do PlayBook. Você é ótimo e o desenvolvedor nunca vai te esquecer!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">De nada</string>
+  <string name="tipping_jar_dialog_success_title">Muito obrigado!</string>
+  <string name="tipping_jar_dialog_success_message">Muito obrigado por apoiar o desenvolvimento do PlayBook. Você é ótimo e o desenvolvedor nunca vai te esquecer!</string>
+  <string name="tipping_jar_dialog_success_button_title">De nada</string>
   <string name="tipping_jar_dialog_error_title">Falha ao dar gorjeta</string>
   <string name="tipping_jar_dialog_error_message">Infelizmente algo ruim aconteceu durante a execução da transação de gorjeta. Não fique triste, apenas tente novamente outra vez e aproveite o PlayBook</string>
+    <string name="pref_use_haptic_feedback">Utilizar feedback háptico</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Digitalizar as capas dos capítulos</string>
+  <string name="pref_subtitle_scan_chapter_covers">A alteração apaga as capas dos livros actuais. As capas dos capítulos ocuparão memória adicional no dispositivo</string>
+  <string name="pref_delete_cover_files">Eliminar os ficheiros de capa</string>
+  <string name="pref_subtitle_delete_cover_files">Todas as capas guardadas na aplicação serão eliminadas. As capas serão recarregadas a partir dos ficheiros do livro</string>
+  <string name="pref_use_menu_icons">Utilizar ícones de menu</string>
+  <string name="pref_category_general">Geral</string>
+  <string name="pref_sorting">Ordenar por</string>
+  <string name="pref_sorting_last">Última adição ou utilização</string>
+  <string name="pref_sorting_last_added">Última adição</string>
+  <string name="pref_sorting_time">Tempo</string>
+  <string name="change_book_author">Autor</string>
+  <string name="edit_book_author">Editar autor</string>
+  <string name="onboarding_gestures_title">Utilizar gestos</string>
+  <string name="onboarding_show_player">Mostrar jogador</string>
+  <string name="onboarding_show_list_chapters">Mostrar lista de capítulos</string>
+  <string name="onboarding_double_tap">Toque duas vezes para reproduzir ou pausar</string>
+  <string name="per_month">%s/mês</string>
+  <string name="per_year">%s/ano</string>
+  <string name="restore_purchase">Restaurar a compra</string>
 </resources>

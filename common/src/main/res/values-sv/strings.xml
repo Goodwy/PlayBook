@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Utseende</string>
   <string name="pref_appearance_ui_library_title">Utseende på bibliotekets användargränssnitt</string>
   <string name="pref_appearance_ui_player_title">Utseende på spelargränssnittet</string>
+  <string name="pref_playback">Uppspelning</string>
   <string name="pref_category_other">Övrigt</string>
 
   <!--Ställa in färger-->
   <string name="pref_basic_color">Grundfärg</string>
   <string name="pref_basic_color_summary">Mata in en anpassad nyckelfärg som automatiskt tilldelas en uppsättning kompletterande toner.</string>
-  <string name="pref_default_theme_title">Ange standard</string>
+  <string name="pref_default_theme">Ange standard</string>
 
   <!--BookPlay-->
   <string name="custom">Anpassad</string>
@@ -93,9 +94,31 @@ Jag skulle vara mycket tacksam om du lämnar en recension eller betyg om applika
   <string name="special_thanks_to">Särskilt tack till</string>
 
   <!--Fakturering-->
-  <string name="tipping_jar_dialog_sucess_title">Tack så mycket!</string>
-  <string name="tipping_jar_dialog_sucess_message">Stort tack för att du stödjer utvecklingen av PlayBook. Du är fantastisk och utvecklaren kommer aldrig att glömma dig!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Välkommen</string>
+  <string name="tipping_jar_dialog_success_title">Tack så mycket!</string>
+  <string name="tipping_jar_dialog_success_message">Stort tack för att du stödjer utvecklingen av PlayBook. Du är fantastisk och utvecklaren kommer aldrig att glömma dig!</string>
+  <string name="tipping_jar_dialog_success_button_title">Välkommen</string>
   <string name="tipping_jar_dialog_error_title">Det gick inte att tipsa</string>
   <string name="tipping_jar_dialog_error_message">Tyvärr hände något dåligt när drickstransaktionen utfördes. Var inte ledsen, försök bara igen en annan gång och njut av PlayBook</string>
+    <string name="pref_use_haptic_feedback">Använd haptisk feedback</string>
+  <string name="pref_widget">Manick</string>
+  <string name="pref_scan_chapter_covers">Skanna kapitelomslagen</string>
+  <string name="pref_subtitle_scan_chapter_covers">Ändringen kommer att rensa de aktuella bokomslagen. Kapitelomslagen kommer att uppta ytterligare minne på enheten</string>
+  <string name="pref_delete_cover_files">Ta bort omslagsfilerna</string>
+  <string name="pref_subtitle_delete_cover_files">Alla sparade omslag i appen kommer att raderas. Omslagen kommer att laddas om från bokfilerna</string>
+  <string name="pref_use_menu_icons">Använd menyikoner</string>
+  <string name="pref_category_general">Allmänt</string>
+  <string name="pref_sorting">Sortera efter</string>
+  <string name="pref_sorting_last">Senast tillagd eller använd</string>
+  <string name="pref_sorting_last_added">Senast tillagd</string>
+  <string name="pref_sorting_time">Tid</string>
+  <string name="change_book_author">Författare</string>
+  <string name="edit_book_author">Redigera författare</string>
+  <string name="onboarding_welcome_title_g">Välkommen till Voice!</string>
+  <string name="onboarding_gestures_title">Använda gester</string>
+  <string name="onboarding_show_player">Visa spelare</string>
+  <string name="onboarding_show_list_chapters">Visa lista över kapitel</string>
+  <string name="onboarding_double_tap">Tryck snabbt två gånger för att spela upp eller pausa</string>
+  <string name="per_month">%s/månad</string>
+  <string name="per_year">%s/år</string>
+  <string name="restore_purchase">Återställa köp</string>
 </resources>

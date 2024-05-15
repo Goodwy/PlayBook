@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Megjelenés</string>
   <string name="pref_appearance_ui_library_title">Könyvtári felhasználói felület megjelenése</string>
   <string name="pref_appearance_ui_player_title">A lejátszó felhasználói felületének megjelenése</string>
+  <string name="pref_playback">Lejátszás</string>
   <string name="pref_category_other">Egyéb</string>
 
   <!--Színek beállítása-->
   <string name="pref_basic_color">Alapszín</string>
   <string name="pref_basic_color_summary">Adjon meg egy egyéni kulcsszínt, amely automatikusan hozzárendel egy sor kiegészítő hangot.</string>
-  <string name="pref_default_theme_title">Alapértelmezés beállítása</string>
+  <string name="pref_default_theme">Alapértelmezés beállítása</string>
 
   <!--BookPlay-->
   <string name="custom">Egyéni</string>
@@ -93,9 +94,31 @@ Nagyon hálás lennék, ha véleményt vagy értékelést írna az alkalmazásr�
   <string name="special_thanks_to">Külön köszönet neki</string>
 
   <!--Számlázás-->
-  <string name="tipping_jar_dialog_sucess_title">Köszönjük szépen!</string>
-  <string name="tipping_jar_dialog_sucess_message">Nagyon köszönöm, hogy támogatod a PlayBook fejlesztését. Nagyszerű vagy, és a fejlesztő soha nem felejt el!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Üdvözöljük</string>
+  <string name="tipping_jar_dialog_success_title">Köszönjük szépen!</string>
+  <string name="tipping_jar_dialog_success_message">Nagyon köszönöm, hogy támogatod a PlayBook fejlesztését. Nagyszerű vagy, és a fejlesztő soha nem felejt el!</string>
+  <string name="tipping_jar_dialog_success_button_title">Üdvözöljük</string>
   <string name="tipping_jar_dialog_error_title">Nem sikerült a tipp</string>
-  <string name="tipping_jar_dialog_error_message">Sajnos valami rossz történt a borravaló tranzakció végrehajtása közben. Ne légy szomorú, csak próbáld újra máskor, és élvezd a PlayBook</string>t
+  <string name="tipping_jar_dialog_error_message">Sajnos valami rossz történt a borravaló tranzakció végrehajtása közben. Ne légy szomorú, csak próbáld újra máskor, és élvezd a PlayBook</string>
+    <string name="pref_use_haptic_feedback">Haptikus visszajelzés használata</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Szkennelje be a fejezetborítókat</string>
+  <string name="pref_subtitle_scan_chapter_covers">A módosítás törli az aktuális könyvborítókat. A fejezetborítók további memóriát foglalnak el az eszközön</string>
+  <string name="pref_delete_cover_files">A borítófájlok törlése</string>
+  <string name="pref_subtitle_delete_cover_files">Az alkalmazásban mentett borítók törlődnek. A borítók újra betöltődnek a könyvfájlokból</string>
+  <string name="pref_use_menu_icons">Menüikonok használata</string>
+  <string name="pref_category_general">Általános</string>
+  <string name="pref_sorting">Rendezési szempont</string>
+  <string name="pref_sorting_last">Utoljára hozzáadott vagy használt</string>
+  <string name="pref_sorting_last_added">Utoljára hozzáadva</string>
+  <string name="pref_sorting_time">Idő</string>
+  <string name="change_book_author">Szerző</string>
+  <string name="edit_book_author">Szerző szerkesztése</string>
+  <string name="onboarding_gestures_title">Kézmozdulatok használata</string>
+  <string name="onboarding_show_player">Lejátszó megjelenítése</string>
+  <string name="onboarding_show_list_chapters">Fejezetek listájának megjelenítése</string>
+  <string name="onboarding_double_tap">Koppintson duplán a lejátszáshoz vagy szüneteltetéshez</string>
+  <string name="per_month">%s/hó</string>
+  <string name="per_year">%s/év</string>
+  <string name="restore_purchase">Vásárlás visszaállítása</string>
+  t
 </resources>

@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Muonekano</string>
   <string name="pref_appearance_ui_library_title">Mwonekano wa kiolesura cha maktaba</string>
   <string name="pref_appearance_ui_player_title">Mwonekano wa kiolesura cha kichezaji</string>
+  <string name="pref_playback">Uchezaji</string>
   <string name="pref_category_other">Nyingine</string>
 
   <!--Kuweka rangi-->
   <string name="pref_basic_color">Rangi ya msingi</string>
   <string name="pref_basic_color_summary">Weka rangi ya ufunguo maalum ambayo hupewa kiotomatiki seti ya toni za ziada.</string>
-  <string name="pref_default_theme_title">Weka chaguomsingi</string>
+  <string name="pref_default_theme">Weka chaguomsingi</string>
 
   <!--BookPlay-->
   <string name="custom">Custom</string>
@@ -93,9 +94,30 @@ Nitashukuru sana ukiacha ukaguzi au ukadiriaji kuhusu programu kwenye Google Pla
   <string name="special_thanks_to">Shukrani maalum kwa</string>
 
   <!--Malipo-->
-  <string name="tipping_jar_dialog_sucess_title">Shukrani nyingi!</string>
-  <string name="tipping_jar_dialog_sucess_message" msgid="4000000000000">"Shukrani kubwa kwa kusaidia uundaji wa PlayBook. Wewe ni mzuri na msanidi hatakusahau kamwe!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Unakaribishwa</string>
+  <string name="tipping_jar_dialog_success_title">Shukrani nyingi!</string>
+  <string name="tipping_jar_dialog_success_message" msgid="4000000000000">"Shukrani kubwa kwa kusaidia uundaji wa PlayBook. Wewe ni mzuri na msanidi hatakusahau kamwe!</string>
+  <string name="tipping_jar_dialog_success_button_title">Unakaribishwa</string>
   <string name="tipping_jar_dialog_error_title">Imeshindwa kudokeza</string>
   <string name="tipping_jar_dialog_error_message" msgid="40000000000000">"Kwa bahati mbaya, jambo baya lilitokea wakati wa kutekeleza shughuli ya kudokeza. Usisikitike, jaribu tena wakati mwingine na ufurahie PlayBook</string>
+    <string name="pref_use_haptic_feedback">Tumia maoni ya haptic</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Changanua vifuniko vya sura</string>
+  <string name="pref_subtitle_scan_chapter_covers">Mabadiliko hayo yataweka wazi vitabu vya sasa. Vifuniko vya sura vitachukua kumbukumbu ya ziada kwenye kifaa</string>
+  <string name="pref_delete_cover_files">Futa faili za kifuniko</string>
+  <string name="pref_subtitle_delete_cover_files">Vifuniko vyovyote vilivyohifadhiwa kwenye programu vitafutwa. Vifuniko vitapakiwa tena kutoka kwa faili za kitabu</string>
+  <string name="pref_use_menu_icons">Tumia ikoni za menyu</string>
+  <string name="pref_category_general">Jumla</string>
+  <string name="pref_sorting">Kupanga kwa</string>
+  <string name="pref_sorting_last">Imeongezwa au kutumika mwisho</string>
+  <string name="pref_sorting_last_added">Imeongezwa mwisho</string>
+  <string name="pref_sorting_time">Saa</string>
+  <string name="change_book_author">Mwandishi</string>
+  <string name="edit_book_author">Hariri mwandishi</string>
+  <string name="onboarding_gestures_title">Tumia ishara</string>
+  <string name="onboarding_show_player">Onyesha mchezaji</string>
+  <string name="onboarding_show_list_chapters">Onyesha orodha ya sura</string>
+  <string name="onboarding_double_tap">Gonga mara mbili kucheza au kusitisha</string>
+  <string name="per_month">%s/mwezi</string>
+  <string name="per_year">%s/mwaka</string>
+  <string name="restore_purchase">Rejesha ununuzi</string>
 </resources>

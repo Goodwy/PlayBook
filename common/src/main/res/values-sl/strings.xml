@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Videz</string>
   <string name="pref_appearance_ui_library_title">Videz uporabniškega vmesnika knjižnice</string>
   <string name="pref_appearance_ui_player_title">Videz uporabniškega vmesnika predvajalnika</string>
+  <string name="pref_playback">Predvajanje</string>
   <string name="pref_category_other">Drugo</string>
 
   <!--Nastavitev barv-->
   <string name="pref_basic_color">Osnovna barva</string>
   <string name="pref_basic_color_summary">Vnesite barvo tipk po meri, ki se ji samodejno dodeli niz komplementarnih tonov.</string>
-  <string name="pref_default_theme_title">Nastavi privzeto</string>
+  <string name="pref_default_theme">Nastavi privzeto</string>
 
   <!--BookPlay-->
   <string name="custom">Po meri</string>
@@ -93,9 +94,30 @@ Zelo bi vam bil hvaležen, če bi pustili mnenje ali oceno o aplikaciji v Googlu
   <string name="special_thanks_to">Posebej hvala</string>
 
   <!--Obračunavanje-->
-  <string name="tipping_jar_dialog_sucess_title">Hvala lepa!</string>
-  <string name="tipping_jar_dialog_sucess_message">Najlepša hvala za podporo pri razvoju PlayBooka. Super ste in razvijalec vas ne bo nikoli pozabil!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Ne vabimo</string>
+  <string name="tipping_jar_dialog_success_title">Hvala lepa!</string>
+  <string name="tipping_jar_dialog_success_message">Najlepša hvala za podporo pri razvoju PlayBooka. Super ste in razvijalec vas ne bo nikoli pozabil!</string>
+  <string name="tipping_jar_dialog_success_button_title">Ne vabimo</string>
   <string name="tipping_jar_dialog_error_title">Napitnina ni uspela</string>
   <string name="tipping_jar_dialog_error_message">Na žalost se je med izvajanjem transakcije napitnine zgodilo nekaj slabega. Ne bodite žalostni, poskusite znova drugič in uživajte v PlayBook</string>
+    <string name="pref_use_haptic_feedback">Uporaba čutnih povratnih informacij</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Optično branje pokrovov poglavij</string>
+  <string name="pref_subtitle_scan_chapter_covers">Sprememba bo izbrisala naslovnice trenutnih knjig. Pokrovi poglavij bodo zasedli dodaten pomnilnik v napravi</string>
+  <string name="pref_delete_cover_files">Brisanje naslovnic</string>
+  <string name="pref_subtitle_delete_cover_files">Vse shranjene ovitke v aplikaciji bodo izbrisane. Naslovnice bodo znova naložene iz knjižnih datotek</string>
+  <string name="pref_use_menu_icons">Uporaba ikon menijev</string>
+  <string name="pref_category_general">Splošno</string>
+  <string name="pref_sorting">Razvrščanje po</string>
+  <string name="pref_sorting_last">Nazadnje dodano ali uporabljeno</string>
+  <string name="pref_sorting_last_added">Nazadnje dodano</string>
+  <string name="pref_sorting_time">Čas</string>
+  <string name="change_book_author">Avtor</string>
+  <string name="edit_book_author">Uredi avtorja</string>
+  <string name="onboarding_gestures_title">Uporaba potez</string>
+  <string name="onboarding_show_player">Pokaži predvajalnik</string>
+  <string name="onboarding_show_list_chapters">Pokaži seznam poglavij</string>
+  <string name="onboarding_double_tap">Dvotapnite, če želite predvajati ali začasno ustaviti predvajanje</string>
+  <string name="per_month">%s/mesec</string>
+  <string name="per_year">%s/leto</string>
+  <string name="restore_purchase">Obnovi nakup</string>
 </resources>

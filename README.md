@@ -1,4 +1,4 @@
-# PlayBooks
+# PlayBook
 
 An open source audiobook player, for Android 6.0+, based on [Voice](https://github.com/PaulWoitaschek/Voice).
 

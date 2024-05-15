@@ -1,67 +1,47 @@
 package voice.settings.views
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Contrast
 import androidx.compose.material.icons.rounded.DarkMode
 import androidx.compose.material.icons.rounded.LightMode
-import androidx.compose.material.icons.rounded.PlayCircle
-import androidx.compose.material3.ListItem
-import androidx.compose.material3.ListItemDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.dp
 import voice.common.DARK_THEME_SETTABLE
-import voice.settings.R
+import voice.common.constants.THEME_AUTO
+import voice.common.constants.THEME_DARK
+import voice.common.constants.THEME_LIGHT
+import voice.common.R as CommonR
 
 @Composable
-internal fun ThemeRow(currentTheme: Int, enabled: Boolean, openThemeDialog: () -> Unit) {
-  val alpha = if (enabled) 1f else 0.6f
-  ListItem(
-    modifier = Modifier
-      .clickable {
-        openThemeDialog()
-      }
-      .fillMaxWidth(),
-    colors = ListItemDefaults.colors(containerColor = MaterialTheme.colorScheme.inverseOnSurface),
-    headlineText = {
-      Text(
-        modifier = Modifier.alpha(alpha),
-        text = stringResource(R.string.theme))
+internal fun ThemeRow(currentTheme: Int, enabled: Boolean, isWidget: Boolean = false, openThemeDialog: () -> Unit) {
+  SettingsRow(
+    title = if (isWidget) stringResource(CommonR.string.pref_widget) else stringResource(CommonR.string.theme),
+    value = when (currentTheme) {
+      THEME_LIGHT -> stringResource(CommonR.string.light_theme)
+      THEME_DARK -> stringResource(CommonR.string.dark_theme)
+      else -> stringResource(CommonR.string.pref_follow_system)
     },
-    trailingContent = {
-      Text(
-        modifier = Modifier.alpha(0.6f),
-        text = when (currentTheme) {
-          0 -> stringResource(R.string.light_theme)
-          1 -> stringResource(R.string.dark_theme)
-          else -> stringResource(R.string.pref_follow_system)
-        },
-        fontSize = 14.sp,
-      )
-    },
+    enabled = enabled,
+    paddingTop = if (isWidget) 6.dp else 8.dp,
+    paddingBottom = if (isWidget) 8.dp else 6.dp,
+    click = openThemeDialog
   )
 }
 
 @Composable
 internal fun ThemeDialog(
   checkedItemId: Int,
+  isWidget: Boolean = false,
   onDismiss: () -> Unit,
   onSelected: (Int) -> Unit
 ) {
-  val light = RadioItem(0, stringResource(R.string.light_theme), Icons.Rounded.LightMode)
-  val dark = RadioItem(1, stringResource(R.string.dark_theme), Icons.Rounded.DarkMode)
-  val system = RadioItem(2, stringResource(R.string.pref_follow_system), Icons.Rounded.Contrast)
-  val items = if (DARK_THEME_SETTABLE) arrayListOf(light, dark) else arrayListOf(light, dark, system)
+  val light = RadioItem(THEME_LIGHT, stringResource(CommonR.string.light_theme), Icons.Rounded.LightMode)
+  val dark = RadioItem(THEME_DARK, stringResource(CommonR.string.dark_theme), Icons.Rounded.DarkMode)
+  val system = RadioItem(THEME_AUTO, stringResource(CommonR.string.pref_follow_system), Icons.Rounded.Contrast)
+  val items = if (DARK_THEME_SETTABLE || isWidget) arrayListOf(light, dark) else arrayListOf(light, dark, system)
   RadioButtonDialog(
-    title = stringResource(R.string.theme),
+    title = if (isWidget) stringResource(CommonR.string.pref_widget) else stringResource(CommonR.string.theme),
     items = items,
     checkedItemId = checkedItemId,
     onDismiss = onDismiss,

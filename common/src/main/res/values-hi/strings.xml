@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">उपस्थिति</string>
   <string name="pref_appearance_ui_library_title">लाइब्रेरी UI उपस्थिति</string>
   <string name="pref_appearance_ui_player_title">खिलाड़ी यूआई उपस्थिति</string>
+  <string name="pref_playback">प्लेबैक</string>
   <string name="pref_category_other">अन्य</string>
 
   <!--सेटिंग रंग-->
   <string name="pref_basic_color">मूल रंग</string>
   <string name="pref_basic_color_summary">एक कस्टम कुंजी रंग इनपुट करें जो स्वचालित रूप से पूरक टोन का एक सेट असाइन करता है।</string>
-  <string name="pref_default_theme_title">डिफ़ॉल्ट सेट करें</string>
+  <string name="pref_default_theme">डिफ़ॉल्ट सेट करें</string>
 
   <!--BookPlay-->
   <string name="custom">कस्टम</string>
@@ -93,9 +94,30 @@
   <string name="special_thanks_to">विशेष धन्यवाद</string>
 
   <!--बिलिंग-->
-  <string name="tipping_jar_dialog_sucess_title">बहुत बहुत धन्यवाद!</string>
-  <string name="tipping_jar_dialog_sucess_message">PlayBook के विकास में सहयोग करने के लिए बहुत-बहुत धन्यवाद। आप महान हैं और डेवलपर आपको कभी नहीं भूलेगा!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">आपका स्वागत है</string>
+  <string name="tipping_jar_dialog_success_title">बहुत बहुत धन्यवाद!</string>
+  <string name="tipping_jar_dialog_success_message">PlayBook के विकास में सहयोग करने के लिए बहुत-बहुत धन्यवाद। आप महान हैं और डेवलपर आपको कभी नहीं भूलेगा!</string>
+  <string name="tipping_jar_dialog_success_button_title">आपका स्वागत है</string>
   <string name="tipping_jar_dialog_error_title">टिप करने में विफल</string>
   <string name="tipping_jar_dialog_error_message">दुर्भाग्यवश टिपिंग लेन-देन करते समय कुछ गलत हो गया। उदास न हों, बस दूसरी बार फिर से प्रयास करें और PlayBook का आनंद लें</string>
+    <string name="pref_use_haptic_feedback">हैप्टिक फीडबैक का उपयोग करें</string>
+  <string name="pref_widget">मशीन</string>
+  <string name="pref_scan_chapter_covers">अध्याय कवर को स्कैन करें</string>
+  <string name="pref_subtitle_scan_chapter_covers">परिवर्तन वर्तमान पुस्तक कवर को साफ़ कर देगा। अध्याय कवर डिवाइस पर अतिरिक्त मेमोरी पर कब्जा कर लेगा</string>
+  <string name="pref_delete_cover_files">कवर फ़ाइलें हटाएँ</string>
+  <string name="pref_subtitle_delete_cover_files">ऐप में सहेजे गए सभी कवर हटा दिए जाएंगे। कवर पुस्तक फ़ाइलों से पुनः लोड किए जाएंगे</string>
+  <string name="pref_use_menu_icons">मेनू आइकन का उपयोग करें</string>
+  <string name="pref_category_general">सामान्य</string>
+  <string name="pref_sorting">द्वारा क्रमबद्ध करना</string>
+  <string name="pref_sorting_last">पिछली बार जोड़ा या उपयोग किया गया</string>
+  <string name="pref_sorting_last_added">अंतिम बार जोड़ा गया</string>
+  <string name="pref_sorting_time">समय</string>
+  <string name="change_book_author">रचयिता</string>
+  <string name="edit_book_author">लेखक संपादित करें</string>
+  <string name="onboarding_gestures_title">जेस्चर (स्पर्श) का उपयोग करें</string>
+  <string name="onboarding_show_player">खिलाड़ी दिखाएँ</string>
+  <string name="onboarding_show_list_chapters">अध्यायों की सूची दिखाएं</string>
+  <string name="onboarding_double_tap">चलाने या रोकने के लिए डबल-टैप करें</string>
+  <string name="per_month">%s/माह</string>
+  <string name="per_year">%s/वर्ष</string>
+  <string name="restore_purchase">खरीदारी बहाल करें</string>
 </resources>

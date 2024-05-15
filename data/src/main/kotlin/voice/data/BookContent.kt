@@ -22,8 +22,8 @@ data class BookContent(
   val author: String?,
   val name: String,
   val addedAt: Instant,
-  val chapters: List<Chapter.Id>,
-  val currentChapter: Chapter.Id,
+  val chapters: List<ChapterId>,
+  val currentChapter: ChapterId,
   val positionInChapter: Long,
   val cover: File?,
   @ColumnInfo(defaultValue = "0")
@@ -31,9 +31,11 @@ data class BookContent(
 ) {
 
   @Ignore
-  val currentChapterIndex = chapters.indexOf(currentChapter).also { require(it != -1) }
+  val currentChapterIndex = chapters.indexOf(currentChapter)
 
   init {
-    require(currentChapter in chapters)
+    require(currentChapter in chapters && positionInChapter >= 0) {
+      "invalid data in $this"
+    }
   }
 }

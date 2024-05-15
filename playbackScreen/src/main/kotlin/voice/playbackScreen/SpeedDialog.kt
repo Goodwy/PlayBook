@@ -14,6 +14,7 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,8 +23,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import voice.common.recomposeHighlighter
 import java.text.DecimalFormat
+import voice.strings.R as StringsR
 
 @Composable
 internal fun SpeedDialog(
@@ -35,12 +36,15 @@ internal fun SpeedDialog(
   AlertDialog(
     onDismissRequest = { viewModel.dismissDialog() },
     confirmButton = {},
-    title = {
-      Text(stringResource(id = R.string.playback_speed))
-    },
+//    title = {
+//      Text(stringResource(id = StringsR.string.playback_speed))
+//    },
     text = {
       Column {
-        Text(stringResource(id = R.string.playback_speed) + ": " + speedFormatter.format(dialogState.speed))
+        Text(
+          text = stringResource(id = StringsR.string.playback_speed) + ": " + speedFormatter.format(dialogState.speed),
+          style = MaterialTheme.typography.titleLarge,
+          )
         val valueRange = 0.5F..dialogState.maxSpeed
         val rangeSize = valueRange.endInclusive - valueRange.start
         val stepSize = 0.05
@@ -55,23 +59,22 @@ internal fun SpeedDialog(
         )
         Row(
           modifier = Modifier
-            .fillMaxWidth()
-            .recomposeHighlighter(),
-          horizontalArrangement = Arrangement.Center,
+            .fillMaxWidth(),
+          horizontalArrangement = Arrangement.SpaceBetween,
           verticalAlignment = Alignment.CenterVertically,
         ) {
           IconButton(
             modifier = Modifier.weight(1f),
-            onClick = {viewModel.onPlaybackSpeedChanged(dialogState.speed - 0.05F)}
+            onClick = { viewModel.onPlaybackSpeedChanged(if (dialogState.speed > valueRange.start) dialogState.speed - 0.05F else 0.5F) }
           ) {
             Icon(
               imageVector = Icons.Rounded.RemoveCircle,
-              contentDescription = stringResource(id = R.string.playback_speed),
+              contentDescription = stringResource(id = StringsR.string.playback_speed),
             )
           }
           Button(
             modifier = Modifier.weight(1f),
-            onClick = {viewModel.onPlaybackSpeedChanged(1.0F)},
+            onClick = { viewModel.onPlaybackSpeedChanged(1.0F) },
             contentPadding = PaddingValues(0.dp)
           ){
             Text("1,0x")
@@ -79,7 +82,7 @@ internal fun SpeedDialog(
           Spacer(modifier = Modifier.size(3.dp))
           Button(
             modifier = Modifier.weight(1f),
-            onClick = {viewModel.onPlaybackSpeedChanged(1.5F)},
+            onClick = { viewModel.onPlaybackSpeedChanged(1.5F) },
             contentPadding = PaddingValues(0.dp)
           ){
             Text("1,5x")
@@ -87,18 +90,18 @@ internal fun SpeedDialog(
           Spacer(modifier = Modifier.size(3.dp))
           Button(
             modifier = Modifier.weight(1f),
-            onClick = {viewModel.onPlaybackSpeedChanged(2.0F)},
+            onClick = { viewModel.onPlaybackSpeedChanged(2.0F) },
             contentPadding = PaddingValues(0.dp)
           ){
             Text("2,0x")
           }
           IconButton(
             modifier = Modifier.weight(1f),
-            onClick = {viewModel.onPlaybackSpeedChanged(dialogState.speed + 0.05F)}
+            onClick = { viewModel.onPlaybackSpeedChanged(if (dialogState.speed < valueRange.endInclusive) dialogState.speed + 0.05F else valueRange.endInclusive) }
           ) {
             Icon(
               imageVector = Icons.Rounded.AddCircle,
-              contentDescription = stringResource(id = R.string.playback_speed),
+              contentDescription = stringResource(id = StringsR.string.playback_speed),
             )
           }
         }

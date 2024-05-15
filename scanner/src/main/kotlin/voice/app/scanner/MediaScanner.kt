@@ -1,9 +1,13 @@
 package voice.app.scanner
 
-import androidx.documentfile.provider.DocumentFile
 import voice.common.BookId
+import voice.data.audioFileCount
 import voice.data.folders.FolderType
+import voice.data.isAudioFile
 import voice.data.repo.BookContentRepo
+import voice.documentfile.CachedDocumentFile
+import voice.documentfile.walk
+import voice.logging.core.Logger
 import javax.inject.Inject
 
 class MediaScanner
@@ -11,9 +15,10 @@ class MediaScanner
   private val contentRepo: BookContentRepo,
   private val chapterParser: ChapterParser,
   private val bookParser: BookParser,
+  private val deviceHasPermissionBug: DeviceHasStoragePermissionBug,
 ) {
 
-  suspend fun scan(folders: Map<FolderType, List<DocumentFile>>) {
+  suspend fun scan(folders: Map<FolderType, List<CachedDocumentFile>>) {
     val files = folders.flatMap { (folderType, files) ->
       when (folderType) {
         FolderType.SingleFile, FolderType.SingleFolder -> {
@@ -21,7 +26,20 @@ class MediaScanner
         }
         FolderType.Root -> {
           files.flatMap { file ->
-            file.listFiles().toList()
+            file.children
+          }
+        }
+        FolderType.Author -> {
+          files.flatMap { folder ->
+            folder.children.flatMap { author ->
+              if (author.isFile) {
+                listOf(author)
+              } else {
+                author.children.flatMap {
+                  author.children
+                }
+              }
+            }
           }
         }
       }
@@ -29,10 +47,30 @@ class MediaScanner
 
     contentRepo.setAllInactiveExcept(files.map { BookId(it.uri) })
 
-    files.forEach { scan(it) }
+    val probeFile = folders.values.flatten().findProbeFile()
+    if (probeFile != null) {
+      if (deviceHasPermissionBug.checkForBugAndSet(probeFile)) {
+        Logger.e("Device has permission bug, aborting scan! Probed $probeFile")
+        return
+      }
+    }
+
+    files
+      .sortedBy { it.audioFileCount() }
+      .forEach { file ->
+        Logger.d("scanning $file")
+        scan(file)
+      }
   }
 
-  private suspend fun scan(file: DocumentFile) {
+  private fun List<CachedDocumentFile>.findProbeFile(): CachedDocumentFile? {
+    return asSequence().flatMap { it.walk() }
+      .firstOrNull { child ->
+        child.isAudioFile() && child.uri.authority == "com.android.externalstorage.documents"
+      }
+  }
+
+  private suspend fun scan(file: CachedDocumentFile) {
     val chapters = chapterParser.parse(file)
     if (chapters.isEmpty()) return
 

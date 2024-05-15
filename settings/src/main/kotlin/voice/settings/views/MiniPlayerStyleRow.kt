@@ -1,45 +1,27 @@
 package voice.settings.views
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.fillMaxWidth
+
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.PlayCircle
-import androidx.compose.material3.ListItem
-import androidx.compose.material3.ListItemDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.unit.sp
-import voice.settings.R
+import androidx.compose.ui.unit.dp
+import voice.common.constants.*
+import voice.common.R as CommonR
 
 @Composable
-internal fun MiniPlayerStyleRow(currentGridMode: Int, openMiniPlayerStyleDialog: () -> Unit) {
-  ListItem(
-    modifier = Modifier
-      .clickable {
-        openMiniPlayerStyleDialog()
-      }
-      .fillMaxWidth(),
-    colors = ListItemDefaults.colors(containerColor = MaterialTheme.colorScheme.inverseOnSurface),
-    headlineText = {
-      Text(text = stringResource(R.string.pref_show_mini_player_title))
+internal fun MiniPlayerStyleRow(miniPlayerStyle: Int, openMiniPlayerStyleDialog: () -> Unit) {
+  SettingsRow(
+    title = stringResource(CommonR.string.pref_show_mini_player_title),
+    value = when (miniPlayerStyle) {
+      MINI_PLAYER_ROUND_BUTTON -> stringResource(CommonR.string.pref_rewind_buttons_style_rounded)
+      MINI_PLAYER_SQUARE_BUTTON -> stringResource(CommonR.string.pref_rewind_buttons_style_square)
+      MINI_PLAYER_ROUND_AND_SQUARE -> stringResource(CommonR.string.pref_rewind_buttons_style_rounded)+"/"+stringResource(CommonR.string.pref_rewind_buttons_style_square)
+      else -> stringResource(CommonR.string.pref_mini_player_mini_player_floating)
     },
-    trailingContent = {
-      Text(
-        modifier = Modifier.alpha(0.6f),
-        text = when (currentGridMode) {
-          0 -> stringResource(R.string.pref_mini_player_mini_player_floating)
-          1 -> stringResource(R.string.pref_mini_player_floating_button)
-          else -> stringResource(R.string.pref_mini_player_floating_button)
-        },
-        fontSize = 14.sp,
-      )
-    },
+    click = openMiniPlayerStyleDialog
   )
 }
 
@@ -49,12 +31,14 @@ internal fun MiniPlayerStyleDialog(
   onDismiss: () -> Unit,
   onSelected: (Int) -> Unit
 ) {
-  val player = RadioItem(0, stringResource(R.string.pref_mini_player_mini_player_floating), ImageVector.vectorResource(R.drawable.ic_mini_player))
-  val round = RadioItem(1, stringResource(R.string.pref_mini_player_floating_button), Icons.Rounded.PlayCircle)
-  val square = RadioItem(2, stringResource(R.string.pref_mini_player_floating_button), ImageVector.vectorResource(R.drawable.ic_play_square))
-  val items = arrayListOf(player, round, square)
+  val items = arrayListOf(
+    RadioItem(MINI_PLAYER_PLAYER, stringResource(CommonR.string.pref_mini_player_mini_player_floating), ImageVector.vectorResource(CommonR.drawable.ic_mini_player)),
+    RadioItem(MINI_PLAYER_ROUND_BUTTON, stringResource(CommonR.string.pref_rewind_buttons_style_rounded), Icons.Rounded.PlayCircle),
+    RadioItem(MINI_PLAYER_SQUARE_BUTTON, stringResource(CommonR.string.pref_rewind_buttons_style_square), ImageVector.vectorResource(CommonR.drawable.ic_play_square)),
+    RadioItem(MINI_PLAYER_ROUND_AND_SQUARE, stringResource(CommonR.string.pref_rewind_buttons_style_rounded)+"/"+stringResource(CommonR.string.pref_rewind_buttons_style_square), ImageVector.vectorResource(CommonR.drawable.ic_round_and_square)),
+  )
   RadioButtonDialog(
-    title = stringResource(R.string.pref_show_mini_player_title),
+    title = stringResource(CommonR.string.pref_show_mini_player_title),
     items = items,
     checkedItemId = checkedItemId,
     onDismiss = onDismiss,

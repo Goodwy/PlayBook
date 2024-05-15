@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import voice.common.compose.VoiceTheme
 import voice.data.folders.FolderType
 import voice.folderPicker.FolderTypeIcon
-import voice.folderPicker.R
+import voice.strings.R as StringsR
 
 @Composable
 internal fun FolderModeSelectionCard(
@@ -37,7 +37,7 @@ internal fun FolderModeSelectionCard(
       modifier = Modifier.padding(top = 8.dp, bottom = 8.dp),
       verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-      FolderMode.values().forEach { folderMode ->
+      FolderMode.entries.forEach { folderMode ->
         val selectFolder = { onFolderModeSelected(folderMode) }
         FolderModeColumn(selectFolder = selectFolder, selectedFolderMode = selectedFolderMode, folderMode = folderMode)
       }
@@ -61,17 +61,19 @@ private fun FolderModeColumn(
       selected = selectedFolderMode == folderMode,
       onClick = selectFolder,
     )
-    Spacer(Modifier.size(16.dp))
+    Spacer(Modifier.size(8.dp))
     Text(
       text = stringResource(id = folderMode.title()),
       modifier = Modifier
         .weight(1F)
-        .padding(vertical = 8.dp),
+        .padding(vertical = 8.dp)
+        .padding(end = 8.dp),
     )
     FolderTypeIcon(
       folderType = when (folderMode) {
         FolderMode.Audiobooks -> FolderType.Root
         FolderMode.SingleBook -> FolderType.SingleFolder
+        FolderMode.Authors -> FolderType.Author
       },
     )
   }
@@ -80,8 +82,9 @@ private fun FolderModeColumn(
 @StringRes
 private fun FolderMode.title(): Int {
   return when (this) {
-    FolderMode.Audiobooks -> R.string.folder_mode_root
-    FolderMode.SingleBook -> R.string.folder_mode_single
+    FolderMode.Audiobooks -> StringsR.string.folder_mode_root
+    FolderMode.SingleBook -> StringsR.string.folder_mode_single
+    FolderMode.Authors -> StringsR.string.folder_mode_author
   }
 }
 

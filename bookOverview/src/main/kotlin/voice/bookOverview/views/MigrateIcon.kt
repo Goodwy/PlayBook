@@ -2,14 +2,16 @@ package voice.bookOverview.views
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.CompareArrows
+import androidx.compose.material.icons.rounded.Restore
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import voice.bookOverview.R
+import androidx.compose.ui.tooling.preview.Preview
+import voice.common.compose.VoiceTheme
+import voice.strings.R as StringsR
 
 @Composable
 internal fun MigrateIcon(
@@ -18,16 +20,24 @@ internal fun MigrateIcon(
   onHintClick: () -> Unit,
   modifier: Modifier = Modifier,
 ) {
-  Box {
-    IconButton(modifier = modifier, onClick = onClick) {
+  Box(modifier) {
+    IconButton(onClick = onClick) {
       Icon(
-        imageVector = Icons.Rounded.CompareArrows,
-        contentDescription = stringResource(R.string.migration_hint_title),
+        imageVector = Icons.Rounded.Restore,
+        contentDescription = stringResource(StringsR.string.migration_hint_title),
         tint = MaterialTheme.colorScheme.primary
       )
     }
     if (withHint) {
       MigrateHint(onHintClick)
     }
+  }
+}
+
+@Preview
+@Composable
+private fun MigrateIconPreview() {
+  VoiceTheme(true) {
+    MigrateIcon(withHint = false, onClick = {}, onHintClick = {})
   }
 }

@@ -1,17 +1,18 @@
 package voice.app.scanner
 
 import android.app.Application
-import android.content.Context
 import android.net.Uri
-import androidx.documentfile.provider.DocumentFile
 import voice.common.BookId
 import voice.data.Book
 import voice.data.BookContent
 import voice.data.Chapter
+import voice.data.ChapterId
 import voice.data.legacy.LegacyBookSettings
 import voice.data.repo.BookContentRepo
 import voice.data.repo.internals.dao.LegacyBookDao
 import voice.data.toUri
+import voice.documentfile.CachedDocumentFile
+import voice.documentfile.CachedDocumentFileFactory
 import voice.logging.core.Logger
 import java.io.File
 import java.time.Instant
@@ -24,16 +25,17 @@ class BookParser
   private val legacyBookDao: LegacyBookDao,
   private val application: Application,
   private val bookmarkMigrator: BookmarkMigrator,
-  private val context: Context,
+  private val fileFactory: CachedDocumentFileFactory,
 ) {
 
-  suspend fun parseAndStore(chapters: List<Chapter>, file: DocumentFile): BookContent {
+  suspend fun parseAndStore(
+    chapters: List<Chapter>,
+    file: CachedDocumentFile,
+  ): BookContent {
     val id = BookId(file.uri)
     return contentRepo.getOrPut(id) {
       val uri = chapters.first().id.toUri()
-      val analyzed = DocumentFile.fromSingleUri(context, uri)?.let {
-        mediaAnalyzer.analyze(it)
-      }
+      val analyzed = mediaAnalyzer.analyze(fileFactory.create(uri))
       val filePath = file.uri.filePath()
       val migrationMetaData = filePath?.let {
         legacyBookDao.bookMetaData()
@@ -54,10 +56,13 @@ class BookParser
         isActive = true,
         addedAt = migrationMetaData?.addedAtMillis?.let(Instant::ofEpochMilli)
           ?: Instant.now(),
-        author = analyzed?.author,
+        author = analyzed?.artist,
         lastPlayedAt = migrationSettings?.lastPlayedAtMillis?.let(Instant::ofEpochMilli)
           ?: Instant.EPOCH,
-        name = migrationMetaData?.name ?: analyzed?.bookName ?: analyzed?.chapterName ?: file.bookName(),
+        name = migrationMetaData?.name
+          ?: analyzed?.album
+          ?: analyzed?.title
+          ?: file.bookName(),
         playbackSpeed = migrationSettings?.playbackSpeed
           ?: 1F,
         skipSilence = migrationSettings?.skipSilence
@@ -96,11 +101,11 @@ class BookParser
   }
 
   private data class MigratedPlaybackPosition(
-    val chapterId: Chapter.Id,
+    val chapterId: ChapterId,
     val playbackPosition: Long,
   )
 
-  private fun DocumentFile.bookName(): String {
+  private fun CachedDocumentFile.bookName(): String {
     val fileName = name
     return if (fileName == null) {
       uri.toString()
@@ -120,7 +125,10 @@ class BookParser
   }
 }
 
-internal fun validateIntegrity(content: BookContent, chapters: List<Chapter>) {
+internal fun validateIntegrity(
+  content: BookContent,
+  chapters: List<Chapter>,
+) {
   // the init block performs integrity validation
   Book(content, chapters)
 }

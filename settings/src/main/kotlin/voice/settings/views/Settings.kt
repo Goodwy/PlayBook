@@ -6,6 +6,7 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.repeatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -14,27 +15,21 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.BugReport
-import androidx.compose.material.icons.outlined.HelpOutline
-import androidx.compose.material.icons.outlined.Language
-import androidx.compose.material.icons.outlined.Lightbulb
-import androidx.compose.material.icons.rounded.ArrowBackIosNew
-import androidx.compose.material.icons.rounded.ChevronRight
+import androidx.compose.material.icons.automirrored.rounded.ArrowBackIos
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.ListItem
-import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -42,15 +37,20 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.platform.debugInspectorInfo
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -58,25 +58,30 @@ import androidx.compose.ui.text.intl.LocaleList
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 import com.squareup.anvil.annotations.ContributesTo
 import voice.common.AppScope
+import voice.common.COLOR_SCHEME_SETTABLE
 import voice.common.compose.VoiceTheme
 import voice.common.compose.rememberScoped
+import voice.common.constants.*
 import voice.common.rootComponentAs
-import voice.settings.R
 import voice.settings.SettingsListener
 import voice.settings.SettingsViewModel
 import voice.settings.SettingsViewState
+import voice.strings.R as StringsR
+import voice.common.R as CommonR
 
 @Composable
 @Preview
-fun SettingsPreview() {
+private fun SettingsPreview() {
   val viewState = SettingsViewState(
     useDarkTheme = false,
     showDarkThemePref = true,
-    resumeOnReplug = true,
     seekTimeInSeconds = 30,
     seekTimeRewindInSeconds = 20,
     autoRewindInSeconds = 12,
@@ -87,20 +92,26 @@ fun SettingsPreview() {
     paddings = "0;0;0;0",
     useTransparentNavigation = true,
     playButtonStyle = 2,
-    skipButtonStyle = 2,
-    miniPlayerStyle = 0,
-    playerBackground = 0,
+    skipButtonStyle = SKIP_BUTTON_ROUND,
+    miniPlayerStyle = MINI_PLAYER_PLAYER,
+    playerBackground = PLAYER_BACKGROUND_THEME,
     showSliderVolume = true,
-    theme = 0,
+    theme = THEME_LIGHT,
     colorTheme = -0x1,
+    themeWidget = THEME_LIGHT,
     isPro = false,
+    sortingPref = SORTING_CLASSIC,
+    useGestures = true,
+    useHapticFeedback = true,
+    sizeCoversDirectory = "0MB",
+    scanCoverChapter = false,
+    useMenuIconsPref = false,
   )
   VoiceTheme(preview = true) {
     Settings(
       viewState,
       object : SettingsListener {
         override fun close() {}
-        override fun toggleResumeOnReplug() {}
         override fun toggleDarkTheme() {}
         override fun seekAmountChanged(seconds: Int) {}
         override fun seekRewindAmountChanged(seconds: Int) {}
@@ -128,18 +139,32 @@ fun SettingsPreview() {
         override fun playerBackgroundDialogChanged(item: Int) {}
         override fun toggleShowSliderVolume() {}
         override fun themeChanged(theme: Int) {}
-        override fun onThemeDialogRowClicked() {}
+        override fun onThemeDialogRowClicked(isWidget: Boolean) {}
+        override fun themeWidgetChanged(themeWidget: Int) {}
         override fun colorThemeChanged(color: Int) {}
         override fun onColorThemeDialogRowClicked() {}
         override fun onAboutClick() {}
         override fun onPurchaseClick() {}
+        override fun onSortingDialogRowClicked() {}
+        override fun sortingDialogChange(item: Int) {}
+        override fun toggleUseSwipe() {}
+        override fun onUseSwipeFaqClick() {}
+        override fun toggleUseHapticFeedback() {}
+        override fun clearCoversDirectory() {}
+        override fun onClearCoversDirectoryRowClicked() {}
+        override fun toggleScanCoverChapter() {}
+        override fun onScanCoverChapterRowClicked() {}
+        override fun toggleUseMenuIcons() {}
       },
     )
   }
 }
 
 @Composable
-private fun Settings(viewState: SettingsViewState, listener: SettingsListener) {
+private fun Settings(
+  viewState: SettingsViewState,
+  listener: SettingsListener,
+) {
   val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
   val top = viewState.paddings.substringBefore(';').toInt()
   val bottom = viewState.paddings.substringAfter(';').substringBefore(';').toInt()
@@ -152,7 +177,7 @@ private fun Settings(viewState: SettingsViewState, listener: SettingsListener) {
     topBar = {
       TopAppBar(
         title = {
-          Text(stringResource(R.string.action_settings))
+          Text(stringResource(StringsR.string.action_settings))
         },
         scrollBehavior = scrollBehavior,
         navigationIcon = {
@@ -162,8 +187,8 @@ private fun Settings(viewState: SettingsViewState, listener: SettingsListener) {
             },
           ) {
             Icon(
-              imageVector = Icons.Rounded.ArrowBackIosNew,
-              contentDescription = stringResource(R.string.close),
+              imageVector = Icons.AutoMirrored.Rounded.ArrowBackIos,
+              contentDescription = stringResource(StringsR.string.close),
             )
           }
         },
@@ -175,9 +200,10 @@ private fun Settings(viewState: SettingsViewState, listener: SettingsListener) {
       Modifier
         .padding(contentPadding)
         .verticalScroll(rememberScrollState())
+        .nestedScroll(scrollBehavior.nestedScrollConnection)
     ) {
       Column(Modifier.padding(vertical = 8.dp, horizontal = 16.dp)) {
-        // Tip jar
+        // Support project
         var enabledShake by remember { mutableStateOf(false) }
         if (!viewState.isPro) {
           Row(
@@ -185,6 +211,8 @@ private fun Settings(viewState: SettingsViewState, listener: SettingsListener) {
               .shake(enabledShake) { enabledShake = false }
               .clickable { listener.onPurchaseClick() }
               .fillMaxWidth(),
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
           ) {
             Card(
               shape = RoundedCornerShape(24.dp),
@@ -195,20 +223,26 @@ private fun Settings(viewState: SettingsViewState, listener: SettingsListener) {
                 modifier = Modifier
                   .size(86.dp)
                   .padding(2.dp),
-                painter = painterResource(id = R.drawable.ic_plus_support),
-                contentDescription = stringResource(id = R.string.action_support_project),
+                painter = painterResource(id = CommonR.drawable.ic_plus_support),
+                contentDescription = stringResource(id = CommonR.string.action_support_project),
                 tint = MaterialTheme.colorScheme.primary,
               )
             }
-            Column() {
+            Column(
+              modifier = Modifier
+                .heightIn(86.dp)
+                .padding(bottom = 4.dp),
+              verticalArrangement = Arrangement.SpaceBetween,
+              horizontalAlignment = Alignment.Start,
+            ) {
               Text(
                 modifier = Modifier.padding(start = 16.dp),
-                text = stringResource(R.string.action_support_project),
+                text = stringResource(CommonR.string.action_support_project),
                 fontSize = 18.sp,
               )
               Text(
                 modifier = Modifier.padding(start = 16.dp),
-                text = stringResource(R.string.action_support_project_summary),
+                text = stringResource(CommonR.string.action_support_project_summary),
                 fontSize = 13.sp,
                 lineHeight = 16.sp,
                 color = LocalContentColor.current.copy(alpha = 0.5F),
@@ -219,150 +253,228 @@ private fun Settings(viewState: SettingsViewState, listener: SettingsListener) {
                 contentPadding = PaddingValues(horizontal = 12.dp, vertical = 0.dp)
               ) {
                 Text(
-                  text = stringResource(R.string.learn_more).toUpperCase(LocaleList.current),
+                  text = stringResource(CommonR.string.learn_more).toUpperCase(LocaleList.current),
                   fontSize = 12.sp,
                 )
               }
             }
           }
-          Spacer(modifier = Modifier.size(20.dp))
+          Spacer(modifier = Modifier.size(8.dp))
         }
+
         // Appearance
+        HeaderRow(stringResource(CommonR.string.pref_category_appearance))
         Card(
           shape = RoundedCornerShape(16.dp),
           colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
         ) {
-          Column(modifier = Modifier.padding(bottom = 4.dp)) {
-            HeaderRow(stringResource(R.string.pref_category_appearance))
+          Column {
+            val haptic = LocalHapticFeedback.current
             ThemeRow(viewState.theme, viewState.isPro) {
-              if (viewState.isPro) listener.onThemeDialogRowClicked()
-              else enabledShake = true
-            }
-            if (viewState.theme != 2) {
-              ColorThemeRow(viewState.isPro) {
-                if (viewState.isPro) listener.onColorThemeDialogRowClicked()
-                else enabledShake = true
+              if (viewState.isPro) listener.onThemeDialogRowClicked(false)
+              else {
+                haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                enabledShake = true
               }
             }
-            if (false) { //viewState.showDarkThemePref
-              DarkThemeRow(viewState.useDarkTheme, listener::toggleDarkTheme)
+            if (viewState.theme != THEME_AUTO || !COLOR_SCHEME_SETTABLE) {
+              DividerRow()
+              ColorThemeRow(viewState.isPro) {
+                if (viewState.isPro) listener.onColorThemeDialogRowClicked()
+                else {
+                  haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                  enabledShake = true
+                }
+              }
             }
-            //TransparentNavigationRow(viewState.useTransparentNavigation, listener::toggleTransparentNavigation)
+            DividerRow()
+            ThemeRow(viewState.themeWidget, viewState.isPro, isWidget = true) {
+              if (viewState.isPro) listener.onThemeDialogRowClicked(true)
+              else {
+                haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                enabledShake = true
+              }
+            }
+//            if (viewState.showDarkThemePref) {
+//              DarkThemeRow(viewState.useDarkTheme, listener::toggleDarkTheme)
+//            }
+//            TransparentNavigationRow(viewState.useTransparentNavigation, listener::toggleTransparentNavigation)
+          }
+        }
+        Spacer(modifier = Modifier.size(16.dp))
+
+        // Appearance library
+        HeaderRow(stringResource(CommonR.string.pref_appearance_ui_library_title))
+        Card(
+          shape = RoundedCornerShape(16.dp),
+          colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
+        ) {
+          Column {
             GridModeRow(viewState.gridMode) {
               listener.onGridModeDialogRowClicked()
             }
+            DividerRow()
+            SortingRow(viewState.sortingPref) {
+              listener.onSortingDialogRowClicked()
+            }
+            DividerRow()
             MiniPlayerStyleRow(viewState.miniPlayerStyle) {
               listener.onMiniPlayerStyleDialogRowClicked()
             }
+            DividerRow()
+            SettingsSwitchRow(
+              title = stringResource(CommonR.string.pref_use_menu_icons),
+              initSwitch = viewState.useMenuIconsPref,
+              toggle = listener::toggleUseMenuIcons,
+              paddingBottom = 5.dp,
+            )
           }
         }
         Spacer(modifier = Modifier.size(16.dp))
+
         // Appearance player
+        HeaderRow(stringResource(CommonR.string.pref_appearance_ui_player_title))
         Card(
           shape = RoundedCornerShape(16.dp),
           colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
         ) {
-          Column(modifier = Modifier.padding(bottom = 4.dp)) {
-            HeaderRow(stringResource(R.string.pref_appearance_ui_player_title))
+          Column {
             PlayerBackgroundRow(viewState.playerBackground) {
               listener.onPlayerBackgroundDialogRowClicked()
             }
+            DividerRow()
             PlayButtonStyleRow(viewState.playButtonStyle) {
               listener.onPlayButtonStyleDialogRowClicked()
             }
+            DividerRow()
             SkipButtonStyleRow(viewState.skipButtonStyle) {
               listener.onSkipButtonStyleDialogRowClicked()
             }
-            ShowSliderVolumeRow(viewState.showSliderVolume, listener::toggleShowSliderVolume)
+            DividerRow()
+            SettingsSwitchRow(
+              title = stringResource(CommonR.string.pref_show_slider_volume_title),
+              initSwitch = viewState.showSliderVolume,
+              toggle = listener::toggleShowSliderVolume,
+              paddingBottom = 5.dp,
+            )
           }
         }
         Spacer(modifier = Modifier.size(16.dp))
-        /*ListItem(
-          modifier = Modifier.clickable { listener.toggleGrid() },
-          leadingContent = {
-            val imageVector = if (viewState.useGrid) {
-              Icons.Rounded.GridView
-            } else {
-              Icons.Rounded.ViewList
-            }
-            Icon(imageVector, stringResource(R.string.pref_use_grid))
-          },
-          headlineText = { Text(stringResource(R.string.pref_use_grid)) },
-          trailingContent = {
-            Switch(
-              checked = viewState.useGrid,
-              onCheckedChange = {
-                listener.toggleGrid()
-              },
-            )
-          },
-        )*/
+
         // Playback
+        HeaderRow(stringResource(CommonR.string.pref_playback))
         Card(
           shape = RoundedCornerShape(16.dp),
           colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
         ) {
-          Column(modifier = Modifier.padding(bottom = 4.dp)) {
-            HeaderRow(stringResource(R.string.music_notification))
+          Column {
             SeekTimeRow(viewState.seekTimeInSeconds) {
               listener.onSeekAmountRowClicked()
             }
+            DividerRow()
             SeekTimeRow(viewState.seekTimeRewindInSeconds, false) {
               listener.onSeekRewindAmountRowClicked()
             }
+            DividerRow()
             AutoRewindRow(viewState.autoRewindInSeconds) {
               listener.onAutoRewindRowClicked()
             }
-            ResumeOnReplugRow(viewState.resumeOnReplug, listener::toggleResumeOnReplug)
           }
         }
         Spacer(modifier = Modifier.size(16.dp))
-        /*ListItem(
-          modifier = Modifier.clickable { listener.suggestIdea() },
-          leadingContent = { Icon(Icons.Outlined.Lightbulb, stringResource(R.string.pref_suggest_idea)) },
-          headlineText = { Text(stringResource(R.string.pref_suggest_idea)) },
-        )
-        ListItem(
-          modifier = Modifier.clickable { listener.getSupport() },
-          leadingContent = { Icon(Icons.Outlined.HelpOutline, stringResource(R.string.pref_get_support)) },
-          headlineText = { Text(stringResource(R.string.pref_get_support)) },
-        )
-        ListItem(
-          modifier = Modifier.clickable { listener.openBugReport() },
-          leadingContent = { Icon(Icons.Outlined.BugReport, stringResource(R.string.pref_report_issue)) },
-          headlineText = { Text(stringResource(R.string.pref_report_issue)) },
-        )
-        ListItem(
-          modifier = Modifier.clickable { listener.openTranslations() },
-          leadingContent = { Icon(Icons.Outlined.Language, stringResource(R.string.pref_help_translating)) },
-          headlineText = { Text(stringResource(R.string.pref_help_translating)) },
-        )*/
-        // Other
+
+        // Cover
+        HeaderRow(stringResource(StringsR.string.cover))
         Card(
           shape = RoundedCornerShape(16.dp),
           colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
         ) {
-          Column(modifier = Modifier.padding(bottom = 4.dp)) {
-            HeaderRow(stringResource(R.string.pref_category_other))
-            ListItem(
-              modifier = Modifier.clickable { listener.openBugReport() },
-              colors = ListItemDefaults.colors(containerColor = MaterialTheme.colorScheme.inverseOnSurface),
-              headlineText = { Text(stringResource(R.string.pref_report_issue)) },
-              trailingContent = { Icon(imageVector = Icons.Rounded.ChevronRight, stringResource(id = R.string.pref_report_issue)) },
+          Column {
+            SettingsSwitchRow(
+              title = stringResource(CommonR.string.pref_scan_chapter_covers),
+              subtitle = stringResource(CommonR.string.pref_subtitle_scan_chapter_covers),
+              initSwitch = viewState.scanCoverChapter,
+              paddingTop = 7.dp,
+              paddingBottom = 6.dp,
+              toggle = listener::onScanCoverChapterRowClicked,
             )
-            if (viewState.isPro) {
-              ListItem(
-                modifier = Modifier.clickable { listener.onPurchaseClick() },
-                colors = ListItemDefaults.colors(containerColor = MaterialTheme.colorScheme.inverseOnSurface),
-                headlineText = { Text(stringResource(R.string.tipping_jar_title)) },
-                trailingContent = { Icon(imageVector = Icons.Rounded.ChevronRight, stringResource(id = R.string.tipping_jar_title)) },
+            DividerRow()
+            SettingsRow(
+              title = stringResource(CommonR.string.pref_delete_cover_files),
+              subtitle = stringResource(CommonR.string.pref_subtitle_delete_cover_files),
+              value = viewState.sizeCoversDirectory,
+              showChevron = true,
+              paddingBottom = 8.dp,
+              click = { listener.onClearCoversDirectoryRowClicked() }
+            )
+          }
+        }
+        Spacer(modifier = Modifier.size(16.dp))
+
+        // General
+        HeaderRow(stringResource(CommonR.string.pref_category_general))
+        Card(
+          shape = RoundedCornerShape(16.dp),
+          colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
+        ) {
+          Column {
+            val useGestures = viewState.useGestures
+            SettingsSwitchRow(
+              title = stringResource(CommonR.string.onboarding_gestures_title),
+              initSwitch = useGestures,
+              toggle = listener::toggleUseSwipe,
+              showFaq = true,
+              faq = listener::onUseSwipeFaqClick,
+              paddingTop = 5.dp,
+            )
+            if (useGestures) {
+              DividerRow()
+              SettingsSwitchRow(
+                title = stringResource(CommonR.string.pref_use_haptic_feedback),
+                initSwitch = viewState.useHapticFeedback,
+                toggle = listener::toggleUseHapticFeedback,
+                paddingBottom = 5.dp,
               )
             }
+          }
+        }
+        Spacer(modifier = Modifier.size(16.dp))
+
+        // Other
+        HeaderRow(stringResource(CommonR.string.pref_category_other))
+        Card(
+          shape = RoundedCornerShape(16.dp),
+          colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
+        ) {
+          Column {
+            SettingsRow(
+              title = stringResource(StringsR.string.pref_report_issue),
+              showChevron = true,
+              paddingTop = 8.dp,
+              click = { listener.openBugReport() }
+            )
+            if (viewState.isPro) {
+              DividerRow()
+              Card(
+                modifier = Modifier.padding(horizontal = 4.dp),
+                shape = RoundedCornerShape(14.dp),
+              ) {
+                SettingsRow(
+                  title = stringResource(CommonR.string.tipping_jar_title),
+                  showChevron = true,
+                  color = MaterialTheme.colorScheme.background,
+                  paddingStart = 12.dp,
+                  paddingEnd = 8.dp,
+                  click = { listener.onPurchaseClick() }
+                )
+              }
+            }
+            DividerRow()
             AppVersion(appVersion = viewState.appVersion, openAbout = listener::onAboutClick)
           }
         }
         Dialog(viewState, listener)
-        Spacer(modifier = Modifier.size(bottom.dp))
+        Spacer(modifier = Modifier.size(bottom.dp + 24.dp))
       }
     }
   }
@@ -371,10 +483,22 @@ private fun Settings(viewState: SettingsViewState, listener: SettingsListener) {
 @Composable
 private fun HeaderRow(text: String) {
   Text(
-    text = text,
-    modifier = Modifier.padding(start = 16.dp, top = 16.dp, bottom = 6.dp, end = 16.dp),
+    text = text.uppercase(),
+    modifier = Modifier.padding(start = 16.dp, top = 12.dp, bottom = 4.dp, end = 16.dp),
     color = MaterialTheme.colorScheme.primary,
-    style = MaterialTheme.typography.bodyLarge,
+    overflow = TextOverflow.Ellipsis,
+    maxLines = 1,
+    style = MaterialTheme.typography.bodyMedium,
+  )
+}
+
+
+
+@Composable
+private fun DividerRow() {
+  HorizontalDivider(
+    modifier = Modifier.padding(start = 16.dp, end = 16.dp),
+    thickness = Dp.Hairline
   )
 }
 
@@ -387,6 +511,18 @@ interface SettingsComponent {
 fun Settings() {
   val viewModel = rememberScoped { rootComponentAs<SettingsComponent>().settingsViewModel }
   val viewState = viewModel.viewState()
+  val lifecycleOwner = LocalLifecycleOwner.current
+  DisposableEffect(lifecycleOwner) {
+    val observer = LifecycleEventObserver { _, event ->
+      if (event == Lifecycle.Event.ON_RESUME) {
+        viewModel.attach()
+      }
+    }
+    lifecycleOwner.lifecycle.addObserver(observer)
+    onDispose {
+      lifecycleOwner.lifecycle.removeObserver(observer)
+    }
+  }
   Settings(viewState, viewModel)
 }
 
@@ -461,6 +597,14 @@ private fun Dialog(
         onSelected = listener::themeChanged,
       )
     }
+    SettingsViewState.Dialog.ThemeWidgetDialog -> {
+      ThemeDialog(
+        checkedItemId = viewState.themeWidget,
+        isWidget = true,
+        onDismiss = listener::dismissDialog,
+        onSelected = listener::themeWidgetChanged,
+      )
+    }
     SettingsViewState.Dialog.ColorThemeDialog -> {
       ColorThemeDialog(
         checkedItemId = viewState.colorTheme,
@@ -468,27 +612,51 @@ private fun Dialog(
         onSelected = listener::colorThemeChanged,
       )
     }
+    SettingsViewState.Dialog.SortingDialog -> {
+      SortingDialog(
+        checkedItemId = viewState.sortingPref,
+        onDismiss = listener::dismissDialog,
+        onSelected = listener::sortingDialogChange,
+      )
+    }
+    SettingsViewState.Dialog.ScanChapterCoverAlertDialog -> {
+      AlertSettingDialog(
+        text = stringResource(CommonR.string.pref_subtitle_scan_chapter_covers),
+        onConfirmed = listener::toggleScanCoverChapter,
+        onDismiss = listener::dismissDialog,
+      )
+    }
+    SettingsViewState.Dialog.ClearCoversDirectoryAlertDialog -> {
+      AlertSettingDialog(
+        text = stringResource(CommonR.string.pref_subtitle_delete_cover_files),
+        onConfirmed = listener::clearCoversDirectory,
+        onDismiss = listener::dismissDialog,
+      )
+    }
   }
 }
 
-fun Modifier.shake(enabled: Boolean, onAnimationFinish: () -> Unit) = composed(
-  factory = {
-    val distance by animateFloatAsState(
-      targetValue = if (enabled) 12f else 0f,
-      animationSpec = repeatable(
-        iterations = 3,
-        animation = tween(durationMillis = 70, easing = LinearEasing),
-        repeatMode = RepeatMode.Reverse
-      ),
-      finishedListener = { onAnimationFinish.invoke() }
-    )
+@Composable
+fun Modifier.shake(enabled: Boolean, onAnimationFinish: () -> Unit): Modifier = then(
+  composed(
+    factory = {
+      val distance by animateFloatAsState(
+        targetValue = if (enabled) 12f else 0f,
+        animationSpec = repeatable(
+          iterations = 3,
+          animation = tween(durationMillis = 70, easing = LinearEasing),
+          repeatMode = RepeatMode.Reverse
+        ),
+        finishedListener = { onAnimationFinish.invoke() }, label = ""
+      )
 
-    Modifier.graphicsLayer {
-      translationX = if (enabled) distance else 0f
+      Modifier.graphicsLayer {
+        translationX = if (enabled) distance else 0f
+      }
+    },
+    inspectorInfo = debugInspectorInfo {
+      name = "shake"
+      properties["enabled"] = enabled
     }
-  },
-  inspectorInfo = debugInspectorInfo {
-    name = "shake"
-    properties["enabled"] = enabled
-  }
+  )
 )

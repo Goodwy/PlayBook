@@ -1,9 +1,9 @@
 package voice.app.scanner
 
 import android.content.Context
-import androidx.documentfile.provider.DocumentFile
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
+import voice.documentfile.CachedDocumentFile
 import voice.ffmpeg.ffprobe
 import voice.logging.core.Logger
 import javax.inject.Inject
@@ -18,7 +18,8 @@ class FFProbeAnalyze
     allowStructuredMapKeys = true
   }
 
-  suspend fun analyze(file: DocumentFile): MetaDataScanResult? {
+  internal suspend fun analyze(file: CachedDocumentFile): MetaDataScanResult? {
+    val tagKeys = TagType.entries.flatMap { it.keys }.toSet().joinToString(",")
     val result = ffprobe(
       input = file.uri,
       context = context,
@@ -27,9 +28,10 @@ class FFProbeAnalyze
         "-show_chapters",
         "-loglevel", "quiet",
         "-show_entries", "format=duration",
-        "-show_entries", "format_tags=artist,title,album",
-        "-show_entries", "stream_tags=artist,title,album",
-        "-select_streams", "a", // only select the audio stream
+        "-show_entries", "format_tags=$tagKeys",
+        "-show_entries", "stream_tags=$tagKeys",
+        // only select the audio stream
+        "-select_streams", "a",
       ),
     )
     if (result == null) {

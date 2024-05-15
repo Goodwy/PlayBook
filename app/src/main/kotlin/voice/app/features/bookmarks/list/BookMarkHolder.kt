@@ -14,6 +14,7 @@ import java.time.temporal.ChronoUnit
 import kotlin.time.Duration.Companion.days
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.minutes
+import voice.strings.R as StringsR
 
 class BookMarkHolder(
   parent: ViewGroup,
@@ -42,7 +43,10 @@ class BookMarkHolder(
     }
   }
 
-  fun bind(bookmark: Bookmark, chapters: List<Chapter>) {
+  fun bind(
+    bookmark: Bookmark,
+    chapters: List<Chapter>,
+  ) {
     boundBookmark = bookmark
     val currentChapter = chapters.single { it.id == bookmark.chapterId }
     val bookmarkTitle = bookmark.title
@@ -50,7 +54,7 @@ class BookMarkHolder(
       bookmark.setBySleepTimer -> {
         val justNowThreshold = 1.minutes
         if (ChronoUnit.MILLIS.between(bookmark.addedAt, Instant.now()).milliseconds < justNowThreshold) {
-          itemView.context.getString(R.string.bookmark_just_now)
+          itemView.context.getString(StringsR.string.bookmark_just_now)
         } else {
           DateUtils.getRelativeDateTimeString(
             itemView.context,
@@ -61,7 +65,7 @@ class BookMarkHolder(
           )
         }
       }
-      bookmarkTitle != null && bookmarkTitle.isNotEmpty() -> bookmarkTitle
+      !bookmarkTitle.isNullOrEmpty() -> bookmarkTitle
       else -> currentChapter.markForPosition(bookmark.time).name
     }
     binding.title.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, if (bookmark.setBySleepTimer) R.drawable.ic_sleep else 0, 0)
@@ -75,7 +79,7 @@ class BookMarkHolder(
     )
     val justNowThreshold = 1.minutes
     binding.date.text = if (ChronoUnit.MILLIS.between(bookmark.addedAt, Instant.now()).milliseconds < justNowThreshold) {
-      itemView.context.getString(R.string.bookmark_just_now)
+      itemView.context.getString(StringsR.string.bookmark_just_now)
     } else {
       DateUtils.getRelativeDateTimeString(
         itemView.context,

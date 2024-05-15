@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Appearance</string>
   <string name="pref_appearance_ui_library_title">Library UI appearance</string>
   <string name="pref_appearance_ui_player_title">Player UI appearance</string>
+  <string name="pref_playback">Playback</string>
   <string name="pref_category_other">Other</string>
 
   <!--Setting colors-->
   <string name="pref_basic_color">Basic color</string>
   <string name="pref_basic_color_summary">Input a custom key color that automatically gets assigned a set of complementary tones.</string>
-  <string name="pref_default_theme_title">Set default</string>
+  <string name="pref_default_theme">Set default</string>
 
   <!--BookPlay-->
   <string name="custom">Custom</string>
@@ -93,9 +94,46 @@
   <string name="special_thanks_to">Special thanks to</string>
 
   <!--Billing-->
-  <string name="tipping_jar_dialog_sucess_title">Thanks a bunch!</string>
-  <string name="tipping_jar_dialog_sucess_message">Big thanks for supporting the development of PlayBook. You are great and the developer will never forget you!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">You are welcome</string>
+  <string name="tipping_jar_dialog_success_title">Thanks a bunch!</string>
+  <string name="tipping_jar_dialog_success_message">Big thanks for supporting the development of PlayBook. You are great and the developer will never forget you!</string>
+  <string name="tipping_jar_dialog_success_button_title">You are welcome</string>
   <string name="tipping_jar_dialog_error_title">Failed to tip</string>
   <string name="tipping_jar_dialog_error_message">Unfortunately something bad happened while performing the tipping transaction. Do not be sad, just try again another time and enjoy PlayBook</string>
+  <string name="pref_use_haptic_feedback">Use haptic feedback</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Scan the chapter covers</string>
+  <string name="pref_subtitle_scan_chapter_covers">The change will clear the current book covers. The chapter covers will occupy additional memory on the device</string>
+  <string name="pref_delete_cover_files">Delete the cover files</string>
+  <string name="pref_subtitle_delete_cover_files">Any saved covers in the app will be deleted. The covers will be reloaded from the book files</string>
+  <string name="pref_use_menu_icons">Use menu icons</string>
+  <string name="pref_category_general">General</string>
+  <string name="pref_sorting">Sorting by</string>
+  <string name="pref_sorting_last">Last added or used</string>
+  <string name="pref_sorting_last_added">Last added</string>
+  <string name="pref_sorting_time">Time</string>
+  <string name="change_book_author">Author</string>
+  <string name="edit_book_author">Edit author</string>
+  <string name="cleared">Cleared</string>
+  <string name="onboarding_welcome_title_g">Welcome to PlayBook!</string>
+  <string name="onboarding_gestures_title">Use gestures</string>
+  <string name="onboarding_show_player">Show player</string>
+  <string name="onboarding_show_list_chapters">Show list of chapters</string>
+  <string name="onboarding_double_tap">Double-tap to play or pause</string>
+  <string name="billing_purchase_confirm_in_progress">Confirming the purchase…</string>
+  <string name="billing_purchase_delete_in_progress">Deleting a purchase…</string>
+  <string name="billing_product_confirmed">Product confirmed</string>
+  <string name="billing_product_deleted">Purchase cancelled</string>
+  <string name="billing_subscriptions">Subscriptions</string>
+  <string name="no_connection">No connection</string>
+  <string name="per_month">%s/month</string>
+  <string name="per_year">%s/year</string>
+  <string name="restore_purchase">Restore purchase</string>
+  <string name="unlock">Unlock</string>
+  <string name="donate_text">
+        <![CDATA[
+            For those who do not use Google Play, it is possible to unlock all functions of the application. <br>
+            If you like our apps which are offline, non-intrusive and have no ads, please consider supporting us in some way. We would be very grateful.<br><br>
+            Thank you!
+        ]]>
+    </string>
 </resources>

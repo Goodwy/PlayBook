@@ -19,14 +19,14 @@ body:
         Describe step by step, how to reproduce the bug. For example:
         1. Open the App
         2. Click on Play
-        3. Voice crashes
+        3. PlayBook crashes
     validations:
       required: true
   - type: input
     id: version
     attributes:
       label: Version
-      description: On which version of Voice did this bug appear? Please write the exact version as often time multiple versions are live at the same time.
+      description: On which version of PlayBook did this bug appear? Please write the exact version as often time multiple versions are live at the same time.
     validations:
       required: true
   - type: input

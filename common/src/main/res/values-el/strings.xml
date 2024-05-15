@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Εμφάνιση</string>
   <string name="pref_appearance_ui_library_title">Εμφάνιση διεπαφής χρήστη βιβλιοθήκης</string>
   <string name="pref_appearance_ui_player_title">Εμφάνιση διεπαφής χρήστη του προγράμματος αναπαραγωγής</string>
+  <string name="pref_playback">Αναπαραγωγή</string>
   <string name="pref_category_other">Άλλο</string>
 
   <!--Ρύθμιση χρωμάτων-->
   <string name="pref_basic_color">Βασικό χρώμα</string>
   <string name="pref_basic_color_summary">Εισαγάγετε ένα προσαρμοσμένο χρώμα κλειδιού στο οποίο εκχωρείται αυτόματα ένα σύνολο συμπληρωματικών τόνων.</string>
-  <string name="pref_default_theme_title">Ορισμός προεπιλογής</string>
+  <string name="pref_default_theme">Ορισμός προεπιλογής</string>
 
   <!--BookPlay-->
   <string name="custom">Προσαρμοσμένο</string>
@@ -93,9 +94,30 @@
   <string name="special_thanks_to">Ευχαριστώ ιδιαίτερα τον</string>
 
   <!--Χρέωση-->
-  <string name="tipping_jar_dialog_sucess_title">Ευχαριστώ πολύ!</string>
-  <string name="tipping_jar_dialog_sucess_message">Ευχαριστούμε πολύ για την υποστήριξη της ανάπτυξης του PlayBook. Είστε υπέροχοι και ο προγραμματιστής δεν θα σας ξεχάσει ποτέ!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Είστε ευπρόσδεκτοι</string>
+  <string name="tipping_jar_dialog_success_title">Ευχαριστώ πολύ!</string>
+  <string name="tipping_jar_dialog_success_message">Ευχαριστούμε πολύ για την υποστήριξη της ανάπτυξης του PlayBook. Είστε υπέροχοι και ο προγραμματιστής δεν θα σας ξεχάσει ποτέ!</string>
+  <string name="tipping_jar_dialog_success_button_title">Είστε ευπρόσδεκτοι</string>
   <string name="tipping_jar_dialog_error_title">Απέτυχε συμβουλή</string>
   <string name="tipping_jar_dialog_error_message">Δυστυχώς κάτι κακό συνέβη κατά την εκτέλεση της συναλλαγής φιλοδωρήματος. Μην λυπάστε, απλώς δοκιμάστε ξανά άλλη φορά και απολαύστε το PlayBook</string>
+    <string name="pref_use_haptic_feedback">Χρήση απτικής ανάδρασης</string>
+  <string name="pref_widget">Γραφικό στοιχείο</string>
+  <string name="pref_scan_chapter_covers">Σάρωση των καλυμμάτων κεφαλαίων</string>
+  <string name="pref_subtitle_scan_chapter_covers">Η αλλαγή θα διαγράψει τα τρέχοντα εξώφυλλα βιβλίων. Τα καλύμματα κεφαλαίων θα καταλαμβάνουν πρόσθετη μνήμη στη συσκευή</string>
+  <string name="pref_delete_cover_files">Διαγραφή των αρχείων εξωφύλλου</string>
+  <string name="pref_subtitle_delete_cover_files">Τυχόν αποθηκευμένα εξώφυλλα στην εφαρμογή θα διαγραφούν. Τα εξώφυλλα θα επαναφορτωθούν από τα αρχεία βιβλίων</string>
+  <string name="pref_use_menu_icons">Χρήση εικονιδίων μενού</string>
+  <string name="pref_category_general">Γενικά</string>
+  <string name="pref_sorting">Ταξινόμηση κατά</string>
+  <string name="pref_sorting_last">Τελευταία προσθήκη ή χρήση</string>
+  <string name="pref_sorting_last_added">Τελευταία προσθήκη</string>
+  <string name="pref_sorting_time">Ώρα</string>
+  <string name="change_book_author">Συγγραφέας</string>
+  <string name="edit_book_author">Επεξεργασία συντάκτη</string>
+  <string name="onboarding_gestures_title">Χρήση χειρονομιών</string>
+  <string name="onboarding_show_player">Εμφάνιση παίκτη</string>
+  <string name="onboarding_show_list_chapters">Εμφάνιση λίστας κεφαλαίων</string>
+  <string name="onboarding_double_tap">Διπλό πάτημα για αναπαραγωγή ή παύση</string>
+  <string name="per_month">%s/μήνα</string>
+  <string name="per_year">%s/έτος</string>
+  <string name="restore_purchase">Επαναφορά αγοράς</string>
 </resources>

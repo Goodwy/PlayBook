@@ -24,4 +24,7 @@ dependencies {
   implementation(libs.dagger.core)
 
   implementation("com.github.skydoves:colorpicker-compose:1.0.1")
+
+  //PlayBook
+  implementation(projects.scanner)
 }

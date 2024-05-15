@@ -2,8 +2,10 @@ package voice.settings.purchase
 
 interface PurchaseListener {
   fun close()
-  fun onPurchaseClick()
-  fun onSmallClick()
-  fun onMediumClick()
-  fun onBigClick()
+  fun onPurchaseClick(usePlayStore: Boolean, tip: Int)
+  fun onRefreshPurchase(usePlayStore: Boolean)
+  fun themeChanged()
+  fun onUrlClick(url: String)
+  fun togglePro()
+  fun onChangeStore()
 }

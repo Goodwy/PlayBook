@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">المظهر</string>
   <string name="pref_appearance_ui_library_title">مظهر واجهة مستخدم المكتبة</string>
   <string name="pref_appearance_ui_player_title">مظهر واجهة مستخدم المشغل</string>
+  <string name="pref_playback">تشغيل</string>
   <string name="pref_category_other">أخرى</string>
 
   <!--ضبط الألوان-->
   <string name="pref_basic_color">اللون الأساسي</string>
   <string name="pref_basic_color_summary">أدخل لون مفتاح مخصص يتم تعيينه تلقائيًا لمجموعة من النغمات التكميلية.</string>
-  <string name="pref_default_theme_title">تعيين افتراضي</string>
+  <string name="pref_default_theme">تعيين افتراضي</string>
 
   <!--BookPlay-->
   <string name="custom">مخصص</string>
@@ -90,9 +91,30 @@
   <string name="special_thanks_to">شكر خاص لـ</string>
 
   <!--الفواتير-->
-  <string name="tipping_jar_dialog_sucess_title">شكرًا جزيلاً!</string>
-  <string name="tipping_jar_dialog_sucess_message">شكراً جزيلاً لدعم تطوير PlayBook. أنت رائع ولن ينساك المطور أبدًا!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">مرحبًا بك</string>
+  <string name="tipping_jar_dialog_success_title">شكرًا جزيلاً!</string>
+  <string name="tipping_jar_dialog_success_message">شكراً جزيلاً لدعم تطوير PlayBook. أنت رائع ولن ينساك المطور أبدًا!</string>
+  <string name="tipping_jar_dialog_success_button_title">مرحبًا بك</string>
   <string name="tipping_jar_dialog_error_title">فشل تقديم التلميح</string>
   <string name="tipping_jar_dialog_error_message">لسوء الحظ حدث شيء سيء أثناء إجراء معاملة البقشيش. لا تحزن ، فقط حاول مرة أخرى في وقت آخر واستمتع بـ PlayBook </string>
+    <string name="pref_use_haptic_feedback">استخدم ردود الفعل اللمسية</string>
+  <string name="pref_widget">القطعه</string>
+  <string name="pref_scan_chapter_covers">مسح أغلفة الفصول ضوئيا</string>
+  <string name="pref_subtitle_scan_chapter_covers">سيؤدي التغيير إلى مسح أغلفة الكتب الحالية. ستشغل أغلفة الفصول ذاكرة إضافية على الجهاز</string>
+  <string name="pref_delete_cover_files">حذف ملفات الغلاف</string>
+  <string name="pref_subtitle_delete_cover_files">سيتم حذف أي أغلفة محفوظة في التطبيق. سيتم إعادة تحميل الأغلفة من ملفات الكتاب</string>
+  <string name="pref_use_menu_icons">استخدام أيقونات القائمة</string>
+  <string name="pref_category_general">عام</string>
+  <string name="pref_sorting">الفرز حسب</string>
+  <string name="pref_sorting_last">آخر إضافة أو استخدام</string>
+  <string name="pref_sorting_last_added">آخر إضافة</string>
+  <string name="pref_sorting_time">الوقت</string>
+  <string name="change_book_author">كاتب</string>
+  <string name="edit_book_author">تحرير المؤلف</string>
+  <string name="onboarding_gestures_title">استخدام الإيماءات</string>
+  <string name="onboarding_show_player">عرض اللاعب</string>
+  <string name="onboarding_show_list_chapters">عرض قائمة الفصول</string>
+  <string name="onboarding_double_tap">النقر المزدوج للتشغيل أو الإيقاف المؤقت</string>
+  <string name="per_month">شهر/%s</string>
+  <string name="per_year">سنة/%s</string>
+  <string name="restore_purchase">استعادة الشراء</string>
 </resources>

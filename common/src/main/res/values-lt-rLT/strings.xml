@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Išvaizda</string>
   <string name="pref_appearance_ui_library_title">Bibliotekos vartotojo sąsajos išvaizda</string>
   <string name="pref_appearance_ui_player_title">Leistuvės vartotojo sąsajos išvaizda</string>
+  <string name="pref_playback">Atkūrimas</string>
   <string name="pref_category_other">Kita</string>
 
   <!--Spalvų nustatymas-->
   <string name="pref_basic_color">Pagrindinė spalva</string>
   <string name="pref_basic_color_summary">Įveskite tinkintą klavišo spalvą, kuriai automatiškai priskiriamas papildomų tonų rinkinys.</string>
-  <string name="pref_default_theme_title">Nustatyti numatytuosius</string>
+  <string name="pref_default_theme">Nustatyti numatytuosius</string>
 
   <!--BookPlay-->
   <string name="custom">Tinkintas</string>
@@ -93,9 +94,30 @@ Būčiau labai dėkingas, jei paliktumėte atsiliepimą ar įvertinimą apie pro
   <string name="special_thanks_to">Ypatinga padėka</string>
 
   <!--Atsiskaitymas-->
-  <string name="tipping_jar_dialog_sucess_title">Ačiū!</string>
-  <string name="tipping_jar_dialog_sucess_message">Labai ačiū, kad palaikote PlayBook kūrimą. Jūs esate puikus ir kūrėjas niekada jūsų nepamirš!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Kviečiame jus</string>
+  <string name="tipping_jar_dialog_success_title">Ačiū!</string>
+  <string name="tipping_jar_dialog_success_message">Labai ačiū, kad palaikote PlayBook kūrimą. Jūs esate puikus ir kūrėjas niekada jūsų nepamirš!</string>
+  <string name="tipping_jar_dialog_success_button_title">Kviečiame jus</string>
   <string name="tipping_jar_dialog_error_title">Patarimo pateikti nepavyko</string>
   <string name="tipping_jar_dialog_error_message">Deja, atliekant arbatpinigių operaciją įvyko kažkas blogo. Neliūdėkite, tiesiog bandykite dar kartą kitą kartą ir mėgaukitės PlayBook</string>
+    <string name="pref_use_haptic_feedback">Naudokite haptinį grįžtamąjį ryšį</string>
+  <string name="pref_widget">Valdikliui</string>
+  <string name="pref_scan_chapter_covers">Nuskaitykite skyrių viršelius</string>
+  <string name="pref_subtitle_scan_chapter_covers">Pakeitimas išvalys dabartinius knygų viršelius. Skyrių dangteliai užims papildomą įrenginio atmintį</string>
+  <string name="pref_delete_cover_files">Ištrinkite viršelio failus</string>
+  <string name="pref_subtitle_delete_cover_files">Visi programoje išsaugoti viršeliai bus ištrinti. Viršeliai bus perkrauti iš knygų failų</string>
+  <string name="pref_use_menu_icons">Meniu piktogramų naudojimas</string>
+  <string name="pref_category_general">Bendra</string>
+  <string name="pref_sorting">Rūšiavimas pagal</string>
+  <string name="pref_sorting_last">Paskutinį kartą pridėta arba naudota</string>
+  <string name="pref_sorting_last_added">Paskutinį kartą pridėta</string>
+  <string name="pref_sorting_time">Laikas</string>
+  <string name="change_book_author">Autorius</string>
+  <string name="edit_book_author">Redaguoti autorių</string>
+  <string name="onboarding_gestures_title">Naudokite gestus</string>
+  <string name="onboarding_show_player">Rodyti žaidėją</string>
+  <string name="onboarding_show_list_chapters">Rodyti skyrių sąrašą</string>
+  <string name="onboarding_double_tap">Dukart bakstelėkite, kad paleistumėte arba pristabdytumėte</string>
+  <string name="per_month">%s per mėnesį</string>
+  <string name="per_year">%s per metus</string>
+  <string name="restore_purchase">Atkurti pirkimą</string>
 </resources>

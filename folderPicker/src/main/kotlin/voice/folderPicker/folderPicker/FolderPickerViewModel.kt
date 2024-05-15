@@ -1,11 +1,9 @@
 package voice.folderPicker.folderPicker
 
-import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.documentfile.provider.DocumentFile
 import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -15,7 +13,7 @@ import voice.common.navigation.Destination
 import voice.common.navigation.Navigator
 import voice.common.pref.PrefKeys
 import voice.data.folders.AudiobookFolders
-import voice.data.folders.FolderType
+import voice.documentfile.nameWithoutExtension
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -44,7 +42,7 @@ class FolderPickerViewModel
         folders.flatMap { (folderType, folders) ->
           folders.map { (documentFile, uri) ->
             FolderPickerViewState.Item(
-              name = documentFile.displayName(),
+              name = documentFile.nameWithoutExtension(),
               id = uri,
               folderType = folderType,
             )
@@ -54,33 +52,15 @@ class FolderPickerViewModel
     }
   }
 
-  internal fun add(uri: Uri, type: FileTypeSelection) {
-    when (type) {
-      FileTypeSelection.File -> {
-        audiobookFolders.add(uri, FolderType.SingleFile)
-      }
-      FileTypeSelection.Folder -> {
-        navigator.goTo(Destination.SelectFolderType(uri))
-      }
-    }
+  internal fun add() {
+    navigator.goTo(
+      Destination.AddContent(
+        Destination.AddContent.Mode.Default,
+      ),
+    )
   }
 
   fun removeFolder(item: FolderPickerViewState.Item) {
     audiobookFolders.remove(item.id, item.folderType)
-  }
-}
-
-private fun DocumentFile.displayName(): String {
-  val name = name
-  return if (name == null) {
-    uri.pathSegments.lastOrNull()
-      ?.dropWhile { it != ':' }
-      ?.removePrefix(":")
-      ?.takeUnless { it.isBlank() }
-      ?: uri.toString()
-  } else {
-    name.substringBeforeLast(".")
-      .takeUnless { it.isEmpty() }
-      ?: name
   }
 }

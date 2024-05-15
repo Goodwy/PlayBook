@@ -14,17 +14,14 @@ import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.graphics.RectF
 import android.os.Bundle
-import android.support.v4.media.session.PlaybackStateCompat.ACTION_FAST_FORWARD
-import android.support.v4.media.session.PlaybackStateCompat.ACTION_PLAY_PAUSE
-import android.support.v4.media.session.PlaybackStateCompat.ACTION_REWIND
 import android.view.View
 import android.widget.RemoteViews
 import androidx.core.graphics.drawable.toBitmap
 import androidx.datastore.core.DataStore
-import androidx.media.session.MediaButtonReceiver.buildMediaButtonPendingIntent
 import coil.imageLoader
 import coil.request.ImageRequest
 import dagger.Reusable
+import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
@@ -32,20 +29,28 @@ import kotlinx.coroutines.launch
 import voice.app.R
 import voice.app.features.MainActivity
 import voice.common.BookId
+import voice.common.constants.THEME_LIGHT
 import voice.common.dpToPxRounded
 import voice.common.pref.CurrentBook
+import voice.common.pref.PrefKeys
 import voice.data.Book
 import voice.data.repo.BookRepository
 import voice.playback.playstate.PlayStateManager
+import voice.playback.receiver.WidgetButtonReceiver
 import javax.inject.Inject
+import javax.inject.Named
+import voice.common.R as CommonR
 
 @Reusable
-class WidgetUpdater @Inject constructor(
+class WidgetUpdater
+@Inject constructor(
   private val context: Context,
   private val repo: BookRepository,
   @CurrentBook
   private val currentBook: DataStore<BookId?>,
   private val playStateManager: PlayStateManager,
+  @Named(PrefKeys.THEME_WIDGET)
+  private val themeWidgetPref: Pref<Int>,
 ) {
 
   private val appWidgetManager = AppWidgetManager.getInstance(context)
@@ -66,7 +71,10 @@ class WidgetUpdater @Inject constructor(
     }
   }
 
-  private suspend fun updateWidgetForId(book: Book?, widgetId: Int) {
+  private suspend fun updateWidgetForId(
+    book: Book?,
+    widgetId: Int,
+  ) {
     if (book != null) {
       initWidgetForPresentBook(widgetId, book)
     } else {
@@ -74,12 +82,15 @@ class WidgetUpdater @Inject constructor(
     }
   }
 
-  private suspend fun initWidgetForPresentBook(widgetId: Int, book: Book) {
+  private suspend fun initWidgetForPresentBook(
+    widgetId: Int,
+    book: Book,
+  ) {
     val opts = appWidgetManager.getAppWidgetOptions(widgetId)
     val useWidth = widgetWidth(opts)
     val useHeight = widgetHeight(opts)
 
-    val remoteViews = RemoteViews(context.packageName, R.layout.widget)
+    val remoteViews = if (themeWidgetPref.value == THEME_LIGHT) RemoteViews(context.packageName, R.layout.widget_white) else RemoteViews(context.packageName, R.layout.widget)
     initElements(remoteViews = remoteViews, book = book, coverSize = useHeight)
 
     if (useWidth > 0 && useHeight > 0) {
@@ -109,7 +120,7 @@ class WidgetUpdater @Inject constructor(
   }
 
   private fun initWidgetForAbsentBook(widgetId: Int) {
-    val remoteViews = RemoteViews(context.packageName, R.layout.widget)
+    val remoteViews = if (themeWidgetPref.value == THEME_LIGHT) RemoteViews(context.packageName, R.layout.widget_white) else RemoteViews(context.packageName, R.layout.widget)
     // directly going back to bookChoose
     val wholeWidgetClickI = Intent(context, MainActivity::class.java)
     wholeWidgetClickI.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
@@ -119,7 +130,7 @@ class WidgetUpdater @Inject constructor(
       wholeWidgetClickI,
       PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
     )
-    remoteViews.setImageViewResource(R.id.imageView, R.drawable.album_art)
+    remoteViews.setImageViewResource(R.id.imageView, CommonR.drawable.album_art)
     remoteViews.setOnClickPendingIntent(R.id.wholeWidget, wholeWidgetClickPI)
     appWidgetManager.updateAppWidget(widgetId, remoteViews)
   }
@@ -130,22 +141,33 @@ class WidgetUpdater @Inject constructor(
       return orientation == Configuration.ORIENTATION_PORTRAIT
     }
 
-  private suspend fun initElements(remoteViews: RemoteViews, book: Book, coverSize: Int) {
-    val playPausePI = buildMediaButtonPendingIntent(context, ACTION_PLAY_PAUSE)
+  private suspend fun initElements(
+    remoteViews: RemoteViews,
+    book: Book,
+    coverSize: Int,
+  ) {
+    val playPausePI = WidgetButtonReceiver.pendingIntent(context, WidgetButtonReceiver.Action.PlayPause)
     remoteViews.setOnClickPendingIntent(R.id.playPause, playPausePI)
 
-    val fastForwardPI = buildMediaButtonPendingIntent(context, ACTION_FAST_FORWARD)
+    val fastForwardPI = WidgetButtonReceiver.pendingIntent(context, WidgetButtonReceiver.Action.FastForward)
     remoteViews.setOnClickPendingIntent(R.id.fastForward, fastForwardPI)
 
-    val rewindPI = buildMediaButtonPendingIntent(context, ACTION_REWIND)
+    val rewindPI = WidgetButtonReceiver.pendingIntent(context, WidgetButtonReceiver.Action.Rewind)
     remoteViews.setOnClickPendingIntent(R.id.rewind, rewindPI)
 
+    val themeWidget = themeWidgetPref.value
     val playIcon = if (playStateManager.playState == PlayStateManager.PlayState.Playing) {
-      R.drawable.ic_pause_white_36dp
+      if (themeWidget == THEME_LIGHT) CommonR.drawable.ic_pause else CommonR.drawable.ic_pause_white
     } else {
-      R.drawable.ic_play_white_36dp
+      if (themeWidget == THEME_LIGHT) CommonR.drawable.ic_play else CommonR.drawable.ic_play_white
     }
     remoteViews.setImageViewResource(R.id.playPause, playIcon)
+
+    val fastForwardIcon = if (themeWidget == THEME_LIGHT) CommonR.drawable.ic_fast_forward else CommonR.drawable.ic_fast_forward_white
+    remoteViews.setImageViewResource(R.id.fastForward, fastForwardIcon)
+
+    val rewindIcon = if (themeWidget == THEME_LIGHT) CommonR.drawable.ic_rewind else CommonR.drawable.ic_rewind_white
+    remoteViews.setImageViewResource(R.id.rewind, rewindIcon)
 
     // if we have any book, init the views and have a click on the whole widget start BookPlay.
     // if we have no book, simply have a click on the whole widget start BookChoose.
@@ -154,7 +176,7 @@ class WidgetUpdater @Inject constructor(
 
     remoteViews.setTextViewText(R.id.summary, name)
 
-    val wholeWidgetClickI = MainActivity.goToBookIntent(context, book.id)
+    val wholeWidgetClickI = MainActivity.goToBookIntent(context)
     val wholeWidgetClickPI = PendingIntent.getActivity(
       context,
       System.currentTimeMillis().toInt(),
@@ -169,15 +191,15 @@ class WidgetUpdater @Inject constructor(
           ImageRequest.Builder(context)
             .data(coverFile)
             .size(coverSize, coverSize)
-            .fallback(R.drawable.album_art)
-            .error(R.drawable.album_art)
+            .fallback(CommonR.drawable.album_art)
+            .error(CommonR.drawable.album_art)
             .allowHardware(false)
             .build(),
         )
         .drawable!!.toBitmap()
       remoteViews.setImageViewBitmap(R.id.imageView, getRoundedCornerBitmap(bitmap, 24))
     } else {
-      remoteViews.setImageViewResource(R.id.imageView, R.drawable.album_art)
+      remoteViews.setImageViewResource(R.id.imageView, CommonR.drawable.album_art)
     }
 
     remoteViews.setOnClickPendingIntent(R.id.wholeWidget, wholeWidgetClickPI)
@@ -192,7 +214,7 @@ class WidgetUpdater @Inject constructor(
     val paint = Paint()
     val rect = Rect(0, 0, bitmap.width, bitmap.height)
     val rectF = RectF(rect)
-    paint.setAntiAlias(true)
+    paint.isAntiAlias = true
     canvas.drawARGB(0, 0, 0, 0)
     canvas.drawRoundRect(rectF, radius.toFloat(), radius.toFloat(), paint)
     paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
@@ -210,7 +232,11 @@ class WidgetUpdater @Inject constructor(
     setVerticalVisibility(remoteViews, height, singleChapter)
   }
 
-  private fun setHorizontalVisibility(remoteViews: RemoteViews, widgetWidth: Int, coverSize: Int) {
+  private fun setHorizontalVisibility(
+    remoteViews: RemoteViews,
+    widgetWidth: Int,
+    coverSize: Int,
+  ) {
     val singleButtonSize = context.dpToPxRounded(8F + 36F + 8F)
     // widget height because cover is square
     var summarizedItemWidth = 3 * singleButtonSize + coverSize

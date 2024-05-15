@@ -10,20 +10,18 @@ import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
-import voice.app.BuildConfig
 import voice.app.features.widget.TriggerWidgetOnChange
-import voice.app.misc.StrictModeInit
 import voice.app.scanner.MediaScanTrigger
 import voice.common.DARK_THEME_SETTABLE
+import voice.common.constants.THEME_DARK
+import voice.common.constants.THEME_LIGHT
 import voice.common.pref.PrefKeys
 import voice.common.rootComponent
-import voice.playback.androidauto.AndroidAutoConnectedReceiver
-import voice.playback.di.PlaybackComponent
-import voice.playback.di.PlaybackComponentFactoryProvider
+import voice.app.R
 import javax.inject.Inject
 import javax.inject.Named
 
-class App : Application(), PlaybackComponentFactoryProvider {
+class App : Application() {
 
   @Inject
   lateinit var mediaScanner: MediaScanTrigger
@@ -31,25 +29,23 @@ class App : Application(), PlaybackComponentFactoryProvider {
   @Inject
   lateinit var triggerWidgetOnChange: TriggerWidgetOnChange
 
-  @Inject
-  lateinit var autoConnectedReceiver: AndroidAutoConnectedReceiver
-
-  @field:[
-    Inject
-    Named(PrefKeys.DARK_THEME)
-  ]
+  @field:[Inject Named(PrefKeys.DARK_THEME)]
   lateinit var useDarkTheme: Pref<Boolean>
 
-  @field:[
-  Inject
-  Named(PrefKeys.THEME)
-  ]
+  @field:[Inject Named(PrefKeys.THEME)]
   lateinit var themePref: Pref<Int>
+
+  @field:[Inject Named(PrefKeys.PRO)]
+  lateinit var isProPref: Pref<Boolean>
+
+  @field:[Inject Named(PrefKeys.PRO_SUBS)]
+  lateinit var isProSubsPref: Pref<Boolean>
+
+  @field:[Inject Named(PrefKeys.PRO_RUSTORE)]
+  lateinit var isProRuPref: Pref<Boolean>
 
   override fun onCreate() {
     super.onCreate()
-
-    if (BuildConfig.DEBUG) StrictModeInit.init()
 
     Coil.setImageLoader(
       ImageLoader.Builder(this)
@@ -64,23 +60,16 @@ class App : Application(), PlaybackComponentFactoryProvider {
     rootComponent = appComponent
     appComponent.inject(this)
 
-//    if (DARK_THEME_SETTABLE) {
-//      MainScope().launch {
-//        useDarkTheme.flow
-//          .distinctUntilChanged()
-//          .collect { useDarkTheme ->
-//            val nightMode = if (useDarkTheme) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
-//            AppCompatDelegate.setDefaultNightMode(nightMode)
-//          }
-//      }
-//    }
+    if (!isPro()) themePref.value = THEME_LIGHT
+
+    RuStoreModule.install(this, themePref.value)
 
     if (DARK_THEME_SETTABLE) {
       MainScope().launch {
         themePref.flow
           .distinctUntilChanged()
           .collect { themePref ->
-            val nightMode = if (themePref == 1) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
+            val nightMode = if (themePref == THEME_DARK) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
             AppCompatDelegate.setDefaultNightMode(nightMode)
           }
       }
@@ -88,13 +77,12 @@ class App : Application(), PlaybackComponentFactoryProvider {
 
     mediaScanner.scan()
 
-    autoConnectedReceiver.register(this)
-
     triggerWidgetOnChange.init()
   }
 
-  override fun factory(): PlaybackComponent.Factory {
-    return appComponent.playbackComponentFactory()
+  private fun isPro(): Boolean {
+    val isProApp = resources.getBoolean(R.bool.is_pro_app)
+    return isProPref.value || isProSubsPref.value || isProRuPref.value || isProApp
   }
 }
 

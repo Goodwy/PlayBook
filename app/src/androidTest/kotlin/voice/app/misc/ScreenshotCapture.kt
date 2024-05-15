@@ -20,11 +20,13 @@ import voice.bookOverview.overview.BookOverviewCategory
 import voice.bookOverview.overview.BookOverviewItemViewState
 import voice.bookOverview.overview.BookOverviewLayoutMode
 import voice.bookOverview.overview.BookOverviewViewState
+import voice.bookOverview.search.BookSearchViewState
 import voice.bookOverview.views.BookOverviewPreview
 import voice.common.BookId
 import voice.common.compose.ImmutableFile
+import voice.common.constants.MINI_PLAYER_PLAYER
 import voice.common.formatTime
-import voice.folderPicker.folderPicker.FolderPickerPreview
+import voice.folderPicker.folderPicker.FolderOverviewPreview
 import voice.logging.core.Logger
 import voice.settings.views.Settings
 import java.io.File
@@ -143,11 +145,11 @@ class ScreenshotCapture {
         )
       },
       Screenshot("settings") { Settings() },
-      Screenshot("folder_picker") { FolderPickerPreview() },
+      Screenshot("folder_picker") { FolderOverviewPreview() },
     )
   }
 
-  private fun bookOverviewViewState(): BookOverviewViewState.Content {
+  private fun bookOverviewViewState(): BookOverviewViewState {
     val foreNames = mutableListOf(
       "Aysha", "Bonnie", "Tianna", "Fleur", "Imogen", "Sienna", "Kimberley", "Elizabeth", "Priya", "Claudia",
     ).also { it.shuffle() }
@@ -175,7 +177,7 @@ class ScreenshotCapture {
         remainingTime = formatTime(5.hours.inWholeMilliseconds + Random.nextLong(10.hours.inWholeMilliseconds)),
       )
     }
-    return BookOverviewViewState.Content(
+    return BookOverviewViewState(
       books = persistentMapOf(
         BookOverviewCategory.CURRENT to books.take(3),
         BookOverviewCategory.NOT_STARTED to books.drop(3).map { it.copy(progress = 0F) },
@@ -186,6 +188,18 @@ class ScreenshotCapture {
       showMigrateHint = false,
       showMigrateIcon = false,
       showSearchIcon = true,
+      isLoading = false,
+      searchActive = false,
+      showStoragePermissionBugCard = false,
+      searchViewState = BookSearchViewState.EmptySearch(emptyList(), emptyList(), ""),
+      paddings = "0;0;0;0",
+      title = "",
+      chapterName = "",
+      cover = null,
+      currentBook = null,
+      miniPlayerStyle = MINI_PLAYER_PLAYER,
+      useGestures = true,
+      useHapticFeedback = true,
     )
   }
 }

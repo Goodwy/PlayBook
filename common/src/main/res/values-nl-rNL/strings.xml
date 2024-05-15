@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Uiterlijk</string>
   <string name="pref_appearance_ui_library_title">Uiterlijk gebruikersinterface bibliotheek</string>
   <string name="pref_appearance_ui_player_title">Uiterlijk spelersinterface</string>
+  <string name="pref_playback">Afspelen</string>
   <string name="pref_category_other">Overig</string>
 
   <!--Kleuren instellen-->
   <string name="pref_basic_color">Basiskleur</string>
   <string name="pref_basic_color_summary">Voer een aangepaste toetskleur in waaraan automatisch een reeks complementaire tonen wordt toegewezen.</string>
-  <string name="pref_default_theme_title">Standaard instellen</string>
+  <string name="pref_default_theme">Standaard instellen</string>
 
   <!--BookPlay-->
   <string name="custom">Aangepast</string>
@@ -93,9 +94,30 @@ Ik zou het erg op prijs stellen als u een recensie of beoordeling achterlaat ove
   <string name="special_thanks_to">Speciale dank aan</string>
 
   <!--Facturering-->
-  <string name="tipping_jar_dialog_sucess_title">Heel erg bedankt!</string>
-  <string name="tipping_jar_dialog_sucess_message">Hartelijk bedankt voor het ondersteunen van de ontwikkeling van PlayBook. Je bent geweldig en de ontwikkelaar zal je nooit vergeten!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Graag gedaan</string>
+  <string name="tipping_jar_dialog_success_title">Heel erg bedankt!</string>
+  <string name="tipping_jar_dialog_success_message">Hartelijk bedankt voor het ondersteunen van de ontwikkeling van PlayBook. Je bent geweldig en de ontwikkelaar zal je nooit vergeten!</string>
+  <string name="tipping_jar_dialog_success_button_title">Graag gedaan</string>
   <string name="tipping_jar_dialog_error_title">Kan geen fooi geven</string>
   <string name="tipping_jar_dialog_error_message">Helaas is er iets ergs gebeurd tijdens het uitvoeren van de fooitransactie. Wees niet verdrietig, probeer het gewoon een andere keer en geniet van PlayBook</string>
+    <string name="pref_use_haptic_feedback">Gebruik haptische feedback</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Scan de hoofdstukomslagen</string>
+  <string name="pref_subtitle_scan_chapter_covers">Met de wijziging worden de huidige boekomslagen gewist. De hoofdstukomslagen nemen extra geheugen op het apparaat in beslag</string>
+  <string name="pref_delete_cover_files">De omslagbestanden verwijderen</string>
+  <string name="pref_subtitle_delete_cover_files">Alle opgeslagen covers in de app worden verwijderd. De omslagen worden opnieuw geladen vanuit de boekbestanden</string>
+  <string name="pref_use_menu_icons">Menupictogrammen gebruiken</string>
+  <string name="pref_category_general">Algemeen</string>
+  <string name="pref_sorting">Sorteren op</string>
+  <string name="pref_sorting_last">Laatst toegevoegd of gebruikt</string>
+  <string name="pref_sorting_last_added">Laatst toegevoegd</string>
+  <string name="pref_sorting_time">Tijd</string>
+  <string name="change_book_author">Auteur</string>
+  <string name="edit_book_author">Auteur bewerken</string>
+  <string name="onboarding_gestures_title">Gebaren gebruiken</string>
+  <string name="onboarding_show_player">Toon speler</string>
+  <string name="onboarding_show_list_chapters">Lijst met hoofdstukken weergeven</string>
+  <string name="onboarding_double_tap">Dubbeltik om af te spelen of te pauzeren</string>
+  <string name="per_month">%s/maand</string>
+  <string name="per_year">%s/jaar</string>
+  <string name="restore_purchase">Aankoop herstellen</string>
 </resources>

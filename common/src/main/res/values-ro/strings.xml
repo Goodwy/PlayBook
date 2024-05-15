@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--PlayBook strings-->
+  <!--Settings-->
+  <string name="pref_about_title">Despre aplicație</string>
+  <string name="pref_follow_system">Despre</string>
+  <string name="pref_forward">Avansare</string>
+  <string name="pref_grid_view">Vedeți</string>
+  <string name="pref_layout_list">List</string>
+  <string name="pref_layout_grid">Grid</string>
+  <string name="pref_mini_player_floating_button">Buton</string>
+  <string name="pref_mini_player_mini_player_floating">Floating player</string>
+  <string name="pref_player_background_title">Fackground player</string>
+  <string name="pref_player_background_theme">Fundalul aplicației</string>
+  <string name="pref_player_background_blurred_cover">Copertă neclară</string>
+  <string name="pref_play_buttons_style_title">Stilul butoanelor de redare</string>
+  <string name="pref_rewind">Back</string>
+  <string name="pref_rewind_buttons_style_title">Stilul butonului de derulare înapoi</string>
+  <string name="pref_rewind_buttons_style_classic">Classic</string>
+  <string name="pref_rewind_buttons_style_rounded">Rounded</string>
+  <string name="pref_rewind_buttons_style_square">Square</string>
+  <string name="pref_show_mini_player_title">Stilul de player mini</string>
+  <string name="pref_show_slider_volume_title">Bara de volum</string>
+  <string name="pref_use_transparent_navigation">Bara de navigare transparentă a sistemului</string>
+  <string name="pref_use_chapter_cover">Utilizează coperta capitolului</string>
+  <string name="pref_use_haptic_feedback">Utilizează clic vibrator</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Scanează coperțile capitolelor</string>
+  <string name="pref_subtitle_scan_chapter_covers">Modificarea va elimina coperțile actuale ale cărților. Coperțile capitolelor vor ocupa memorie suplimentară pe dispozitiv</string>
+  <string name="pref_delete_cover_files">Șterge fișierele de copertă</string>
+  <string name="pref_subtitle_delete_cover_files">Toate coperțile salvate în aplicație vor fi șterse. Coperțile vor fi reîncărcate din fișierele de carte</string>
+  <string name="pref_use_menu_icons">Utilizați pictogramele din meniu</string>
+
+  <!-- Themes -->
+  <string name="theme">Tema</string>
+  <string name="light_theme">Luminous</string>
+  <string name="dark_theme">Întuneric</string>
+
+  <!--Setting headers-->
+  <string name="pref_category_appearance">Apareance</string>
+  <string name="pref_appearance_ui_library_title">Interfață bibliotecă</string>
+  <string name="pref_appearance_ui_player_title">Interfață jucător</string>
+  <string name="pref_playback">Reproducere</string>
+  <string name="pref_category_other">Altul</string>
+  <string name="pref_category_general">General</string>
+
+
+  <!--Setting colors-->
+  <string name="pref_basic_color">Culoarea de bază</string>
+  <string name="pref_basic_color_summary">Introduceți o culoare cheie din care se va determina automat un set de tonuri complementare</string>
+  <string name="pref_default_theme">Implicit</string>
+
+  <!--BookPlay-->
+  <string name="custom">Individualizat</string>
+  <string name="end_of_current_chapter">La sfârșitul capitolului</string>
+  <string name="left">Lasă %s</string>
+  <string name="left_in_audiobook">Au mai rămas %s în audiobook</string>
+  <string name="hours_letter">h</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Afișează numerele capitolelor</string>
+  <string name="sleep_timer_note">Pentru a reporni, scuturați dispozitivul în termen de 30 de secunde de la expirarea temporizatorului</string>
+  <string name="repeat">Repetă</string>
+  <plurals name="chapters_count">
+    <item quantity="one">%d chapter</item>
+    <item quantity="few">%d chapters</item>
+  </plurals>
+
+  <!--Setting sorting-->
+  <string name="pref_sorting">Sortare după</string>
+  <string name="pref_sorting_last">Ultimul adăugat sau utilizat</string>
+  <string name="pref_sorting_last_added">Ultimul adăugat</string>
+  <string name="pref_sorting_time">Ora</string>
+
+  <!--BookOverview-->
+  <string name="folders">Dosare</string>
+  <string name="settings">Setări</string>
+
+  <!--EditBookDialog-->
+  <string name="change_book_author">Autor</string>
+  <string name="edit_book_author">Editat de autor</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">Stocare internă</string>
+
+  <!--Other-->
+  <string name="copied_to_clipboard_show">Copiat în clipboard:\n%s</string>
+  <string name="cleared">Eliberat</string>
+
+  <!--About-->
+  <string name="pref_about_message"><![CDATA[
+        <b>PlayBook</b> - este un player de cărți audio cu sursă deschisă. Acesta este dezvoltat pe baza aplicației Voice.
+        <br/><br/>
+
+        Aș fi foarte recunoscător dacă ați lăsa o recenzie sau o evaluare a aplicației pe Google Play, aceasta va ajuta foarte mult la dezvoltarea proiectului.<br/>
+    ]]></string>
+  <string name="pref_rate_title">Evaluați aplicația</string>
+  <string name="pref_other_app_title">Alte aplicații</string>
+  <string name="pref_privacy_title">Politica de confidențialitate</string>
+  <string name="pref_share_title">Share</string>
+
+  <!--Purchase-->
+  <string name="tipping_jar_title">Sprijin</string>
+  <string name="tip_kind">Sprijin bun</string>
+  <string name="tip_excellent">Sprijin excelent</string>
+  <string name="tip_incredible">Suport extraordinar</string>
+  <string name="action_support_project">Sprijin pentru proiecte</string>
+  <string name="action_support_project_summary">Cumpărați aplicația pentru a susține dezvoltările viitoare și pentru a obține caracteristici suplimentare</string>
+  <string name="learn_more">Învață mai multe</string>
+  <string name="theme_summary">Tema întunecată consumă mai puțină energie pe ecranele AMOLED</string>
+  <string name="color_title">Culoare</string>
+  <string name="color_summary">Scheme de culori atent selectate pentru a se potrivi cu cărțile tale preferate</string>
+  <string name="plus_title">Sprijină-ne</string>
+  <string name="plus_summary">Toate aplicațiile noastre sunt fără reclame, sunt open source și vor fi întotdeauna. Cu ajutorul tău putem implementa mai multe funcții și le putem face și mai bune</string>
+  <string name="lifebuoy_title">Te susținem</string>
+  <string name="lifebuoy_summary">Dacă dintr-un motiv oarecare nu vă puteți permite aplicația noastră, dar doriți cu adevărat să folosiți toate funcțiile, trimiteți-ne un e-mail</string>
+  <string name="participants_title">Participanți</string>
+  <string name="special_thanks_to">Mulțumiri speciale</string>
+
+  <!--Billing-->
+  <string name="tipping_jar_dialog_success_title">Mulțumesc foarte mult!</string>
+  <string name="tipping_jar_dialog_success_message">Mulțumim mult pentru că sprijiniți dezvoltarea PlayBook. V-ați descurcat de minune, iar dezvoltatorul nu vă va uita niciodată!"</string>
+  <string name="tipping_jar_dialog_success_button_title">Cu plăcere</string>
+  <string name="tipping_jar_dialog_error_title">Failed</string>
+  <string name="tipping_jar_dialog_error_message">Din păcate, s-a întâmplat ceva rău în timpul tranzacției de bacșiș. Nu fiți trist, încercați din nou altă dată și bucurați-vă de PlayBook-ul dumneavoastră</string>
+
+
+  <!--Onboarding-->
+  <string name="onboarding_welcome_title_g">Bine ați venit la PlayBook!"</string>
+  <string name="onboarding_gestures_title">Utilizați gesturile</string>
+  <string name="onboarding_show_player">Afișează playerul</string>
+  <string name="onboarding_show_list_chapters">Afișează lista de capitole</string>
+  <string name="onboarding_double_tap">Double tap pentru a reda sau a pune pauză</string>
+
+  <!--RuStore-->
+  <string name="billing_purchase_confirm_in_progress">Confirmă achiziția…</string>
+  <string name="billing_purchase_delete_in_progress">Șterge achiziția…</string>
+  <string name="billing_product_confirmed">Produs confirmat</string>
+  <string name="billing_product_deleted">Cumpărare anulată</string>
+  <string name="billing_subscriptions">Abonamente</string>
+  <string name="no_connection">Nici o conexiune</string>
+  <string name="per_month">%s/month</string>
+  <string name="per_year">%s/year</string>
+  <string name="restore_purchase">Restabilește achizițiile</string>
+  <string name="unlock">Deblochează</string>
+  <string name="donate_text">
+        <![CDATA[
+            Pentru cei care nu folosesc Google Play, există o opțiune pentru a debloca toate funcțiile aplicației. <br>
+            Dacă vă plac aplicațiile noastre care funcționează offline, nu sunt intruzive și nu conțin reclame, vă rugăm să luați în considerare posibilitatea de a ne sprijini într-un fel sau altul. Vă vom fi foarte recunoscători.<br><br>
+            Vă mulțumim!
+        ]]>
+    </string>
+</resources>

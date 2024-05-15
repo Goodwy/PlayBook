@@ -1,44 +1,26 @@
 package voice.settings.views
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.PlayCircle
-import androidx.compose.material3.ListItem
-import androidx.compose.material3.ListItemDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.unit.sp
-import voice.settings.R
+import androidx.compose.ui.unit.dp
+import voice.common.constants.PLAYER_BACKGROUND_BLUR_COVER
+import voice.common.constants.PLAYER_BACKGROUND_BLUR_COVER_2
+import voice.common.constants.PLAYER_BACKGROUND_THEME
+import voice.common.R as CommonR
 
 @Composable
-internal fun PlayerBackgroundRow(currentGridMode: Int, openPlayerBackgroundDialog: () -> Unit) {
-  ListItem(
-    modifier = Modifier
-      .clickable {
-        openPlayerBackgroundDialog()
-      }
-      .fillMaxWidth(),
-    colors = ListItemDefaults.colors(containerColor = MaterialTheme.colorScheme.inverseOnSurface),
-    headlineText = {
-      Text(text = stringResource(R.string.pref_player_background_title))
+internal fun PlayerBackgroundRow(playerBackground: Int, openPlayerBackgroundDialog: () -> Unit) {
+  SettingsRow(
+    title = stringResource(CommonR.string.pref_player_background_title),
+    value = when (playerBackground) {
+      PLAYER_BACKGROUND_BLUR_COVER -> stringResource(CommonR.string.pref_player_background_blurred_cover) + " #1"
+      PLAYER_BACKGROUND_BLUR_COVER_2 -> stringResource(CommonR.string.pref_player_background_blurred_cover) + " #2"
+      else -> stringResource(CommonR.string.pref_player_background_theme)
     },
-    trailingContent = {
-      Text(
-        modifier = Modifier.alpha(0.6f),
-        text = when (currentGridMode) {
-          0 -> stringResource(R.string.pref_player_background_theme)
-          else -> stringResource(R.string.pref_player_background_blurred_cover)
-        },
-        fontSize = 14.sp,
-      )
-    },
+    paddingTop = 8.dp,
+    click = openPlayerBackgroundDialog
   )
 }
 
@@ -48,11 +30,13 @@ internal fun PlayerBackgroundDialog(
   onDismiss: () -> Unit,
   onSelected: (Int) -> Unit
 ) {
-  val theme = RadioItem(0, stringResource(R.string.pref_player_background_theme), ImageVector.vectorResource(R.drawable.ic_square))
-  val blur = RadioItem(1, stringResource(R.string.pref_player_background_blurred_cover), ImageVector.vectorResource(R.drawable.ic_square_blur))
-  val items = arrayListOf(theme, blur)
+  val items = arrayListOf(
+    RadioItem(PLAYER_BACKGROUND_THEME, stringResource(CommonR.string.pref_player_background_theme), ImageVector.vectorResource(CommonR.drawable.ic_square)),
+    RadioItem(PLAYER_BACKGROUND_BLUR_COVER, stringResource(CommonR.string.pref_player_background_blurred_cover) + " #1", ImageVector.vectorResource(CommonR.drawable.ic_square_blur)),
+    RadioItem(PLAYER_BACKGROUND_BLUR_COVER_2, stringResource(CommonR.string.pref_player_background_blurred_cover) + " #2", ImageVector.vectorResource(CommonR.drawable.ic_square_blur))
+  )
   RadioButtonDialog(
-    title = stringResource(R.string.pref_player_background_title),
+    title = stringResource(CommonR.string.pref_player_background_title),
     items = items,
     checkedItemId = checkedItemId,
     onDismiss = onDismiss,

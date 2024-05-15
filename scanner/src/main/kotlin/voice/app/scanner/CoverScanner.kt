@@ -2,19 +2,24 @@ package voice.app.scanner
 
 import android.content.Context
 import androidx.documentfile.provider.DocumentFile
+import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import voice.common.pref.PrefKeys
 import voice.data.Book
 import voice.data.toUri
 import voice.ffmpeg.ffmpeg
 import voice.logging.core.Logger
 import java.io.IOException
 import javax.inject.Inject
+import javax.inject.Named
 
 class CoverScanner
 @Inject constructor(
   private val context: Context,
   private val coverSaver: CoverSaver,
+  @Named(PrefKeys.SCAN_COVER_CHAPTER)
+  private val scanCoverChapter: Pref<Boolean>,
 ) {
 
   suspend fun scan(books: List<Book>) {
@@ -33,7 +38,7 @@ class CoverScanner
     }
 
     scanForEmbeddedCover(book)
-    scanForEmbeddedCoverChapter(book)
+    if (scanCoverChapter.value) scanForEmbeddedCoverChapter(book)
   }
 
   private suspend fun findAndSaveCoverFromDisc(book: Book): Boolean = withContext(Dispatchers.IO) {
@@ -92,7 +97,7 @@ class CoverScanner
   }
 
   private suspend fun scanForEmbeddedCoverChapter(book: Book) {
-    book.currentChapter.cover?.let { coverSaver.setBookCover(it, bookId = book.id) }
+    //book.currentChapter.cover?.let { coverSaver.setBookCover(it, bookId = book.id) }
     book.chapters
       .mapNotNull { chapter ->
         val coverFile = coverSaver.newBookCoverFile()

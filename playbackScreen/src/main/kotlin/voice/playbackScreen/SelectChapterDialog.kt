@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import voice.strings.R as StringsR
 
 @Composable
 internal fun SelectChapterDialog(
@@ -31,14 +32,17 @@ internal fun SelectChapterDialog(
               modifier = Modifier.clickable {
                 viewModel.onChapterClicked(index)
               },
-              headlineText = {
+              headlineContent = {
                 Text(text = chapter.name ?: "")
+              },
+              leadingContent = {
+                Text(text = (index + 1).toString())
               },
               trailingContent = {
                 if (dialogState.selectedIndex == index) {
                   Icon(
                     imageVector = Icons.Outlined.Equalizer,
-                    contentDescription = stringResource(id = R.string.migration_detail_content_position_current_chapter_title),
+                    contentDescription = stringResource(id = StringsR.string.migration_detail_content_position_current_chapter_title),
                   )
                 }
               },

@@ -1,42 +1,135 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources>
-  <!--BookShelf-->
-  <string name="current_book">الكتاب الحالي</string>
-  <!--in the book-overview the show-all button which displays all books of a category-->
-  <!--BookPlayFragment-->
-  <string name="cover">الغطاء</string>
-  <string name="play_pause">العب / توقف</string>
-  <string name="action_sleep">وقت النوم</string>
-  <string name="rewind">إرجاع</string>
-  <string name="fast_forward">بسرعة للأمام</string>
-  <string name="previous_track">الشريط السابق</string>
-  <string name="next_track">الشريط التالي</string>
-  <string name="play">إلعب</string>
-  <string name="pause">توقف</string>
-  <!--NoExternalStorage-->
-  <!--Dialogs-->
-  <string name="dialog_confirm">إعداد</string>
-  <string name="dialog_cancel">إلغاء</string>
-  <!--EditBookDialog-->
-  <string name="content_cover">أظهر الغطاء للإختياره</string>
-  <string name="change_book_name">الأسم</string>
-  <string name="download_book_cover">الغلاف من الإنترنت</string>
-  <string name="pick_book_cover">الغلاف من ملف نظام</string>
-  <string name="edit_book_title">عدل الكتاب</string>
-  <!--JumpToPosition-->
-  <!--BookAdding-->
-  <string name="audiobook_folders_title">مجلد الكتب الصوتية</string>
-  <!--PlaybackSpeed-->
-  <!--Bookmarks-->
-  <!--Settings-->
-  <string name="pref_resume_on_replug_hint">إذا توقفت بعد نزع </string>
-  <string name="popup_edit">عدل</string>
-  <string name="remove">إمسح</string>
-  <string name="play_current">شغل الحالي</string>
-  <string name="refresh">تحديث</string>
-  <string name="reset">أعادة</string>
-  <string name="cover_crop">إقتصاص الغطاء</string>
-  <!--book category-->
-  <!--will be shown as the time for a bookmark that was just created-->
-  <!--will be shown as a hint when no books have been added-->
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation" tools:locale="ar">
+    <string name="cover">الغطاء</string>
+    <string name="play_pause">شغّل/ ألبث</string>
+    <string name="action_sleep">مؤقت النوم</string>
+    <string name="rewind">أرجع</string>
+    <string name="fast_forward">بسرعة للأمام</string>
+    <string name="previous_track">الشريط السابق</string>
+    <string name="next_track">المسار التالي</string>
+    <string name="skip_silence">تخطَ الصمت</string>
+    <string name="volume_boost">مكبر الصوت</string>
+    <string name="more">المزيد</string>
+    <string name="dialog_confirm">عيّن</string>
+    <string name="dialog_cancel">ألغ</string>
+    <string name="content_cover">أظهر الغطاء للاختياره</string>
+    <string name="change_book_name">الاسم</string>
+    <string name="download_book_cover">الغلاف من الإنترنت</string>
+    <string name="pick_book_cover">الغلاف من ملفات نظام</string>
+    <string name="edit_book_title">حرر كتاب</string>
+    <string name="mark_as_completed">علّمه مكتمل</string>
+    <string name="mark_as_current">علّمه الحالي</string>
+    <string name="mark_as_not_started">علّمه أنه لم يبدأ</string>
+    <string name="audiobook_folders_title">مجلدات الكتب الصوتية</string>
+    <string name="playback_speed">سرعة التشغيل</string>
+    <string name="bookmark">العلامات المرجعية</string>
+    <string name="bookmark_edit_title">حرر العلامات</string>
+    <string name="bookmark_edit_hint">اسم العلامة</string>
+    <string name="bookmark_added">أضيفت علامة مرجعية</string>
+    <string name="action_settings">التفضيلات</string>
+    <plurals name="seconds">
+        <item quantity="zero">%d ثانية</item>
+        <item quantity="one">%d ثانية واحدة</item>
+        <item quantity="two">%d ثانيتين</item>
+        <item quantity="few">%d ثواني</item>
+        <item quantity="many">%d ثانية</item>
+        <item quantity="other">%d ثانية</item>
+    </plurals>
+    <string name="pref_seek_time">مقدار التقدم</string>
+    <string name="pref_theme_dark">السمة الداكنة</string>
+    <string name="pref_auto_rewind_title">إرجاع آلي</string>
+    <string name="pref_suggest_idea">اقترح فكرة</string>
+    <string name="pref_use_grid">استخدم تخطيط الشبكة</string>
+    <string name="pref_report_issue">أبلغ عن مشكلة</string>
+    <string name="pref_help_translating">ساعد في تعريب فويس</string>
+    <string name="pref_get_support">احصل على دعم</string>
+    <string name="pref_app_version">إصدارة التطبيق</string>
+    <string name="popup_edit">حرر</string>
+    <string name="remove">أزل</string>
+    <string name="play_current">شغل الحالي</string>
+    <string name="book_header_current">الحالي</string>
+    <string name="book_header_not_started">لم يبدأ بعد</string>
+    <string name="book_header_completed">انتهى</string>
+    <string name="close">أغلق</string>
+    <string name="delete">احذف</string>
+    <string name="add">أضف</string>
+    <string name="folder_mode_root">وضع المجلد الحاوي للكتب: كل مجلد فرعي كتاب مستقل</string>
+    <string name="folder_mode_single">وضع الكتاب المفرد: كل مجلد يعني كتاب واحد.</string>
+    <plurals name="folder_type_file_count">
+        <item quantity="zero">%dملف صوتي</item>
+        <item quantity="one">%d ملف صوتي واحد</item>
+        <item quantity="two">%d ملفين صوتيين</item>
+        <item quantity="few">%d ملفات صوتية</item>
+        <item quantity="many">%d ملفاً صوتياً</item>
+        <item quantity="other">%d ملف صوتي</item>
+    </plurals>
+    <string name="folder_type_book_example_header">سيؤدي هذا إلى اكتشاف الكتاب التالي </string>
+    <string name="folder_type_no_books">لم يتمكن فويس من اكتشاف أي كتب. هل هناك أي ملفات صوتية؟</string>
+    <string name="folder_type_title">ما هي هيكلية ملفاتك؟</string>
+    <string name="bookmark_just_now">الآن</string>
+    <string name="voice_intro_first_book">دعنا نضيف مجلد كتبك الصوتية لتبدأ الاستماع!</string>
+    <string name="migration_hint_title">الوصول إلى مواضع الكتاب القديم</string>
+    <string name="migration_hint_content">نظرًا للتغييرات في إصدارات أندوريد الأحدث، من الضروري تحديد مجلد الكتاب الصوتي باستخدام منتقي النظام.\n\nانقر فوق الرمز أعلاه لعرض مواضع كتابك القديم.</string>
+    <string name="migration_hint_confirm">فهمت</string>
+    <string name="migration_detail_title">مواضع الكتاب القديم</string>
+    <string name="migration_detail_content_name">الاسم</string>
+    <string name="migration_detail_content_root">المجلد الأساسي</string>
+    <string name="migration_detail_content_position">الموضع</string>
+    <string name="migration_detail_content_bookmarks">العلامات المرجعية</string>
+    <string name="migration_detail_content_added_at">مضافة في</string>
+    <string name="migration_detail_content_position_current_file_title">الملف الحالي</string>
+    <string name="migration_detail_content_position_current_file_position">الموضع في الملف</string>
+    <string name="migration_detail_content_position_current_chapter_title">الفصل  الحالي</string>
+    <string name="migration_detail_content_position_current_chapter_position">الموضوع في الفصل</string>
+    <string name="migration_delete_dialog_title">احذف المواضع</string>
+    <string name="migration_delete_dialog_content">بمجرد حذف المواضع القديمة، لن تتمكن من استعادة مواضع التشغيل القديمة.</string>
+    <string name="migration_delete_dialog_action_delete">احذف</string>
+    <string name="migration_delete_dialog_action_keep">احتفظ بها</string>
+    <string name="delete_book_bottom_sheet_title">احذف الكتاب</string>
+    <string name="delete_book_dialog_title">احذف الكتاب</string>
+    <string name="delete_book_dialog_deletion_confirmation">احذف ملفاتي</string>
+    <string name="delete_book_dialog_content">ستحذف هذه الملفات من على جهازك.</string>
+    <string name="search_hint">هل أنت متحقق من ذلك؟</string>
+    <string name="battery_optimization_rationale">نظراً لقيود الطاقة، فقد ينقطع التشغيل.</string>
+    <string name="battery_optimization_action">حدّث</string>
+    <string name="media_session_root">كل الكتب الصوتية</string>
+    <string name="media_session_recent">الحديثة</string>
+    <string name="notification_sleep_timer_disable">عطّل مؤقت النوم</string>
+    <string name="notification_sleep_timer_enable">مكّن مؤقت النوم</string>
+    <string name="generic_error_message">حدث خطأ ما 😢</string>
+    <string name="generic_error_retry">أعد المحاولة</string>
+    <string name="play">شغّل</string>
+    <string name="pause">ألبث</string>
+    <string name="storage_bug_subtitle">بالنسبة لأجهزة معينة، يفقد تطبيق النظام الإذن اللازم للوصول إلى وحدة التخزين الخارجية. يعد هذا الوصول ضروريًا لـفويس لقراءة كتبك الصوتية.</string>
+    <string name="review.request.title">هل يعجبك فويس؟</string>
+    <string name="review.request.content">ملاحظاتك تهمنا! إذا كان لديك لحظة، قيمنا وشاركنا تجربتك. يساعدنا على إجراء تحسينات وتقديم تجربة استماع أفضل.</string>
+    <string name="review.request.button.yes">قيمنا الآن</string>
+    <string name="review.request.button.no">لا، شكراً</string>
+    <string name="review.feedback.title">نأسف لسماع ذلك!</string>
+    <string name="review.feedback.content">هل يمكن أن تخبرنا ما الخطأ الذي حدث؟ نحن نقدر ملاحظاتك وتساعدنا على تحسين تجربتك.</string>
+    <string name="review.feedback.button.yes">أرسل تعليقك</string>
+    <string name="review.feedback.button.no">ألغ</string>
+    <string name="storage_bug_title">تحتاج إلى أذن</string>
+    <string name="storage_bug_button">امنح الإذن</string>
+    <string name="cover_search_template_no_author">غلاف الكتاب الصوتي %s</string>
+    <string name="cover_search_template_with_author">%1$s بواسطة غلاف الكتاب الصوتي %2$s</string>
+    <string name="select_folder_title_default">أضف كتبك الصوتية</string>
+    <string name="select_folder_type_folder">مجلد</string>
+    <string name="select_folder_subtitle">هل تريد إضافة ملف مفرد ككتاب أو مجلد؟</string>
+    <string name="onboarding_welcome_title">مرحبا بك في فويس!</string>
+    <string name="onboarding.completion.next_button">ابدأ بالاستماع</string>
+    <string name="cover_search.icon_recent">أخر استعلام</string>
+    <string name="cover_search.author">المؤلف</string>
+    <string name="folder_mode_author">وضع المؤلفين: كل مجلد فرعي مؤلف وكل مجلد فرعي في ذاك المجلد كتاب لذاك المؤلف.</string>
+    <string name="select_folder_title_onboarding">أضف أول كتاب صوتي</string>
+    <string name="select_folder_type_file">ملف</string>
+    <string name="onboarding_welcome_subtitle">مشغلك للكتب الصوتية. دعنا نجهز كتبك.</string>
+    <string name="onboarding.button_next">التالي</string>
+    <string name="onboarding.explanation.title">مكتبتك، طريقك</string>
+    <string name="onboarding.explanation.subtitle">مع فويس يمكنك إضافة كتب من ملفات فردية أو تنظيمها في مجلدات. أنت تختار!</string>
+    <string name="onboarding.completion.title">أنت جاهز!</string>
+    <string name="onboarding.completion.subtitle">كتابك الصوتي الأول يعمل. استمتع برحلتك مع فويس!</string>
+    <string name="sleep_timer.title">أحلام سعيدة! 🌙</string>
+    <string name="sleep_timer.button.increment">أطول</string>
+    <string name="sleep_timer.button.decrement">أقصر</string>
 </resources>

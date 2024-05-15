@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Ngoại hình</string>
   <string name="pref_appearance_ui_library_title">Giao diện thư viện</string>
   <string name="pref_appearance_ui_player_title">Giao diện người chơi</string>
+  <string name="pref_playback">Phát lại</string>
   <string name="pref_category_other">Khác</string>
 
   <!--Đặt màu-->
   <string name="pref_basic_color">Màu cơ bản</string>
   <string name="pref_basic_color_summary">Nhập một màu chính tùy chỉnh sẽ tự động được chỉ định một tập hợp các tông màu bổ sung.</string>
-  <string name="pref_default_theme_title">Đặt mặc định</string>
+  <string name="pref_default_theme">Đặt mặc định</string>
 
   <!--BookPlay-->
   <string name="custom">Tùy chỉnh</string>
@@ -93,9 +94,30 @@ Tôi sẽ rất biết ơn nếu bạn để lại đánh giá hoặc xếp hạ
   <string name="special_thanks_to">Cảm ơn đặc biệt</string>
 
   <!--Thanh toán-->
-  <string name="tipping_jar_dialog_sucess_title">Cảm ơn rất nhiều!</string>
-  <string name="tipping_jar_dialog_sucess_message">Xin chân thành cảm ơn bạn đã hỗ trợ phát triển PlayBook. Bạn thật tuyệt và nhà phát triển sẽ không bao giờ quên bạn!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Không có chi</string>
+  <string name="tipping_jar_dialog_success_title">Cảm ơn rất nhiều!</string>
+  <string name="tipping_jar_dialog_success_message">Xin chân thành cảm ơn bạn đã hỗ trợ phát triển PlayBook. Bạn thật tuyệt và nhà phát triển sẽ không bao giờ quên bạn!</string>
+  <string name="tipping_jar_dialog_success_button_title">Không có chi</string>
   <string name="tipping_jar_dialog_error_title">Không boa được</string>
   <string name="tipping_jar_dialog_error_message">Thật không may, đã xảy ra sự cố khi thực hiện giao dịch tiền boa. Đừng buồn, hãy thử lại vào lần khác và thưởng thức PlayBook</string>
+    <string name="pref_use_haptic_feedback">Sử dụng phản hồi xúc giác</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Quét bìa chương</string>
+  <string name="pref_subtitle_scan_chapter_covers">Thay đổi sẽ xóa bìa sách hiện tại. Bìa chương sẽ chiếm thêm bộ nhớ trên thiết bị</string>
+  <string name="pref_delete_cover_files">Xóa các tệp bìa</string>
+  <string name="pref_subtitle_delete_cover_files">Mọi bìa đã lưu trong ứng dụng sẽ bị xóa. Các bìa sẽ được tải lại từ các tệp sách</string>
+  <string name="pref_use_menu_icons">Sử dụng biểu tượng menu</string>
+  <string name="pref_category_general">Tổng quát</string>
+  <string name="pref_sorting">Sắp xếp theo</string>
+  <string name="pref_sorting_last">Được thêm hoặc sử dụng lần cuối</string>
+  <string name="pref_sorting_last_added">Thêm lần cuối</string>
+  <string name="pref_sorting_time">Thời gian</string>
+  <string name="change_book_author">Tác giả</string>
+  <string name="edit_book_author">Chỉnh sửa tác giả</string>
+  <string name="onboarding_gestures_title">Sử dụng cử chỉ</string>
+  <string name="onboarding_show_player">Hiển thị trình phát</string>
+  <string name="onboarding_show_list_chapters">Hiển thị danh sách các chương</string>
+  <string name="onboarding_double_tap">Nhấn đúp để phát hoặc tạm dừng</string>
+  <string name="per_month">%s/tháng</string>
+  <string name="per_year">%s/năm</string>
+  <string name="restore_purchase">Khôi phục giao dịch mua</string>
 </resources>

@@ -1,55 +1,29 @@
 package voice.settings.views
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.GridView
 import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material.icons.rounded.PlayCircle
-import androidx.compose.material.icons.rounded.Refresh
-import androidx.compose.material.icons.rounded.ScreenRotationAlt
-import androidx.compose.material.icons.rounded.ViewList
-import androidx.compose.material3.Icon
-import androidx.compose.material3.ListItem
-import androidx.compose.material3.ListItemDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.unit.sp
-import voice.common.grid.GridMode
-import voice.settings.R
+import voice.common.constants.PLAY_BUTTON_CLASSIC
+import voice.common.constants.PLAY_BUTTON_ROUND
+import voice.common.constants.PLAY_BUTTON_ROUND_AND_SQUARE
+import voice.common.constants.PLAY_BUTTON_SQUARE
+import voice.common.R as CommonR
 
 @Composable
-internal fun PlayButtonStyleRow(currentGridMode: Int, openPlayButtonStyleDialog: () -> Unit) {
-  ListItem(
-    modifier = Modifier
-      .clickable {
-        openPlayButtonStyleDialog()
-      }
-      .fillMaxWidth(),
-    colors = ListItemDefaults.colors(containerColor = MaterialTheme.colorScheme.inverseOnSurface),
-    headlineText = {
-      Text(text = stringResource(R.string.pref_play_buttons_style_title))
+internal fun PlayButtonStyleRow(buttonStyle: Int, openPlayButtonStyleDialog: () -> Unit) {
+  SettingsRow(
+    title = stringResource(CommonR.string.pref_play_buttons_style_title),
+    value = when (buttonStyle) {
+      PLAY_BUTTON_ROUND -> stringResource(CommonR.string.pref_rewind_buttons_style_rounded)
+      PLAY_BUTTON_SQUARE -> stringResource(CommonR.string.pref_rewind_buttons_style_square)
+      PLAY_BUTTON_ROUND_AND_SQUARE -> stringResource(CommonR.string.pref_rewind_buttons_style_rounded)+"/"+stringResource(CommonR.string.pref_rewind_buttons_style_square)
+      else -> stringResource(CommonR.string.pref_rewind_buttons_style_classic)
     },
-    trailingContent = {
-      Text(
-        modifier = Modifier.alpha(0.6f),
-        text = when (currentGridMode) {
-          0 -> stringResource(R.string.pref_rewind_buttons_style_classic)
-          1 -> stringResource(R.string.pref_rewind_buttons_style_rounded)
-          else -> stringResource(R.string.pref_rewind_buttons_style_square)
-        },
-        fontSize = 14.sp,
-      )
-    },
+    click = openPlayButtonStyleDialog
   )
 }
 
@@ -59,12 +33,14 @@ internal fun PlayButtonStyleDialog(
   onDismiss: () -> Unit,
   onSelected: (Int) -> Unit
 ) {
-  val classic = RadioItem(0, stringResource(R.string.pref_rewind_buttons_style_classic), Icons.Rounded.PlayArrow)
-  val round = RadioItem(1, stringResource(R.string.pref_rewind_buttons_style_rounded), Icons.Rounded.PlayCircle)
-  val square = RadioItem(2, stringResource(R.string.pref_rewind_buttons_style_square), ImageVector.vectorResource(R.drawable.ic_play_square))
-  val items = arrayListOf(classic, round, square)
+  val items = arrayListOf(
+    RadioItem(PLAY_BUTTON_CLASSIC, stringResource(CommonR.string.pref_rewind_buttons_style_classic), Icons.Rounded.PlayArrow),
+    RadioItem(PLAY_BUTTON_ROUND, stringResource(CommonR.string.pref_rewind_buttons_style_rounded), Icons.Rounded.PlayCircle),
+    RadioItem(PLAY_BUTTON_SQUARE, stringResource(CommonR.string.pref_rewind_buttons_style_square), ImageVector.vectorResource(CommonR.drawable.ic_play_square)),
+    RadioItem(PLAY_BUTTON_ROUND_AND_SQUARE, stringResource(CommonR.string.pref_rewind_buttons_style_rounded)+"/"+stringResource(CommonR.string.pref_rewind_buttons_style_square), ImageVector.vectorResource(CommonR.drawable.ic_round_and_square)),
+  )
   RadioButtonDialog(
-    title = stringResource(R.string.pref_play_buttons_style_title),
+    title = stringResource(CommonR.string.pref_play_buttons_style_title),
     items = items,
     checkedItemId = checkedItemId,
     onDismiss = onDismiss,

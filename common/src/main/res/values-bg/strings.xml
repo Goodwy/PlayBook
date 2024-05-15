@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Външен вид</string>
   <string name="pref_appearance_ui_library_title">Изглед на потребителския интерфейс на библиотеката</string>
   <string name="pref_appearance_ui_player_title">Изглед на потребителския интерфейс на плейъра</string>
+  <string name="pref_playback">Възпроизвеждане</string>
   <string name="pref_category_other">Друго</string>
 
   <!--Задаване на цветове-->
   <string name="pref_basic_color">Основен цвят</string>
   <string name="pref_basic_color_summary">Въведете персонализиран цвят на клавишите, на който автоматично се присвоява набор от допълващи се тонове.</string>
-  <string name="pref_default_theme_title">Задаване по подразбиране</string>
+  <string name="pref_default_theme">Задаване по подразбиране</string>
 
   <!--BookPlay-->
   <string name="custom">Персонализиран</string>
@@ -93,9 +94,30 @@
   <string name="special_thanks_to">Специални благодарности на</string>
 
   <!--Таксуване-->
-  <string name="tipping_jar_dialog_sucess_title">Много благодаря!</string>
-  <string name="tipping_jar_dialog_sucess_message">Голями благодарности за подкрепата за разработването на PlayBook. Вие сте страхотни и разработчикът никога няма да ви забрави!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Заповядайте</string>
+  <string name="tipping_jar_dialog_success_title">Много благодаря!</string>
+  <string name="tipping_jar_dialog_success_message">Голями благодарности за подкрепата за разработването на PlayBook. Вие сте страхотни и разработчикът никога няма да ви забрави!</string>
+  <string name="tipping_jar_dialog_success_button_title">Заповядайте</string>
   <string name="tipping_jar_dialog_error_title">Неуспешен съвет</string>
   <string name="tipping_jar_dialog_error_message">За съжаление нещо лошо се случи при извършване на транзакцията за бакшиш. Не тъгувайте, просто опитайте отново друг път и се насладете на PlayBook</string>
+    <string name="pref_use_haptic_feedback">Използване на хаптична обратна връзка</string>
+  <string name="pref_widget">Джаджа</string>
+  <string name="pref_scan_chapter_covers">Сканиране на обхванатите глави</string>
+  <string name="pref_subtitle_scan_chapter_covers">Промяната ще изчисти текущите корици на книги. Обложките на главите ще заемат допълнителна памет на устройството</string>
+  <string name="pref_delete_cover_files">Изтриване на титулните файлове</string>
+  <string name="pref_subtitle_delete_cover_files">Всички запазени корици в приложението ще бъдат изтрити. Кориците ще бъдат презаредени от файловете на книгата</string>
+  <string name="pref_use_menu_icons">Използване на икони на менюта</string>
+  <string name="pref_category_general">Основни</string>
+  <string name="pref_sorting">Сортиране по</string>
+  <string name="pref_sorting_last">Последно добавени или използвани</string>
+  <string name="pref_sorting_last_added">Последно добавени</string>
+  <string name="pref_sorting_time">Час</string>
+  <string name="change_book_author">Автор</string>
+  <string name="edit_book_author">Редактиране на автор</string>
+  <string name="onboarding_gestures_title">Използване на жестове</string>
+  <string name="onboarding_show_player">Показване на плейъра</string>
+  <string name="onboarding_show_list_chapters">Показване на списък на главите</string>
+  <string name="onboarding_double_tap">Докоснете двукратно за възпроизвеждане или пауза</string>
+  <string name="per_month">%s/месец</string>
+  <string name="per_year">%s/година</string>
+  <string name="restore_purchase">Възстановяване на покупка</string>
 </resources>

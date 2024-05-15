@@ -33,12 +33,13 @@
 <string name="pref_category_appearance">Voorkoms</string>
 <string name="pref_appearance_ui_library_title">Biblioteek-UI-voorkoms</string>
 <string name="pref_appearance_ui_player_title">Speler-UI-voorkoms</string>
+  <string name="pref_playback">Terugspeel</string>
 <string name="pref_category_other">Ander</string>
 
 <!--Setting colors-->
 <string name="pref_basic_color">Basiese kleur</string>
 <string name="pref_basic_color_summary">Voer \'n pasgemaakte sleutelkleur in wat outomaties \'n stel komplementêre tone toegeken word.</string>
-<string name="pref_default_theme_title">Stel verstek</string>
+<string name="pref_default_theme">Stel verstek</string>
 
 <!-- BookPlay -->
 <string name="custom">Gepasmaak</string>
@@ -93,9 +94,30 @@ Ek sal baie dankbaar wees as jy \'n resensie of beoordeling oor die toepassing o
 <string name="special_thanks_to">Spesiale dank aan</string>
 
 <!--Billing-->
-<string name="tipping_jar_dialog_sucess_title">Baie dankie!</string>
-<string name="tipping_jar_dialog_sucess_message">Baie dankie vir die ondersteuning van die ontwikkeling van PlayBook . Jy is wonderlik en die ontwikkelaar sal jou nooit vergeet nie!</string>
-<string name="tipping_jar_dialog_sucess_button_title">Jy is welkom</string>
+<string name="tipping_jar_dialog_success_title">Baie dankie!</string>
+<string name="tipping_jar_dialog_success_message">Baie dankie vir die ondersteuning van die ontwikkeling van PlayBook . Jy is wonderlik en die ontwikkelaar sal jou nooit vergeet nie!</string>
+<string name="tipping_jar_dialog_success_button_title">Jy is welkom</string>
 <string name="tipping_jar_dialog_error_title">Kon nie wenk gee nie</string>
 <string name="tipping_jar_dialog_error_message">Ongelukkig het iets sleg gebeur terwyl die wiptransaksie uitgevoer is. Moenie hartseer wees nie, probeer net weer \'n ander keer en geniet PlayBook </string>
+    <string name="pref_use_haptic_feedback">Gebruik haptiese terugvoer</string>
+  <string name="pref_widget">Hulptuig</string>
+  <string name="pref_scan_chapter_covers">Skandeer die hoofstukomslae</string>
+  <string name="pref_subtitle_scan_chapter_covers">Die verandering sal die huidige boekomslag skoonmaak. Die hoofstuk dek addisionele geheue op die toestel</string>
+  <string name="pref_delete_cover_files">Vee die omslaglêers uit</string>
+  <string name="pref_subtitle_delete_cover_files">Enige gestoorde omslae in die app sal uitgevee word. Die omslae sal uit die boeklêers herlaai word</string>
+  <string name="pref_use_menu_icons">Gebruik menu-ikone</string>
+  <string name="pref_category_general">Algemene</string>
+  <string name="pref_sorting">Sorteer volgens</string>
+  <string name="pref_sorting_last">Laas bygevoeg of gebruik</string>
+  <string name="pref_sorting_last_added">Laas bygevoeg</string>
+  <string name="pref_sorting_time">Tyd</string>
+  <string name="change_book_author">Outeur</string>
+  <string name="edit_book_author">Redigeer skrywer</string>
+  <string name="onboarding_gestures_title">Gebruik gebare</string>
+  <string name="onboarding_show_player">Wys speler</string>
+  <string name="onboarding_show_list_chapters">Wys lys van hoofstukke</string>
+  <string name="onboarding_double_tap">Dubbeltik om te speel of te breek</string>
+  <string name="per_month">%s/maand</string>
+  <string name="per_year">%s/jaar</string>
+  <string name="restore_purchase">Herstel aankoop</string>
 </resources>

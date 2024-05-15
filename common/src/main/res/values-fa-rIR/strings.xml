@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">ظاهر</string>
   <string name="pref_appearance_ui_library_title">نمای رابط کاربری کتابخانه</string>
   <string name="pref_appearance_ui_player_title">ظاهر رابط کاربری بازیکن</string>
+  <string name="pref_playback">پخش</string>
   <string name="pref_category_other">سایر</string>
 
   <!--تنظیم رنگ ها-->
   <string name="pref_basic_color">رنگ اصلی</string>
   <string name="pref_basic_color_summary">یک رنگ کلید سفارشی را وارد کنید که به‌طور خودکار مجموعه‌ای از زنگ‌های مکمل تخصیص می‌یابد.</string>
-  <string name="pref_default_theme_title">تنظیم پیش‌فرض</string>
+  <string name="pref_default_theme">تنظیم پیش‌فرض</string>
 
   <!--BookPlay-->
   <string name="custom">سفارشی</string>
@@ -93,9 +94,31 @@
   <string name="special_thanks_to">با تشکر ویژه از</string>
 
   <!--صورتحساب-->
-  <string name="tipping_jar_dialog_sucess_title">خیلی ممنون!</string>
-  <string name="tipping_jar_dialog_sucess_message">با تشکر فراوان برای حمایت از توسعه PlayBook. شما عالی هستید و توسعه دهنده هرگز شما را فراموش نخواهد کرد!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">خوش آمدید</string>
+  <string name="tipping_jar_dialog_success_title">خیلی ممنون!</string>
+  <string name="tipping_jar_dialog_success_message">با تشکر فراوان برای حمایت از توسعه PlayBook. شما عالی هستید و توسعه دهنده هرگز شما را فراموش نخواهد کرد!</string>
+  <string name="tipping_jar_dialog_success_button_title">خوش آمدید</string>
   <string name="tipping_jar_dialog_error_title">انعام داده نشد</string>
-  <string name="tipping_jar_dialog_error_message">متاسفانه هنگام انجام تراکنش انعام اتفاق بدی افتاد. ناراحت نباشید، فقط یک بار دیگر امتحان کنید و از PlayBook</string> لذت ببرید
+  <string name="tipping_jar_dialog_error_message">متاسفانه هنگام انجام تراکنش انعام اتفاق بدی افتاد. ناراحت نباشید، فقط یک بار دیگر امتحان کنید و از PlayBook</string>
+    <string name="pref_use_haptic_feedback">استفاده از بازخورد لمسی</string>
+  <string name="pref_widget">ویدجت</string>
+  <string name="pref_scan_chapter_covers">اسکن فصل را پوشش می دهد</string>
+  <string name="pref_subtitle_scan_chapter_covers">این تغییر پوشش های فعلی کتاب را پاک خواهد کرد. فصل را پوشش می دهد حافظه اضافی بر روی دستگاه اشغال</string>
+  <string name="pref_delete_cover_files">حذف پروندههای کاوپوش</string>
+  <string name="pref_subtitle_delete_cover_files">هر پوشش ذخیره شده در برنامه حذف خواهد شد. پوشش ها از پرونده های کتاب دوباره بارگذاری می شوند</string>
+  <string name="pref_use_menu_icons">استفاده از شمایلهای منو</string>
+  <string name="pref_category_general">عمومی</string>
+  <string name="pref_sorting">مرتب سازی بر اساس</string>
+  <string name="pref_sorting_last">اخرین اضافه شده یا استفاده شده</string>
+  <string name="pref_sorting_last_added">اخرین ارسال</string>
+  <string name="pref_sorting_time">زمان</string>
+  <string name="change_book_author">نویسنده</string>
+  <string name="edit_book_author">ویرایش نویسنده</string>
+  <string name="onboarding_gestures_title">استفاده از حرکات</string>
+  <string name="onboarding_show_player">نمایش بازیکن</string>
+  <string name="onboarding_show_list_chapters">نمایش فهرست فصلها</string>
+  <string name="onboarding_double_tap">برای پخش یا مکث دوبار ضربه بزنید</string>
+  <string name="per_month">٪s/ماه</string>
+  <string name="per_year">٪s/سال</string>
+  <string name="restore_purchase">بازگرداندن خرید</string>
+  لذت ببرید
 </resources>

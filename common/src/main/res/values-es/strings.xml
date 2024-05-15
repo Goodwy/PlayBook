@@ -9,8 +9,8 @@
   <string name="pref_layout_list">Diseño de lista</string>
   <string name="pref_layout_grid">Diseño de cuadrícula</string>
   <string name="pref_mini_player_floating_button">Botón</string>
-  <string name="pref_mini_player_mini_player_floating">Jugador flotante</string>
-  <string name="pref_player_background_title">Fondo del jugador</string>
+  <string name="pref_mini_player_mini_player_floating">Reproductor flotante</string>
+  <string name="pref_player_background_title">Fondo del reproductor</string>
   <string name="pref_player_background_theme">Fondo de la aplicación</string>
   <string name="pref_player_background_blurred_cover">Portada borrosa</string>
   <string name="pref_play_buttons_style_title">Estilo del botón de reproducción</string>
@@ -32,18 +32,19 @@
   <!--Configuración de encabezados-->
   <string name="pref_category_appearance">Apariencia</string>
   <string name="pref_appearance_ui_library_title">Aspecto de la interfaz de usuario de la biblioteca</string>
-  <string name="pref_appearance_ui_player_title">Aspecto de la interfaz de usuario del jugador</string>
+  <string name="pref_appearance_ui_player_title">Aspecto de la interfaz de usuario del reproductor</string>
+  <string name="pref_playback">Reproducir</string>
   <string name="pref_category_other">Otro</string>
 
   <!--Establecer colores-->
   <string name="pref_basic_color">Color básico</string>
   <string name="pref_basic_color_summary">Ingrese un color clave personalizado al que se le asigna automáticamente un conjunto de tonos complementarios.</string>
-  <string name="pref_default_theme_title">Establecer predeterminado</string>
+  <string name="pref_default_theme">Establecer predeterminado</string>
 
   <!--BookPlay-->
   <string name="custom">Personalizado</string>
   <string name="end_of_current_chapter">Fin del capítulo actual</string>
-  <string name="left">%s izquierda</string>
+  <string name="left">%s restantes</string>
   <string name="left_in_audiobook">Queda %s en el audiolibro</string>
   <string name="hours_letter">h</string>
   <string name="minutes_letter">m</string>
@@ -93,9 +94,31 @@ Le agradecería mucho si deja una reseña o calificación sobre la aplicación e
   <string name="special_thanks_to">Gracias especiales a</string>
 
   <!--Facturación-->
-  <string name="tipping_jar_dialog_sucess_title">¡Muchas gracias!</string>
-  <string name="tipping_jar_dialog_sucess_message">Muchas gracias por apoyar el desarrollo de PlayBook. ¡Eres genial y el desarrollador nunca te olvidará!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">De nada</string>
+  <string name="tipping_jar_dialog_success_title">¡Muchas gracias!</string>
+  <string name="tipping_jar_dialog_success_message">Muchas gracias por apoyar el desarrollo de PlayBook. ¡Eres genial y el desarrollador nunca te olvidará!</string>
+  <string name="tipping_jar_dialog_success_button_title">De nada</string>
   <string name="tipping_jar_dialog_error_title">Error al enviar la propina</string>
   <string name="tipping_jar_dialog_error_message">Desafortunadamente, sucedió algo malo mientras realizaba la transacción de propinas. No estés triste, solo inténtalo de nuevo en otro momento y disfruta de PlayBook</string>
+    <string name="pref_use_haptic_feedback">Usar retroalimentación háptica</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Escanea las portadas de los capítulos</string>
+  <string name="pref_subtitle_scan_chapter_covers">El cambio borrará las portadas de los libros actuales. Las portadas de los capítulos ocuparán memoria adicional en el dispositivo</string>
+  <string name="pref_delete_cover_files">Eliminar los archivos de portada</string>
+  <string name="pref_subtitle_delete_cover_files">Se eliminarán todas las portadas guardadas en la aplicación. Las portadas se volverán a cargar desde los archivos del libro</string>
+  <string name="pref_use_menu_icons">Usar iconos de menú</string>
+  <string name="pref_category_general">General</string>
+  <string name="pref_sorting">Ordenar por</string>
+  <string name="pref_sorting_last">Última adición o uso</string>
+  <string name="pref_sorting_last_added">Última adición</string>
+  <string name="pref_sorting_time">Hora</string>
+  <string name="change_book_author">Autor</string>
+  <string name="edit_book_author">Editar autor</string>
+  <string name="onboarding_welcome_title_g">¡Bienvenido a Voice!</string>
+  <string name="onboarding_gestures_title">Usar gestos</string>
+  <string name="onboarding_show_player">Mostrar reproductor</string>
+  <string name="onboarding_show_list_chapters">Mostrar lista de capítulos</string>
+  <string name="onboarding_double_tap">Toca dos veces para reproducir o pausar</string>
+  <string name="per_month">%s/mes</string>
+  <string name="per_year">%s/año</string>
+  <string name="restore_purchase">Restaurar compra</string>
 </resources>

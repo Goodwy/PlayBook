@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">用户界面</string>
   <string name="pref_appearance_ui_library_title">书库用户界面</string>
   <string name="pref_appearance_ui_player_title">播放器用户界面</string>
+  <string name="pref_playback">重播</string>
   <string name="pref_category_other">其他</string>
 
   <!--设置颜色-->
   <string name="pref_basic_color">基本色</string>
   <string name="pref_basic_color_summary">输入自定义键颜色，自动分配一组互补色调。</string>
-  <string name="pref_default_theme_title">设置默认主题</string>
+  <string name="pref_default_theme">设置默认主题</string>
 
   <!--图书播放-->
   <string name="custom">自定义</string>
@@ -93,9 +94,30 @@
   <string name="special_thanks_to">特别感谢</string>
 
   <!--计费-->
-  <string name="tipping_jar_dialog_sucess_title">非常感谢！</string>
-  <string name="tipping_jar_dialog_sucess_message">非常感谢您支持 PlayBook 的开发。你很棒，开发者永远不会忘记你！</string>
-  <string name="tipping_jar_dialog_sucess_button_title">不客气</string>
+  <string name="tipping_jar_dialog_success_title">非常感谢！</string>
+  <string name="tipping_jar_dialog_success_message">非常感谢您支持 PlayBook 的开发。你很棒，开发者永远不会忘记你！</string>
+  <string name="tipping_jar_dialog_success_button_title">不客气</string>
   <string name="tipping_jar_dialog_error_title">打赏失败</string>
   <string name="tipping_jar_dialog_error_message">不幸的是，在执行小费交易时发生了一些不好的事情。不要难过，下次再试一次，享受PlayBook</string>
+    <string name="pref_use_haptic_feedback">使用觸覺反饋</string>
+  <string name="pref_widget">控件</string>
+  <string name="pref_scan_chapter_covers">掃描章節封面</string>
+  <string name="pref_subtitle_scan_chapter_covers">此更改將清除當前書籍封面。章節封面將佔用設備上的額外記憶體</string>
+  <string name="pref_delete_cover_files">刪除封面檔</string>
+  <string name="pref_subtitle_delete_cover_files">應用程式中保存的任何封面都將被刪除。封面將從書籍檔中重新載入</string>
+  <string name="pref_use_menu_icons">使用功能表圖示</string>
+  <string name="pref_category_general">常規</string>
+  <string name="pref_sorting">排序方式</string>
+  <string name="pref_sorting_last">上次添加或使用時</string>
+  <string name="pref_sorting_last_added">最後添加</string>
+  <string name="pref_sorting_time">時間</string>
+  <string name="change_book_author">作者</string>
+  <string name="edit_book_author">編輯作者</string>
+  <string name="onboarding_gestures_title">使用手勢</string>
+  <string name="onboarding_show_player">顯示播放機</string>
+  <string name="onboarding_show_list_chapters">顯示章節清單</string>
+  <string name="onboarding_double_tap">按兩下播放或暫停</string>
+  <string name="per_month">%s/月</string>
+  <string name="per_year">%s/年</string>
+  <string name="restore_purchase">恢復購買</string>
 </resources>

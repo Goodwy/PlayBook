@@ -2,41 +2,38 @@ package voice.app.features
 
 import android.content.ActivityNotFoundException
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
 import android.util.Log
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.activity.viewModels
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
-import androidx.core.view.isVisible
 import androidx.datastore.core.DataStore
+import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import com.bluelinelabs.conductor.ChangeHandlerFrameLayout
 import com.bluelinelabs.conductor.Conductor
-import com.bluelinelabs.conductor.Controller
-import com.bluelinelabs.conductor.ControllerChangeHandler
 import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
-import com.google.android.material.elevation.SurfaceColors
 import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import ru.rustore.sdk.billingclient.RuStoreBillingClient
+import ru.rustore.sdk.billingclient.model.product.Product
+import ru.rustore.sdk.core.feature.model.FeatureAvailabilityResult
 import voice.app.AppController
+import voice.app.BuildConfig
 import voice.app.R
-import voice.app.databinding.ActivityBookBinding
 import voice.app.features.bookOverview.EditCoverDialogController
 import voice.app.features.bookmarks.BookmarkController
-import voice.app.features.imagepicker.CoverFromInternetController
+import voice.app.injection.RuStoreModule
 import voice.app.injection.appComponent
-import voice.app.misc.conductor.asTransaction
+import voice.app.misc.conductor.asVerticalChangeHandlerTransaction
 import voice.app.uitools.SettingsContentObserver
 import voice.app.uitools.setWindowTransparency
 import voice.common.AppInfoProvider
@@ -52,9 +49,10 @@ import voice.playback.PlayerController
 import voice.playback.session.search.BookSearchHandler
 import voice.playback.session.search.BookSearchParser
 import voice.playbackScreen.BookPlayController
+import java.util.ArrayList
 import javax.inject.Inject
 import javax.inject.Named
-
+import voice.common.R as CommonR
 
 class MainActivity : AppCompatActivity() {
 
@@ -76,8 +74,35 @@ class MainActivity : AppCompatActivity() {
   @field:[Inject Named(PrefKeys.PRO)]
   lateinit var isProPref: Pref<Boolean>
 
+  @field:[Inject Named(PrefKeys.PRO_SUBS)]
+  lateinit var isProSubsPref: Pref<Boolean>
+
+  @field:[Inject Named(PrefKeys.PRO_RUSTORE)]
+  lateinit var isProRuPref: Pref<Boolean>
+
   @field:[Inject Named(PrefKeys.PRICES)]
   lateinit var pricesPref: Pref<String>
+
+  @field:[Inject Named(PrefKeys.PRICES_SUBS)]
+  lateinit var pricesSubsPref: Pref<String>
+
+  @field:[Inject Named(PrefKeys.PURCHASED_LIST)]
+  lateinit var purchasedList: Pref<String>
+
+  @field:[Inject Named(PrefKeys.PURCHASED_SUBS_LIST)]
+  lateinit var purchasedSubsList: Pref<String>
+
+  @field:[Inject Named(PrefKeys.PRICES_RUSTORE)]
+  lateinit var pricesRustorePref: Pref<String>
+
+  @field:[Inject Named(PrefKeys.PURCHASED_LIST_RUSTORE)]
+  lateinit var purchasedListRustore: Pref<String>
+
+  @field:[Inject Named(PrefKeys.IS_PLAY_STORE_INSTALLED)]
+  lateinit var isPlayStoreInstalledPref: Pref<Boolean>
+
+  @field:[Inject Named(PrefKeys.IS_RU_STORE_INSTALLED)]
+  lateinit var isRuStoreInstalledPref: Pref<Boolean>
 
   @Inject
   lateinit var bookSearchParser: BookSearchParser
@@ -98,81 +123,34 @@ class MainActivity : AppCompatActivity() {
 
   private lateinit var router: Router
 
-  private val billingViewModel by viewModels<BillingViewModel>()
+  private val purchaseHelper = PurchaseHelper(this)
+  private val ruStoreHelper = RuStoreHelper(this)
+  private val billingRuStoreClient: RuStoreBillingClient = RuStoreModule.provideRuStoreBillingClient()
+  private var ruStoreIsConnected = false
+  private val productsRuStore: MutableList<Product> = mutableListOf()
+  private val productList: ArrayList<String> = arrayListOf(
+    BuildConfig.PRODUCT_ID_X1,
+    BuildConfig.PRODUCT_ID_X2,
+    BuildConfig.PRODUCT_ID_X3,
+    BuildConfig.SUBSCRIPTION_ID_X1,
+    BuildConfig.SUBSCRIPTION_ID_X2,
+    BuildConfig.SUBSCRIPTION_ID_X3,
+    BuildConfig.SUBSCRIPTION_YEAR_ID_X1,
+    BuildConfig.SUBSCRIPTION_YEAR_ID_X2,
+    BuildConfig.SUBSCRIPTION_YEAR_ID_X3 )
 
   override fun onCreate(savedInstanceState: Bundle?) {
     appComponent.inject(this)
     setTheme(R.style.AppTheme)
     super.onCreate(savedInstanceState)
-    val binding = ActivityBookBinding.inflate(layoutInflater)
-    setContentView(binding.root)
 
-    //Billing
-    billingViewModel.billingConnectionState.observe(this) {
-      when (it) {
-        BillingConnectionState.Connected -> {
-          Logger.v("Billing Connected")
-        }
-        BillingConnectionState.Failed -> {
-          Logger.v("Billing Failed")
-        }
-        BillingConnectionState.GettingDetails,
-        BillingConnectionState.Connecting -> {
-          Logger.v("Billing Connecting...")
-        }
+    if (isRuStoreInstalled()) {
+      if (savedInstanceState == null) {
+        billingRuStoreClient.onNewIntent(intent)
       }
     }
-
-    billingViewModel.skuDetails.observe(this) {
-      val prices = mutableListOf<String>()
-      it.forEach { (tip, details) ->
-        Logger.v("Billing details: $tip\"${details.title}\\n${details.price}\"")
-        prices.add(details.price)
-      }
-      pricesPref.value = prices.toString()
-      Logger.v("Billing details: $prices.toString()")
-    }
-
-    billingViewModel.purchaseResult.observe(this) { event ->
-      if (event.result is PurchaseResult.Success) {
-        isProPref.value = true
-        val alertDialog = AlertDialog.Builder(this).create()
-        alertDialog.setTitle(R.string.tipping_jar_dialog_sucess_title)
-        alertDialog.setMessage(getString(R.string.tipping_jar_dialog_sucess_message))
-        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, getString(R.string.tipping_jar_dialog_sucess_button_title)) { dialog: DialogInterface, _ ->
-          dialog.dismiss()
-        }
-        alertDialog.show()
-      } else if (event.result is PurchaseResult.Fail) {
-        val alertDialog = AlertDialog.Builder(this).create()
-        alertDialog.setTitle(R.string.tipping_jar_dialog_error_title)
-        alertDialog.setMessage(getString(R.string.tipping_jar_dialog_error_message))
-        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, getString(R.string.dialog_cancel)) { dialog: DialogInterface, _ ->
-          dialog.dismiss()
-        }
-        alertDialog.show()
-      }
-    }
-
-    if (appInfoProvider.applicationID == "kooboidua.ywdoog.moc".reversed()) isProPref.value = false
-    else {
-      billingViewModel.tippingSum.observe(this) { sum ->
-        when (sum) {
-          is TippingSum.FailedToLoad -> {
-            Logger.v("Billing history FailedToLoad")
-            isProPref.value = false
-          }
-          is TippingSum.Succeeded -> {
-            Logger.v("Billing history Succeeded: ${sum.sum}")
-            isProPref.value = true
-          }
-          is TippingSum.NoTips -> {
-            Logger.v("Billing history NoTips")
-            isProPref.value = false
-          }
-        }
-      }
-    }
+    val root = ChangeHandlerFrameLayout(this)
+    setContentView(root)
 
     // Edge to edge
     if (useTransparentNavigationPref.value) {
@@ -186,42 +164,20 @@ class MainActivity : AppCompatActivity() {
           "${convertPixelsToDp(leftNavigationBarSize)};${convertPixelsToDp(rightNavigationBarSize)}"
       }
     } else {
-      val color = SurfaceColors.SURFACE_0.getColor(this)
-      window.navigationBarColor = color
+      //val color = SurfaceColors.SURFACE_0.getColor(this)
+      //window.navigationBarColor = color
       paddingPref.value = "0;0;0;0"
     }
 
     mSettingsContentObserver = SettingsContentObserver(this, Handler(Looper.getMainLooper()))
     applicationContext.contentResolver.registerContentObserver(Settings.System.CONTENT_URI, true, mSettingsContentObserver)
 
-    router = Conductor.attachRouter(this, binding.root, savedInstanceState)
+    router = Conductor.attachRouter(this, root, savedInstanceState)
+      .setOnBackPressedDispatcherEnabled(true)
+      .setPopRootControllerMode(Router.PopRootControllerMode.NEVER)
     if (!router.hasRootController()) {
       setupRouter()
     }
-
-    router.addChangeListener(
-      object : ControllerChangeHandler.ControllerChangeListener {
-        override fun onChangeStarted(
-          to: Controller?,
-          from: Controller?,
-          isPush: Boolean,
-          container: ViewGroup,
-          handler: ControllerChangeHandler,
-        ) {
-          from?.setOptionsMenuHidden(true)
-        }
-
-        override fun onChangeCompleted(
-          to: Controller?,
-          from: Controller?,
-          isPush: Boolean,
-          container: ViewGroup,
-          handler: ControllerChangeHandler,
-        ) {
-          from?.setOptionsMenuHidden(false)
-        }
-      },
-    )
 
     lifecycleScope.launch {
       navigator.navigationCommands.collect { command ->
@@ -239,15 +195,12 @@ class MainActivity : AppCompatActivity() {
                 // no-op
               }
               is Destination.Bookmarks -> {
-                router.pushController(BookmarkController(destination.bookId).asTransaction())
-              }
-              is Destination.CoverFromInternet -> {
-                router.pushController(CoverFromInternetController(destination.bookId).asTransaction())
+                router.pushController(BookmarkController(destination.bookId).asVerticalChangeHandlerTransaction())
               }
               is Destination.Playback -> {
                 lifecycleScope.launch {
                   currentBook.updateData { destination.bookId }
-                  router.pushController(BookPlayController(destination.bookId).asTransaction())
+                  router.pushController(BookPlayController(destination.bookId).asVerticalChangeHandlerTransaction())
                 }
               }
               is Destination.Website -> {
@@ -261,15 +214,25 @@ class MainActivity : AppCompatActivity() {
                 val args = EditCoverDialogController.Arguments(destination.cover, destination.bookId)
                 EditCoverDialogController(args).showDialog(router)
               }
+              is Destination.Activity -> {
+                startActivity(destination.intent)
+              }
               is Destination.BuyTip -> {
-                val tip = when (destination.tip) {
-                  1 -> Tip.Small
-                  2 -> Tip.Medium
-                  else -> Tip.Big
+                if (destination.usePlayStore) {
+                  if (destination.tip < 3) purchaseHelper.getDonation(productList[destination.tip])
+                  else purchaseHelper.getSubscription(productList[destination.tip])
+                } else {
+                  val product = productsRuStore.firstOrNull {  it.productId == productList[destination.tip]  }
+                  if (product != null) ruStoreHelper.purchaseProduct(product)
                 }
-                billingViewModel.buyTip(this@MainActivity, tip)
+              }
+              is Destination.RefreshPurchase -> {
+                if (destination.usePlayStore) initPlayStore() else initRuStore()
               }
             }
+          }
+          is NavigationCommand.Execute -> {
+            // handled in AppController
           }
         }
       }
@@ -290,6 +253,22 @@ class MainActivity : AppCompatActivity() {
   override fun onResume() {
     super.onResume()
     currentVolumePref.value = mSettingsContentObserver.previousVolume
+
+    val isPlayStoreInstalled = isPlayStoreInstalled()
+    val isRuStoreInstalled = if (resources.getBoolean(R.bool.is_pro_app)) false else isRuStoreInstalled()
+    isPlayStoreInstalledPref.value = isPlayStoreInstalled
+    isRuStoreInstalledPref.value = isRuStoreInstalled
+
+    //Billing
+    if (isPlayStoreInstalled) {
+      initPlayStore()
+    } else {
+      isProPref.value = resources.getBoolean(R.bool.is_pro_app)
+    }
+
+    if (isRuStoreInstalled) {
+      initRuStore()
+    }
   }
 
   override fun onDestroy() {
@@ -297,8 +276,11 @@ class MainActivity : AppCompatActivity() {
     applicationContext.contentResolver.unregisterContentObserver(mSettingsContentObserver)
   }
 
-  override fun onNewIntent(intent: Intent?) {
+  override fun onNewIntent(intent: Intent) {
     super.onNewIntent(intent)
+    if (isRuStoreInstalled()) {
+      billingRuStoreClient.onNewIntent(intent)
+    }
     setupFromIntent(intent)
   }
 
@@ -312,20 +294,22 @@ class MainActivity : AppCompatActivity() {
 
   private fun setupRouter() {
     // if we should enter a book set the backstack and return early
-    intent.getStringExtra(NI_GO_TO_BOOK)
-      ?.let {
-        val bookId = BookId(it)
+    val goToBook = intent.getBooleanExtra(NI_GO_TO_BOOK, false)
+    if (goToBook) {
+      val bookId = runBlocking { currentBook.data.first() }
+      if (bookId != null) {
         val bookShelf = RouterTransaction.with(AppController())
-        val bookPlay = BookPlayController(bookId).asTransaction()
+        val bookPlay = BookPlayController(bookId).asVerticalChangeHandlerTransaction()
         router.setBackstack(listOf(bookShelf, bookPlay), null)
         return
       }
+    }
 
     // if we should play the current book, set the backstack and return early
     if (intent?.action == "playCurrent") {
       runBlocking { currentBook.data.first() }?.let { bookId ->
         val bookShelf = RouterTransaction.with(AppController())
-        val bookPlay = BookPlayController(bookId).asTransaction()
+        val bookPlay = BookPlayController(bookId).asVerticalChangeHandlerTransaction()
         router.setBackstack(listOf(bookShelf, bookPlay), null)
         playerController.play()
         return
@@ -336,21 +320,241 @@ class MainActivity : AppCompatActivity() {
     router.setRoot(rootTransaction)
   }
 
-  @Deprecated("Deprecated in Java")
-  override fun onBackPressed() {
-    if (router.backstackSize == 1) {
-      super.onBackPressed()
-    } else {
-      router.handleBack()
+  private fun isPlayStoreInstalled(): Boolean {
+    return isPackageInstalled("com.android.vending")
+      || isPackageInstalled("com.google.market")
+  }
+
+  private fun isRuStoreInstalled(): Boolean {
+    return isPackageInstalled("ru.vk.store")
+  }
+
+  private fun isPackageInstalled(packageName: String?): Boolean {
+    val packageManager = packageManager
+    val intent = packageManager.getLaunchIntentForPackage(packageName!!) ?: return false
+    val list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
+    return list.isNotEmpty()
+  }
+
+  private fun initPlayStore() {
+    purchaseHelper.initBillingClient()
+    val iapList: ArrayList<String> = arrayListOf(BuildConfig.PRODUCT_ID_X1, BuildConfig.PRODUCT_ID_X2, BuildConfig.PRODUCT_ID_X3)
+    val subList: ArrayList<String> = arrayListOf(BuildConfig.SUBSCRIPTION_ID_X1, BuildConfig.SUBSCRIPTION_ID_X2, BuildConfig.SUBSCRIPTION_ID_X3,
+      BuildConfig.SUBSCRIPTION_YEAR_ID_X1, BuildConfig.SUBSCRIPTION_YEAR_ID_X2, BuildConfig.SUBSCRIPTION_YEAR_ID_X3)
+    purchaseHelper.retrieveDonation(iapList, subList)
+
+    purchaseHelper.iapSkuDetailsInitialized.observe(this) {
+      if (it) {
+        var prices = ""
+        iapList.forEach { item ->
+          val price = purchaseHelper.getPriceDonation(item)
+          prices += if (price != getString(CommonR.string.no_connection)) {
+            val resultPrice = price.replace(".00", "", true)
+            if (item == iapList.last()) resultPrice else "$resultPrice;"
+          } else {
+            if (item == subList.last()) "???" else "???;"
+          }
+        }
+        pricesPref.value = prices
+        Logger.v("Billing price: $prices")
+      }
+    }
+    purchaseHelper.subSkuDetailsInitialized.observe(this) {
+      if (it) {
+        var prices = ""
+        subList.forEach { item ->
+          val price = purchaseHelper.getPriceSubscription(item)
+          prices += if (price != getString(CommonR.string.no_connection)) {
+            val resultPrice = price.replace(".00", "", true)
+            if (item == subList.last()) resultPrice else "$resultPrice;"
+          } else {
+            if (item == subList.last()) "???" else "???;"
+          }
+        }
+        pricesSubsPref.value = prices
+        Logger.v("Billing price subs: $prices")
+      }
+    }
+
+    purchaseHelper.isIapPurchased.observe(this) {
+      when (it) {
+        is Tipping.Succeeded -> {
+          isProPref.value = true
+          Logger.v("Billing isProPref: true")
+        }
+        is Tipping.NoTips -> {
+          val isProApp = resources.getBoolean(R.bool.is_pro_app)
+          isProPref.value = isProApp
+          Logger.v("Billing isProPref: $isProApp")
+        }
+        is Tipping.FailedToLoad -> {
+        }
+      }
+    }
+
+    purchaseHelper.isSupPurchased.observe(this) {
+      when (it) {
+        is Tipping.Succeeded -> {
+          isProSubsPref.value = true
+          Logger.v("Billing isProSubsPref: true")
+        }
+        is Tipping.NoTips -> {
+          isProSubsPref.value = false
+          Logger.v("Billing isProSubsPref: false")
+        }
+        is Tipping.FailedToLoad -> {
+        }
+      }
+    }
+
+    updateCheckedPurchases()
+  }
+
+  private fun updateCheckedPurchases() {
+    val iapList: ArrayList<String> = arrayListOf(BuildConfig.PRODUCT_ID_X1, BuildConfig.PRODUCT_ID_X2, BuildConfig.PRODUCT_ID_X3)
+    val subList: ArrayList<String> = arrayListOf(BuildConfig.SUBSCRIPTION_ID_X1, BuildConfig.SUBSCRIPTION_ID_X2, BuildConfig.SUBSCRIPTION_ID_X3,
+      BuildConfig.SUBSCRIPTION_YEAR_ID_X1, BuildConfig.SUBSCRIPTION_YEAR_ID_X2, BuildConfig.SUBSCRIPTION_YEAR_ID_X3)
+
+    purchaseHelper.isIapPurchasedList.observe(this) {
+      var purchased = ""
+      iapList.forEach { item ->
+        val result = if (purchaseHelper.isIapPurchased(item)) "1" else "0"
+        purchased += if (item == iapList.last()) result else "$result;"
+      }
+      purchasedList.value = purchased
+      Logger.v("Billing purchased: $purchased")
+    }
+
+    purchaseHelper.isSupPurchasedList.observe(this) {
+      var purchased = ""
+      subList.forEach { item ->
+        val result = if (purchaseHelper.isSubPurchased(item)) "1" else "0"
+        purchased += if (item == iapList.last()) result else "$result;"
+      }
+      purchasedSubsList.value = purchased
+      Logger.v("Billing purchased subs: $purchased")
     }
   }
 
+
+  private fun initRuStore() {
+    ruStoreHelper.checkPurchasesAvailability(this)
+
+    lifecycleScope.launch {
+      ruStoreHelper.eventStart
+        .flowWithLifecycle(lifecycle)
+        .collect { event ->
+          handleEventStart(event)
+        }
+    }
+
+    lifecycleScope.launch {
+      ruStoreHelper.stateBilling
+        .flowWithLifecycle(lifecycle)
+        .collect { state ->
+          if (!state.isLoading) {
+            productsRuStore.clear()
+            productsRuStore.addAll(state.products)
+            Logger.v("Billing RuStore products: $productsRuStore")
+            //price update
+            var prices = ""
+            productList.forEach { item ->
+              val product = state.products.firstOrNull {  it.productId == item  }
+              val price = product?.priceLabel ?: "???"
+              val resultPrice = price.replace(".00","",true)
+              prices += if (item == productList.last()) resultPrice else "$resultPrice;"
+            }
+            pricesRustorePref.value = prices
+            Logger.v("Billing RuStore price: $prices")
+          }
+        }
+    }
+//      lifecycleScope.launch {
+//        ruStoreHelper.eventBilling
+//          .flowWithLifecycle(lifecycle)
+//          .collect { event ->
+//            handleEventBilling(event)
+//          }
+//      }
+
+    updateCheckedPurchasesRuStore()
+  }
+
+  private fun updateCheckedPurchasesRuStore() {
+    lifecycleScope.launch {
+      ruStoreHelper.statePurchased
+        .flowWithLifecycle(lifecycle)
+        .collect { state ->
+          if (!state.isLoading && ruStoreIsConnected) {
+            //update pro version
+            val isProRu = state.purchases.isNotEmpty()
+            isProRuPref.value = isProRu
+            Logger.v("Billing isProSubsPref: $isProRu")
+
+            //update of purchased
+            var purchased = ""
+            productList.forEach { item ->
+              val result = if (state.purchases.firstOrNull { it.productId == item } != null) "1" else "0"
+              purchased += if (item == productList.last()) result else "$result;"
+            }
+            purchasedListRustore.value = purchased
+            Logger.v("Billing RuStore purchased: $purchased")
+          }
+        }
+    }
+  }
+
+  private fun updateProducts() {
+    pricesRustorePref.value = "???;???;???;???;???;???;???;???;???"
+    purchasedListRustore.value = "0;0;0;0;0;0;0;0;0"
+    ruStoreHelper.getProducts(productList)
+  }
+
+  private fun handleEventStart(event: StartPurchasesEvent) {
+    when (event) {
+      is StartPurchasesEvent.PurchasesAvailability -> {
+        when (event.availability) {
+          is FeatureAvailabilityResult.Available -> {
+            //Process purchases available
+            updateProducts()
+            ruStoreIsConnected = true
+          }
+
+          is FeatureAvailabilityResult.Unavailable -> {
+            //toast(event.availability.cause.message ?: "Process purchases unavailable", Toast.LENGTH_LONG)
+          }
+
+          else -> {}
+        }
+      }
+
+      is StartPurchasesEvent.Error -> {
+        //toast(event.throwable.message ?: "Process unknown error", Toast.LENGTH_LONG)
+      }
+    }
+  }
+
+//  private fun handleEventBilling(event: BillingEvent) {
+//    when (event) {
+//      is BillingEvent.ShowDialog -> {
+//        Logger.v("RuStore Billing No Error: ${event.dialogInfo.titleRes}")
+//      }
+//
+//      is BillingEvent.ShowError -> {
+//        if (event.error is RuStoreException) {
+//          event.error.resolveForBilling(this)
+//        }
+//        Logger.v("RuStore Billing Error: ${event.error.message.orEmpty()}")
+//      }
+//    }
+//  }
+
   companion object {
+
     private const val NI_GO_TO_BOOK = "niGotoBook"
 
-    /** Returns an intent that lets you go directly to the playback screen for a certain book **/
-    fun goToBookIntent(context: Context, bookId: BookId) = Intent(context, MainActivity::class.java).apply {
-      putExtra(NI_GO_TO_BOOK, bookId.value)
+    fun goToBookIntent(context: Context) = Intent(context, MainActivity::class.java).apply {
+      putExtra(NI_GO_TO_BOOK, true)
       flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
     }
   }

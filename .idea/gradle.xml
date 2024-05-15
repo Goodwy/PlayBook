@@ -15,17 +15,18 @@
             </builds>
           </compositeBuild>
         </compositeConfiguration>
-        <option name="testRunner" value="GRADLE" />
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="11" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/bookOverview" />
             <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/cover" />
             <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/datastore" />
+            <option value="$PROJECT_DIR$/documentfile" />
             <option value="$PROJECT_DIR$/ffmpeg" />
             <option value="$PROJECT_DIR$/folderPicker" />
             <option value="$PROJECT_DIR$/logging" />
@@ -33,16 +34,22 @@
             <option value="$PROJECT_DIR$/logging/crashlytics" />
             <option value="$PROJECT_DIR$/logging/debug" />
             <option value="$PROJECT_DIR$/migration" />
+            <option value="$PROJECT_DIR$/onboarding" />
             <option value="$PROJECT_DIR$/playback" />
             <option value="$PROJECT_DIR$/playbackScreen" />
             <option value="$PROJECT_DIR$/plugins" />
+            <option value="$PROJECT_DIR$/review" />
+            <option value="$PROJECT_DIR$/review/noop" />
+            <option value="$PROJECT_DIR$/review/play" />
             <option value="$PROJECT_DIR$/scanner" />
+            <option value="$PROJECT_DIR$/scripts" />
             <option value="$PROJECT_DIR$/search" />
             <option value="$PROJECT_DIR$/settings" />
             <option value="$PROJECT_DIR$/sleepTimer" />
             <option value="$PROJECT_DIR$/strings" />
           </set>
         </option>
+        <option name="resolveExternalAnnotations" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

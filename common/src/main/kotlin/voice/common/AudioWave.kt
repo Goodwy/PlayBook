@@ -33,8 +33,9 @@ fun AudioWave(
 				durationMillis = 1200,
 				easing = LinearEasing
 			)
-		)
-	)
+		),
+    label = "FloatAnimation1"
+  )
 	val fraction2 by transition2.animateFloat(
 		initialValue = 0.2f,
 		targetValue = 1f,
@@ -44,7 +45,8 @@ fun AudioWave(
 				durationMillis = 800,
 				easing = LinearEasing
 			)
-		)
+		),
+    label = "FloatAnimation2"
 	)
 	val fraction3 by transition3.animateFloat(
 		initialValue = 0.2f,
@@ -55,7 +57,8 @@ fun AudioWave(
 				durationMillis = 1000,
 				easing = LinearEasing
 			)
-		)
+		),
+    label = "FloatAnimation3"
 	)
   val fraction4 by transition4.animateFloat(
     initialValue = 0.2f,
@@ -66,7 +69,8 @@ fun AudioWave(
         durationMillis = 600,
         easing = LinearEasing
       )
-    )
+    ),
+    label = "FloatAnimation4"
   )
 
 	Row(

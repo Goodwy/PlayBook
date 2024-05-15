@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fast_forward">Hurtigspoling</string>
+    <string name="skip_silence">Hopp over stillhet</string>
+    <string name="volume_boost">Lydstyrkeforsterkning</string>
+    <string name="more">Mer</string>
+    <string name="pick_book_cover">Omslag fra filsystemet</string>
+    <string name="playback_speed">Avspillingshastighet</string>
+    <string name="bookmark">Bokmerke</string>
+    <string name="bookmark_edit_hint">Bokmerkenavn</string>
+    <string name="pref_seek_time">Hopp over mengde</string>
+    <string name="pref_use_grid">Bruk rutenettsoppsett</string>
+    <string name="pref_help_translating">Bistå oversettelsen</string>
+    <string name="pref_get_support">Få støtte</string>
+    <string name="book_header_current">Nåværende</string>
+    <string name="book_header_completed">Fullført</string>
+    <string name="folder_mode_root">Rot-lydboksmappe. Én lydbok = én bok.</string>
+    <string name="folder_mode_single">Enkelt lydboksmappe</string>
+    <string name="folder_type_title">Hvilken struktur har filene dine\?</string>
+    <string name="migration_detail_content_bookmarks">Bokmerker</string>
+    <string name="voice_intro_first_book">Legg til lydboksmappen din for å begynne å lytte.</string>
+    <string name="migration_hint_confirm">Skjønner</string>
+    <string name="migration_detail_title">Gamle bokposisjoner</string>
+    <string name="migration_detail_content_name">Navn</string>
+    <string name="migration_hint_content">Siden du har nylig Android må du velge lydboksmappe med systemfilvelgeren.
+\n
+\nKlikk på ikonet ovenfor for å vise dine gamle bokposisjoner.</string>
+    <string name="migration_detail_content_position_current_chapter_title">Nåværende kapittel</string>
+    <string name="migration_delete_dialog_content">Når du sletter de gamle posisjonene vil du ikke kunne gjenopprette dine gamle avspillingsposisjoner.</string>
+    <string name="search_hint">Hva leter du etter\?</string>
+    <string name="delete_book_dialog_content">Sletter filene på enheten din.</string>
+    <string name="media_session_root">Alle lydbøker</string>
+    <string name="media_session_recent">Nylig</string>
+    <string name="battery_optimization_action">Gjenoppfrisk</string>
+    <string name="cover">Omslag</string>
+    <string name="play_pause">Spill/pause</string>
+    <string name="action_sleep">Søvntidsur</string>
+    <string name="rewind">Spol tilbake</string>
+    <string name="previous_track">Forrige spor</string>
+    <string name="next_track">Neste spor</string>
+    <string name="content_cover">Viser omslag å velge</string>
+    <string name="dialog_confirm">Sett</string>
+    <string name="dialog_cancel">Avbryt</string>
+    <string name="change_book_name">Navn</string>
+    <string name="download_book_cover">Omslag fra Internett</string>
+    <string name="mark_as_completed">Marker som fullført</string>
+    <string name="audiobook_folders_title">Lydboksmapper</string>
+    <string name="edit_book_title">Rediger bok</string>
+    <string name="mark_as_current">Marker som pågående</string>
+    <string name="mark_as_not_started">Marker som ikke startet enda</string>
+    <string name="bookmark_edit_title">Rediger bokmerke</string>
+    <string name="bookmark_added">Bokmerket</string>
+    <string name="action_settings">Innstillinger</string>
+    <string name="pref_report_issue">Rapporter problem</string>
+    <string name="bookmark_just_now">Akkurat nå</string>
+    <plurals name="seconds">
+        <item quantity="one">%d sekund</item>
+        <item quantity="other">%d sekunder</item>
+    </plurals>
+    <string name="pref_auto_rewind_title">Auto-tilbakespoling</string>
+    <string name="pref_theme_dark">Mørk drakt</string>
+    <string name="pref_suggest_idea">Foreslå idé</string>
+    <string name="pref_app_version">Programversjon</string>
+    <string name="popup_edit">Rediger</string>
+    <string name="remove">Fjern</string>
+    <string name="book_header_not_started">Ikke startet enda</string>
+    <string name="delete">Slett</string>
+    <string name="play_current">Spill nåværende</string>
+    <string name="close">Lukk</string>
+    <string name="add">Legg til</string>
+    <string name="folder_type_book_example_header">Følgende bøker vil bli lagt til</string>
+    <plurals name="folder_type_file_count">
+        <item quantity="one">%d lydfil</item>
+        <item quantity="other">%d lydfiler</item>
+    </plurals>
+    <string name="delete_book_dialog_title">Slett bok</string>
+    <string name="delete_book_bottom_sheet_title">Slett bok</string>
+    <string name="migration_delete_dialog_action_delete">Slett</string>
+    <string name="migration_delete_dialog_action_keep">Behold</string>
+    <string name="delete_book_dialog_deletion_confirmation">Slett filene mine</string>
+    <string name="migration_detail_content_position_current_file_title">Nåværende fil</string>
+    <string name="notification_sleep_timer_enable">Skru på søvntidsur</string>
+    <string name="notification_sleep_timer_disable">Skru av søvntidsur</string>
+    <string name="migration_detail_content_added_at">Tillagt</string>
+    <string name="migration_detail_content_position_current_chapter_position">Posisjon i kapittel</string>
+    <string name="folder_type_no_books">Fant ingen lydbøker. Finnes de\?</string>
+    <string name="migration_detail_content_position_current_file_position">Posisjon i filen</string>
+    <string name="migration_detail_content_root">Rot-mappe</string>
+    <string name="migration_delete_dialog_title">Slett posisjoner</string>
+    <string name="migration_detail_content_position">Posisjon</string>
+    <string name="migration_hint_title">Tilgang til gamle bokposisjoner</string>
+    <string name="battery_optimization_rationale">Som følge av strømsparing kan avspillingen bli forstyrret.</string>
+    <string name="generic_error_retry">Prøv igjen</string>
+    <string name="generic_error_message">Noe gikk galt 😢</string>
+    <string name="play">Spill</string>
+    <string name="pause">Pause</string>
+    <plurals name="minutes">
+        <item quantity="one">%d minutt</item>
+        <item quantity="other">%d minutter</item>
+    </plurals>
+    <string name="select_folder_title_onboarding">Legg til din første lydbok</string>
+    <string name="select_folder_type_folder">Mappe</string>
+    <string name="onboarding.button_next">Neste</string>
+</resources>

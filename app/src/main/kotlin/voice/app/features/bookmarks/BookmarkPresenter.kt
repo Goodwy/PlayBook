@@ -4,6 +4,9 @@ import androidx.datastore.core.DataStore
 import kotlinx.coroutines.launch
 import voice.app.mvp.Presenter
 import voice.common.BookId
+import voice.common.constants.SORTING_BOOKMARK_LAST
+import voice.common.constants.SORTING_BOOKMARK_NAME
+import voice.common.constants.SORTING_BOOKMARK_TIME
 import voice.common.pref.CurrentBook
 import voice.data.Bookmark
 import voice.data.Chapter
@@ -24,6 +27,7 @@ class BookmarkPresenter
 ) : Presenter<BookmarkView>() {
 
   lateinit var bookId: BookId
+  var sortingBy: Int = SORTING_BOOKMARK_LAST
   private val bookmarks = ArrayList<Bookmark>()
   private val chapters = ArrayList<Chapter>()
 
@@ -32,8 +36,20 @@ class BookmarkPresenter
       val book = repo.get(bookId) ?: return@launch
       bookmarks.clear()
       bookmarks.addAll(
-        bookmarkRepo.bookmarks(book.content)
-          .sortedByDescending { it.addedAt },
+        when (sortingBy) {
+          SORTING_BOOKMARK_TIME -> {
+            bookmarkRepo.bookmarks(book.content)
+              .sortedWith(compareBy({ it.chapterId }, { it.time }))
+          }
+          SORTING_BOOKMARK_NAME -> {
+            bookmarkRepo.bookmarks(book.content)
+              .sortedBy { it.title }
+          }
+          else -> {
+            bookmarkRepo.bookmarks(book.content)
+              .sortedByDescending { it.addedAt }
+          }
+        }
       )
       chapters.clear()
       chapters.addAll(book.chapters)
@@ -69,7 +85,11 @@ class BookmarkPresenter
     view.finish()
   }
 
-  fun editBookmark(id: Bookmark.Id, newTitle: String) {
+  fun editBookmark(
+    id: Bookmark.Id,
+    newTitle: String,
+    sortingBy: Int,
+  ) {
     scope.launch {
       bookmarks.find { it.id == id }?.let {
         val withNewTitle = it.copy(
@@ -81,6 +101,7 @@ class BookmarkPresenter
         bookmarks[index] = withNewTitle
         if (attached) renderView()
       }
+      if (sortingBy == SORTING_BOOKMARK_NAME) sortingBookmark(SORTING_BOOKMARK_NAME)
     }
   }
 
@@ -100,6 +121,31 @@ class BookmarkPresenter
   private fun renderView() {
     if (attached) {
       view.render(bookmarks, chapters)
+    }
+  }
+
+  fun sortingBookmark(sortingBy: Int) {
+    scope.launch {
+      val book = repo.get(bookId) ?: return@launch
+      bookmarks.clear()
+      bookmarks.addAll(
+        when (sortingBy) {
+          SORTING_BOOKMARK_TIME -> {
+            bookmarkRepo.bookmarks(book.content)
+              .sortedWith(compareBy({ it.chapterId }, { it.time }))
+          }
+          SORTING_BOOKMARK_NAME -> {
+            bookmarkRepo.bookmarks(book.content)
+              .sortedBy { it.title }
+          }
+          else -> {
+            bookmarkRepo.bookmarks(book.content)
+              .sortedByDescending { it.addedAt }
+          }
+        }
+      )
+
+      renderView()
     }
   }
 }

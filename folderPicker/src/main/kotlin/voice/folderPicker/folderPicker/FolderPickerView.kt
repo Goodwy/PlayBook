@@ -1,8 +1,6 @@
 package voice.folderPicker.folderPicker
 
 import android.net.Uri
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
@@ -11,9 +9,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Delete
+import androidx.compose.material.icons.automirrored.rounded.ArrowBackIos
 import androidx.compose.material.icons.rounded.Add
-import androidx.compose.material.icons.rounded.ArrowBackIosNew
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -23,23 +20,23 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.squareup.anvil.annotations.ContributesTo
 import voice.common.AppScope
+import voice.common.R
 import voice.common.compose.rememberScoped
 import voice.common.rootComponentAs
 import voice.data.folders.FolderType
 import voice.folderPicker.FolderTypeIcon
-import voice.folderPicker.R
+import voice.strings.R as StringsR
+import voice.common.R as CommonR
 
 @ContributesTo(AppScope::class)
 interface FolderPickerComponent {
@@ -47,53 +44,17 @@ interface FolderPickerComponent {
 }
 
 @Composable
-fun FolderPicker(
-  onCloseClick: () -> Unit,
-) {
+fun FolderOverview(onCloseClick: () -> Unit) {
   val viewModel: FolderPickerViewModel = rememberScoped {
     rootComponentAs<FolderPickerComponent>()
       .folderPickerViewModel
   }
   val viewState = viewModel.viewState()
 
-  var showSelectFileDialog by remember {
-    mutableStateOf(false)
-  }
-  val openDocumentLauncher = rememberLauncherForActivityResult(
-    ActivityResultContracts.OpenDocument(),
-  ) { uri ->
-    if (uri != null) {
-      viewModel.add(uri, FileTypeSelection.File)
-    }
-  }
-  val documentTreeLauncher = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocumentTree()) { uri ->
-    if (uri != null) {
-      viewModel.add(uri, FileTypeSelection.Folder)
-    }
-  }
-
-  if (showSelectFileDialog) {
-    FileTypeSelectionDialog(
-      onDismiss = {
-        showSelectFileDialog = false
-      },
-      onSelected = { selection ->
-        when (selection) {
-          FileTypeSelection.File -> {
-            openDocumentLauncher.launch(arrayOf("*/*"))
-          }
-          FileTypeSelection.Folder -> {
-            documentTreeLauncher.launch(null)
-          }
-        }
-      },
-    )
-  }
-
-  FolderPickerView(
+  FolderOverviewView(
     viewState = viewState,
     onAddClick = {
-      showSelectFileDialog = true
+      viewModel.add()
     },
     onDeleteClick = {
       viewModel.removeFolder(it)
@@ -103,7 +64,7 @@ fun FolderPicker(
 }
 
 @Composable
-private fun FolderPickerView(
+private fun FolderOverviewView(
   viewState: FolderPickerViewState,
   onAddClick: () -> Unit,
   onDeleteClick: (FolderPickerViewState.Item) -> Unit,
@@ -122,13 +83,13 @@ private fun FolderPickerView(
       MediumTopAppBar(
         scrollBehavior = scrollBehavior,
         title = {
-          Text(text = stringResource(R.string.audiobook_folders_title))
+          Text(text = stringResource(StringsR.string.audiobook_folders_title))
         },
         navigationIcon = {
           IconButton(onClick = onCloseClick) {
             Icon(
-              imageVector = Icons.Rounded.ArrowBackIosNew,
-              contentDescription = stringResource(R.string.close),
+              imageVector = Icons.AutoMirrored.Rounded.ArrowBackIos,
+              contentDescription = stringResource(StringsR.string.close),
             )
           }
         },
@@ -136,7 +97,7 @@ private fun FolderPickerView(
       )
     },
     floatingActionButton = {
-      val text = stringResource(id = R.string.add)
+      val text = stringResource(id = StringsR.string.add)
       ExtendedFloatingActionButton(
         modifier = Modifier.padding(bottom = bottom.dp),
         text = {
@@ -158,7 +119,7 @@ private fun FolderPickerView(
       item { Spacer(modifier = Modifier.size(16.dp)) }
       items(viewState.items) { item ->
         ListItem(
-          modifier = Modifier.padding(start = 8.dp),
+          modifier = Modifier.padding(start = 6.dp),
           leadingContent = {
             FolderTypeIcon(folderType = item.folderType)
           },
@@ -169,17 +130,19 @@ private fun FolderPickerView(
               },
               content = {
                 Icon(
-                  imageVector = Icons.Outlined.Delete,
-                  contentDescription = stringResource(R.string.delete),
+                  imageVector = ImageVector.vectorResource(R.drawable.ic_delete),
+                  contentDescription = stringResource(StringsR.string.delete),
                 )
               },
             )
           },
-          headlineText = {
-            Column() {
+          headlineContent = {
+            Column(
+              modifier = Modifier.padding(start = 4.dp)
+            ) {
               Text(text = item.name)
-              val urlTrim = item.id.toString().trimMargin("content://com.android.externalstorage.documents/").trimMargin("tree/").trimMargin("document/")
-              val urlText = urlTrim.replace("%3A", ": ").replace("%2F", "/").replace("primary", stringResource(R.string.internal_storage))
+              val urlTrim = item.id.toString().trimMargin("content://com.android.external storage.documents/").trimMargin("tree/").trimMargin("document/")
+              val urlText = urlTrim.replace("%3A", ": ").replace("%2F", "/").replace("primary", stringResource(CommonR.string.internal_storage))
               Text(text = urlText,
                 lineHeight = 14.sp,
                 fontSize = 12.sp,
@@ -193,16 +156,22 @@ private fun FolderPickerView(
   }
 }
 
+@Suppress("ktlint:compose:preview-public-check")
 @Composable
 @Preview
-fun FolderPickerPreview() {
-  FolderPickerView(
+fun FolderOverviewPreview() {
+  FolderOverviewView(
     viewState = FolderPickerViewState(
       items = listOf(
         FolderPickerViewState.Item(
           name = "My Audiobooks",
           id = Uri.parse("content://com.android.externalstorage.documents/document/primary:My Audiobooks"),
           folderType = FolderType.Root,
+        ),
+        FolderPickerViewState.Item(
+          name = "My Audiobooks",
+          id = Uri.parse("content://com.android.externalstorage.documents/document/primary:My Audiobooks"),
+          folderType = FolderType.Author,
         ),
         FolderPickerViewState.Item(
           name = "Bobiverse 1-4",

@@ -3,7 +3,10 @@ package voice.common
 import android.content.Context
 import java.util.concurrent.TimeUnit
 
-fun formatTime(timeMs: Long, durationMs: Long = 0): String {
+fun formatTime(
+  timeMs: Long,
+  durationMs: Long = 0,
+): String {
   val m = timeMs.minutes()
   val s = timeMs.seconds()
   val largerTime = maxOf(timeMs, durationMs)

@@ -20,18 +20,21 @@ import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.builtins.nullable
 import kotlinx.serialization.builtins.serializer
 import voice.app.BuildConfig
-import voice.app.serialization.SerializableDataStoreFactory
 import voice.app.serialization.UriSerializer
 import voice.bookOverview.BookMigrationExplanationQualifier
 import voice.bookOverview.BookMigrationExplanationShown
 import voice.common.AppScope
 import voice.common.BookId
+import voice.common.constants.*
 import voice.common.grid.GridMode
+import voice.common.pref.AuthorAudiobookFolders
 import voice.common.pref.CurrentBook
+import voice.common.pref.OnboardingCompleted
 import voice.common.pref.PrefKeys
 import voice.common.pref.RootAudiobookFolders
 import voice.common.pref.SingleFileAudiobookFolders
 import voice.common.pref.SingleFolderAudiobookFolders
+import voice.datastore.VoiceDataStoreFactory
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -60,13 +63,6 @@ object PrefsModule {
 
   @Provides
   @Singleton
-  @Named(PrefKeys.RESUME_ON_REPLUG)
-  fun provideResumeOnReplugPreference(prefs: AndroidPreferences): Pref<Boolean> {
-    return prefs.boolean(PrefKeys.RESUME_ON_REPLUG, true)
-  }
-
-  @Provides
-  @Singleton
   @Named(PrefKeys.AUTO_REWIND_AMOUNT)
   fun provideAutoRewindAmountPreference(prefs: AndroidPreferences): Pref<Int> {
     return prefs.int(PrefKeys.AUTO_REWIND_AMOUNT, 2)
@@ -83,7 +79,7 @@ object PrefsModule {
   @Singleton
   @Named(PrefKeys.SLEEP_TIME)
   fun provideSleepTimePreference(prefs: AndroidPreferences): Pref<Int> {
-    return prefs.int(PrefKeys.SLEEP_TIME, 20)
+    return prefs.int(PrefKeys.SLEEP_TIME, 15)
   }
 
   @Provides
@@ -109,29 +105,43 @@ object PrefsModule {
 
   @Provides
   @Singleton
+  @OnboardingCompleted
+  fun onboardingCompleted(factory: VoiceDataStoreFactory): DataStore<Boolean> {
+    return factory.boolean("onboardingCompleted", defaultValue = false)
+  }
+
+  @Provides
+  @Singleton
   @RootAudiobookFolders
-  fun audiobookFolders(factory: SerializableDataStoreFactory): DataStore<List<Uri>> {
+  fun audiobookFolders(factory: VoiceDataStoreFactory): DataStore<List<Uri>> {
     return factory.createUriList("audiobookFolders")
   }
 
   @Provides
   @Singleton
   @SingleFolderAudiobookFolders
-  fun singleFolderAudiobookFolders(factory: SerializableDataStoreFactory): DataStore<List<Uri>> {
+  fun singleFolderAudiobookFolders(factory: VoiceDataStoreFactory): DataStore<List<Uri>> {
     return factory.createUriList("SingleFolderAudiobookFolders")
   }
 
   @Provides
   @Singleton
   @SingleFileAudiobookFolders
-  fun singleFileAudiobookFolders(factory: SerializableDataStoreFactory): DataStore<List<Uri>> {
+  fun singleFileAudiobookFolders(factory: VoiceDataStoreFactory): DataStore<List<Uri>> {
     return factory.createUriList("SingleFileAudiobookFolders")
   }
 
   @Provides
   @Singleton
+  @AuthorAudiobookFolders
+  fun authorAudiobookFolders(factory: VoiceDataStoreFactory): DataStore<List<Uri>> {
+    return factory.createUriList("AuthorAudiobookFolders")
+  }
+
+  @Provides
+  @Singleton
   @CurrentBook
-  fun currentBook(factory: SerializableDataStoreFactory): DataStore<BookId?> {
+  fun currentBook(factory: VoiceDataStoreFactory): DataStore<BookId?> {
     return factory.create(
       serializer = BookId.serializer().nullable,
       fileName = "currentBook",
@@ -142,7 +152,7 @@ object PrefsModule {
   @Provides
   @Singleton
   @BookMigrationExplanationQualifier
-  fun bookMigrationExplanationShown(factory: SerializableDataStoreFactory): BookMigrationExplanationShown {
+  fun bookMigrationExplanationShown(factory: VoiceDataStoreFactory): BookMigrationExplanationShown {
     return factory.create(Boolean.serializer(), false, "bookMigrationExplanationShown2")
   }
 
@@ -151,7 +161,7 @@ object PrefsModule {
   @Singleton
   @Named(PrefKeys.THEME)
   fun themePref(prefs: AndroidPreferences): Pref<Int> {
-    return prefs.int(PrefKeys.THEME, 0) //0-light, 1-dark, 2-system
+    return prefs.int(PrefKeys.THEME, THEME_LIGHT)
   }
 
   @Provides
@@ -159,6 +169,13 @@ object PrefsModule {
   @Named(PrefKeys.COLOR_THEME)
   fun colorThemePreference(prefs: AndroidPreferences): Pref<Int> {
     return prefs.int(PrefKeys.COLOR_THEME, Color(red = 76, green = 134, blue = 203).toArgb())
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.THEME_WIDGET)
+  fun themeWidgetPref(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.THEME_WIDGET, THEME_LIGHT)
   }
 
   @Provides
@@ -172,21 +189,21 @@ object PrefsModule {
   @Singleton
   @Named(PrefKeys.SKIP_BUTTON_STYLE)
   fun skipButtonStylePref(prefs: AndroidPreferences): Pref<Int> {
-    return prefs.int(PrefKeys.SKIP_BUTTON_STYLE, 1) // 0-classic, 1-round
+    return prefs.int(PrefKeys.SKIP_BUTTON_STYLE, SKIP_BUTTON_ROUND)
   }
 
   @Provides
   @Singleton
   @Named(PrefKeys.PLAY_BUTTON_STYLE)
   fun playButtonStylePref(prefs: AndroidPreferences): Pref<Int> {
-    return prefs.int(PrefKeys.PLAY_BUTTON_STYLE, 1) //0-classic, 1-round, 2-square
+    return prefs.int(PrefKeys.PLAY_BUTTON_STYLE, PLAY_BUTTON_ROUND_AND_SQUARE)
   }
 
   @Provides
   @Singleton
   @Named(PrefKeys.MINI_PLAYER_STYLE)
   fun miniPlayerStylePref(prefs: AndroidPreferences): Pref<Int> {
-    return prefs.int(PrefKeys.MINI_PLAYER_STYLE, 0) //0-mini player, 1-round button, 2-square button
+    return prefs.int(PrefKeys.MINI_PLAYER_STYLE, MINI_PLAYER_PLAYER)
   }
 
   @Provides
@@ -221,7 +238,7 @@ object PrefsModule {
   @Singleton
   @Named(PrefKeys.PLAYER_BACKGROUND)
   fun playerBackgroundPref(prefs: AndroidPreferences): Pref<Int> {
-    return prefs.int(PrefKeys.PLAYER_BACKGROUND, 0) //0-app background, 1-blur cover
+    return prefs.int(PrefKeys.PLAYER_BACKGROUND, PLAYER_BACKGROUND_THEME)
   }
 
   @Provides
@@ -242,7 +259,7 @@ object PrefsModule {
   @Singleton
   @Named(PrefKeys.REPEAT_MODE)
   fun repeatModePreference(prefs: AndroidPreferences): Pref<Int> {
-    return prefs.int(PrefKeys.REPEAT_MODE, 0) //0-off, 1-repeat one, 2-repeat all
+    return prefs.int(PrefKeys.REPEAT_MODE, REPEAT_OFF)
   }
 
   @Provides
@@ -254,15 +271,125 @@ object PrefsModule {
 
   @Provides
   @Singleton
+  @Named(PrefKeys.PRO_SUBS)
+  fun isProSubsPref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.PRO_SUBS, false)
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.PRO_RUSTORE)
+  fun isProRuPref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.PRO_RUSTORE, false)
+  }
+
+  @Provides
+  @Singleton
   @Named(PrefKeys.PRICES)
   fun pricesPref(prefs: AndroidPreferences): Pref<String> {
-    return prefs.string(PrefKeys.PRICES, "0,0,0")
+    return prefs.string(PrefKeys.PRICES, "0;0;0")
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.PRICES_SUBS)
+  fun pricesSubsPref(prefs: AndroidPreferences): Pref<String> {
+    return prefs.string(PrefKeys.PRICES_SUBS, "0;0;0;0;0;0")
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.PURCHASED_LIST)
+  fun purchasedList(prefs: AndroidPreferences): Pref<String> {
+    return prefs.string(PrefKeys.PURCHASED_LIST, "0;0;0")
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.PURCHASED_SUBS_LIST)
+  fun purchasedSubsList(prefs: AndroidPreferences): Pref<String> {
+    return prefs.string(PrefKeys.PURCHASED_SUBS_LIST, "0;0;0;0;0;0")
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.USE_GOOGLE_PLAY)
+  fun useGooglePlay(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.USE_GOOGLE_PLAY, true)
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.IS_PLAY_STORE_INSTALLED)
+  fun isPlayStoreInstalledPref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.IS_PLAY_STORE_INSTALLED, false)
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.IS_RU_STORE_INSTALLED)
+  fun isRuStoreInstalledPref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.IS_RU_STORE_INSTALLED, false)
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.PRICES_RUSTORE)
+  fun pricesRustorePref(prefs: AndroidPreferences): Pref<String> {
+    return prefs.string(PrefKeys.PRICES_RUSTORE, "0;0;0;0;0;0;0;0;0")
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.PURCHASED_LIST_RUSTORE)
+  fun purchasedListRustore(prefs: AndroidPreferences): Pref<String> {
+    return prefs.string(PrefKeys.PURCHASED_LIST_RUSTORE, "0;0;0;0;0;0;0;0;0")
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.SORTING)
+  fun sortingPref(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.SORTING, SORTING_CLASSIC)
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.SORTING_BOOKMARK)
+  fun sortingBookmarkPref(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.SORTING_BOOKMARK, SORTING_BOOKMARK_LAST)
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.USE_GESTURES)
+  fun useGestures(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.USE_GESTURES, true)
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.USE_HAPTIC_FEEDBACK)
+  fun useHapticFeedback(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.USE_HAPTIC_FEEDBACK, false)
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.SCAN_COVER_CHAPTER)
+  fun scanCoverChapter(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.SCAN_COVER_CHAPTER, true)
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.USE_MENU_ICONS)
+  fun useMenuIconsPref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.USE_MENU_ICONS, false)
   }
 }
 
-private fun SerializableDataStoreFactory.createUriList(
-  name: String,
-): DataStore<List<Uri>> = create(
+private fun VoiceDataStoreFactory.createUriList(name: String): DataStore<List<Uri>> = create(
   serializer = ListSerializer(UriSerializer),
   fileName = name,
   defaultValue = emptyList(),

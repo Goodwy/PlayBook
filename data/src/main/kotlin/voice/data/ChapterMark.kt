@@ -1,6 +1,7 @@
 package voice.data
 
 import kotlinx.serialization.Serializable
+import kotlin.time.Duration
 import java.io.File
 
 @Serializable
@@ -13,12 +14,26 @@ data class MarkData(
   }
 }
 
+
+@Serializable
 data class ChapterMark(
   val name: String?,
   val startMs: Long,
   val endMs: Long,
+  @Serializable(with = FileSerializer::class)
   val cover: File?,
-)
+) {
+
+  init {
+    require(startMs < endMs) {
+      "Start must be less than end in $this"
+    }
+  }
+
+  operator fun contains(position: Duration): Boolean = position.inWholeMilliseconds in startMs..endMs
+  operator fun contains(positionMs: Long): Boolean = positionMs in startMs..endMs
+}
+
 
 val ChapterMark.durationMs: Long get() = (endMs - startMs).coerceAtLeast(0L)
 

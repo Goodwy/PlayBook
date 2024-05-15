@@ -25,22 +25,25 @@ constructor(
   override suspend fun items(bookId: BookId): List<BottomSheetItem> {
     val book = repo.get(bookId) ?: return emptyList()
     return when (book.category) {
-      BookOverviewCategory.CURRENT -> listOf(
+      BookOverviewCategory.CURRENT, BookOverviewCategory.CURRENT_BY_NAME, BookOverviewCategory.CURRENT_BY_AUTHOR -> listOf(
         BottomSheetItem.BookCategoryMarkAsNotStarted,
         BottomSheetItem.BookCategoryMarkAsCompleted,
       )
-      BookOverviewCategory.NOT_STARTED -> listOf(
+      BookOverviewCategory.NOT_STARTED, BookOverviewCategory.NOT_STARTED_BY_LAST, BookOverviewCategory.NOT_STARTED_BY_AUTHOR -> listOf(
         BottomSheetItem.BookCategoryMarkAsCurrent,
         BottomSheetItem.BookCategoryMarkAsCompleted,
       )
-      BookOverviewCategory.FINISHED -> listOf(
+      BookOverviewCategory.FINISHED, BookOverviewCategory.FINISHED_BY_NAME, BookOverviewCategory.FINISHED_BY_AUTHOR -> listOf(
         BottomSheetItem.BookCategoryMarkAsCurrent,
         BottomSheetItem.BookCategoryMarkAsNotStarted,
       )
     }
   }
 
-  override suspend fun onItemClicked(bookId: BookId, item: BottomSheetItem) {
+  override suspend fun onItemClicked(
+    bookId: BookId,
+    item: BottomSheetItem,
+  ) {
     val book = repo.get(bookId) ?: return
 
     val (currentChapter, positionInChapter) = when (item) {

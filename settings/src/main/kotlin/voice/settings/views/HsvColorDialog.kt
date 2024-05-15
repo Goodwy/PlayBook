@@ -1,7 +1,6 @@
 package voice.settings.views
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,13 +16,9 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -34,22 +29,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.github.skydoves.colorpicker.compose.AlphaSlider
 import com.github.skydoves.colorpicker.compose.AlphaTile
 import com.github.skydoves.colorpicker.compose.BrightnessSlider
 import com.github.skydoves.colorpicker.compose.ColorEnvelope
 import com.github.skydoves.colorpicker.compose.HsvColorPicker
 import com.github.skydoves.colorpicker.compose.rememberColorPickerController
-import voice.common.R
-import voice.common.recomposeHighlighter
+import voice.strings.R as StringsR
+import voice.common.R as CommonR
 
 @Composable
 internal fun HsvColorDialog(
@@ -92,7 +83,7 @@ internal fun HsvColorDialog(
         Text(
           modifier = Modifier
             .padding(horizontal = 2.dp),
-          text = stringResource(id = R.string.pref_basic_color_summary),
+          text = stringResource(id = CommonR.string.pref_basic_color_summary),
           textAlign = TextAlign.Center,
           fontSize = 13.sp,
           lineHeight = 13.sp,
@@ -160,7 +151,7 @@ internal fun HsvColorDialog(
               },
             ) {
               Text(
-                text = stringResource(id = R.string.pref_default_theme_title),
+                text = stringResource(id = CommonR.string.pref_default_theme),
                 overflow = TextOverflow.Ellipsis,
               )
             }
@@ -177,7 +168,7 @@ private fun ConfirmButton(enabled: Boolean, onConfirm: () -> Unit) {
     enabled = enabled,
     onClick = onConfirm,
   ) {
-    Text(text = stringResource(id = R.string.dialog_confirm))
+    Text(text = stringResource(id = StringsR.string.dialog_confirm))
   }
 }
 
@@ -188,6 +179,6 @@ private fun DismissButton(onDismiss: () -> Unit) {
       onDismiss()
     },
   ) {
-    Text(text = stringResource(id = R.string.dialog_cancel))
+    Text(text = stringResource(id = StringsR.string.dialog_cancel))
   }
 }

@@ -14,7 +14,7 @@ import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.ArrowBackIosNew
+import androidx.compose.material.icons.automirrored.rounded.ArrowBackIos
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -36,27 +36,34 @@ import androidx.documentfile.provider.DocumentFile
 import com.squareup.anvil.annotations.ContributesTo
 import voice.common.AppScope
 import voice.common.compose.rememberScoped
+import voice.common.navigation.Destination
 import voice.common.rootComponentAs
-import voice.folderPicker.R
+import voice.strings.R as StringsR
 
 @ContributesTo(AppScope::class)
 interface SelectFolderTypeComponent {
-  val selectFolderTypeViewModel: SelectFolderTypeViewModel
+  val selectFolderTypeViewModelFactory: SelectFolderTypeViewModel.Factory
 }
 
 @Composable
-fun SelectFolderType(uri: Uri) {
+fun SelectFolderType(
+  uri: Uri,
+  mode: Destination.SelectFolderType.Mode,
+) {
+  val context = LocalContext.current
   val viewModel = rememberScoped {
-    rootComponentAs<SelectFolderTypeComponent>().selectFolderTypeViewModel
+    rootComponentAs<SelectFolderTypeComponent>().selectFolderTypeViewModelFactory
+      .create(
+        uri = uri,
+        mode = mode,
+        documentFile = DocumentFile.fromTreeUri(context, uri)!!,
+      )
   }
-  val documentFile = DocumentFile.fromTreeUri(LocalContext.current, uri) ?: return
-  viewModel.args = SelectFolderTypeViewModel.Args(uri, documentFile)
-  val viewState = viewModel.viewState()
   SelectFolderType(
-    viewState = viewState,
-    onFolderModeSelected = { viewModel.setFolderMode(it) },
-    onAddClick = { viewModel.add() },
-    onBackClick = { viewModel.onCloseClick() },
+    viewState = viewModel.viewState(),
+    onFolderModeSelected = viewModel::setFolderMode,
+    onAddClick = viewModel::add,
+    onBackClick = viewModel::onCloseClick,
   )
 }
 
@@ -74,9 +81,12 @@ private fun SelectFolderType(
   val end = viewState.paddings.substringAfterLast(';').toInt()
   Scaffold(
     modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
-      .padding(start = start.dp, end = end.dp, bottom = bottom.dp),
+      .padding(start = start.dp, end = end.dp),
     floatingActionButton = {
-      AddingFab(addButtonVisible = viewState.addButtonVisible, onAddClick = onAddClick)
+      AddingFab(
+        addButtonVisible = viewState.addButtonVisible,
+        bottom = bottom,
+        onAddClick = onAddClick)
     },
     topBar = {
       AppBar(scrollBehavior, top, onBackClick)
@@ -85,6 +95,7 @@ private fun SelectFolderType(
     Content(
       contentPadding = contentPadding,
       onFolderModeSelected = onFolderModeSelected,
+      bottom = bottom,
       viewState = viewState,
     )
   }
@@ -94,12 +105,13 @@ private fun SelectFolderType(
 private fun Content(
   contentPadding: PaddingValues,
   viewState: SelectFolderTypeViewState,
+  bottom: Int,
   onFolderModeSelected: (FolderMode) -> Unit,
 ) {
   LazyVerticalGrid(
     columns = GridCells.Adaptive(150.dp),
     contentPadding = contentPadding,
-    modifier = Modifier.fillMaxSize(),
+    modifier = Modifier.fillMaxSize().padding(bottom = bottom.dp),
   ) {
     item(
       key = "header",
@@ -117,7 +129,7 @@ private fun Content(
       Column(modifier = Modifier.padding(horizontal = 16.dp)) {
         Text(
           modifier = Modifier.padding(top = 24.dp),
-          text = stringResource(id = R.string.folder_type_book_example_header),
+          text = stringResource(id = StringsR.string.folder_type_book_example_header),
           style = MaterialTheme.typography.headlineSmall,
         )
       }
@@ -141,7 +153,10 @@ private fun Content(
           key = "noBooksDetected",
           span = { GridItemSpan(maxLineSpan) },
         ) {
-          Text(text = stringResource(id = R.string.folder_type_no_books))
+          Text(
+            modifier = Modifier.padding(24.dp),
+            color = MaterialTheme.colorScheme.error,
+            text = stringResource(id = StringsR.string.folder_type_no_books))
         }
       } else {
         item(span = { GridItemSpan(maxLineSpan) }) {
@@ -170,13 +185,13 @@ private fun AppBar(
     navigationIcon = {
       IconButton(onClick = onBackClick) {
         Icon(
-          imageVector = Icons.Rounded.ArrowBackIosNew,
-          contentDescription = stringResource(id = R.string.close),
+          imageVector = Icons.AutoMirrored.Rounded.ArrowBackIos,
+          contentDescription = stringResource(id = StringsR.string.close),
         )
       }
     },
     title = {
-      Text(text = stringResource(id = R.string.folder_type_title))
+      Text(text = stringResource(id = StringsR.string.folder_type_title))
     },
     windowInsets = WindowInsets(top = topInsets.dp),
   )

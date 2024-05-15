@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Vzhľad</string>
   <string name="pref_appearance_ui_library_title">Vzhľad používateľského rozhrania knižnice</string>
   <string name="pref_appearance_ui_player_title">Vzhľad používateľského rozhrania prehrávača</string>
+  <string name="pref_playback">Prehrávanie</string>
   <string name="pref_category_other">Iné</string>
 
   <!--Nastavenie farieb-->
   <string name="pref_basic_color">Základná farba</string>
   <string name="pref_basic_color_summary">Zadajte vlastnú farbu klávesu, ktorej sa automaticky priradí sada doplnkových tónov.</string>
-  <string name="pref_default_theme_title">Nastaviť predvolené</string>
+  <string name="pref_default_theme">Nastaviť predvolené</string>
 
   <!--BookPlay-->
   <string name="custom">Vlastné</string>
@@ -93,9 +94,30 @@ Bol by som veľmi vďačný, keby ste na Google Play zanechali recenziu alebo ho
   <string name="special_thanks_to">Špeciálne poďakovanie</string>
 
   <!--Fakturácia-->
-  <string name="tipping_jar_dialog_sucess_title">Ďakujeme!</string>
-  <string name="tipping_jar_dialog_sucess_message">Veľká vďaka za podporu vývoja PlayBook. Ste skvelí a vývojár na vás nikdy nezabudne!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Ste vítaní</string>
+  <string name="tipping_jar_dialog_success_title">Ďakujeme!</string>
+  <string name="tipping_jar_dialog_success_message">Veľká vďaka za podporu vývoja PlayBook. Ste skvelí a vývojár na vás nikdy nezabudne!</string>
+  <string name="tipping_jar_dialog_success_button_title">Ste vítaní</string>
   <string name="tipping_jar_dialog_error_title">Nepodarilo sa podať tip</string>
   <string name="tipping_jar_dialog_error_message">Bohužiaľ, počas transakcie s tipovaním sa stalo niečo zlé. Nebuďte smutní, skúste to znova inokedy a užite si PlayBook</string>
+    <string name="pref_use_haptic_feedback">Používanie haptickej odozvy</string>
+  <string name="pref_widget">Miniaplikácia</string>
+  <string name="pref_scan_chapter_covers">Skenovanie obalov kapitol</string>
+  <string name="pref_subtitle_scan_chapter_covers">Zmenou sa odstránia súčasné obaly kníh. Obaly kapitol budú zaberať ďalšiu pamäť na zariadení</string>
+  <string name="pref_delete_cover_files">Odstráňte súbory obalu</string>
+  <string name="pref_subtitle_delete_cover_files">Všetky uložené kryty v aplikácii budú odstránené. Obaly sa znova načítajú zo súborov kníh</string>
+  <string name="pref_use_menu_icons">Používanie ikon menu</string>
+  <string name="pref_category_general">Všeobecné</string>
+  <string name="pref_sorting">Zoradenie podľa</string>
+  <string name="pref_sorting_last">Naposledy pridané alebo použité</string>
+  <string name="pref_sorting_last_added">Naposledy pridané</string>
+  <string name="pref_sorting_time">Čas</string>
+  <string name="change_book_author">Autor</string>
+  <string name="edit_book_author">Upraviť autora</string>
+  <string name="onboarding_gestures_title">Používanie gest</string>
+  <string name="onboarding_show_player">Zobraziť prehrávač</string>
+  <string name="onboarding_show_list_chapters">Zobraziť zoznam kapitol</string>
+  <string name="onboarding_double_tap">Dvojitým klepnutím prehráte alebo pozastavíte prehrávanie</string>
+  <string name="per_month">%s/mesiac</string>
+  <string name="per_year">%s/rok</string>
+  <string name="restore_purchase">Obnoviť nákup</string>
 </resources>

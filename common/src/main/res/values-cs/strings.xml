@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Vzhled</string>
   <string name="pref_appearance_ui_library_title">Vzhled uživatelského rozhraní knihovny</string>
   <string name="pref_appearance_ui_player_title">Vzhled uživatelského rozhraní přehrávače</string>
+  <string name="pref_playback">Přehrávka</string>
   <string name="pref_category_other">Jiné</string>
 
   <!--Nastavení barev-->
   <string name="pref_basic_color">Základní barva</string>
   <string name="pref_basic_color_summary">Zadejte vlastní barvu klávesy, které se automaticky přiřadí sada doplňkových tónů.</string>
-  <string name="pref_default_theme_title">Nastavit výchozí</string>
+  <string name="pref_default_theme">Nastavit výchozí</string>
 
   <!--BookPlay-->
   <string name="custom">Vlastní</string>
@@ -93,9 +94,30 @@ Byl bych velmi vděčný, kdybyste na Google Play zanechali recenzi nebo hodnoce
   <string name="special_thanks_to">Zvláštní poděkování</string>
 
   <!--Fakturace-->
-  <string name="tipping_jar_dialog_sucess_title">Mockrát děkujeme!</string>
-  <string name="tipping_jar_dialog_sucess_message">Velmi děkujeme za podporu vývoje PlayBook. Jste skvělí a vývojář na vás nikdy nezapomene!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Není zač</string>
+  <string name="tipping_jar_dialog_success_title">Mockrát děkujeme!</string>
+  <string name="tipping_jar_dialog_success_message">Velmi děkujeme za podporu vývoje PlayBook. Jste skvělí a vývojář na vás nikdy nezapomene!</string>
+  <string name="tipping_jar_dialog_success_button_title">Není zač</string>
   <string name="tipping_jar_dialog_error_title">Spropitné se nezdařilo</string>
   <string name="tipping_jar_dialog_error_message">Při provádění spropitné se bohužel stalo něco špatného. Nebuďte smutní, zkuste to znovu jindy a užijte si PlayBook</string>
+    <string name="pref_use_haptic_feedback">Použití haptické odezvy</string>
+  <string name="pref_widget">Věcička</string>
+  <string name="pref_scan_chapter_covers">Skenování obalů kapitol</string>
+  <string name="pref_subtitle_scan_chapter_covers">Změna vymaže aktuální obálky knih. Obálky kapitol budou zabírat další paměť v zařízení</string>
+  <string name="pref_delete_cover_files">Odstranění souborů obalu</string>
+  <string name="pref_subtitle_delete_cover_files">Všechny kryty uložené v aplikaci budou smazány. Obálky budou znovu načteny ze souborů knihy</string>
+  <string name="pref_use_menu_icons">Použití ikon nabídky</string>
+  <string name="pref_category_general">Obecné</string>
+  <string name="pref_sorting">Řazení podle</string>
+  <string name="pref_sorting_last">Naposledy přidané nebo použité</string>
+  <string name="pref_sorting_last_added">Naposledy přidané</string>
+  <string name="pref_sorting_time">Čas</string>
+  <string name="change_book_author">Autor</string>
+  <string name="edit_book_author">Upravit autora</string>
+  <string name="onboarding_gestures_title">Používání gest</string>
+  <string name="onboarding_show_player">Zobrazit přehrávač</string>
+  <string name="onboarding_show_list_chapters">Zobrazit seznam kapitol</string>
+  <string name="onboarding_double_tap">Poklepáním spustíte nebo pozastavíte přehrávání</string>
+  <string name="per_month">%s/měsíc</string>
+  <string name="per_year">%s/rok</string>
+  <string name="restore_purchase">Obnovení nákupu</string>
 </resources>

@@ -1,16 +1,18 @@
 package voice.sleepTimer
 
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
+import com.squareup.anvil.annotations.ContributesBinding
 import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeout
+import voice.common.AppScope
 import voice.common.BookId
 import voice.common.pref.PrefKeys
 import voice.data.repo.BookRepository
@@ -25,8 +27,10 @@ import kotlin.time.Duration
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Duration.Companion.seconds
+import voice.playback.session.SleepTimer as PlaybackSleepTimer
 
 @Singleton
+@ContributesBinding(AppScope::class)
 class SleepTimer
 @Inject constructor(
   private val playStateManager: PlayStateManager,
@@ -35,10 +39,9 @@ class SleepTimer
   private val sleepTimePref: Pref<Int>,
   private val playerController: PlayerController,
   private val bookRepo: BookRepository,
-) {
+) : PlaybackSleepTimer {
 
   private val scope = MainScope()
-  private val sleepTime: Duration get() = sleepTimePref.value.minutes
   private val fadeOutDuration = 10.seconds
 
   private val _leftSleepTime = MutableStateFlow(Duration.ZERO)
@@ -53,23 +56,23 @@ class SleepTimer
     set(value) {
       _sleepAtEoc.value = value
     }
-  val leftSleepTimeFlow: Flow<Duration> get() = _leftSleepTime
-  val sleepAtEocFlow: Flow<Boolean> get() = _sleepAtEoc
+  override val leftSleepTimeFlow: StateFlow<Duration> get() = _leftSleepTime
+  override val sleepAtEocFlow: StateFlow<Boolean> get() = _sleepAtEoc
 
-  fun sleepTimerActive(): Boolean = (sleepJob?.isActive == true && leftSleepTime > Duration.ZERO) || sleepAtEoc
+  override fun sleepTimerActive(): Boolean = sleepJob?.isActive == true && leftSleepTime > Duration.ZERO
 
   private var sleepJob: Job? = null
 
-  fun setActive(enable: Boolean) {
+  override fun setActive(enable: Boolean) {
     Logger.i("enable=$enable")
     if (enable) {
-      start()
+      setActive()
     } else {
       cancel()
     }
   }
 
-  fun setEoc(enable: Boolean, bookId: BookId) {
+  override fun setEoc(enable: Boolean, bookId: BookId) {
     Logger.i("sleep at EOC enable=$enable")
     if (enable) {
       startEoc(bookId)
@@ -78,7 +81,7 @@ class SleepTimer
     }
   }
 
-  private fun start() {
+  fun setActive(sleepTime: Duration = sleepTimePref.value.minutes) {
     Logger.i("Starting sleepTimer. Pause in $sleepTime.")
     leftSleepTime = sleepTime
     playerController.setVolume(1F)
@@ -91,7 +94,7 @@ class SleepTimer
         shakeDetector.detect()
         Logger.i("Shake detected. Reset sleep time")
         playerController.play()
-        start()
+        setActive()
       }
       Logger.i("exiting")
     }

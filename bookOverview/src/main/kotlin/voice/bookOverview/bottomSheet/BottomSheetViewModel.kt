@@ -28,7 +28,7 @@ class BottomSheetViewModel
       val items = viewModels.flatMap { it.items(bookId) }
         .toSet()
         .sorted()
-      _state.value = EditBookBottomSheetState(items)
+      _state.value = EditBookBottomSheetState(items.filter { it.showBookMark })
     }
   }
 

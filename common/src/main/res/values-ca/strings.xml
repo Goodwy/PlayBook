@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation" tools:locale="en">
+  <!--PlayBook strings-->
+  <!--Settings-->
+  <string name="pref_about_title">Quant a</string>
+  <string name="pref_follow_system">Seguir el sistema</string>
+  <string name="pref_forward">Endavant</string>
+  <string name="pref_grid_view">Mostra la graella</string>
+  <string name="pref_layout_list">Disposició de la llista</string>
+  <string name="pref_layout_grid">Disposició de quadrícula</string>
+  <string name="pref_mini_player_floating_button">Botó</string>
+  <string name="pref_mini_player_mini_player_floating">Reproductor flotant</string>
+  <string name="pref_player_background_title">Fons del reproductor</string>
+  <string name="pref_player_background_theme">Fond de l\'aplicació</string>
+  <string name="pref_player_background_blurred_cover">Portada borrosa</string>
+  <string name="pref_play_buttons_style_title">Estil de botó de reproducció</string>
+  <string name="pref_rewind">Rebobina</string>
+  <string name="pref_rewind_buttons_style_title">Estil dels botons de rebobinar</string>
+  <string name="pref_rewind_buttons_style_classic">Clàssic</string>
+  <string name="pref_rewind_buttons_style_rounded">Arrodonit</string>
+  <string name="pref_rewind_buttons_style_square">Quadrat</string>
+  <string name="pref_show_mini_player_title">Estil de minireproductor</string>
+  <string name="pref_show_slider_volume_title">Control de volum</string>
+  <string name="pref_use_transparent_navigation">Utilitza la barra de navegació transparent</string>
+  <string name="pref_use_chapter_cover">Utilitza la portada del capítol</string>
+  <string name="pref_use_haptic_feedback">Utilitza els comentaris hàptics</string>
+  <string name="pref_widget">Giny</string>
+  <string name="pref_scan_chapter_covers">Escaneja les cobertes del capítol</string>
+  <string name="pref_subtitle_scan_chapter_covers">El canvi esborrarà les cobertes dels llibres actuals. Les cobertes dels capítols ocuparan memòria addicional al dispositiu</string>
+  <string name="pref_delete_cover_files">Suprimeix els fitxers de portada</string>
+  <string name="pref_subtitle_delete_cover_files">Se suprimiran totes les fundes desades a l\'aplicació. Les portades es tornaran a carregar des de les fitxes del llibre</string>
+  <string name="pref_use_menu_icons">Utilitzar icones de menú</string>
+
+  <!-- Themes -->
+  <string name="theme">Tema</string>
+  <string name="light_theme">Llum</string>
+  <string name="dark_theme">Fosc</string>
+
+  <!--Setting headers-->
+  <string name="pref_category_appearance">Aspecte</string>
+  <string name="pref_appearance_ui_library_title">Interfície de biblioteca</string>
+  <string name="pref_appearance_ui_player_title">Interfície del jugador</string>
+  <string name="pref_playback">Reproducció</string>
+  <string name="pref_category_other">Altres</string>
+  <string name="pref_category_general">General</string>
+
+  <!--Setting colors-->
+  <string name="pref_basic_color">Color bàsic</string>
+  <string name="pref_basic_color_summary">Introdueix un color de clau personalitzat que s\'assigna automàticament un conjunt de tons complementaris.</string>
+  <string name="pref_default_theme">Estableix per defecte</string>
+
+  <!--BookPlay-->
+  <string name="custom">Personalitzat</string>
+  <string name="end_of_current_chapter">Fi del capítol actual</string>
+  <string name="left">%s esquerra</string>
+  <string name="left_in_audiobook">Queden %s a l\'audiollibre</string>
+  <string name="hours_letter">h</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Mostra els números de capítol</string>
+  <string name="sleep_timer_note">Per reiniciar, sacseja el dispositiu en un termini de 30 segons després d\'haver acabat</string>
+  <string name="repeat">Repetiu</string>
+  <plurals name="chapters_count">
+    <item quantity="one">%d capítol</item>
+    <item quantity="many">%d capítols</item>
+    <item quantity="other">%d capítols</item>
+  </plurals>
+
+  <!--Setting sorting-->
+  <string name="pref_sorting">Ordenació per</string>
+  <string name="pref_sorting_last">Afegit o utilitzat per darrera vegada</string>
+  <string name="pref_sorting_last_added">Últim afegit</string>
+  <string name="pref_sorting_time">Hora</string>
+
+  <!--BookOverview-->
+  <string name="folders">Carpetes</string>
+  <string name="settings">Configuració</string>
+
+  <!--EditBookDialog-->
+  <string name="change_book_author">Autor</string>
+  <string name="edit_book_author">Edita l\'autor</string>
+  <string name="ok">D\'acord</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">Almacenament intern</string>
+
+  <!--Other-->
+  <string name="copied_to_clipboard_show">S\'ha copiat al porta-retalls:\n%s</string>
+  <string name="cleared">Cleared</string>
+
+  <!--About-->
+  <string name="pref_about_message"><![CDATA[
+        Un reproductor d\'audiollibres <b>PlayBook</b> de codi obert. PlayBook es basa en l\'aplicació Voice de codi obert.
+        <br/><br/>
+
+        Us agrairia molt que deixeu una ressenya o una valoració sobre l\'aplicació a Google Play, ajudarà molt al desenvolupament del projecte.<br/>
+    ]]></string>
+  <string name="pref_rate_title">Valora l\'aplicació</string>
+  <string name="pref_other_app_title">Altres aplicacions</string>
+  <string name="pref_privacy_title">Política de privadesa</string>
+  <string name="pref_share_title">Comparteix</string>
+
+  <!--Purchase-->
+  <string name="tipping_jar_title">Pot de consells</string>
+  <string name="tip_kind">Consell amable de</string>
+  <string name="tip_excellent">Excel·lent consell de</string>
+  <string name="tip_incredible">Increïble consell de</string>
+  <string name="action_support_project">Projecte de suport</string>
+  <string name="action_support_project_summary">Aconsegueix l\'aplicació de pagament per donar suport a desenvolupaments futurs i obtenir funcions addicionals</string>
+  <string name="learn_more">Més informació</string>
+  <string name="theme_summary">El tema fosc utilitza menys energia a les pantalles AMOLED</string>
+  <string name="color_title">Colors</string>
+  <string name="color_summary">Esquemes de colors escollits amb cura perquè coincideixin amb els vostres llibres preferits</string>
+  <string name="plus_title">Doneu-nos suport</string>
+  <string name="plus_summary">Totes les nostres aplicacions estan lliures d\'anuncis, de codi obert i sempre seguirà sent així. Amb la vostra ajuda podem implementar més funcions i millorar-les encara</string>
+  <string name="lifebuoy_title">T\'ajudarem</string>
+  <string name="lifebuoy_summary">Si per algun motiu no us podeu permetre pagar la nostra aplicació, però realment voleu utilitzar totes les funcions, només envieu-nos un correu electrònic</string>
+  <string name="participants_title">Participants</string>
+  <string name="special_thanks_to">Gràcies especials a</string>
+
+  <!--Billing-->
+  <string name="tipping_jar_dialog_success_title">Moltes gràcies!</string>
+  <string name="tipping_jar_dialog_success_message">Moltíssimes gràcies per donar suport al desenvolupament de PlayBook. Ets fantàstic i el desenvolupador mai t\'oblidarà!</string>
+  <string name="tipping_jar_dialog_success_button_title">Et benvingut</string>
+  <string name="tipping_jar_dialog_error_title">No s\'ha pogut donar la propina</string>
+  <string name="tipping_jar_dialog_error_message">Desafortunadament, ha passat alguna cosa dolenta durant la transacció de propina. No estiguis trist, torna-ho a provar una altra vegada i gaudeix de PlayBook</string>
+
+  <!--Onboarding-->
+  <string name="onboarding_welcome_title_g">Benvingut a PlayBook!</string>
+  <string name="onboarding_gestures_title">Utilitzar gestos</string>
+  <string name="onboarding_show_player">Mostra el reproductor</string>
+  <string name="onboarding_show_list_chapters">Mostra la llista de capítols</string>
+  <string name="onboarding_double_tap">Feu doble toc per reproduir o posar en pausa</string>
+
+  <!--RuStore-->
+  <string name="billing_purchase_confirm_in_progress">Confirmant la compra…</string>
+  <string name="billing_purchase_delete_in_progress">S\'està suprimint una compra…</string>
+  <string name="billing_product_confirmed">Producte confirmat</string>
+  <string name="billing_product_deleted">Compra cancel·lada</string>
+  <string name="billing_subscriptions">Subscripcions</string>
+  <string name="no_connection">Sense connexió</string>
+  <string name="per_month">%s/mes</string>
+  <string name="per_year">%s/any</string>
+  <string name="restore_purchase">Restaura la compra</string>
+
+  <string name="unlock">Descobrir</string>
+  <string name="donate_text">
+        <![CDATA[
+            Per a aquells que no utilitzin Google Play, és possible desbloquejar totes les funcions de l\'aplicació. <br>
+            Si us agraden les nostres aplicacions que estan fora de línia, no intrusives i no tenen anuncis, considereu donar-nos suport d\'alguna manera. Estaríem molt agraïts.<br><br>
+            Gràcies!
+        ]]>
+    </string>
+</resources>

@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 import voice.common.compose.ImmutableFile
 import voice.data.ChapterMark
 import voice.playback.misc.Decibel
+import voice.sleepTimer.SleepTimerViewState
 import kotlin.time.Duration
 
 @Immutable
@@ -12,6 +13,7 @@ data class BookPlayViewState(
   val showPreviousNextButtons: Boolean,
   val title: String,
   val sleepTime: Duration,
+  val customSleepTime: Int,
   val sleepEoc: Boolean,
   val playedTime: Duration,
   val duration: Duration,
@@ -21,8 +23,10 @@ data class BookPlayViewState(
   // PlayBooks
   val showChapterNumbers: Boolean,
   val useChapterCover: Boolean,
+  val scanCoverChapter: Boolean,
   val playedTimeInPer: Long,
   val remainingTimeInMs: Long,
+  val bookDuration: Long,
   val seekTime: Int,
   val seekTimeRewind: Int,
   val currentVolume: Int,
@@ -36,7 +40,16 @@ data class BookPlayViewState(
   val author: String?,
   val playerBackground: Int,
   val repeatModeBook: Int,
-)
+  val useGestures: Boolean,
+  val useHapticFeedback: Boolean,
+) {
+
+  init {
+    require(duration > Duration.ZERO) {
+      "Duration must be positive in $this"
+    }
+  }
+}
 
 internal sealed interface BookPlayDialogViewState {
   data class SpeedDialog(
@@ -55,6 +68,15 @@ internal sealed interface BookPlayDialogViewState {
   data class SelectChapterDialog(
     val chapters: List<ChapterMark>,
     val selectedIndex: Int?,
+  ) : BookPlayDialogViewState
+
+  @JvmInline
+  value class SleepTimer(
+    val viewState: SleepTimerViewState,
+  ) : BookPlayDialogViewState
+
+  data class JumpToPosition(
+    val duration: Duration,
   ) : BookPlayDialogViewState
 }
 

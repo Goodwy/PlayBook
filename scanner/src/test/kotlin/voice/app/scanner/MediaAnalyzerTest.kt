@@ -1,11 +1,11 @@
 package voice.app.scanner
 
-import androidx.documentfile.provider.DocumentFile
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
+import voice.documentfile.FileBasedDocumentFile
 import java.io.File
 
 internal class MediaAnalyzerTest {
@@ -15,7 +15,7 @@ internal class MediaAnalyzerTest {
 
   @Test
   fun chapterNameUsed() = runTest {
-    val file = DocumentFile.fromFile(File("mybook.mp3"))
+    val file = FileBasedDocumentFile(File("mybook.mp3"))
     coEvery {
       ffprobe.analyze(any())
     } returns MetaDataScanResult(
@@ -25,12 +25,12 @@ internal class MediaAnalyzerTest {
         duration = 123.45,
       ),
     )
-    analyzer.analyze(file)!!.chapterName shouldBe "MyTitle"
+    analyzer.analyze(file)!!.title shouldBe "MyTitle"
   }
 
   @Test
   fun chapterFallbackDerivedFromFileName() = runTest {
-    val file = DocumentFile.fromFile(File("mybook.mp3"))
+    val file = FileBasedDocumentFile(File("mybook.mp3"))
     coEvery {
       ffprobe.analyze(any())
     } returns MetaDataScanResult(
@@ -39,6 +39,6 @@ internal class MediaAnalyzerTest {
         duration = 123.45,
       ),
     )
-    analyzer.analyze(file)!!.chapterName shouldBe "mybook"
+    analyzer.analyze(file)!!.fileName shouldBe "mybook"
   }
 }

@@ -2,22 +2,28 @@ package voice.app
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.datastore.core.DataStore
-import com.google.accompanist.navigation.animation.AnimatedNavHost
-import com.google.accompanist.navigation.animation.composable
-import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import dev.olshevski.navigation.reimagined.AnimatedNavHost
+import dev.olshevski.navigation.reimagined.NavBackHandler
+import dev.olshevski.navigation.reimagined.NavController
+import dev.olshevski.navigation.reimagined.navigate
+import dev.olshevski.navigation.reimagined.pop
+import dev.olshevski.navigation.reimagined.rememberNavController
+import dev.olshevski.navigation.reimagined.replaceLast
 import voice.app.injection.appComponent
-import voice.bookOverview.search.BookSearchScreen
 import voice.bookOverview.views.BookOverviewScreen
-import voice.common.BookId
 import voice.common.compose.ComposeController
 import voice.common.navigation.Destination
 import voice.common.navigation.NavigationCommand
 import voice.common.navigation.Navigator
-import voice.common.pref.CurrentBook
-import voice.folderPicker.folderPicker.FolderPicker
+import voice.cover.SelectCoverFromInternet
+import voice.folderPicker.addcontent.AddContent
+import voice.folderPicker.folderPicker.FolderOverview
 import voice.folderPicker.selectType.SelectFolderType
 import voice.migration.views.Migration
+import voice.onboarding.OnboardingExplanation
+import voice.onboarding.OnboardingWelcome
+import voice.onboarding.completion.OnboardingCompletion
+import voice.review.ReviewFeature
 import voice.settings.views.Settings
 import voice.settings.about.About
 import voice.settings.purchase.Purchase
@@ -29,49 +35,89 @@ class AppController : ComposeController() {
     appComponent.inject(this)
   }
 
-  @field:[
-    Inject
-    CurrentBook
-  ]
-  lateinit var currentBookIdPref: DataStore<BookId?>
+  @Inject
+  lateinit var startDestinationProvider: StartDestinationProvider
 
   @Inject
   lateinit var navigator: Navigator
 
   @Composable
   override fun Content() {
-    val navController = rememberAnimatedNavController()
-    AnimatedNavHost(navController = navController, startDestination = Destination.BookOverview.route) {
-      composable(Destination.BookOverview.route) {
-        BookOverviewScreen()
-      }
-      composable(Destination.Settings.route) {
-        Settings()
-      }
-      composable(Destination.Migration.route) {
-        Migration()
-      }
-      composable(Destination.FolderPicker.route) {
-        FolderPicker(
-          onCloseClick = {
-            navController.popBackStack()
+    val navController: NavController<Destination.Compose> = rememberNavController(
+      startDestination = startDestinationProvider(),
+    )
+    NavBackHandler(navController)
+    AnimatedNavHost(
+      navController,
+      transitionSpec = { action, destination, _ ->
+        navTransition(action, destination)
+      },
+    ) { destination ->
+      when (destination) {
+        Destination.BookOverview -> {
+          BookOverviewScreen()
+        }
+        Destination.FolderPicker -> {
+          FolderOverview(
+            onCloseClick = {
+              navController.pop()
+            },
+          )
+        }
+        Destination.Migration -> {
+          Migration()
+        }
+        is Destination.SelectFolderType -> {
+          SelectFolderType(
+            uri = destination.uri,
+            mode = destination.mode,
+          )
+        }
+        Destination.Settings -> {
+          Settings()
+        }
+        is Destination.CoverFromInternet -> {
+          SelectCoverFromInternet(
+            bookId = destination.bookId,
+            onCloseClick = { navController.pop() },
+          )
+        }
+        is Destination.AddContent -> AddContent(destination.mode)
+
+        Destination.OnboardingCompletion -> OnboardingCompletion()
+        Destination.OnboardingCompletionFaq -> OnboardingCompletion(isFaq = true)
+        Destination.OnboardingExplanation -> OnboardingExplanation(
+          onNext = {
+            navController.navigate(
+              Destination.AddContent(
+                mode = Destination.AddContent.Mode.Onboarding,
+              ),
+            )
+          },
+          onBack = {
+            navController.pop()
           },
         )
-      }
-      composable(Destination.BookSearch.route) {
-        BookSearchScreen()
-      }
-      composable(Destination.SelectFolderType.route) { backStackEntry ->
-        val destination = Destination.SelectFolderType.parse(backStackEntry.arguments!!)
-        SelectFolderType(uri = destination.uri)
-      }
-      composable(Destination.About.route) {
-        About()
-      }
-      composable(Destination.Purchase.route) {
-        Purchase()
+        Destination.OnboardingWelcome -> OnboardingWelcome(
+//          onNext = { navController.navigate(Destination.OnboardingExplanation) },
+          onNext = {
+            navController.navigate(
+              Destination.AddContent(
+                mode = Destination.AddContent.Mode.Onboarding,
+              ),
+            )
+          },
+        )
+        Destination.About -> {
+          About()
+        }
+        Destination.Purchase -> {
+          Purchase()
+        }
       }
     }
+
+    ReviewFeature()
 
     LaunchedEffect(navigator) {
       navigator.navigationCommands.collect { command ->
@@ -79,7 +125,11 @@ class AppController : ComposeController() {
           is NavigationCommand.GoTo -> {
             when (val destination = command.destination) {
               is Destination.Compose -> {
-                navController.navigate(destination.route)
+                if (command.replace) {
+                  navController.replaceLast(destination)
+                } else {
+                  navController.navigate(destination)
+                }
               }
               else -> {
                 // no-op
@@ -87,7 +137,10 @@ class AppController : ComposeController() {
             }
           }
           NavigationCommand.GoBack -> {
-            navController.popBackStack()
+            navController.pop()
+          }
+          is NavigationCommand.Execute -> {
+            command.action(navController)
           }
         }
       }

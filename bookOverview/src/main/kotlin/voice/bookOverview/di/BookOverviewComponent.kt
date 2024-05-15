@@ -4,6 +4,7 @@ import com.squareup.anvil.annotations.ContributesSubcomponent
 import com.squareup.anvil.annotations.ContributesTo
 import voice.bookOverview.bottomSheet.BottomSheetViewModel
 import voice.bookOverview.deleteBook.DeleteBookViewModel
+import voice.bookOverview.editAuthor.EditBookAuthorViewModel
 import voice.bookOverview.editTitle.EditBookTitleViewModel
 import voice.bookOverview.fileCover.FileCoverViewModel
 import voice.bookOverview.overview.BookOverviewViewModel
@@ -18,6 +19,7 @@ annotation class BookOverviewScope
 interface BookOverviewComponent {
   val bookOverviewViewModel: BookOverviewViewModel
   val editBookTitleViewModel: EditBookTitleViewModel
+  val editBookAuthorViewModel: EditBookAuthorViewModel
   val bottomSheetViewModel: BottomSheetViewModel
   val deleteBookViewModel: DeleteBookViewModel
   val fileCoverViewModel: FileCoverViewModel

@@ -1,7 +1,5 @@
 package voice.bookOverview.views
 
-import androidx.annotation.FloatRange
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
@@ -20,6 +19,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.RadioButtonUnchecked
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,11 +28,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.intl.LocaleList
@@ -44,27 +41,32 @@ import coil.compose.AsyncImage
 import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import voice.bookOverview.R
 import voice.bookOverview.overview.BookOverviewCategory
 import voice.bookOverview.overview.BookOverviewItemViewState
 import voice.common.BookId
 import voice.common.compose.ImmutableFile
 import voice.common.compose.LongClickableCard
-import voice.common.compose.plus
-import voice.common.recomposeHighlighter
 import java.text.DecimalFormat
+import voice.common.R as CommonR
 
 @Composable
 internal fun ListBooks(
-  contentPadding: PaddingValues,
   books: ImmutableMap<BookOverviewCategory, List<BookOverviewItemViewState>>,
   onBookClick: (BookId) -> Unit,
   onBookLongClick: (BookId) -> Unit,
+  showPermissionBugCard: Boolean,
+  onPermissionBugCardClicked: () -> Unit,
+  currentBook: BookId?,
 ) {
   LazyColumn(
     verticalArrangement = Arrangement.spacedBy(8.dp),
-    contentPadding = contentPadding + PaddingValues(top = 8.dp, start = 10.dp, end = 10.dp, bottom = 146.dp),
+    contentPadding = PaddingValues(top = 8.dp, start = 10.dp, end = 10.dp, bottom = 146.dp),
   ) {
+    if (showPermissionBugCard) {
+      item {
+        PermissionBugCard(onPermissionBugCardClicked)
+      }
+    }
     books.forEach { (category, books) ->
       if (books.isEmpty()) return@forEach
       stickyHeader(
@@ -84,10 +86,12 @@ internal fun ListBooks(
         key = { it.id.value },
         contentType = { "item" },
       ) { book ->
+        val isCurrentBook = book.id == currentBook
         ListBookRow(
           book = book,
           onBookClick = onBookClick,
           onBookLongClick = onBookLongClick,
+          isCurrentBook = isCurrentBook,
         )
       }
     }
@@ -101,6 +105,7 @@ internal fun ListBookRow(
   onBookLongClick: (BookId) -> Unit,
   modifier: Modifier = Modifier,
   hideKeyboard: Boolean = false,
+  isCurrentBook: Boolean = false,
 ) {
   val keyboardController = LocalSoftwareKeyboardController.current
   val scope = rememberCoroutineScope()
@@ -124,7 +129,6 @@ internal fun ListBookRow(
       else onBookLongClick(book.id)
     },
     modifier = modifier
-      .recomposeHighlighter()
       .fillMaxWidth(),
   ) {
     Column {
@@ -133,7 +137,7 @@ internal fun ListBookRow(
         Column(
           modifier = Modifier
             .height(79.dp)
-            .padding(start = 12.dp, end = 8.dp, top = 4.dp, bottom = 4.dp),
+            .padding(start = 12.dp, end = 8.dp),
           verticalArrangement = Arrangement.SpaceEvenly
         ) {
           if (book.author != null) {
@@ -142,14 +146,17 @@ internal fun ListBookRow(
               style = MaterialTheme.typography.labelSmall,
               overflow = TextOverflow.Ellipsis,
               maxLines = 1,
+              color = if (isCurrentBook) MaterialTheme.colorScheme.primary else Color.Unspecified,
             )
           }
           Text(
+            modifier = Modifier.padding(bottom = 2.dp).heightIn(min = 14.dp, max = 38.dp),
             text = book.name,
             style = MaterialTheme.typography.bodyMedium,
-            lineHeight = 16.sp,
+            lineHeight = 14.sp,
             overflow = TextOverflow.Ellipsis,
             maxLines = 2,
+            color = if (isCurrentBook) MaterialTheme.colorScheme.primary else Color.Unspecified,
           )
           Row(
             modifier = Modifier
@@ -161,27 +168,33 @@ internal fun ListBookRow(
                 modifier = Modifier.size(16.dp),
                 imageVector = Icons.Rounded.RadioButtonUnchecked,
                 contentDescription = null,
-                //tint = MaterialTheme.colorScheme.primary
+                tint = if (isCurrentBook) MaterialTheme.colorScheme.primary else LocalContentColor.current,
               )
-              BookProgress(progress = book.progress, primaryColor = MaterialTheme.colorScheme.onBackground)
+              BookProgress(
+                progress = book.progress,
+                bgColor = if (isCurrentBook) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onBackground,
+                primaryColor = if (isCurrentBook) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onBackground
+              )
             }
             Spacer(modifier = Modifier.size(4.dp))
             Text(
               text = DecimalFormat("0").format(book.progress * 100).toString() + "%",
               style = MaterialTheme.typography.bodySmall,
+              color = if (isCurrentBook) MaterialTheme.colorScheme.primary else Color.Unspecified,
             )
             Spacer(modifier = Modifier.size(16.dp))
             Icon(
               modifier = Modifier.size(16.dp),
               //imageVector = Icons.Rounded.Schedule,
-              painter = painterResource(id = R.drawable.ic_time_left),
+              painter = painterResource(id = CommonR.drawable.ic_time_left),
               contentDescription = null,
-              //tint = MaterialTheme.colorScheme.primary,
+              tint = if (isCurrentBook) MaterialTheme.colorScheme.primary else LocalContentColor.current,
             )
             Spacer(modifier = Modifier.size(4.dp))
             Text(
               text = book.remainingTime,
               style = MaterialTheme.typography.bodySmall,
+              color = if (isCurrentBook) MaterialTheme.colorScheme.primary else Color.Unspecified,
             )
           }
         }
@@ -190,7 +203,7 @@ internal fun ListBookRow(
       /*if (book.progress > 0.05) {
         LinearProgressIndicator(
           modifier = Modifier.fillMaxWidth(),
-          progress = book.progress,
+          progress = { book.progress },
         )
       }*/
     }
@@ -201,7 +214,6 @@ internal fun ListBookRow(
 private fun CoverImage(cover: ImmutableFile?) {
   AsyncImage(
     modifier = Modifier
-      .recomposeHighlighter()
       .padding(top = 8.dp, start = 8.dp, bottom = 8.dp)
       .size(63.dp) //76.dp
       .shadow(
@@ -214,8 +226,8 @@ private fun CoverImage(cover: ImmutableFile?) {
       .clip(RoundedCornerShape(8.dp)),
     contentScale = ContentScale.Crop,
     model = cover?.file,
-    placeholder = painterResource(id = R.drawable.album_art),
-    error = painterResource(id = R.drawable.album_art),
+    placeholder = painterResource(id = CommonR.drawable.album_art),
+    error = painterResource(id = CommonR.drawable.album_art),
     contentDescription = null,
   )
 }

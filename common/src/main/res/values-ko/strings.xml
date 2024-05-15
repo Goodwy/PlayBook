@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">외모</string>
   <string name="pref_appearance_ui_library_title">라이브러리 UI 모양</string>
   <string name="pref_appearance_ui_player_title">플레이어 UI 모습</string>
+  <string name="pref_playback">재생</string>
   <string name="pref_category_other">기타</string>
 
   <!--색상 설정-->
   <string name="pref_basic_color">기본 색상</string>
   <string name="pref_basic_color_summary">자동으로 보색 세트를 지정하는 맞춤 키 색상을 입력하세요.</string>
-  <string name="pref_default_theme_title">기본 설정</string>
+  <string name="pref_default_theme">기본 설정</string>
 
   <!--북플레이-->
   <string name="custom">커스텀</string>
@@ -93,9 +94,30 @@ Google Play에 애플리케이션에 대한 리뷰나 평가를 남겨주시면 
   <string name="special_thanks_to">특별한 감사</string>
 
   <!--결제-->
-  <string name="tipping_jar_dialog_sucess_title">많은 감사를 드립니다!</string>
-  <string name="tipping_jar_dialog_sucess_message">PlayBook 개발을 지원해 주셔서 대단히 감사합니다. 당신은 훌륭하고 개발자는 당신을 절대 잊지 않을 것입니다!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">천만에요</string>
+  <string name="tipping_jar_dialog_success_title">많은 감사를 드립니다!</string>
+  <string name="tipping_jar_dialog_success_message">PlayBook 개발을 지원해 주셔서 대단히 감사합니다. 당신은 훌륭하고 개발자는 당신을 절대 잊지 않을 것입니다!</string>
+  <string name="tipping_jar_dialog_success_button_title">천만에요</string>
   <string name="tipping_jar_dialog_error_title">팁을 주지 못했습니다</string>
   <string name="tipping_jar_dialog_error_message">안타깝게도 팁 거래를 수행하는 동안 문제가 발생했습니다. 슬퍼하지 말고 다음에 다시 시도하고 PlayBook을 즐기세요.</string>
+    <string name="pref_use_haptic_feedback">햅틱 피드백 사용</string>
+  <string name="pref_widget">위젯</string>
+  <string name="pref_scan_chapter_covers">챕터 표지 스캔</string>
+  <string name="pref_subtitle_scan_chapter_covers">변경 사항으로 인해 현재 책 표지가 지워집니다. 챕터 커버는 장치의 추가 메모리를 차지합니다.</string>
+  <string name="pref_delete_cover_files">표지 파일 삭제</string>
+  <string name="pref_subtitle_delete_cover_files">앱에 저장된 모든 커버가 삭제됩니다. 표지는 책 파일에서 다시 로드됩니다.</string>
+  <string name="pref_use_menu_icons">메뉴 아이콘 사용</string>
+  <string name="pref_category_general">일반</string>
+  <string name="pref_sorting">정렬 기준</string>
+  <string name="pref_sorting_last">마지막으로 추가되거나 사용됨</string>
+  <string name="pref_sorting_last_added">마지막으로 추가된 날짜</string>
+  <string name="pref_sorting_time">시간</string>
+  <string name="change_book_author">저자</string>
+  <string name="edit_book_author">작성자 편집</string>
+  <string name="onboarding_gestures_title">제스처 사용</string>
+  <string name="onboarding_show_player">플레이어 표시</string>
+  <string name="onboarding_show_list_chapters">챕터 목록 표시</string>
+  <string name="onboarding_double_tap">두 번 탭하여 재생 또는 일시 중지</string>
+  <string name="per_month">%s/월</string>
+  <string name="per_year">%s/년</string>
+  <string name="restore_purchase">구매 복원</string>
 </resources>

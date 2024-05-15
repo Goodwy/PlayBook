@@ -19,10 +19,17 @@
   <string name="pref_rewind_buttons_style_classic">Классический</string>
   <string name="pref_rewind_buttons_style_rounded">Круглый</string>
   <string name="pref_rewind_buttons_style_square">Квадратный</string>
-  <string name="pref_show_mini_player_title">Сталь мини плеера</string>
+  <string name="pref_show_mini_player_title">Стиль мини плеера</string>
   <string name="pref_show_slider_volume_title">Панель громкости</string>
   <string name="pref_use_transparent_navigation">Прозрачная системная панель навигации</string>
   <string name="pref_use_chapter_cover">Использовать обложку главы</string>
+  <string name="pref_use_haptic_feedback">Использовать виброотклик</string>
+  <string name="pref_widget">Виджет</string>
+  <string name="pref_scan_chapter_covers">Сканировать обложки глав</string>
+  <string name="pref_subtitle_scan_chapter_covers">В результате изменения текущие обложки книг будут удалены. Обложки глав будут занимать дополнительную память на устройстве</string>
+  <string name="pref_delete_cover_files">Удалить файлы обложек</string>
+  <string name="pref_subtitle_delete_cover_files">Все сохраненные в приложении обложки будут удалены. Обложки будут заново загружены из файлов книг</string>
+  <string name="pref_use_menu_icons">Использовать иконки меню</string>
 
   <!-- Themes -->
   <string name="theme">Тема</string>
@@ -33,12 +40,14 @@
   <string name="pref_category_appearance">Внешний вид</string>
   <string name="pref_appearance_ui_library_title">Интерфейс библиотеки</string>
   <string name="pref_appearance_ui_player_title">Интерфейс плеера</string>
+  <string name="pref_playback">Воспроизведение</string>
   <string name="pref_category_other">Другое</string>
+  <string name="pref_category_general">Общее</string>
 
   <!--Setting colors-->
   <string name="pref_basic_color">Основной цвет</string>
   <string name="pref_basic_color_summary">Введите ключевой цвет, из которого автоматически определится набор дополнительных тонов.</string>
-  <string name="pref_default_theme_title">По умолчанию</string>
+  <string name="pref_default_theme">По умолчанию</string>
 
   <!--BookPlay-->
   <string name="custom">Индивидуально</string>
@@ -51,16 +60,33 @@
   <string name="show_chapter_numbers">Показать номера глав</string>
   <string name="sleep_timer_note">Для перезапуска встряхните устройство в течение 30 секунд после окончания таймера</string>
   <string name="repeat">Повтор</string>
+  <plurals name="chapters_count">
+    <item quantity="one">%d глава</item>
+    <item quantity="few">%d главы</item>
+    <item quantity="many">%d глав</item>
+  </plurals>
+
+  <!--Setting sorting-->
+  <string name="pref_sorting">Сортировка по</string>
+  <string name="pref_sorting_last">Последнее добавление или использование</string>
+  <string name="pref_sorting_last_added">Последнее добавление</string>
+  <string name="pref_sorting_time">Время</string>
 
   <!--BookOverview-->
   <string name="folders">Папки</string>
   <string name="settings">Настройки</string>
+
+  <!--EditBookDialog-->
+  <string name="change_book_author">Автор</string>
+  <string name="edit_book_author">Редактировать автора</string>
+  <string name="ok">Ok</string>
 
   <!--FolderPicker-->
   <string name="internal_storage">Внутреннее хранилище</string>
 
   <!--Other-->
   <string name="copied_to_clipboard_show">Скопировано в буфер обмена:\n%s</string>
+  <string name="cleared">Очищено</string>
 
   <!--About-->
   <string name="pref_about_message"><![CDATA[
@@ -93,9 +119,36 @@
   <string name="special_thanks_to">Особая благодарность</string>
 
   <!--Billing-->
-  <string name="tipping_jar_dialog_sucess_title">Огромное спасибо!</string>
-  <string name="tipping_jar_dialog_sucess_message">Большое спасибо за поддержку развития PlayBook. Ты молодец и разработчик никогда тебя не забудет!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Пожалуйста</string>
+  <string name="tipping_jar_dialog_success_title">Огромное спасибо!</string>
+  <string name="tipping_jar_dialog_success_message">Большое спасибо за поддержку развития PlayBook. Ты молодец и разработчик никогда тебя не забудет!</string>
+  <string name="tipping_jar_dialog_success_button_title">Пожалуйста</string>
   <string name="tipping_jar_dialog_error_title">Не удалось</string>
   <string name="tipping_jar_dialog_error_message">К сожалению, что-то нехорошее произошло во время транзакции чаевых. Не грусти, просто попробуй в другой раз и наслаждайся PlayBook</string>
+
+  <!--Onboarding-->
+  <string name="onboarding_welcome_title_g">Добро пожаловать в PlayBook!</string>
+  <string name="onboarding_gestures_title">Используйте жесты</string>
+  <string name="onboarding_show_player">Показать плеер</string>
+  <string name="onboarding_show_list_chapters">Показать список глав</string>
+  <string name="onboarding_double_tap">Двойное нажатие для воспроизведения или паузы</string>
+
+  <!--RuStore-->
+  <string name="billing_purchase_confirm_in_progress">Подтверждаем покупку…</string>
+  <string name="billing_purchase_delete_in_progress">Удаляем покупку…</string>
+  <string name="billing_product_confirmed">Продукт подтвержден</string>
+  <string name="billing_product_deleted">Покупка отменена</string>
+  <string name="billing_subscriptions">Подписки</string>
+  <string name="no_connection">Нет связи</string>
+  <string name="per_month">%s/месяц</string>
+  <string name="per_year">%s/год</string>
+  <string name="restore_purchase">Восстановить покупки</string>
+
+  <string name="unlock">Разблокировать</string>
+  <string name="donate_text">
+        <![CDATA[
+            Для тех, кто не пользуется Google Play, есть возможность разблокировать все функции приложения. <br>
+            Если вам нравятся наши приложения, которые работают автономно, не навязчивы и не содержат рекламы, пожалуйста, подумайте о том, чтобы поддержать нас каким-либо образом. Мы будем очень благодарны.<br><br>
+            Спасибо!
+        ]]>
+    </string>
 </resources>

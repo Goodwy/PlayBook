@@ -12,8 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Delete
-import androidx.compose.material.icons.rounded.ArrowBackIosNew
+import androidx.compose.material.icons.automirrored.rounded.ArrowBackIos
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -29,23 +28,26 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 import com.squareup.anvil.annotations.ContributesTo
 import voice.common.AppScope
+import voice.common.R
 import voice.common.compose.VoiceTheme
 import voice.common.compose.plus
 import voice.common.compose.rememberScoped
 import voice.common.formatTime
 import voice.common.rootComponentAs
 import voice.migration.MigrationViewModel
-import voice.migration.R
 import java.time.Instant
 import kotlin.random.Random
+import voice.strings.R as StringsR
 
 @ContributesTo(AppScope::class)
 interface MigrationComponent {
@@ -82,15 +84,15 @@ internal fun Migration(
         windowInsets = WindowInsets(top = top.dp),
         scrollBehavior = scrollBehavior,
         title = {
-          Text(stringResource(id = R.string.migration_detail_title))
+          Text(stringResource(id = StringsR.string.migration_detail_title))
         },
         navigationIcon = {
           IconButton(
             onClick = onCloseClicked,
           ) {
             Icon(
-              imageVector = Icons.Rounded.ArrowBackIosNew,
-              contentDescription = stringResource(R.string.close),
+              imageVector = Icons.AutoMirrored.Rounded.ArrowBackIos,
+              contentDescription = stringResource(StringsR.string.close),
             )
           }
         },
@@ -99,8 +101,8 @@ internal fun Migration(
     floatingActionButton = {
       FloatingActionButton(onClick = viewState.onDeleteClicked) {
         Icon(
-          imageVector = Icons.Outlined.Delete,
-          contentDescription = stringResource(id = R.string.delete),
+          imageVector = ImageVector.vectorResource(R.drawable.ic_delete),
+          contentDescription = stringResource(id = StringsR.string.delete),
         )
       }
     },
@@ -130,19 +132,19 @@ private fun DeletionConfirmationDialog(
   AlertDialog(
     onDismissRequest = onCancel,
     title = {
-      Text(stringResource(R.string.migration_delete_dialog_title))
+      Text(stringResource(StringsR.string.migration_delete_dialog_title))
     },
     text = {
-      Text(stringResource(R.string.migration_delete_dialog_content))
+      Text(stringResource(StringsR.string.migration_delete_dialog_content))
     },
     confirmButton = {
       Button(onConfirm) {
-        Text(stringResource(R.string.migration_delete_dialog_action_delete))
+        Text(stringResource(StringsR.string.migration_delete_dialog_action_delete))
       }
     },
     dismissButton = {
       TextButton(onCancel) {
-        Text(stringResource(R.string.migration_delete_dialog_action_keep))
+        Text(stringResource(StringsR.string.migration_delete_dialog_action_keep))
       }
     },
   )
@@ -159,16 +161,16 @@ private fun MigrationItem(item: MigrationViewState.Item) {
       verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
       LabeledValue(
-        label = stringResource(id = R.string.migration_detail_content_name),
+        label = stringResource(id = StringsR.string.migration_detail_content_name),
         value = item.name,
       )
       LabeledValue(
-        label = stringResource(id = R.string.migration_detail_content_root),
+        label = stringResource(id = StringsR.string.migration_detail_content_root),
         value = item.root,
       )
       Column {
         Text(
-          text = stringResource(id = R.string.migration_detail_content_position),
+          text = stringResource(id = StringsR.string.migration_detail_content_position),
           style = MaterialTheme.typography.titleMedium,
         )
         Column(Modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp)) {
@@ -177,7 +179,7 @@ private fun MigrationItem(item: MigrationViewState.Item) {
       }
       if (item.bookmarks.isNotEmpty()) {
         Text(
-          text = stringResource(id = R.string.migration_detail_content_bookmarks),
+          text = stringResource(id = StringsR.string.migration_detail_content_bookmarks),
           style = MaterialTheme.typography.titleMedium,
         )
         Column(
@@ -187,13 +189,13 @@ private fun MigrationItem(item: MigrationViewState.Item) {
           item.bookmarks.forEach { bookmark ->
             if (bookmark.title != null) {
               LabeledValue(
-                label = stringResource(id = R.string.migration_detail_title),
+                label = stringResource(id = StringsR.string.migration_detail_title),
                 value = bookmark.title,
               )
             }
             Column(Modifier.padding(horizontal = 16.dp)) {
               LabeledValue(
-                label = stringResource(id = R.string.migration_detail_content_added_at),
+                label = stringResource(id = StringsR.string.migration_detail_content_added_at),
                 value = bookmark.addedAt.toString(),
               )
               Spacer(modifier = Modifier.height(16.dp))
@@ -207,7 +209,10 @@ private fun MigrationItem(item: MigrationViewState.Item) {
 }
 
 @Composable
-private fun LabeledValue(label: String, value: String) {
+private fun LabeledValue(
+  label: String,
+  value: String,
+) {
   Column {
     Text(text = label, style = MaterialTheme.typography.titleMedium)
     Text(modifier = Modifier.alpha(0.8f), text = value)
@@ -218,19 +223,19 @@ private fun LabeledValue(label: String, value: String) {
 private fun Position(viewState: MigrationViewState.Position) {
   Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
     LabeledValue(
-      label = stringResource(id = R.string.migration_detail_content_position_current_file_title),
+      label = stringResource(id = StringsR.string.migration_detail_content_position_current_file_title),
       value = viewState.currentFile,
     )
     LabeledValue(
-      label = stringResource(id = R.string.migration_detail_content_position_current_file_position),
+      label = stringResource(id = StringsR.string.migration_detail_content_position_current_file_position),
       value = viewState.positionInFile,
     )
     LabeledValue(
-      label = stringResource(id = R.string.migration_detail_content_position_current_chapter_title),
+      label = stringResource(id = StringsR.string.migration_detail_content_position_current_chapter_title),
       value = viewState.currentChapter,
     )
     LabeledValue(
-      label = stringResource(id = R.string.migration_detail_content_position_current_chapter_position),
+      label = stringResource(id = StringsR.string.migration_detail_content_position_current_chapter_position),
       value = viewState.positionInChapter,
     )
   }

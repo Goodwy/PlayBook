@@ -4,13 +4,13 @@
   <!--Impostazioni-->
   <string name="pref_about_title">Informazioni</string>
   <string name="pref_follow_system">Segui il sistema</string>
-  <string name="pref_forward">Inoltra</string>
+  <string name="pref_forward">Forward</string>
   <string name="pref_grid_view">Visualizza griglia</string>
   <string name="pref_layout_list">Layout elenco</string>
   <string name="pref_layout_grid">Layout griglia</string>
   <string name="pref_mini_player_floating_button">Pulsante</string>
-  <string name="pref_mini_player_mini_player_floating">Giocatore mobile</string>
-  <string name="pref_player_background_title">Sfondo del giocatore</string>
+  <string name="pref_mini_player_mini_player_floating">Lettore mobile</string>
+  <string name="pref_player_background_title">Sfondo del lettore</string>
   <string name="pref_player_background_theme">Sfondo app</string>
   <string name="pref_player_background_blurred_cover">Copertina sfocata</string>
   <string name="pref_play_buttons_style_title">Stile pulsante Riproduci</string>
@@ -32,13 +32,14 @@
   <!--Impostazione delle intestazioni-->
   <string name="pref_category_appearance">Aspetto</string>
   <string name="pref_appearance_ui_library_title">Aspetto dell\'interfaccia utente della libreria</string>
-  <string name="pref_appearance_ui_player_title">Aspetto dell\'interfaccia utente del giocatore</string>
+  <string name="pref_appearance_ui_player_title">Aspetto dell\'interfaccia utente del lettore</string>
+  <string name="pref_playback">Riproduzione</string>
   <string name="pref_category_other">Altro</string>
 
   <!--Impostazione dei colori-->
   <string name="pref_basic_color">Colore di base</string>
   <string name="pref_basic_color_summary">Inserisci un colore chiave personalizzato a cui viene assegnato automaticamente un set di toni complementari.</string>
-  <string name="pref_default_theme_title">Imposta predefinito</string>
+  <string name="pref_default_theme">Imposta predefinito</string>
 
   <!--BookPlay-->
   <string name="custom">Personalizzato</string>
@@ -93,9 +94,31 @@ Ti sarei molto grato se lasci una recensione o una valutazione sull\'applicazion
   <string name="special_thanks_to">Un ringraziamento speciale a</string>
 
   <!--Fatturazione-->
-  <string name="tipping_jar_dialog_sucess_title">Grazie mille!</string>
-  <string name="tipping_jar_dialog_sucess_message">Grazie mille per aver supportato lo sviluppo di PlayBook. Sei grande e lo sviluppatore non ti dimenticherà mai!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Prego</string>
+  <string name="tipping_jar_dialog_success_title">Grazie mille!</string>
+  <string name="tipping_jar_dialog_success_message">Grazie mille per aver supportato lo sviluppo di PlayBook. Sei grande e lo sviluppatore non ti dimenticherà mai!</string>
+  <string name="tipping_jar_dialog_success_button_title">Prego</string>
   <string name="tipping_jar_dialog_error_title">Mancia non riuscita</string>
   <string name="tipping_jar_dialog_error_message">Purtroppo è successo qualcosa di brutto durante l\'esecuzione della transazione di ribaltamento. Non essere triste, riprova un\'altra volta e goditi PlayBook</string>
+    <string name="pref_use_haptic_feedback">Usa il feedback aptico</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Scansiona le copertine dei capitoli</string>
+  <string name="pref_subtitle_scan_chapter_covers">La modifica cancellerà le copertine dei libri correnti. Le copertine dei capitoli occuperanno memoria aggiuntiva sul dispositivo</string>
+  <string name="pref_delete_cover_files">Eliminare i file di copertina</string>
+  <string name="pref_subtitle_delete_cover_files">Tutte le copertine salvate nell\'app verranno eliminate. Le copertine verranno ricaricate dai file del libro</string>
+  <string name="pref_use_menu_icons">Utilizzare le icone del menu</string>
+  <string name="pref_category_general">Generale</string>
+  <string name="pref_sorting">Ordinamento per</string>
+  <string name="pref_sorting_last">Ultimo aggiunto o utilizzato</string>
+  <string name="pref_sorting_last_added">Ultimo aggiunto</string>
+  <string name="pref_sorting_time">Ore</string>
+  <string name="change_book_author">Autore</string>
+  <string name="edit_book_author">Modifica autore</string>
+  <string name="onboarding_welcome_title_g">Benvenuto in PlayBook!</string>
+  <string name="onboarding_gestures_title">Usare i gesti</string>
+  <string name="onboarding_show_player">Mostra giocatore</string>
+  <string name="onboarding_show_list_chapters">Mostra l\'elenco dei capitoli</string>
+  <string name="onboarding_double_tap">Tocca due volte per riprodurre o mettere in pausa</string>
+  <string name="per_month">%s/mese</string>
+  <string name="per_year">%s/anno</string>
+  <string name="restore_purchase">Ripristina l\'acquisto</string>
 </resources>

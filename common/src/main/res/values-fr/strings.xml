@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Apparence</string>
   <string name="pref_appearance_ui_library_title">Apparence de l\'interface utilisateur de la bibliothèque</string>
   <string name="pref_appearance_ui_player_title">Apparence de l\'interface utilisateur du lecteur</string>
+  <string name="pref_playback">Lecture</string>
   <string name="pref_category_other">Autre</string>
 
   <!--Définition des couleurs-->
   <string name="pref_basic_color">Couleur de base</string>
   <string name="pref_basic_color_summary">Entrez une couleur de touche personnalisée qui se voit automatiquement attribuer un ensemble de tons complémentaires.</string>
-  <string name="pref_default_theme_title">Définir par défaut</string>
+  <string name="pref_default_theme">Définir par défaut</string>
 
   <!--BookPlay-->
   <string name="custom">Personnalisé</string>
@@ -93,9 +94,30 @@ Je vous serais très reconnaissant de laisser un avis ou une note sur l\'applica
   <string name="special_thanks_to">Remerciements particuliers à</string>
 
   <!--Facturation-->
-  <string name="tipping_jar_dialog_sucess_title">Merci beaucoup !</string>
-  <string name="tipping_jar_dialog_sucess_message">Un grand merci pour votre soutien au développement de PlayBook. Vous êtes formidable et le développeur ne vous oubliera jamais !</string>
-  <string name="tipping_jar_dialog_sucess_button_title">De rien</string>
+  <string name="tipping_jar_dialog_success_title">Merci beaucoup !</string>
+  <string name="tipping_jar_dialog_success_message">Un grand merci pour votre soutien au développement de PlayBook. Vous êtes formidable et le développeur ne vous oubliera jamais !</string>
+  <string name="tipping_jar_dialog_success_button_title">De rien</string>
   <string name="tipping_jar_dialog_error_title">Échec du pourboire</string>
   <string name="tipping_jar_dialog_error_message">Malheureusement, quelque chose de grave s\'est produit lors de l\'exécution de la transaction de pourboire. Ne soyez pas triste, réessayez une autre fois et profitez de PlayBook</string>
+    <string name="pref_use_haptic_feedback">Utiliser le retour haptique</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Scanner les couvertures de chapitre</string>
+  <string name="pref_subtitle_scan_chapter_covers">Le changement effacera les couvertures de livres actuelles. Les couvertures de chapitre occuperont de la mémoire supplémentaire sur l’appareil</string>
+  <string name="pref_delete_cover_files">Supprimer les fichiers de couverture</string>
+  <string name="pref_subtitle_delete_cover_files">Toutes les couvertures enregistrées dans l’application seront supprimées. Les couvertures seront rechargées à partir des fichiers du livre</string>
+  <string name="pref_use_menu_icons">Utiliser les icônes de menu</string>
+  <string name="pref_category_general">Généralités</string>
+  <string name="pref_sorting">Tri par</string>
+  <string name="pref_sorting_last">Dernier ajout ou utilisation</string>
+  <string name="pref_sorting_last_added">Dernier ajout</string>
+  <string name="pref_sorting_time">Heure</string>
+  <string name="change_book_author">Auteur</string>
+  <string name="edit_book_author">Modifier l’auteur</string>
+  <string name="onboarding_gestures_title">Utiliser des gestes</string>
+  <string name="onboarding_show_player">Afficher le lecteur</string>
+  <string name="onboarding_show_list_chapters">Afficher la liste des chapitres</string>
+  <string name="onboarding_double_tap">Appuyez deux fois pour lire ou mettre en pause</string>
+  <string name="per_month">%s/mois</string>
+  <string name="per_year">%s/an</string>
+  <string name="restore_purchase">Restaurer l’achat</string>
 </resources>

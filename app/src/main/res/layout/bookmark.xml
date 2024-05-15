@@ -11,6 +11,7 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
+    app:menu="@menu/bookmark_menu"
     app:title="@string/bookmark" />
 
   <!-- 88 dp bottom padding is the sum of the FAB + vertical margins.

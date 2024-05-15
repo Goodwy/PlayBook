@@ -7,13 +7,23 @@ enum class BookComparator(
 ) : Comparator<Book> by comparatorFunction {
 
   ByLastPlayed(
-    compareByDescending<Book> {
+    compareByDescending {
       it.content.lastPlayedAt
     },
   ),
   ByName(
-    Comparator<Book> { left, right ->
+    Comparator { left, right ->
       NaturalOrderComparator.stringComparator.compare(left.content.name, right.content.name)
+    },
+  ),
+  ByAuthor(
+    Comparator { left, right ->
+      NaturalOrderComparator.stringComparator.compare(left.content.author, right.content.author)
+    },
+  ),
+  ByLastAdded(
+    compareByDescending<Book> {
+      it.content.addedAt
     },
   ),
 }

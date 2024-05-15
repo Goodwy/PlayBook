@@ -2,9 +2,6 @@ package voice.common.compose
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
@@ -18,7 +15,11 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import kotlinx.coroutines.Dispatchers
 import material.util.color.scheme.Scheme
+import voice.common.COLOR_SCHEME_SETTABLE
 import voice.common.DARK_THEME_SETTABLE
+import voice.common.constants.THEME_AUTO
+import voice.common.constants.THEME_DARK
+import voice.common.constants.THEME_LIGHT
 import voice.common.rootComponentAs
 import androidx.compose.material3.MaterialTheme as Material3Theme
 
@@ -42,15 +43,7 @@ fun VoiceTheme(
       }
     },
   ) {
-    MaterialTheme(
-      colors = if (isDarkTheme(preview)) {
-        darkColors()
-      } else {
-        lightColors()
-      },
-    ) {
-      content()
-    }
+    content()
   }
 }
 
@@ -70,11 +63,11 @@ fun VoiceTheme(
 fun isDarkTheme(preview: Boolean = false): Boolean {
   return if (preview) isSystemInDarkTheme()
   else if (DARK_THEME_SETTABLE) {
-    theme() == 1
+    theme() == THEME_DARK
   } else {
     when (theme()) {
-      0 -> false
-      1 -> true
+      THEME_LIGHT -> false
+      THEME_DARK -> true
       else -> isSystemInDarkTheme()
     }
   }
@@ -83,9 +76,9 @@ fun isDarkTheme(preview: Boolean = false): Boolean {
 @Composable
 fun isSystemScheme(preview: Boolean = false): Boolean {
   return if (preview) true
-  else if (Build.VERSION.SDK_INT >= 31) {
+  else if (COLOR_SCHEME_SETTABLE) {
     when (theme()) {
-      2 -> true
+      THEME_AUTO -> true
       else -> false
     }
   } else {
@@ -98,7 +91,7 @@ fun theme(): Int {
   val themeFlow = remember {
     rootComponentAs<SharedComponent>().themePref.flow
   }
-  return themeFlow.collectAsState(initial = 0, context = Dispatchers.Unconfined).value
+  return themeFlow.collectAsState(initial = THEME_DARK, context = Dispatchers.Unconfined).value
 }
 
 @Composable
@@ -107,6 +100,14 @@ fun colorTheme(): Int {
     rootComponentAs<SharedComponent>().colorThemePreference.flow
   }
   return colorThemeFlow.collectAsState(initial = -0x1, context = Dispatchers.Unconfined).value
+}
+
+@Composable
+fun useTransparentNavigation(): Boolean {
+  val useTransparentNavigationFlow = remember {
+    rootComponentAs<SharedComponent>().useTransparentNavigation.flow
+  }
+  return useTransparentNavigationFlow.collectAsState(initial = false, context = Dispatchers.Unconfined).value
 }
 
 @Composable

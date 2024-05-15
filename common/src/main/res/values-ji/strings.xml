@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation" tools:locale="en">
+  <!--PlayBook strings-->
+  <!--Settings-->
+  <string name="pref_about_title">וועגן</string>
+  <string name="pref_follow_system">נאָכגיין סיסטעם</string>
+  <string name="pref_forward">פאָרווערטס</string>
+  <string name="pref_grid_view">View גריד</string>
+  <string name="pref_layout_list">ליסטע אויסלייג</string>
+  <string name="pref_layout_grid">גריד אויסלייג</string>
+  <string name="pref_mini_player_floating_button">קנעפּל</string>
+  <string name="pref_mini_player_mini_player_floating">פלאָוטינג שפּילער</string>
+  <string name="pref_player_background_title">שפּילער הינטערגרונט</string>
+  <string name="pref_player_background_theme">אַפּ הינטערגרונט</string>
+  <string name="pref_player_background_blurred_cover">בלערד דעקל</string>
+  <string name="pref_play_buttons_style_title">שפּיל קנעפּל סטיל</string>
+  <string name="pref_rewind">צוריק</string>
+  <string name="pref_rewind_buttons_style_title"> ריוויינד קנעפּלעך נוסח </string>
+  <string name="pref_rewind_buttons_style_classic">קלאַסיש</string>
+  <string name="pref_rewind_buttons_style_rounded">ראַונדיד</string>
+  <string name="pref_rewind_buttons_style_square">קוואַדראַט</string>
+  <string name="pref_show_mini_player_title">מיני שפּילער סטיל</string>
+  <string name="pref_show_slider_volume_title">באנד קאנטראל</string>
+  <string name="pref_use_transparent_navigation">ניצן טראַנספּעראַנט נאַוויגאַציע באַר</string>
+  <string name="pref_use_chapter_cover">ניצן קאַפּיטל דעקל</string>
+  <string name="pref_use_haptic_feedback">ניצן האַפּטיק באַמערקונגען</string>
+  <string name="pref_widget">ווידגעט</string>
+  <string name="pref_scan_chapter_covers">יבערקוקן די קאַפּיטל קאָווערס</string>
+  <string name="pref_subtitle_scan_chapter_covers">דער ענדערונג וועט ויסמעקן די קראַנט בוך קאָווערס. די קאַפּיטל קאָווערס וועט פאַרנעמען נאָך זכּרון אויף די מיטל</string>
+  <string name="pref_delete_cover_files">מעקן די דעקל טעקעס</string>
+  <string name="pref_subtitle_delete_cover_files" > אַלע געראטעוועט קאָווערס אין די אַפּ וועט זיין אויסגעמעקט. די קאָווערס וועט זיין רילאָודיד פון די בוך טעקעס</string>
+  <string name="pref_use_menu_icons">ניצן מעניו ייקאַנז</string>
+
+  <!-- Themes -->
+  <string name="theme">טעמע</string>
+  <string name="light_theme">ליכט</string>
+  <string name="dark_theme">פינצטער</string>
+
+  <!--Setting headers-->
+  <string name="pref_category_appearance">אויסזען</string>
+  <string name="pref_appearance_ui_library_title">אויסזען פון ביבליאָטעק וי</string>
+  <string name="pref_appearance_ui_player_title">שפּילער UI אויסזען</string>
+  <string name="pref_playback">פּלייבאַק</string>
+  <string name="pref_category_other">אנדערע</string>
+  <string name="pref_category_general">אַלגעמיינע</string>
+
+  <!--Setting colors-->
+  <string name="pref_basic_color">יקערדיק קאָליר</string>
+  <string name="pref_basic_color_summary"> אַרייַן אַ מנהג שליסל קאָליר וואָס איז אויטאָמאַטיש אַסיינד אַ גאַנג פון קאַמפּלאַמענטשי טאָנעס.</string >
+  <string name="pref_default_theme">באַשטעטיק פעליקייַט</string>
+
+  <!--BookPlay-->
+  <string name="custom">מנהג</string>
+  <string name="end_of_current_chapter">סוף פון יעצטיגן קאפיטל</string>
+  <string name="left">%s לינקס</string>
+  <string name="left_in_audiobook">%s לינקס אין אַודיאָבאָאָק</string>
+  <string name="hours_letter">ה</string>
+  <string name="minutes_letter">מ</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">ווייַזן קאַפּיטל נומערן</string>
+  <string name="sleep_timer_note">צו ריסטאַרט, שאָקלען די מיטל אין 30 סעקונדעס נאָך ענדיקן</string>
+  <string name="repeat"> איבערחזרן</string>
+  <plurals name="chapters_count">
+    <item quantity="one">%d קאַפּיטל</item>
+    <item quantity="other">%d קאפיטלען</item>
+  </plurals>
+
+  <!--Setting sorting-->
+  <string name="pref_sorting">סאָרטירן לויט</string>
+  <string name="pref_sorting_last">לעצטע צוגעגעבן אָדער געוויינט</string>
+  <string name="pref_sorting_last_added">לעצטע צוגעגעבן</string>
+  <string name="pref_sorting_time">צייט</string>
+
+  <!--BookOverview-->
+  <string name="folders">פאָלדערס</string>
+  <string name="settings">סעטטינגס</string>
+
+  <!--EditBookDialog-->
+  <string name="change_book_author">מחבר</string>
+  <string name="edit_book_author">רעדאַגירן מחבר</string>
+  <string name="ok">אקעי</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">אינערלעכער סטאָרידזש</string>
+
+  <!--Other-->
+  <string name="copied_to_clipboard_show">קאָפּיעד צו קליפּבאָרד:\n%s</string>
+  <string name="cleared">קלארעד</string>
+
+  <!--About-->
+  <string name="pref_about_message"><![CDATA[
+        אַן אָפֿן מקור <b>PlayBook</b> אַודיאָבאָאָק שפּילער. פּלייַבאָאָק איז באזירט אויף די אָפֿן מקור קול אַפּלאַקיישאַן.
+        <br/><br/>
+
+        איך וואָלט זיין זייער דאַנקבאַר אויב איר לאָזן אַ רעצענזיע אָדער שאַץ וועגן די אַפּלאַקיישאַן אויף Google פּלייַ, דאָס וועט זייער העלפֿן די אַנטוויקלונג פון די פּרויעקט.<br/>
+    ]]></string>
+  <string name="pref_rate_title">ראַטעווען אַפּ</string>
+  <string name="pref_other_app_title">אנדערע אַפּס</string>
+  <string name="pref_privacy_title">פּריוואַטקייט פּאָליטיק</string>
+  <string name="pref_share_title">טייל</string>
+
+  <!--Purchase-->
+  <string name="tipping_jar_title">שפּיץ סלוי</string>
+  <string name="tip_kind">ליכטיגע עצה פון</string>
+  <string name="tip_excellent">ויסגעצייכנט שפּיץ פון</string>
+  <string name="tip_incredible">אומגלייבלעך שפּיץ פון</string>
+  <string name="action_support_project">שטיצן פראיעקט</string>
+  <string name="action_support_project_summary">באַקומען די באַצאָלט אַפּ צו שטיצן צוקונפֿט דיוועלאַפּמאַנץ און באַקומען עקסטרע פֿעיִקייטן</string>
+  <string name="learn_more">לערן מער</string>
+  <string name="theme_summary">דאַרק טעמע ניצט ווייניקער מאַכט אויף AMOLED דיספּלייז</string>
+  <string name="color_title">פארבן</string>
+  <string name="color_summary"> קערפאַלי אויסגעקליבן קאָליר סקימז צו גלייַכן דיין באַליבסטע ביכער</string>
+  <string name="plus_title">שטיצן אונדז</string>
+  <string name="plus_summary">כל פון אונדזער אַפּפּס זענען אַד-פריי, עפֿן מקור און עס וועט שטענדיק בלייבן אַזוי. מיט דיין הילף מיר זענען ביכולת צו ינסטרומענט מער פֿעיִקייטן און מאַכן זיי אפילו בעסער</string>
+  <string name="lifebuoy_title">מיר וועלן דיר שטיצן</string>
+  <string name="lifebuoy_summary"> אויב פֿאַר עטלעכע סיבה איר קענען נישט פאַרגינענ זיך אונדזער אַפּ, אָבער טאַקע ווילן צו נוצן אַלע די פֿעיִקייטן, נאָר E- בריוו אונדז </string>
+  <string name="participants_title">פּאַרטיסאַפּאַנץ</string>
+  <string name="special_thanks_to">ספּעציעלע דאנק צו</string>
+
+  <!--Billing-->
+  <string name="tipping_jar_dialog_success_title">א דאנק א בינטל!</string>
+  <string name="tipping_jar_dialog_success_message">גרויס דאַנקען פֿאַר שטיצן די אַנטוויקלונג פון פּלייַבאָאָק. איר זענט גרויס און דער דעוועלאָפּער וועט קיינמאָל פאַרגעסן איר!</string>
+  <string name="tipping_jar_dialog_success_button_title">איר זענט באַגריסונג</string>
+  <string name="tipping_jar_dialog_error_title">ניט אַנדערש צו עצה</string>
+  <string name="tipping_jar_dialog_error_message">צום באַדויערן עפּעס שלעכט געטראפן בשעת דורכפירן די טיפּינג טראַנסאַקטיאָן. דו זאלסט נישט זיין טרויעריק, נאָר פּרובירן ווידער אן אנדער מאָל און הנאה פּלייַבאָאָק</string>
+
+  <!--Onboarding-->
+  <string name="onboarding_welcome_title_g">ברוכים הבאים צו פּלייַבאָאָק!</string>
+  <string name="onboarding_gestures_title">ניצן דזשעסטשערז</string>
+  <string name="onboarding_show_player">ווייַזן שפּילער</string>
+  <string name="onboarding_show_list_chapters">ווייַזן רשימה פון קאפיטלען</string>
+  <string name="onboarding_double_tap">טאָפּל צאַפּן צו שפּילן אָדער פּויזע</string>
+
+  <!--RuStore-->
+  <string name="billing_purchase_confirm_in_progress">באַשטעטיקן דעם קויפן…</string>
+  <string name="billing_purchase_delete_in_progress">אויסמעקן א קויפן…</string>
+  <string name="billing_product_confirmed">פּראָדוקט באשטעטיקט</string>
+  <string name="billing_product_deleted">קויפן קאַנסאַלד</string>
+  <string name="billing_subscriptions">אַבאָנעמענטן</string>
+  <string name="no_connection">קיין קשר</string>
+  <string name="per_month">%s/חודש</string>
+  <string name="per_year">%s/יאָר</string>
+  <string name="restore_purchase">ומקערן קויפן</string>
+
+  <string name="unlock">Unlock</string>
+  <string name="donate_text">
+        <![CDATA[
+            פֿאַר יענע וואָס טאָן ניט נוצן Google פּלייַ, עס איז מעגלעך צו ופשליסן אַלע פאַנגקשאַנז פון די אַפּלאַקיישאַן. <br>
+            אויב איר ווי אונדזער אַפּפּס וואָס זענען אָפפלינע, ניט-ינטרוסיוו און האָבן קיין אַדס, ביטע באַטראַכטן שטיצן אונדז אין עטלעכע וועג. מיר וואָלט זיין זייער דאַנקבאַר.<br><br>
+            אדאנק!
+        ]]>
+    </string>
+</resources>

@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation" tools:locale="en">
+  <!--PlayBook strings-->
+  <!--Settings-->
+  <string name="pref_about_title">Tentang</string>
+  <string name="pref_follow_system">Ikuti sistem</string>
+  <string name="pref_forward">Maju</string>
+  <string name="pref_grid_view">Lihat kisi</string>
+  <string name="pref_layout_list">Tata letak daftar</string>
+  <string name="pref_layout_grid">Tata letak kisi</string>
+  <string name="pref_mini_player_floating_button">Tombol</string>
+  <string name="pref_mini_player_mini_player_floating">Pemutar mengambang</string>
+  <string name="pref_player_background_title">Latar belakang pemain</string>
+  <string name="pref_player_background_theme">Latar belakang aplikasi</string>
+  <string name="pref_player_background_blurred_cover">Sampul buram</string>
+  <string name="pref_play_buttons_style_title">Gaya tombol putar</string>
+  <string name="pref_rewind">Putar balik</string>
+  <string name="pref_rewind_buttons_style_title">Gaya tombol putar balik</string>
+  <string name="pref_rewind_buttons_style_classic">Klasik</string>
+  <string name="pref_rewind_buttons_style_rounded">Bulat</string>
+  <string name="pref_rewind_buttons_style_square">Persegi</string>
+  <string name="pref_show_mini_player_title">Gaya pemutar mini</string>
+  <string name="pref_show_slider_volume_title">Kontrol Volume</string>
+  <string name="pref_use_transparent_navigation">Gunakan bilah navigasi transparan</string>
+  <string name="pref_use_chapter_cover">Gunakan sampul bab</string>
+  <string name="pref_use_haptic_feedback">Gunakan masukan haptik</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Pindai sampul bab</string>
+  <string name="pref_subtitle_scan_chapter_covers">Perubahan ini akan menghapus sampul buku saat ini. Sampul bab akan menempati memori tambahan pada perangkat</string>
+  <string name="pref_delete_cover_files">Hapus file sampul</string>
+  <string name="pref_subtitle_delete_cover_files">Sampul apa pun yang tersimpan di aplikasi akan dihapus. Sampul akan dimuat ulang dari file buku</string>
+  <string name="pref_use_menu_icons">Gunakan ikon menu</string>
+
+  <!-- Themes -->
+  <string name="theme">Tema</string>
+  <string name="light_theme">Ringan</string>
+  <string name="dark_theme">Gelap</string>
+
+  <!--Setting headers-->
+  <string name="pref_category_appearance">Penampilan</string>
+  <string name="pref_appearance_ui_library_title">Tampilan UI perpustakaan</string>
+  <string name="pref_appearance_ui_player_title">Tampilan UI pemain</string>
+  <string name="pref_playback">Pemutaran</string>
+  <string name="pref_category_other">Lainnya</string>
+  <string name="pref_category_general">Umum</string>
+
+  <!--Setting colors-->
+  <string name="pref_basic_color">Warna dasar</string>
+  <string name="pref_basic_color_summary">Masukkan warna kunci khusus yang secara otomatis diberi serangkaian nada pelengkap.</string>
+  <string name="pref_default_theme">Setel default</string>
+
+  <!--BookPlay-->
+  <string name="custom">Khusus</string>
+  <string name="end_of_current_chapter">Akhir dari bab saat ini</string>
+  <string name="left">%s tersisa</string>
+  <string name="left_in_audiobook">%s tersisa di buku audio</string>
+  <string name="hours_letter">jam</string>
+  <string name="minutes_letter">m</string>
+  <string name="seconds_letter">s</string>
+  <string name="show_chapter_numbers">Tampilkan nomor bab</string>
+  <string name="sleep_timer_note">Untuk memulai ulang, goyangkan perangkat dalam waktu 30 detik setelah selesai</string>
+  <string name="repeat">Ulangi</string>
+  <plurals name="chapters_count">
+    <item quantity="other">%d bab</item>
+  </plurals>
+
+  <!--Setting sorting-->
+  <string name="pref_sorting">Mengurutkan berdasarkan</string>
+  <string name="pref_sorting_last">Terakhir ditambahkan atau digunakan</string>
+  <string name="pref_sorting_last_added">Terakhir ditambahkan</string>
+  <string name="pref_sorting_time">Waktu</string>
+
+  <!--BookOverview-->
+  <string name="folders">Folder</string>
+  <string name="settings">Pengaturan</string>
+
+  <!--EditBookDialog-->
+  <string name="change_book_author">Penulis</string>
+  <string name="edit_book_author">Edit penulis</string>
+  <string name="ok">Oke</string>
+
+  <!--FolderPicker-->
+  <string name="internal_storage">Penyimpanan Internal</string>
+
+  <!--Other-->
+  <string name="copied_to_clipboard_show">Disalin ke papan klip:\n%s</string>
+  <string name="cleared">Dibersihkan</string>
+
+  <!--About-->
+  <string name="pref_about_message"><![CDATA[
+        Pemutar buku audio <b>PlayBook</b> sumber terbuka. PlayBook didasarkan pada aplikasi Voice sumber terbuka.
+        <br/><br/>
+
+        Saya akan sangat berterima kasih jika Anda memberikan ulasan atau penilaian tentang aplikasi ini di Google Play, ini akan sangat membantu pengembangan proyek.<br/>
+    ]]></string>
+  <string name="pref_rate_title">Rate App</string>
+  <string name="pref_other_app_title">Aplikasi Lainnya</string>
+  <string name="pref_privacy_title">Kebijakan Privasi</string>
+  <string name="pref_share_title">Berbagi</string>
+
+  <!--Purchase-->
+  <string name="tipping_jar_title">Toples Tip</string>
+  <string name="tip_kind">Tips yang bagus</string>
+  <string name="tip_excellent">Kiat yang luar biasa</string>
+  <string name="tip_incredible">Kiat yang luar biasa</string>
+  <string name="action_support_project">Proyek pendukung</string>
+  <string name="action_support_project_summary">Dapatkan aplikasi berbayar untuk mendukung pengembangan di masa depan dan mendapatkan fitur tambahan</string>
+  <string name="learn_more">Pelajari lebih lanjut</string>
+  <string name="theme_summary">Tema gelap menggunakan lebih sedikit daya pada layar AMOLED</string>
+  <string name="color_title">Warna</string>
+  <string name="color_summary">Skema warna yang dipilih dengan cermat agar sesuai dengan buku favorit Anda</string>
+  <string name="plus_title">Dukung kami</string>
+  <string name="plus_summary">Semua aplikasi kami bebas iklan, Sumber Terbuka dan akan selalu seperti itu. Dengan bantuan Anda, kami dapat mengimplementasikan lebih banyak fitur dan menjadikannya lebih baik</string>
+  <string name="lifebuoy_title">Kami akan mendukung Anda</string>
+  <string name="lifebuoy_summary">Jika karena alasan tertentu Anda tidak mampu membeli aplikasi kami, namun benar-benar ingin menggunakan semua fitur, cukup kirimkan email kepada kami</string>
+  <string name="participants_title">Peserta</string>
+  <string name="special_thanks_to">Terima kasih khusus kepada</string>
+
+  <!--Billing-->
+  <string name="tipping_jar_dialog_success_title">Terima kasih banyak!</string>
+  <string name="tipping_jar_dialog_success_message" >Terima kasih banyak telah mendukung pengembangan PlayBook. Anda hebat dan pengembang tidak akan pernah melupakan Anda!</string>
+  <string name="tipping_jar_dialog_success_button_title">Terima kasih kembali</string>
+  <string name="tipping_jar_dialog_error_title">Gagal othermemberi tip</string>
+  <string name="tipping_jar_dialog_error_message">Sayangnya sesuatu yang buruk terjadi saat melakukan transaksi pemberian tip. Jangan bersedih, coba lagi di lain waktu dan nikmati PlayBook</string>
+
+  <!--Onboarding-->
+  <string name="onboarding_welcome_title_g">Selamat datang di PlayBook!</string>
+  <string name="onboarding_gestures_title">Gunakan gerakan</string>
+  <string name="onboarding_show_player">Tampilkan pemutar</string>
+  <string name="onboarding_show_list_chapters">Tampilkan daftar bab</string>
+  <string name="onboarding_double_tap">Ketuk dua kali untuk memutar atau menjeda</string>
+
+  <!--RuStore-->
+  <string name="billing_purchase_confirm_in_progress">Mengkonfirmasi pembelian…</string>
+  <string name="billing_purchase_delete_in_progress">Menghapus pembelian…</string>
+  <string name="billing_product_confirmed">Produk dikonfirmasi</string>
+  <string name="billing_product_deleted">Pembelian dibatalkan</string>
+  <string name="billing_subscriptions">Langganan</string>
+  <string name="no_connection">Tidak ada koneksi</string>
+  <string name="per_month">%s/bulan</string>
+  <string name="per_year">%s/tahun</string>
+  <string name="restore_purchase">Kembalikan pembelian</string>
+
+  <string name="unlock">Membuka kunci</string>
+  <string name="donate_text">
+        <![CDATA[
+            Bagi mereka yang tidak menggunakan Google Play, dimungkinkan untuk membuka semua fungsi aplikasi. <br>
+            Jika Anda menyukai aplikasi kami yang offline, tidak mengganggu dan tidak memiliki iklan, mohon pertimbangkan untuk mendukung kami dengan cara tertentu. Kami akan sangat berterima kasih.<br><br>
+            Terima kasih!
+        ]]>
+    </string>
+</resources>

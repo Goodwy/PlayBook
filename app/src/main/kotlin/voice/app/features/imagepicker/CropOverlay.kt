@@ -89,15 +89,13 @@ class CropOverlay @JvmOverloads constructor(
   private var resizeType: Resize? = null
   private val touchOffset = context.dpToPxRounded(16F)
 
-  private fun newCircle() =
-    context.layoutInflater().inflate(R.layout.circle, this@CropOverlay, false).apply {
-      isVisible = false
-    }
+  private fun newCircle() = context.layoutInflater().inflate(R.layout.circle, this@CropOverlay, false).apply {
+    isVisible = false
+  }
 
   private fun minRectSize() = min(bounds.width(), bounds.height()) / 3f
 
-  private infix fun Float.inRangeOf(target: Float) =
-    this >= (target - touchOffset) && this <= (target + touchOffset)
+  private infix fun Float.inRangeOf(target: Float) = this >= (target - touchOffset) && this <= (target + touchOffset)
 
   private fun MotionEvent.asResizeType(): Resize? {
     val x = x
@@ -228,7 +226,12 @@ class CropOverlay @JvmOverloads constructor(
     }
   }
 
-  override fun onSizeChanged(w: Int, h: Int, oldW: Int, oldH: Int) {
+  override fun onSizeChanged(
+    w: Int,
+    h: Int,
+    oldW: Int,
+    oldH: Int,
+  ) {
     super.onSizeChanged(w, h, oldW, oldH)
 
     // resets values
@@ -236,7 +239,7 @@ class CropOverlay @JvmOverloads constructor(
     val wf = w.toFloat()
     val hf = h.toFloat()
     bounds.set(0f, 0f, wf, hf)
-    val dragSize = min(wf, hf) / 2f
+    val dragSize = min(wf, hf)
 
     dragRect.set(0f, 0f, dragSize, dragSize)
     dragRect.offset(bounds.centerX() - dragSize / 2f, bounds.centerY() - dragSize / 2f)
@@ -286,7 +289,10 @@ class CropOverlay @JvmOverloads constructor(
     }
   }
 
-  private fun View.center(x: Float, y: Float) {
+  private fun View.center(
+    x: Float,
+    y: Float,
+  ) {
     translationX = x - width / 2f
     translationY = y - height / 2f
   }

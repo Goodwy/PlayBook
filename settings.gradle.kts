@@ -16,6 +16,7 @@ pluginManagement {
 dependencyResolutionManagement {
   repositories {
     google()
+    maven { setUrl("https://artifactory-external.vkpartner.ru/artifactory/maven") }
 
     exclusiveContent {
       forRepository {
@@ -26,12 +27,13 @@ dependencyResolutionManagement {
       }
     }
 
-    mavenCentral().mavenContent { releasesOnly() }
+    mavenCentral()
   }
 }
 
 plugins {
-  id("com.gradle.enterprise") version "3.11.4"
+  id("com.gradle.enterprise") version "3.16.2"
+  id("org.gradle.toolchains.foojay-resolver-convention") version ("0.8.0")
 }
 
 gradleEnterprise {
@@ -52,9 +54,16 @@ include(":playbackScreen")
 include(":sleepTimer")
 include(":settings")
 include(":search")
+include(":cover")
+include(":datastore")
 include(":folderPicker")
 include(":bookOverview")
 include(":migration")
+include(":scripts")
 include(":logging:core")
 include(":logging:debug")
+include(":documentfile")
+include(":onboarding")
 include(":logging:crashlytics")
+include(":review:play")
+include(":review:noop")

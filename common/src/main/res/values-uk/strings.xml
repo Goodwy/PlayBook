@@ -19,10 +19,17 @@
   <string name="pref_rewind_buttons_style_classic">Класичний</string>
   <string name="pref_rewind_buttons_style_rounded">Круглий</string>
   <string name="pref_rewind_buttons_style_square">Квадратний</string>
-  <string name="pref_show_mini_player_title">Сталь міні плеєра</string>
+  <string name="pref_show_mini_player_title">Стиль міні плеєра</string>
   <string name="pref_show_slider_volume_title">Панель гучності</string>
   <string name="pref_use_transparent_navigation">Прозора системна панель навігації</string>
   <string name="pref_use_chapter_cover">Використати обкладинку глави</string>
+  <string name="pref_use_haptic_feedback">Використовувати вібровідгук</string>
+  <string name="pref_widget">Віджет</string>
+  <string name="pref_scan_chapter_covers">Сканувати обкладинки розділів</string>
+  <string name="pref_subtitle_scan_chapter_covers">У результаті зміни поточні обкладинки книг буде видалено. Обкладинки глав займатимуть додаткову пам\'ять на пристрої</string>
+  <string name="pref_delete_cover_files">Видалити файли обкладинок</string>
+  <string name="pref_subtitle_delete_cover_files">Усі збережені в додатку обкладинки буде видалено. Обкладинки будуть заново завантажені з файлів книг</string>
+  <string name="pref_use_menu_icons">Використовувати іконки меню</string>
 
   <!-- Themes -->
   <string name="theme">Тема</string>
@@ -33,12 +40,14 @@
   <string name="pref_category_appearance">Зовнішній вигляд</string>
   <string name="pref_appearance_ui_library_title">Інтерфейс бібліотеки</string>
   <string name="pref_appearance_ui_player_title">Інтерфейс програвача</string>
+  <string name="pref_playback">Відтворення</string>
   <string name="pref_category_other">Iнше</string>
+  <string name="pref_category_general">Загальне</string>
 
   <!--Setting colors-->
   <string name="pref_basic_color">Основний колір</string>
   <string name="pref_basic_color_summary">Введіть ключовий колір, з якого автоматично визначиться набір додаткових тонів.</string>
-  <string name="pref_default_theme_title">За замовчуванням</string>
+  <string name="pref_default_theme">За замовчуванням</string>
 
   <!--BookPlay-->
   <string name="custom">Індивідуально</string>
@@ -51,16 +60,33 @@
   <string name="show_chapter_numbers">Показати номери глав</string>
   <string name="sleep_timer_note">Для перезапуску струсіть пристрій протягом 30 секунд після закінчення таймера</string>
   <string name="repeat">Повторення</string>
+  <plurals name="chapters_count">
+    <item quantity="one">%d глава</item>
+    <item quantity="few">%d глави</item>
+    <item quantity="many">%d глав</item>
+  </plurals>
+
+  <!--Setting sorting-->
+  <string name="pref_sorting">Сортування за</string>
+  <string name="pref_sorting_last">Останнє додавання або використання</string>
+  <string name="pref_sorting_last_added">Останнє додавання</string>
+  <string name="pref_sorting_time">Час</string>
 
   <!--BookOverview-->
   <string name="folders">Папки</string>
   <string name="settings">Налаштування</string>
+
+  <!--EditBookDialog-->
+  <string name="change_book_author">Автор</string>
+  <string name="edit_book_author">Редагувати автора</string>
+  <string name="ok">Ok</string>
 
   <!--FolderPicker-->
   <string name="internal_storage">Внутрішнє сховище</string>
 
   <!--Other-->
   <string name="copied_to_clipboard_show">Скопійовано в буфер обміну:\n%s</string>
+  <string name="cleared">Очищено</string>
 
   <!--About-->
   <string name="pref_about_message"><![CDATA[
@@ -93,9 +119,35 @@
   <string name="special_thanks_to">Особлива подяка</string>
 
   <!--Billing-->
-  <string name="tipping_jar_dialog_sucess_title">Величезне спасибі!</string>
-  <string name="tipping_jar_dialog_sucess_message">Дуже дякую за підтримку розвитку PlayBook. Ти молодець і розробник ніколи тебе не забуде!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Будь ласка</string>
+  <string name="tipping_jar_dialog_success_title">Величезне спасибі!</string>
+  <string name="tipping_jar_dialog_success_message">Дуже дякую за підтримку розвитку PlayBook. Ти молодець і розробник ніколи тебе не забуде!</string>
+  <string name="tipping_jar_dialog_success_button_title">Будь ласка</string>
   <string name="tipping_jar_dialog_error_title">Не вдалося</string>
   <string name="tipping_jar_dialog_error_message">На жаль, щось погане сталося під час транзакції чайових. Не сумуй, просто спробуй іншим разом і насолоджуйся PlayBook</string>
+
+  <!--Onboarding-->
+  <string name="onboarding_welcome_title_g">Ласкаво просимо в PlayBook!</string>
+  <string name="onboarding_gestures_title">Використовуйте жести</string>
+  <string name="onboarding_show_player">Показати плеєр</string>
+  <string name="onboarding_show_list_chapters">Показати список глав</string>
+  <string name="onboarding_double_tap">Подвійне натискання для відтворення або паузи</string>
+
+  <!--RuStore-->
+  <string name="billing_purchase_confirm_in_progress">Підтверджуємо покупку…</string>
+  <string name="billing_purchase_delete_in_progress">Видаляємо покупку…</string>
+  <string name="billing_product_confirmed">Продукт підтверджено</string>
+  <string name="billing_product_deleted">Купівлю скасовано</string>
+  <string name="billing_subscriptions">Підписки</string>
+  <string name="no_connection">Немає зв\'язку</string>
+  <string name="per_month">%s/місяць</string>
+  <string name="per_year">%s/рік</string>
+  <string name="restore_purchase">Відновити покупки</string>
+  <string name="unlock">Розблокувати</string>
+  <string name="donate_text">
+        <![CDATA[
+            Для тих, хто не користується Google Play, є можливість розблокувати всі функції програми. <br>
+            Якщо вам подобаються наші додатки, які працюють автономно, не нав\'язливі та не містять реклами, будь ласка, подумайте про те, щоб підтримати нас якимось чином. Ми будемо дуже вдячні.<br><br>
+            Дякую!
+        ]]>
+    </string>
 </resources>

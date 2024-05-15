@@ -3,14 +3,18 @@ package voice.bookOverview.editTitle
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import com.squareup.anvil.annotations.ContributesMultibinding
+import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import voice.bookOverview.bottomSheet.BottomSheetItem
 import voice.bookOverview.bottomSheet.BottomSheetItemViewModel
 import voice.bookOverview.di.BookOverviewScope
 import voice.common.BookId
+import voice.common.compose.ImmutableFile
+import voice.common.pref.PrefKeys
 import voice.data.repo.BookRepository
 import javax.inject.Inject
+import javax.inject.Named
 
 @BookOverviewScope
 @ContributesMultibinding(
@@ -21,6 +25,8 @@ class EditBookTitleViewModel
 @Inject
 constructor(
   private val repo: BookRepository,
+  @Named(PrefKeys.SCAN_COVER_CHAPTER)
+  private val scanCoverChapter: Pref<Boolean>,
 ) : BottomSheetItemViewModel {
 
   private val scope = MainScope()
@@ -32,7 +38,10 @@ constructor(
     return listOf(BottomSheetItem.Title)
   }
 
-  override suspend fun onItemClicked(bookId: BookId, item: BottomSheetItem) {
+  override suspend fun onItemClicked(
+    bookId: BookId,
+    item: BottomSheetItem,
+  ) {
     if (item != BottomSheetItem.Title) return
     val book = repo.get(bookId) ?: return
     _state.value = EditBookTitleState(
@@ -60,5 +69,25 @@ constructor(
       }
     }
     _state.value = null
+  }
+
+  //PlayBook
+  internal suspend fun selectBookTitle(bookId: BookId): String {
+    val book = repo.get(bookId) ?: return ""
+    return book.content.name
+  }
+
+  internal suspend fun selectBookCover(bookId: BookId): ImmutableFile? {
+    val book = repo.get(bookId) ?: return null
+    return if (book.content.useChapterCover && scanCoverChapter.value) book.currentChapter.cover?.let(::ImmutableFile) else book.content.cover?.let(::ImmutableFile)
+  }
+
+  internal suspend fun selectBookDuration(bookId: BookId): Long {
+    val book = repo.get(bookId) ?: return 0
+    return book.duration / 1000
+  }
+  internal suspend fun selectBookChaptersSize(bookId: BookId): Int {
+    val book = repo.get(bookId) ?: return 1
+    return book.content.chapters.size
   }
 }

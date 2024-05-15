@@ -3,9 +3,10 @@ package voice.folderPicker.selectType
 import androidx.core.net.toUri
 import androidx.documentfile.provider.DocumentFile
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import app.cash.molecule.RecompositionClock
+import app.cash.molecule.RecompositionMode
 import app.cash.molecule.launchMolecule
 import app.cash.turbine.test
+import de.paulwoitaschek.flowpref.Pref
 import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import io.kotest.matchers.shouldBe
 import io.mockk.mockk
@@ -14,10 +15,21 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TemporaryFolder
 import org.junit.runner.RunWith
+import org.robolectric.annotation.Config
 import voice.common.DispatcherProvider
+import voice.common.navigation.Destination
+import voice.common.pref.PrefKeys
+import voice.documentfile.FileBasedDocumentFactory
+import javax.inject.Inject
+import javax.inject.Named
 
 @RunWith(AndroidJUnit4::class)
+@Config(sdk = [33])
 class SelectFolderTypeViewModelTest {
+
+
+  @field:[Inject Named(PrefKeys.PADDING)]
+  lateinit var paddingPref: Pref<String>
 
   @get:Rule
   val temporaryFolder = TemporaryFolder()
@@ -31,14 +43,25 @@ class SelectFolderTypeViewModelTest {
       newFile("audiobooks/SecondBook/1.mp3")
       newFile("audiobooks/SecondBook/2.mp3")
     }
-    val viewModel = SelectFolderTypeViewModel(DispatcherProvider(coroutineContext, coroutineContext), mockk(), mockk(), mockk())
-    viewModel.args = SelectFolderTypeViewModel.Args(audiobookFolder.toUri(), DocumentFile.fromFile(audiobookFolder))
+    val viewModel = SelectFolderTypeViewModel(
+      dispatcherProvider = DispatcherProvider(coroutineContext, coroutineContext),
+      audiobookFolders = mockk(),
+      navigator = mockk(),
+      documentFileFactory = FileBasedDocumentFactory,
+      uri = audiobookFolder.toUri(),
+      documentFile = DocumentFile.fromFile(audiobookFolder),
+      mode = Destination.SelectFolderType.Mode.Default,
+      paddingPref = paddingPref
+    )
     viewModel.setFolderMode(FolderMode.Audiobooks)
 
-    backgroundScope.launchMolecule(clock = RecompositionClock.Immediate) {
+    backgroundScope.launchMolecule(RecompositionMode.Immediate) {
       viewModel.viewState()
     }.test {
-      suspend fun expectItem(folderMode: FolderMode, vararg books: SelectFolderTypeViewState.Book) {
+      suspend fun expectItem(
+        folderMode: FolderMode,
+        vararg books: SelectFolderTypeViewState.Book,
+      ) {
         with(awaitItem()) {
           this.books.shouldContainExactlyInAnyOrder(books.toList())
           this.selectedFolderMode shouldBe folderMode

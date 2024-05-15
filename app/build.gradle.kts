@@ -1,6 +1,7 @@
 @file:Suppress("UnstableApiUsage")
 
 import com.android.build.api.dsl.ManagedVirtualDevice
+import com.android.build.gradle.internal.dsl.SigningConfig
 import java.util.Properties
 
 plugins {
@@ -15,9 +16,7 @@ plugins {
   alias(libs.plugins.playPublish)
 }
 
-val enableCrashlytics = project.hasProperty("enableCrashlytics")
-if (enableCrashlytics) {
-  pluginManager.apply(libs.plugins.crashlytics.get().pluginId)
+if (file("google-services.json").exists()) {
   pluginManager.apply(libs.plugins.googleServices.get().pluginId)
 }
 
@@ -36,10 +35,13 @@ kapt {
   }
 }
 
-
 android {
 
   namespace = "voice.app"
+
+  androidResources {
+    generateLocaleConfig = true
+  }
 
   defaultConfig {
     applicationId = "com.goodwy.audiobook" //TODO application ID
@@ -59,17 +61,18 @@ android {
     buildConfigField("String", "PRODUCT_ID_X1", "\"${properties["PRODUCT_ID_X1"]}\"")
     buildConfigField("String", "PRODUCT_ID_X2", "\"${properties["PRODUCT_ID_X2"]}\"")
     buildConfigField("String", "PRODUCT_ID_X3", "\"${properties["PRODUCT_ID_X3"]}\"")
+    buildConfigField("String", "SUBSCRIPTION_ID_X1", "\"${properties["SUBSCRIPTION_ID_X1"]}\"")
+    buildConfigField("String", "SUBSCRIPTION_ID_X2", "\"${properties["SUBSCRIPTION_ID_X2"]}\"")
+    buildConfigField("String", "SUBSCRIPTION_ID_X3", "\"${properties["SUBSCRIPTION_ID_X3"]}\"")
+    buildConfigField("String", "SUBSCRIPTION_YEAR_ID_X1", "\"${properties["SUBSCRIPTION_YEAR_ID_X1"]}\"")
+    buildConfigField("String", "SUBSCRIPTION_YEAR_ID_X2", "\"${properties["SUBSCRIPTION_YEAR_ID_X2"]}\"")
+    buildConfigField("String", "SUBSCRIPTION_YEAR_ID_X3", "\"${properties["SUBSCRIPTION_YEAR_ID_X3"]}\"")
   }
 
-  signingConfigs {
-    create("release") {
+  fun createSigningConfig(name: String): SigningConfig {
+    return signingConfigs.create(name) {
       val properties = Properties()
-      val keyStoreName = if (providers.gradleProperty("voice.signing.play").get().toBoolean()) {
-        "play"
-      } else {
-        "github"
-      }
-      val propertiesFile = rootProject.file("signing/$keyStoreName/signing.properties")
+      val propertiesFile = rootProject.file("signing/$name/signing.properties")
         .takeIf { it.canRead() }
         ?: rootProject.file("signing/ci/signing.properties")
       properties.load(propertiesFile.inputStream())
@@ -77,6 +80,30 @@ android {
       storePassword = properties["STORE_PASSWORD"] as String
       keyAlias = properties["KEY_ALIAS"] as String
       keyPassword = properties["KEY_PASSWORD"] as String
+    }
+  }
+
+  val playSigningConfig = createSigningConfig("play")
+  val githubSigningConfig = createSigningConfig("github")
+
+  val signingFlavor = "signing"
+  val freeFlavor = "free"
+  flavorDimensions += signingFlavor
+  flavorDimensions += freeFlavor
+  productFlavors {
+    register("github") {
+      dimension = signingFlavor
+      signingConfig = githubSigningConfig
+    }
+    register("play") {
+      dimension = signingFlavor
+      signingConfig = playSigningConfig
+    }
+    register("libre") {
+      dimension = freeFlavor
+    }
+    register("proprietary") {
+      dimension = freeFlavor
     }
   }
 
@@ -90,8 +117,12 @@ android {
       isShrinkResources = false
     }
     all {
-      signingConfig = signingConfigs.getByName("release")
-      setProguardFiles(listOf(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard.pro"))
+      setProguardFiles(
+        listOf(
+          getDefaultProguardFile("proguard-android-optimize.txt"),
+          "proguard.pro",
+        ),
+      )
     }
   }
 
@@ -126,7 +157,7 @@ android {
     lintConfig = rootProject.file("lint.xml")
   }
 
-  packagingOptions {
+  packaging {
     with(resources.pickFirsts) {
       add("META-INF/atomicfu.kotlin_module")
       add("META-INF/core.kotlin_module")
@@ -135,11 +166,13 @@ android {
 
   buildFeatures {
     viewBinding = true
+    buildConfig = true
   }
 }
 
 dependencies {
   implementation(projects.strings)
+  implementation(projects.datastore)
   implementation(projects.common)
   implementation(projects.data)
   implementation(projects.playback)
@@ -152,12 +185,14 @@ dependencies {
   implementation(projects.bookOverview)
   implementation(projects.migration)
   implementation(projects.search)
+  implementation(projects.cover)
+  implementation(projects.documentfile)
+  implementation(projects.onboarding)
 
   implementation(libs.appCompat)
   implementation(libs.recyclerView)
   implementation(libs.material)
   implementation(libs.constraintLayout)
-  implementation(libs.media)
   implementation(libs.datastore)
   implementation(libs.appStartup)
 
@@ -165,14 +200,14 @@ dependencies {
 
   implementation(libs.materialDialog.core)
   implementation(libs.materialDialog.input)
-  implementation(libs.materialCab)
   implementation(libs.coil)
 
-  if (enableCrashlytics) {
-    implementation(libs.firebase.crashlytics)
-    implementation(libs.firebase.analytics)
-    implementation(projects.logging.crashlytics)
-  }
+  "proprietaryImplementation"(libs.firebase.crashlytics)
+  "proprietaryImplementation"(libs.firebase.analytics)
+  "proprietaryImplementation"(libs.firebase.remoteconfig)
+  "proprietaryImplementation"(projects.logging.crashlytics)
+  "proprietaryImplementation"(projects.review.play)
+  "libreImplementation"(projects.review.noop)
 
   debugImplementation(projects.logging.debug)
 
@@ -184,11 +219,13 @@ dependencies {
   testImplementation(libs.junit)
   testImplementation(libs.mockk)
 
+  implementation(libs.leakcanary.plumber)
+  debugImplementation(libs.leakcanary.android)
+
   implementation(libs.media3.exoplayer)
+  implementation(libs.media3.session)
 
   implementation(libs.conductor)
-
-  implementation(libs.lifecycle)
 
   implementation(libs.prefs.android)
   testImplementation(libs.prefs.inMemory)
@@ -216,5 +253,6 @@ dependencies {
   androidTestImplementation(libs.uiautomator)
 
   //PlayBook
-  implementation("com.android.billingclient:billing:5.1.0")
+  implementation(libs.billing.client)
+  implementation(libs.rustore.client)
 }

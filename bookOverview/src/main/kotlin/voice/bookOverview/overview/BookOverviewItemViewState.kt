@@ -17,10 +17,10 @@ data class BookOverviewItemViewState(
   val remainingTime: String,
 )
 
-internal fun Book.toItemViewState() = BookOverviewItemViewState(
+internal fun Book.toItemViewState(scanCoverChapter: Boolean) = BookOverviewItemViewState(
   name = content.name,
   author = content.author,
-  cover = if (content.useChapterCover) currentChapter.cover?.let(::ImmutableFile) else content.cover?.let(::ImmutableFile),
+  cover = if (content.useChapterCover && scanCoverChapter) currentChapter.cover?.let(::ImmutableFile) else content.cover?.let(::ImmutableFile),
   id = id,
   progress = progress(),
   remainingTime = DateUtils.formatElapsedTime((duration - position) / 1000),

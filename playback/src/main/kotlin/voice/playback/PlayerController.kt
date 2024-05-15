@@ -2,98 +2,193 @@ package voice.playback
 
 import android.content.ComponentName
 import android.content.Context
-import android.support.v4.media.MediaBrowserCompat
-import android.support.v4.media.session.MediaControllerCompat
-import voice.data.Chapter
+import androidx.datastore.core.DataStore
+import androidx.media3.common.Player
+import androidx.media3.session.MediaController
+import androidx.media3.session.SessionToken
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.guava.asDeferred
+import kotlinx.coroutines.launch
+import voice.common.BookId
+import voice.common.pref.CurrentBook
+import voice.data.BookContent
+import voice.data.ChapterId
+import voice.data.repo.BookRepository
 import voice.logging.core.Logger
 import voice.playback.misc.Decibel
+import voice.playback.session.CustomCommand
+import voice.playback.session.MediaId
+import voice.playback.session.MediaItemProvider
 import voice.playback.session.PlaybackService
-import voice.playback.session.forcedNext
-import voice.playback.session.forcedPrevious
-import voice.playback.session.pauseWithRewind
-import voice.playback.session.playPause
-import voice.playback.session.setGain
-import voice.playback.session.setPosition
-import voice.playback.session.setRepeat
-import voice.playback.session.setVolume
-import voice.playback.session.showChapterNumbers
-import voice.playback.session.skipSilence
-import voice.playback.session.useChapterCover
+import voice.playback.session.sendCustomCommand
+import voice.playback.session.toMediaIdOrNull
 import javax.inject.Inject
 import kotlin.time.Duration
 
 class PlayerController
 @Inject constructor(
   private val context: Context,
+  @CurrentBook
+  private val currentBookId: DataStore<BookId?>,
+  private val bookRepository: BookRepository,
+  private val mediaItemProvider: MediaItemProvider,
 ) {
 
-  private var _controller: MediaControllerCompat? = null
+  private var _controller: Deferred<MediaController> = newControllerAsync()
 
-  private val callback = object : MediaBrowserCompat.ConnectionCallback() {
-    override fun onConnected() {
-      super.onConnected()
-      Logger.v("onConnected")
-      _controller = MediaControllerCompat(context, browser.sessionToken)
+  private fun newControllerAsync() = MediaController
+    .Builder(context, SessionToken(context, ComponentName(context, PlaybackService::class.java)))
+    .buildAsync()
+    .asDeferred()
+
+  private val controller: Deferred<MediaController>
+    get() {
+      if (_controller.isCompleted) {
+        val completedController = _controller.getCompleted()
+        if (!completedController.isConnected) {
+          completedController.release()
+          _controller = newControllerAsync()
+        }
+      }
+      return _controller
     }
+  private val scope = CoroutineScope(Dispatchers.Main.immediate)
 
-    override fun onConnectionSuspended() {
-      super.onConnectionSuspended()
-      Logger.v("onConnectionSuspended")
-      _controller = null
-    }
-
-    override fun onConnectionFailed() {
-      super.onConnectionFailed()
-      Logger.d("onConnectionFailed")
-      _controller = null
+  fun setPosition(
+    time: Long,
+    id: ChapterId,
+  ) = executeAfterPrepare { controller ->
+    val bookId = currentBookId.data.first() ?: return@executeAfterPrepare
+    val book = bookRepository.get(bookId) ?: return@executeAfterPrepare
+    val index = book.chapters.indexOfFirst { it.id == id }
+    if (index != -1) {
+      controller.seekTo(index, time)
     }
   }
 
-  private val browser: MediaBrowserCompat = MediaBrowserCompat(
-    context,
-    ComponentName(context, PlaybackService::class.java),
-    callback,
-    null,
-  )
-
-  init {
-    browser.connect()
+  fun pauseIfCurrentBookDifferentFrom(id: BookId) {
+    scope.launch {
+      val controller = awaitConnect() ?: return@launch
+      val currentBookId = controller.currentBookId()
+      if (currentBookId != null && currentBookId != id) {
+        controller.pause()
+      }
+    }
   }
 
-  fun setPosition(time: Long, id: Chapter.Id) = execute { it.setPosition(time, id) }
+  fun skipSilence(skip: Boolean) = executeAfterPrepare { controller ->
+    controller.sendCustomCommand(CustomCommand.SetSkipSilence(skip))
+  }
 
-  fun skipSilence(skip: Boolean) = execute { it.skipSilence(skip) }
+  fun fastForward() = executeAfterPrepare { controller ->
+    controller.seekForward()
+  }
 
-  fun setRepeat(mode: Int) = execute { it.setRepeat(mode) }
+  fun rewind() = executeAfterPrepare { controller ->
+    controller.seekBack()
+  }
 
-  fun showChapterNumbers(show: Boolean) = execute { it.showChapterNumbers(show) }
+  fun previous() = executeAfterPrepare { controller ->
+    controller.sendCustomCommand(CustomCommand.ForceSeekToPrevious)
+  }
 
-  fun useChapterCover(use: Boolean) = execute { it.useChapterCover(use) }
+  fun next() = executeAfterPrepare { controller ->
+    controller.sendCustomCommand(CustomCommand.ForceSeekToNext)
+  }
 
-  fun fastForward() = execute { it.fastForward() }
+  fun play() = executeAfterPrepare { controller ->
+    controller.play()
+  }
 
-  fun rewind() = execute { it.rewind() }
+  fun playPause() = executeAfterPrepare { controller ->
+    if (controller.isPlaying) {
+      controller.pause()
+    } else {
+      controller.play()
+    }
+  }
 
-  fun previous() = execute { it.forcedPrevious() }
+  private suspend fun maybePrepare(controller: MediaController): Boolean {
+    val bookId = currentBookId.data.first() ?: return false
+    if (controller.currentBookId() == bookId &&
+      controller.playbackState in listOf(Player.STATE_READY, Player.STATE_BUFFERING)
+    ) {
+      return true
+    }
+    val book = bookRepository.get(bookId) ?: return false
+    controller.setMediaItem(mediaItemProvider.mediaItem(book))
+    controller.prepare()
+    return true
+  }
 
-  fun next() = execute { it.forcedNext() }
+  private fun MediaController.currentBookId(): BookId? {
+    val currentMediaItem = currentMediaItem ?: return null
+    val mediaId = currentMediaItem.mediaId.toMediaIdOrNull() ?: return null
+    return when (mediaId) {
+      is MediaId.Book -> mediaId.id
+      is MediaId.Chapter -> mediaId.bookId
+      MediaId.Recent -> null
+      MediaId.Root -> null
+    }
+  }
 
-  fun play() = execute { it.play() }
+  fun pauseWithRewind(rewind: Duration) = executeAfterPrepare { controller ->
+    controller.pause()
+    controller.seekTo((controller.currentPosition - rewind.inWholeMilliseconds.coerceAtLeast(0)))
+  }
 
-  fun playPause() = execute { it.playPause() }
+  fun setSpeed(speed: Float) = executeAfterPrepare { controller ->
+    controller.setPlaybackSpeed(speed)
+  }
 
-  fun pauseWithRewind(rewind: Duration) = execute { it.pauseWithRewind(rewind) }
+  fun setGain(gain: Decibel) = executeAfterPrepare { controller ->
+    controller.sendCustomCommand(CustomCommand.SetGain(gain))
+  }
 
-  fun setSpeed(speed: Float) = execute { it.setPlaybackSpeed(speed) }
-
-  fun setGain(gain: Decibel) = execute { it.setGain(gain) }
-
-  fun setVolume(volume: Float) = execute {
+  fun setVolume(volume: Float) = executeAfterPrepare {
     require(volume in 0F..1F)
-    it.setVolume(volume)
+    it.volume = volume
   }
 
-  private inline fun execute(action: (MediaControllerCompat.TransportControls) -> Unit) {
-    _controller?.transportControls?.let(action)
+  private inline fun executeAfterPrepare(crossinline action: suspend (MediaController) -> Unit) {
+    scope.launch {
+      val controller = awaitConnect() ?: return@launch
+      if (maybePrepare(controller)) {
+        action(controller)
+      }
+    }
+  }
+
+  suspend fun awaitConnect(): MediaController? {
+    return try {
+      controller.await()
+    } catch (e: Exception) {
+      if (e is CancellationException) throw e
+      Logger.e(e, "Error while connecting to media controller")
+      null
+    }
+  }
+
+  //PlayBook
+  fun setRepeat(mode: Int) = executeAfterPrepare { controller ->
+    controller.sendCustomCommand(CustomCommand.SetSetRepeat(mode))
+    updateBook { it.copy(repeatMode = mode) }
+  }
+
+  fun showChapterNumbers(show: Boolean) = executeAfterPrepare { _ ->
+    updateBook { it.copy(showChapterNumbers = show) }
+  }
+
+  fun useChapterCover(use: Boolean) = executeAfterPrepare { _ ->
+    updateBook { it.copy(useChapterCover = use) }
+  }
+
+  private suspend fun updateBook(update: (BookContent) -> BookContent) {
+    val bookId = currentBookId.data.first() ?: return
+    bookRepository.updateBook(bookId, update)
   }
 }

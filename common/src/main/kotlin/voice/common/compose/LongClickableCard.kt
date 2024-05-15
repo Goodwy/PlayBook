@@ -21,7 +21,7 @@ fun LongClickableCard(
   content: @Composable () -> Unit,
 ) {
   Card(modifier = modifier,
-    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background)) {
+    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background.copy(alpha = 0f))) {
     Box(
       modifier = Modifier
         .fillMaxSize()

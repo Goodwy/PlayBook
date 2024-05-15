@@ -21,6 +21,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.RadioButtonUnchecked
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -42,29 +43,37 @@ import coil.compose.AsyncImage
 import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import voice.bookOverview.R
 import voice.bookOverview.overview.BookOverviewCategory
 import voice.bookOverview.overview.BookOverviewItemViewState
 import voice.common.BookId
 import voice.common.compose.LongClickableCard
-import voice.common.compose.plus
 import java.text.DecimalFormat
 import kotlin.math.roundToInt
+import voice.common.R as CommonR
 
 @Composable
 internal fun GridBooks(
   books: ImmutableMap<BookOverviewCategory, List<BookOverviewItemViewState>>,
-  contentPadding: PaddingValues,
   onBookClick: (BookId) -> Unit,
   onBookLongClick: (BookId) -> Unit,
+  showPermissionBugCard: Boolean,
+  onPermissionBugCardClicked: () -> Unit,
+  currentBook: BookId?,
 ) {
   val cellCount = gridColumnCount()
   LazyVerticalGrid(
     columns = GridCells.Fixed(cellCount),
     verticalArrangement = Arrangement.spacedBy(8.dp),
     horizontalArrangement = Arrangement.spacedBy(8.dp),
-    contentPadding = contentPadding + PaddingValues(start = 12.dp, end = 12.dp, top = 8.dp, bottom = 102.dp),
+    contentPadding = PaddingValues(start = 12.dp, end = 12.dp, top = 8.dp, bottom = 102.dp),
   ) {
+    if (showPermissionBugCard) {
+      item(
+        span = { GridItemSpan(maxLineSpan) },
+      ) {
+        PermissionBugCard(onPermissionBugCardClicked)
+      }
+    }
     books.forEach { (category, books) ->
       if (books.isEmpty()) return@forEach
       item(
@@ -82,10 +91,12 @@ internal fun GridBooks(
         key = { it.id },
         contentType = { "item" },
       ) { book ->
+        val isCurrentBook = book.id == currentBook
         GridBook(
           book = book,
           onBookClick = onBookClick,
           onBookLongClick = onBookLongClick,
+          isCurrentBook = isCurrentBook,
         )
       }
     }
@@ -98,6 +109,7 @@ internal fun GridBook(
   onBookClick: (BookId) -> Unit,
   onBookLongClick: (BookId) -> Unit,
   hideKeyboard: Boolean = false,
+  isCurrentBook: Boolean = false,
 ) {
   val keyboardController = LocalSoftwareKeyboardController.current
   val scope = rememberCoroutineScope()
@@ -133,7 +145,7 @@ internal fun GridBook(
             .padding(start = 8.dp, end = 8.dp, top = 8.dp)
             .shadow(
               elevation = 4.dp,
-              shape = RoundedCornerShape(8.dp),
+              shape = RoundedCornerShape(12.dp),
               clip = true,
               ambientColor = MaterialTheme.colorScheme.onBackground,
               spotColor = MaterialTheme.colorScheme.onBackground,
@@ -141,15 +153,15 @@ internal fun GridBook(
             .clip(RoundedCornerShape(8.dp)),
           contentScale = ContentScale.Crop,
           model = book.cover?.file,
-          placeholder = painterResource(id = R.drawable.album_art),
-          error = painterResource(id = R.drawable.album_art),
+          placeholder = painterResource(id = CommonR.drawable.album_art),
+          error = painterResource(id = CommonR.drawable.album_art),
           contentDescription = null,
         )
         Row(
           modifier = Modifier
             .wrapContentSize()
-            .padding(start = 16.dp, bottom = 6.dp)
-            .background(Color.Black.copy(alpha = 0.6f), RoundedCornerShape(12.dp))
+            .padding(start = 14.dp, bottom = 6.dp)
+            .background(Color.Black.copy(alpha = 0.6f), RoundedCornerShape(6.dp))
             .padding(start = 2.dp, end = 3.dp, top = 2.dp, bottom = 2.dp),
           verticalAlignment = Alignment.CenterVertically
         ) {
@@ -171,37 +183,39 @@ internal fun GridBook(
         }
       }
       Text(
-        modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 6.dp),
+        modifier = Modifier.padding(start = 9.dp, end = 9.dp, top = 6.dp),
         text = book.name,
         lineHeight = 16.sp,
         overflow = TextOverflow.Ellipsis,
         maxLines = 3,
         style = MaterialTheme.typography.bodyMedium,
+        color = if (isCurrentBook) MaterialTheme.colorScheme.primary else Color.Unspecified,
       )
       Row(
         modifier = Modifier
           .wrapContentSize()
-          .padding(start = 8.dp, end = 8.dp, top = 4.dp, bottom = 8.dp),
+          .padding(start = 9.dp, end = 9.dp, top = 4.dp, bottom = 8.dp),
         verticalAlignment = Alignment.CenterVertically
       ) {
         Icon(
           modifier = Modifier.size(14.dp),
           //imageVector = Icons.Rounded.Schedule,
-          painter = painterResource(id = R.drawable.ic_time_left),
+          painter = painterResource(id = CommonR.drawable.ic_time_left),
           contentDescription = null,
-          tint = MaterialTheme.colorScheme.primary,
+          tint = if (isCurrentBook) MaterialTheme.colorScheme.primary else LocalContentColor.current,
         )
         Spacer(modifier = Modifier.size(4.dp))
         Text(
           text = book.remainingTime,
           style = MaterialTheme.typography.bodySmall,
+          color = if (isCurrentBook) MaterialTheme.colorScheme.primary else Color.Unspecified,
         )
       }
 
       /*if (book.progress > 0F) {
         LinearProgressIndicator(
           modifier = Modifier.fillMaxWidth(),
-          progress = book.progress,
+          progress = { book.progress },
         )
       }*/
     }

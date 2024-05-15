@@ -33,12 +33,13 @@
   <string name="pref_category_appearance">Udseende</string>
   <string name="pref_appearance_ui_library_title">Udseende på bibliotekets brugergrænseflade</string>
   <string name="pref_appearance_ui_player_title">Udseende for spillerens brugergrænseflade</string>
+  <string name="pref_playback">Afspilning</string>
   <string name="pref_category_other">Andet</string>
 
   <!--Indstilling af farver-->
   <string name="pref_basic_color">Grundfarve</string>
   <string name="pref_basic_color_summary">Indtast en brugerdefineret nøglefarve, der automatisk får tildelt et sæt komplementære toner.</string>
-  <string name="pref_default_theme_title">Indstil standard</string>
+  <string name="pref_default_theme">Indstil standard</string>
 
   <!--BookPlay-->
   <string name="custom">Tilpasset</string>
@@ -93,9 +94,31 @@ Jeg ville være meget taknemmelig, hvis du giver en anmeldelse eller vurdering a
   <string name="special_thanks_to">Særlig tak til</string>
 
   <!--Fakturering-->
-  <string name="tipping_jar_dialog_sucess_title">Mange tak!</string>
-  <string name="tipping_jar_dialog_sucess_message">Stor tak for at støtte udviklingen af PlayBook. Du er fantastisk, og udvikleren vil aldrig glemme dig!</string>
-  <string name="tipping_jar_dialog_sucess_button_title">Du er velkommen</string>
+  <string name="tipping_jar_dialog_success_title">Mange tak!</string>
+  <string name="tipping_jar_dialog_success_message">Stor tak for at støtte udviklingen af PlayBook. Du er fantastisk, og udvikleren vil aldrig glemme dig!</string>
+  <string name="tipping_jar_dialog_success_button_title">Du er velkommen</string>
   <string name="tipping_jar_dialog_error_title">Kunne ikke give tip</string>
   <string name="tipping_jar_dialog_error_message">Desværre skete der noget galt under udførelse af tiptransaktionen. Vær ikke ked af det, prøv bare igen en anden gang og nyd PlayBook</string>
+    <string name="pref_use_haptic_feedback">Brug haptisk feedback</string>
+  <string name="pref_widget">Widget</string>
+  <string name="pref_scan_chapter_covers">Scan kapitlets omslag</string>
+  <string name="pref_subtitle_scan_chapter_covers">Ændringen rydder de aktuelle bogomslag. Kapitlet dækker ekstra hukommelse på enheden</string>
+  <string name="pref_delete_cover_files">Slet coverfilerne</string>
+  <string name="pref_subtitle_delete_cover_files">Alle gemte covers i appen slettes. Omslagene genindlæses fra bogfilerne</string>
+  <string name="pref_use_menu_icons">Brug menuikoner</string>
+  <string name="pref_category_general">Generel</string>
+  <string name="pref_sorting">Sortering efter</string>
+  <string name="pref_sorting_last">Senest tilføjet eller brugt</string>
+  <string name="pref_sorting_last_added">Senest tilføjet</string>
+  <string name="pref_sorting_time">Tidspunkt</string>
+  <string name="change_book_author">Forfatter</string>
+  <string name="edit_book_author">Rediger forfatter</string>
+  <string name="onboarding_welcome_title_g">Velkommen til PlayBook!</string>
+  <string name="onboarding_gestures_title">Brug bevægelser</string>
+  <string name="onboarding_show_player">Vis afspiller</string>
+  <string name="onboarding_show_list_chapters">Vis liste over kapitler</string>
+  <string name="onboarding_double_tap">Tryk to gange for at afspille eller sætte på pause</string>
+  <string name="per_month">%s/måned</string>
+  <string name="per_year">%s/år</string>
+  <string name="restore_purchase">Gendan køb</string>
 </resources>

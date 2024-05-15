@@ -1,15 +1,21 @@
 package voice.settings
 
-import android.net.Uri
 import android.os.Build
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.core.net.toUri
 import de.paulwoitaschek.flowpref.Pref
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import voice.app.scanner.CoverSaver
 import voice.common.AppInfoProvider
 import voice.common.DARK_THEME_SETTABLE
+import voice.common.DispatcherProvider
+import voice.common.constants.*
 import voice.common.grid.GridCount
 import voice.common.grid.GridMode
 import voice.common.navigation.Destination
@@ -22,8 +28,6 @@ class SettingsViewModel
 @Inject constructor(
   @Named(PrefKeys.DARK_THEME)
   private val useDarkTheme: Pref<Boolean>,
-  @Named(PrefKeys.RESUME_ON_REPLUG)
-  private val resumeOnReplugPref: Pref<Boolean>,
   @Named(PrefKeys.AUTO_REWIND_AMOUNT)
   private val autoRewindAmountPref: Pref<Int>,
   @Named(PrefKeys.SEEK_TIME)
@@ -53,16 +57,40 @@ class SettingsViewModel
   private val themePref: Pref<Int>,
   @Named(PrefKeys.COLOR_THEME)
   private val colorThemePreference: Pref<Int>,
+  @Named(PrefKeys.THEME_WIDGET)
+  private val themeWidgetPref: Pref<Int>,
   @Named(PrefKeys.PRO)
   private val isProPref: Pref<Boolean>,
+  @Named(PrefKeys.PRO_SUBS)
+  private val isProSubsPref: Pref<Boolean>,
+  @Named(PrefKeys.PRO_RUSTORE)
+  private val isProRuPref: Pref<Boolean>,
+  @Named(PrefKeys.SORTING)
+  private val sortingPref: Pref<Int>,
+  @Named(PrefKeys.USE_GESTURES)
+  private val useGestures: Pref<Boolean>,
+  @Named(PrefKeys.USE_HAPTIC_FEEDBACK)
+  private val useHapticFeedback: Pref<Boolean>,
+  @Named(PrefKeys.SCAN_COVER_CHAPTER)
+  private val scanCoverChapter: Pref<Boolean>,
+  @Named(PrefKeys.USE_MENU_ICONS)
+  private val useMenuIconsPref: Pref<Boolean>,
+  private val coverSaver: CoverSaver,
+  dispatcherProvider: DispatcherProvider,
 ) : SettingsListener {
 
+  private val scope = CoroutineScope(SupervisorJob() + dispatcherProvider.main)
   private val dialog = mutableStateOf<SettingsViewState.Dialog?>(null)
+
+  fun attach() {
+    scope.launch {
+      coverSaver.updateSizeCoversDirectory()
+    }
+  }
 
   @Composable
   fun viewState(): SettingsViewState {
     val useDarkTheme by remember { useDarkTheme.flow }.collectAsState(initial = false)
-    val resumeOnReplug by remember { resumeOnReplugPref.flow }.collectAsState(initial = false)
     val autoRewindAmount by remember { autoRewindAmountPref.flow }.collectAsState(initial = 0)
     val seekTime by remember { seekTimePref.flow }.collectAsState(initial = 0)
     val seekTimeRewind by remember { seekTimeRewindPref.flow }.collectAsState(initial = 0)
@@ -70,17 +98,25 @@ class SettingsViewModel
     val paddings by remember { paddingPref.flow }.collectAsState(initial = "0;0;0;0")
     val useTransparentNavigationPref by remember { useTransparentNavigationPref.flow }.collectAsState(initial = true)
     val playButtonStylePref by remember { playButtonStylePref.flow }.collectAsState(initial = 2)
-    val skipButtonStylePref by remember { skipButtonStylePref.flow }.collectAsState(initial = 2)
-    val miniPlayerStylePref by remember { miniPlayerStylePref.flow }.collectAsState(initial = 0)
-    val playerBackgroundPref by remember { playerBackgroundPref.flow }.collectAsState(initial = 0)
+    val skipButtonStylePref by remember { skipButtonStylePref.flow }.collectAsState(initial = SKIP_BUTTON_ROUND)
+    val miniPlayerStylePref by remember { miniPlayerStylePref.flow }.collectAsState(initial = MINI_PLAYER_PLAYER)
+    val playerBackgroundPref by remember { playerBackgroundPref.flow }.collectAsState(initial = PLAYER_BACKGROUND_THEME)
     val showSliderVolumePref by remember { showSliderVolumePref.flow }.collectAsState(initial = true)
-    val themePref by remember { themePref.flow }.collectAsState(initial = 0)
+    val themePref by remember { themePref.flow }.collectAsState(initial = THEME_LIGHT)
     val colorThemePref by remember { colorThemePreference.flow }.collectAsState(initial = -0x1)
+    val themeWidgetPref by remember { themeWidgetPref.flow }.collectAsState(initial = THEME_LIGHT)
     val isProPref by remember { isProPref.flow }.collectAsState(initial = false)
+    val isProSubsPref by remember { isProSubsPref.flow }.collectAsState(initial = false)
+    val isProRuPref by remember { isProRuPref.flow }.collectAsState(initial = false)
+    val sortingPref by remember { sortingPref.flow }.collectAsState(initial = SORTING_CLASSIC)
+    val useGestures by remember { useGestures.flow }.collectAsState(initial = true)
+    val useHapticFeedback by remember { useHapticFeedback.flow }.collectAsState(initial = true)
+    val sizeCoversDirectory by remember { coverSaver.sizeCoversDirectory }.collectAsState(initial = "0")
+    val scanCoverChapter by remember { scanCoverChapter.flow }.collectAsState(initial = false)
+    val useMenuIconsPref by remember { useMenuIconsPref.flow }.collectAsState(initial = false)
     return SettingsViewState(
       useDarkTheme = useDarkTheme,
       showDarkThemePref = DARK_THEME_SETTABLE,
-      resumeOnReplug = resumeOnReplug,
       seekTimeInSeconds = seekTime,
       seekTimeRewindInSeconds = seekTimeRewind,
       autoRewindInSeconds = autoRewindAmount,
@@ -105,16 +141,19 @@ class SettingsViewModel
       showSliderVolume = showSliderVolumePref,
       theme = themePref,
       colorTheme = colorThemePref,
-      isPro = isProPref,
+      themeWidget = themeWidgetPref,
+      isPro = isProPref || isProSubsPref || isProRuPref,
+      sortingPref = sortingPref,
+      useGestures = useGestures,
+      useHapticFeedback = useHapticFeedback,
+      sizeCoversDirectory = sizeCoversDirectory,
+      scanCoverChapter = scanCoverChapter,
+      useMenuIconsPref = useMenuIconsPref,
     )
   }
 
   override fun close() {
     navigator.goBack()
-  }
-
-  override fun toggleResumeOnReplug() {
-    resumeOnReplugPref.value = !resumeOnReplugPref.value
   }
 
   override fun toggleDarkTheme() {
@@ -233,8 +272,13 @@ class SettingsViewModel
     themePref.value = theme
   }
 
-  override fun onThemeDialogRowClicked() {
-    dialog.value = SettingsViewState.Dialog.ThemeDialog
+  override fun themeWidgetChanged(themeWidget: Int) {
+    themeWidgetPref.value = themeWidget
+  }
+
+  override fun onThemeDialogRowClicked(isWidget: Boolean) {
+    if (isWidget) dialog.value = SettingsViewState.Dialog.ThemeWidgetDialog
+    else dialog.value = SettingsViewState.Dialog.ThemeDialog
   }
 
   override fun dismissDialog() {
@@ -250,7 +294,7 @@ class SettingsViewModel
   }
 
   override fun openBugReport() {
-    val url = Uri.parse("https://github.com/Goodwy/PlayBooks/issues/new")
+    val url = "https://github.com/Goodwy/PlayBooks/issues/new".toUri()
       .buildUpon()
       .appendQueryParameter("template", "bug.yml")
       .appendQueryParameter("version", appInfoProvider.versionName)
@@ -271,5 +315,48 @@ class SettingsViewModel
 
   override fun onPurchaseClick() {
     navigator.goTo(Destination.Purchase)
+  }
+
+  override fun onSortingDialogRowClicked() {
+    dialog.value = SettingsViewState.Dialog.SortingDialog
+  }
+
+  override fun sortingDialogChange(item: Int) {
+    sortingPref.value = item
+  }
+
+  override fun toggleUseSwipe() {
+    useGestures.value = !useGestures.value
+  }
+
+  override fun onUseSwipeFaqClick() {
+    navigator.goTo(Destination.OnboardingCompletionFaq)
+  }
+
+  override fun toggleUseHapticFeedback() {
+    useHapticFeedback.value = !useHapticFeedback.value
+  }
+
+  override fun clearCoversDirectory() {
+    scope.launch {
+      coverSaver.clearCoversDirectory()
+    }
+  }
+
+  override fun onClearCoversDirectoryRowClicked() {
+    dialog.value = SettingsViewState.Dialog.ClearCoversDirectoryAlertDialog
+  }
+
+  override fun toggleScanCoverChapter() {
+    scanCoverChapter.value = !scanCoverChapter.value
+    clearCoversDirectory()
+  }
+
+  override fun onScanCoverChapterRowClicked() {
+    dialog.value = SettingsViewState.Dialog.ScanChapterCoverAlertDialog
+  }
+
+  override fun toggleUseMenuIcons() {
+    useMenuIconsPref.value = !useMenuIconsPref.value
   }
 }

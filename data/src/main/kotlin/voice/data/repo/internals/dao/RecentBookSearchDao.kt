@@ -2,12 +2,16 @@ package voice.data.repo.internals.dao
 
 import androidx.room.Dao
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 abstract class RecentBookSearchDao {
 
   @Query("SELECT searchTerm FROM recentBookSearch")
   abstract suspend fun recentBookSearch(): List<String>
+
+  @Query("SELECT searchTerm FROM recentBookSearch")
+  abstract fun recentBookSearches(): Flow<List<String>>
 
   @Query("DELETE FROM recentBookSearch WHERE searchTerm = :query")
   abstract suspend fun delete(query: String)

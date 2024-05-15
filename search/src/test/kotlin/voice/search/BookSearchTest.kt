@@ -7,6 +7,7 @@ import io.kotest.matchers.collections.shouldContainExactly
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.annotation.Config
 import voice.common.BookId
 import voice.data.Book
 import voice.data.repo.BookContentRepo
@@ -16,6 +17,7 @@ import voice.data.repo.internals.AppDb
 import java.util.UUID
 
 @RunWith(AndroidJUnit4::class)
+@Config(sdk = [33])
 class BookSearchTest {
 
   @Suppress("SpellCheckingInspection")
@@ -126,7 +128,10 @@ private fun Book.withNewIdAndInactive(): Book {
 
 private class TestBase(private val search: BookSearch) {
 
-  suspend fun expectSearchResult(query: String, vararg expected: Book) {
+  suspend fun expectSearchResult(
+    query: String,
+    vararg expected: Book,
+  ) {
     val result = search.search(query)
     result shouldContainExactly expected.toList()
   }

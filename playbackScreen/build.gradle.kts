@@ -19,6 +19,7 @@ dependencies {
   implementation(projects.strings)
   implementation(projects.playback)
   implementation(projects.data)
+  implementation(projects.datastore)
   implementation(projects.sleepTimer)
 
   implementation(libs.datastore)
@@ -30,4 +31,7 @@ dependencies {
   implementation(libs.material)
 
   implementation(libs.dagger.core)
+
+  testImplementation(libs.prefs.inMemory)
+  testImplementation(libs.turbine)
 }

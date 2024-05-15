@@ -1,8 +1,10 @@
 package voice.app.scanner
 
-import androidx.documentfile.provider.DocumentFile
 import voice.data.Chapter
+import voice.data.ChapterId
+import voice.data.isAudioFile
 import voice.data.repo.ChapterRepo
+import voice.documentfile.CachedDocumentFile
 import voice.data.supportedAudioFormats
 import java.time.Instant
 import javax.inject.Inject
@@ -13,19 +15,19 @@ class ChapterParser
   private val mediaAnalyzer: MediaAnalyzer,
 ) {
 
-  suspend fun parse(documentFile: DocumentFile): List<Chapter> {
+  suspend fun parse(documentFile: CachedDocumentFile): List<Chapter> {
     val result = mutableListOf<Chapter>()
 
-    suspend fun parseChapters(file: DocumentFile) {
+    suspend fun parseChapters(file: CachedDocumentFile) {
       if (file.isAudioFile()) {
-        val id = Chapter.Id(file.uri)
-        val chapter = chapterRepo.getOrPut(id, Instant.ofEpochMilli(file.lastModified())) {
+        val id = ChapterId(file.uri)
+        val chapter = chapterRepo.getOrPut(id, Instant.ofEpochMilli(file.lastModified)) {
           val metaData = mediaAnalyzer.analyze(file) ?: return@getOrPut null
           Chapter(
             id = id,
             duration = metaData.duration,
-            fileLastModified = Instant.ofEpochMilli(file.lastModified()),
-            name = metaData.chapterName,
+            fileLastModified = Instant.ofEpochMilli(file.lastModified),
+            name = metaData.title ?: metaData.fileName,
             markData = metaData.chapters,
             cover = null,
           )
@@ -34,7 +36,7 @@ class ChapterParser
           result.add(chapter)
         }
       } else if (file.isDirectory) {
-        file.listFiles()
+        file.children
           .forEach {
             parseChapters(it)
           }
@@ -44,11 +46,4 @@ class ChapterParser
     parseChapters(file = documentFile)
     return result.sorted()
   }
-}
-
-private fun DocumentFile.isAudioFile(): Boolean {
-  if (!isFile) return false
-  val name = name ?: return false
-  val extension = name.substringAfterLast(".")
-  return extension.lowercase() in supportedAudioFormats
 }
