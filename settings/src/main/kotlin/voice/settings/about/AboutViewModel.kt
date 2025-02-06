@@ -18,6 +18,10 @@ class AboutViewModel
   private val appInfoProvider: AppInfoProvider,
   @Named(PrefKeys.PADDING)
   private val paddingPref: Pref<String>,
+  @Named(PrefKeys.IS_RU_STORE_INSTALLED)
+  private val isRuStoreInstalledPref: Pref<Boolean>,
+  @Named(PrefKeys.USE_GOOGLE_PLAY)
+  private val useGooglePlay: Pref<Boolean>,
 ) : AboutListener {
 
   @Composable
@@ -38,11 +42,15 @@ class AboutViewModel
   }
 
   override fun onRateClick() {
-    navigator.goTo(Destination.Website("https://play.google.com/store/apps/details?id=${appInfoProvider.applicationID}"))
+    val rateUrl = if (isRuStoreInstalledPref.value && !useGooglePlay.value) "https://apps.rustore.ru/app/${appInfoProvider.applicationID}"
+    else "https://play.google.com/store/apps/details?id=${appInfoProvider.applicationID}"
+    navigator.goTo(Destination.Website(rateUrl))
   }
 
   override fun onMoreAppClick() {
-    navigator.goTo(Destination.Website("https://play.google.com/store/apps/dev?id=8268163890866913014"))
+    val otherAppUrl = if (isRuStoreInstalledPref.value && !useGooglePlay.value) "rustore://apps.rustore.ru/developer/d01f495d"
+    else "https://play.google.com/store/apps/dev?id=8268163890866913014"
+    navigator.goTo(Destination.Website(otherAppUrl))
   }
 
   override fun onPrivacyClick() {

@@ -138,8 +138,7 @@
   <string name="billing_product_confirmed">Produs confirmat</string>
   <string name="billing_product_deleted">Cumpărare anulată</string>
   <string name="billing_subscriptions">Abonamente</string>
-  <string name="no_connection">Nici o conexiune</string>
-  <string name="per_month">%s/month</string>
+    <string name="per_month">%s/month</string>
   <string name="per_year">%s/year</string>
   <string name="restore_purchase">Restabilește achizițiile</string>
   <string name="unlock">Deblochează</string>

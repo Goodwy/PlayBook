@@ -121,4 +121,12 @@
   <string name="per_month">%s/Monat</string>
   <string name="per_year">%s/Jahr</string>
   <string name="restore_purchase">Kauf wiederherstellen</string>
+  <string name="donate_text_no_gp">
+        <![CDATA[
+            Aufgrund von Problemen ist es uns vorübergehend nicht möglich, Zahlungen über Google Play vorzunehmen,
+            Daher bieten wir allen Nutzern für diesen Zeitraum die Möglichkeit, alle Funktionen der App manuell freizuschalten. <br>
+            Wenn Ihnen unsere Apps gefallen, die offline, nicht aufdringlich und werbefrei sind, ziehen Sie bitte in Erwägung, uns auf irgendeine Weise zu unterstützen. Wir wären Ihnen sehr dankbar.<br><br>
+            Ich danke Ihnen!
+        ]]>
+    </string>
 </resources>

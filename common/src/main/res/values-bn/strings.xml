@@ -137,8 +137,7 @@
   <string name="billing_product_confirmed">Product confirmed</string>
   <string name="billing_product_deleted">Purchase cancelled</string>
   <string name="billing_subscriptions">Subscriptions</string>
-  <string name="no_connection">No connection</string>
-  <string name="per_month">%s/month</string>
+    <string name="per_month">%s/month</string>
   <string name="per_year">%s/year</string>
   <string name="restore_purchase">Restore purchase</string>
 

@@ -120,4 +120,13 @@ Ficarei muito grato se você deixar um comentário ou avaliação sobre o aplica
   <string name="per_month">%s/mês</string>
   <string name="per_year">%s/ano</string>
   <string name="restore_purchase">Restaurar a compra</string>
+  <string name="donate_text_no_gp">
+        <![CDATA[
+            Devido a problemas, estamos temporariamente impossibilitados de fazer pagamentos pelo Google Play,
+            portanto, durante esse período, estamos oferecendo a todos os usuários a opção de desbloquear manualmente todos os recursos do aplicativo. <br>
+            Se você gosta dos nossos aplicativos, que são off-line, não intrusivos e não têm anúncios, considere a possibilidade de nos apoiar de alguma forma.
+            Ficaremos muito gratos.<br><br>
+            Obrigado!
+        ]]>
+    </string>
 </resources>

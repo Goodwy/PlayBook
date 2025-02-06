@@ -120,4 +120,13 @@ Bol by som veľmi vďačný, keby ste na Google Play zanechali recenziu alebo ho
   <string name="per_month">%s/mesiac</string>
   <string name="per_year">%s/rok</string>
   <string name="restore_purchase">Obnoviť nákup</string>
+  <string name="donate_text_no_gp">
+        <![CDATA[
+            Z dôvodu problémov dočasne nemôžeme vykonávať platby prostredníctvom služby Google Play,
+            preto v tomto období poskytujeme všetkým používateľom možnosť manuálneho odomknutia všetkých funkcií aplikácie. <br>
+            Ak sa vám páčia naše aplikácie, ktoré sú offline, nie sú rušivé a neobsahujú reklamy, zvážte, či nás nejakým spôsobom nepodporíte.
+            Budeme vám veľmi vďační.<br><br>
+            Ďakujeme!
+        ]]>
+    </string>
 </resources>

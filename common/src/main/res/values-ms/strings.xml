@@ -136,8 +136,7 @@
   <string name="billing_product_confirmed">Produk disahkan</string>
   <string name="billing_product_deleted">Pembelian dibatalkan</string>
   <string name="billing_subscriptions">Langganan</string>
-  <string name="no_connection">Tiada sambungan</string>
-  <string name="per_month">%s/bulan</string>
+    <string name="per_month">%s/bulan</string>
   <string name="per_year">%s/tahun</string>
   <string name="restore_purchase">Pulihkan pembelian</string>
 

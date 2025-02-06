@@ -17,7 +17,7 @@ import voice.common.constants.THEME_DARK
 import voice.common.constants.THEME_LIGHT
 import voice.common.pref.PrefKeys
 import voice.common.rootComponent
-import voice.app.R
+import voice.common.R as CommonR
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -43,6 +43,9 @@ class App : Application() {
 
   @field:[Inject Named(PrefKeys.PRO_RUSTORE)]
   lateinit var isProRuPref: Pref<Boolean>
+
+  @field:[Inject Named(PrefKeys.PRO_NO_GP)]
+  lateinit var isProNoGpPref: Pref<Boolean>
 
   override fun onCreate() {
     super.onCreate()
@@ -81,8 +84,8 @@ class App : Application() {
   }
 
   private fun isPro(): Boolean {
-    val isProApp = resources.getBoolean(R.bool.is_pro_app)
-    return isProPref.value || isProSubsPref.value || isProRuPref.value || isProApp
+    val isProApp = resources.getBoolean(CommonR.bool.is_pro_app)
+    return isProPref.value || isProSubsPref.value || isProRuPref.value || isProNoGpPref.value || isProApp
   }
 }
 

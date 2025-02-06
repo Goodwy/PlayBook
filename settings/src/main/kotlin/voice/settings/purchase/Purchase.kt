@@ -55,6 +55,7 @@ import androidx.compose.ui.graphics.takeOrElse
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.booleanResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -68,7 +69,6 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
 import com.squareup.anvil.annotations.ContributesTo
 import voice.common.AppScope
-import voice.common.R
 import voice.common.compose.VoiceTheme
 import voice.common.compose.rememberScoped
 import voice.common.constants.THEME_LIGHT
@@ -89,6 +89,7 @@ fun PurchasePreview() {
     purchasedSubsList = "0;0;0;0;0;1",
     purchasedListRustore = "0;0;1;0;0;0;1;0;0",
     isPro = false,
+    isProNoGp = false,
     isPlayStoreInstalled = false,
     isRuStoreInstalled = true,
     useGooglePlay = false,
@@ -104,6 +105,7 @@ fun PurchasePreview() {
         override fun themeChanged() {}
         override fun onUrlClick(url: String) {}
         override fun togglePro() {}
+        override fun toggleProNoGp() {}
         override fun onChangeStore() {}
       },
     )
@@ -130,7 +132,8 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
   val pricesValidRustore = pricesListRustore.size == 9
   val purchasedListRustore = viewState.purchasedListRustore.split(";").toTypedArray()
 
-  val useGooglePlay = viewState.useGooglePlay
+  val useGooglePlay = viewState.useGooglePlay && viewState.isPlayStoreInstalled
+  val isProApp = booleanResource(CommonR.bool.is_pro_app)
 
   val prices1 = if (useGooglePlay) {
     if (pricesValid) pricesList[0] else stringResource(CommonR.string.tipping_jar_dialog_error_title)
@@ -148,45 +151,45 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
     if (pricesValidRustore) pricesListRustore[2] else stringResource(CommonR.string.tipping_jar_dialog_error_title)
   }
   val prices4 = if (useGooglePlay) {
-    if (pricesSubsValid) stringResource(id = R.string.per_month, pricesSubsList[0]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
+    if (pricesSubsValid) stringResource(id = CommonR.string.per_month, pricesSubsList[0]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
   } else {
-    if (pricesValidRustore) stringResource(id = R.string.per_month, pricesListRustore[3]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
+    if (pricesValidRustore) stringResource(id = CommonR.string.per_month, pricesListRustore[3]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
   }
   val prices5 = if (useGooglePlay) {
-    if (pricesSubsValid) stringResource(id = R.string.per_month, pricesSubsList[1]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
+    if (pricesSubsValid) stringResource(id = CommonR.string.per_month, pricesSubsList[1]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
   } else {
-    if (pricesValidRustore) stringResource(id = R.string.per_month, pricesListRustore[4]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
+    if (pricesValidRustore) stringResource(id = CommonR.string.per_month, pricesListRustore[4]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
   }
   val prices6 = if (useGooglePlay) {
-    if (pricesSubsValid) stringResource(id = R.string.per_month, pricesSubsList[2]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
+    if (pricesSubsValid) stringResource(id = CommonR.string.per_month, pricesSubsList[2]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
   } else {
-    if (pricesValidRustore) stringResource(id = R.string.per_month, pricesListRustore[5]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
+    if (pricesValidRustore) stringResource(id = CommonR.string.per_month, pricesListRustore[5]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
   }
   val prices7 = if (useGooglePlay) {
-    if (pricesSubsValid) stringResource(id = R.string.per_month, pricesSubsList[3]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
+    if (pricesSubsValid) stringResource(id = CommonR.string.per_month, pricesSubsList[3]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
   } else {
-    if (pricesValidRustore) stringResource(id = R.string.per_month, pricesListRustore[6]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
+    if (pricesValidRustore) stringResource(id = CommonR.string.per_month, pricesListRustore[6]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
   }
   val prices8 = if (useGooglePlay) {
-    if (pricesSubsValid) stringResource(id = R.string.per_month, pricesSubsList[4]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
+    if (pricesSubsValid) stringResource(id = CommonR.string.per_month, pricesSubsList[4]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
   } else {
-    if (pricesValidRustore) stringResource(id = R.string.per_month, pricesListRustore[7]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
+    if (pricesValidRustore) stringResource(id = CommonR.string.per_month, pricesListRustore[7]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
   }
   val prices9 = if (useGooglePlay) {
-    if (pricesSubsValid) stringResource(id = R.string.per_month, pricesSubsList[5]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
+    if (pricesSubsValid) stringResource(id = CommonR.string.per_month, pricesSubsList[5]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
   } else {
-    if (pricesValidRustore) stringResource(id = R.string.per_month, pricesListRustore[8]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
+    if (pricesValidRustore) stringResource(id = CommonR.string.per_month, pricesListRustore[8]) else stringResource(CommonR.string.tipping_jar_dialog_error_title)
   }
 
-  val isPurchased1 = if (useGooglePlay) purchasedList[0] == "1" else purchasedListRustore[0] == "1"
-  val isPurchased2 = if (useGooglePlay) purchasedList[1] == "1" else purchasedListRustore[1] == "1"
-  val isPurchased3 = if (useGooglePlay) purchasedList[2] == "1" else purchasedListRustore[2] == "1"
-  val isPurchased4 = if (useGooglePlay) purchasedSubsList[0] == "1" else purchasedListRustore[3] == "1"
-  val isPurchased5 = if (useGooglePlay) purchasedSubsList[1] == "1" else purchasedListRustore[4] == "1"
-  val isPurchased6 = if (useGooglePlay) purchasedSubsList[2] == "1" else purchasedListRustore[5] == "1"
-  val isPurchased7 = if (useGooglePlay) purchasedSubsList[3] == "1" else purchasedListRustore[6] == "1"
-  val isPurchased8 = if (useGooglePlay) purchasedSubsList[4] == "1" else purchasedListRustore[7] == "1"
-  val isPurchased9 = if (useGooglePlay) purchasedSubsList[5] == "1" else purchasedListRustore[8] == "1"
+  val isPurchased1 = if (useGooglePlay) (purchasedList.getOrNull(0) ?: "0") == "1" else (purchasedListRustore.getOrNull(0) ?: "0") == "1"
+  val isPurchased2 = if (useGooglePlay) (purchasedList.getOrNull(1) ?: "0") == "1" else (purchasedListRustore.getOrNull(1) ?: "0") == "1"
+  val isPurchased3 = if (useGooglePlay) (purchasedList.getOrNull(2) ?: "0") == "1" else (purchasedListRustore.getOrNull(2) ?: "0") == "1"
+  val isPurchased4 = if (useGooglePlay) (purchasedSubsList.getOrNull(0) ?: "0") == "1" else (purchasedListRustore.getOrNull(3) ?: "0") == "1"
+  val isPurchased5 = if (useGooglePlay) (purchasedSubsList.getOrNull(1) ?: "0") == "1" else (purchasedListRustore.getOrNull(4) ?: "0") == "1"
+  val isPurchased6 = if (useGooglePlay) (purchasedSubsList.getOrNull(2) ?: "0") == "1" else (purchasedListRustore.getOrNull(5) ?: "0") == "1"
+  val isPurchased7 = if (useGooglePlay) (purchasedSubsList.getOrNull(3) ?: "0") == "1" else (purchasedListRustore.getOrNull(6) ?: "0") == "1"
+  val isPurchased8 = if (useGooglePlay) (purchasedSubsList.getOrNull(4) ?: "0") == "1" else (purchasedListRustore.getOrNull(7) ?: "0") == "1"
+  val isPurchased9 = if (useGooglePlay) (purchasedSubsList.getOrNull(5) ?: "0") == "1" else (purchasedListRustore.getOrNull(8) ?: "0") == "1"
 
   val isEnabled1 = if (useGooglePlay) pricesValid else pricesValidRustore && !isPurchased1
   val isEnabled2 = if (useGooglePlay) pricesValid else pricesValidRustore && !isPurchased2
@@ -206,14 +209,14 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
     contentColor = contentColorFor(MaterialTheme.colorScheme.background),
     topBar = {
       val appBarActions: @Composable RowScope.() -> Unit = {
-        if (viewState.isPlayStoreInstalled || viewState.isRuStoreInstalled) {
+        if (viewState.isRuStoreInstalled) { //viewState.isPlayStoreInstalled || viewState.isRuStoreInstalled
+          val url = if (!viewState.useGooglePlay && viewState.isRuStoreInstalled) "rustore://profile/subscriptions" else "https://play.google.com/store/account/subscriptions"
           OverflowMenu(
-            showStoreChange = viewState.isPlayStoreInstalled && viewState.isRuStoreInstalled,
+            showStoreChange = false, //viewState.isPlayStoreInstalled && viewState.isRuStoreInstalled,
             useGooglePlay = viewState.useGooglePlay,
-            isRuStore = !viewState.useGooglePlay && viewState.isRuStoreInstalled,
             onChangeStore = { listener.onChangeStore() },
             onRefreshPurchase = { listener.onRefreshPurchase(viewState.useGooglePlay) },
-            onUrlClick = { listener.onUrlClick("rustore://profile/subscriptions") },
+            onUrlClick = { listener.onUrlClick(url) },
           )
         }
       }
@@ -266,12 +269,22 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
         }
         Spacer(modifier = Modifier.size(16.dp))
 
-        if (viewState.isPlayStoreInstalled || viewState.isRuStoreInstalled) {
+        if (viewState.isRuStoreInstalled) { //viewState.isPlayStoreInstalled || viewState.isRuStoreInstalled
           Text(
             text = stringResource(CommonR.string.action_support_project),
             fontSize = 18.sp,
             textAlign = TextAlign.Center,
           )
+          if (!viewState.isPro) {
+            Spacer(modifier = Modifier.size(8.dp))
+            Text(
+              modifier = Modifier.padding(horizontal = 20.dp),
+              text = stringResource(CommonR.string.any_support_unlock_all),
+              fontSize = 13.sp,
+              lineHeight = 16.sp,
+              color = LocalContentColor.current.copy(alpha = 0.5F),
+            )
+          }
           Spacer(modifier = Modifier.size(16.dp))
           Row(
             modifier = Modifier
@@ -302,7 +315,7 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
                     .height(52.dp)
                     .padding(horizontal = 2.dp)
                     .wrapContentHeight(),
-                  text = stringResource(CommonR.string.tip_kind),
+                  text = stringResource(CommonR.string.one_time_purchase),
                   fontSize = 14.sp,
                   lineHeight = 14.sp,
                   textAlign = TextAlign.Center,
@@ -344,16 +357,16 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
                     .fillMaxWidth()
                     .height(28.dp)
                     .alpha(0.7f),
-                  enabled = isEnabled4,
+                  enabled = isEnabled2,
                   colors = ButtonDefaults.buttonColors(
                     disabledContainerColor = MaterialTheme.colorScheme.primary,
                     disabledContentColor = MaterialTheme.colorScheme.onPrimary
                   ),
-                  onClick = { listener.onPurchaseClick(useGooglePlay, 3) },
+                  onClick = { listener.onPurchaseClick(useGooglePlay, 1) },
                   shape = RoundedCornerShape(10.dp),
                   contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp)
                 ) {
-                  if (isPurchased4) {
+                  if (isPurchased2) {
                     Icon(
                       modifier = Modifier.size(24.dp),
                       imageVector = Icons.Rounded.CheckCircle,
@@ -361,7 +374,7 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
                     )
                   } else {
                     Text(
-                      text = prices4,
+                      text = prices2,
                       overflow = TextOverflow.Ellipsis,
                       maxLines = 1,
                       fontSize = 11.sp,
@@ -374,16 +387,16 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
                     .fillMaxWidth()
                     .height(28.dp)
                     .alpha(0.8f),
-                  enabled = isEnabled7,
+                  enabled = isEnabled3,
                   colors = ButtonDefaults.buttonColors(
                     disabledContainerColor = MaterialTheme.colorScheme.primary,
                     disabledContentColor = MaterialTheme.colorScheme.onPrimary
                   ),
-                  onClick = { listener.onPurchaseClick(useGooglePlay, 6) },
+                  onClick = { listener.onPurchaseClick(useGooglePlay, 2) },
                   shape = RoundedCornerShape(10.dp),
                   contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp)
                 ) {
-                  if (isPurchased7) {
+                  if (isPurchased3) {
                     Icon(
                       modifier = Modifier.size(24.dp),
                       imageVector = Icons.Rounded.CheckCircle,
@@ -391,7 +404,7 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
                     )
                   } else {
                     Text(
-                      text = prices7,
+                      text = prices3,
                       overflow = TextOverflow.Ellipsis,
                       maxLines = 1,
                       fontSize = 11.sp,
@@ -423,7 +436,7 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
                     .height(52.dp)
                     .padding(horizontal = 2.dp)
                     .wrapContentHeight(),
-                  text = stringResource(CommonR.string.tip_excellent),
+                  text = stringResource(CommonR.string.monthly),
                   fontSize = 14.sp,
                   lineHeight = 14.sp,
                   textAlign = TextAlign.Center,
@@ -435,16 +448,16 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
                     .fillMaxWidth()
                     .height(28.dp)
                     .alpha(0.7f),
-                  enabled = isEnabled2,
+                  enabled = isEnabled4,
                   colors = ButtonDefaults.buttonColors(
                     disabledContainerColor = MaterialTheme.colorScheme.primary,
                     disabledContentColor = MaterialTheme.colorScheme.onPrimary
                   ),
-                  onClick = { listener.onPurchaseClick(useGooglePlay, 1) },
+                  onClick = { listener.onPurchaseClick(useGooglePlay, 3) },
                   shape = RoundedCornerShape(10.dp),
                   contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp)
                 ) {
-                  if (isPurchased2) {
+                  if (isPurchased4) {
                     Icon(
                       modifier = Modifier.size(24.dp),
                       imageVector = Icons.Rounded.CheckCircle,
@@ -452,7 +465,7 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
                     )
                   } else {
                     Text(
-                      text = prices2,
+                      text = prices4,
                       overflow = TextOverflow.Ellipsis,
                       maxLines = 1,
                       fontSize = 11.sp,
@@ -495,16 +508,16 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
                     .fillMaxWidth()
                     .height(28.dp)
                     .alpha(0.9f),
-                  enabled = isEnabled8,
+                  enabled = isEnabled6,
                   colors = ButtonDefaults.buttonColors(
                     disabledContainerColor = MaterialTheme.colorScheme.primary,
                     disabledContentColor = MaterialTheme.colorScheme.onPrimary
                   ),
-                  onClick = { listener.onPurchaseClick(useGooglePlay, 7) },
+                  onClick = { listener.onPurchaseClick(useGooglePlay, 5) },
                   shape = RoundedCornerShape(10.dp),
                   contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp)
                 ) {
-                  if (isPurchased8) {
+                  if (isPurchased6) {
                     Icon(
                       modifier = Modifier.size(24.dp),
                       imageVector = Icons.Rounded.CheckCircle,
@@ -512,7 +525,7 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
                     )
                   } else {
                     Text(
-                      text = prices8,
+                      text = prices6,
                       overflow = TextOverflow.Ellipsis,
                       maxLines = 1,
                       fontSize = 11.sp,
@@ -544,7 +557,7 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
                     .height(52.dp)
                     .padding(horizontal = 2.dp)
                     .wrapContentHeight(),
-                  text = stringResource(CommonR.string.tip_incredible),
+                  text = stringResource(CommonR.string.yearly),
                   fontSize = 14.sp,
                   lineHeight = 14.sp,
                   textAlign = TextAlign.Center,
@@ -556,16 +569,16 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
                     .fillMaxWidth()
                     .height(28.dp)
                     .alpha(0.8f),
-                  enabled = isEnabled3,
+                  enabled = isEnabled7,
                   colors = ButtonDefaults.buttonColors(
                     disabledContainerColor = MaterialTheme.colorScheme.primary,
                     disabledContentColor = MaterialTheme.colorScheme.onPrimary
                   ),
-                  onClick = { listener.onPurchaseClick(useGooglePlay, 2) },
+                  onClick = { listener.onPurchaseClick(useGooglePlay, 6) },
                   shape = RoundedCornerShape(10.dp),
                   contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp)
                 ) {
-                  if (isPurchased3) {
+                  if (isPurchased7) {
                     Icon(
                       modifier = Modifier.size(24.dp),
                       imageVector = Icons.Rounded.CheckCircle,
@@ -573,7 +586,7 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
                     )
                   } else {
                     Text(
-                      text = prices3,
+                      text = prices7,
                       overflow = TextOverflow.Ellipsis,
                       maxLines = 1,
                       fontSize = 11.sp,
@@ -586,16 +599,16 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
                     .fillMaxWidth()
                     .height(28.dp)
                     .alpha(0.9f),
-                  enabled = isEnabled6,
+                  enabled = isEnabled8,
                   colors = ButtonDefaults.buttonColors(
                     disabledContainerColor = MaterialTheme.colorScheme.primary,
                     disabledContentColor = MaterialTheme.colorScheme.onPrimary
                   ),
-                  onClick = { listener.onPurchaseClick(useGooglePlay, 5) },
+                  onClick = { listener.onPurchaseClick(useGooglePlay, 7) },
                   shape = RoundedCornerShape(10.dp),
                   contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp)
                 ) {
-                  if (isPurchased6) {
+                  if (isPurchased8) {
                     Icon(
                       modifier = Modifier.size(24.dp),
                       imageVector = Icons.Rounded.CheckCircle,
@@ -603,7 +616,7 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
                     )
                   } else {
                     Text(
-                      text = prices6,
+                      text = prices8,
                       overflow = TextOverflow.Ellipsis,
                       maxLines = 1,
                       fontSize = 11.sp,
@@ -747,7 +760,8 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally,
           ) {
-            HtmlText(stringResource(CommonR.string.donate_text))
+            HtmlText(if (viewState.isPlayStoreInstalled || isProApp) stringResource(CommonR.string.donate_text_no_gp)
+                      else stringResource(CommonR.string.donate_text))
             Spacer(modifier = Modifier.size(16.dp))
             Button(
               //modifier = Modifier.height(28.dp),
@@ -758,14 +772,24 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
               Text(stringResource(CommonR.string.action_support_project))
             }
             Spacer(modifier = Modifier.size(56.dp))
-            Text(stringResource(CommonR.string.unlock))
-            Spacer(modifier = Modifier.size(8.dp))
-            Switch(
-              modifier = Modifier.scale(2f),
-              checked = viewState.isPro,
-              onCheckedChange = { listener.togglePro() },
-            )
-            Spacer(modifier = Modifier.size(56.dp))
+            if (!isProApp) {
+              Text(stringResource(CommonR.string.unlock))
+              Spacer(modifier = Modifier.size(8.dp))
+              if (viewState.isPlayStoreInstalled) {
+                Switch(
+                  modifier = Modifier.scale(2f),
+                  checked = viewState.isProNoGp,
+                  onCheckedChange = { listener.toggleProNoGp() },
+                )
+              } else {
+                Switch(
+                  modifier = Modifier.scale(2f),
+                  checked = viewState.isPro,
+                  onCheckedChange = { listener.togglePro() },
+                )
+              }
+              Spacer(modifier = Modifier.size(56.dp))
+            }
           }
         }
         Spacer(modifier = Modifier.size(bottom.dp))

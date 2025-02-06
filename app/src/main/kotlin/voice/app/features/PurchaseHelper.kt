@@ -215,11 +215,11 @@ class PurchaseHelper(
       try {
         val iapSku = iapSkuDetails.firstOrNull { it.productId == product }
         if (iapSku != null) iapSku.oneTimePurchaseOfferDetails!!.formattedPrice
-        else activity.getString(CommonR.string.no_connection)
+        else "???"
       } catch (e: Exception) {
-        activity.getString(CommonR.string.no_connection)
+        "???"
       }
-    } else activity.getString(CommonR.string.no_connection)
+    } else "???"
   }
 
   fun getDonation(product: String) {
@@ -248,12 +248,12 @@ class PurchaseHelper(
           if (plan != null) {
             plan.pricingPhases
               .pricingPhaseList[0].formattedPrice
-          } else activity.getString(CommonR.string.no_connection)
-        } else activity.getString(CommonR.string.no_connection)
+          } else "???"
+        } else "???"
       } catch (e: Exception) {
-        activity.getString(CommonR.string.no_connection)
+        "???"
       }
-    } else activity.getString(CommonR.string.no_connection)
+    } else "???"
   }
 
   fun getSubscription(product: String, planId: String? = null) {

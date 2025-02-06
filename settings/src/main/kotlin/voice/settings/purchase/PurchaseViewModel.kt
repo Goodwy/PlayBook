@@ -38,6 +38,8 @@ class PurchaseViewModel
   private val isProSubsPref: Pref<Boolean>,
   @Named(PrefKeys.PRO_RUSTORE)
   private val isProRuPref: Pref<Boolean>,
+  @Named(PrefKeys.PRO_NO_GP)
+  private val isProNoGpPref: Pref<Boolean>,
   @Named(PrefKeys.IS_PLAY_STORE_INSTALLED)
   private val isPlayStoreInstalledPref: Pref<Boolean>,
   @Named(PrefKeys.IS_RU_STORE_INSTALLED)
@@ -60,6 +62,7 @@ class PurchaseViewModel
     val isProPref by remember { isProPref.flow }.collectAsState(initial = false)
     val isProSubsPref by remember { isProSubsPref.flow }.collectAsState(initial = false)
     val isProRuPref by remember { isProRuPref.flow }.collectAsState(initial = false)
+    val isProNoGpPref by remember { isProNoGpPref.flow }.collectAsState(initial = false)
     val isPlayStoreInstalledPref by remember { isPlayStoreInstalledPref.flow }.collectAsState(initial = false)
     val isRuStoreInstalledPref by remember { isRuStoreInstalledPref.flow }.collectAsState(initial = false)
     val useGooglePlay by remember { useGooglePlay.flow }.collectAsState(initial = false)
@@ -74,6 +77,7 @@ class PurchaseViewModel
       purchasedSubsList = purchasedSubsList,
       purchasedListRustore = purchasedListRustore,
       isPro = isProPref || isProSubsPref || isProRuPref,
+      isProNoGp = isProNoGpPref,
       isPlayStoreInstalled = isPlayStoreInstalledPref,
       isRuStoreInstalled = isRuStoreInstalledPref,
       useGooglePlay = useGooglePlay,
@@ -104,6 +108,10 @@ class PurchaseViewModel
 
   override fun togglePro() {
     isProPref.value = !isProPref.value
+  }
+
+  override fun toggleProNoGp() {
+    isProNoGpPref.value = !isProNoGpPref.value
   }
 
   override fun onChangeStore() {

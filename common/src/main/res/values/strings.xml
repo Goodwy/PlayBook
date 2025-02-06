@@ -112,6 +112,11 @@
   <string name="color_summary">Carefully picked color schemes to match your favorite books</string>
   <string name="plus_title">Support us</string>
   <string name="plus_summary">All of our apps are ad-free, Open Source and it will always remain that way. With your help we are able to implement more features and make them even better</string>
+  <string name="any_support_unlock_all">Choose the level of project support available to you (one-time, monthly or yearly). Any support unlocks all features of the application. You can cancel your subscription at any time.</string>
+  <string name="one_time_purchase">One-time support</string>
+  <string name="monthly">Monthly support</string>
+  <string name="yearly">Yearly support</string>
+  <string name="locked">Locked</string>
   <string name="lifebuoy_title">We will support you</string>
   <string name="lifebuoy_summary">If for some reason you can\'t afford our app, but really want to use all the features, just email us</string>
   <string name="participants_title">Participants</string>
@@ -137,7 +142,6 @@
   <string name="billing_product_confirmed">Product confirmed</string>
   <string name="billing_product_deleted">Purchase cancelled</string>
   <string name="billing_subscriptions">Subscriptions</string>
-  <string name="no_connection">No connection</string>
   <string name="per_month">%s/month</string>
   <string name="per_year">%s/year</string>
   <string name="restore_purchase">Restore purchase</string>
@@ -147,6 +151,15 @@
         <![CDATA[
             For those who do not use Google Play, it is possible to unlock all functions of the application. <br>
             If you like our apps which are offline, non-intrusive and have no ads, please consider supporting us in some way. We would be very grateful.<br><br>
+            Thank you!
+        ]]>
+    </string>
+  <string name="donate_text_no_gp">
+        <![CDATA[
+            Due to issues we are temporarily unable to make payments through Google Play,
+            so for this period we are giving all users the option to manually unlock all features of the app. <br>
+            If you like our apps which are offline, non-intrusive and have no ads,
+            please consider supporting us in some way. We would be very grateful.<br><br>
             Thank you!
         ]]>
     </string>

@@ -3,23 +3,23 @@
   <!--PlayBook strings-->
   <!--Inställningar-->
   <string name="pref_about_title">Om</string>
-  <string name="pref_follow_system">Följ systemet</string>
-  <string name="pref_forward">Vidarebefordra</string>
+  <string name="pref_follow_system">Använd systemets</string>
+  <string name="pref_forward">Spola framåt</string>
   <string name="pref_grid_view">Visa rutnät</string>
-  <string name="pref_layout_list">Listlayout</string>
-  <string name="pref_layout_grid">Gridlayout</string>
+  <string name="pref_layout_list">Lista</string>
+  <string name="pref_layout_grid">Rutnät</string>
   <string name="pref_mini_player_floating_button">Knapp</string>
   <string name="pref_mini_player_mini_player_floating">Flytande spelare</string>
   <string name="pref_player_background_title">Spelarens bakgrund</string>
   <string name="pref_player_background_theme">Appbakgrund</string>
-  <string name="pref_player_background_blurred_cover">Suddig omslag</string>
-  <string name="pref_play_buttons_style_title">Spela knappstil</string>
-  <string name="pref_rewind">Spolning bakåt</string>
-  <string name="pref_rewind_buttons_style_title">Spolning av knappstil</string>
+  <string name="pref_player_background_blurred_cover">Suddigt omslag</string>
+  <string name="pref_play_buttons_style_title">Stil på spelaknappen</string>
+  <string name="pref_rewind">Spola bakåt</string>
+  <string name="pref_rewind_buttons_style_title">Stil på spolningsknappar</string>
   <string name="pref_rewind_buttons_style_classic">Klassisk</string>
   <string name="pref_rewind_buttons_style_rounded">Rundad</string>
   <string name="pref_rewind_buttons_style_square">Kvadrat</string>
-  <string name="pref_show_mini_player_title">Minispelarestil</string>
+  <string name="pref_show_mini_player_title">Minispelarstil</string>
   <string name="pref_show_slider_volume_title">Volymkontroll</string>
   <string name="pref_use_transparent_navigation">Använd genomskinligt navigeringsfält</string>
   <string name="pref_use_chapter_cover">Använd kapitelomslag</string>
@@ -27,7 +27,7 @@
   <!-- Teman -->
   <string name="theme">Tema</string>
   <string name="light_theme">Ljus</string>
-  <string name="dark_theme">Mörkt</string>
+  <string name="dark_theme">Mörk</string>
 
   <!--Ställa in rubriker-->
   <string name="pref_category_appearance">Utseende</string>
@@ -50,7 +50,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Visa kapitelnummer</string>
-  <string name="sleep_timer_note">För att starta om, skaka enheten inom 30 sekunder efter avslutad </string>
+  <string name="sleep_timer_note">För att starta om, skaka enheten inom 30 sekunder efter att den slutar spela</string>
   <string name="repeat">Upprepa</string>
 
   <!--BookOverview-->
@@ -65,10 +65,10 @@
 
   <!--Om-->
   <string name="pref_about_message"><![CDATA[
-En <b>PlayBook</b>-ljudboksspelare med öppen källkod. PlayBook är baserat på Voice-applikationen med öppen källkod.
+Ljudboksspelaren <b>PlayBook</b> använder öppen källkod. PlayBook är baserat på Voice-applikationen med öppen källkod.
 <br/><br/>
 
-Jag skulle vara mycket tacksam om du lämnar en recension eller betyg om applikationen på Google Play, det kommer i hög grad att hjälpa utvecklingen av projektet.<br/>
+Jag skulle vara mycket tacksam om du ger en recension eller betyg på appen på Google Play, det kommer i hög grad att hjälpa utvecklingen av projektet.<br/>
 ]]></string>
   <string name="pref_rate_title">Betygsätt app</string>
   <string name="pref_other_app_title">Andra appar</string>
@@ -76,11 +76,11 @@ Jag skulle vara mycket tacksam om du lämnar en recension eller betyg om applika
   <string name="pref_share_title">Dela</string>
 
   <!--Köp-->
-  <string name="tipping_jar_title">Dipburk</string>
-  <string name="tip_kind">Snälla tips av</string>
-  <string name="tip_excellent">Utmärkt tips av</string>
-  <string name="tip_incredible">Otroligt tips av</string>
-  <string name="action_support_project">Stödprojekt</string>
+  <string name="tipping_jar_title">Dricksburk</string>
+  <string name="tip_kind">Vänligt dricks på</string>
+  <string name="tip_excellent">Utmärkt dricks på</string>
+  <string name="tip_incredible">Otroligt dricks på</string>
+  <string name="action_support_project">Stöd projektet</string>
   <string name="action_support_project_summary">Skaffa den betalda appen för att stödja framtida utveckling och få extra funktioner</string>
   <string name="learn_more">Läs mer</string>
   <string name="theme_summary">Mörkt tema använder mindre ström på AMOLED-skärmar</string>
@@ -96,13 +96,13 @@ Jag skulle vara mycket tacksam om du lämnar en recension eller betyg om applika
   <!--Fakturering-->
   <string name="tipping_jar_dialog_success_title">Tack så mycket!</string>
   <string name="tipping_jar_dialog_success_message">Stort tack för att du stödjer utvecklingen av PlayBook. Du är fantastisk och utvecklaren kommer aldrig att glömma dig!</string>
-  <string name="tipping_jar_dialog_success_button_title">Välkommen</string>
-  <string name="tipping_jar_dialog_error_title">Det gick inte att tipsa</string>
-  <string name="tipping_jar_dialog_error_message">Tyvärr hände något dåligt när drickstransaktionen utfördes. Var inte ledsen, försök bara igen en annan gång och njut av PlayBook</string>
-    <string name="pref_use_haptic_feedback">Använd haptisk feedback</string>
-  <string name="pref_widget">Manick</string>
+  <string name="tipping_jar_dialog_success_button_title">Varmt tack</string>
+  <string name="tipping_jar_dialog_error_title">Det gick inte att dricksa</string>
+  <string name="tipping_jar_dialog_error_message">Tyvärr gick något fel när transaktionen utfördes. Var inte ledsen, försök igen en annan gång och njut av PlayBook</string>
+  <string name="pref_use_haptic_feedback">Använd haptisk feedback</string>
+  <string name="pref_widget">Widget</string>
   <string name="pref_scan_chapter_covers">Skanna kapitelomslagen</string>
-  <string name="pref_subtitle_scan_chapter_covers">Ändringen kommer att rensa de aktuella bokomslagen. Kapitelomslagen kommer att uppta ytterligare minne på enheten</string>
+  <string name="pref_subtitle_scan_chapter_covers">Ändringen kommer att rensa de aktuella bokomslagen. Kapitelomslagen kommer att ta upp mer minne på enheten</string>
   <string name="pref_delete_cover_files">Ta bort omslagsfilerna</string>
   <string name="pref_subtitle_delete_cover_files">Alla sparade omslag i appen kommer att raderas. Omslagen kommer att laddas om från bokfilerna</string>
   <string name="pref_use_menu_icons">Använd menyikoner</string>
@@ -113,12 +113,21 @@ Jag skulle vara mycket tacksam om du lämnar en recension eller betyg om applika
   <string name="pref_sorting_time">Tid</string>
   <string name="change_book_author">Författare</string>
   <string name="edit_book_author">Redigera författare</string>
-  <string name="onboarding_welcome_title_g">Välkommen till Voice!</string>
-  <string name="onboarding_gestures_title">Använda gester</string>
+  <string name="onboarding_welcome_title_g">Välkommen till PlayBook!</string>
+  <string name="onboarding_gestures_title">Använd gester</string>
   <string name="onboarding_show_player">Visa spelare</string>
   <string name="onboarding_show_list_chapters">Visa lista över kapitel</string>
   <string name="onboarding_double_tap">Tryck snabbt två gånger för att spela upp eller pausa</string>
   <string name="per_month">%s/månad</string>
   <string name="per_year">%s/år</string>
-  <string name="restore_purchase">Återställa köp</string>
+  <string name="restore_purchase">Återställ köp</string>
+  <string name="donate_text_no_gp">
+        <![CDATA[
+            På grund av problem kan vi tillfälligt inte göra betalningar via Google Play,
+            så under den här perioden ger vi alla användare möjlighet att manuellt låsa upp alla funktioner i appen. <br>
+            Om du gillar våra appar som är offline, inte påträngande och inte har några annonser, kan du överväga att stödja oss på något sätt.
+            Vi skulle vara mycket tacksamma.<br><br>
+            Tack så mycket!
+        ]]>
+    </string>
 </resources>

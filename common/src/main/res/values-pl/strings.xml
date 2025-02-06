@@ -120,4 +120,14 @@ Byłbym bardzo wdzięczny za pozostawienie recenzji lub oceny aplikacji w Google
   <string name="per_month">%s/miesiąc</string>
   <string name="per_year">%s/rok</string>
   <string name="restore_purchase">Przywróć zakup</string>
+  <string name="donate_text_no_gp">
+        <![CDATA[
+            Z powodu problemów tymczasowo nie jesteśmy w stanie dokonywać płatności za pośrednictwem Google Play,
+            dlatego w tym okresie dajemy wszystkim użytkownikom możliwość ręcznego odblokowania wszystkich funkcji aplikacji. <br>
+            Jeśli podobają Ci się nasze aplikacje, które działają w trybie offline, są nieinwazyjne i nie zawierają reklam, rozważ wsparcie nas w jakiś sposób.
+Będziemy bardzo wdzięczni.
+<br><br>
+            Dziękuję!
+        ]]>
+    </string>
 </resources>

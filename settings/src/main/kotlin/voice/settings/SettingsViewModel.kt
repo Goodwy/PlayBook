@@ -65,6 +65,8 @@ class SettingsViewModel
   private val isProSubsPref: Pref<Boolean>,
   @Named(PrefKeys.PRO_RUSTORE)
   private val isProRuPref: Pref<Boolean>,
+  @Named(PrefKeys.PRO_NO_GP)
+  private val isProNoGpPref: Pref<Boolean>,
   @Named(PrefKeys.SORTING)
   private val sortingPref: Pref<Int>,
   @Named(PrefKeys.USE_GESTURES)
@@ -108,6 +110,7 @@ class SettingsViewModel
     val isProPref by remember { isProPref.flow }.collectAsState(initial = false)
     val isProSubsPref by remember { isProSubsPref.flow }.collectAsState(initial = false)
     val isProRuPref by remember { isProRuPref.flow }.collectAsState(initial = false)
+    val isProNoGpPref by remember { isProNoGpPref.flow }.collectAsState(initial = false)
     val sortingPref by remember { sortingPref.flow }.collectAsState(initial = SORTING_CLASSIC)
     val useGestures by remember { useGestures.flow }.collectAsState(initial = true)
     val useHapticFeedback by remember { useHapticFeedback.flow }.collectAsState(initial = true)
@@ -142,7 +145,7 @@ class SettingsViewModel
       theme = themePref,
       colorTheme = colorThemePref,
       themeWidget = themeWidgetPref,
-      isPro = isProPref || isProSubsPref || isProRuPref,
+      isPro = isProPref || isProSubsPref || isProRuPref || isProNoGpPref,
       sortingPref = sortingPref,
       useGestures = useGestures,
       useHapticFeedback = useHapticFeedback,

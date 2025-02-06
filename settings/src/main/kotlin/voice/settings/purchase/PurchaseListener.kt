@@ -7,5 +7,6 @@ interface PurchaseListener {
   fun themeChanged()
   fun onUrlClick(url: String)
   fun togglePro()
+  fun toggleProNoGp()
   fun onChangeStore()
 }

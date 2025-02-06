@@ -285,6 +285,13 @@ object PrefsModule {
 
   @Provides
   @Singleton
+  @Named(PrefKeys.PRO_NO_GP)
+  fun isProNoGpPref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.PRO_NO_GP, false)
+  }
+
+  @Provides
+  @Singleton
   @Named(PrefKeys.PRICES)
   fun pricesPref(prefs: AndroidPreferences): Pref<String> {
     return prefs.string(PrefKeys.PRICES, "0;0;0")
@@ -315,7 +322,7 @@ object PrefsModule {
   @Singleton
   @Named(PrefKeys.USE_GOOGLE_PLAY)
   fun useGooglePlay(prefs: AndroidPreferences): Pref<Boolean> {
-    return prefs.boolean(PrefKeys.USE_GOOGLE_PLAY, true)
+    return prefs.boolean(PrefKeys.USE_GOOGLE_PLAY, false)
   }
 
   @Provides

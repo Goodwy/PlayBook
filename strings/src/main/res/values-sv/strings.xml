@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!--TODO change-->
     <string name="cover">Omslag</string>
     <string name="play_pause">Spela / Pausa</string>
     <string name="action_sleep">Insomningstimer</string>
@@ -33,7 +34,7 @@
     </plurals>
     <string name="pref_seek_time">Hoppa över mängd</string>
     <string name="pref_theme_dark">Mörkt tema</string>
-    <string name="pref_auto_rewind_title">Automatisk bakåtspolning</string>
+    <string name="pref_auto_rewind_title">Spola tillbaka automatiskt</string>
     <string name="pref_suggest_idea">Föreslå en idé</string>
     <string name="pref_use_grid">Använd rutnätslayout</string>
     <string name="pref_report_issue">Rapportera ett problem</string>
@@ -62,7 +63,7 @@
     <string name="voice_intro_first_book">Lägg till din ljudboksmapp så att du kan börja lyssna!</string>
     <string name="migration_hint_title">Åtkomst till gamla bokpositioner</string>
     <string name="migration_hint_content">På grund av ändringar i nyare Android-versioner är det nödvändigt att välja din ljudboksmapp med hjälp av systemväljaren.\n\nKlicka på ikonen ovan för att se dina gamla bokpositioner.</string>
-    <string name="migration_hint_confirm">Förstått</string>
+    <string name="migration_hint_confirm">Uppfattat</string>
     <string name="migration_detail_title">Gamla bokpositioner</string>
     <string name="migration_detail_content_name">Namn</string>
     <string name="migration_detail_content_root">Rotmapp</string>

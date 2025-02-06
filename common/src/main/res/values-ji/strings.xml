@@ -137,8 +137,7 @@
   <string name="billing_product_confirmed">פּראָדוקט באשטעטיקט</string>
   <string name="billing_product_deleted">קויפן קאַנסאַלד</string>
   <string name="billing_subscriptions">אַבאָנעמענטן</string>
-  <string name="no_connection">קיין קשר</string>
-  <string name="per_month">%s/חודש</string>
+    <string name="per_month">%s/חודש</string>
   <string name="per_year">%s/יאָר</string>
   <string name="restore_purchase">ומקערן קויפן</string>
 

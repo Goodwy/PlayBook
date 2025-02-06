@@ -120,4 +120,13 @@ Zelo bi vam bil hvaležen, če bi pustili mnenje ali oceno o aplikaciji v Googlu
   <string name="per_month">%s/mesec</string>
   <string name="per_year">%s/leto</string>
   <string name="restore_purchase">Obnovi nakup</string>
+  <string name="donate_text_no_gp">
+        <![CDATA[
+            Zaradi težav začasno ne moremo izvajati plačil prek storitve Google Play,
+            zato v tem obdobju vsem uporabnikom omogočamo ročno odklepanje vseh funkcij aplikacije. <br>
+            Če so vam všeč naše aplikacije, ki so brez povezave, niso vsiljive in nimajo oglasov, vas prosimo, da nas podprete na kakršen koli način.
+            Zelo vam bomo hvaležni.<br><br>
+            Hvala!
+        ]]>
+    </string>
 </resources>

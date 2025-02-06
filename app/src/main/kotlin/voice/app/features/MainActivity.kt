@@ -104,6 +104,9 @@ class MainActivity : AppCompatActivity() {
   @field:[Inject Named(PrefKeys.IS_RU_STORE_INSTALLED)]
   lateinit var isRuStoreInstalledPref: Pref<Boolean>
 
+  @field:[Inject Named(PrefKeys.USE_GOOGLE_PLAY)]
+  lateinit var useGooglePlay: Pref<Boolean>
+
   @Inject
   lateinit var bookSearchParser: BookSearchParser
 
@@ -254,21 +257,17 @@ class MainActivity : AppCompatActivity() {
     super.onResume()
     currentVolumePref.value = mSettingsContentObserver.previousVolume
 
+    val isProApp = resources.getBoolean(CommonR.bool.is_pro_app)
     val isPlayStoreInstalled = isPlayStoreInstalled()
-    val isRuStoreInstalled = if (resources.getBoolean(R.bool.is_pro_app)) false else isRuStoreInstalled()
+    val isRuStoreInstalled = isRuStoreInstalled()
     isPlayStoreInstalledPref.value = isPlayStoreInstalled
     isRuStoreInstalledPref.value = isRuStoreInstalled
+    if (!isPlayStoreInstalled) useGooglePlay.value = false
 
     //Billing
-    if (isPlayStoreInstalled) {
-      initPlayStore()
-    } else {
-      isProPref.value = resources.getBoolean(R.bool.is_pro_app)
-    }
-
-    if (isRuStoreInstalled) {
-      initRuStore()
-    }
+    if (isProApp) isProPref.value = true
+    if (isPlayStoreInstalled) initPlayStore()
+    if (isRuStoreInstalled) initRuStore()
   }
 
   override fun onDestroy() {
@@ -348,7 +347,7 @@ class MainActivity : AppCompatActivity() {
         var prices = ""
         iapList.forEach { item ->
           val price = purchaseHelper.getPriceDonation(item)
-          prices += if (price != getString(CommonR.string.no_connection)) {
+          prices += if (price != "???") {
             val resultPrice = price.replace(".00", "", true)
             if (item == iapList.last()) resultPrice else "$resultPrice;"
           } else {
@@ -364,7 +363,7 @@ class MainActivity : AppCompatActivity() {
         var prices = ""
         subList.forEach { item ->
           val price = purchaseHelper.getPriceSubscription(item)
-          prices += if (price != getString(CommonR.string.no_connection)) {
+          prices += if (price != "???") {
             val resultPrice = price.replace(".00", "", true)
             if (item == subList.last()) resultPrice else "$resultPrice;"
           } else {
@@ -383,7 +382,7 @@ class MainActivity : AppCompatActivity() {
           Logger.v("Billing isProPref: true")
         }
         is Tipping.NoTips -> {
-          val isProApp = resources.getBoolean(R.bool.is_pro_app)
+          val isProApp = resources.getBoolean(CommonR.bool.is_pro_app)
           isProPref.value = isProApp
           Logger.v("Billing isProPref: $isProApp")
         }
@@ -435,7 +434,6 @@ class MainActivity : AppCompatActivity() {
       Logger.v("Billing purchased subs: $purchased")
     }
   }
-
 
   private fun initRuStore() {
     ruStoreHelper.checkPurchasesAvailability(this)

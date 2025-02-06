@@ -31,6 +31,7 @@ object PrefKeys {
   const val PRO = "PRO"
   const val PRO_SUBS = "PRO_SUBS"
   const val PRO_RUSTORE = "PRO_RUSTORE"
+  const val PRO_NO_GP = "PRO_NO_GP"
   const val PRICES = "PRICES"
   const val PRICES_SUBS = "PRICES_SUBS"
   const val PURCHASED_LIST = "PURCHASED_LIST"
@@ -46,6 +47,7 @@ object PrefKeys {
   const val USE_HAPTIC_FEEDBACK = "USE_HAPTIC_FEEDBACK"
   const val SCAN_COVER_CHAPTER = "SCAN_COVER_CHAPTER"
   const val USE_MENU_ICONS = "USE_MENU_ICONS"
+  const val PURCHASE_PRODUCT_1 = "purchase_products_1"
 
   //old
   const val SHAKE_TO_RESET = "SHAKE_TO_RESET"
