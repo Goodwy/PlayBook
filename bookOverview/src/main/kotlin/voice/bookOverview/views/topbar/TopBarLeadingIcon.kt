@@ -51,17 +51,6 @@ internal fun ColumnScope.TopBarLeadingIcon(
           onHintClick = onBoomMigrationHelperConfirmClick,
         )
       }
-      if (searchActive) {
-        IconButton(
-          onClick = {
-          },
-        ) {
-          Icon(
-            imageVector = Icons.Rounded.Cancel,
-            contentDescription = stringResource(id = R.string.delete),
-          )
-        }
-      }
     }
   }
   AnimatedVisibility(

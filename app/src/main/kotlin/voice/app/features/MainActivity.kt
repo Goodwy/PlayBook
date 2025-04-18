@@ -1,5 +1,6 @@
 package voice.app.features
 
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
@@ -10,6 +11,7 @@ import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
 import android.util.Log
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import androidx.datastore.core.DataStore
@@ -19,7 +21,6 @@ import com.bluelinelabs.conductor.ChangeHandlerFrameLayout
 import com.bluelinelabs.conductor.Conductor
 import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
-import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -30,12 +31,12 @@ import voice.app.AppController
 import voice.app.BuildConfig
 import voice.app.R
 import voice.app.features.bookOverview.EditCoverDialogController
-import voice.app.features.bookmarks.BookmarkController
 import voice.app.injection.RuStoreModule
 import voice.app.injection.appComponent
 import voice.app.misc.conductor.asVerticalChangeHandlerTransaction
 import voice.app.uitools.SettingsContentObserver
 import voice.app.uitools.setWindowTransparency
+import voice.bookmark.BookmarkController
 import voice.common.AppInfoProvider
 import voice.common.BookId
 import voice.common.convertPixelsToDp
@@ -44,11 +45,11 @@ import voice.common.navigation.NavigationCommand
 import voice.common.navigation.Navigator
 import voice.common.pref.CurrentBook
 import voice.common.pref.PrefKeys
-import voice.logging.core.Logger
 import voice.playback.PlayerController
 import voice.playback.session.search.BookSearchHandler
 import voice.playback.session.search.BookSearchParser
 import voice.playbackScreen.BookPlayController
+import voice.pref.Pref
 import java.util.ArrayList
 import javax.inject.Inject
 import javax.inject.Named
@@ -152,6 +153,9 @@ class MainActivity : AppCompatActivity() {
         billingRuStoreClient.onNewIntent(intent)
       }
     }
+
+    enableEdgeToEdge()
+
     val root = ChangeHandlerFrameLayout(this)
     setContentView(root)
 
@@ -210,7 +214,6 @@ class MainActivity : AppCompatActivity() {
                 try {
                   startActivity(Intent(Intent.ACTION_VIEW, destination.url.toUri()))
                 } catch (exception: ActivityNotFoundException) {
-                  Logger.w(exception)
                 }
               }
               is Destination.EditCover -> {
@@ -244,6 +247,7 @@ class MainActivity : AppCompatActivity() {
     setupFromIntent(intent)
   }
 
+  @SuppressLint("UnsafeIntentLaunch")
   override fun recreate() {
     if (Build.VERSION.SDK_INT <= 30) {
       super.recreate()
@@ -355,7 +359,6 @@ class MainActivity : AppCompatActivity() {
           }
         }
         pricesPref.value = prices
-        Logger.v("Billing price: $prices")
       }
     }
     purchaseHelper.subSkuDetailsInitialized.observe(this) {
@@ -371,7 +374,6 @@ class MainActivity : AppCompatActivity() {
           }
         }
         pricesSubsPref.value = prices
-        Logger.v("Billing price subs: $prices")
       }
     }
 
@@ -379,12 +381,10 @@ class MainActivity : AppCompatActivity() {
       when (it) {
         is Tipping.Succeeded -> {
           isProPref.value = true
-          Logger.v("Billing isProPref: true")
         }
         is Tipping.NoTips -> {
           val isProApp = resources.getBoolean(CommonR.bool.is_pro_app)
           isProPref.value = isProApp
-          Logger.v("Billing isProPref: $isProApp")
         }
         is Tipping.FailedToLoad -> {
         }
@@ -395,11 +395,9 @@ class MainActivity : AppCompatActivity() {
       when (it) {
         is Tipping.Succeeded -> {
           isProSubsPref.value = true
-          Logger.v("Billing isProSubsPref: true")
         }
         is Tipping.NoTips -> {
           isProSubsPref.value = false
-          Logger.v("Billing isProSubsPref: false")
         }
         is Tipping.FailedToLoad -> {
         }
@@ -421,7 +419,6 @@ class MainActivity : AppCompatActivity() {
         purchased += if (item == iapList.last()) result else "$result;"
       }
       purchasedList.value = purchased
-      Logger.v("Billing purchased: $purchased")
     }
 
     purchaseHelper.isSupPurchasedList.observe(this) {
@@ -431,7 +428,6 @@ class MainActivity : AppCompatActivity() {
         purchased += if (item == iapList.last()) result else "$result;"
       }
       purchasedSubsList.value = purchased
-      Logger.v("Billing purchased subs: $purchased")
     }
   }
 
@@ -453,7 +449,6 @@ class MainActivity : AppCompatActivity() {
           if (!state.isLoading) {
             productsRuStore.clear()
             productsRuStore.addAll(state.products)
-            Logger.v("Billing RuStore products: $productsRuStore")
             //price update
             var prices = ""
             productList.forEach { item ->
@@ -463,7 +458,6 @@ class MainActivity : AppCompatActivity() {
               prices += if (item == productList.last()) resultPrice else "$resultPrice;"
             }
             pricesRustorePref.value = prices
-            Logger.v("Billing RuStore price: $prices")
           }
         }
     }
@@ -487,7 +481,6 @@ class MainActivity : AppCompatActivity() {
             //update pro version
             val isProRu = state.purchases.isNotEmpty()
             isProRuPref.value = isProRu
-            Logger.v("Billing isProSubsPref: $isProRu")
 
             //update of purchased
             var purchased = ""
@@ -496,7 +489,6 @@ class MainActivity : AppCompatActivity() {
               purchased += if (item == productList.last()) result else "$result;"
             }
             purchasedListRustore.value = purchased
-            Logger.v("Billing RuStore purchased: $purchased")
           }
         }
     }

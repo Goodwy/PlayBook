@@ -19,9 +19,7 @@ import javax.inject.Inject
 )
 class EditBookAuthorViewModel
 @Inject
-constructor(
-  private val repo: BookRepository,
-) : BottomSheetItemViewModel {
+constructor(private val repo: BookRepository) : BottomSheetItemViewModel {
 
   private val scope = MainScope()
 
@@ -32,7 +30,7 @@ constructor(
     return listOf(BottomSheetItem.Author)
   }
 
-  override suspend fun onItemClicked(bookId: BookId, item: BottomSheetItem) {
+  override suspend fun onItemClick(bookId: BookId, item: BottomSheetItem) {
     if (item != BottomSheetItem.Author) return
     val book = repo.get(bookId) ?: return
     _state.value = EditBookAuthorState(

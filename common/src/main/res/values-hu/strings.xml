@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Használja a fejezetborítót</string>
 
   <!-- Témák -->
+  <string name="pref_animated_marquee_summary">Ha túl széles ahhoz, hogy elférjen a rendelkezésre álló helyen</string>
   <string name="theme">Téma</string>
   <string name="light_theme">Fény</string>
   <string name="dark_theme">Sötét</string>
@@ -111,6 +112,7 @@ Nagyon hálás lennék, ha véleményt vagy értékelést írna az alkalmazásr�
   <string name="pref_sorting_last">Utoljára hozzáadott vagy használt</string>
   <string name="pref_sorting_last_added">Utoljára hozzáadva</string>
   <string name="pref_sorting_time">Idő</string>
+  <string name="path">Ösvény</string>
   <string name="change_book_author">Szerző</string>
   <string name="edit_book_author">Szerző szerkesztése</string>
   <string name="onboarding_gestures_title">Kézmozdulatok használata</string>
@@ -120,5 +122,14 @@ Nagyon hálás lennék, ha véleményt vagy értékelést írna az alkalmazásr�
   <string name="per_month">%s/hó</string>
   <string name="per_year">%s/év</string>
   <string name="restore_purchase">Vásárlás visszaállítása</string>
+    <string name="pref_animated_marquee">Animációs könyv címe, fejezete és szerzői effektusa</string>
+  <string name="length">Időtartam</string>
+  <string name="last_played_at">Utolsó meghallgatás</string>
+  <string name="remaining_time">Hátralévő idő</string>
+  <string name="any_support_unlock_all">Válassza ki az Ön számára elérhető projekttámogatás szintjét (egyszeri, havi vagy éves). Bármilyen támogatás feloldja az alkalmazás összes funkcióját. Előfizetését bármikor lemondhatja.</string>
+  <string name="auto_sleep_timer_end">Befejezési idő</string>
+  <string name="onboarding_welcome_title_g">Üdvözöljük a PlayBookban!</string>
+  <string name="auto_sleep_timer">Indítsa el a szundi időzítőt az ütemterv szerint</string>
+  <string name="auto_sleep_timer_start">Kezdési időpont</string>
   t
 </resources>

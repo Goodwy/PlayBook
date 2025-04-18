@@ -32,6 +32,7 @@
   <string name="pref_use_menu_icons">Gunakan ikon menu</string>
 
   <!-- Themes -->
+  <string name="pref_animated_marquee_summary">Jika ia terlalu lebar untuk dimuatkan dalam ruang yang ada</string>
   <string name="theme">Tema</string>
   <string name="light_theme">Ringan</string>
   <string name="dark_theme">Gelap</string>
@@ -75,6 +76,7 @@
   <string name="settings">Tetapan</string>
 
   <!--EditBookDialog-->
+  <string name="path">Laluan</string>
   <string name="change_book_author">Pengarang</string>
   <string name="edit_book_author">Edit pengarang</string>
   <string name="ok">Ok</string>
@@ -124,6 +126,7 @@
   <string name="tipping_jar_dialog_error_message">Malangnya sesuatu yang buruk berlaku semasa melakukan transaksi pemberian tip. Jangan sedih, cuba lagi lain kali dan nikmati PlayBook</string>
 
   <!--Onboarding-->
+  <string name="auto_sleep_timer_end">Masa tamat</string>
   <string name="onboarding_welcome_title_g">Selamat datang ke PlayBook!</string>
   <string name="onboarding_gestures_title">Gunakan gerak isyarat</string>
   <string name="onboarding_show_player">Tunjukkan pemain</string>
@@ -148,4 +151,11 @@
             Terima kasih!
         ]]>
     </string>
+    <string name="pref_animated_marquee">Tajuk buku animasi, bab dan kesan pengarang</string>
+  <string name="length">Tempoh</string>
+  <string name="last_played_at">Uji bakat Terakhir</string>
+  <string name="remaining_time">Baki masa</string>
+  <string name="any_support_unlock_all">Pilih tahap sokongan projek yang tersedia untuk anda (sekali sahaja, bulanan atau tahunan). Sebarang sokongan membuka kunci semua ciri aplikasi. Anda boleh membatalkan langganan anda pada bila-bila masa.</string>
+  <string name="auto_sleep_timer">Mulakan pemasa tunda mengikut jadual</string>
+  <string name="auto_sleep_timer_start">Masa mula</string>
 </resources>

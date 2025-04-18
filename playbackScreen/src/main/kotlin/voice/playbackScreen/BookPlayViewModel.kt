@@ -11,7 +11,6 @@ import androidx.datastore.core.DataStore
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.Flow
@@ -41,8 +40,10 @@ import voice.playback.misc.Decibel
 import voice.playback.misc.VolumeGain
 import voice.playback.playstate.PlayStateManager
 import voice.playbackScreen.batteryOptimization.BatteryOptimization
+import voice.pref.Pref
 import voice.sleepTimer.SleepTimer
 import voice.sleepTimer.SleepTimerViewState
+import java.time.LocalTime
 import javax.inject.Named
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.hours
@@ -71,12 +72,20 @@ class BookPlayViewModel
   private val repeatModePref: Pref<Int>,
   @Named(PrefKeys.SLEEP_TIME)
   private val sleepTimePref: Pref<Int>,
+  @Named(PrefKeys.AUTO_SLEEP_TIMER)
+  private val autoSleepTimerPref: Pref<Boolean>,
+  @Named(PrefKeys.AUTO_SLEEP_TIMER_START)
+  private val autoSleepTimerStart: Pref<String>,
+  @Named(PrefKeys.AUTO_SLEEP_TIMER_END)
+  private val autoSleepTimerEnd: Pref<String>,
   @Named(PrefKeys.USE_GESTURES)
   private val useGestures: Pref<Boolean>,
   @Named(PrefKeys.USE_HAPTIC_FEEDBACK)
   private val useHapticFeedback: Pref<Boolean>,
   @Named(PrefKeys.SCAN_COVER_CHAPTER)
   private val scanCoverChapter: Pref<Boolean>,
+  @Named(PrefKeys.USE_ANIMATED_MARQUEE)
+  private val useAnimatedMarqueePref: Pref<Boolean>,
   private val bookRepository: BookRepository,
   private val player: PlayerController,
   private val sleepTimer: SleepTimer,
@@ -137,6 +146,7 @@ class BookPlayViewModel
     val useHapticFeedback = useHapticFeedback.flow.collectAsState(initial = true).value
     val sleepTimePref = sleepTimePref.flow.collectAsState(initial = 15).value
     val scanCoverChapter = scanCoverChapter.flow.collectAsState(initial = true).value
+    val useAnimatedMarquee = useAnimatedMarqueePref.flow.collectAsState(initial = true).value
 
     val currentMark = book.currentChapter.markForPosition(book.content.positionInChapter)
     val hasMoreThanOneChapter = book.chapters.sumOf { it.chapterMarks.count() } > 1
@@ -165,6 +175,7 @@ class BookPlayViewModel
       seekTime = seekTime,
       seekTimeRewind = seekTimeRewind,
       currentVolume = currentVolumePref,
+      maxVolume = audioVolume.volumeMax(),
       showSliderVolume = showSliderVolumePref,
       playbackSpeed = book.content.playbackSpeed,
       skipButtonStyle = skipButtonStyle,
@@ -177,6 +188,7 @@ class BookPlayViewModel
       repeatModeBook = book.content.repeatMode,
       useGestures = useGestures,
       useHapticFeedback = useHapticFeedback,
+      useAnimatedMarquee = useAnimatedMarquee,
     )
   }
 
@@ -193,7 +205,7 @@ class BookPlayViewModel
         else -> customTime + 5
       }
       sleepTimePref.value = newTime
-      SleepTimerViewState(newTime)
+      SleepTimerViewState(newTime, it.autoSleepTimer, it.autoSleepTimeStart, it.autoSleepTimeEnd)
     }
   }
 
@@ -206,7 +218,7 @@ class BookPlayViewModel
         else -> (customTime - 5).coerceAtLeast(5)
       }
       sleepTimePref.value = newTime
-      SleepTimerViewState(newTime)
+      SleepTimerViewState(newTime, it.autoSleepTimer, it.autoSleepTimeStart, it.autoSleepTimeEnd)
     }
   }
 
@@ -225,12 +237,36 @@ class BookPlayViewModel
     }
   }
 
+  fun onCheckAutoSleepTimer() {
+    updateSleepTimeViewState {
+      val checked = !autoSleepTimerPref.value
+      autoSleepTimerPref.value = checked
+      SleepTimerViewState(it.customSleepTime, checked, it.autoSleepTimeStart, it.autoSleepTimeEnd)
+    }
+  }
+
+  fun setAutoSleepTimerStart(hour: Int, minute: Int) {
+    val time = LocalTime.of(hour, minute).toString()
+    updateSleepTimeViewState {
+      autoSleepTimerStart.value = time
+      SleepTimerViewState(it.customSleepTime, it.autoSleepTimer, time, it.autoSleepTimeEnd)
+    }
+  }
+
+  fun setAutoSleepTimerEnd(hour: Int, minute: Int) {
+    val time = LocalTime.of(hour, minute).toString()
+    updateSleepTimeViewState {
+      autoSleepTimerEnd.value = time
+      SleepTimerViewState(it.customSleepTime, it.autoSleepTimer, it.autoSleepTimeStart, time)
+    }
+  }
+
   private fun updateSleepTimeViewState(update: (SleepTimerViewState) -> SleepTimerViewState?) {
     val current = dialogState.value
     val updated: SleepTimerViewState? = if (current is BookPlayDialogViewState.SleepTimer) {
       update(current.viewState)
     } else {
-      update(SleepTimerViewState(sleepTimePref.value))
+      update(SleepTimerViewState(sleepTimePref.value, autoSleepTimerPref.value, autoSleepTimerStart.value, autoSleepTimerEnd.value))
     }
     _dialogState.value = updated?.let(BookPlayDialogViewState::SleepTimer)
   }
@@ -253,7 +289,7 @@ class BookPlayViewModel
     player.previous()
   }
 
-  fun onCurrentTimeClicked() {
+  fun onCurrentTimeClick() {
     _dialogState.value = BookPlayDialogViewState.JumpToPosition(1.hours)
   }
 
@@ -266,7 +302,25 @@ class BookPlayViewModel
         }
       }
     }
+    if (autoSleepTimerPref.value && !sleepTimer.sleepTimerActive()) {
+      val startTime = LocalTime.parse(autoSleepTimerStart.value)
+      val endTime = LocalTime.parse(autoSleepTimerEnd.value)
+      if (isCurrentTimeInRange(startTime, endTime)) {
+        sleepTimer.setActive()
+      }
+    }
     player.playPause()
+  }
+
+  private fun isCurrentTimeInRange(startTime: LocalTime, endTime: LocalTime): Boolean {
+    val currentTime = LocalTime.now()
+    return if (startTime <= endTime) {
+      // Standard case, start and end on the same day
+      currentTime.isAfter(startTime) && currentTime.isBefore(endTime)
+    } else {
+      // Range wraps around midnight
+      currentTime.isAfter(startTime) || currentTime.isBefore(endTime)
+    }
   }
 
   fun rewind() {
@@ -277,7 +331,7 @@ class BookPlayViewModel
     player.fastForward()
   }
 
-  /*fun onCurrentChapterClicked() {
+  /*fun onCurrentChapterClick() {
     scope.launch {
       val book = bookRepository.get(bookId) ?: return@launch
       val chapterMarks = book.chapters.flatMap {
@@ -291,7 +345,7 @@ class BookPlayViewModel
     }
   }*/
 
-  fun onChapterClicked(index: Int) {
+  fun onChapterClick(index: Int) {
     scope.launch {
       val book = bookRepository.get(bookId) ?: return@launch
       var currentIndex = -1
@@ -308,7 +362,7 @@ class BookPlayViewModel
     }
   }
 
-  fun onPlaybackSpeedIconClicked() {
+  fun onPlaybackSpeedIconClick() {
     scope.launch {
       val playbackSpeed = bookRepository.get(bookId)?.content?.playbackSpeed
       if (playbackSpeed != null) {
@@ -317,7 +371,7 @@ class BookPlayViewModel
     }
   }
 
-  fun onVolumeGainIconClicked() {
+  fun onVolumeGainIconClick() {
     scope.launch {
       val content = bookRepository.get(bookId)?.content
       if (content != null) {
@@ -334,11 +388,11 @@ class BookPlayViewModel
     )
   }
 
-  fun onBookmarkClicked() {
+  fun onBookmarkClick() {
     navigator.goTo(Destination.Bookmarks(bookId))
   }
 
-  fun onBookmarkLongClicked() {
+  fun onBookmarkLongClick() {
     scope.launch {
       val book = bookRepository.get(bookId) ?: return@launch
       bookmarkRepository.addBookmarkAtBookPosition(
@@ -381,7 +435,14 @@ class BookPlayViewModel
       sleepTimer.setActive(false)
       _dialogState.value = null
     } else {
-      _dialogState.value = BookPlayDialogViewState.SleepTimer(SleepTimerViewState(sleepTimePref.value))
+      _dialogState.value = BookPlayDialogViewState.SleepTimer(
+        SleepTimerViewState(
+          sleepTimePref.value,
+          autoSleepTimerPref.value,
+          autoSleepTimerStart.value,
+          autoSleepTimerEnd.value,
+        ),
+      )
     }
   }
 

@@ -30,6 +30,8 @@
   <string name="pref_delete_cover_files">Delete the cover files</string>
   <string name="pref_subtitle_delete_cover_files">Any saved covers in the app will be deleted. The covers will be reloaded from the book files</string>
   <string name="pref_use_menu_icons">Use menu icons</string>
+  <string name="pref_animated_marquee">Animated book title, chapter and author effect</string>
+  <string name="pref_animated_marquee_summary">If it\'s too wide to fit in the available space</string>
 
   <!-- Themes -->
   <string name="theme">Theme</string>
@@ -64,6 +66,7 @@
     <item quantity="one">%d chapter</item>
     <item quantity="other">%d chapters</item>
   </plurals>
+  <string name="jump_to_position">Jump to position</string>
 
   <!--Setting sorting-->
   <string name="pref_sorting">Sorting by</string>
@@ -75,10 +78,16 @@
   <string name="folders">Folders</string>
   <string name="settings">Settings</string>
 
+  <!--BookDetails-->
+  <string name="length">Length</string>
+  <string name="last_played_at">Last played at</string>
+  <string name="remaining_time">Remaining time</string>
+  <string name="path">Path</string>
+
   <!--EditBookDialog-->
   <string name="change_book_author">Author</string>
   <string name="edit_book_author">Edit author</string>
-  <string name="ok">Ok</string>
+  <string name="ok">OK</string>
 
   <!--FolderPicker-->
   <string name="internal_storage">Internal Storage</string>
@@ -116,7 +125,6 @@
   <string name="one_time_purchase">One-time support</string>
   <string name="monthly">Monthly support</string>
   <string name="yearly">Yearly support</string>
-  <string name="locked">Locked</string>
   <string name="lifebuoy_title">We will support you</string>
   <string name="lifebuoy_summary">If for some reason you can\'t afford our app, but really want to use all the features, just email us</string>
   <string name="participants_title">Participants</string>
@@ -130,7 +138,6 @@
   <string name="tipping_jar_dialog_error_message">Unfortunately something bad happened while performing the tipping transaction. Do not be sad, just try again another time and enjoy PlayBook</string>
 
   <!--Onboarding-->
-  <string name="onboarding_welcome_title_g">Welcome to PlayBook!</string>
   <string name="onboarding_gestures_title">Use gestures</string>
   <string name="onboarding_show_player">Show player</string>
   <string name="onboarding_show_list_chapters">Show list of chapters</string>
@@ -163,4 +170,9 @@
             Thank you!
         ]]>
     </string>
+
+  <string name="auto_sleep_timer">Start snooze timer on schedule</string>
+  <string name="auto_sleep_timer_start">Start time</string>
+  <string name="auto_sleep_timer_end">End time</string>
+  <string name="onboarding_welcome_title_g">Welcome to PlayBook!</string>
 </resources>

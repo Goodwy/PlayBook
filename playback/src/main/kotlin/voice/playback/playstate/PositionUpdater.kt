@@ -1,7 +1,6 @@
 package voice.playback.playstate
 
 import androidx.media3.common.Player
-import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
@@ -13,6 +12,7 @@ import voice.data.repo.BookRepository
 import voice.logging.core.Logger
 import voice.playback.session.MediaId
 import voice.playback.session.toMediaIdOrNull
+import voice.pref.Pref
 import javax.inject.Inject
 import javax.inject.Named
 import kotlin.time.Duration.Companion.milliseconds

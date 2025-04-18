@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Použiť obal kapitoly</string>
 
   <!-- Témy -->
+  <string name="pref_animated_marquee_summary">Ak je príliš široký na to, aby sa zmestil do dostupného priestoru</string>
   <string name="theme">Motív</string>
   <string name="light_theme">Svetlo</string>
   <string name="dark_theme">Tmavý</string>
@@ -111,6 +112,7 @@ Bol by som veľmi vďačný, keby ste na Google Play zanechali recenziu alebo ho
   <string name="pref_sorting_last">Naposledy pridané alebo použité</string>
   <string name="pref_sorting_last_added">Naposledy pridané</string>
   <string name="pref_sorting_time">Čas</string>
+  <string name="path">Cestička</string>
   <string name="change_book_author">Autor</string>
   <string name="edit_book_author">Upraviť autora</string>
   <string name="onboarding_gestures_title">Používanie gest</string>
@@ -129,4 +131,13 @@ Bol by som veľmi vďačný, keby ste na Google Play zanechali recenziu alebo ho
             Ďakujeme!
         ]]>
     </string>
+    <string name="pref_animated_marquee">Animovaný názov, kapitola a efekt autora</string>
+  <string name="length">Trvanie</string>
+  <string name="last_played_at">Posledný konkurz</string>
+  <string name="remaining_time">Zostávajúci čas</string>
+  <string name="any_support_unlock_all">Vyberte si úroveň projektovej podpory, ktorú máte k dispozícii (jednorazovou, mesačnú alebo ročnú). Akákoľvek podpora odomkne všetky funkcie aplikácie. Predplatné môžete kedykoľvek zrušiť.</string>
+  <string name="auto_sleep_timer_end">Čas ukončenia</string>
+  <string name="onboarding_welcome_title_g">Vitajte v PlayBooku!</string>
+  <string name="auto_sleep_timer">Spustenie časovača odloženia podľa plánu</string>
+  <string name="auto_sleep_timer_start">Čas začiatku</string>
 </resources>

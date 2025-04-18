@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Gebruik hoofdstukomslag</string>
 
   <!-- Thema's -->
+  <string name="pref_animated_marquee_summary">Als het te breed is om in de beschikbare ruimte te passen</string>
   <string name="theme">Thema</string>
   <string name="light_theme">Licht</string>
   <string name="dark_theme">Donker</string>
@@ -111,6 +112,7 @@ Ik zou het erg op prijs stellen als u een recensie of beoordeling achterlaat ove
   <string name="pref_sorting_last">Laatst toegevoegd of gebruikt</string>
   <string name="pref_sorting_last_added">Laatst toegevoegd</string>
   <string name="pref_sorting_time">Tijd</string>
+  <string name="path">Pad</string>
   <string name="change_book_author">Auteur</string>
   <string name="edit_book_author">Auteur bewerken</string>
   <string name="onboarding_gestures_title">Gebaren gebruiken</string>
@@ -120,4 +122,13 @@ Ik zou het erg op prijs stellen als u een recensie of beoordeling achterlaat ove
   <string name="per_month">%s/maand</string>
   <string name="per_year">%s/jaar</string>
   <string name="restore_purchase">Aankoop herstellen</string>
+    <string name="pref_animated_marquee">Geanimeerde boektitel, hoofdstuk en auteurseffect</string>
+  <string name="length">Duur</string>
+  <string name="last_played_at">Laatste auditie</string>
+  <string name="remaining_time">Resterende tijd</string>
+  <string name="any_support_unlock_all">Kies het niveau van projectondersteuning dat voor u beschikbaar is (eenmalig, maandelijks of jaarlijks). Elke ondersteuning ontgrendelt alle functies van de applicatie. U kunt uw abonnement op elk moment opzeggen.</string>
+  <string name="auto_sleep_timer_end">Eindtijd</string>
+  <string name="onboarding_welcome_title_g">Welkom bij PlayBook!</string>
+  <string name="auto_sleep_timer">Start snooze-timer op schema</string>
+  <string name="auto_sleep_timer_start">Starttijd</string>
 </resources>

@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Bölüm kapağını kullan</string>
 
   <!-- Temalar -->
+  <string name="pref_animated_marquee_summary">Kullanılabilir alana sığmayacak kadar genişse</string>
   <string name="theme">Tema</string>
   <string name="light_theme">Açık</string>
   <string name="dark_theme">Koyu</string>
@@ -111,6 +112,7 @@ Google Play\'de uygulama hakkında bir inceleme veya derecelendirme bırakırsan
   <string name="pref_sorting_last">Son eklenen veya kullanılan</string>
   <string name="pref_sorting_last_added">Son eklenen</string>
   <string name="pref_sorting_time">Saat</string>
+  <string name="path">Yol</string>
   <string name="change_book_author">Yaratıcı</string>
   <string name="edit_book_author">Yazarı düzenle</string>
   <string name="onboarding_gestures_title">Hareketleri kullanma</string>
@@ -120,4 +122,13 @@ Google Play\'de uygulama hakkında bir inceleme veya derecelendirme bırakırsan
   <string name="per_month">%s/ay</string>
   <string name="per_year">%s/yıl</string>
   <string name="restore_purchase">Satın alma işlemini geri yükle</string>
+    <string name="pref_animated_marquee">Animasyonlu kitap başlığı, bölüm ve yazar etkisi</string>
+  <string name="length">Süre</string>
+  <string name="last_played_at">Son Seçmeler</string>
+  <string name="remaining_time">Kalan süre</string>
+  <string name="any_support_unlock_all">Kullanabileceğiniz proje desteği düzeyini seçin (bir kerelik, aylık veya yıllık). Herhangi bir destek, uygulamanın tüm özelliklerinin kilidini açar. Aboneliğinizi istediğiniz zaman iptal edebilirsiniz.</string>
+  <string name="auto_sleep_timer_end">Bitiş zamanı</string>
+  <string name="onboarding_welcome_title_g">PlayBook\'a hoş geldiniz!</string>
+  <string name="auto_sleep_timer">Erteleme zamanlayıcısını programa göre başlat</string>
+  <string name="auto_sleep_timer_start">Başlama zamanı</string>
 </resources>

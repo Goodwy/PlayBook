@@ -11,12 +11,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.FormatListBulleted
 import androidx.compose.material.icons.rounded.BookmarkBorder
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -48,7 +47,9 @@ internal fun BookPlayBottomBar(
   onVolumeBoostClick: () -> Unit,
   onCurrentChapterClick: () -> Unit,
   showOverflowMenu: Boolean = false,
+  useLandscapeLayout: Boolean = true,
 ) {
+  val bottom = viewState.paddings.substringAfter(';').substringBefore(';').toInt()
   Column(
     modifier = Modifier
       .fillMaxWidth(),
@@ -105,7 +106,7 @@ internal fun BookPlayBottomBar(
           .combinedClickable(
             onClick = onSleepTimerClick,
             onLongClick = { onAcceptSleepTime(viewState.customSleepTime) },
-            indication = rememberRipple(bounded = false, radius = 20.dp),
+            indication = ripple(bounded = false, radius = 20.dp),
             interactionSource = remember { MutableInteractionSource() },
           ),
         contentAlignment = Alignment.Center,
@@ -126,7 +127,7 @@ internal fun BookPlayBottomBar(
           .combinedClickable(
             onClick = onBookmarkClick,
             onLongClick = onBookmarkLongClick,
-            indication = rememberRipple(bounded = false, radius = 20.dp),
+            indication = ripple(bounded = false, radius = 20.dp),
             interactionSource = remember { MutableInteractionSource() },
           ),
         contentAlignment = Alignment.Center,
@@ -167,6 +168,7 @@ internal fun BookPlayBottomBar(
         }
       }
     }
-    Spacer(modifier = Modifier.size(8.dp))
+    val bottomPadding = if (useLandscapeLayout) 8.dp else bottom.dp + 8.dp
+    Spacer(modifier = Modifier.size(bottomPadding))
   }
 }

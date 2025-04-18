@@ -17,6 +17,7 @@ import kotlinx.coroutines.Dispatchers
 import material.util.color.scheme.Scheme
 import voice.common.COLOR_SCHEME_SETTABLE
 import voice.common.DARK_THEME_SETTABLE
+import voice.common.compose.MyColorLightTokens.paletteTokens
 import voice.common.constants.THEME_AUTO
 import voice.common.constants.THEME_DARK
 import voice.common.constants.THEME_LIGHT
@@ -222,6 +223,13 @@ fun myLightColorScheme(
   outline: Color = MyColorLightTokens.Outline,
   outlineVariant: Color = MyColorLightTokens.OutlineVariant,
   scrim: Color = MyColorLightTokens.Scrim,
+  surfaceBright: Color = MyColorLightTokens.SurfaceBright,
+  surfaceDim: Color = MyColorLightTokens.SurfaceDim,
+  surfaceContainer: Color = MyColorLightTokens.SurfaceContainer,
+  surfaceContainerHigh: Color = MyColorLightTokens.SurfaceContainerHigh,
+  surfaceContainerHighest: Color = MyColorLightTokens.SurfaceContainerHighest,
+  surfaceContainerLow: Color = MyColorLightTokens.SurfaceContainerLow,
+  surfaceContainerLowest: Color = MyColorLightTokens.SurfaceContainerLowest,
 ): ColorScheme =
   ColorScheme(
     primary = primary,
@@ -253,6 +261,13 @@ fun myLightColorScheme(
     outline = outline,
     outlineVariant = outlineVariant,
     scrim = scrim,
+    surfaceBright = surfaceBright,
+    surfaceDim = surfaceDim,
+    surfaceContainer = surfaceContainer,
+    surfaceContainerHigh = surfaceContainerHigh,
+    surfaceContainerHighest = surfaceContainerHighest,
+    surfaceContainerLow = surfaceContainerLow,
+    surfaceContainerLowest = surfaceContainerLowest,
   )
 
 @Composable
@@ -286,6 +301,13 @@ fun myDarkColorScheme(
   outline: Color = MyColorDarkTokens.Outline,
   outlineVariant: Color = MyColorDarkTokens.OutlineVariant,
   scrim: Color = MyColorDarkTokens.Scrim,
+  surfaceBright: Color = MyColorDarkTokens.SurfaceBright,
+  surfaceDim: Color = MyColorDarkTokens.SurfaceDim,
+  surfaceContainer: Color = MyColorDarkTokens.SurfaceContainer,
+  surfaceContainerHigh: Color = MyColorDarkTokens.SurfaceContainerHigh,
+  surfaceContainerHighest: Color = MyColorDarkTokens.SurfaceContainerHighest,
+  surfaceContainerLow: Color = MyColorDarkTokens.SurfaceContainerLow,
+  surfaceContainerLowest: Color = MyColorDarkTokens.SurfaceContainerLowest,
 ): ColorScheme =
   ColorScheme(
     primary = primary,
@@ -317,6 +339,13 @@ fun myDarkColorScheme(
     outline = outline,
     outlineVariant = outlineVariant,
     scrim = scrim,
+    surfaceBright = surfaceBright,
+    surfaceDim = surfaceDim,
+    surfaceContainer = surfaceContainer,
+    surfaceContainerHigh = surfaceContainerHigh,
+    surfaceContainerHighest = surfaceContainerHighest,
+    surfaceContainerLow = surfaceContainerLow,
+    surfaceContainerLowest = surfaceContainerLowest,
   )
 
 
@@ -350,6 +379,13 @@ internal object MyColorDarkTokens {
   val SurfaceVariant = MyPaletteTokens.NeutralVariant30
   val Tertiary = MyPaletteTokens.Tertiary80
   val TertiaryContainer = MyPaletteTokens.Tertiary30
+  val SurfaceBright = MyPaletteTokens.Neutral95
+  val SurfaceDim = MyPaletteTokens.Neutral80
+  val SurfaceContainer = MyPaletteTokens.Neutral95
+  val SurfaceContainerHigh = MyPaletteTokens.Neutral90
+  val SurfaceContainerHighest = MyPaletteTokens.Neutral80
+  val SurfaceContainerLow = MyPaletteTokens.Neutral95
+  val SurfaceContainerLowest = MyPaletteTokens.Neutral100
 }
 
 internal object MyColorLightTokens {
@@ -383,6 +419,13 @@ internal object MyColorLightTokens {
   val SurfaceVariant = paletteTokens.NeutralVariant90
   val Tertiary = paletteTokens.Tertiary40
   val TertiaryContainer = paletteTokens.Tertiary90
+  val SurfaceBright = paletteTokens.Neutral95
+  val SurfaceDim = paletteTokens.Neutral80
+  val SurfaceContainer = paletteTokens.Neutral95
+  val SurfaceContainerHigh = paletteTokens.Neutral90
+  val SurfaceContainerHighest = paletteTokens.Neutral80
+  val SurfaceContainerLow = paletteTokens.Neutral95
+  val SurfaceContainerLowest = paletteTokens.Neutral100
 }
 
 internal object BluePaletteTokens {

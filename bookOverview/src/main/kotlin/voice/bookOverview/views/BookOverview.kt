@@ -5,6 +5,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.graphics.res.animatedVectorResource
 import androidx.compose.animation.graphics.res.rememberAnimatedVectorPainter
 import androidx.compose.animation.graphics.vector.AnimatedImageVector
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -20,11 +21,12 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Circle
 import androidx.compose.material.icons.rounded.Close
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FloatingActionButton
@@ -32,12 +34,14 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.ModalBottomSheetDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.material3.contentColorFor
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
@@ -60,7 +64,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -74,6 +77,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import coil.compose.AsyncImage
 import kotlinx.collections.immutable.persistentMapOf
 import kotlinx.coroutines.launch
@@ -96,7 +100,11 @@ import voice.common.compose.ImmutableFile
 import voice.common.compose.VoiceTheme
 import voice.common.compose.rememberScoped
 import voice.common.constants.MINI_PLAYER_PLAYER
+import voice.common.constants.SORTING_CLASSIC
+import voice.common.constants.SORTING_LAST
+import voice.common.constants.SORTING_NAME
 import voice.common.rootComponentAs
+import voice.data.Book
 import java.util.UUID
 import kotlin.math.abs
 import kotlin.time.Duration.Companion.seconds
@@ -148,12 +156,14 @@ fun BookOverviewScreen(modifier: Modifier = Modifier) {
   var selectBookCover by remember { mutableStateOf(null as ImmutableFile?) }
   var selectBookDuration : Long by remember { mutableLongStateOf(0) }
   var selectBookChaptersSize by remember { mutableIntStateOf(1) }
+  var selectBook by remember { mutableStateOf(null as Book?) }
   BookOverview(
     viewState = viewState,
     onSettingsClick = bookOverviewViewModel::onSettingsClick,
     onBookClick = bookOverviewViewModel::onBookClick,
     onBookLongClick = { bookId ->
       scope.launch {
+        selectBook = editBookTitleViewModel.selectBook(bookId)
         selectBookTitle = editBookTitleViewModel.selectBookTitle(bookId)
         selectBookCover = editBookTitleViewModel.selectBookCover(bookId)
         selectBookDuration = editBookTitleViewModel.selectBookDuration(bookId)
@@ -172,7 +182,8 @@ fun BookOverviewScreen(modifier: Modifier = Modifier) {
     onSearchActiveChange = bookOverviewViewModel::onSearchActiveChange,
     onSearchQueryChange = bookOverviewViewModel::onSearchQueryChange,
     onSearchBookClick = bookOverviewViewModel::onSearchBookClick,
-    onPermissionBugCardClicked = bookOverviewViewModel::onPermissionBugCardClicked,
+    onPermissionBugCardClick = bookOverviewViewModel::onPermissionBugCardClick,
+    sortBooks = bookOverviewViewModel::sortBooks,
   )
   val deleteBookViewState = deleteBookViewModel.state.value
   if (deleteBookViewState != null) {
@@ -180,7 +191,7 @@ fun BookOverviewScreen(modifier: Modifier = Modifier) {
       viewState = deleteBookViewState,
       onDismiss = deleteBookViewModel::onDismiss,
       onConfirmDeletion = deleteBookViewModel::onConfirmDeletion,
-      onDeleteCheckBoxChecked = deleteBookViewModel::onDeleteCheckBoxChecked,
+      onDeleteCheckBoxCheck = deleteBookViewModel::onDeleteCheckBoxCheck,
     )
   }
   val editBookTitleState = editBookTitleViewModel.state.value
@@ -205,30 +216,40 @@ fun BookOverviewScreen(modifier: Modifier = Modifier) {
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
     ModalBottomSheet(
       modifier = modifier.padding(start = start.dp, end = end.dp),
+      properties = ModalBottomSheetDefaults.properties,
       dragHandle = null,
       sheetState = sheetState,
       shape = RoundedCornerShape(topStart = 22.dp, topEnd = 22.dp),
       scrimColor = Color.Black.copy(alpha = 0.5f),
+      containerColor = MaterialTheme.colorScheme.background,
       content = {
         Surface {
           Column {
+            val shouldShowBookDetailsDialog = remember { mutableStateOf(false) }
+            if (shouldShowBookDetailsDialog.value && selectBook != null) BookDetailsDialog(
+              cover = selectBookCover,
+              book = selectBook!!
+            ) { shouldShowBookDetailsDialog.value = false }
+
             Row(
               modifier = Modifier
                 .wrapContentHeight()
                 .fillMaxWidth()
-                .padding(start = 16.dp, top = 12.dp, end = 12.dp),
+                .padding(start = 16.dp, top = 12.dp, end = 12.dp)
+                .clickable { shouldShowBookDetailsDialog.value = true },
               verticalAlignment = Alignment.Top,
             ) {
               Row(
                 modifier = Modifier
                   .wrapContentHeight()
-                  .padding(top = 5.dp, bottom = 8.dp)
+                  .padding(top = 4.dp, bottom = 8.dp)
                   .weight(1f),
                 verticalAlignment = Alignment.CenterVertically,
               ) {
                 Cover(cover = selectBookCover, size = 56.dp, cornerRadius = 8.dp)
                 Column(
-                  modifier = Modifier.height(58.dp)
+                  modifier = Modifier
+                    .height(58.dp)
                     .fillMaxWidth()
                     .weight(1f)
                     .padding(horizontal = 16.dp)
@@ -272,7 +293,7 @@ fun BookOverviewScreen(modifier: Modifier = Modifier) {
                         }
                       }
                     },
-                    indication = rememberRipple(bounded = false, radius = 20.dp),
+                    indication = ripple(bounded = false, radius = 20.dp),
                     interactionSource = remember { MutableInteractionSource() },
                   ),
                 contentAlignment = Alignment.Center,
@@ -295,68 +316,72 @@ fun BookOverviewScreen(modifier: Modifier = Modifier) {
                 )
               }
             }
-            Spacer(modifier = Modifier.size(6.dp))
-            Card(
-              modifier = Modifier.padding(start = 16.dp, end = 16.dp),
-              shape = RoundedCornerShape(8.dp),
-              colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHighest),
-              elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-            ) {
-              BottomSheetContent(
-                EditBookBottomSheetState(
-                  items = listOf(
-                    BottomSheetItem.Title,
-                    BottomSheetItem.Author,
-                    BottomSheetItem.InternetCover,
-                    BottomSheetItem.FileCover
+
+            val scrollState = rememberScrollState()
+            Column(modifier = Modifier.verticalScroll(scrollState)) {
+              Spacer(modifier = Modifier.size(6.dp))
+              Card(
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp),
+                shape = RoundedCornerShape(8.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHighest),
+                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+              ) {
+                BottomSheetContent(
+                  EditBookBottomSheetState(
+                    items = listOf(
+                      BottomSheetItem.Title,
+                      BottomSheetItem.Author,
+                      BottomSheetItem.InternetCover,
+                      BottomSheetItem.FileCover
+                    )
                   )
-                )
-              ) { item ->
-                if (item == BottomSheetItem.FileCover) {
-                  getContentLauncher.launch("image/*")
-                }
-                scope.launch { sheetState.hide() }.invokeOnCompletion {
-                  if (!sheetState.isVisible) {
-                    showBottomSheet = false
-                    bottomSheetViewModel.onItemClick(item)
+                ) { item ->
+                  if (item == BottomSheetItem.FileCover) {
+                    getContentLauncher.launch("image/*")
+                  }
+                  scope.launch { sheetState.hide() }.invokeOnCompletion {
+                    if (!sheetState.isVisible) {
+                      showBottomSheet = false
+                      bottomSheetViewModel.onItemClick(item)
+                    }
                   }
                 }
               }
-            }
-            Spacer(modifier = Modifier.size(12.dp))
-            Card(
-              modifier = Modifier.padding(start = 16.dp, end = 16.dp),
-              shape = RoundedCornerShape(8.dp),
-              colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHighest),
-              elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-            ) {
-              BottomSheetContent(EditBookBottomSheetState(items = listOf(BottomSheetItem.DeleteBook))) { item ->
-                scope.launch { sheetState.hide() }.invokeOnCompletion {
-                  if (!sheetState.isVisible) {
-                    showBottomSheet = false
-                    bottomSheetViewModel.onItemClick(item)
+              Spacer(modifier = Modifier.size(12.dp))
+              Card(
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp),
+                shape = RoundedCornerShape(8.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHighest),
+                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+              ) {
+                BottomSheetContent(EditBookBottomSheetState(items = listOf(BottomSheetItem.DeleteBook))) { item ->
+                  scope.launch { sheetState.hide() }.invokeOnCompletion {
+                    if (!sheetState.isVisible) {
+                      showBottomSheet = false
+                      bottomSheetViewModel.onItemClick(item)
+                    }
                   }
                 }
               }
-            }
-            Spacer(modifier = Modifier.size(12.dp))
-            Card(
-              modifier = Modifier.padding(start = 16.dp, end = 16.dp),
-              shape = RoundedCornerShape(8.dp),
-              colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHighest),
-              elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-            ) {
-              BottomSheetContent(bottomSheetViewModel.state.value) { item ->
-                scope.launch { sheetState.hide() }.invokeOnCompletion {
-                  if (!sheetState.isVisible) {
-                    showBottomSheet = false
-                    bottomSheetViewModel.onItemClick(item)
+              Spacer(modifier = Modifier.size(12.dp))
+              Card(
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp),
+                shape = RoundedCornerShape(8.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHighest),
+                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+              ) {
+                BottomSheetContent(bottomSheetViewModel.state.value) { item ->
+                  scope.launch { sheetState.hide() }.invokeOnCompletion {
+                    if (!sheetState.isVisible) {
+                      showBottomSheet = false
+                      bottomSheetViewModel.onItemClick(item)
+                    }
                   }
                 }
               }
+              val bottom = viewState.paddings.substringAfter(';').substringBefore(';').toInt()
+              Spacer(modifier = Modifier.size(bottom.dp + 4.dp))
             }
-            val bottom = viewState.paddings.substringAfter(';').substringBefore(';').toInt()
-            Spacer(modifier = Modifier.size(bottom.dp + 4.dp))
           }
         }
       },
@@ -380,7 +405,8 @@ internal fun BookOverview(
   onSearchActiveChange: (Boolean) -> Unit,
   onSearchQueryChange: (String) -> Unit,
   onSearchBookClick: (BookId) -> Unit,
-  onPermissionBugCardClicked: () -> Unit,
+  onPermissionBugCardClick: () -> Unit,
+  sortBooks: (Int, Int, Int) -> Unit,
   modifier: Modifier = Modifier,
 ) {
   val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
@@ -388,7 +414,8 @@ internal fun BookOverview(
   val start = viewState.paddings.substringBeforeLast(';').substringAfterLast(';').toInt()
   val end = viewState.paddings.substringAfterLast(';').toInt()
   Scaffold(
-    modifier = modifier.padding(start = start.dp, end = end.dp)
+    modifier = modifier
+      .padding(start = start.dp, end = end.dp)
       .nestedScroll(scrollBehavior.nestedScrollConnection),
     topBar = {
       BookOverviewTopBar(
@@ -538,8 +565,10 @@ internal fun BookOverview(
             onBookClick = onBookClick,
             onBookLongClick = onBookLongClick,
             showPermissionBugCard = viewState.showStoragePermissionBugCard,
-            onPermissionBugCardClicked = onPermissionBugCardClicked,
+            onPermissionBugCardClick = onPermissionBugCardClick,
             currentBook = viewState.currentBook,
+            sortBooks = sortBooks,
+            viewState = viewState,
           )
         }
         BookOverviewLayoutMode.Grid -> {
@@ -548,8 +577,10 @@ internal fun BookOverview(
             onBookClick = onBookClick,
             onBookLongClick = onBookLongClick,
             showPermissionBugCard = viewState.showStoragePermissionBugCard,
-            onPermissionBugCardClicked = onPermissionBugCardClicked,
+            onPermissionBugCardClick = onPermissionBugCardClick,
             currentBook = viewState.currentBook,
+            sortBooks = sortBooks,
+            viewState = viewState,
           )
         }
       }
@@ -558,7 +589,7 @@ internal fun BookOverview(
 }
 
 @Composable
-private fun Cover(
+fun Cover(
   cover: ImmutableFile?,
   size: Dp = 52.dp,
   cornerRadius: Dp = 8.dp,
@@ -602,7 +633,8 @@ fun BookOverviewPreview(
       onSearchActiveChange = {},
       onSearchQueryChange = {},
       onSearchBookClick = {},
-      onPermissionBugCardClicked = {},
+      onPermissionBugCardClick = {},
+      sortBooks = { _, _, _ -> },
     )
   }
 }
@@ -623,8 +655,8 @@ internal class BookOverviewPreviewParameterProvider : PreviewParameterProvider<B
   override val values = sequenceOf(
     BookOverviewViewState(
       books = persistentMapOf(
-        BookOverviewCategory.CURRENT to buildList { repeat(10) { add(book()) } },
-        BookOverviewCategory.FINISHED to listOf(book(), book()),
+        BookOverviewCategory.CURRENT_BY_LAST to buildList { repeat(10) { add(book()) } },
+        BookOverviewCategory.FINISHED_BY_LAST to listOf(book(), book()),
       ),
       layoutMode = BookOverviewLayoutMode.List,
       playButtonState = BookOverviewViewState.PlayButtonState.Paused,
@@ -649,6 +681,9 @@ internal class BookOverviewPreviewParameterProvider : PreviewParameterProvider<B
       useGestures = true,
       useHapticFeedback = true,
       useMenuIconsPref = false,
+      sortingCurrent = SORTING_LAST,
+      sortingNotStarted = SORTING_NAME,
+      sortingFinished = SORTING_LAST,
     ),
   )
 }

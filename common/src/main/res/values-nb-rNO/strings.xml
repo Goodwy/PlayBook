@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Use chapter cover</string>
 
   <!-- Themes -->
+  <string name="pref_animated_marquee_summary">Hvis den er for bred til å passe inn i den tilgjengelige plassen</string>
   <string name="theme">Theme</string>
   <string name="light_theme">Light</string>
   <string name="dark_theme">Dark</string>
@@ -70,6 +71,7 @@
   <string name="pref_sorting_last">Sist lagt til eller brukt</string>
   <string name="pref_sorting_last_added">Sist lagt til</string>
   <string name="pref_sorting_time">Tid</string>
+  <string name="path">Sti</string>
   <string name="change_book_author">Forfatter</string>
   <string name="edit_book_author">Rediger forfatter</string>
 
@@ -130,4 +132,13 @@
             Takk skal dere ha!
         ]]>
     </string>
+    <string name="pref_animated_marquee">Animert boktittel, kapittel og forfattereffekt</string>
+  <string name="length">Varighet</string>
+  <string name="last_played_at">Siste audition</string>
+  <string name="remaining_time">Gjenværende tid</string>
+  <string name="any_support_unlock_all">Velg nivået på prosjektstøtte som er tilgjengelig for deg (engangs, månedlig eller årlig). All støtte låser opp alle funksjonene i applikasjonen. Du kan si opp abonnementet når som helst.</string>
+  <string name="auto_sleep_timer_end">Sluttid</string>
+  <string name="onboarding_welcome_title_g">Velkommen til PlayBook!</string>
+  <string name="auto_sleep_timer">Start slumretidtakeren etter planen</string>
+  <string name="auto_sleep_timer_start">Starttid</string>
 </resources>

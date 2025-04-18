@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Uporabi naslovnico poglavja</string>
 
   <!-- Teme -->
+  <string name="pref_animated_marquee_summary">Če je preširok, da bi se prilegal v razpoložljivi prostor</string>
   <string name="theme">Tema</string>
   <string name="light_theme">Svetloba</string>
   <string name="dark_theme">Temno</string>
@@ -111,6 +112,7 @@ Zelo bi vam bil hvaležen, če bi pustili mnenje ali oceno o aplikaciji v Googlu
   <string name="pref_sorting_last">Nazadnje dodano ali uporabljeno</string>
   <string name="pref_sorting_last_added">Nazadnje dodano</string>
   <string name="pref_sorting_time">Čas</string>
+  <string name="path">Steza</string>
   <string name="change_book_author">Avtor</string>
   <string name="edit_book_author">Uredi avtorja</string>
   <string name="onboarding_gestures_title">Uporaba potez</string>
@@ -129,4 +131,13 @@ Zelo bi vam bil hvaležen, če bi pustili mnenje ali oceno o aplikaciji v Googlu
             Hvala!
         ]]>
     </string>
+    <string name="pref_animated_marquee">Animirani naslov knjige, poglavje in učinek avtorja</string>
+  <string name="length">Trajanje</string>
+  <string name="last_played_at">Zadnja avdicija</string>
+  <string name="remaining_time">Preostali čas</string>
+  <string name="any_support_unlock_all">Izberite raven podpore za projekt, ki vam je na voljo (enkratna, mesečna ali letna). Vsaka podpora odklene vse funkcije aplikacije. Naročnino lahko kadar koli prekličete.</string>
+  <string name="auto_sleep_timer_end">Končni čas</string>
+  <string name="onboarding_welcome_title_g">Dobrodošli v PlayBooku!</string>
+  <string name="auto_sleep_timer">Zaženite časovnik dremeža po urniku</string>
+  <string name="auto_sleep_timer_start">Začetni čas</string>
 </resources>

@@ -25,6 +25,7 @@
   <string name = "pref_use_chapter_cover"> अध्याय आवरण प्रयोग गर्नुहोस्</string>
 
   <!-- विषयवस्तुहरू -->
+  <string name="pref_animated_marquee_summary">यदि यो उपलब्ध ठाउँमा अटाउन धेरै चौडा छ भने</string>
   <string name="theme">विषय</string>
   <string name = "light_theme"> प्रकाश</string>
   <string name = "dark_theme"> गाढा</string>
@@ -111,6 +112,7 @@
   <string name="pref_sorting_last">पछिल्लो पटक थपिएको वा प्रयोग गरिएको</string>
   <string name="pref_sorting_last_added">पछिल्लो पटक थपियो</string>
   <string name="pref_sorting_time">समय</string>
+  <string name="path">बाटो</string>
   <string name="change_book_author">लेखक</string>
   <string name="edit_book_author">लेखक सम्पादन गर्नुहोस्</string>
   <string name="onboarding_gestures_title">इशाराहरू प्रयोग गर्नुहोस्</string>
@@ -120,4 +122,13 @@
   <string name="per_month">%s/महिना</string>
   <string name="per_year">%s/वर्ष</string>
   <string name="restore_purchase">खरिद पुनर्स्थापित गर्नुहोस्</string>
+    <string name="pref_animated_marquee">एनिमेटेड पुस्तक शीर्षक, अध्याय र लेखक प्रभाव</string>
+  <string name="length">अवधि</string>
+  <string name="last_played_at">अन्तिम पटक सुनिएको</string>
+  <string name="remaining_time">बाँकी समय</string>
+  <string name="any_support_unlock_all">तपाईंको लागि उपलब्ध परियोजना समर्थनको स्तर छनौट गर्नुहोस् (एक पटक, मासिक वा वार्षिक)। कुनै पनि समर्थनले अनुप्रयोगका सबै सुविधाहरू अनलक गर्दछ। तपाईं कुनै पनि समयमा आफ्नो सदस्यता रद्द गर्न सक्नुहुन्छ।</string>
+  <string name="auto_sleep_timer_end">अन्त्य समय</string>
+  <string name="onboarding_welcome_title_g">PlayBook मा स्वागत छ!</string>
+  <string name="auto_sleep_timer">समयतालिकामा स्नुज टाइमर सुरु गर्नुहोस्</string>
+  <string name="auto_sleep_timer_start">सुरु समय</string>
 </resources>

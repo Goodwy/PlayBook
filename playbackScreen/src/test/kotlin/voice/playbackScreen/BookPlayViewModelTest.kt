@@ -1,6 +1,5 @@
 package voice.playbackScreen
 
-import de.paulwoitaschek.flowpref.inmemory.InMemoryPref
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -17,6 +16,7 @@ import voice.data.BookContent
 import voice.data.Bookmark
 import voice.data.Chapter
 import voice.data.ChapterId
+import voice.pref.inmemory.InMemoryPref
 import voice.sleepTimer.SleepTimer
 import voice.sleepTimer.SleepTimerViewState
 import java.time.Instant
@@ -28,6 +28,9 @@ class BookPlayViewModelTest {
 
   private val scope = TestScope()
   private val sleepTimerPref = InMemoryPref(15)
+  private val autoSleepTimerPref = InMemoryPref(false)
+  private val autoSleepTimeStartPref = InMemoryPref("22:00")
+  private val autoSleepTimeEndPref = InMemoryPref("05:00")
   private val currentVolumePref = InMemoryPref(20)
   private val paddingPref = InMemoryPref("0;0;0;0")
   private val playButtonStylePref = InMemoryPref(1)
@@ -39,6 +42,7 @@ class BookPlayViewModelTest {
   private val skipButtonStylePref = InMemoryPref(1)
   private val useGestures = InMemoryPref(true)
   private val useHapticFeedback = InMemoryPref(true)
+  private val scanCoverChapter = InMemoryPref(true)
   private val book = book()
   private val sleepTimer = mockk<SleepTimer> {
     var sleepTimerActive = false
@@ -56,6 +60,9 @@ class BookPlayViewModelTest {
     },
     player = mockk(),
     sleepTimer = sleepTimer,
+    autoSleepTimerPref = autoSleepTimerPref,
+    autoSleepTimerStart = autoSleepTimeStartPref,
+    autoSleepTimerEnd = autoSleepTimeEndPref,
     playStateManager = mockk(),
     currentBookId = mockk(),
     navigator = mockk(),
@@ -87,12 +94,20 @@ class BookPlayViewModelTest {
     skipButtonStylePref = skipButtonStylePref,
     useGestures = useGestures,
     useHapticFeedback = useHapticFeedback,
+    scanCoverChapter = scanCoverChapter
   )
 
   @Test
   fun sleepTimerValueChanging() = scope.runTest {
     fun assertDialogSleepTime(expected: Int) {
-      viewModel.dialogState.value shouldBe BookPlayDialogViewState.SleepTimer(SleepTimerViewState(expected))
+      viewModel.dialogState.value shouldBe BookPlayDialogViewState.SleepTimer(
+        SleepTimerViewState(
+          expected,
+          autoSleepTimerPref.value,
+          autoSleepTimeStartPref.value,
+          autoSleepTimeEndPref.value,
+        ),
+      )
     }
 
     viewModel.toggleSleepTimer()

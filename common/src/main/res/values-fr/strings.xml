@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Utiliser la couverture du chapitre</string>
 
   <!-- Thèmes -->
+  <string name="pref_animated_marquee_summary">S’il est trop large pour tenir dans l’espace disponible</string>
   <string name="theme">Thème</string>
   <string name="light_theme">Lumière</string>
   <string name="dark_theme">Sombre</string>
@@ -111,6 +112,7 @@ Je vous serais très reconnaissant de laisser un avis ou une note sur l\'applica
   <string name="pref_sorting_last">Dernier ajout ou utilisation</string>
   <string name="pref_sorting_last_added">Dernier ajout</string>
   <string name="pref_sorting_time">Heure</string>
+  <string name="path">Chemin</string>
   <string name="change_book_author">Auteur</string>
   <string name="edit_book_author">Modifier l’auteur</string>
   <string name="onboarding_gestures_title">Utiliser des gestes</string>
@@ -129,4 +131,13 @@ Je vous serais très reconnaissant de laisser un avis ou une note sur l\'applica
             Merci de votre attention !
         ]]>
     </string>
+    <string name="pref_animated_marquee">Titre de livre animé, chapitre et effet d’auteur</string>
+  <string name="length">Durée</string>
+  <string name="last_played_at">Dernière audition</string>
+  <string name="remaining_time">Temps restant</string>
+  <string name="any_support_unlock_all">Choisissez le niveau de soutien au projet qui vous est offert (ponctuel, mensuel ou annuel). Tout support débloque toutes les fonctionnalités de l’application. Vous pouvez résilier votre abonnement à tout moment.</string>
+  <string name="auto_sleep_timer_end">Heure de fin</string>
+  <string name="onboarding_welcome_title_g">Bienvenue sur PlayBook !</string>
+  <string name="auto_sleep_timer">Démarrez la minuterie de répétition à l’heure prévue</string>
+  <string name="auto_sleep_timer_start">Heure de début</string>
 </resources>

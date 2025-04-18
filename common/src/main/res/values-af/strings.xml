@@ -25,7 +25,8 @@
 <string name="pref_use_chapter_cover">Gebruik hoofstukomslag</string>
 
 <!-- Themes -->
-<string name="theme">Tema</string>
+  <string name="pref_animated_marquee_summary">As dit te wyd is om in die beskikbare spasie te pas</string>
+  <string name="theme">Tema</string>
 <string name="light_theme">Lig</string>
 <string name="dark_theme">Donker</string>
 
@@ -111,6 +112,7 @@ Ek sal baie dankbaar wees as jy \'n resensie of beoordeling oor die toepassing o
   <string name="pref_sorting_last">Laas bygevoeg of gebruik</string>
   <string name="pref_sorting_last_added">Laas bygevoeg</string>
   <string name="pref_sorting_time">Tyd</string>
+  <string name="path">Pad</string>
   <string name="change_book_author">Outeur</string>
   <string name="edit_book_author">Redigeer skrywer</string>
   <string name="onboarding_gestures_title">Gebruik gebare</string>
@@ -120,4 +122,13 @@ Ek sal baie dankbaar wees as jy \'n resensie of beoordeling oor die toepassing o
   <string name="per_month">%s/maand</string>
   <string name="per_year">%s/jaar</string>
   <string name="restore_purchase">Herstel aankoop</string>
+    <string name="pref_animated_marquee">Geanimeerde boektitel, hoofstuk en skrywerseffek</string>
+  <string name="length">Duur</string>
+  <string name="last_played_at">Laaste oudisie</string>
+  <string name="remaining_time">Oorblywende tyd</string>
+  <string name="any_support_unlock_all">Kies die vlak van projekondersteuning wat tot jou beskikking is (eenmalig, maandeliks of jaarliks). Enige ondersteuning ontsluit alle kenmerke van die toepassing. Jy kan jou intekening enige tyd kanselleer.</string>
+  <string name="auto_sleep_timer_end">Eindtyd</string>
+  <string name="onboarding_welcome_title_g">Welkom by PlayBook!</string>
+  <string name="auto_sleep_timer">Begin sluimertimer op skedule</string>
+  <string name="auto_sleep_timer_start">Begin tyd</string>
 </resources>

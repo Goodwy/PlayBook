@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Tumia jalada la sura</string>
 
   <!-- Mandhari -->
+  <string name="pref_animated_marquee_summary">Ikiwa ni pana sana kutoshea katika nafasi inayopatikana</string>
   <string name="theme">Mandhari</string>
   <string name="light_theme">Nyepesi</string>
   <string name="dark_theme">Nyeusi</string>
@@ -111,6 +112,7 @@ Nitashukuru sana ukiacha ukaguzi au ukadiriaji kuhusu programu kwenye Google Pla
   <string name="pref_sorting_last">Imeongezwa au kutumika mwisho</string>
   <string name="pref_sorting_last_added">Imeongezwa mwisho</string>
   <string name="pref_sorting_time">Saa</string>
+  <string name="path">Njia</string>
   <string name="change_book_author">Mwandishi</string>
   <string name="edit_book_author">Hariri mwandishi</string>
   <string name="onboarding_gestures_title">Tumia ishara</string>
@@ -120,4 +122,13 @@ Nitashukuru sana ukiacha ukaguzi au ukadiriaji kuhusu programu kwenye Google Pla
   <string name="per_month">%s/mwezi</string>
   <string name="per_year">%s/mwaka</string>
   <string name="restore_purchase">Rejesha ununuzi</string>
+    <string name="pref_animated_marquee">Kichwa cha kitabu kilichohuisha, sura na athari ya mwandishi</string>
+  <string name="length">Muda</string>
+  <string name="last_played_at">Ukaguzi wa Mwisho</string>
+  <string name="remaining_time">Muda uliobaki</string>
+  <string name="any_support_unlock_all">Chagua kiwango cha msaada wa mradi unaopatikana kwako (wakati mmoja, kila mwezi au kila mwaka). Msaada wowote hufungua vipengele vyote vya programu. Unaweza kughairi usajili wako wakati wowote.</string>
+  <string name="auto_sleep_timer_end">Muda wa mwisho</string>
+  <string name="onboarding_welcome_title_g">Karibu kwenye PlayBook!</string>
+  <string name="auto_sleep_timer">Anza snooze timer kwenye ratiba</string>
+  <string name="auto_sleep_timer_start">Muda wa kuanza</string>
 </resources>

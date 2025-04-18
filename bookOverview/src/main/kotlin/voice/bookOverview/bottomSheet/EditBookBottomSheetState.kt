@@ -14,9 +14,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import voice.strings.R as StringsR
 import voice.common.R as CommonR
 
-internal data class EditBookBottomSheetState(
-  val items: List<BottomSheetItem>,
-)
+internal data class EditBookBottomSheetState(val items: List<BottomSheetItem>)
 
 enum class BottomSheetItem(
   @StringRes val titleRes: Int,

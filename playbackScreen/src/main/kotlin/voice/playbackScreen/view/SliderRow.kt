@@ -11,11 +11,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.ripple.rememberRipple
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -28,6 +27,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import voice.common.R
+import voice.common.compose.MyThumb
 import voice.common.formatTime
 import voice.common.formatTimeMinutes
 import voice.playbackScreen.BookPlayViewState
@@ -52,11 +52,20 @@ internal fun SliderRow(
     val interactionSource = remember { MutableInteractionSource() }
     val dragging by interactionSource.collectIsDraggedAsState()
     Slider(
+      track = { sliderState ->
+        SliderDefaults.Track(
+          modifier = Modifier.height(4.dp),
+          sliderState = sliderState,
+          thumbTrackGapSize = 0.dp,
+          drawStopIndicator = null,
+        )
+      },
+      thumb = { MyThumb(interactionSource = interactionSource) },
       modifier = Modifier
         .weight(1F)
+        .height(16.dp)
         .padding(horizontal = 8.dp),
       interactionSource = interactionSource,
-      colors = SliderDefaults.colors(activeTrackColor = MaterialTheme.colorScheme.primaryContainer),
       value = if (dragging) {
         localValue
       } else {
@@ -92,7 +101,7 @@ internal fun SliderRow(
           .padding(horizontal = 8.dp)
           .combinedClickable(
             onClick = onCurrentTimeClick,
-            indication = rememberRipple(bounded = false),
+            indication = ripple(bounded = false),
             interactionSource = remember { MutableInteractionSource() },
           ),
       )

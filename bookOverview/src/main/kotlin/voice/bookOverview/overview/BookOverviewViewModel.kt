@@ -13,7 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.core.net.toUri
 import androidx.datastore.core.DataStore
-import de.paulwoitaschek.flowpref.Pref
+import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.collections.immutable.toImmutableMap
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
@@ -27,8 +27,8 @@ import voice.common.BookId
 import voice.common.comparator.sortedNaturally
 import voice.common.compose.ImmutableFile
 import voice.common.constants.MINI_PLAYER_PLAYER
-import voice.common.constants.SORTING_AUTHOR
-import voice.common.constants.SORTING_CLASSIC
+
+
 import voice.common.constants.SORTING_LAST
 import voice.common.constants.SORTING_NAME
 import voice.common.grid.GridCount
@@ -37,6 +37,7 @@ import voice.common.navigation.Destination
 import voice.common.navigation.Navigator
 import voice.common.pref.CurrentBook
 import voice.common.pref.PrefKeys
+import voice.data.Book
 import voice.data.repo.BookContentRepo
 import voice.data.markForPosition
 import voice.data.repo.BookRepository
@@ -44,6 +45,7 @@ import voice.data.repo.internals.dao.LegacyBookDao
 import voice.data.repo.internals.dao.RecentBookSearchDao
 import voice.playback.PlayerController
 import voice.playback.playstate.PlayStateManager
+import voice.pref.Pref
 import voice.search.BookSearch
 import javax.inject.Inject
 import javax.inject.Named
@@ -64,8 +66,12 @@ constructor(
   private val paddingPref: Pref<String>,
   @Named(PrefKeys.MINI_PLAYER_STYLE)
   private val miniPlayerStylePref: Pref<Int>,
-  @Named(PrefKeys.SORTING)
-  private val sortingPref: Pref<Int>,
+  @Named(PrefKeys.SORTING_CURRENT)
+  private val sortingCurrentPref: Pref<Int>,
+  @Named(PrefKeys.SORTING_NOT_STARTED)
+  private val sortingNotStartedPref: Pref<Int>,
+  @Named(PrefKeys.SORTING_FINISHED)
+  private val sortingFinishedPref: Pref<Int>,
   @Named(PrefKeys.USE_GESTURES)
   private val useGestures: Pref<Boolean>,
   @Named(PrefKeys.USE_HAPTIC_FEEDBACK)
@@ -88,6 +94,7 @@ constructor(
   private val scope = MainScope()
   private var searchActive by mutableStateOf(false)
   private var query by mutableStateOf("")
+  private lateinit var booksCat: ImmutableMap<BookOverviewCategory, List<BookOverviewItemViewState>>
 
   fun attach() {
     mediaScanner.scan()
@@ -117,7 +124,9 @@ constructor(
     val chapterName = currentBook?.currentChapter?.markForPosition(currentBook.content.positionInChapter)?.name.takeIf { true }
     val paddings = paddingPref.flow.collectAsState(initial = null).value ?: return BookOverviewViewState.Loading
     val miniPlayerStyle = miniPlayerStylePref.flow.collectAsState(initial = MINI_PLAYER_PLAYER).value
-    val sortingPref = sortingPref.flow.collectAsState(initial = SORTING_CLASSIC).value
+    val sortingCurrentPref = sortingCurrentPref.flow.collectAsState(initial = SORTING_LAST).value
+    val sortingNotStartedPref = sortingNotStartedPref.flow.collectAsState(initial = SORTING_NAME).value
+    val sortingFinishedPref = sortingFinishedPref.flow.collectAsState(initial = SORTING_LAST).value
     val useGestures = useGestures.flow.collectAsState(initial = true).value
     val useHapticFeedback = useHapticFeedback.flow.collectAsState(initial = true).value
     val scanCoverChapter = scanCoverChapter.flow.collectAsState(initial = true).value
@@ -142,26 +151,23 @@ constructor(
 
     val bookSearchViewState = bookSearchViewState(layoutMode)
 
+    booksCat = books
+      .groupBy {
+        it.category(sortingNotStartedPref, sortingFinishedPref, sortingCurrentPref)
+      }
+      .mapValues { (category, books) ->
+        books
+          .sortedWith(category.comparator)
+          .map { book ->
+            book.toItemViewState(scanCoverChapter)
+          }
+      }
+      .toSortedMap()
+      .toImmutableMap()
+
     return BookOverviewViewState(
       layoutMode = layoutMode,
-      books = books
-        .groupBy {
-          when (sortingPref) {
-            SORTING_NAME -> it.categoryByName
-            SORTING_LAST -> it.categoryByLast
-            SORTING_AUTHOR -> it.categoryByAuthor
-            else -> it.category
-          }
-        }
-        .mapValues { (category, books) ->
-          books
-            .sortedWith(category.comparator)
-            .map { book ->
-              book.toItemViewState(scanCoverChapter)
-            }
-        }
-        .toSortedMap()
-        .toImmutableMap(),
+      books = booksCat,
       playButtonState = if (playState == PlayStateManager.PlayState.Playing) {
         BookOverviewViewState.PlayButtonState.Playing
       } else {
@@ -188,6 +194,9 @@ constructor(
       useGestures = useGestures,
       useHapticFeedback = useHapticFeedback,
       useMenuIconsPref = useMenuIconsPref,
+      sortingCurrent = sortingCurrentPref,
+      sortingNotStarted = sortingNotStartedPref,
+      sortingFinished = sortingFinishedPref,
     )
   }
 
@@ -292,7 +301,7 @@ constructor(
     playerController.previous()
   }
 
-  fun onPermissionBugCardClicked() {
+  fun onPermissionBugCardClick() {
     if (Build.VERSION.SDK_INT >= 30) {
       navigator.goTo(
         Destination.Activity(
@@ -300,6 +309,65 @@ constructor(
             .setData("package:com.android.externalstorage".toUri()),
         ),
       )
+    }
+  }
+
+  fun sortBooks(sortingNotStarted: Int, sortingFinished: Int, sortingCurrent: Int) {
+    sortingNotStartedPref.value = sortingNotStarted
+    sortingFinishedPref.value = sortingFinished
+    sortingCurrentPref.value = sortingCurrent
+    scope.launch {
+      booksCat = repo.all()
+        .groupBy {
+          it.category(sortingNotStarted, sortingFinished, sortingCurrent)
+        }
+        .mapValues { (category, books) ->
+          books
+            .sortedWith(category.comparator)
+            .map { book ->
+              book.toItemViewState(scanCoverChapter.value)
+            }
+        }
+        .toSortedMap()
+        .toImmutableMap()
+    }
+  }
+
+  private fun Book.category(sortingNotStarted: Int, sortingFinished: Int, sortingCurrent: Int): BookOverviewCategory {
+    val category = "$sortingNotStarted$sortingFinished$sortingCurrent"
+    //NLA=123
+    return when (category) {
+      "111" -> this.categoryAllName
+      "222" -> this.categoryAllLast
+      "333" -> this.categoryAllAuthor
+
+      "112" -> this.categoryNameNameLast
+      "113" -> this.categoryNameNameAuthor
+      "121" -> this.categoryNameLastName
+      "122" -> this.categoryNameLastLast
+      "123" -> this.categoryNameLastAuthor
+      "131" -> this.categoryNameAuthorName
+      "132" -> this.categoryNameAuthorLast
+      "133" -> this.categoryNameAuthorAuthor
+
+      "211" -> this.categoryLastNameName
+      "212" -> this.categoryLastNameLast
+      "213" -> this.categoryLastNameAuthor
+      "221" -> this.categoryLastLastName
+      "223" -> this.categoryLastLastAuthor
+      "231" -> this.categoryLastAuthorName
+      "232" -> this.categoryLastAuthorLast
+      "233" -> this.categoryLastAuthorAuthor
+
+      "311" -> this.categoryAuthorNameName
+      "312" -> this.categoryAuthorNameLast
+      "313" -> this.categoryAuthorNameAuthor
+      "321" -> this.categoryAuthorLastName
+      "322" -> this.categoryAuthorLastLast
+      "323" -> this.categoryAuthorLastAuthor
+      "331" -> this.categoryAuthorAuthorName
+      "332" -> this.categoryAuthorAuthorLast
+      else -> this.categoryNameLastName
     }
   }
 }

@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Kapitelabdeckung verwenden</string>
 
   <!-- Themes -->
+  <string name="pref_animated_marquee_summary">Wenn es zu breit ist, um in den verfügbaren Platz zu passen</string>
   <string name="theme">Theme</string>
   <string name="light_theme">Licht</string>
   <string name="dark_theme">Dunkelheit</string>
@@ -111,6 +112,7 @@
   <string name="pref_sorting_last">Zuletzt hinzugefügt oder verwendet</string>
   <string name="pref_sorting_last_added">Zuletzt hinzugefügt</string>
   <string name="pref_sorting_time">Zeit</string>
+  <string name="path">Pfad</string>
   <string name="change_book_author">Verfasser</string>
   <string name="edit_book_author">Autor bearbeiten</string>
   <string name="onboarding_welcome_title_g">Willkommen bei PlayBook!</string>
@@ -129,4 +131,13 @@
             Ich danke Ihnen!
         ]]>
     </string>
+
+  <string name="auto_sleep_timer">Starte Schlummerfunktion automatisch</string>
+  <string name="auto_sleep_timer_start">Startzeit</string>
+  <string name="auto_sleep_timer_end">Endzeit</string>
+    <string name="pref_animated_marquee">Animierter Buchtitel, Kapitel- und Autoreneffekt</string>
+  <string name="length">Dauer</string>
+  <string name="last_played_at">Letztes Vorsprechen</string>
+  <string name="remaining_time">Verbleibende Zeit</string>
+  <string name="any_support_unlock_all">Wählen Sie den Umfang der Projektunterstützung, die Ihnen zur Verfügung steht (einmalig, monatlich oder jährlich). Jede Unterstützung schaltet alle Funktionen der Anwendung frei. Sie können Ihr Abonnement jederzeit kündigen.</string>
 </resources>

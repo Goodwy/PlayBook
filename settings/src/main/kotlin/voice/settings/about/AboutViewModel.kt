@@ -4,11 +4,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import de.paulwoitaschek.flowpref.Pref
 import voice.common.AppInfoProvider
 import voice.common.navigation.Destination
 import voice.common.navigation.Navigator
 import voice.common.pref.PrefKeys
+import voice.pref.Pref
 import javax.inject.Inject
 import javax.inject.Named
 

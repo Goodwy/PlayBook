@@ -26,11 +26,11 @@ abstract class ComposeController(args: Bundle = Bundle()) : Controller(args) {
         VoiceTheme {
           Content()
           //TODO statusBar and navigationBar Color
-          if (!useTransparentNavigation()) {
-            val window = (view!!.context as Activity).window
-            window.statusBarColor = MaterialTheme.colorScheme.background.toArgb()
-            window.navigationBarColor = MaterialTheme.colorScheme.background.toArgb()
-          }
+//          if (!useTransparentNavigation()) {
+//            val window = (view!!.context as Activity).window
+//            window.statusBarColor = MaterialTheme.colorScheme.background.toArgb()
+//            window.navigationBarColor = MaterialTheme.colorScheme.background.toArgb()
+//          }
 
           val systemUiController = rememberSystemUiController()
           val useDarkIcons = !isDarkTheme() //!isSystemInDarkTheme()

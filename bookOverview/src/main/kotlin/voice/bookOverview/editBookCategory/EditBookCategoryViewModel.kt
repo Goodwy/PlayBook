@@ -18,29 +18,27 @@ import javax.inject.Inject
 )
 class EditBookCategoryViewModel
 @Inject
-constructor(
-  private val repo: BookRepository,
-) : BottomSheetItemViewModel {
+constructor(private val repo: BookRepository) : BottomSheetItemViewModel {
 
   override suspend fun items(bookId: BookId): List<BottomSheetItem> {
     val book = repo.get(bookId) ?: return emptyList()
     return when (book.category) {
-      BookOverviewCategory.CURRENT, BookOverviewCategory.CURRENT_BY_NAME, BookOverviewCategory.CURRENT_BY_AUTHOR -> listOf(
+      BookOverviewCategory.CURRENT_BY_LAST, BookOverviewCategory.CURRENT_BY_NAME, BookOverviewCategory.CURRENT_BY_AUTHOR -> listOf(
         BottomSheetItem.BookCategoryMarkAsNotStarted,
         BottomSheetItem.BookCategoryMarkAsCompleted,
       )
-      BookOverviewCategory.NOT_STARTED, BookOverviewCategory.NOT_STARTED_BY_LAST, BookOverviewCategory.NOT_STARTED_BY_AUTHOR -> listOf(
+      BookOverviewCategory.NOT_STARTED_BY_NAME, BookOverviewCategory.NOT_STARTED_BY_LAST, BookOverviewCategory.NOT_STARTED_BY_AUTHOR -> listOf(
         BottomSheetItem.BookCategoryMarkAsCurrent,
         BottomSheetItem.BookCategoryMarkAsCompleted,
       )
-      BookOverviewCategory.FINISHED, BookOverviewCategory.FINISHED_BY_NAME, BookOverviewCategory.FINISHED_BY_AUTHOR -> listOf(
+      BookOverviewCategory.FINISHED_BY_LAST, BookOverviewCategory.FINISHED_BY_NAME, BookOverviewCategory.FINISHED_BY_AUTHOR -> listOf(
         BottomSheetItem.BookCategoryMarkAsCurrent,
         BottomSheetItem.BookCategoryMarkAsNotStarted,
       )
     }
   }
 
-  override suspend fun onItemClicked(
+  override suspend fun onItemClick(
     bookId: BookId,
     item: BottomSheetItem,
   ) {

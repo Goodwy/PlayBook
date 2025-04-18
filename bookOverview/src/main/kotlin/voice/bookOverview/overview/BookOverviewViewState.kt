@@ -7,6 +7,9 @@ import voice.common.compose.ImmutableFile
 import voice.bookOverview.search.BookSearchViewState
 import kotlinx.collections.immutable.persistentMapOf
 import voice.common.constants.MINI_PLAYER_PLAYER
+import voice.common.constants.SORTING_CLASSIC
+import voice.common.constants.SORTING_LAST
+import voice.common.constants.SORTING_NAME
 
 @Immutable
 data class BookOverviewViewState(
@@ -30,6 +33,9 @@ data class BookOverviewViewState(
   val useGestures: Boolean,
   val useHapticFeedback: Boolean,
   val useMenuIconsPref: Boolean,
+  val sortingCurrent: Int,
+  val sortingNotStarted: Int,
+  val sortingFinished: Int,
 ) {
 
   companion object {
@@ -58,6 +64,9 @@ data class BookOverviewViewState(
       useGestures = true,
       useHapticFeedback = true,
       useMenuIconsPref = false,
+      sortingCurrent = SORTING_LAST,
+      sortingNotStarted = SORTING_NAME,
+      sortingFinished = SORTING_LAST,
     )
   }
 

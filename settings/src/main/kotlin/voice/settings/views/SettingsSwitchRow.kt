@@ -75,7 +75,7 @@ internal fun SettingsSwitchRow(
           fontSize = 12.sp,
           lineHeight = 12.sp)
       }
-      Spacer(modifier = Modifier.size(6.dp))
+      Spacer(modifier = Modifier.size(12.dp))
       Row(
         modifier = Modifier.widthIn(min = 24.dp, max = 200.dp),
         horizontalArrangement = Arrangement.End,

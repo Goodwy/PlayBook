@@ -179,8 +179,8 @@ class ScreenshotCapture {
     }
     return BookOverviewViewState(
       books = persistentMapOf(
-        BookOverviewCategory.CURRENT to books.take(3),
-        BookOverviewCategory.NOT_STARTED to books.drop(3).map { it.copy(progress = 0F) },
+        BookOverviewCategory.CURRENT_BY_LAST to books.take(3),
+        BookOverviewCategory.NOT_STARTED_BY_NAME to books.drop(3).map { it.copy(progress = 0F) },
       ),
       layoutMode = BookOverviewLayoutMode.List,
       playButtonState = BookOverviewViewState.PlayButtonState.Paused,

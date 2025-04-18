@@ -8,7 +8,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -23,6 +22,7 @@ import voice.data.legacy.LegacyChapter
 import voice.data.legacy.LegacyChapterMark
 import voice.data.repo.internals.dao.LegacyBookDao
 import voice.migration.views.MigrationViewState
+import voice.pref.Pref
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Named
@@ -42,17 +42,17 @@ class MigrationViewModel
     var showDeletionConfirmationDialog by remember {
       mutableStateOf(false)
     }
-    val onDeleteClicked = {
+    val onDeleteClick = {
       showDeletionConfirmationDialog = true
     }
-    val onDeletionAborted = {
+    val onDeletionAbort = {
       showDeletionConfirmationDialog = false
     }
     var items by remember {
       mutableStateOf(listOf<MigrationViewState.Item>())
     }
     val scope = rememberCoroutineScope()
-    val onDeletionConfirmed: () -> Unit = {
+    val onDeletionConfirm: () -> Unit = {
       showDeletionConfirmationDialog = false
       scope.launch {
         dao.deleteAll()
@@ -67,10 +67,10 @@ class MigrationViewModel
     return MigrationViewState(
       items = items,
       paddings = paddings,
-      onDeleteClicked = onDeleteClicked,
+      onDeleteClick = onDeleteClick,
       showDeletionConfirmationDialog = showDeletionConfirmationDialog,
-      onDeletionConfirmed = onDeletionConfirmed,
-      onDeletionAborted = onDeletionAborted,
+      onDeletionConfirm = onDeletionConfirm,
+      onDeletionAbort = onDeletionAbort,
     )
   }
 

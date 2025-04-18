@@ -13,6 +13,7 @@ dependencies {
   implementation(projects.data)
   implementation(projects.strings)
   implementation(libs.dagger.core)
+  implementation(projects.pref)
 
   implementation(libs.bundles.retrofit)
   implementation(libs.okhttp)
@@ -21,6 +22,4 @@ dependencies {
 
   implementation(libs.serialization.json)
   testImplementation(libs.bundles.testing.jvm)
-
-  implementation(libs.prefs.core)
 }

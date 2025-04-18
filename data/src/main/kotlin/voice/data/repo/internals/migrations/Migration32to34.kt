@@ -12,7 +12,6 @@ import voice.data.repo.internals.getLong
 import voice.data.repo.internals.getString
 import voice.data.repo.internals.mapRows
 import voice.data.repo.internals.transaction
-import voice.logging.core.Logger
 import javax.inject.Inject
 
 private const val BOOKMARK_TABLE_NAME = "tableBookmarks"
@@ -48,14 +47,12 @@ class Migration32to34
       val time = getLong(BM_TIME)
       Holder(path, title, time)
     }
-    Logger.i("Restored bookmarks=$entries")
 
     // delete table
     db.execSQL("DROP TABLE $BOOKMARK_TABLE_NAME")
 
     // create new bookmark scheme
     db.execSQL(CREATE_TABLE_BOOKMARKS)
-    Logger.i("Created $CREATE_TABLE_BOOKMARKS")
 
     // add old bookmarks to new bookmark scheme
     db.transaction {
@@ -66,10 +63,13 @@ class Migration32to34
           put(TIME, it.time)
         }
         db.insert(TABLE_NAME, SQLiteDatabase.CONFLICT_FAIL, cv)
-        Logger.i("Inserted $cv to $TABLE_NAME")
       }
     }
   }
 
-  private data class Holder(val path: String, val title: String, val time: Long)
+  private data class Holder(
+    val path: String,
+    val title: String,
+    val time: Long,
+  )
 }

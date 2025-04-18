@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Använd kapitelomslag</string>
 
   <!-- Teman -->
+  <string name="pref_animated_marquee_summary">Om den är för bred för att få plats i det tillgängliga utrymmet</string>
   <string name="theme">Tema</string>
   <string name="light_theme">Ljus</string>
   <string name="dark_theme">Mörk</string>
@@ -111,8 +112,10 @@ Jag skulle vara mycket tacksam om du ger en recension eller betyg på appen på 
   <string name="pref_sorting_last">Senast tillagd eller använd</string>
   <string name="pref_sorting_last_added">Senast tillagd</string>
   <string name="pref_sorting_time">Tid</string>
+  <string name="path">Stig</string>
   <string name="change_book_author">Författare</string>
   <string name="edit_book_author">Redigera författare</string>
+  <string name="auto_sleep_timer_end">Sluttid</string>
   <string name="onboarding_welcome_title_g">Välkommen till PlayBook!</string>
   <string name="onboarding_gestures_title">Använd gester</string>
   <string name="onboarding_show_player">Visa spelare</string>
@@ -130,4 +133,11 @@ Jag skulle vara mycket tacksam om du ger en recension eller betyg på appen på 
             Tack så mycket!
         ]]>
     </string>
+    <string name="pref_animated_marquee">Animerad boktitel, kapitel och författareffekt</string>
+  <string name="length">Varaktighet</string>
+  <string name="last_played_at">Sista audition</string>
+  <string name="remaining_time">Återstående tid</string>
+  <string name="any_support_unlock_all">Välj vilken nivå av projektstöd som är tillgängligt för dig (engångs-, månads- eller årsstöd). Allt stöd låser upp alla funktioner i applikationen. Du kan säga upp din prenumeration när som helst.</string>
+  <string name="auto_sleep_timer">Starta snooze-timern enligt schemat</string>
+  <string name="auto_sleep_timer_start">Starttid</string>
 </resources>

@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Użyj okładki rozdziału</string>
 
   <!-- Tematy -->
+  <string name="pref_animated_marquee_summary">Jeśli jest zbyt szeroki, aby zmieścić się w dostępnej przestrzeni</string>
   <string name="theme">Motyw</string>
   <string name="light_theme">Światło</string>
   <string name="dark_theme">Ciemny</string>
@@ -111,6 +112,7 @@ Byłbym bardzo wdzięczny za pozostawienie recenzji lub oceny aplikacji w Google
   <string name="pref_sorting_last">Ostatnio dodane lub używane</string>
   <string name="pref_sorting_last_added">Ostatnio dodane</string>
   <string name="pref_sorting_time">Godzina</string>
+  <string name="path">Ścieżka</string>
   <string name="change_book_author">Autor</string>
   <string name="edit_book_author">Edytowanie autora</string>
   <string name="onboarding_gestures_title">Używanie gestów</string>
@@ -130,4 +132,13 @@ Będziemy bardzo wdzięczni.
             Dziękuję!
         ]]>
     </string>
+    <string name="pref_animated_marquee">Animowany tytuł książki, rozdział i efekt autora</string>
+  <string name="length">Czas trwania</string>
+  <string name="last_played_at">Ostatnie przesłuchanie</string>
+  <string name="remaining_time">Pozostały czas</string>
+  <string name="any_support_unlock_all">Wybierz dostępny dla Ciebie poziom wsparcia projektowego (jednorazowy, miesięczny lub roczny). Każde wsparcie odblokowuje wszystkie funkcje aplikacji. Subskrypcję można anulować w dowolnym momencie.</string>
+  <string name="auto_sleep_timer_end">Godzina zakończenia</string>
+  <string name="onboarding_welcome_title_g">Witamy w PlayBook!</string>
+  <string name="auto_sleep_timer">Uruchom minutnik drzemki zgodnie z harmonogramem</string>
+  <string name="auto_sleep_timer_start">Godzina rozpoczęcia</string>
 </resources>

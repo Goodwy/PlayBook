@@ -2,6 +2,7 @@ package voice.bookOverview.views
 
 import androidx.annotation.FloatRange
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -22,7 +23,8 @@ internal fun BookProgress(@FloatRange(from = 0.0, to = 1.0) progress: Float,
   val stroke = with(LocalDensity.current) { Stroke(width = 5.dp.toPx()) }
   Canvas(
     modifier = Modifier
-      .size(9.dp)
+      .size(16.dp)
+      .padding(3.5.dp)
   ) {
     val startAngle = 270f
     val sweepAngle = progress * 360f

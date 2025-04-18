@@ -33,54 +33,60 @@ internal fun ColumnScope.BookOverviewSearchBar(
   searchViewState: BookSearchViewState,
 ) {
   SearchBar(
-    //shape = FloatingActionButtonDefaults.shape,
-    colors = SearchBarDefaults.colors(
-      containerColor = MaterialTheme.colorScheme.background.copy(alpha = 0f),
-    ),
     modifier = Modifier
       .fillMaxWidth()
       .padding(horizontal = horizontalPadding)
       .padding(top = topPadding),
-    query = if (searchActive) {
-      searchViewState.query
-    } else {
-      ""
-    },
-    onQueryChange = onQueryChange,
-    onSearch = onQueryChange,
-    active = searchActive,
-    onActiveChange = onActiveChange,
-    leadingIcon = {
-      TopBarTrailingIcon(
-        searchActive = searchActive,
+    inputField = {
+      SearchBarDefaults.InputField(
+        query = if (searchActive) {
+          searchViewState.query
+        } else {
+          ""
+        },
+        onQueryChange = onQueryChange,
+        onSearch = onQueryChange,
+        expanded = searchActive,
+        onExpandedChange = onActiveChange,
+        leadingIcon = {
+          TopBarTrailingIcon(
+            searchActive = searchActive,
 //        showMigrateIcon = showMigrateIcon,
 //        showMigrateHint = showMigrateHint,
-        showAddBookHint = showAddBookHint,
+            showAddBookHint = showAddBookHint,
 //        onBookMigrationClick = onBookMigrationClick,
 //        onBoomMigrationHelperConfirmClick = onBoomMigrationHelperConfirmClick,
-        useIcon = useIcon,
-        onBookFolderClick = onBookFolderClick,
-        onSettingsClick = onSettingsClick,
-        onActiveChange = onActiveChange,
+            useIcon = useIcon,
+            onBookFolderClick = onBookFolderClick,
+            onSettingsClick = onSettingsClick,
+            onActiveChange = onActiveChange,
+          )
+        },
+        trailingIcon = {
+          TopBarLeadingIcon(
+            searchActive = searchActive,
+            //onActiveChange = onActiveChange,
+            showMigrateIcon = showMigrateIcon,
+            showMigrateHint = showMigrateHint,
+            onBookMigrationClick = onBookMigrationClick,
+            onBoomMigrationHelperConfirmClick = onBoomMigrationHelperConfirmClick,
+            onQueryChange = onQueryChange
+          )
+        },
       )
     },
-    trailingIcon = {
-      TopBarLeadingIcon(
-        searchActive = searchActive,
-        //onActiveChange = onActiveChange,
-        showMigrateIcon = showMigrateIcon,
-        showMigrateHint = showMigrateHint,
-        onBookMigrationClick = onBookMigrationClick,
-        onBoomMigrationHelperConfirmClick = onBoomMigrationHelperConfirmClick,
-        onQueryChange = onQueryChange
+    expanded = searchActive,
+    onExpandedChange = onActiveChange,
+    content = {
+      BookSearchContent(
+        viewState = searchViewState,
+        contentPadding = PaddingValues(),
+        onQueryChange = onQueryChange,
+        onBookClick = onSearchBookClick,
       )
     },
-  ) {
-    BookSearchContent(
-      viewState = searchViewState,
-      contentPadding = PaddingValues(),
-      onQueryChange = onQueryChange,
-      onBookClick = onSearchBookClick,
-    )
-  }
+    colors = SearchBarDefaults.colors(
+      containerColor = MaterialTheme.colorScheme.background.copy(alpha = 0f),
+    ),
+  )
 }

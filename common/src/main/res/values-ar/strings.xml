@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">استخدم غلاف الفصل</string>
 
   <!--المظاهر-->
+  <string name="pref_animated_marquee_summary">إذا كانت واسعة جدا بحيث لا تتناسب مع المساحة المتاحة</string>
   <string name="theme">الموضوع</string>
   <string name="light_theme">الضوء</string>
   <string name="dark_theme">داكن</string>
@@ -108,6 +109,7 @@
   <string name="pref_sorting_last">آخر إضافة أو استخدام</string>
   <string name="pref_sorting_last_added">آخر إضافة</string>
   <string name="pref_sorting_time">الوقت</string>
+  <string name="path">مسار</string>
   <string name="change_book_author">كاتب</string>
   <string name="edit_book_author">تحرير المؤلف</string>
   <string name="onboarding_gestures_title">استخدام الإيماءات</string>
@@ -117,4 +119,13 @@
   <string name="per_month">شهر/%s</string>
   <string name="per_year">سنة/%s</string>
   <string name="restore_purchase">استعادة الشراء</string>
+    <string name="pref_animated_marquee">عنوان الكتاب المتحرك والفصل وتأثير المؤلف</string>
+  <string name="length">مدة</string>
+  <string name="last_played_at">آخر اختبار</string>
+  <string name="remaining_time">الوقت المتبقي</string>
+  <string name="any_support_unlock_all">اختر مستوى دعم المشروع المتاح لك (لمرة واحدة أو شهريا أو سنويا). أي دعم يفتح جميع ميزات التطبيق. يمكنك إلغاء اشتراكك في أي وقت.</string>
+  <string name="auto_sleep_timer_end">وقت الانتهاء</string>
+  <string name="onboarding_welcome_title_g">مرحبا بكم في PlayBook!</string>
+  <string name="auto_sleep_timer">بدء مؤقت الغفوة في الموعد المحدد</string>
+  <string name="auto_sleep_timer_start">وقت البدء</string>
 </resources>

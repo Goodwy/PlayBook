@@ -32,20 +32,21 @@ dependencyResolutionManagement {
 }
 
 plugins {
-  id("com.gradle.enterprise") version "3.16.2"
-  id("org.gradle.toolchains.foojay-resolver-convention") version ("0.8.0")
+  id("com.gradle.develocity") version "3.19.1"
+  id("org.gradle.toolchains.foojay-resolver-convention") version ("0.9.0")
 }
 
-gradleEnterprise {
+develocity {
   buildScan {
-    termsOfServiceUrl = "https://gradle.com/terms-of-service"
-    termsOfServiceAgree = "yes"
+    termsOfUseUrl = "https://gradle.com/terms-of-service"
+    termsOfUseAgree = "yes"
   }
 }
 
 include(":app")
 include(":strings")
 include(":common")
+include(":bookmark")
 include(":data")
 include(":playback")
 include(":ffmpeg")
@@ -60,10 +61,10 @@ include(":folderPicker")
 include(":bookOverview")
 include(":migration")
 include(":scripts")
+include(":pref")
 include(":logging:core")
 include(":logging:debug")
 include(":documentfile")
 include(":onboarding")
-include(":logging:crashlytics")
 include(":review:play")
 include(":review:noop")

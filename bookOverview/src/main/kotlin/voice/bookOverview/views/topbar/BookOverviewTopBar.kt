@@ -22,6 +22,8 @@ import voice.bookOverview.search.BookSearchViewState
 import voice.common.BookId
 import voice.common.compose.VoiceTheme
 import voice.common.constants.MINI_PLAYER_PLAYER
+import voice.common.constants.SORTING_LAST
+import voice.common.constants.SORTING_NAME
 import kotlin.time.Duration.Companion.seconds
 
 @Composable
@@ -106,6 +108,9 @@ private fun BookOverviewTopBarPreview() {
         useGestures = true,
         useHapticFeedback = true,
         useMenuIconsPref = false,
+        sortingCurrent = SORTING_LAST,
+        sortingNotStarted = SORTING_NAME,
+        sortingFinished = SORTING_LAST,
       ),
       onBookMigrationClick = {},
       onBoomMigrationHelperConfirmClick = {},

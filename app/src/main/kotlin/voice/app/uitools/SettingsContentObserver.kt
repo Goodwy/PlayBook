@@ -4,10 +4,10 @@ import android.content.Context
 import android.database.ContentObserver
 import android.media.AudioManager
 import android.os.Handler
-import de.paulwoitaschek.flowpref.Pref
 import voice.app.injection.appComponent
 import voice.common.pref.PrefKeys
 import voice.logging.core.Logger
+import voice.pref.Pref
 import javax.inject.Inject
 import javax.inject.Named
 

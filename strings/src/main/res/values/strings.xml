@@ -128,5 +128,4 @@
         <item quantity="one">%d minute</item>
         <item quantity="other">%d minutes</item>
     </plurals>
-    <string name="jump_to_position">Jump to position</string>
 </resources>

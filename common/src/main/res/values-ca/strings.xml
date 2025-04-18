@@ -32,6 +32,7 @@
   <string name="pref_use_menu_icons">Utilitzar icones de menú</string>
 
   <!-- Themes -->
+  <string name="pref_animated_marquee_summary">Si és massa ample per cabre a l\'espai disponible</string>
   <string name="theme">Tema</string>
   <string name="light_theme">Llum</string>
   <string name="dark_theme">Fosc</string>
@@ -77,6 +78,7 @@
   <string name="settings">Configuració</string>
 
   <!--EditBookDialog-->
+  <string name="path">Camí</string>
   <string name="change_book_author">Autor</string>
   <string name="edit_book_author">Edita l\'autor</string>
   <string name="ok">D\'acord</string>
@@ -126,6 +128,7 @@
   <string name="tipping_jar_dialog_error_message">Desafortunadament, ha passat alguna cosa dolenta durant la transacció de propina. No estiguis trist, torna-ho a provar una altra vegada i gaudeix de PlayBook</string>
 
   <!--Onboarding-->
+  <string name="auto_sleep_timer_end">Hora de finalització</string>
   <string name="onboarding_welcome_title_g">Benvingut a PlayBook!</string>
   <string name="onboarding_gestures_title">Utilitzar gestos</string>
   <string name="onboarding_show_player">Mostra el reproductor</string>
@@ -150,4 +153,11 @@
             Gràcies!
         ]]>
     </string>
+    <string name="pref_animated_marquee">Títol de llibre animat, capítol i efecte d\'autor</string>
+  <string name="length">Durada</string>
+  <string name="last_played_at">Última audició</string>
+  <string name="remaining_time">Temps restant</string>
+  <string name="any_support_unlock_all">Trieu el nivell de suport al projecte disponible (únic, mensual o anual). Qualsevol suport desbloqueja totes les funcions de l\'aplicació. Pots cancel·lar la teva subscripció en qualsevol moment.</string>
+  <string name="auto_sleep_timer">Inicieu el temporitzador de posposada segons la programació</string>
+  <string name="auto_sleep_timer_start">Hora d\'inici</string>
 </resources>

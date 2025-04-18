@@ -30,6 +30,9 @@
   <string name="pref_delete_cover_files">Удалить файлы обложек</string>
   <string name="pref_subtitle_delete_cover_files">Все сохраненные в приложении обложки будут удалены. Обложки будут заново загружены из файлов книг</string>
   <string name="pref_use_menu_icons">Использовать иконки меню</string>
+  <string name="pref_animated_marquee">Эффект бегущей строки для названия книги, главы и автора</string>
+  <string name="pref_animated_marquee_summary">Если текст слишком широк, чтобы поместиться в свободное пространство.
+</string>
 
   <!-- Themes -->
   <string name="theme">Тема</string>
@@ -65,6 +68,7 @@
     <item quantity="few">%d главы</item>
     <item quantity="many">%d глав</item>
   </plurals>
+  <string name="jump_to_position">Перейти к</string>
 
   <!--Setting sorting-->
   <string name="pref_sorting">Сортировка по</string>
@@ -76,10 +80,16 @@
   <string name="folders">Папки</string>
   <string name="settings">Настройки</string>
 
+  <!--BookDetails-->
+  <string name="length">Длительность</string>
+  <string name="last_played_at">Последнее прослушивание</string>
+  <string name="remaining_time">Осталось прослушать</string>
+  <string name="path">Путь</string>
+
   <!--EditBookDialog-->
   <string name="change_book_author">Автор</string>
   <string name="edit_book_author">Редактировать автора</string>
-  <string name="ok">Ok</string>
+  <string name="ok">OK</string>
 
   <!--FolderPicker-->
   <string name="internal_storage">Внутреннее хранилище</string>
@@ -113,6 +123,10 @@
   <string name="color_summary">Тщательно подобранные цветовые схемы, что бы соответствовать вашим любимым книгам</string>
   <string name="plus_title">Поддержите нас</string>
   <string name="plus_summary">Все наши приложения без рекламы, с открытым исходным кодом, и так будет всегда. С Вашей помощью мы сможем реализовать больше функций и сделать их еще лучше</string>
+  <string name="any_support_unlock_all">Выберите доступный Вам уровень поддержки проекта (единовременный, ежемесячный или ежегодный). Любая поддержка разблокирует все функции приложения</string>
+  <string name="one_time_purchase">Разовая поддержка</string>
+  <string name="monthly">Ежемесячная поддержка</string>
+  <string name="yearly">Ежегодная поддержка</string>
   <string name="lifebuoy_title">Мы поддержим Вас</string>
   <string name="lifebuoy_summary">Если по какой то причине Вы не можете позволить себе наше приложение, но очень хотите использовать все функции, просто напишите нам</string>
   <string name="participants_title">Участники</string>
@@ -138,7 +152,7 @@
   <string name="billing_product_confirmed">Продукт подтвержден</string>
   <string name="billing_product_deleted">Покупка отменена</string>
   <string name="billing_subscriptions">Подписки</string>
-    <string name="per_month">%s/месяц</string>
+  <string name="per_month">%s/месяц</string>
   <string name="per_year">%s/год</string>
   <string name="restore_purchase">Восстановить покупки</string>
 
@@ -159,4 +173,8 @@
             Спасибо!
         ]]>
     </string>
+
+  <string name="auto_sleep_timer">Запускать таймер по расписанию</string>
+  <string name="auto_sleep_timer_start">Время начала</string>
+  <string name="auto_sleep_timer_end">Время окончания</string>
 </resources>

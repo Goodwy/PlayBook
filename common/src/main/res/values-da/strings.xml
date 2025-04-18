@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Brug kapitelomslag</string>
 
   <!-- Temaer -->
+  <string name="pref_animated_marquee_summary">Hvis den er for bred til at passe ind i den ledige plads</string>
   <string name="theme">Tema</string>
   <string name="light_theme">Lys</string>
   <string name="dark_theme">Mørk</string>
@@ -111,8 +112,10 @@ Jeg ville være meget taknemmelig, hvis du giver en anmeldelse eller vurdering a
   <string name="pref_sorting_last">Senest tilføjet eller brugt</string>
   <string name="pref_sorting_last_added">Senest tilføjet</string>
   <string name="pref_sorting_time">Tidspunkt</string>
+  <string name="path">Sti</string>
   <string name="change_book_author">Forfatter</string>
   <string name="edit_book_author">Rediger forfatter</string>
+  <string name="auto_sleep_timer_end">Sluttid</string>
   <string name="onboarding_welcome_title_g">Velkommen til PlayBook!</string>
   <string name="onboarding_gestures_title">Brug bevægelser</string>
   <string name="onboarding_show_player">Vis afspiller</string>
@@ -121,4 +124,11 @@ Jeg ville være meget taknemmelig, hvis du giver en anmeldelse eller vurdering a
   <string name="per_month">%s/måned</string>
   <string name="per_year">%s/år</string>
   <string name="restore_purchase">Gendan køb</string>
+    <string name="pref_animated_marquee">Animeret bogtitel, kapitel og forfattereffekt</string>
+  <string name="length">Varighed</string>
+  <string name="last_played_at">Sidste audition</string>
+  <string name="remaining_time">Resterende tid</string>
+  <string name="any_support_unlock_all">Vælg det niveau af projektstøtte, der er tilgængeligt for dig (engangs, månedligt eller årligt). Enhver support låser op for alle funktioner i applikationen. Du kan til enhver tid opsige dit abonnement.</string>
+  <string name="auto_sleep_timer">Start snooze-timeren efter planen</string>
+  <string name="auto_sleep_timer_start">Starttidspunkt</string>
 </resources>

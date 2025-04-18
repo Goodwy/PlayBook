@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 internal fun BottomSheetContent(
   state: EditBookBottomSheetState,
-  onItemClicked: (BottomSheetItem) -> Unit,
+  onItemClick: (BottomSheetItem) -> Unit,
 ) {
   Column(Modifier.padding(top = 0.dp, bottom = 0.dp)) {
     state.items.forEach { item ->
@@ -36,7 +36,7 @@ internal fun BottomSheetContent(
         modifier = Modifier
           .wrapContentHeight()
           .clickable {
-            onItemClicked(item)
+            onItemClick(item)
           }
           .padding(horizontal = 16.dp)
           .fillMaxWidth(),

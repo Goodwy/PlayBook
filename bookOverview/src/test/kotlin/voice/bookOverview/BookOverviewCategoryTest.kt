@@ -18,7 +18,7 @@ class BookOverviewCategoryTest {
         ),
       )
     }
-    book.category shouldBe BookOverviewCategory.FINISHED
+    book.category shouldBe BookOverviewCategory.FINISHED_BY_LAST
   }
 
   @Test
@@ -32,7 +32,7 @@ class BookOverviewCategoryTest {
         ),
       )
     }
-    book.category shouldBe BookOverviewCategory.NOT_STARTED
+    book.category shouldBe BookOverviewCategory.NOT_STARTED_BY_NAME
   }
 
   @Test
@@ -45,6 +45,6 @@ class BookOverviewCategoryTest {
         ),
       )
     }
-    book.category shouldBe BookOverviewCategory.CURRENT
+    book.category shouldBe BookOverviewCategory.CURRENT_BY_LAST
   }
 }

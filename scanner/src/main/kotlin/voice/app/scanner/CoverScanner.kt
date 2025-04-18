@@ -2,7 +2,6 @@ package voice.app.scanner
 
 import android.content.Context
 import androidx.documentfile.provider.DocumentFile
-import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import voice.common.pref.PrefKeys
@@ -10,6 +9,7 @@ import voice.data.Book
 import voice.data.toUri
 import voice.ffmpeg.ffmpeg
 import voice.logging.core.Logger
+import voice.pref.Pref
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Named

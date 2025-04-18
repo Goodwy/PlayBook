@@ -3,7 +3,6 @@ package voice.bookOverview.editTitle
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import com.squareup.anvil.annotations.ContributesMultibinding
-import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import voice.bookOverview.bottomSheet.BottomSheetItem
@@ -12,7 +11,9 @@ import voice.bookOverview.di.BookOverviewScope
 import voice.common.BookId
 import voice.common.compose.ImmutableFile
 import voice.common.pref.PrefKeys
+import voice.data.Book
 import voice.data.repo.BookRepository
+import voice.pref.Pref
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -38,7 +39,7 @@ constructor(
     return listOf(BottomSheetItem.Title)
   }
 
-  override suspend fun onItemClicked(
+  override suspend fun onItemClick(
     bookId: BookId,
     item: BottomSheetItem,
   ) {
@@ -86,8 +87,13 @@ constructor(
     val book = repo.get(bookId) ?: return 0
     return book.duration / 1000
   }
+
   internal suspend fun selectBookChaptersSize(bookId: BookId): Int {
     val book = repo.get(bookId) ?: return 1
     return book.content.chapters.size
+  }
+
+  internal suspend fun selectBook(bookId: BookId): Book? {
+    return repo.get(bookId)
   }
 }

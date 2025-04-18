@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Sử dụng bìa chương</string>
 
   <!-- Chủ đề -->
+  <string name="pref_animated_marquee_summary">Nếu nó quá rộng để phù hợp với không gian có sẵn</string>
   <string name="theme">Chủ đề</string>
   <string name="light_theme">Ánh sáng</string>
   <string name="dark_theme">Bóng tối</string>
@@ -111,6 +112,7 @@ Tôi sẽ rất biết ơn nếu bạn để lại đánh giá hoặc xếp hạ
   <string name="pref_sorting_last">Được thêm hoặc sử dụng lần cuối</string>
   <string name="pref_sorting_last_added">Thêm lần cuối</string>
   <string name="pref_sorting_time">Thời gian</string>
+  <string name="path">Con đường</string>
   <string name="change_book_author">Tác giả</string>
   <string name="edit_book_author">Chỉnh sửa tác giả</string>
   <string name="onboarding_gestures_title">Sử dụng cử chỉ</string>
@@ -120,4 +122,13 @@ Tôi sẽ rất biết ơn nếu bạn để lại đánh giá hoặc xếp hạ
   <string name="per_month">%s/tháng</string>
   <string name="per_year">%s/năm</string>
   <string name="restore_purchase">Khôi phục giao dịch mua</string>
+    <string name="pref_animated_marquee">Tiêu đề sách hoạt hình, chương và hiệu ứng tác giả</string>
+  <string name="length">Trường độ</string>
+  <string name="last_played_at">Buổi thử giọng cuối cùng</string>
+  <string name="remaining_time">Thời gian còn lại</string>
+  <string name="any_support_unlock_all">Chọn mức hỗ trợ dự án có sẵn cho bạn (một lần, hàng tháng hoặc hàng năm). Mọi hỗ trợ đều mở khóa tất cả các tính năng của ứng dụng. Bạn có thể hủy đăng ký của mình bất cứ lúc nào.</string>
+  <string name="auto_sleep_timer_end">Thời gian kết thúc</string>
+  <string name="onboarding_welcome_title_g">Chào mừng bạn đến với PlayBook!</string>
+  <string name="auto_sleep_timer">Bắt đầu hẹn giờ báo lại đúng lịch trình</string>
+  <string name="auto_sleep_timer_start">Thời gian bắt đầu</string>
 </resources>

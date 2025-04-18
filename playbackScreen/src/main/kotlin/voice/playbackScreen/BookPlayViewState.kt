@@ -30,6 +30,7 @@ data class BookPlayViewState(
   val seekTime: Int,
   val seekTimeRewind: Int,
   val currentVolume: Int,
+  val maxVolume: Int,
   val showSliderVolume: Boolean,
   val playbackSpeed: Float,
   val skipButtonStyle: Int,
@@ -42,6 +43,7 @@ data class BookPlayViewState(
   val repeatModeBook: Int,
   val useGestures: Boolean,
   val useHapticFeedback: Boolean,
+  val useAnimatedMarquee: Boolean,
 ) {
 
   init {
@@ -52,9 +54,7 @@ data class BookPlayViewState(
 }
 
 internal sealed interface BookPlayDialogViewState {
-  data class SpeedDialog(
-    val speed: Float,
-  ) : BookPlayDialogViewState {
+  data class SpeedDialog(val speed: Float) : BookPlayDialogViewState {
 
     val maxSpeed: Float get() = if (speed < 2F) 2F else 4F
   }
@@ -71,13 +71,9 @@ internal sealed interface BookPlayDialogViewState {
   ) : BookPlayDialogViewState
 
   @JvmInline
-  value class SleepTimer(
-    val viewState: SleepTimerViewState,
-  ) : BookPlayDialogViewState
+  value class SleepTimer(val viewState: SleepTimerViewState) : BookPlayDialogViewState
 
-  data class JumpToPosition(
-    val duration: Duration,
-  ) : BookPlayDialogViewState
+  data class JumpToPosition(val duration: Duration) : BookPlayDialogViewState
 }
 
 data class PrefViewState(

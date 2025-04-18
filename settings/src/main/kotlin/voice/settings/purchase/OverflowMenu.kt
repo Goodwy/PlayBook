@@ -10,12 +10,12 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.MoreVert
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.Text
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -52,7 +52,7 @@ internal fun OverflowMenu(
               store,
               Toast.LENGTH_SHORT,
             ).show() },
-            indication = rememberRipple(bounded = false, radius = 20.dp),
+            indication = ripple(bounded = false, radius = 20.dp),
             interactionSource = remember { MutableInteractionSource() },
           ),
         contentAlignment = Alignment.Center,
@@ -74,7 +74,7 @@ internal fun OverflowMenu(
             restorePurchase,
             Toast.LENGTH_SHORT,
           ).show() },
-          indication = rememberRipple(bounded = false, radius = 20.dp),
+          indication = ripple(bounded = false, radius = 20.dp),
           interactionSource = remember { MutableInteractionSource() },
         ),
       contentAlignment = Alignment.Center,

@@ -25,38 +25,51 @@ internal fun CoverSearchBar(
   viewState: SelectCoverFromInternetViewModel.ViewState,
 ) {
   SearchBar(
+    inputField = {
+      SearchBarDefaults.InputField(
+        query = viewState.query,
+        onQueryChange = onQueryChange,
+        onSearch = {},
+        expanded = false,
+        onExpandedChange = {},
+        enabled = true,
+        placeholder = null,
+        leadingIcon = {
+          IconButton(onClick = onCloseClick) {
+            Icon(
+              imageVector = Icons.AutoMirrored.Rounded.ArrowBackIos,
+              contentDescription = stringResource(id = R.string.close),
+            )
+          }
+        },
+        trailingIcon = {
+          IconButton(
+            onClick = {
+              onQueryChange("")
+            },
+          ) {
+            Icon(
+              imageVector = Icons.Rounded.Cancel,
+              contentDescription = stringResource(id = R.string.delete),
+            )
+          }
+        },
+        interactionSource = null,
+      )
+    },
     colors = SearchBarDefaults.colors(
       containerColor = MaterialTheme.colorScheme.inverseOnSurface,
     ),
+    expanded = false,
+    onExpandedChange = {},
     modifier = Modifier
       .fillMaxWidth()
       .padding(horizontal = 16.dp)
       .padding(top = topPadding),
-    leadingIcon = {
-      IconButton(onClick = onCloseClick) {
-        Icon(
-          imageVector = Icons.AutoMirrored.Rounded.ArrowBackIos,
-          contentDescription = stringResource(id = R.string.close),
-        )
-      }
-    },
-    trailingIcon = {
-      IconButton(
-        onClick = {
-          onQueryChange("")
-        },
-      ) {
-        Icon(
-          imageVector = Icons.Rounded.Cancel,
-          contentDescription = stringResource(id = R.string.delete),
-        )
-      }
-    },
-    query = viewState.query,
-    onQueryChange = onQueryChange,
-    onSearch = {},
-    active = false,
-    onActiveChange = {},
-    content = {},
+    shape = SearchBarDefaults.inputFieldShape,
+    tonalElevation = SearchBarDefaults.TonalElevation,
+    shadowElevation = SearchBarDefaults.ShadowElevation,
+    windowInsets = SearchBarDefaults.windowInsets,
+    content = { },
   )
 }

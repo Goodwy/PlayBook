@@ -9,6 +9,9 @@ data class SettingsViewState(
   val appVersion: String,
   val dialog: Dialog?,
   val useGrid: Boolean,
+  val autoSleepTimer: Boolean,
+  val autoSleepTimeStart: String,
+  val autoSleepTimeEnd: String,
   val gridMode: Int,
   val paddings: String,
   val useTransparentNavigation: Boolean,
@@ -21,12 +24,12 @@ data class SettingsViewState(
   val colorTheme: Int,
   val themeWidget: Int,
   val isPro: Boolean,
-  val sortingPref: Int,
   val useGestures: Boolean,
   val useHapticFeedback: Boolean,
   val sizeCoversDirectory: String,
   val scanCoverChapter: Boolean,
   val useMenuIconsPref: Boolean,
+  val useAnimatedMarquee: Boolean,
 ) {
 
   enum class Dialog {
@@ -41,7 +44,6 @@ data class SettingsViewState(
     ColorThemeDialog,
     ThemeDialog,
     ThemeWidgetDialog,
-    SortingDialog,
     ScanChapterCoverAlertDialog,
     ClearCoversDirectoryAlertDialog
   }

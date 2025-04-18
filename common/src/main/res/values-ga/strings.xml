@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Úsáid clúdach caibidle</string>
 
   <!-- Téamaí -->
+  <string name="pref_animated_marquee_summary">Má tá sé ró-leathan le luí isteach sa spás atá ar fáil</string>
   <string name="theme">Téama</string>
   <string name="light_theme">Solas</string>
   <string name="dark_theme">Dorcha</string>
@@ -111,6 +112,7 @@ Bheinn an-bhuíoch dá bhfágann tú léirmheas nó rátáil faoin bhfeidhmchlá
   <string name="pref_sorting_last">An uair dheireanach a cuireadh leis nó a úsáideadh</string>
   <string name="pref_sorting_last_added">Cuireadh leis an uair dheireanach</string>
   <string name="pref_sorting_time">Am</string>
+  <string name="path">Cosú</string>
   <string name="change_book_author">Údar</string>
   <string name="edit_book_author">Cuir an t-údar in eagar</string>
   <string name="onboarding_gestures_title">Bain úsáid as gothaí</string>
@@ -120,4 +122,13 @@ Bheinn an-bhuíoch dá bhfágann tú léirmheas nó rátáil faoin bhfeidhmchlá
   <string name="per_month">%s/mí</string>
   <string name="per_year">%s/bliain</string>
   <string name="restore_purchase">Athchóirigh ceannach</string>
+    <string name="pref_animated_marquee">Teideal leabhar beoite, caibidil agus éifeacht údair</string>
+  <string name="length">Fadfhad</string>
+  <string name="last_played_at">Éisteacht dheireanach</string>
+  <string name="remaining_time">An t -am atá fágtha</string>
+  <string name="any_support_unlock_all">Roghnaigh an leibhéal tacaíochta tionscadail atá ar fáil duit (aon uair, míosúil nó bliantúil). Nochtann aon tacaíocht gach gné den iarratas. Is féidir leat do shíntiús a chealú ag am ar bith.</string>
+  <string name="auto_sleep_timer_end">Am deiridh</string>
+  <string name="onboarding_welcome_title_g">Fáilte go Playbook!</string>
+  <string name="auto_sleep_timer">Tosaigh an t-amadóir snooze de réir an sceidil</string>
+  <string name="auto_sleep_timer_start">Am tosaithe</string>
 </resources>

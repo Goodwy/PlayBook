@@ -32,6 +32,7 @@
   <string name="pref_use_menu_icons">Використовувати іконки меню</string>
 
   <!-- Themes -->
+  <string name="pref_animated_marquee_summary">Якщо він занадто широкий, щоб поміститися в доступний простір</string>
   <string name="theme">Тема</string>
   <string name="light_theme">Світла</string>
   <string name="dark_theme">Темна</string>
@@ -77,6 +78,7 @@
   <string name="settings">Налаштування</string>
 
   <!--EditBookDialog-->
+  <string name="path">Шлях</string>
   <string name="change_book_author">Автор</string>
   <string name="edit_book_author">Редагувати автора</string>
   <string name="ok">Ok</string>
@@ -126,6 +128,7 @@
   <string name="tipping_jar_dialog_error_message">На жаль, щось погане сталося під час транзакції чайових. Не сумуй, просто спробуй іншим разом і насолоджуйся PlayBook</string>
 
   <!--Onboarding-->
+  <string name="auto_sleep_timer_end">Час закінчення</string>
   <string name="onboarding_welcome_title_g">Ласкаво просимо в PlayBook!</string>
   <string name="onboarding_gestures_title">Використовуйте жести</string>
   <string name="onboarding_show_player">Показати плеєр</string>
@@ -157,4 +160,11 @@
             Спасибі!
         ]]>
     </string>
+    <string name="pref_animated_marquee">Анімаційна назва книги, розділ і ефект автора</string>
+  <string name="length">Тривалість</string>
+  <string name="last_played_at">Останнє прослуховування</string>
+  <string name="remaining_time">Час, що залишився</string>
+  <string name="any_support_unlock_all">Виберіть доступний вам рівень підтримки проекту (разова, щомісячна або щорічна). Будь-яка підтримка відкриває всі можливості програми. Ви можете скасувати підписку в будь-який час.</string>
+  <string name="auto_sleep_timer">Запустіть таймер відкладення за розкладом</string>
+  <string name="auto_sleep_timer_start">Час початку</string>
 </resources>

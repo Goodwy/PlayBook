@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">チャプターカバーを使用</string>
 
   <!-- テーマ -->
+  <string name="pref_animated_marquee_summary">幅が広すぎて利用可能なスペースに収まらない場合</string>
   <string name="theme">テーマ</string>
   <string name="light_theme">ライト</string>
   <string name="dark_theme">ダーク</string>
@@ -111,6 +112,7 @@ Google Play でアプリのレビューや評価を残していただければ�
   <string name="pref_sorting_last">最後に追加または使用しました</string>
   <string name="pref_sorting_last_added">最終追加</string>
   <string name="pref_sorting_time">時間</string>
+  <string name="path">パス</string>
   <string name="change_book_author">著者</string>
   <string name="edit_book_author">作成者の編集</string>
   <string name="onboarding_gestures_title">ジェスチャーを使う</string>
@@ -120,4 +122,13 @@ Google Play でアプリのレビューや評価を残していただければ�
   <string name="per_month">%s/月</string>
   <string name="per_year">%s/年</string>
   <string name="restore_purchase">購入の復元</string>
+    <string name="pref_animated_marquee">アニメーションの本のタイトル、章、著者の効果</string>
+  <string name="length">期間</string>
+  <string name="last_played_at">最後のオーディション</string>
+  <string name="remaining_time">残り時間</string>
+  <string name="any_support_unlock_all">利用可能なプロジェクトサポートのレベル(1回限り、毎月、または毎年)を選択します。どのサポートでも、アプリケーションのすべての機能がロック解除されます。サブスクリプションはいつでもキャンセルできます。</string>
+  <string name="auto_sleep_timer_end">終了時間</string>
+  <string name="onboarding_welcome_title_g">PlayBookへようこそ!</string>
+  <string name="auto_sleep_timer">スケジュールどおりにスヌーズタイマーを開始</string>
+  <string name="auto_sleep_timer_start">開始時間</string>
 </resources>

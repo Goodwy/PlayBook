@@ -10,9 +10,9 @@ data class PurchaseViewState(
   val purchasedSubsList: String,
   val purchasedListRustore: String,
   val isPro: Boolean,
+  val isProNoGp: Boolean,
   val isPlayStoreInstalled: Boolean,
   val isRuStoreInstalled: Boolean,
-  val isProNoGp: Boolean,
   val useGooglePlay: Boolean,
   val theme: Int,
 )

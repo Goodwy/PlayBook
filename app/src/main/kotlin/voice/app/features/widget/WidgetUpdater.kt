@@ -21,7 +21,6 @@ import androidx.datastore.core.DataStore
 import coil.imageLoader
 import coil.request.ImageRequest
 import dagger.Reusable
-import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
@@ -37,6 +36,7 @@ import voice.data.Book
 import voice.data.repo.BookRepository
 import voice.playback.playstate.PlayStateManager
 import voice.playback.receiver.WidgetButtonReceiver
+import voice.pref.Pref
 import javax.inject.Inject
 import javax.inject.Named
 import voice.common.R as CommonR

@@ -1,5 +1,6 @@
 package voice.playbackScreen.view
 
+import androidx.compose.foundation.basicMarquee
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -25,6 +26,7 @@ import voice.strings.R
 internal fun ChapterRow(
   chapterName: String,
   nextPreviousVisible: Boolean,
+  iterations: Int,
   onSkipToNext: () -> Unit,
   onSkipToPrevious: () -> Unit,
   //onCurrentChapterClick: () -> Unit,
@@ -49,7 +51,8 @@ internal fun ChapterRow(
         .weight(1F)
         //.clickable(onClick = onCurrentChapterClick)
         .padding(horizontal = 2.dp)
-        .alpha(0.8f),
+        .alpha(0.8f)
+        .basicMarquee(iterations = iterations, initialDelayMillis = 2000),
       text = chapterName,
       style = MaterialTheme.typography.bodyLarge,
       //textAlign = TextAlign.Center,

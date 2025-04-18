@@ -32,6 +32,7 @@
   <string name="pref_use_menu_icons">Utilizați pictogramele din meniu</string>
 
   <!-- Themes -->
+  <string name="pref_animated_marquee_summary">Dacă este prea lat pentru a încăpea în spațiul disponibil</string>
   <string name="theme">Tema</string>
   <string name="light_theme">Luminous</string>
   <string name="dark_theme">Întuneric</string>
@@ -77,6 +78,7 @@
   <string name="settings">Setări</string>
 
   <!--EditBookDialog-->
+  <string name="path">Drum</string>
   <string name="change_book_author">Autor</string>
   <string name="edit_book_author">Editat de autor</string>
 
@@ -126,6 +128,7 @@
 
 
   <!--Onboarding-->
+  <string name="auto_sleep_timer_end">Ora de sfârșit</string>
   <string name="onboarding_welcome_title_g">Bine ați venit la PlayBook!"</string>
   <string name="onboarding_gestures_title">Utilizați gesturile</string>
   <string name="onboarding_show_player">Afișează playerul</string>
@@ -149,4 +152,11 @@
             Vă mulțumim!
         ]]>
     </string>
+    <string name="pref_animated_marquee">Titlul cărții animate, capitolul și efectul autorului</string>
+  <string name="length">Durată</string>
+  <string name="last_played_at">Ultima audiție</string>
+  <string name="remaining_time">Timp rămas</string>
+  <string name="any_support_unlock_all">Alegeți nivelul de sprijin pentru proiect disponibil (unic, lunar sau anual). Orice suport deblochează toate caracteristicile aplicației. Vă puteți anula abonamentul în orice moment.</string>
+  <string name="auto_sleep_timer">Porniți cronometrul de amânare conform programului</string>
+  <string name="auto_sleep_timer_start">Ora de începere</string>
 </resources>

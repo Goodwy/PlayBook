@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Usar portada de capítulo</string>
 
   <!-- Temas -->
+  <string name="pref_animated_marquee_summary">Si es demasiado ancho para caber en el espacio disponible</string>
   <string name="theme">Tema</string>
   <string name="light_theme">Luz</string>
   <string name="dark_theme">Oscuro</string>
@@ -111,8 +112,10 @@ Le agradecería mucho si deja una reseña o calificación sobre la aplicación e
   <string name="pref_sorting_last">Última adición o uso</string>
   <string name="pref_sorting_last_added">Última adición</string>
   <string name="pref_sorting_time">Hora</string>
+  <string name="path">Camino</string>
   <string name="change_book_author">Autor</string>
   <string name="edit_book_author">Editar autor</string>
+  <string name="auto_sleep_timer_end">Hora de finalización</string>
   <string name="onboarding_welcome_title_g">¡Bienvenido a PlayBook!</string>
   <string name="onboarding_gestures_title">Usar gestos</string>
   <string name="onboarding_show_player">Mostrar reproductor</string>
@@ -121,4 +124,11 @@ Le agradecería mucho si deja una reseña o calificación sobre la aplicación e
   <string name="per_month">%s/mes</string>
   <string name="per_year">%s/año</string>
   <string name="restore_purchase">Restaurar compra</string>
+    <string name="pref_animated_marquee">Título animado del libro, capítulo y efecto del autor</string>
+  <string name="length">Duración</string>
+  <string name="last_played_at">Última audición</string>
+  <string name="remaining_time">Tiempo restante</string>
+  <string name="any_support_unlock_all">Elija el nivel de soporte del proyecto disponible para usted (una sola vez, mensual o anual). Cualquier soporte desbloquea todas las funciones de la aplicación. Puedes cancelar tu suscripción en cualquier momento.</string>
+  <string name="auto_sleep_timer">Inicie el temporizador de repetición según lo programado</string>
+  <string name="auto_sleep_timer_start">Hora de comienzo</string>
 </resources>

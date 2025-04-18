@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Използване на корицата на глава</string>
 
   <!-- Теми -->
+  <string name="pref_animated_marquee_summary">Ако е твърде широк, за да се побере в наличното пространство</string>
   <string name="theme">Тема</string>
   <string name="light_theme">Светлина</string>
   <string name="dark_theme">Тъмно</string>
@@ -111,6 +112,7 @@
   <string name="pref_sorting_last">Последно добавени или използвани</string>
   <string name="pref_sorting_last_added">Последно добавени</string>
   <string name="pref_sorting_time">Час</string>
+  <string name="path">Път</string>
   <string name="change_book_author">Автор</string>
   <string name="edit_book_author">Редактиране на автор</string>
   <string name="onboarding_gestures_title">Използване на жестове</string>
@@ -129,4 +131,13 @@
  Благодаря ви!
         ]]>
     </string>
+    <string name="pref_animated_marquee">Анимационна книга, заглавие, глава и ефект на автора</string>
+  <string name="length">Времетраене</string>
+  <string name="last_played_at">Последно прослушване</string>
+  <string name="remaining_time">Оставащо време</string>
+  <string name="any_support_unlock_all">Изберете нивото на поддръжка на проекта (еднократно, месечно или годишно). Всяка поддръжка отключва всички функции на приложението. Можете да отмените абонамента си по всяко време.</string>
+  <string name="auto_sleep_timer_end">Краен час</string>
+  <string name="onboarding_welcome_title_g">Добре дошли в PlayBook!</string>
+  <string name="auto_sleep_timer">Стартирайте таймера за отлагане по график</string>
+  <string name="auto_sleep_timer_start">Начален час</string>
 </resources>

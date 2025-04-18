@@ -7,7 +7,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.core.net.toUri
-import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
@@ -21,6 +20,8 @@ import voice.common.grid.GridMode
 import voice.common.navigation.Destination
 import voice.common.navigation.Navigator
 import voice.common.pref.PrefKeys
+import voice.pref.Pref
+import java.time.LocalTime
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -39,6 +40,12 @@ class SettingsViewModel
   @Named(PrefKeys.GRID_MODE)
   private val gridModePref: Pref<GridMode>,
   private val gridCount: GridCount,
+  @Named(PrefKeys.AUTO_SLEEP_TIMER)
+  private val autoSleepTimerPref: Pref<Boolean>,
+  @Named(PrefKeys.AUTO_SLEEP_TIMER_START)
+  private val autoSleepTimeStartPref: Pref<String>,
+  @Named(PrefKeys.AUTO_SLEEP_TIMER_END)
+  private val autoSleepTimeEndPref: Pref<String>,
   @Named(PrefKeys.PADDING)
   private val paddingPref: Pref<String>,
   @Named(PrefKeys.TRANSPARENT_NAVIGATION)
@@ -67,8 +74,6 @@ class SettingsViewModel
   private val isProRuPref: Pref<Boolean>,
   @Named(PrefKeys.PRO_NO_GP)
   private val isProNoGpPref: Pref<Boolean>,
-  @Named(PrefKeys.SORTING)
-  private val sortingPref: Pref<Int>,
   @Named(PrefKeys.USE_GESTURES)
   private val useGestures: Pref<Boolean>,
   @Named(PrefKeys.USE_HAPTIC_FEEDBACK)
@@ -77,6 +82,8 @@ class SettingsViewModel
   private val scanCoverChapter: Pref<Boolean>,
   @Named(PrefKeys.USE_MENU_ICONS)
   private val useMenuIconsPref: Pref<Boolean>,
+  @Named(PrefKeys.USE_ANIMATED_MARQUEE)
+  private val useAnimatedMarqueePref: Pref<Boolean>,
   private val coverSaver: CoverSaver,
   dispatcherProvider: DispatcherProvider,
 ) : SettingsListener {
@@ -97,6 +104,9 @@ class SettingsViewModel
     val seekTime by remember { seekTimePref.flow }.collectAsState(initial = 0)
     val seekTimeRewind by remember { seekTimeRewindPref.flow }.collectAsState(initial = 0)
     val gridMode by remember { gridModePref.flow }.collectAsState(initial = GridMode.GRID)
+    val autoSleepTimer by remember { autoSleepTimerPref.flow }.collectAsState(initial = false)
+    val autoSleepTimeStart by remember { autoSleepTimeStartPref.flow }.collectAsState(initial = "")
+    val autoSleepTimeEnd by remember { autoSleepTimeEndPref.flow }.collectAsState(initial = "")
     val paddings by remember { paddingPref.flow }.collectAsState(initial = "0;0;0;0")
     val useTransparentNavigationPref by remember { useTransparentNavigationPref.flow }.collectAsState(initial = true)
     val playButtonStylePref by remember { playButtonStylePref.flow }.collectAsState(initial = 2)
@@ -111,12 +121,12 @@ class SettingsViewModel
     val isProSubsPref by remember { isProSubsPref.flow }.collectAsState(initial = false)
     val isProRuPref by remember { isProRuPref.flow }.collectAsState(initial = false)
     val isProNoGpPref by remember { isProNoGpPref.flow }.collectAsState(initial = false)
-    val sortingPref by remember { sortingPref.flow }.collectAsState(initial = SORTING_CLASSIC)
     val useGestures by remember { useGestures.flow }.collectAsState(initial = true)
     val useHapticFeedback by remember { useHapticFeedback.flow }.collectAsState(initial = true)
     val sizeCoversDirectory by remember { coverSaver.sizeCoversDirectory }.collectAsState(initial = "0")
     val scanCoverChapter by remember { scanCoverChapter.flow }.collectAsState(initial = false)
     val useMenuIconsPref by remember { useMenuIconsPref.flow }.collectAsState(initial = false)
+    val useAnimatedMarquee by remember { useAnimatedMarqueePref.flow }.collectAsState(initial = true)
     return SettingsViewState(
       useDarkTheme = useDarkTheme,
       showDarkThemePref = DARK_THEME_SETTABLE,
@@ -130,6 +140,9 @@ class SettingsViewModel
         GridMode.GRID -> true
         GridMode.FOLLOW_DEVICE -> gridCount.useGridAsDefault()
       },
+      autoSleepTimer = autoSleepTimer,
+      autoSleepTimeStart = autoSleepTimeStart,
+      autoSleepTimeEnd = autoSleepTimeEnd,
       gridMode = when (gridMode) {
         GridMode.LIST -> 0
         GridMode.GRID -> 1
@@ -146,12 +159,12 @@ class SettingsViewModel
       colorTheme = colorThemePref,
       themeWidget = themeWidgetPref,
       isPro = isProPref || isProSubsPref || isProRuPref || isProNoGpPref,
-      sortingPref = sortingPref,
       useGestures = useGestures,
       useHapticFeedback = useHapticFeedback,
       sizeCoversDirectory = sizeCoversDirectory,
       scanCoverChapter = scanCoverChapter,
       useMenuIconsPref = useMenuIconsPref,
+      useAnimatedMarquee = useAnimatedMarquee,
     )
   }
 
@@ -203,7 +216,7 @@ class SettingsViewModel
     }
   }
 
-  override fun onGridModeDialogRowClicked() {
+  override fun onGridModeDialogRowClick() {
     dialog.value = SettingsViewState.Dialog.GridModeDialog
   }
 
@@ -211,7 +224,7 @@ class SettingsViewModel
     playButtonStylePref.value = item
   }
 
-  override fun onPlayButtonStyleDialogRowClicked() {
+  override fun onPlayButtonStyleDialogRowClick() {
     dialog.value = SettingsViewState.Dialog.PlayButtonStyleDialog
   }
 
@@ -219,7 +232,7 @@ class SettingsViewModel
     skipButtonStylePref.value = item
   }
 
-  override fun onSkipButtonStyleDialogRowClicked() {
+  override fun onSkipButtonStyleDialogRowClick() {
     dialog.value = SettingsViewState.Dialog.SkipButtonStyleDialog
   }
 
@@ -227,7 +240,7 @@ class SettingsViewModel
     miniPlayerStylePref.value = item
   }
 
-  override fun onMiniPlayerStyleDialogRowClicked() {
+  override fun onMiniPlayerStyleDialogRowClick() {
     dialog.value = SettingsViewState.Dialog.MiniPlayerStyleDialog
   }
 
@@ -235,7 +248,7 @@ class SettingsViewModel
     playerBackgroundPref.value = item
   }
 
-  override fun onPlayerBackgroundDialogRowClicked() {
+  override fun onPlayerBackgroundDialogRowClick() {
     dialog.value = SettingsViewState.Dialog.PlayerBackgroundDialog
   }
 
@@ -247,11 +260,11 @@ class SettingsViewModel
     seekTimeRewindPref.value = seconds
   }
 
-  override fun onSeekAmountRowClicked() {
+  override fun onSeekAmountRowClick() {
     dialog.value = SettingsViewState.Dialog.SeekTime
   }
 
-  override fun onSeekRewindAmountRowClicked() {
+  override fun onSeekRewindAmountRowClick() {
     dialog.value = SettingsViewState.Dialog.SeekTimeRewind
   }
 
@@ -259,7 +272,7 @@ class SettingsViewModel
     autoRewindAmountPref.value = seconds
   }
 
-  override fun onAutoRewindRowClicked() {
+  override fun onAutoRewindRowClick() {
     dialog.value = SettingsViewState.Dialog.AutoRewindAmount
   }
 
@@ -267,7 +280,7 @@ class SettingsViewModel
     colorThemePreference.value = color
   }
 
-  override fun onColorThemeDialogRowClicked() {
+  override fun onColorThemeDialogRowClick() {
     dialog.value = SettingsViewState.Dialog.ColorThemeDialog
   }
 
@@ -279,7 +292,7 @@ class SettingsViewModel
     themeWidgetPref.value = themeWidget
   }
 
-  override fun onThemeDialogRowClicked(isWidget: Boolean) {
+  override fun onThemeDialogRowClick(isWidget: Boolean) {
     if (isWidget) dialog.value = SettingsViewState.Dialog.ThemeWidgetDialog
     else dialog.value = SettingsViewState.Dialog.ThemeDialog
   }
@@ -312,20 +325,26 @@ class SettingsViewModel
     navigator.goTo(Destination.Website("https://www.transifex.com/projects/p/voice"))
   }
 
+  override fun toggleAutoSleepTimer() {
+    autoSleepTimerPref.value = !autoSleepTimerPref.value
+  }
+
+  override fun setAutoSleepTimerStart(hour: Int, minute: Int) {
+    val time = LocalTime.of(hour, minute).toString()
+    autoSleepTimeStartPref.value = time
+  }
+
+  override fun setAutoSleepTimerEnd(hour: Int, minute: Int) {
+    val time = LocalTime.of(hour, minute).toString()
+    autoSleepTimeEndPref.value = time
+  }
+
   override fun onAboutClick() {
     navigator.goTo(Destination.About)
   }
 
   override fun onPurchaseClick() {
     navigator.goTo(Destination.Purchase)
-  }
-
-  override fun onSortingDialogRowClicked() {
-    dialog.value = SettingsViewState.Dialog.SortingDialog
-  }
-
-  override fun sortingDialogChange(item: Int) {
-    sortingPref.value = item
   }
 
   override fun toggleUseSwipe() {
@@ -346,7 +365,7 @@ class SettingsViewModel
     }
   }
 
-  override fun onClearCoversDirectoryRowClicked() {
+  override fun onClearCoversDirectoryRowClick() {
     dialog.value = SettingsViewState.Dialog.ClearCoversDirectoryAlertDialog
   }
 
@@ -355,11 +374,15 @@ class SettingsViewModel
     clearCoversDirectory()
   }
 
-  override fun onScanCoverChapterRowClicked() {
+  override fun onScanCoverChapterRowClick() {
     dialog.value = SettingsViewState.Dialog.ScanChapterCoverAlertDialog
   }
 
   override fun toggleUseMenuIcons() {
     useMenuIconsPref.value = !useMenuIconsPref.value
+  }
+
+  override fun toggleUseAnimatedMarquee() {
+    useAnimatedMarqueePref.value = !useAnimatedMarqueePref.value
   }
 }

@@ -1,5 +1,6 @@
 package voice.common
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -20,14 +21,9 @@ fun Context.dpToPx(dp: Float) = TypedValue.applyDimension(TypedValue.COMPLEX_UNI
 
 fun Context.dpToPxRounded(dp: Float): Int = dpToPx(dp).roundToInt()
 
-fun checkMainThread() {
-  check(Looper.getMainLooper() == Looper.myLooper()) {
-    "Is not on ui thread!"
-  }
-}
-
 fun Context.convertPixelsToDp(pixels: Int) = (pixels / resources.displayMetrics.density).toInt()
 
+@SuppressLint("StringFormatInvalid")
 fun Context.copyToClipboard(text: String) {
   val clip = ClipData.newPlainText(getString(R.string.app_name), text)
   (getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager).setPrimaryClip(clip)

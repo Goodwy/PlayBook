@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">از جلد فصل استفاده کنید</string>
 
   <!-- تم -->
+  <string name="pref_animated_marquee_summary">اگر آنقدر عریض است که در فضای موجود قرار نمی گیرد</string>
   <string name="theme">موضوع</string>
   <string name="light_theme">نور</string>
   <string name="dark_theme">تاریک</string>
@@ -111,6 +112,7 @@
   <string name="pref_sorting_last">اخرین اضافه شده یا استفاده شده</string>
   <string name="pref_sorting_last_added">اخرین ارسال</string>
   <string name="pref_sorting_time">زمان</string>
+  <string name="path">مسیر</string>
   <string name="change_book_author">نویسنده</string>
   <string name="edit_book_author">ویرایش نویسنده</string>
   <string name="onboarding_gestures_title">استفاده از حرکات</string>
@@ -120,5 +122,14 @@
   <string name="per_month">٪s/ماه</string>
   <string name="per_year">٪s/سال</string>
   <string name="restore_purchase">بازگرداندن خرید</string>
+    <string name="pref_animated_marquee">عنوان کتاب انیمیشن، فصل و اثر نویسنده</string>
+  <string name="length">مدت زمان</string>
+  <string name="last_played_at">آخرین تست</string>
+  <string name="remaining_time">زمان باقیمانده</string>
+  <string name="any_support_unlock_all">سطح پشتیبانی پروژه در دسترس خود را انتخاب کنید (یک بار مصرف، ماهانه یا سالانه). هر گونه پشتیبانی تمام ویژگی های برنامه را باز می کند. هرزمان خواستید می توانید اشتراکتان را لغو کنید.</string>
+  <string name="auto_sleep_timer_end">زمان پایان</string>
+  <string name="onboarding_welcome_title_g">به پلی بوک خوش آمدید!</string>
+  <string name="auto_sleep_timer">تایمر تعویق را طبق برنامه شروع کنید</string>
+  <string name="auto_sleep_timer_start">زمان شروع</string>
   لذت ببرید
 </resources>

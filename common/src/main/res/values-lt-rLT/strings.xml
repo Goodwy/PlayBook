@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Naudokite skyriaus viršelį</string>
 
   <!-- Temos -->
+  <string name="pref_animated_marquee_summary">Jei jis per platus, kad tilptų į laisvą erdvę</string>
   <string name="theme">Tema</string>
   <string name="light_theme">Šviesa</string>
   <string name="dark_theme">Tamsiai</string>
@@ -111,6 +112,7 @@ Būčiau labai dėkingas, jei paliktumėte atsiliepimą ar įvertinimą apie pro
   <string name="pref_sorting_last">Paskutinį kartą pridėta arba naudota</string>
   <string name="pref_sorting_last_added">Paskutinį kartą pridėta</string>
   <string name="pref_sorting_time">Laikas</string>
+  <string name="path">Kėlias</string>
   <string name="change_book_author">Autorius</string>
   <string name="edit_book_author">Redaguoti autorių</string>
   <string name="onboarding_gestures_title">Naudokite gestus</string>
@@ -120,4 +122,13 @@ Būčiau labai dėkingas, jei paliktumėte atsiliepimą ar įvertinimą apie pro
   <string name="per_month">%s per mėnesį</string>
   <string name="per_year">%s per metus</string>
   <string name="restore_purchase">Atkurti pirkimą</string>
+    <string name="pref_animated_marquee">Animuotos knygos pavadinimas, skyrius ir autoriaus efektas</string>
+  <string name="length">Trukmė</string>
+  <string name="last_played_at">Paskutinis klausymas</string>
+  <string name="remaining_time">Likęs laikas</string>
+  <string name="any_support_unlock_all">Pasirinkite jums prieinamo projekto palaikymo lygį (vienkartinį, mėnesinį ar metinį). Bet koks palaikymas atrakina visas programos funkcijas. Galite bet kada atšaukti prenumeratą.</string>
+  <string name="auto_sleep_timer_end">Pabaigos laikas</string>
+  <string name="onboarding_welcome_title_g">Sveiki atvykę į \"PlayBook\"!</string>
+  <string name="auto_sleep_timer">Paleiskite snaudimo laikmatį pagal tvarkaraštį</string>
+  <string name="auto_sleep_timer_start">Pradžios laikas</string>
 </resources>

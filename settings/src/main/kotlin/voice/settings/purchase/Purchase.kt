@@ -760,12 +760,14 @@ private fun Purchase(viewState: PurchaseViewState, listener: PurchaseListener) {
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally,
           ) {
-            HtmlText(if (viewState.isPlayStoreInstalled || isProApp) stringResource(CommonR.string.donate_text_no_gp)
-                      else stringResource(CommonR.string.donate_text))
+            HtmlText(
+              if (viewState.isPlayStoreInstalled || isProApp) stringResource(CommonR.string.donate_text_no_gp)
+              else stringResource(CommonR.string.donate_text),
+            )
             Spacer(modifier = Modifier.size(16.dp))
             Button(
               //modifier = Modifier.height(28.dp),
-              onClick = { listener.onUrlClick("https://sites.google.com/view/goodwy/support-project") },
+              onClick = { listener.onUrlClick("https://www.goodwy.dev/support-project") },
               //shape = RoundedCornerShape(10.dp),
               contentPadding = PaddingValues(horizontal = 16.dp, vertical = 4.dp)
             ) {

@@ -1,23 +1,29 @@
 package voice.bookOverview.views
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.RadioButtonUnchecked
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
@@ -43,9 +49,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import voice.bookOverview.overview.BookOverviewCategory
 import voice.bookOverview.overview.BookOverviewItemViewState
+import voice.bookOverview.overview.BookOverviewViewState
 import voice.common.BookId
 import voice.common.compose.ImmutableFile
-import voice.common.compose.LongClickableCard
 import java.text.DecimalFormat
 import voice.common.R as CommonR
 
@@ -55,8 +61,10 @@ internal fun ListBooks(
   onBookClick: (BookId) -> Unit,
   onBookLongClick: (BookId) -> Unit,
   showPermissionBugCard: Boolean,
-  onPermissionBugCardClicked: () -> Unit,
+  onPermissionBugCardClick: () -> Unit,
   currentBook: BookId?,
+  sortBooks: (Int, Int, Int) -> Unit,
+  viewState: BookOverviewViewState,
 ) {
   LazyColumn(
     verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -64,7 +72,7 @@ internal fun ListBooks(
   ) {
     if (showPermissionBugCard) {
       item {
-        PermissionBugCard(onPermissionBugCardClicked)
+        PermissionBugCard(onPermissionBugCardClick)
       }
     }
     books.forEach { (category, books) ->
@@ -79,6 +87,8 @@ internal fun ListBooks(
             .background(MaterialTheme.colorScheme.surface)
             .padding(vertical = 8.dp, horizontal = 12.dp),
           category = category,
+          sortBooks = sortBooks,
+          viewState = viewState,
         )
       }
       items(
@@ -93,6 +103,9 @@ internal fun ListBooks(
           onBookLongClick = onBookLongClick,
           isCurrentBook = isCurrentBook,
         )
+      }
+      item {
+        Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.systemBars))
       }
     }
   }
@@ -109,27 +122,30 @@ internal fun ListBookRow(
 ) {
   val keyboardController = LocalSoftwareKeyboardController.current
   val scope = rememberCoroutineScope()
-  LongClickableCard(
-    onClick = {
-      if (hideKeyboard)
-      scope.launch {
-        keyboardController?.hide()
-        delay(100)
-        onBookClick(book.id)
-      }
-      else onBookClick(book.id)
-    },
-    onLongClick = {
-      if (hideKeyboard)
-      scope.launch {
-        keyboardController?.hide()
-        delay(100)
-        onBookLongClick(book.id)
-      }
-      else onBookLongClick(book.id)
-    },
+  Card(
+    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background.copy(alpha = 0f)),
     modifier = modifier
-      .fillMaxWidth(),
+      .fillMaxWidth()
+      .combinedClickable(
+        onClick = {
+          if (hideKeyboard)
+            scope.launch {
+              keyboardController?.hide()
+              delay(100)
+              onBookClick(book.id)
+            }
+          else onBookClick(book.id)
+        },
+        onLongClick = {
+          if (hideKeyboard)
+            scope.launch {
+              keyboardController?.hide()
+              delay(100)
+              onBookLongClick(book.id)
+            }
+          else onBookLongClick(book.id)
+        },
+      ),
   ) {
     Column {
       Row {
@@ -150,7 +166,9 @@ internal fun ListBookRow(
             )
           }
           Text(
-            modifier = Modifier.padding(bottom = 2.dp).heightIn(min = 14.dp, max = 38.dp),
+            modifier = Modifier
+              .padding(bottom = 2.dp)
+              .heightIn(min = 14.dp, max = 38.dp),
             text = book.name,
             style = MaterialTheme.typography.bodyMedium,
             lineHeight = 14.sp,

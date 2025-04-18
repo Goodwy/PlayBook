@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">장 표지 사용</string>
 
   <!-- 테마 -->
+  <string name="pref_animated_marquee_summary">너무 넓어서 사용 가능한 공간에 맞지 않는 경우</string>
   <string name="theme">테마</string>
   <string name="light_theme">빛</string>
   <string name="dark_theme">어두움</string>
@@ -111,6 +112,7 @@ Google Play에 애플리케이션에 대한 리뷰나 평가를 남겨주시면 
   <string name="pref_sorting_last">마지막으로 추가되거나 사용됨</string>
   <string name="pref_sorting_last_added">마지막으로 추가된 날짜</string>
   <string name="pref_sorting_time">시간</string>
+  <string name="path">길</string>
   <string name="change_book_author">저자</string>
   <string name="edit_book_author">작성자 편집</string>
   <string name="onboarding_gestures_title">제스처 사용</string>
@@ -120,4 +122,13 @@ Google Play에 애플리케이션에 대한 리뷰나 평가를 남겨주시면 
   <string name="per_month">%s/월</string>
   <string name="per_year">%s/년</string>
   <string name="restore_purchase">구매 복원</string>
+    <string name="pref_animated_marquee">애니메이션 책 제목, 장 및 저자 효과</string>
+  <string name="length">기간</string>
+  <string name="last_played_at">마지막 오디션</string>
+  <string name="remaining_time">남은 시간</string>
+  <string name="any_support_unlock_all">사용 가능한 프로젝트 지원 수준(일회성, 월별 또는 연간)을 선택합니다. 모든 지원은 응용 프로그램의 모든 기능을 잠금 해제합니다. 구독은 언제든지 해지할 수 있습니다.</string>
+  <string name="auto_sleep_timer_end">종료 시간</string>
+  <string name="onboarding_welcome_title_g">PlayBook에 오신 것을 환영합니다!</string>
+  <string name="auto_sleep_timer">일정에 따라 스누즈 타이머 시작</string>
+  <string name="auto_sleep_timer_start">시작 시간</string>
 </resources>

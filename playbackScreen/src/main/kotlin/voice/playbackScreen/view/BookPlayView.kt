@@ -27,7 +27,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Circle
 import androidx.compose.material.icons.rounded.Close
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
@@ -39,6 +38,7 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.contentColorFor
 import androidx.compose.material3.rememberModalBottomSheetState
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -185,6 +185,7 @@ internal fun BookPlayView(
         shape = RoundedCornerShape(topStart = 22.dp, topEnd = 22.dp),
         //sheetBackgroundColor = MaterialTheme.colorScheme.background,
         scrimColor = Color.Black.copy(alpha = 0.5f),
+        containerColor = MaterialTheme.colorScheme.background,
         content = { //Chapter bottom dialog
           Column(
             modifier = Modifier
@@ -275,7 +276,7 @@ internal fun BookPlayView(
                           }
                         }
                       },
-                      indication = rememberRipple(bounded = false, radius = 20.dp),
+                      indication = ripple(bounded = false, radius = 20.dp),
                       interactionSource = remember { MutableInteractionSource() },
                     ),
                   contentAlignment = Alignment.Center,
@@ -451,6 +452,30 @@ internal fun BookPlayView(
           onCloseClick = onCloseClick,
         )
       },
+      bottomBar = {
+        if (!useLandscapeLayout) {
+          BookPlayBottomBar(
+            viewState = viewState,
+            prefViewState = prefViewState,
+            onSleepTimerClick = onSleepTimerClick,
+            onAcceptSleepTime = onAcceptSleepTime,
+            onBookmarkClick = onBookmarkClick,
+            onBookmarkLongClick = onBookmarkLongClick,
+            onSpeedChangeClick = onSpeedChangeClick,
+            onSkipSilenceClick = onSkipSilenceClick,
+            onRepeatClick = onRepeatClick,
+            onShowChapterNumbersClick = onShowChapterNumbersClick,
+            onUseChapterCoverClick = onUseChapterCoverClick,
+            onVolumeBoostClick = onVolumeBoostClick,
+            onCurrentChapterClick = {
+              scope.launch {
+                showBottomSheet = !showBottomSheet
+              }
+            },
+            useLandscapeLayout = false
+          )
+        }
+      }
     )
   }
 }
@@ -517,6 +542,7 @@ private class BookPlayViewStatePreviewProvider : PreviewParameterProvider<BookPl
       seekTime = 30,
       seekTimeRewind = 20,
       currentVolume = 8,
+      maxVolume = 15,
       showSliderVolume = true,
       playbackSpeed = 1.00f,
       skipButtonStyle = SKIP_BUTTON_CLASSIC,
@@ -529,6 +555,7 @@ private class BookPlayViewStatePreviewProvider : PreviewParameterProvider<BookPl
       repeatModeBook = REPEAT_OFF,
       useGestures = true,
       useHapticFeedback = true,
+      useAnimatedMarquee = true,
     )
     yield(initial)
     yield(

@@ -30,7 +30,7 @@ internal fun SeekTimeRow(
 internal fun SeekAmountDialog(
   currentSeconds: Int,
   forward: Boolean = true,
-  onSecondsConfirmed: (Int) -> Unit,
+  onSecondsConfirm: (Int) -> Unit,
   onDismiss: () -> Unit,
 ) {
   val title = if (forward) stringResource(CommonR.string.pref_forward) else stringResource(CommonR.string.pref_rewind)
@@ -42,7 +42,7 @@ internal fun SeekAmountDialog(
     maxSeconds = 60,
     defaultSeconds = defaultSeconds,
     textPluralRes = StringsR.plurals.seconds,
-    onSecondsConfirmed = onSecondsConfirmed,
+    onSecondsConfirm = onSecondsConfirm,
     onDismiss = onDismiss,
   )
 }

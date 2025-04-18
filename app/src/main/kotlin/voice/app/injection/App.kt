@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import coil.Coil
 import coil.ImageLoader
 import com.google.android.material.color.DynamicColors
-import de.paulwoitaschek.flowpref.Pref
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
@@ -18,6 +17,7 @@ import voice.common.constants.THEME_LIGHT
 import voice.common.pref.PrefKeys
 import voice.common.rootComponent
 import voice.common.R as CommonR
+import voice.pref.Pref
 import javax.inject.Inject
 import javax.inject.Named
 

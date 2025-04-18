@@ -34,6 +34,7 @@ import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TimePickerState
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -49,8 +50,8 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.platform.debugInspectorInfo
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -63,9 +64,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.squareup.anvil.annotations.ContributesTo
 import voice.common.AppScope
 import voice.common.COLOR_SCHEME_SETTABLE
+import voice.common.compose.TimePickerDialog
 import voice.common.compose.VoiceTheme
 import voice.common.compose.rememberScoped
 import voice.common.constants.*
@@ -73,6 +76,7 @@ import voice.common.rootComponentAs
 import voice.settings.SettingsListener
 import voice.settings.SettingsViewModel
 import voice.settings.SettingsViewState
+import java.time.LocalTime
 import voice.strings.R as StringsR
 import voice.common.R as CommonR
 
@@ -88,6 +92,9 @@ private fun SettingsPreview() {
     dialog = null,
     appVersion = "1.2.3",
     useGrid = true,
+    autoSleepTimer = false,
+    autoSleepTimeEnd = "",
+    autoSleepTimeStart = "",
     gridMode = 2,
     paddings = "0;0;0;0",
     useTransparentNavigation = true,
@@ -100,12 +107,12 @@ private fun SettingsPreview() {
     colorTheme = -0x1,
     themeWidget = THEME_LIGHT,
     isPro = false,
-    sortingPref = SORTING_CLASSIC,
     useGestures = true,
     useHapticFeedback = true,
     sizeCoversDirectory = "0MB",
     scanCoverChapter = false,
     useMenuIconsPref = false,
+    useAnimatedMarquee = false,
   )
   VoiceTheme(preview = true) {
     Settings(
@@ -115,46 +122,48 @@ private fun SettingsPreview() {
         override fun toggleDarkTheme() {}
         override fun seekAmountChanged(seconds: Int) {}
         override fun seekRewindAmountChanged(seconds: Int) {}
-        override fun onSeekAmountRowClicked() {}
-        override fun onSeekRewindAmountRowClicked() {}
+        override fun onSeekAmountRowClick() {}
+        override fun onSeekRewindAmountRowClick() {}
         override fun autoRewindAmountChanged(seconds: Int) {}
-        override fun onAutoRewindRowClicked() {}
+        override fun onAutoRewindRowClick() {}
         override fun dismissDialog() {}
         override fun openTranslations() {}
         override fun getSupport() {}
         override fun suggestIdea() {}
         override fun openBugReport() {}
         override fun toggleGrid() {}
+        override fun toggleAutoSleepTimer() {}
+        override fun setAutoSleepTimerStart(hour: Int, minute: Int) {}
+        override fun setAutoSleepTimerEnd(hour: Int, minute: Int) {}
         override fun gridModeDialog() {}
         override fun gridModeDialogChanged(item: Int) {}
-        override fun onGridModeDialogRowClicked() {}
+        override fun onGridModeDialogRowClick() {}
         override fun toggleTransparentNavigation() {}
-        override fun onPlayButtonStyleDialogRowClicked() {}
+        override fun onPlayButtonStyleDialogRowClick() {}
         override fun playButtonStyleDialogChanged(item: Int) {}
-        override fun onSkipButtonStyleDialogRowClicked() {}
+        override fun onSkipButtonStyleDialogRowClick() {}
         override fun skipButtonStyleDialogChanged(item: Int) {}
-        override fun onMiniPlayerStyleDialogRowClicked() {}
+        override fun onMiniPlayerStyleDialogRowClick() {}
         override fun miniPlayerStyleDialogChanged(item: Int) {}
-        override fun onPlayerBackgroundDialogRowClicked() {}
+        override fun onPlayerBackgroundDialogRowClick() {}
         override fun playerBackgroundDialogChanged(item: Int) {}
         override fun toggleShowSliderVolume() {}
         override fun themeChanged(theme: Int) {}
-        override fun onThemeDialogRowClicked(isWidget: Boolean) {}
+        override fun onThemeDialogRowClick(isWidget: Boolean) {}
         override fun themeWidgetChanged(themeWidget: Int) {}
         override fun colorThemeChanged(color: Int) {}
-        override fun onColorThemeDialogRowClicked() {}
+        override fun onColorThemeDialogRowClick() {}
         override fun onAboutClick() {}
         override fun onPurchaseClick() {}
-        override fun onSortingDialogRowClicked() {}
-        override fun sortingDialogChange(item: Int) {}
         override fun toggleUseSwipe() {}
         override fun onUseSwipeFaqClick() {}
         override fun toggleUseHapticFeedback() {}
         override fun clearCoversDirectory() {}
-        override fun onClearCoversDirectoryRowClicked() {}
+        override fun onClearCoversDirectoryRowClick() {}
         override fun toggleScanCoverChapter() {}
-        override fun onScanCoverChapterRowClicked() {}
+        override fun onScanCoverChapterRowClick() {}
         override fun toggleUseMenuIcons() {}
+        override fun toggleUseAnimatedMarquee() {}
       },
     )
   }
@@ -265,13 +274,13 @@ private fun Settings(
         // Appearance
         HeaderRow(stringResource(CommonR.string.pref_category_appearance))
         Card(
-          shape = RoundedCornerShape(16.dp),
+          shape = RoundedCornerShape(12.dp),
           colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
         ) {
           Column {
             val haptic = LocalHapticFeedback.current
             ThemeRow(viewState.theme, viewState.isPro) {
-              if (viewState.isPro) listener.onThemeDialogRowClicked(false)
+              if (viewState.isPro) listener.onThemeDialogRowClick(false)
               else {
                 haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                 enabledShake = true
@@ -280,7 +289,7 @@ private fun Settings(
             if (viewState.theme != THEME_AUTO || !COLOR_SCHEME_SETTABLE) {
               DividerRow()
               ColorThemeRow(viewState.isPro) {
-                if (viewState.isPro) listener.onColorThemeDialogRowClicked()
+                if (viewState.isPro) listener.onColorThemeDialogRowClick()
                 else {
                   haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                   enabledShake = true
@@ -289,7 +298,7 @@ private fun Settings(
             }
             DividerRow()
             ThemeRow(viewState.themeWidget, viewState.isPro, isWidget = true) {
-              if (viewState.isPro) listener.onThemeDialogRowClicked(true)
+              if (viewState.isPro) listener.onThemeDialogRowClick(true)
               else {
                 haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                 enabledShake = true
@@ -306,20 +315,16 @@ private fun Settings(
         // Appearance library
         HeaderRow(stringResource(CommonR.string.pref_appearance_ui_library_title))
         Card(
-          shape = RoundedCornerShape(16.dp),
+          shape = RoundedCornerShape(12.dp),
           colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
         ) {
           Column {
             GridModeRow(viewState.gridMode) {
-              listener.onGridModeDialogRowClicked()
-            }
-            DividerRow()
-            SortingRow(viewState.sortingPref) {
-              listener.onSortingDialogRowClicked()
+              listener.onGridModeDialogRowClick()
             }
             DividerRow()
             MiniPlayerStyleRow(viewState.miniPlayerStyle) {
-              listener.onMiniPlayerStyleDialogRowClicked()
+              listener.onMiniPlayerStyleDialogRowClick()
             }
             DividerRow()
             SettingsSwitchRow(
@@ -335,27 +340,34 @@ private fun Settings(
         // Appearance player
         HeaderRow(stringResource(CommonR.string.pref_appearance_ui_player_title))
         Card(
-          shape = RoundedCornerShape(16.dp),
+          shape = RoundedCornerShape(12.dp),
           colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
         ) {
           Column {
             PlayerBackgroundRow(viewState.playerBackground) {
-              listener.onPlayerBackgroundDialogRowClicked()
+              listener.onPlayerBackgroundDialogRowClick()
             }
             DividerRow()
             PlayButtonStyleRow(viewState.playButtonStyle) {
-              listener.onPlayButtonStyleDialogRowClicked()
+              listener.onPlayButtonStyleDialogRowClick()
             }
             DividerRow()
             SkipButtonStyleRow(viewState.skipButtonStyle) {
-              listener.onSkipButtonStyleDialogRowClicked()
+              listener.onSkipButtonStyleDialogRowClick()
             }
             DividerRow()
             SettingsSwitchRow(
               title = stringResource(CommonR.string.pref_show_slider_volume_title),
               initSwitch = viewState.showSliderVolume,
               toggle = listener::toggleShowSliderVolume,
-              paddingBottom = 5.dp,
+            )
+            DividerRow()
+            SettingsSwitchRow(
+              title = stringResource(CommonR.string.pref_animated_marquee),
+              subtitle = stringResource(CommonR.string.pref_animated_marquee_summary),
+              initSwitch = viewState.useAnimatedMarquee,
+              toggle = listener::toggleUseAnimatedMarquee,
+              paddingBottom = 6.dp,
             )
           }
         }
@@ -364,20 +376,75 @@ private fun Settings(
         // Playback
         HeaderRow(stringResource(CommonR.string.pref_playback))
         Card(
-          shape = RoundedCornerShape(16.dp),
+          shape = RoundedCornerShape(12.dp),
           colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
         ) {
           Column {
             SeekTimeRow(viewState.seekTimeInSeconds) {
-              listener.onSeekAmountRowClicked()
+              listener.onSeekAmountRowClick()
             }
             DividerRow()
             SeekTimeRow(viewState.seekTimeRewindInSeconds, false) {
-              listener.onSeekRewindAmountRowClicked()
+              listener.onSeekRewindAmountRowClick()
             }
             DividerRow()
             AutoRewindRow(viewState.autoRewindInSeconds) {
-              listener.onAutoRewindRowClicked()
+              listener.onAutoRewindRowClick()
+            }
+            DividerRow()
+            SettingsSwitchRow(
+              title = stringResource(CommonR.string.auto_sleep_timer),
+              initSwitch = viewState.autoSleepTimer,
+              toggle = listener::toggleAutoSleepTimer,
+              paddingBottom = 5.dp,
+            )
+            if (viewState.autoSleepTimer) {
+              DividerRow()
+              val shouldShowStartTimePicker = remember { mutableStateOf(false) }
+              SettingsRow(
+                title = stringResource(CommonR.string.auto_sleep_timer_start),
+                value = viewState.autoSleepTimeStart,
+                paddingBottom = 8.dp,
+                click = {
+                  shouldShowStartTimePicker.value = true
+                }
+              )
+              if (shouldShowStartTimePicker.value) {
+                val initialTime = LocalTime.parse(viewState.autoSleepTimeStart)
+                TimePickerDialog(
+                  stringResource(CommonR.string.auto_sleep_timer_start),
+                  initialTime.hour,
+                  initialTime.minute,
+                  { timePickerState: TimePickerState ->
+                    listener.setAutoSleepTimerStart(timePickerState.hour, timePickerState.minute)
+                    shouldShowStartTimePicker.value = false
+                  },
+                  { shouldShowStartTimePicker.value = false },
+                )
+              }
+              DividerRow()
+              val shouldShowEndTimePicker = remember { mutableStateOf(false) }
+              SettingsRow(
+                title = stringResource(CommonR.string.auto_sleep_timer_end),
+                value = viewState.autoSleepTimeEnd,
+                paddingBottom = 8.dp,
+                click = {
+                  shouldShowEndTimePicker.value = true
+                }
+              )
+              if (shouldShowEndTimePicker.value) {
+                val initialTime = LocalTime.parse(viewState.autoSleepTimeEnd)
+                TimePickerDialog(
+                  stringResource(CommonR.string.auto_sleep_timer_end),
+                  initialTime.hour,
+                  initialTime.minute,
+                  { timePickerState: TimePickerState ->
+                    listener.setAutoSleepTimerEnd(timePickerState.hour, timePickerState.minute)
+                    shouldShowEndTimePicker.value = false
+                  },
+                  { shouldShowEndTimePicker.value = false },
+                )
+              }
             }
           }
         }
@@ -386,7 +453,7 @@ private fun Settings(
         // Cover
         HeaderRow(stringResource(StringsR.string.cover))
         Card(
-          shape = RoundedCornerShape(16.dp),
+          shape = RoundedCornerShape(12.dp),
           colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
         ) {
           Column {
@@ -394,9 +461,9 @@ private fun Settings(
               title = stringResource(CommonR.string.pref_scan_chapter_covers),
               subtitle = stringResource(CommonR.string.pref_subtitle_scan_chapter_covers),
               initSwitch = viewState.scanCoverChapter,
+              toggle = listener::onScanCoverChapterRowClick,
               paddingTop = 7.dp,
               paddingBottom = 6.dp,
-              toggle = listener::onScanCoverChapterRowClicked,
             )
             DividerRow()
             SettingsRow(
@@ -405,7 +472,7 @@ private fun Settings(
               value = viewState.sizeCoversDirectory,
               showChevron = true,
               paddingBottom = 8.dp,
-              click = { listener.onClearCoversDirectoryRowClicked() }
+              click = { listener.onClearCoversDirectoryRowClick() }
             )
           }
         }
@@ -414,7 +481,7 @@ private fun Settings(
         // General
         HeaderRow(stringResource(CommonR.string.pref_category_general))
         Card(
-          shape = RoundedCornerShape(16.dp),
+          shape = RoundedCornerShape(12.dp),
           colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
         ) {
           Column {
@@ -443,7 +510,7 @@ private fun Settings(
         // Other
         HeaderRow(stringResource(CommonR.string.pref_category_other))
         Card(
-          shape = RoundedCornerShape(16.dp),
+          shape = RoundedCornerShape(12.dp),
           colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseOnSurface)
         ) {
           Column {
@@ -457,7 +524,7 @@ private fun Settings(
               DividerRow()
               Card(
                 modifier = Modifier.padding(horizontal = 4.dp),
-                shape = RoundedCornerShape(14.dp),
+                shape = RoundedCornerShape(10.dp),
               ) {
                 SettingsRow(
                   title = stringResource(CommonR.string.tipping_jar_title),
@@ -536,14 +603,14 @@ private fun Dialog(
     SettingsViewState.Dialog.AutoRewindAmount -> {
       AutoRewindAmountDialog(
         currentSeconds = viewState.autoRewindInSeconds,
-        onSecondsConfirmed = listener::autoRewindAmountChanged,
+        onSecondsConfirm = listener::autoRewindAmountChanged,
         onDismiss = listener::dismissDialog,
       )
     }
     SettingsViewState.Dialog.SeekTime -> {
       SeekAmountDialog(
         currentSeconds = viewState.seekTimeInSeconds,
-        onSecondsConfirmed = listener::seekAmountChanged,
+        onSecondsConfirm = listener::seekAmountChanged,
         onDismiss = listener::dismissDialog,
       )
     }
@@ -551,7 +618,7 @@ private fun Dialog(
       SeekAmountDialog(
         currentSeconds = viewState.seekTimeRewindInSeconds,
         forward = false,
-        onSecondsConfirmed = listener::seekRewindAmountChanged,
+        onSecondsConfirm = listener::seekRewindAmountChanged,
         onDismiss = listener::dismissDialog,
       )
     }
@@ -612,24 +679,17 @@ private fun Dialog(
         onSelected = listener::colorThemeChanged,
       )
     }
-    SettingsViewState.Dialog.SortingDialog -> {
-      SortingDialog(
-        checkedItemId = viewState.sortingPref,
-        onDismiss = listener::dismissDialog,
-        onSelected = listener::sortingDialogChange,
-      )
-    }
     SettingsViewState.Dialog.ScanChapterCoverAlertDialog -> {
       AlertSettingDialog(
         text = stringResource(CommonR.string.pref_subtitle_scan_chapter_covers),
-        onConfirmed = listener::toggleScanCoverChapter,
+        onConfirm = listener::toggleScanCoverChapter,
         onDismiss = listener::dismissDialog,
       )
     }
     SettingsViewState.Dialog.ClearCoversDirectoryAlertDialog -> {
       AlertSettingDialog(
         text = stringResource(CommonR.string.pref_subtitle_delete_cover_files),
-        onConfirmed = listener::clearCoversDirectory,
+        onConfirm = listener::clearCoversDirectory,
         onDismiss = listener::dismissDialog,
       )
     }

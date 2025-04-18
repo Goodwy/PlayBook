@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">使用章节封面</string>
 
   <!-- 主题 -->
+  <string name="pref_animated_marquee_summary">如果空間太寬，無法容納可用空間</string>
   <string name="theme">主题</string>
   <string name="light_theme">灯光</string>
   <string name="dark_theme">黑暗</string>
@@ -111,6 +112,7 @@
   <string name="pref_sorting_last">上次添加或使用時</string>
   <string name="pref_sorting_last_added">最後添加</string>
   <string name="pref_sorting_time">時間</string>
+  <string name="path">路徑</string>
   <string name="change_book_author">作者</string>
   <string name="edit_book_author">編輯作者</string>
   <string name="onboarding_gestures_title">使用手勢</string>
@@ -120,4 +122,13 @@
   <string name="per_month">%s/月</string>
   <string name="per_year">%s/年</string>
   <string name="restore_purchase">恢復購買</string>
+    <string name="pref_animated_marquee">動畫書名、章節和作者效果</string>
+  <string name="length">期間</string>
+  <string name="last_played_at">上次試鏡</string>
+  <string name="remaining_time">剩餘時間</string>
+  <string name="any_support_unlock_all">選擇可用的項目支援級別（一次性、每月或每年）。任何支援都會解鎖應用程式的所有功能。您可以隨時取消訂閱。</string>
+  <string name="auto_sleep_timer_end">結束時間</string>
+  <string name="onboarding_welcome_title_g">歡迎來到 PlayBook！</string>
+  <string name="auto_sleep_timer">按計劃啟動貪睡計時器</string>
+  <string name="auto_sleep_timer_start">開始時間</string>
 </resources>

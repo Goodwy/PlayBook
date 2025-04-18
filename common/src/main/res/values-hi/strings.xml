@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">अध्याय कवर का उपयोग करें</string>
 
   <!-- थीम्स -->
+  <string name="pref_animated_marquee_summary">यदि यह उपलब्ध स्थान में फिट होने के लिए बहुत चौड़ा है</string>
   <string name="theme">थीम</string>
   <string name="light_theme">लाइट</string>
   <string name="dark_theme">गहरा</string>
@@ -111,6 +112,7 @@
   <string name="pref_sorting_last">पिछली बार जोड़ा या उपयोग किया गया</string>
   <string name="pref_sorting_last_added">अंतिम बार जोड़ा गया</string>
   <string name="pref_sorting_time">समय</string>
+  <string name="path">पथ</string>
   <string name="change_book_author">रचयिता</string>
   <string name="edit_book_author">लेखक संपादित करें</string>
   <string name="onboarding_gestures_title">जेस्चर (स्पर्श) का उपयोग करें</string>
@@ -127,4 +129,13 @@
 धन्यवाद!
         ]]>
     </string>
+    <string name="pref_animated_marquee">एनिमेटेड पुस्तक शीर्षक, अध्याय और लेखक प्रभाव</string>
+  <string name="length">मियाद</string>
+  <string name="last_played_at">अंतिम ऑडिशन</string>
+  <string name="remaining_time">शेष समय</string>
+  <string name="any_support_unlock_all">आपके लिए उपलब्ध परियोजना समर्थन का स्तर चुनें (एक बार, मासिक या वार्षिक)। कोई भी समर्थन एप्लिकेशन की सभी विशेषताओं को अनलॉक करता है। आप किसी भी समय अपनी सदस्यता रद्द कर सकते हैं।</string>
+  <string name="auto_sleep_timer_end">समाप्ति समय</string>
+  <string name="onboarding_welcome_title_g">प्लेबुक में आपका स्वागत है!</string>
+  <string name="auto_sleep_timer">समय पर स्नूज़ टाइमर शुरू करें</string>
+  <string name="auto_sleep_timer_start">प्रारंभ समय</string>
 </resources>

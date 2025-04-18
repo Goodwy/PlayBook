@@ -12,7 +12,7 @@ import voice.common.R as CommonR
 fun AlertSettingDialog(
   title: String? = null,
   text: String,
-  onConfirmed: () -> Unit,
+  onConfirm: () -> Unit,
   onDismiss: () -> Unit,
 ) {
   AlertDialog(
@@ -26,7 +26,7 @@ fun AlertSettingDialog(
     confirmButton = {
       TextButton(
         onClick = {
-          onConfirmed()
+          onConfirm()
           onDismiss()
         },
       ) {

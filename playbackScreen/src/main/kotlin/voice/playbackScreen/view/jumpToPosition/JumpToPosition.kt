@@ -3,7 +3,6 @@ package voice.playbackScreen.view.jumpToPosition
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,7 +14,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Circle
 import androidx.compose.material.icons.rounded.Close
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
@@ -24,6 +22,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.contentColorFor
 import androidx.compose.material3.rememberModalBottomSheetState
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -41,6 +40,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import voice.strings.R
+import voice.common.R as CommonR
 import kotlin.time.Duration
 
 @Composable
@@ -55,6 +55,7 @@ internal fun JumpToPosition(
     onDismissRequest = onDismiss,
     sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
     shape = RoundedCornerShape(topStart = 22.dp, topEnd = 22.dp),
+    containerColor = MaterialTheme.colorScheme.background,
   ) {
     val focusRequester = remember { FocusRequester() }
     Box(
@@ -67,7 +68,7 @@ internal fun JumpToPosition(
           .align(Alignment.CenterStart)
           .padding(horizontal = 36.dp)
           .fillMaxWidth(),
-        text = stringResource(id = R.string.jump_to_position),
+        text = stringResource(id = CommonR.string.jump_to_position),
         style = MaterialTheme.typography.titleLarge,
         textAlign = TextAlign.Center,
       )
@@ -79,7 +80,7 @@ internal fun JumpToPosition(
             onClick = {
               onDismiss()
             },
-            indication = rememberRipple(bounded = false, radius = 20.dp),
+            indication = ripple(bounded = false, radius = 20.dp),
             interactionSource = remember { MutableInteractionSource() },
           ),
         contentAlignment = Alignment.Center,

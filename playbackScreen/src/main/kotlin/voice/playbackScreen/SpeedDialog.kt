@@ -1,11 +1,14 @@
 package voice.playbackScreen
 
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AddCircle
@@ -16,6 +19,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -23,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import voice.common.compose.MyThumb
 import java.text.DecimalFormat
 import voice.strings.R as StringsR
 
@@ -45,11 +50,23 @@ internal fun SpeedDialog(
           text = stringResource(id = StringsR.string.playback_speed) + ": " + speedFormatter.format(dialogState.speed),
           style = MaterialTheme.typography.titleLarge,
           )
+        Spacer(modifier = Modifier.size(24.dp))
         val valueRange = 0.5F..dialogState.maxSpeed
         val rangeSize = valueRange.endInclusive - valueRange.start
         val stepSize = 0.05
         val steps = (rangeSize / stepSize).toInt() - 1
         Slider(
+          track = { sliderState ->
+            SliderDefaults.Track(
+              modifier = Modifier.height(4.dp),
+              sliderState = sliderState,
+              thumbTrackGapSize = 0.dp,
+              drawStopIndicator = null,
+            )
+          },
+          thumb = { MyThumb(interactionSource = remember { MutableInteractionSource() }) },
+          modifier = Modifier
+            .height(16.dp),
           steps = steps,
           valueRange = valueRange,
           value = dialogState.speed,
@@ -57,6 +74,7 @@ internal fun SpeedDialog(
             viewModel.onPlaybackSpeedChanged(it)
           },
         )
+        Spacer(modifier = Modifier.size(20.dp))
         Row(
           modifier = Modifier
             .fillMaxWidth(),

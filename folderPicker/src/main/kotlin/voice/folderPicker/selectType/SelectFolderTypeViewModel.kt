@@ -13,8 +13,6 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dev.olshevski.navigation.reimagined.popUpTo
-import de.paulwoitaschek.flowpref.Pref
-import dev.olshevski.navigation.reimagined.replaceAll
 import kotlinx.coroutines.withContext
 import voice.common.DispatcherProvider
 import voice.common.navigation.Destination
@@ -28,6 +26,7 @@ import voice.data.isAudioFile
 import voice.documentfile.CachedDocumentFile
 import voice.documentfile.CachedDocumentFileFactory
 import voice.documentfile.nameWithoutExtension
+import voice.pref.Pref
 import javax.inject.Named
 
 class SelectFolderTypeViewModel

@@ -6,7 +6,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import app.cash.molecule.RecompositionMode
 import app.cash.molecule.launchMolecule
 import app.cash.turbine.test
-import de.paulwoitaschek.flowpref.Pref
 import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import io.kotest.matchers.shouldBe
 import io.mockk.mockk
@@ -20,6 +19,7 @@ import voice.common.DispatcherProvider
 import voice.common.navigation.Destination
 import voice.common.pref.PrefKeys
 import voice.documentfile.FileBasedDocumentFactory
+import voice.pref.Pref
 import javax.inject.Inject
 import javax.inject.Named
 

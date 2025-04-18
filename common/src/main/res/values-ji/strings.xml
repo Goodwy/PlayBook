@@ -32,6 +32,7 @@
   <string name="pref_use_menu_icons">ניצן מעניו ייקאַנז</string>
 
   <!-- Themes -->
+  <string name="pref_animated_marquee_summary">אויב עס איז צו ברייט צו פּאַסיק אין די בנימצא פּלאַץ</string>
   <string name="theme">טעמע</string>
   <string name="light_theme">ליכט</string>
   <string name="dark_theme">פינצטער</string>
@@ -76,6 +77,7 @@
   <string name="settings">סעטטינגס</string>
 
   <!--EditBookDialog-->
+  <string name="path">דרך</string>
   <string name="change_book_author">מחבר</string>
   <string name="edit_book_author">רעדאַגירן מחבר</string>
   <string name="ok">אקעי</string>
@@ -125,6 +127,7 @@
   <string name="tipping_jar_dialog_error_message">צום באַדויערן עפּעס שלעכט געטראפן בשעת דורכפירן די טיפּינג טראַנסאַקטיאָן. דו זאלסט נישט זיין טרויעריק, נאָר פּרובירן ווידער אן אנדער מאָל און הנאה פּלייַבאָאָק</string>
 
   <!--Onboarding-->
+  <string name="auto_sleep_timer_end">סוף צייט</string>
   <string name="onboarding_welcome_title_g">ברוכים הבאים צו פּלייַבאָאָק!</string>
   <string name="onboarding_gestures_title">ניצן דזשעסטשערז</string>
   <string name="onboarding_show_player">ווייַזן שפּילער</string>
@@ -149,4 +152,11 @@
             אדאנק!
         ]]>
     </string>
+    <string name="pref_animated_marquee">אַנימאַטעד בוך טיטל, קאַפּיטל און מחבר ווירקונג</string>
+  <string name="length">געדויער</string>
+  <string name="last_played_at">לעצטע הערן</string>
+  <string name="remaining_time">רוען צייט</string>
+  <string name="any_support_unlock_all">קלייַבן די מדרגה פון פּרויעקט שטיצן בנימצא פֿאַר איר (איין מאָל, כוידעשלעך אָדער יאָריק). קיין שטיצן ופשליסן אַלע פֿעיִקייטן פון די אַפּלאַקיישאַן. איר קענען באָטל מאַכן דיין אַבאָנעמענט אין קיין צייט.</string>
+  <string name="auto_sleep_timer">אָנהייב סנוז טייַמער אויף פּלאַן</string>
+  <string name="auto_sleep_timer_start">אָנהייב צייַט</string>
 </resources>

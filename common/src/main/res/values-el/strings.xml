@@ -25,6 +25,7 @@
   <string name="pref_use_chapter_cover">Χρησιμοποιήστε το εξώφυλλο κεφαλαίου</string>
 
   <!-- Θέματα -->
+  <string name="pref_animated_marquee_summary">Εάν είναι πολύ φαρδύ για να χωρέσει στον διαθέσιμο χώρο</string>
   <string name="theme">Θέμα</string>
   <string name="light_theme">Φως</string>
   <string name="dark_theme">Σκούρο</string>
@@ -111,6 +112,7 @@
   <string name="pref_sorting_last">Τελευταία προσθήκη ή χρήση</string>
   <string name="pref_sorting_last_added">Τελευταία προσθήκη</string>
   <string name="pref_sorting_time">Ώρα</string>
+  <string name="path">Μονοπάτι</string>
   <string name="change_book_author">Συγγραφέας</string>
   <string name="edit_book_author">Επεξεργασία συντάκτη</string>
   <string name="onboarding_gestures_title">Χρήση χειρονομιών</string>
@@ -120,4 +122,13 @@
   <string name="per_month">%s/μήνα</string>
   <string name="per_year">%s/έτος</string>
   <string name="restore_purchase">Επαναφορά αγοράς</string>
+    <string name="pref_animated_marquee">Κινούμενος τίτλος βιβλίου, κεφάλαιο και εφέ συγγραφέα</string>
+  <string name="length">Διάρκεια</string>
+  <string name="last_played_at">Τελευταία οντισιόν</string>
+  <string name="remaining_time">Υπολειπόμενος χρόνος</string>
+  <string name="any_support_unlock_all">Επιλέξτε το επίπεδο υποστήριξης έργου που έχετε στη διάθεσή σας (εφάπαξ, μηνιαία ή ετήσια). Οποιαδήποτε υποστήριξη ξεκλειδώνει όλες τις δυνατότητες της εφαρμογής. Μπορείτε να ακυρώσετε τη συνδρομή σας ανά πάσα στιγμή.</string>
+  <string name="auto_sleep_timer_end">Ώρα λήξης</string>
+  <string name="onboarding_welcome_title_g">Καλώς ήρθατε στο PlayBook!</string>
+  <string name="auto_sleep_timer">Ξεκινήστε το χρονόμετρο αναβολής σύμφωνα με το χρονοδιάγραμμα</string>
+  <string name="auto_sleep_timer_start">Ώρα έναρξης</string>
 </resources>

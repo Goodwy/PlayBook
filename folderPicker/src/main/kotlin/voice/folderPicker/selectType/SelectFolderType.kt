@@ -61,7 +61,7 @@ fun SelectFolderType(
   }
   SelectFolderType(
     viewState = viewModel.viewState(),
-    onFolderModeSelected = viewModel::setFolderMode,
+    onFolderModeSelect = viewModel::setFolderMode,
     onAddClick = viewModel::add,
     onBackClick = viewModel::onCloseClick,
   )
@@ -70,7 +70,7 @@ fun SelectFolderType(
 @Composable
 private fun SelectFolderType(
   viewState: SelectFolderTypeViewState,
-  onFolderModeSelected: (FolderMode) -> Unit,
+  onFolderModeSelect: (FolderMode) -> Unit,
   onAddClick: () -> Unit,
   onBackClick: () -> Unit,
 ) {
@@ -94,7 +94,7 @@ private fun SelectFolderType(
   ) { contentPadding ->
     Content(
       contentPadding = contentPadding,
-      onFolderModeSelected = onFolderModeSelected,
+      onFolderModeSelect = onFolderModeSelect,
       bottom = bottom,
       viewState = viewState,
     )
@@ -106,7 +106,7 @@ private fun Content(
   contentPadding: PaddingValues,
   viewState: SelectFolderTypeViewState,
   bottom: Int,
-  onFolderModeSelected: (FolderMode) -> Unit,
+  onFolderModeSelect: (FolderMode) -> Unit,
 ) {
   LazyVerticalGrid(
     columns = GridCells.Adaptive(150.dp),
@@ -118,7 +118,7 @@ private fun Content(
       span = { GridItemSpan(maxLineSpan) },
     ) {
       FolderModeSelectionCard(
-        onFolderModeSelected = onFolderModeSelected,
+        onFolderModeSelect = onFolderModeSelect,
         selectedFolderMode = viewState.selectedFolderMode,
       )
     }
@@ -202,7 +202,7 @@ private fun AppBar(
 private fun SelectFolderTypePreview() {
   SelectFolderType(
     onBackClick = {},
-    onFolderModeSelected = {},
+    onFolderModeSelect = {},
     viewState = SelectFolderTypeViewState(
       books = listOf(
         SelectFolderTypeViewState.Book("Cats", 42),

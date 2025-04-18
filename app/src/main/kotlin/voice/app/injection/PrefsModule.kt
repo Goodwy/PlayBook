@@ -9,13 +9,6 @@ import androidx.datastore.core.DataStore
 import com.squareup.anvil.annotations.ContributesTo
 import dagger.Module
 import dagger.Provides
-import de.paulwoitaschek.flowpref.Pref
-import de.paulwoitaschek.flowpref.android.AndroidPreferences
-import de.paulwoitaschek.flowpref.android.boolean
-import de.paulwoitaschek.flowpref.android.enum
-import de.paulwoitaschek.flowpref.android.int
-import de.paulwoitaschek.flowpref.android.string
-import de.paulwoitaschek.flowpref.android.stringSet
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.builtins.nullable
 import kotlinx.serialization.builtins.serializer
@@ -35,6 +28,14 @@ import voice.common.pref.RootAudiobookFolders
 import voice.common.pref.SingleFileAudiobookFolders
 import voice.common.pref.SingleFolderAudiobookFolders
 import voice.datastore.VoiceDataStoreFactory
+import voice.pref.AndroidPreferences
+import voice.pref.Pref
+import voice.pref.boolean
+import voice.pref.enum
+import voice.pref.int
+import voice.pref.string
+import voice.pref.stringSet
+import java.time.LocalTime
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -80,6 +81,27 @@ object PrefsModule {
   @Named(PrefKeys.SLEEP_TIME)
   fun provideSleepTimePreference(prefs: AndroidPreferences): Pref<Int> {
     return prefs.int(PrefKeys.SLEEP_TIME, 15)
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.AUTO_SLEEP_TIMER)
+  fun provideAutoSleepTimerPreference(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.AUTO_SLEEP_TIMER, false)
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.AUTO_SLEEP_TIMER_START)
+  fun provideAutoSleepTimerStartPreference(prefs: AndroidPreferences): Pref<String> {
+    return prefs.string(PrefKeys.AUTO_SLEEP_TIMER_START, LocalTime.of(22, 0).toString())
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.AUTO_SLEEP_TIMER_END)
+  fun provideAutoSleepTimerEndPreference(prefs: AndroidPreferences): Pref<String> {
+    return prefs.string(PrefKeys.AUTO_SLEEP_TIMER_END, LocalTime.of(5, 0).toString())
   }
 
   @Provides
@@ -355,9 +377,23 @@ object PrefsModule {
 
   @Provides
   @Singleton
-  @Named(PrefKeys.SORTING)
-  fun sortingPref(prefs: AndroidPreferences): Pref<Int> {
-    return prefs.int(PrefKeys.SORTING, SORTING_CLASSIC)
+  @Named(PrefKeys.SORTING_CURRENT)
+  fun sortingCurrentPref(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.SORTING_CURRENT, SORTING_LAST)
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.SORTING_NOT_STARTED)
+  fun sortingNotStartedPref(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.SORTING_NOT_STARTED, SORTING_NAME)
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.SORTING_FINISHED)
+  fun sortingFinishedPref(prefs: AndroidPreferences): Pref<Int> {
+    return prefs.int(PrefKeys.SORTING_FINISHED, SORTING_LAST)
   }
 
   @Provides
@@ -393,6 +429,13 @@ object PrefsModule {
   @Named(PrefKeys.USE_MENU_ICONS)
   fun useMenuIconsPref(prefs: AndroidPreferences): Pref<Boolean> {
     return prefs.boolean(PrefKeys.USE_MENU_ICONS, false)
+  }
+
+  @Provides
+  @Singleton
+  @Named(PrefKeys.USE_ANIMATED_MARQUEE)
+  fun useAnimatedMarqueePref(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.USE_ANIMATED_MARQUEE, false)
   }
 }
 

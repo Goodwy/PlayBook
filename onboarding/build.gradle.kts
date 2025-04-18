@@ -20,12 +20,11 @@ dependencies {
   implementation(projects.data)
   implementation(projects.datastore)
   implementation(projects.folderPicker)
+  implementation(projects.pref)
 
   implementation(libs.datastore)
   implementation(libs.coil)
   implementation(libs.androidxCore)
 
   implementation(libs.dagger.core)
-
-  implementation(libs.prefs.core)
 }

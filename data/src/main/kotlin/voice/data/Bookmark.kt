@@ -25,15 +25,3 @@ data class Bookmark(
     }
   }
 }
-
-fun Bundle.putBookmarkId(
-  key: String,
-  value: Bookmark.Id,
-) {
-  putString(key, value.value.toString())
-}
-
-fun Bundle.getBookmarkId(key: String): Bookmark.Id? {
-  val value = getString(key) ?: return null
-  return Bookmark.Id(UUID.fromString(value))
-}

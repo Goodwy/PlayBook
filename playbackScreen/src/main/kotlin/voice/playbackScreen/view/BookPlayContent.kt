@@ -183,6 +183,7 @@ internal fun BookPlayContent(
           verticalArrangement = Arrangement.Center,
           horizontalAlignment = Alignment.CenterHorizontally
         ) {
+          val iterations = if (viewState.useAnimatedMarquee) 3 else 0
           Row(
             modifier = Modifier
               .fillMaxWidth()
@@ -194,7 +195,7 @@ internal fun BookPlayContent(
               modifier = Modifier
                 .weight(1f)
                 .padding(end = 8.dp)
-                .basicMarquee(iterations = 3, initialDelayMillis = 2000),
+                .basicMarquee(iterations = iterations, initialDelayMillis = 2000),
               text = viewState.title,
               fontSize = 16.sp,
               style = MaterialTheme.typography.titleLarge,
@@ -221,6 +222,7 @@ internal fun BookPlayContent(
             ChapterRow(
               chapterName = if (viewState.showChapterNumbers && index != null) "$index - $chapterName" else chapterName,
               nextPreviousVisible = false, // viewState.showPreviousNextButtons,
+              iterations = iterations,
               onSkipToNext = onSkipToNext,
               onSkipToPrevious = onSkipToPrevious,
               //onCurrentChapterClick = onCurrentChapterClick,
@@ -301,11 +303,12 @@ internal fun BookPlayContent(
         horizontalAlignment = Alignment.CenterHorizontally,
       ) {
         Spacer(modifier = Modifier.size(16.dp))
+        val iterations = if (viewState.useAnimatedMarquee) 3 else 0
         Text(
           modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 32.dp)
-            .basicMarquee(iterations = 3, initialDelayMillis = 2000),
+            .basicMarquee(iterations = iterations, initialDelayMillis = 2000),
           text = viewState.title,
           fontSize = 18.sp,
           style = MaterialTheme.typography.titleLarge,
@@ -317,6 +320,7 @@ internal fun BookPlayContent(
           ChapterRow(
             chapterName = if (viewState.showChapterNumbers && index != null) "$index - $chapterName" else chapterName,
             nextPreviousVisible = false, //viewState.showPreviousNextButtons,
+            iterations = iterations,
             onSkipToNext = onSkipToNext,
             onSkipToPrevious = onSkipToPrevious,
             //onCurrentChapterClick = onCurrentChapterClick,
@@ -343,21 +347,22 @@ internal fun BookPlayContent(
         if (viewState.showSliderVolume) {
           SliderVolumeRow(viewState, onSeekVolume = onSeekVolume)
         }
-        BookPlayBottomBar(
-          viewState = viewState,
-          prefViewState = prefViewState,
-          onSleepTimerClick = onSleepTimerClick,
-          onAcceptSleepTime = onAcceptSleepTime,
-          onBookmarkClick = onBookmarkClick,
-          onBookmarkLongClick = onBookmarkLongClick,
-          onSpeedChangeClick = onSpeedChangeClick,
-          onSkipSilenceClick = onSkipSilenceClick,
-          onRepeatClick = onRepeatClick,
-          onShowChapterNumbersClick = onShowChapterNumbersClick,
-          onUseChapterCoverClick = onUseChapterCoverClick,
-          onVolumeBoostClick = onVolumeBoostClick,
-          onCurrentChapterClick = onCurrentChapterClick,
-        )
+        // Moved to BookPlayView in bottomBar
+//        BookPlayBottomBar(
+//          viewState = viewState,
+//          prefViewState = prefViewState,
+//          onSleepTimerClick = onSleepTimerClick,
+//          onAcceptSleepTime = onAcceptSleepTime,
+//          onBookmarkClick = onBookmarkClick,
+//          onBookmarkLongClick = onBookmarkLongClick,
+//          onSpeedChangeClick = onSpeedChangeClick,
+//          onSkipSilenceClick = onSkipSilenceClick,
+//          onRepeatClick = onRepeatClick,
+//          onShowChapterNumbersClick = onShowChapterNumbersClick,
+//          onUseChapterCoverClick = onUseChapterCoverClick,
+//          onVolumeBoostClick = onVolumeBoostClick,
+//          onCurrentChapterClick = onCurrentChapterClick,
+//        )
       }
     }
   }

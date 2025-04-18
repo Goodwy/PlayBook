@@ -8,7 +8,6 @@ import com.android.billingclient.api.BillingFlowParams.ProductDetailsParams
 import com.android.billingclient.api.QueryProductDetailsParams.Product
 import kotlinx.coroutines.*
 import java.util.*
-import voice.common.R as CommonR
 
 
 class PurchaseHelper(
